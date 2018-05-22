@@ -11,3 +11,11 @@ function showLemma(x) {
 function hideLemma() {
     document.getElementById("lem_box").innerHTML = "Mouse over a word to see its lemma.";
 }
+
+$(document).ready(function () {    
+    //Disable part of page
+    $('.no-copy').bind('cut copy paste', function (e) {
+        e.preventDefault();
+        $('#no-copy-message').modal('show')
+    });
+});
