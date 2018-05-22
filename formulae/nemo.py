@@ -1,12 +1,14 @@
-from flask import flash, url_for, Markup
+from flask import flash, url_for, Markup, request
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import redirect
+from werkzeug.urls import url_parse
 import inspect
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
-from .forms import LoginForm
+from .app import db
+from .forms import LoginForm, PasswordChangeForm
 from lxml import etree
 from .models import User
 
@@ -22,7 +24,8 @@ class NemoFormulae(Nemo):
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
         ("/text/<objectId>/passage", "r_first_passage", ["GET"]),
         ("/login", "r_login", ["GET", "POST"]),
-        ("/logout", "r_logout", ["GET"])
+        ("/logout", "r_logout", ["GET"]),
+        ("/user/<username>", "r_user", ["GET", "POST"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_passage", "r_multipassage"
@@ -40,7 +43,8 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_passage", "r_multipassage", "r_first_passage"
+        "r_index", "r_collections", "r_collection", "r_references", "r_passage", "r_multipassage", "r_first_passage",
+        "r_register"
     ]
 
     def view_maker(self, name, instance=None):
@@ -51,22 +55,11 @@ class NemoFormulae(Nemo):
         :return: Route function which makes use of Nemo context (such as menu informations)
         :rtype: function
         """
-        if instance is None:
-            instance = self
-        sig = "lang" in [
-            parameter.name
-            for parameter in inspect.signature(getattr(instance, name)).parameters.values()
-        ]
-
-        def route(**kwargs):
-            if sig and "lang" not in kwargs:
-                kwargs["lang"] = self.get_locale()
-            if "semantic" in kwargs:
-                del kwargs["semantic"]
-            if name in self.PROTECTED:
-                return self.route(login_required(getattr(instance, name)), **kwargs)
-            else:
-                return self.route(getattr(instance, name), **kwargs)
+        # Avoid copy-pasta and breaking upon Nemo inside code changes by reusing the original view_maker function
+        # Super will go to the parent class and you will use it's "view_maker" function
+        route = super(NemoFormulae, self).view_maker(name, instance)
+        if name in self.PROTECTED:
+            route = login_required(route)
         return route
 
     def r_passage(self, objectId, subreference, lang=None):
@@ -81,7 +74,6 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        self.__transform = self._Nemo__transform
         collection = self.get_collection(objectId)
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
@@ -90,7 +82,7 @@ class NemoFormulae(Nemo):
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         text = self.get_passage(objectId=objectId, subreference=subreference)
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
-        if 'notes' in self.__transform:
+        if 'notes' in self._transform:
             notes = self.extract_notes(passage)
         else:
             notes = ''
@@ -141,6 +133,11 @@ class NemoFormulae(Nemo):
         return passage_data
 
     def r_login(self):
+        """ login form
+
+        :return: template, page title, form
+        :rtype: {str: Any}
+        """
         if current_user.is_authenticated:
             return redirect(url_for('.r_index'))
         form = LoginForm()
@@ -150,12 +147,38 @@ class NemoFormulae(Nemo):
                 flash('Invalid username or password')
                 return redirect(url_for('.r_login'))
             login_user(user, remember=form.remember_me.data)
-            return redirect(url_for('.r_index'))
+            next_page = request.args.get('next')
+            if not next_page or url_parse(next_page).netloc != '':
+                return redirect(url_for('.r_index'))
+            return redirect(next_page)
         return {'template': 'main::login.html', 'title': 'Sign In', 'form': form}
 
     def r_logout(self):
+        """ user logout
+
+        :return: redirect to login page
+        """
         logout_user()
         return redirect(url_for('.r_login'))
+
+    def r_user(self, username):
+        """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
+
+        :return: template, page title, form
+        :rtype: {str: Any}
+        """
+        form = PasswordChangeForm()
+        if form.validate_on_submit():
+            user = User.query.filter_by(username=username).first_or_404()
+            if not user.check_password(form.old_password.data):
+                flash("This is not your existing password.")
+                return redirect(url_for('.r_user'))
+            user.set_password(form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash("You have successfully changed your password.")
+            return redirect(url_for('.r_login'))
+        return {'template': "main::register.html", "title": "Register", "form": form, "username": username}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
@@ -164,6 +187,6 @@ class NemoFormulae(Nemo):
         :param text: the string to be transformed
         :return: dict('note_id': 'note_content')
         """
-        with open(self.__transform['notes']) as f:
+        with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
