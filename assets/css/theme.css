@@ -1,0 +1,213 @@
+
+#menu-container  .logo {
+    width: auto;
+}
+.pb {
+  font-weight: thin;
+  font-size: 0.5em;
+  display:inline;
+  font-style: italic;
+  color:grey;
+}
+
+.ex,
+.supplied,
+.unclear {
+  color: rgb(80,80,80);
+}
+
+.unclear {
+  text-decoration: underline dotted;
+}
+
+.lang_heb, .lang_ara, .lang_far {
+  text-align:right;
+}
+
+.lang_heb span.w::before {
+  content:" ";
+}
+
+ /* Popup container */
+.note {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.note .note-content {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.note .note-content::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.note .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+} 
+
+ol > li {
+  display: list-item;
+  list-style: none;
+}
+
+ol > li {
+  display: list-item;
+}
+
+ol > li:nth-child(5n) {
+  list-style: decimal;
+}
+ol > li:nth-child(1) {
+  list-style: decimal;
+}
+ol > li:hover {
+  list-style: decimal;
+}
+
+#reading-container article {
+  width:100%;
+}
+#treebank_container {
+  height:600px;
+}
+span[token-selector="state.tokens"] {
+  display:none;
+}
+
+/* Typeahead */
+
+.algolia-autocomplete {
+  width: 100%;
+}
+.algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+  width: 100%;
+}
+.algolia-autocomplete .aa-hint {
+  color: #999;
+}
+.algolia-autocomplete .aa-dropdown-menu {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-top: none;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+  cursor: pointer;
+  padding: 5px 4px;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+  background-color: #B2D7FF;
+}
+.algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+#fullsearch {
+  margin-top:15px;
+}
+
+.function:target {
+  animation: hilite 60s;
+}
+@keyframes hilite {
+  0% {background: transparent;}
+  10% {background: #58ACFA;}
+  100% {background: transparent;}
+}
+
+/*.function:target {
+    background-color: white;
+    animation-name: hihi;
+    animation-duration: 60s;
+ }
+
+@keyframes hihi {
+  from {background-color: white;}
+  to {background-color: #58ACFA;}
+}*/
+
+a.lex {
+    color: black;
+    text-decoration: none;
+}
+a.lex:active {
+    background-color: #ffe6e6;
+    text-decoration:underline;
+}
+
+.popup {
+    visibility: hidden;
+}
+
+.popup:target {
+    visibility: visible;
+}
+
+.row {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.firsturn {
+  font-size: smaller;
+  text-align: left;
+}
+
+.lasturn {
+  font-size: smaller;
+  text-align: right;
+}
+
+.middleurn {
+  font-size: smaller;
+  text-align: center;
+}
+
+#reading-container article section.with-border {
+    border-right: 1px solid;
+}
+
+nav .dropdown-menu {
+    display: none;
+}
+
+nav .dropdown:hover .dropdown-menu {
+    display: block;
+}

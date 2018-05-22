@@ -1,0 +1,12 @@
+{% if translation_passage %}
+<div class="row">
+    <section class="col-sm-6">
+        <div class="firsturn"><a href="/api/cts?request=GetPassage&urn={{objectId}}:{{subreference}}" target='_blank'>{{objectId}}</a></div>
+    </section>
+    <section class="col-sm-6">
+        <div class="lasturn"><a href="/api/cts?request=GetPassage&urn={{translationId}}:{{subreference}}" target='_blank'>{{translationId}}</a></div>
+    </section>
+</div>
+{% else %}
+<div class="ctsurn"><a href="/api/cts?request=GetPassage&urn={{objectId}}:{{subreference}}" target='_blank'>{{objectId}}</a></div>
+{% endif %}

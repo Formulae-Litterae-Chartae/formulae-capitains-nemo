@@ -1,0 +1,26 @@
+{% extends "main::container.html" %}
+
+{% block article %}
+
+<!-- THE LEFT COLUMN -->
+<div class="col-sm-auto">
+                
+    {% include "main::function_of_speech.html" %}
+    <br/>
+    <br/>
+    {% include "main::manuscript_menu.html" %}
+</div> 
+
+<!-- THE TEXTS -->
+{% block texts %}
+{% endblock %}    
+
+<!-- THE RIGHT COLUMN -->
+<div class="col-sm-2">
+        <br/>
+        {% include "main::lexicon.html" %}
+        {% include "main::notes.html" %}
+{% endblock %}
+
+{% block metadata %}
+{% endblock %}

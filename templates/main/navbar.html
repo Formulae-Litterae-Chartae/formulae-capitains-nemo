@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <!--<a class="navbar-brand" href="{{ url_for('.r_index') }}">
+            <img class="logo" src="{{url_for('.static', filename='images/nemo.png')}} " width="125" height="60" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>-->
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav flex-column mr-auto align-self-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                    {% if current_user.is_anonymous %}
+                        <a class="nav-link" href="{{ url_for('.r_login') }}">Login</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('.r_logout') }}">Logout</a>
+                    {% endif %}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Lexicon</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Encoding</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Texts
+                        </a>
+                            {% include "main::menu.html" %}
+                    </li>
+                </ul>
+                <a class="navbar-brand mr-auto" href="{{ url_for('.r_index') }}">
+                    <img src="{{url_for('.static', filename='images/logo.gif')}}" height="200" alt="Logo: Formulae, Litterae, Chartae">
+                </a>
+                <div class="btn-group-vertical justify-content-end">
+                    <form class="form my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                        <!--<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->
+                    </form>
+                    <a class="btn btn-outline-secondary my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>
+                    <!--<a class="btn btn-outline-info my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->
+                </div>
+            </div>
+        </nav>
