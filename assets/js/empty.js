@@ -13,9 +13,14 @@ function hideLemma() {
 }
 
 $(document).ready(function () {    
-    //Disable part of page
+    //Disable cut, copy, and paste
     $('.no-copy').bind('cut copy paste', function (e) {
         e.preventDefault();
         $('#no-copy-message').modal('show')
+    });
+    
+    //Disable right-mouse click
+    $(".no-copy").on("contextmenu",function(e){
+        return false;
     });
 });
