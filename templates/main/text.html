@@ -28,24 +28,7 @@
 
 {% macro show_passage(text, header, navigation, footer) %}
 
-{% if current_user.project_team %}
-<div class="col-sm hfeed right-columns" id="reading-container">
-{% else %}
-<div class="col-sm hfeed right-columns no-copy" id="reading-container">
-{% endif %}
-    <!-- This is the popout for the message if someone tries to copy the text. -->
-    <div class="modal" tabindex="-1" role="dialog" id="no-copy-message">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            <p>We are sorry but, since this text has not yet been published, we do not allow copying of the textual content.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-    </div>
+
     <div class="">
         <article class="hentry entry white col-sm">
             <nav>
@@ -66,7 +49,6 @@
             </footer>
         </article>
     </div>
-</div>
 {% endmacro %}
 
 {% block texts %}
