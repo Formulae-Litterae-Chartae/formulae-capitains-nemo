@@ -56,3 +56,10 @@
 {{ show_passage(text_passage, navigation=nav(), header=header_passage(), footer=default_footer()) }}
 
 {% endblock %}
+
+{% block pdfs %}
+{% set path = 'images/' ~ objectId ~ '.pdf' %}
+<div class="embed-responsive embed-responsive-1by1">
+<object data="{{url_for('.static', filename=path)}}" class="embed-responsive-item"></object>
+</div>
+{% endblock %}
