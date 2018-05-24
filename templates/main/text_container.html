@@ -24,14 +24,16 @@
         </div>
     </div>
     </div>
-    {% if current_user.project_team %}
 <div class="col-sm hfeed right-columns" id="reading-container">
-{% else %}
-<div class="col-sm hfeed right-columns no-copy" id="reading-container">
-{% endif %}
+    {% if current_user.project_team %}
 <!-- THE TEXTS -->
 {% block texts %}
 {% endblock %}    
+{% else %}
+<!-- The PDFs -->
+{% block pdfs %}
+{% endblock %}
+{% endif %}
 </div>
 <!-- THE RIGHT COLUMN -->
 <div class="col-sm-2">

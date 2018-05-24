@@ -65,5 +65,19 @@
 
 {% endblock %}
 
+{% block pdfs %}
+
+<div class="row">
+    {% for text in objects %}
+    {% set path = 'images/' ~ text.objectId ~ '.pdf' %}
+    <section class="col-sm">
+        <div class="embed-responsive embed-responsive-1by1">
+            <object data="{{url_for('.static', filename=path)}}" class="embed-responsive-item"></object>
+        </div>
+    </section>
+    {% endfor %}
+</div>
+{% endblock %}
+
 {% block metadata %}
 {% endblock %}
