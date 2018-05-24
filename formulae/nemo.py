@@ -47,6 +47,9 @@ class NemoFormulae(Nemo):
         "r_register"
     ]
 
+    def __init__(self, *args, **kwargs):
+        super(NemoFormulae, self).__init__(*args, **kwargs)
+
     def view_maker(self, name, instance=None):
         """ Create a view
 
