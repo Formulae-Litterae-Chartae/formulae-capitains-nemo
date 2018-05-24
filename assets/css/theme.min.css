@@ -216,3 +216,7 @@ ul.reffs > li {
 .navbar-brand {
     padding:0;
 }
+
+.embed-responsive-a4::before {
+    padding-top:141.428571429%
+}
