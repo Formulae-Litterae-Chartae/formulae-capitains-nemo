@@ -1,8 +1,7 @@
-from flask import flash, url_for, Markup, request
+from flask import flash, url_for, Markup, request, send_from_directory
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
-import inspect
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
@@ -25,7 +24,8 @@ class NemoFormulae(Nemo):
         ("/text/<objectId>/passage", "r_first_passage", ["GET"]),
         ("/login", "r_login", ["GET", "POST"]),
         ("/logout", "r_logout", ["GET"]),
-        ("/user/<username>", "r_user", ["GET", "POST"])
+        ("/user/<username>", "r_user", ["GET", "POST"]),
+        ("/pdfs/<objectIds>", "r_pdfs", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_passage", "r_multipassage"
@@ -48,6 +48,9 @@ class NemoFormulae(Nemo):
     ]
 
     def __init__(self, *args, **kwargs):
+        if "pdf_folder" in kwargs:
+            self.pdf_folder = kwargs["pdf_folder"]
+            del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
 
     def view_maker(self, name, instance=None):
@@ -117,8 +120,8 @@ class NemoFormulae(Nemo):
     def r_multipassage(self, objectIds, subreferences, lang=None):
         """ Retrieve the text of the passage
 
-        :param objectId: Collection identifier
-        :type objectId: str
+        :param objectIds: Collection identifiers separated by '+'
+        :type objectIds: str
         :param lang: Lang in which to express main data
         :type lang: str
         :param subreference: Reference identifier
@@ -132,6 +135,44 @@ class NemoFormulae(Nemo):
         for i, id in enumerate(ids):
             d = self.r_passage(id, subrefers[i], lang=lang)
             del d['template']
+            passage_data['objects'].append(d)
+        return passage_data
+
+    def r_pdfs(self, objectIds, lang=None):
+        """ Return the pdf(s) of the request texts
+
+        :param objectIds:
+        :return: Template, collections and object metadata, path to pdf file
+        :rtype: {str: Any}
+        """
+        ids = objectIds.split('+')
+        passage_data = {'template': 'main::pdfs.html', 'objects': []}
+        for id in ids:
+            collection, reffs = self.get_reffs(objectId=id, export_collection=True)
+            first, _ = reffs[0]
+            if isinstance(collection, CtsWorkMetadata):
+                editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+                if len(editions) == 0:
+                    raise UnknownCollection("This work has no default edition")
+                id = str(editions[0].id)
+            text = self.get_passage(objectId=id, subreference=first)
+            d = {"objectId": id,
+                "collections": {
+                    "current": {
+                        "label": collection.get_label(lang),
+                        "id": collection.id,
+                        "model": str(collection.model),
+                        "type": str(collection.type),
+                        "author": text.get_creator(lang),
+                        "title": text.get_title(lang),
+                        "description": text.get_description(lang),
+                        "citation": collection.citation,
+                        "coins": self.make_coins(collection, text, first, lang=lang)
+                    },
+                    "parents": self.make_parents(collection, lang=lang)
+                },
+                "pdf_path": self.pdf_folder + id.split(':')[-1] + '.pdf'
+            }
             passage_data['objects'].append(d)
         return passage_data
 
