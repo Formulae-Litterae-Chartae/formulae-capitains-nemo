@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
 });
 
-//to watermark the pdfs
+//to watermark the pdfs, from https://jsfiddle.net/Purushoth/f55h4hzs/
 //Add event listener
 document.getElementById("getPdf").addEventListener("click", getPdf);
 

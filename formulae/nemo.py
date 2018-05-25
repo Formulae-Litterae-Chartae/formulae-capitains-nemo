@@ -25,10 +25,23 @@ class NemoFormulae(Nemo):
         ("/login", "r_login", ["GET", "POST"]),
         ("/logout", "r_logout", ["GET"]),
         ("/user/<username>", "r_user", ["GET", "POST"]),
-        ("/pdfs/<objectIds>", "r_pdfs", ["GET"])
+        ("/pdfs/<objectIds>", "r_pdfs", ["GET"]),
+        ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
+        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_passage", "r_multipassage"
+    ]
+
+    FILTERS = [
+        "f_formatting_passage_reference",
+        "f_i18n_iso",
+        "f_order_resource_by_lang",
+        "f_hierarchical_passages",
+        "f_is_str",
+        "f_i18n_citation_type",
+        "f_slugify",
+        "f_make_members"
     ]
 
     CACHED = [
@@ -52,6 +65,16 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
+        self.app.jinja_env.filters["make_members"] = self.make_members
+
+    def f_make_members(self, collection, lang=None):
+        """ Turn the make_members function into a filter
+
+        :param collection: Collection to build dict view of for its members
+        :param lang: Language to express data in
+        :return: List of basic objects
+        """
+        return self.make_members(collection, lang)
 
     def view_maker(self, name, instance=None):
         """ Create a view
@@ -67,6 +90,52 @@ class NemoFormulae(Nemo):
         if name in self.PROTECTED:
             route = login_required(route)
         return route
+
+    def r_add_text_collections(self, objectIds, reffs, lang=None):
+        """ Retrieve the top collections of the inventory
+
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Collections information and template
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata()
+        return {
+            "template": "main::add_text.html",
+            "current_label": collection.get_label(lang),
+            "collections": {
+                "members": self.make_members(collection, lang=lang)
+            },
+            "prev_texts": objectIds,
+            "prev_reffs": reffs
+        }
+
+    def r_add_text_collection(self, objectId, objectIds, reffs, lang=None):
+        """ Route to browse collections and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        return {
+            "template": "main::add_text.html",
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                },
+                "members": self.make_members(collection, lang=lang),
+                "parents": self.make_parents(collection, lang=lang)
+            },
+            "prev_texts": objectIds,
+            "prev_reffs": reffs
+        }
 
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage

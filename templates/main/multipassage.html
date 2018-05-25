@@ -51,7 +51,7 @@
             <div class="row">
             {% for text in objects %}
                 <section class="col-sm">
-                    <div class="middleurn"><a href="/api/cts?request=GetPassage&urn={{text.objectId}}:{{subreference}}" target='_blank'>{{text.objectId}}</a></div>
+                    <div class="middleurn"><a href="/api/cts?request=GetPassage&urn={{text.objectId}}:{{text.subreference}}" target='_blank'>{{text.objectId}}</a></div>
                 </section>
             {% endfor %}
             </div>
