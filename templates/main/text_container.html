@@ -11,20 +11,18 @@
     {% include "main::manuscript_menu.html" %}
 </div> 
 
-<!-- This is the popout for the message if someone tries to copy the text. -->
-    <div class="modal" tabindex="-1" role="dialog" id="no-copy-message">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-body">
-            <p>We are sorry but, since this text has not yet been published, we do not allow copying of the textual content.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-    </div>
+{% include "main::no_copy_modal.html" %}
 <div class="col-sm hfeed right-columns" id="reading-container">
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
+<a href="{{ url_for('.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
+  Add another text
+</a>
 <!-- THE TEXTS -->
 {% block texts %}
 {% endblock %}
