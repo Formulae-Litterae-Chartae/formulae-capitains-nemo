@@ -65,7 +65,27 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
-        self.app.jinja_env.filters["make_members"] = self.make_members
+        self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
+        self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
+
+    def f_remove_from_list(self, l, i):
+        """ remove item "i" from list "l"
+
+        :param l: the list
+        :param i: the item
+        :return: the list without the item
+        """
+        l.remove(i)
+        return l
+
+    def f_join_list_values(self, l, s):
+        """ join the values of "l" user the separator "s"
+
+        :param l: the list of values
+        :param s: the separator
+        :return: a string of the values joined by the separator
+        """
+        return s.join(l)
 
     def f_make_members(self, collection, lang=None):
         """ Turn the make_members function into a filter
