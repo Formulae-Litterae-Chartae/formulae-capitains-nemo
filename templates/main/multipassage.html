@@ -34,11 +34,14 @@
             </nav> -->
             <div class="row">
             {% for text in objects %}
+            {%set all_texts = objects|map(attribute='objectId')|list %}
+            {%set all_reffs = objects|map(attribute='subreference')|list %}
                 {% if loop.last %}
                 <section class="col-sm">
                 {% else %}
                 <section class="col-sm with-border">
                 {% endif %}
+                <a href="{{ url_for('.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">Remove this text</a>
                     {{ header_passage(text) }}
                     {% if cache_active %}
                         {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
