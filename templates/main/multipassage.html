@@ -45,18 +45,17 @@
                 <a href="{{ url_for('.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">Remove this text</a>
                 {% endif %}
                     {{ header_passage(text) }}
-                    {% if cache_active %}
-                        {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
+                    {% if text.pdf_path == '' %}
+                        {% if cache_active %}
+                            {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
+                        {% else %}
+                            {{ text.text_passage }}
+                        {% endif %}
                     {% else %}
-                        {{ text.text_passage }}
+                        <div class="embed-responsive embed-responsive-a4">
+                            <object data="{{url_for('.static', filename=text.pdf_path)}}" class="embed-responsive-item"></object>
+                        </div>
                     {% endif %}
-                </section>
-            {% endfor %}
-            </div>
-            <div class="row">
-            {% for text in objects %}
-                <section class="col-sm">
-                    <div class="middleurn"><a href="/api/cts?request=GetPassage&urn={{text.objectId}}:{{text.subreference}}" target='_blank'>{{text.objectId}}</a></div>
                 </section>
             {% endfor %}
             </div>

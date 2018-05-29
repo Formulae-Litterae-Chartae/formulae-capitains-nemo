@@ -17,8 +17,7 @@
             {% if coll.model == 'http://w3id.org/dts-ontology/resource' %}
             <li class="card">
                 [{{coll.lang}}] {{ coll.label }}<br />
-                <a class="card-link" href="{{url_for('.r_references_semantic', objectId=coll.id, semantic=coll.semantic)}}">Browse</a>
-                <a class="card-link" href="{{url_for('.r_first_passage', objectId=coll.id)}}">Read</a>
+                <a class="card-link" href="{{url_for('.r_multipassage', objectIds=coll.id, subreferences='1')}}">Read</a>
             </li>
             {% else %}
             <li class="card">
