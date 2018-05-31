@@ -26,19 +26,10 @@ $(document).ready(function () {
     });
 });
 
-//to watermark the pdfs, from https://jsfiddle.net/Purushoth/f55h4hzs/
-//Add event listener
-document.getElementById("getPdf").addEventListener("click", getPdf);
-
-function addWaterMark(doc) {
-  var totalPages = doc.internal.getNumberOfPages();
-
-  for (i = 1; i <= totalPages; i++) {
-    doc.setPage(i);
-    //doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
-    doc.setTextColor(150);
-    doc.text(50, doc.internal.pageSize.height - 30, 'Watermark');
-  }
-
-  return doc;
+function hideNotes(c) {
+    var nodeclass = c + ' show'
+    var matches = document.getElementsByClassName(nodeclass);
+    while (matches.length > 0) {
+        matches.item(0).classList.remove('show');        
+    }
 }
