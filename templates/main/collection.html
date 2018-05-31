@@ -13,15 +13,15 @@
     </header>
     <section class="card-columns">
         <ul>
-        {% for coll in collections.members %}
+        {% for coll in collections.members|sort(attribute="id") %}
             {% if coll.model == 'http://w3id.org/dts-ontology/resource' %}
             <li class="card">
-                [{{coll.lang}}] {{ coll.label }}<br />
+                [{{coll.lang}}] {{ coll.label|title }}<br />
                 <a class="card-link" href="{{url_for('.r_multipassage', objectIds=coll.id, subreferences='1')}}">Read</a>
             </li>
             {% else %}
             <li class="card">
-                {{ coll.label }}<br />
+                {{ coll.label|title }}<br />
                 <a class="card-link" href="{{url_for('.r_collection_semantic', objectId=coll.id, semantic=coll.semantic)}}">Browse ({{coll.size}})</a>
             </li>
             {% endif %}

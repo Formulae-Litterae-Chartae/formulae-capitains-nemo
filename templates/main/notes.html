@@ -26,11 +26,11 @@
         <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
         {% if objects %}
             {% for text in objects %}
-                <div class="card bg-info text-white"
-                    style="font-size: small; color: black; text-decoration: none;">
+                <button class="btn btn-info text-white"
+                    style="font-size: small; color: black; text-decoration: none;" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')">
                     {{ text.collections.current.label }}
-                </div>
-                {{ text.notes }}
+                </button>
+                    {{ text.notes }}
             {% endfor %}
         {% else %}
             {{ notes }}
