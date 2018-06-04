@@ -27,7 +27,8 @@
 {% endmacro %}
 
 {% macro show_passage(text, header, navigation, footer) %}
-<div class="col-sm hfeed right-columns" id="reading-container">
+
+
     <div class="">
         <article class="hentry entry white col-sm">
             <nav>
@@ -48,11 +49,17 @@
             </footer>
         </article>
     </div>
-</div>
 {% endmacro %}
 
 {% block texts %}
 
 {{ show_passage(text_passage, navigation=nav(), header=header_passage(), footer=default_footer()) }}
 
+{% endblock %}
+
+{% block pdfs %}
+{% set path = 'images/' ~ objectId ~ '.pdf' %}
+<div class="embed-responsive embed-responsive-1by1">
+<object data="{{url_for('.static', filename=path)}}" class="embed-responsive-item"></object>
+</div>
 {% endblock %}
