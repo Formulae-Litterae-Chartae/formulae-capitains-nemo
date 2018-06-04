@@ -30,6 +30,15 @@ function hideNotes(c) {
     var nodeclass = c + ' show'
     var matches = document.getElementsByClassName(nodeclass);
     while (matches.length > 0) {
-        matches.item(0).classList.remove('show');        
+        matches.item(0).setAttribute('aria-expanded', 'false');
+        matches.item(0).classList.remove('show');
+    }
+}
+
+function showNotes(c) {
+    var matches = document.getElementsByClassName(c);
+    for (var i=0; i<matches.length; i++) {
+        matches[i].classList.add('show');
+        matches[i].setAttribute('aria-expanded', 'true');
     }
 }
