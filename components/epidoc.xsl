@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:t="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="t">
     
+    <xsl:strip-space elements="t:p" />
+        
     <!-- glyphs -->
     <xsl:template name="split-refs">
         <xsl:param name="pText"/>
@@ -42,6 +44,10 @@
   </xsl:template>
     
     <xsl:template match="t:w">
+        <!-- I may need to add the ability to strip space from <p> tags if this produces too much space once we start exporting form CTE -->
+        <xsl:if test="not(preceding-sibling::node()[1][self::text()])">
+            <xsl:text> </xsl:text>
+        </xsl:if>
         <xsl:element name="span">
             <xsl:attribute name="class">w</xsl:attribute>
             <xsl:if test="@lemma">
@@ -232,7 +238,16 @@
     </xsl:template>  
     
     <xsl:template match="t:note">
-        <xsl:param name="note_num"><xsl:number value="count(preceding::t:note) + 1" format="1"/></xsl:param>
+        <xsl:param name="note_num">
+            <xsl:choose>
+                <xsl:when test="/t:TEI/t:text/t:body/t:div[1]/@xml:lang = 'deu'">
+                    <xsl:number value="count(preceding::t:note) + 1" format="1"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:number value="count(preceding::t:note) + 1" format="a"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:param>
         <xsl:element name="sup">
             <xsl:element name="a">
                 <xsl:attribute name="class">note</xsl:attribute>
@@ -241,6 +256,7 @@
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>
                 <xsl:attribute name="aria-controls"><xsl:value-of select="concat('multiCollapseExample', $note_num)"/></xsl:attribute>
+                <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
                 <xsl:value-of select="$note_num"/>
                 <xsl:element name="span">
                     <xsl:attribute name="hidden">true</xsl:attribute>

@@ -13,7 +13,7 @@ db = SQLAlchemy(flask_app)
 login = LoginManager(flask_app)
 login.login_view = '.r_login'
 migrate = Migrate(flask_app, db)
-resolver = NautilusCTSResolver(["/home/matt/results/CapiTainS_input"])
+resolver = NautilusCTSResolver(["/home/matt/results/formulae"])
 resolver.parse()
 
 from formulae import models
@@ -32,7 +32,8 @@ nemo = NemoFormulae(
     static_folder="./assets/",
     transform={"default": "components/epidoc.xsl",
                "notes": "components/extract_notes.xsl"},
-    templates={"main": "templates/main"}
+    templates={"main": "templates/main"},
+    pdf_folder="pdf_folder/"
 )
 
 

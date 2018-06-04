@@ -11,10 +11,23 @@
     {% include "main::manuscript_menu.html" %}
 </div> 
 
+{% include "main::no_copy_modal.html" %}
+<div class="col-sm hfeed right-columns" id="reading-container">
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
+{{ proj_team }}
+<a href="{{ url_for('.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
+  Add another text
+</a>
 <!-- THE TEXTS -->
 {% block texts %}
-{% endblock %}    
-
+{% endblock %}
+</div>
 <!-- THE RIGHT COLUMN -->
 <div class="col-sm-2">
         <br/>
