@@ -211,3 +211,15 @@ nav .dropdown-menu {
 nav .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+.platzhalter {
+    font-weight: bold
+}
+
+.lexicon {
+    text-decoration: underline wavy
+}
+
+.e-lex-text {
+    font-size: small;
+}

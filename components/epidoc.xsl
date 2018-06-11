@@ -47,9 +47,12 @@
         <!-- I may need to add the ability to strip space from <p> tags if this produces too much space once we start exporting form CTE -->
         <xsl:if test="not(preceding-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
-        </xsl:if>
+        </xsl:if>        
         <xsl:element name="span">
-            <xsl:attribute name="class">w</xsl:attribute>
+            <xsl:attribute name="class">w<xsl:if test="parent::t:seg[@type='font-style:underline;']"><xsl:text> lexicon</xsl:text></xsl:if>
+                <xsl:if test="parent::t:seg[@type='font-style:italic;']"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="parent::t:seg[@type='font-style:bold;']"><xsl:text> platzhalter</xsl:text></xsl:if>
+                </xsl:attribute>
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
                 <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
@@ -231,7 +234,7 @@
     <xsl:template match="t:supplied">
         <span>
             <xsl:attribute name="class">supplied supplied_<xsl:value-of select='@cert' /></xsl:attribute>
-            <xsl:text>[</xsl:text>
+            <xsl:text> [</xsl:text>
             <xsl:apply-templates/><xsl:if test="@cert = 'low'"><xsl:text>?</xsl:text></xsl:if>
             <xsl:text>]</xsl:text>
         </span>
@@ -260,7 +263,7 @@
                 <xsl:value-of select="$note_num"/>
                 <xsl:element name="span">
                     <xsl:attribute name="hidden">true</xsl:attribute>
-                    <xsl:value-of select="." />
+                    <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
                 </xsl:element>
             </xsl:element>
         </xsl:element>
@@ -289,12 +292,26 @@
     <xsl:template match="t:app" mode="found">
         <xsl:for-each select="t:rdg">
             <xsl:choose>
-                <xsl:when test="@wit='#'">
-                    <xsl:value-of select="."/>
+                <xsl:when test="@wit">
+                    <xsl:choose>
+                        <xsl:when test="@wit='#'">
+                            <xsl:value-of select="."/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="translate(@wit, '#', '')"/>: <xsl:value-of select="."/>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:value-of select="translate(@wit, '#', '')"/>: <xsl:value-of select="."/>
-                </xsl:otherwise>
+                <xsl:when test="@source">
+                    <xsl:choose>
+                        <xsl:when test="@source='#'">
+                            <xsl:value-of select="."/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="translate(@source, '#', '')"/>: <xsl:value-of select="."/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
             </xsl:choose>
         </xsl:for-each>
     </xsl:template>
@@ -322,6 +339,10 @@
     
     <xsl:template match="t:unclear">
         <span class="unclear"><xsl:value-of select="." /></span>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@type='font-style:italic;']" mode="noteSegs">
+        <span class="font-italic"><xsl:apply-templates/></span>
     </xsl:template>
     
     
