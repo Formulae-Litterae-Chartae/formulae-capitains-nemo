@@ -5,6 +5,8 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from elasticsearch import Elasticsearch
+from flask_bootstrap import Bootstrap
 
 
 flask_app = Flask("Flask Application for Nemo")
@@ -13,6 +15,9 @@ db = SQLAlchemy(flask_app)
 login = LoginManager(flask_app)
 login.login_view = '.r_login'
 migrate = Migrate(flask_app, db)
+flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
+    if flask_app.config['ELASTICSEARCH_URL'] else None
+bootstrap = Bootstrap(flask_app )
 resolver = NautilusCTSResolver(["/home/matt/results/formulae"])
 resolver.parse()
 

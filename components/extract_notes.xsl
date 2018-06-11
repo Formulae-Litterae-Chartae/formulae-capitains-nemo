@@ -26,9 +26,19 @@
             <xsl:element name="div">
                 <xsl:attribute name="class">card</xsl:attribute>
                 <xsl:attribute name="style">font-size: small; color: black; text-decoration: none;</xsl:attribute>
-                <span><xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:value-of select="span[text()]"/></span>
+                <span><xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:apply-templates mode="noteContent" select="span"/></span>
             </xsl:element>
         </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="span" mode="noteContent">
+        <xsl:apply-templates/>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()">
+        <xsl:copy>
+            <xsl:apply-templates select="@*|node()"/>
+        </xsl:copy>
     </xsl:template>
         
 </xsl:stylesheet>

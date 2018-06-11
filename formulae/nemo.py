@@ -1,4 +1,4 @@
-from flask import flash, url_for, Markup, request, send_from_directory
+from flask import flash, url_for, Markup, request, g
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
@@ -7,9 +7,10 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from .app import db
-from .forms import LoginForm, PasswordChangeForm
+from .forms import LoginForm, PasswordChangeForm, SearchForm
 from lxml import etree
 from .models import User
+from .search import query_index
 
 
 class NemoFormulae(Nemo):
@@ -24,7 +25,8 @@ class NemoFormulae(Nemo):
         ("/logout", "r_logout", ["GET"]),
         ("/user/<username>", "r_user", ["GET", "POST"]),
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
-        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"])
+        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
+        ("/search", "r_search", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -53,10 +55,10 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_register"
+        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_user", "r_search"
     ]
 
-    OPEN_COLLECTIONS = ["Formulae Mondseer"]
+    OPEN_COLLECTIONS = []
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -65,6 +67,7 @@ class NemoFormulae(Nemo):
         super(NemoFormulae, self).__init__(*args, **kwargs)
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
+        self.app.before_request(self.before_request)
 
     def f_remove_from_list(self, l, i):
         """ remove item "i" from list "l"
@@ -84,6 +87,10 @@ class NemoFormulae(Nemo):
         :return: a string of the values joined by the separator
         """
         return s.join(l)
+
+    def before_request(self):
+        if current_user.is_authenticated:
+            g.search_form = SearchForm()
 
     def view_maker(self, name, instance=None):
         """ Create a view
@@ -266,7 +273,23 @@ class NemoFormulae(Nemo):
             db.session.commit()
             flash("You have successfully changed your password.")
             return redirect(url_for('.r_login'))
-        return {'template': "main::register.html", "title": "Register", "form": form, "username": username}
+        return {'template': "main::login.html", "title": "Register", "form": form, "username": username}
+
+    def r_search(self):
+        if not g.search_form.validate():
+            return redirect(url_for('.r_index'))
+        page = request.args.get('page', 1, type=int)
+        if request.args.get('lemma_search') == 'y':
+            field = 'lemmas'
+        else:
+            field = 'text'
+        # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'full_text') and instead
+        # of 'current_app.config', I can use self.app since that will always be the current_app instance
+        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'])
+        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1) \
+            if total > page * self.app.config['POSTS_PER_PAGE'] else None
+        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1) if page > 1 else None
+        return {'template': 'main::search.html', 'title': 'Search', 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
