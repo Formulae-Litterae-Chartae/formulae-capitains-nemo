@@ -86,7 +86,7 @@ class NemoFormulae(Nemo):
         :param s: the separator
         :return: a string of the values joined by the separator
         """
-        return s.join(l)
+        return s.join(l).strip(s)
 
     def before_request(self):
         if current_user.is_authenticated:
@@ -117,7 +117,7 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata()
         return {
-            "template": "main::add_text.html",
+            "template": "main::collection.html",
             "current_label": collection.get_label(lang),
             "collections": {
                 "members": self.make_members(collection, lang=lang)
@@ -138,7 +138,7 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         return {
-            "template": "main::add_text.html",
+            "template": "main::collection.html",
             "collections": {
                 "current": {
                     "label": str(collection.get_label(lang)),
@@ -279,16 +279,20 @@ class NemoFormulae(Nemo):
         if not g.search_form.validate():
             return redirect(url_for('.r_index'))
         page = request.args.get('page', 1, type=int)
+        if request.args.get('fuzzy_search'):
+            fuzzy_search = 'y'
+        else:
+            fuzzy_search = 'n'
         if request.args.get('lemma_search') == 'y':
             field = 'lemmas'
         else:
             field = 'text'
-        # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'full_text') and instead
+        # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'text') and instead
         # of 'current_app.config', I can use self.app since that will always be the current_app instance
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'])
-        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1) \
+        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'], fuzzy_search)
+        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1, fuzzy_search=fuzzy_search) \
             if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1) if page > 1 else None
+        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1,  fuzzy_search=fuzzy_search) if page > 1 else None
         return {'template': 'main::search.html', 'title': 'Search', 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
 
     def extract_notes(self, text):

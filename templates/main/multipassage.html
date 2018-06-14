@@ -4,8 +4,28 @@
 <header>
     <h1 class="entry-title text-center">{{object.collections.current.title}}</h1>
     <h2 class="author vcard text-center"><span class="fn">{{object.collections.current.author}}</span></h2>
-    <p class="entry-summary text-center"><small>{{object.collections.current.label}}, <i>{{object.collections.current.description}}</i></small></p>
+    <p class="entry-summary text-center"><small>{{object.collections.current.label}}</small></p>
+    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">Regest</button></p>
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
+    <!-- The Modal Content for the Regest -->
+    <div class="modal fade" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modal" tabindex="-1" role="dialog" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel">{{object.collections.current.label}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        {{object.collections.current.description}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
 </header>
 {% endmacro %}
 
