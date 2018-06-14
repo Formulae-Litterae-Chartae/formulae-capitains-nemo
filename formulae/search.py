@@ -16,12 +16,16 @@ def remove_from_index(index, model):
     current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
 
 
-def query_index(index, field, query, page, per_page):
+def query_index(index, field, query, page, per_page, fuzzy_search):
     if not current_app.elasticsearch:
         return [current_app.config], 0
+    if field == 'lemmas' or fuzzy_search == 'n':
+        fuzz = '0'
+    else:
+        fuzz = 'AUTO'
     search = current_app.elasticsearch.search(
-        index=index, doc_type="",
-        body={'query': {'match': {field: {'query': query, 'fuzziness': 'AUTO'}}},
+        index="", doc_type="",
+        body={'query': {'match': {field: {'query': query, 'fuzziness': fuzz}}},
               'from': (page - 1) * per_page, 'size': per_page,
               'highlight':
                   {'fields':

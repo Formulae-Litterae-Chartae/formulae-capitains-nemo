@@ -234,7 +234,7 @@
     <xsl:template match="t:supplied">
         <span>
             <xsl:attribute name="class">supplied supplied_<xsl:value-of select='@cert' /></xsl:attribute>
-            <xsl:text> [</xsl:text>
+            <xsl:text>[</xsl:text>
             <xsl:apply-templates/><xsl:if test="@cert = 'low'"><xsl:text>?</xsl:text></xsl:if>
             <xsl:text>]</xsl:text>
         </span>
