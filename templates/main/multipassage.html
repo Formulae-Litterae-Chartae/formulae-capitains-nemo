@@ -4,8 +4,13 @@
 <header>
     <h1 class="entry-title text-center">{{object.collections.current.title}}</h1>
     <h2 class="author vcard text-center"><span class="fn">{{object.collections.current.author}}</span></h2>
-    <p class="entry-summary text-center"><small>{{object.collections.current.label}}, <i>{{object.collections.current.description}}</i></small></p>
+    <p class="entry-summary text-center"><small>{{object.collections.current.label}}</small></p>
+    {% if 'elexicon' not in object.objectId %}
+    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">Regest</button></p>
+    {% include "main::regest_modal.html" %}
+    {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
+    
 </header>
 {% endmacro %}
 
@@ -28,6 +33,10 @@
 
 {% macro show_passage(objects) %}
     <div class="">
+    <!-- The Modal container for the eLexicon entries. -->
+    <div class="modal" id="lexicon-modal" tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    
+    </div>
         <article class="hentry entry white col-sm-12">
             <!-- <nav>
                 {{ navigation }}

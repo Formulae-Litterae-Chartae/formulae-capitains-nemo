@@ -58,6 +58,9 @@
                 <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
                 <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
+            <xsl:if test="parent::t:seg[@type='font-style:underline;']">
+                <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
@@ -234,7 +237,7 @@
     <xsl:template match="t:supplied">
         <span>
             <xsl:attribute name="class">supplied supplied_<xsl:value-of select='@cert' /></xsl:attribute>
-            <xsl:text> [</xsl:text>
+            <xsl:text>[</xsl:text>
             <xsl:apply-templates/><xsl:if test="@cert = 'low'"><xsl:text>?</xsl:text></xsl:if>
             <xsl:text>]</xsl:text>
         </span>
@@ -345,5 +348,8 @@
         <span class="font-italic"><xsl:apply-templates/></span>
     </xsl:template>
     
+    <xsl:template match="t:seg[@type='lex-title']">
+        <strong><xsl:apply-templates/></strong>
+    </xsl:template>
     
 </xsl:stylesheet>
