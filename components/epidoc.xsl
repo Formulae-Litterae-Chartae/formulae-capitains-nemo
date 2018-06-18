@@ -58,6 +58,9 @@
                 <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
                 <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
+            <xsl:if test="parent::t:seg[@type='font-style:underline;']">
+                <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
@@ -345,5 +348,8 @@
         <span class="font-italic"><xsl:apply-templates/></span>
     </xsl:template>
     
+    <xsl:template match="t:seg[@type='lex-title']">
+        <strong><xsl:apply-templates/></strong>
+    </xsl:template>
     
 </xsl:stylesheet>

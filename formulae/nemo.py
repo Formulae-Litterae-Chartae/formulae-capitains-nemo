@@ -26,7 +26,8 @@ class NemoFormulae(Nemo):
         ("/user/<username>", "r_user", ["GET", "POST"]),
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
-        ("/search", "r_search", ["GET"])
+        ("/search", "r_search", ["GET"]),
+        ("/lexicon/<objectId>", "r_lexicon", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -213,8 +214,8 @@ class NemoFormulae(Nemo):
         :type objectIds: str
         :param lang: Lang in which to express main data
         :type lang: str
-        :param subreference: Reference identifier
-        :type subreference: str
+        :param subreferences: Reference identifiers separated by '+'
+        :type subreferences: str
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
@@ -226,6 +227,21 @@ class NemoFormulae(Nemo):
             del d['template']
             passage_data['objects'].append(d)
         return passage_data
+
+    def r_lexicon(self, objectId, lang=None):
+        """ Retrieve the eLexicon entry for a word
+
+        :param objectId: Collection identifiers separated by '+'
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template, collections metadata and Markup object representing the text
+        :rtype: {str: Any}
+        """
+        subreference = "1"
+        d = self.r_passage(objectId, subreference, lang=lang)
+        d['template'] = 'main::lexicon_modal.html'
+        return d
 
     def r_login(self):
         """ login form
