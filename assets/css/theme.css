@@ -220,6 +220,10 @@ nav .dropdown:hover .dropdown-menu {
     text-decoration: underline wavy
 }
 
-.e-lex-text {
-    font-size: small;
+#lexicon-modal {
+    background-color: rgba(0,0,0,0.4);
+}
+
+#lexicon-modal .modal-footer .card {
+    background-color: #e4e4e4;
 }
