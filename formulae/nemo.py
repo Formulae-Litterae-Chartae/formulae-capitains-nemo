@@ -296,19 +296,20 @@ class NemoFormulae(Nemo):
             return redirect(url_for('.r_index'))
         page = request.args.get('page', 1, type=int)
         if request.args.get('fuzzy_search'):
-            fuzzy_search = 'y'
+            fuzziness = 'y'
         else:
-            fuzzy_search = 'n'
+            fuzziness = 'n'
         if request.args.get('lemma_search') == 'y':
             field = 'lemmas'
         else:
             field = 'text'
         # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'text') and instead
         # of 'current_app.config', I can use self.app since that will always be the current_app instance
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'], fuzzy_search)
-        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1, fuzzy_search=fuzzy_search) \
+        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'], fuzziness)
+        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1, fuzzy_search=request.args.get('fuzzy_search')) \
             if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1,  fuzzy_search=fuzzy_search) if page > 1 else None
+        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1,  fuzzy_search=request.args.get('fuzzy_search')) \
+            if page > 1 else None
         return {'template': 'main::search.html', 'title': 'Search', 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
 
     def extract_notes(self, text):

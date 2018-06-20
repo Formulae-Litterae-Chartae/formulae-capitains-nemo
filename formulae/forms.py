@@ -19,9 +19,9 @@ class PasswordChangeForm(FlaskForm):
 
 
 class SearchForm(FlaskForm):
-    q = StringField('Search', validators=[DataRequired()])
-    lemma_search = BooleanField('Lemmas')
-    fuzzy_search = BooleanField('Fuzzy')
+    q = StringField('Suche', validators=[DataRequired()])
+    lemma_search = BooleanField('Lemmata')
+    fuzzy_search = BooleanField('Unscharf')
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:
