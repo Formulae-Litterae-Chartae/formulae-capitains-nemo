@@ -3,7 +3,7 @@
 {% block article %}
 
 <!-- THE LEFT COLUMN -->
-<div class="col-sm-auto">
+<div class="col-auto d-none d-lg-block">
                 
     {% include "main::function_of_speech.html" %}
     <br/>
@@ -29,7 +29,7 @@
 {% endblock %}
 </div>
 <!-- THE RIGHT COLUMN -->
-<div class="col-sm-2">
+<div class="col-2 d-none d-lg-block">
         <br/>
         {% include "main::lexicon.html" %}
         {% include "main::notes.html" %}

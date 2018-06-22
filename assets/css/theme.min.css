@@ -1,9 +1,10 @@
 body, html {
-    margin:0;
+    margin: 0;
     padding: 0;
     height:100%;
     background-color: #ebeff2;
 }
+
 body {
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
@@ -18,6 +19,7 @@ body {
 
 #reading-container {
 }
+
 .logo {
     max-width:95%;
     display:block;
