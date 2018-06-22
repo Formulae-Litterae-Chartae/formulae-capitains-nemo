@@ -46,7 +46,7 @@ function showNotes(c) {
 }
 
 function showLexEntry(word) {
-        var lemma = word.getAttribute('lemma');
+        var lemma = word.getAttribute('data-lexicon');
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -71,15 +71,3 @@ window.onclick = function(event) {
         lexModal.style.display = 'none';
     }
 }
-
-//code for lexicon modal creation
-//$('#lexicon-modal').on('show.bs.modal', function (event) {
-//    var modal = $(this) ;
-//    var word = $(event.relatedTarget) // The <w> element that was clicked to open the modal ;
-//    modal.get($SCRIPT_ROOT + '/lexicon/urn:cts:formulae:elexicon.' + word.data('lemma') + '.deu001', 
-//        function(data, status, xhr) {
-//            alert('Get was performed') ;
-//            modal.find('.modal-title').text('Hello World!')
-//        }
-//    );
-//});

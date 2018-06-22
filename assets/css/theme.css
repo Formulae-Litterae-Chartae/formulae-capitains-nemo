@@ -224,6 +224,57 @@ nav .dropdown:hover .dropdown-menu {
     background-color: rgba(0,0,0,0.4);
 }
 
-#lexicon-modal .modal-footer .card {
+#lexicon-modal .modal-content .card {
     background-color: #e4e4e4;
+}
+
+#lexicon-modal .card-body {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#formulae-logo-header {
+    height: 113px;
+}
+
+#adw-logo-footer {
+    margin-right: 20px;
+}
+
+.bg-hhblue {
+    background-color: #00bfff;
+}
+
+.bg-hhgray {
+    background-color: #263d3d;
+}
+
+.bg-hhred {
+    background-color: #ff0000;
+}
+
+.scrolled {
+    transition: 0.5s ease;
+}
+
+.scrolled.navbar {
+    background-color: #F8F9FA;
+}
+
+.navbar {
+    background-color: #FFFFFF;
+}
+
+.navbar .navbar-logo {
+    height: 200px; 
+    transition: 0.5s ease;
+}
+
+.scrolled.navbar .navbar-logo {
+    height: 65px;
+    transition: 0.5s ease;
+}
+
+#lexicon-modal {
+    overflow-y: auto;
 }
