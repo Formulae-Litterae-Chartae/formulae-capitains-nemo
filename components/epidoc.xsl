@@ -59,6 +59,7 @@
                 <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
             <xsl:if test="parent::t:seg[@type='font-style:underline;']">
+                <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
             </xsl:if>
             <xsl:apply-templates/>
