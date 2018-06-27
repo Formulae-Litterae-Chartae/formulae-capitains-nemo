@@ -6,7 +6,7 @@
     <h2 class="author vcard text-center"><span class="fn">{{object.collections.current.author}}</span></h2>
     <p class="entry-summary text-center"><small>{{object.collections.current.label}}</small></p>
     {% if 'elexicon' not in object.objectId %}
-    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">Regest</button></p>
+    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
     {% include "main::regest_modal.html" %}
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
@@ -51,7 +51,7 @@
                 <section class="col-sm with-border">
                 {% endif %}
                 {% if objects|length > 1 %}
-                <a href="{{ url_for('.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">Remove this text</a>
+                <a href="{{ url_for('.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Remove this text') }}</a>
                 {% endif %}
                     {{ header_passage(text) }}
                     {% if text.pdf_path == '' %}

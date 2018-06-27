@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from MyCapytain.resources.prototypes.cts.inventory import CtsTextInventoryCollection, CtsTextInventoryMetadata
 from MyCapytain.resolvers.utils import CollectionDispatcher
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
@@ -9,6 +9,8 @@ from flask_login import LoginManager
 from flask_migrate import Migrate
 from elasticsearch import Elasticsearch
 from flask_bootstrap import Bootstrap
+from flask_babel import Babel
+from flask_babel import lazy_gettext as _l
 
 general_collection = CtsTextInventoryCollection()
 formulae = CtsTextInventoryMetadata('formulae_collection', parent=general_collection)
@@ -39,10 +41,12 @@ flask_app.config.from_object(Config)
 db = SQLAlchemy(flask_app)
 login = LoginManager(flask_app)
 login.login_view = '.r_login'
+login.login_message = _l("Please log in to access this page.")
 migrate = Migrate(flask_app, db)
 flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
     if flask_app.config['ELASTICSEARCH_URL'] else None
-bootstrap = Bootstrap(flask_app )
+bootstrap = Bootstrap(flask_app)
+babel = Babel(flask_app)
 resolver = NautilusCTSResolver(["/home/matt/results/formulae"], dispatcher=organizer)
 resolver.parse()
 
@@ -66,5 +70,7 @@ nemo = NemoFormulae(
     pdf_folder="pdf_folder/"
 )
 
-
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(flask_app.config['LANGUAGES'])
 
