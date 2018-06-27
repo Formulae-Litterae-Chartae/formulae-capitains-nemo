@@ -1,5 +1,6 @@
 from flask import flash, url_for, Markup, request, g
 from flask_login import current_user, login_user, logout_user, login_required
+from flask_babel import _
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from flask_nemo import Nemo
@@ -171,7 +172,7 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection("This work has no default edition")
+                raise UnknownCollection(_("This work has no default edition"))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         text = self.get_passage(objectId=objectId, subreference=subreference)
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
@@ -255,7 +256,7 @@ class NemoFormulae(Nemo):
         if form.validate_on_submit():
             user = User.query.filter_by(username=form.username.data).first()
             if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password')
+                flash(_('Invalid username or password'))
                 return redirect(url_for('.r_login'))
             login_user(user, remember=form.remember_me.data)
             next_page = request.args.get('next')
@@ -282,12 +283,12 @@ class NemoFormulae(Nemo):
         if form.validate_on_submit():
             user = User.query.filter_by(username=username).first_or_404()
             if not user.check_password(form.old_password.data):
-                flash("This is not your existing password.")
+                flash(_("This is not your existing password."))
                 return redirect(url_for('.r_user'))
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
-            flash("You have successfully changed your password.")
+            flash(_("You have successfully changed your password."))
             return redirect(url_for('.r_login'))
         return {'template': "main::login.html", "title": "Register", "form": form, "username": username}
 
@@ -303,12 +304,21 @@ class NemoFormulae(Nemo):
             field = 'lemmas'
         else:
             field = 'text'
-        # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'text') and instead
+        # Unlike in the Flask Megatutorial, I need to specifically pass the field name (here 'text') and instead
         # of 'current_app.config', I can use self.app since that will always be the current_app instance
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'], fuzziness)
-        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1, fuzzy_search=request.args.get('fuzzy_search')) \
+        # The index value is ignored for the simple search since all indices are searched
+        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'],
+                                   fuzziness, request.args.get('phrase_search'))
+        next_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=page + 1,
+                           fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
             if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1,  fuzzy_search=request.args.get('fuzzy_search')) \
+        prev_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=page - 1,  fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
             if page > 1 else None
         return {'template': 'main::search.html', 'title': 'Search', 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
 

@@ -13,7 +13,7 @@
         {% if collections.current %}
         {{collections.current.label}}
         {% else %}
-        Text Collections
+        {{ _('Text Collections') }}
         {% endif %}
         </h1>
     </header>
@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-header">[{{coll.lang}}] {{ coll.label|title }}</div>
                 <div class="card-body text-center">
-                    <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, '1']|join_list_values('+'))}}">Read</a>
+                    <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, '1']|join_list_values('+'))}}">{{ _('Read') }}</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="card">
                 <div class="card-header text-center pb-0"><h5>{{ coll.label|title }}</h5></div>
                 <div class="card-body">
-                <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">Browse ({{coll.size}})</a>
+                <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse') }} ({{coll.size}})</a>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                             aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">{{ collections.current.label }} {{ loop.index }} - {{ loopend }}</h6>
                             <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">
         {% endif %}
-                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: Browse ({{coll.size}})</a></p>
+                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: {{ _('Browse') }} ({{coll.size}})</a></p>
         {% if loop.index % 10 == 0 and not loop.last %}
                             </div>
                         </li>
