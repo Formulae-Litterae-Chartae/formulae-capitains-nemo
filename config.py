@@ -8,4 +8,4 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
-    LANGUAGES = ['eng', 'deu', 'fre']
+    LANGUAGES = ['en', 'de', 'fr']
