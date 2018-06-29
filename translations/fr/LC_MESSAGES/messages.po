@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-27 13:52+0200\n"
+"POT-Creation-Date: 2018-06-29 15:41+0200\n"
 "PO-Revision-Date: 2018-06-27 13:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
@@ -18,100 +18,128 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/app.py:44
+#: formulae/app.py:41
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Veuillez vous connecter pour accéder à cette page."
 
 #: formulae/forms.py:9
 msgid "Username"
-msgstr ""
+msgstr "Utilisateur"
 
-#: formulae/forms.py:10 formulae/forms.py:17
+#: formulae/forms.py:10 formulae/forms.py:18
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: formulae/forms.py:11
 msgid "Remember Me"
-msgstr ""
+msgstr "Se souvenir de moi"
 
-#: formulae/forms.py:12
+#: formulae/forms.py:12 formulae/nemo.py:276
 msgid "Sign In"
-msgstr ""
+msgstr "Connexion"
 
 #: formulae/forms.py:16
-msgid "Old Password"
+msgid "Change your Password"
 msgstr ""
 
-#: formulae/forms.py:18
-msgid "Repeat Password"
-msgstr ""
+#: formulae/forms.py:17
+msgid "Old Password"
+msgstr "Ancien mot de passe"
 
 #: formulae/forms.py:19
-msgid "Change Password"
-msgstr ""
+msgid "Repeat Password"
+msgstr "Répéter le mot de passe"
 
-#: formulae/forms.py:23
-msgid "Search"
-msgstr ""
+#: formulae/forms.py:20
+msgid "Change Password"
+msgstr "Changer le mot de passe"
 
 #: formulae/forms.py:24
+msgid "Change Your Default Language"
+msgstr ""
+
+#: formulae/forms.py:27
+msgid "Change Language"
+msgstr ""
+
+#: formulae/forms.py:31 formulae/nemo.py:341
+msgid "Search"
+msgstr "Recherche"
+
+#: formulae/forms.py:32
 msgid "Lemma"
-msgstr ""
+msgstr "Lemmes"
 
-#: formulae/forms.py:25
+#: formulae/forms.py:33
 msgid "Fuzzy"
-msgstr ""
+msgstr "Approximatif"
 
-#: formulae/forms.py:26
+#: formulae/forms.py:34
 msgid "Phrase"
-msgstr ""
+msgstr "Expression"
 
-#: formulae/nemo.py:175
+#: formulae/nemo.py:185
 msgid "This work has no default edition"
-msgstr ""
+msgstr "Cette oeuvre n'a pas d'édition par défaut"
 
-#: formulae/nemo.py:259
+#: formulae/nemo.py:269
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/nemo.py:286
+#: formulae/nemo.py:296
 msgid "This is not your existing password."
-msgstr ""
+msgstr "Ceci n'est pas votre mot de passe actuel."
 
-#: formulae/nemo.py:291
+#: formulae/nemo.py:301
 msgid "You have successfully changed your password."
+msgstr "Vous avez réussi à changer votre mot de passe."
+
+#: formulae/nemo.py:307
+msgid "You have successfully changed your default language."
 msgstr ""
 
-#: templates/main/add_text.html:13 templates/main/collection.html:16
+#: formulae/nemo.py:311
+msgid "Edit Profile"
+msgstr ""
+
+#: templates/main/add_text.html:13 templates/main/collection.html:17
 msgid "Text Collections"
-msgstr ""
+msgstr "Collections de textes"
 
-#: templates/main/add_text.html:24 templates/main/collection.html:28
+#: templates/main/add_text.html:24 templates/main/collection.html:29
 msgid "Read"
+msgstr "Lire"
+
+#: templates/main/add_text.html:31 templates/main/collection.html:62
+#: templates/main/collection.html:84 templates/main/collection.html:116
+msgid "Browse"
+msgstr "Parcourir"
+
+#: templates/main/collection.html:75
+msgid "Browse all"
 msgstr ""
 
-#: templates/main/add_text.html:31 templates/main/collection.html:37
-#: templates/main/collection.html:69
-msgid "Browse"
+#: templates/main/collection.html:75
+msgid "Entries"
 msgstr ""
 
 #: templates/main/collection_member_menu.html:11
 msgid "Choose a collection to see the texts it contains"
-msgstr ""
+msgstr "Choisir une collection pour voir les textes qu'elle contient."
 
 #: templates/main/collection_member_menu.html:41
 #: templates/main/lexicon_modal.html:17 templates/main/no_copy_modal.html:9
 #: templates/main/regest_modal.html:15
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: templates/main/collection_member_menu.html:42
 msgid "Save changes"
-msgstr ""
+msgstr "Sauvegarder les changements"
 
 #: templates/main/index.html:6
 msgid "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr ""
+msgstr "Bienvenue au <br>Formulae-Litterae-Chartae Werkstatt!"
 
 #: templates/main/index.html:9
 msgid ""
@@ -120,47 +148,62 @@ msgid ""
 "the collection. If you have any questions about the texts or the reader, "
 "please do not hesitate to contact us."
 msgstr ""
+"Le Werkstatt contient tous les textes disponibles du projet. Choisissez "
+"une collection à partir du bouton \"Textes\" du menu déroulant ci-dessus "
+"pour commencer à explorer la collection. Si vous avez une quelconque "
+"question au sujet des textes ou de l'environnement de lecture, n'hésitez "
+"pas à nous contacter."
+
+#: templates/main/lexicon.html:16
+msgid "Linguistic Information"
+msgstr ""
 
 #: templates/main/lexicon.html:21
 msgid "Mouse over a word to see its lemma."
-msgstr ""
+msgstr "Survolez un mot avec la souris pour voir son lemme."
 
 #: templates/main/menu.html:2 templates/main/navbar.html:26
 msgid "Texts"
-msgstr ""
+msgstr "Textes"
 
 #: templates/main/menu.html:3
 msgid "Advanced Search"
-msgstr ""
+msgstr "Recherche avancée"
 
 #: templates/main/menu.html:5
 msgid "Collections"
-msgstr ""
+msgstr "Collections"
 
 #: templates/main/navbar.html:12
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: templates/main/navbar.html:16
 msgid "Login"
-msgstr ""
+msgstr "Connexion"
 
 #: templates/main/navbar.html:18
 msgid "Change user settings"
-msgstr ""
+msgstr "Changer les paramètres d'utilisateur"
 
 #: templates/main/navbar.html:18
 msgid "logout"
-msgstr ""
+msgstr "Déconnexion"
 
 #: templates/main/navbar.html:22
 msgid "Lexicon"
-msgstr ""
+msgstr "Lexique"
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
 "We are sorry but, since this text has not yet been published, we do not "
 "allow copying of the textual content."
+msgstr ""
+"Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
+"publié, nous n'autorisons pas la copie du contenu textuel."
+
+#: templates/main/notes.html:16
+msgid "Notes"
 msgstr ""
 
 #: templates/main/notes.html:23
@@ -170,44 +213,50 @@ msgid ""
 "small &#8853; to show all notes for a text or the small &#8855; to hide "
 "all notes for that text."
 msgstr ""
+"Cliquez sur un numéro ou une lettre suscrits dans l'un des textes pour "
+"faire apparaître ci-dessous la note correspondante. Vous pouvez aussi "
+"cliquer sur le petit &#8853; pour afficher toutes les notes d'un texte, "
+"ou sur le petit &#8855; pour cacher toutes les notes de ce texte."
 
 #: templates/main/notes.html:33
 msgid "Hide all notes for this text"
-msgstr ""
+msgstr "Cacher toutes les notes de ce texte"
 
 #: templates/main/notes.html:34
 msgid "Show all notes for this text"
-msgstr ""
+msgstr "Afficher toutes les notes de ce texte"
 
 #: templates/main/register.html:4
 msgid "Register"
-msgstr ""
+msgstr "Identification"
 
 #: templates/main/search.html:6
 msgid "Search Results"
-msgstr ""
+msgstr "Résultats de la recherche"
 
 #: templates/main/search.html:25
 msgid "Previous results"
-msgstr ""
+msgstr "Résultats précédents"
 
 #: templates/main/search.html:30
 msgid "Next results"
-msgstr ""
+msgstr "Résultats suivants"
 
 #: templates/main/search_box.html:5
 msgid "Lemma search is currently only available for Latin formulae"
 msgstr ""
+"La recherche par lemme est actuellement indisponible pour les formules "
+"latines."
 
 #: templates/main/search_box.html:5
 msgid "Check if you want to perform a fuzzy search"
-msgstr ""
+msgstr "Cochez si vous voulez effectuer une recherche approximative"
 
 #: templates/main/search_box.html:5
 msgid "Check if you want to search on a phrase"
-msgstr ""
+msgstr "Cochez si vous voulez effectuer une recherche par expression"
 
 #: templates/main/text_container.html:25
 msgid "Add another text"
-msgstr ""
+msgstr "Ajouter un autre texte"
 

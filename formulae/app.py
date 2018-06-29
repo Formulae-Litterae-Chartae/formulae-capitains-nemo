@@ -1,11 +1,11 @@
-from flask import Flask, request
+from flask import Flask, request, session
 from MyCapytain.resources.prototypes.cts.inventory import CtsTextInventoryCollection, CtsTextInventoryMetadata
 from MyCapytain.resolvers.utils import CollectionDispatcher
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 from flask_migrate import Migrate
 from elasticsearch import Elasticsearch
 from flask_bootstrap import Bootstrap
@@ -15,13 +15,10 @@ from flask_babel import lazy_gettext as _l
 general_collection = CtsTextInventoryCollection()
 formulae = CtsTextInventoryMetadata('formulae_collection', parent=general_collection)
 formulae.set_label('Formulae', 'lat')
-formulae.set_label('Formeln', 'deu')
 chartae = CtsTextInventoryMetadata('chartae_collection', parent=general_collection)
 chartae.set_label('Chartae', 'lat')
-chartae.set_label('Urkunden', 'deu')
 elexicon = CtsTextInventoryMetadata('eLexicon_entries', parent=general_collection)
-elexicon.set_label('E-Lexikon', 'deu')
-elexicon.set_label('eLexicon', 'lat')
+elexicon.set_label('E-Lexikon', 'lat')
 organizer = CollectionDispatcher(general_collection, default_inventory_name='chartae_collection')
 
 @organizer.inventory("formulae_collection")
@@ -46,9 +43,17 @@ migrate = Migrate(flask_app, db)
 flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
     if flask_app.config['ELASTICSEARCH_URL'] else None
 bootstrap = Bootstrap(flask_app)
-babel = Babel(flask_app)
+babel = Babel(flask_app, default_locale='de')
 resolver = NautilusCTSResolver(["/home/matt/results/formulae"], dispatcher=organizer)
 resolver.parse()
+
+@babel.localeselector
+def get_locale():
+    if 'locale' in session:
+        return session['locale']
+    if current_user.is_authenticated and current_user.default_locale:
+        return current_user.default_locale
+    return request.accept_languages.best_match(flask_app.config['LANGUAGES'])
 
 from formulae import models
 
@@ -70,7 +75,4 @@ nemo = NemoFormulae(
     pdf_folder="pdf_folder/"
 )
 
-@babel.localeselector
-def get_locale():
-    return request.accept_languages.best_match(flask_app.config['LANGUAGES'])
 

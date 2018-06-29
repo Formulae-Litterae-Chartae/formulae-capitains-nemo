@@ -1,7 +1,7 @@
 from flask import request
 from flask_wtf import FlaskForm
 from flask_babel import lazy_gettext as _l
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from .models import User
 
@@ -13,10 +13,18 @@ class LoginForm(FlaskForm):
 
 
 class PasswordChangeForm(FlaskForm):
+    title = _l('Change your Password')
     old_password = PasswordField(_l("Old Password"), validators=[DataRequired()])
     password = PasswordField(_l("Password"), validators=[DataRequired()])
     password2 = PasswordField(_l("Repeat Password"), validators=[DataRequired(), EqualTo("password")])
     submit = SubmitField(_l("Change Password"))
+
+
+class LanguageChangeForm(FlaskForm):
+    title = _l("Change Your Default Language")
+    new_locale = RadioField(choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
+                            validators=[DataRequired()])
+    submit = SubmitField(_l("Change Language"))
 
 
 class SearchForm(FlaskForm):
