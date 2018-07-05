@@ -13,14 +13,14 @@
             data-target="#instructionsNotes"
             aria-expanded="true"
             aria-controls="instructionsNotes">
-            Notes</div>
+            {{ _('Notes') }}</div>
         
     </div>
     <div class="card-body p-2">
         
         <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
         <div id="instructionsNotes" class="collapse" aria-labelledby="instrNoteHead">
-            <p style="font-size: small;">If you want to see the contents of a critical note, click on its number. If you wish to make a note disappear, click on it. This will work for the text notes as well as the lexicon notes.</p>
+            <p style="font-size: small;">{{ _('Click on a superscript number or letter in one of the texts to make the text of the corresponding note appear below. You can also click on the small &#8853; to show all notes for a text or the small &#8855; to hide all notes for that text.') }}</p>
         </div>
         
         <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
@@ -30,8 +30,8 @@
                     style="font-size: small; text-decoration: none;">
                     <div>
                         <span class="align-middle">{{ text.collections.current.label }}</span>
-                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="Hide all notes for this text">&#8855;</button>
-                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="Show all notes for this text">&#8853;</button>
+                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Hide all notes for this text') }}">&#8855;</button>
+                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Show all notes for this text') }}">&#8853;</button>
                     </div>
                 </div>
                     {{ text.notes }}

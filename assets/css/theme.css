@@ -262,7 +262,7 @@ nav .dropdown:hover .dropdown-menu {
 }
 
 .navbar {
-    background-color: #FFFFFF;
+    background-color: #263d3d;
 }
 
 .navbar .navbar-logo {
@@ -277,4 +277,12 @@ nav .dropdown:hover .dropdown-menu {
 
 #lexicon-modal {
     overflow-y: auto;
+}
+
+#login-article {
+    width: 100%;
+}
+
+.navbar-dark label {
+    color: rgba(255,255,255,.75);
 }

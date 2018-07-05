@@ -1,13 +1,14 @@
-from flask import flash, url_for, Markup, request, g
+from flask import flash, url_for, Markup, request, g, session
 from flask_login import current_user, login_user, logout_user, login_required
+from flask_babel import _, refresh
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
-from .app import db
-from .forms import LoginForm, PasswordChangeForm, SearchForm
+from .app import db, get_locale
+from .forms import LoginForm, PasswordChangeForm, SearchForm, LanguageChangeForm
 from lxml import etree
 from .models import User
 from .search import query_index
@@ -27,7 +28,8 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/search", "r_search", ["GET"]),
-        ("/lexicon/<objectId>", "r_lexicon", ["GET"])
+        ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
+        ("/lang", "r_set_language", ["GET", "POST"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -88,6 +90,15 @@ class NemoFormulae(Nemo):
         :return: a string of the values joined by the separator
         """
         return s.join(l).strip(s)
+
+    def r_set_language(self, code):
+        """ Sets the seseion's language code which will be used for all requests
+
+        :param code: The 2-letter language code
+        :type code: str
+        """
+        session['locale'] = code
+        refresh()
 
     def before_request(self):
         if current_user.is_authenticated:
@@ -171,7 +182,7 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection("This work has no default edition")
+                raise UnknownCollection(_("This work has no default edition"))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         text = self.get_passage(objectId=objectId, subreference=subreference)
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
@@ -246,7 +257,7 @@ class NemoFormulae(Nemo):
     def r_login(self):
         """ login form
 
-        :return: template, page title, form
+        :return: template, page title, forms
         :rtype: {str: Any}
         """
         if current_user.is_authenticated:
@@ -255,14 +266,14 @@ class NemoFormulae(Nemo):
         if form.validate_on_submit():
             user = User.query.filter_by(username=form.username.data).first()
             if user is None or not user.check_password(form.password.data):
-                flash('Invalid username or password')
+                flash(_('Invalid username or password'))
                 return redirect(url_for('.r_login'))
             login_user(user, remember=form.remember_me.data)
             next_page = request.args.get('next')
             if not next_page or url_parse(next_page).netloc != '':
                 return redirect(url_for('.r_index'))
             return redirect(next_page)
-        return {'template': 'main::login.html', 'title': 'Sign In', 'form': form}
+        return {'template': 'main::login.html', 'title': _('Sign In'), 'forms': [form]}
 
     def r_logout(self):
         """ user logout
@@ -275,21 +286,29 @@ class NemoFormulae(Nemo):
     def r_user(self, username):
         """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
 
-        :return: template, page title, form
+        :return: template, page title, forms
         :rtype: {str: Any}
         """
-        form = PasswordChangeForm()
-        if form.validate_on_submit():
+        password_form = PasswordChangeForm()
+        if password_form.validate_on_submit():
             user = User.query.filter_by(username=username).first_or_404()
-            if not user.check_password(form.old_password.data):
-                flash("This is not your existing password.")
+            if not user.check_password(password_form.old_password.data):
+                flash(_("This is not your existing password."))
                 return redirect(url_for('.r_user'))
-            user.set_password(form.password.data)
+            user.set_password(password_form.password.data)
             db.session.add(user)
             db.session.commit()
-            flash("You have successfully changed your password.")
+            flash(_("You have successfully changed your password."))
             return redirect(url_for('.r_login'))
-        return {'template': "main::login.html", "title": "Register", "form": form, "username": username}
+        language_form = LanguageChangeForm()
+        if language_form.validate_on_submit():
+            current_user.default_locale = language_form.new_locale.data
+            db.session.commit()
+            flash(_("You have successfully changed your default language."))
+            return redirect(url_for('.r_user', username=username))
+        elif request.method == 'GET':
+            language_form.new_locale.data = current_user.default_locale
+        return {'template': "main::login.html", "title": _("Edit Profile"), "forms": [password_form, language_form], "username": username}
 
     def r_search(self):
         if not g.search_form.validate():
@@ -303,14 +322,23 @@ class NemoFormulae(Nemo):
             field = 'lemmas'
         else:
             field = 'text'
-        # Unlike in the Flask Megatutorial, I need to specifically pass the index name (here 'text') and instead
+        # Unlike in the Flask Megatutorial, I need to specifically pass the field name (here 'text') and instead
         # of 'current_app.config', I can use self.app since that will always be the current_app instance
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'], fuzziness)
-        next_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page + 1, fuzzy_search=request.args.get('fuzzy_search')) \
+        # The index value is ignored for the simple search since all indices are searched
+        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'],
+                                   fuzziness, request.args.get('phrase_search'))
+        next_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=page + 1,
+                           fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
             if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        prev_url = url_for('.r_search', q=g.search_form.q.data, lemma_search=request.args.get('lemma_search'), page=page - 1,  fuzzy_search=request.args.get('fuzzy_search')) \
+        prev_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=page - 1,  fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
             if page > 1 else None
-        return {'template': 'main::search.html', 'title': 'Search', 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
+        return {'template': 'main::search.html', 'title': _('Search'), 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

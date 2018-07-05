@@ -2,12 +2,15 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block article %}
-    <article class="pl-2">
+    <article class="container-fluid" id="login-article">
     <header><h1>{{ title }}</h1></header>
     <div class="row">
-        <div class="col">
+        {% for form in forms %}
+        <div class="col-auto">
+            <h5>{{ form.title }}</h5>
             {{ wtf.quick_form(form, button_map={'submit': 'outline-secondary'}) }}
         </div>
+        {% endfor %}
 </div>
 </article>
 {% endblock %}
