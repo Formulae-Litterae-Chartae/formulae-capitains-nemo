@@ -155,7 +155,7 @@ msgstr "Linguistische Information"
 
 #: templates/main/lexicon.html:21
 msgid "Mouse over a word to see its lemma."
-msgstr "Mauszeiger über ein Wort bewegen, um sein Lemma zu sehen"
+msgstr "Auf ein Wort zeigen, um sein Lemma zu sehen"
 
 #: templates/main/menu.html:2 templates/main/navbar.html:26
 msgid "Texts"
