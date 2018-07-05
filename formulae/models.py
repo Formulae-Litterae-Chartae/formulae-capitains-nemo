@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     project_team = db.Column(db.Boolean, index=True, default=False)
+    default_locale = db.Column(db.String(32), index=True, default="de")
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

@@ -1,6 +1,7 @@
 {% extends "main::container.html" %}
 
 {% block article %}
+{% set old_first_letter = namespace(letter='') %}
 {% if not prev_texts %}
 {% set prev_texts = '' %}
 {% set prev_reffs = '' %}
@@ -13,7 +14,7 @@
         {% if collections.current %}
         {{collections.current.label}}
         {% else %}
-        Text Collections
+        {{ _('Text Collections') }}
         {% endif %}
         </h1>
     </header>
@@ -25,7 +26,53 @@
             <div class="card">
                 <div class="card-header">[{{coll.lang}}] {{ coll.label|title }}</div>
                 <div class="card-body text-center">
-                    <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, '1']|join_list_values('+'))}}">Read</a>
+                    <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, '1']|join_list_values('+'))}}">{{ _('Read') }}</a>
+                </div>
+            </div>
+        </div>
+        {% elif collections.current and 'elexicon' in collections.current.id %}
+            {% if loop.first %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-header"
+                            data-toggle="collapse"
+                            data-target="#card-{{ collections.current.id|replace(':', '')|replace('.', '') }}"
+                            aria-expanded="false"
+                            aria-controls="card-{{ collections.current.id|replace(':', '')|replace('.', '') }}">
+                            <h5>{{ collections.current.label }}</h5>
+                        </div>
+                        <div class="collapse" id="card-{{ collections.current.id|replace(':', '')|replace('.', '') }}">
+                            <ul class="list-group list-group-flush">
+            {% endif %}
+            {% set first_letter = coll.label|title|first %}
+            {% if old_first_letter.letter != first_letter %}
+                {% set old_first_letter.letter = first_letter %}
+                {% if not loop.first %}
+                                    </div>
+                                </li>
+                {% endif %}
+                                <li class="list-group-item">
+                                    <h6 class="card-title"
+                                    data-toggle="collapse"
+                                    data-target="#{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ first_letter }}"
+                                    aria-expanded="false"
+                                    aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ first_letter }}">{{ first_letter }}</h6>
+                                    <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ first_letter }}">
+            {% endif %}
+                                <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: {{ _('Browse') }} ({{coll.size}})</a></p>
+            {% if loop.last %}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        {% elif not collections.current %}
+        <div class="col-2">
+            <div class="card">
+                <div class="card-header text-center pb-0"><h5>{{ coll.label|title }}</h5></div>
+                <div class="card-body">
+                <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse all') }} {{coll.label|title }}{% if coll.label|title == 'E-Lexikon' %} {{ _('Entries') }} {% endif %}</a>
                 </div>
             </div>
         </div>
@@ -34,13 +81,13 @@
             <div class="card">
                 <div class="card-header text-center pb-0"><h5>{{ coll.label|title }}</h5></div>
                 <div class="card-body">
-                <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">Browse ({{coll.size}})</a>
+                <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse') }} ({{coll.size}})</a>
                 </div>
             </div>
         </div>
         {% else %}
         {% if loop.first %}
-        <div class="col-6">
+        <div class="col-5">
             <div class="card">
                 <div class="card-header"
                     data-toggle="collapse"
@@ -66,7 +113,7 @@
                             aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">{{ collections.current.label }} {{ loop.index }} - {{ loopend }}</h6>
                             <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">
         {% endif %}
-                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: Browse ({{coll.size}})</a></p>
+                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: {{ _('Browse') }} ({{coll.size}})</a></p>
         {% if loop.index % 10 == 0 and not loop.last %}
                             </div>
                         </li>

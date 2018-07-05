@@ -13,19 +13,12 @@
                             data-target="#instructionsLex"
                             aria-expanded="true"
                             aria-controls="instructionsLex">
-                            Lexicon entry
+                            {{ _('Linguistic Information') }}
                         </div>
                         
                     </div>
                     <div class="card-body p-2">
-                        
-                        <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
-                        <div id="instructionsLex" class="collapse" aria-expanded="true" aria-labelledby="instrLexHead">
-                            <p style="font-size: small;">Click on any word to display its lexicon entry. If there is no corresponding lexicon entry, the information will be displayed from This Website. In the case of a person or place, the identification will be followed by a link to other charters in which the name is present.</p>
-                        </div>
-                        
-                        
-                        <div class="float-left" style="font-size: small;" id="lem_box">Mouse over a word to see its lemma.</div>
+                        <div class="float-left" style="font-size: small;" id="lem_box">{{ _('Mouse over a word to see its lemma.') }}</div>
                                 
                     </div>
                 </div>

@@ -7,11 +7,15 @@ function makePopupNote(id) {
 
 function showLemma(x) {
     var lemma = x.getAttribute("lemma");
-    document.getElementById("lem_box").innerHTML = lemma;
+    var lem_box = document.getElementById("lem_box");
+    lem_box.setAttribute("default-data", lem_box.innerHTML);
+    lem_box.innerHTML = lemma;
 }
 
 function hideLemma() {
-    document.getElementById("lem_box").innerHTML = "Mouse over a word to see its lemma.";
+    var lem_box = document.getElementById("lem_box");
+    lem_box.innerHTML = lem_box.getAttribute("default-data");
+    lem_box.removeAttribute("default-data");
 }
 
 //to disable cut, copy, paste, and mouse right-click

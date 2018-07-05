@@ -3,7 +3,7 @@
 {% block article %}
     <article>
     <header>
-    <h1>Search Results</h1>
+    <h1>{{ _('Search Results') }}</h1>
     </header>
     {% for post in posts %}
         <div class="card">
@@ -22,12 +22,12 @@
             <li class="page-item">
                 <a class="page-link" href="{{ prev_url or '#' }}">
                     <span aria-hidden="true">&laquo;</span>
-                    Previous results
+                    {{ _('Previous results') }}
                 </a>
             </li>
             <li class="page-item">
                 <a class="page-link" href="{{ next_url or '#' }}">
-                    Next results
+                    {{ _('Next results') }}
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

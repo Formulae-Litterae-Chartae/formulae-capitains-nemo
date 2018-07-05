@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark">
             <!--<a class="navbar-brand" href="{{ url_for('.r_index') }}">
             <img class="logo" src="{{url_for('.static', filename='images/nemo.png')}} " width="125" height="60" alt="">
             </a>
@@ -9,24 +9,21 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav my-0 mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">{{ _('About') }}</a>
                     </li>
                     <li class="nav-item">
                     {% if current_user.is_anonymous %}
-                        <a class="nav-link" href="{{ url_for('.r_login') }}">Login</a>
+                        <a class="nav-link" href="{{ url_for('.r_login') }}">{{ _('Login') }}</a>
                     {% else %}
-                        <span class="navbar-text px-2"><a href="{{ url_for('.r_user', username=current_user.username) }}" title="Change user settings">{{ current_user.username }}</a> <small>(<a href="{{ url_for('.r_logout') }}">logout</a>)</small></span>
+                        <span class="navbar-text px-2"><a href="{{ url_for('.r_user', username=current_user.username) }}" title="{{ _('Change user settings') }}">{{ current_user.username }}</a> <small>(<a href="{{ url_for('.r_logout') }}">{{ _('logout') }}</a>)</small></span>
                     {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Lexicon</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Encoding</a>
+                        <a class="nav-link" href="#">{{ _('Lexicon') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Texts
+                            {{ _('Texts') }}
                         </a>
                             {% include "main::menu.html" %}
                     </li>

@@ -1,27 +1,37 @@
 from flask import request
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from flask_babel import lazy_gettext as _l
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from .models import User
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember_me = BooleanField('Remember Me')
-    submit = SubmitField('Sign In')
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
+    remember_me = BooleanField(_l('Remember Me'))
+    submit = SubmitField(_l('Sign In'))
 
 
 class PasswordChangeForm(FlaskForm):
-    old_password = PasswordField("Old Password", validators=[DataRequired()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    password2 = PasswordField("Repeat Password", validators=[DataRequired(), EqualTo("password")])
-    submit = SubmitField("Change Password")
+    title = _l('Change your Password')
+    old_password = PasswordField(_l("Old Password"), validators=[DataRequired()])
+    password = PasswordField(_l("Password"), validators=[DataRequired()])
+    password2 = PasswordField(_l("Repeat Password"), validators=[DataRequired(), EqualTo("password")])
+    submit = SubmitField(_l("Change Password"))
+
+
+class LanguageChangeForm(FlaskForm):
+    title = _l("Change Your Default Language")
+    new_locale = RadioField(choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
+                            validators=[DataRequired()])
+    submit = SubmitField(_l("Change Language"))
 
 
 class SearchForm(FlaskForm):
-    q = StringField('Suche', validators=[DataRequired()])
-    lemma_search = BooleanField('Lemmata')
-    fuzzy_search = BooleanField('Unscharf')
+    q = StringField(_l('Search'), validators=[DataRequired()])
+    lemma_search = BooleanField(_l('Lemma'))
+    fuzzy_search = BooleanField(_l('Fuzzy'))
+    phrase_search = BooleanField(_l('Phrase'))
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:
