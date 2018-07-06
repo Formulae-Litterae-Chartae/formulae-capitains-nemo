@@ -12,4 +12,5 @@ flask-nemo>=1.0.3
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 python-slugify==1.2.1
+python-dotenv==0.8.2
 SQLAlchemy>=1.2.7
