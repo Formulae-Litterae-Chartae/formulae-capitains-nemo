@@ -22,7 +22,7 @@
     <div class="row justify-content-center">
     {% for coll in collections.members|sort(attribute="id") %}
         {% if coll.model == 'http://w3id.org/dts-ontology/resource' %}
-        <div class="col-6 col-lg-2">
+        <div class="col-6 col-xl-2">
             <div class="card">
                 <div class="card-header">[{{coll.lang}}] {{ coll.label|title }}</div>
                 <div class="card-body text-center">
@@ -32,7 +32,7 @@
         </div>
         {% elif collections.current and 'elexicon' in collections.current.id %}
             {% if loop.first %}
-                <div class="col-6 col-lg-3">
+                <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 col-12">
                     <div class="card">
                         <div class="card-header"
                             data-toggle="collapse"
@@ -68,7 +68,7 @@
                 </div>
             {% endif %}
         {% elif not collections.current %}
-        <div class="col-lg-2 col-6">
+        <div class="col-xl-2 col-6">
             <div class="card">
                 <div class="card-header text-center pb-0"><h5>{{ coll.label|title }}</h5></div>
                 <div class="card-body">
@@ -77,7 +77,7 @@
             </div>
         </div>
         {% elif collections.members|length <= 20 %}
-        <div class="col-lg-2 col-6">
+        <div class="col-xl-2 col-6">
             <div class="card">
                 <div class="card-header text-center pb-0"><h5>{{ coll.label|title }}</h5></div>
                 <div class="card-body">
@@ -87,7 +87,7 @@
         </div>
         {% else %}
         {% if loop.first %}
-        <div class="col-lg-5 col-10">
+        <div class="col-xl-6 col-lg-7 col-md-8 col-sm-10 col-12">
             <div class="card">
                 <div class="card-header"
                     data-toggle="collapse"
