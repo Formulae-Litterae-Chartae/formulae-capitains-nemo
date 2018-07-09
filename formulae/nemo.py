@@ -7,6 +7,7 @@ from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
+from math import ceil
 from .app import db, resolver
 from .forms import LoginForm, PasswordChangeForm, SearchForm, LanguageChangeForm
 from lxml import etree
@@ -354,6 +355,12 @@ class NemoFormulae(Nemo):
         # The index value is ignored for the simple search since all indices are searched
         posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'],
                                    fuzziness, request.args.get('phrase_search'))
+        first_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=1,
+                           fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
+            if page > 1 else None
         next_url = url_for('.r_search', q=g.search_form.q.data,
                            lemma_search=request.args.get('lemma_search'),
                            page=page + 1,
@@ -365,7 +372,21 @@ class NemoFormulae(Nemo):
                            page=page - 1,  fuzzy_search=request.args.get('fuzzy_search'),
                            phrase_search=request.args.get('phrase_search')) \
             if page > 1 else None
-        return {'template': 'main::search.html', 'title': _('Search'), 'posts': posts, 'next_url': next_url, 'prev_url': prev_url}
+        total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
+        page_urls = []
+        for page_num in range(1, total_pages + 1):
+            page_urls.append(url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')))
+        last_url = url_for('.r_search', q=g.search_form.q.data,
+                           lemma_search=request.args.get('lemma_search'),
+                           page=total_pages,  fuzzy_search=request.args.get('fuzzy_search'),
+                           phrase_search=request.args.get('phrase_search')) \
+            if total > page * self.app.config['POSTS_PER_PAGE'] else None
+        return {'template': 'main::search.html', 'title': _('Search'), 'posts': posts,
+                'next_url': next_url, 'prev_url': prev_url, 'page_urls': page_urls,
+                "first_url": first_url, "last_url": last_url, "current_page": page}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
