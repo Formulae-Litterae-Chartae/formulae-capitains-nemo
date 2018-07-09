@@ -374,11 +374,27 @@ class NemoFormulae(Nemo):
             if page > 1 else None
         total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
         page_urls = []
-        for page_num in range(1, total_pages + 1):
-            page_urls.append(url_for('.r_search', q=g.search_form.q.data,
-                           lemma_search=request.args.get('lemma_search'),
-                           page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
-                           phrase_search=request.args.get('phrase_search')))
+        if total_pages > 12:
+            page_urls.append((1, url_for('.r_search', q=g.search_form.q.data,
+                               lemma_search=request.args.get('lemma_search'),
+                               page=1,  fuzzy_search=request.args.get('fuzzy_search'),
+                               phrase_search=request.args.get('phrase_search'))))
+            # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
+            for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
+                page_urls.append((page_num, url_for('.r_search', q=g.search_form.q.data,
+                               lemma_search=request.args.get('lemma_search'),
+                               page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
+                               phrase_search=request.args.get('phrase_search'))))
+            page_urls.append((total_pages, url_for('.r_search', q=g.search_form.q.data,
+                               lemma_search=request.args.get('lemma_search'),
+                               page=total_pages,  fuzzy_search=request.args.get('fuzzy_search'),
+                               phrase_search=request.args.get('phrase_search'))))
+        else:
+            for page_num in range(1, total_pages + 1):
+                page_urls.append((page_num, url_for('.r_search', q=g.search_form.q.data,
+                               lemma_search=request.args.get('lemma_search'),
+                               page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
+                               phrase_search=request.args.get('phrase_search'))))
         last_url = url_for('.r_search', q=g.search_form.q.data,
                            lemma_search=request.args.get('lemma_search'),
                            page=total_pages,  fuzzy_search=request.args.get('fuzzy_search'),
