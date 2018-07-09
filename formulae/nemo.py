@@ -7,7 +7,7 @@ from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
-from .app import db, get_locale
+from .app import db, resolver
 from .forms import LoginForm, PasswordChangeForm, SearchForm, LanguageChangeForm
 from lxml import etree
 from .models import User
@@ -177,6 +177,17 @@ class NemoFormulae(Nemo):
             "prev_reffs": reffs
         }
 
+    def get_first_passage(self, objectId):
+        """ Provides a redirect to the first passage of given objectId
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :return: Redirection to the first passage of given text
+        """
+        collection, reffs = self.get_reffs(objectId=objectId, export_collection=True)
+        first, _ = reffs[0]
+        return str(first)
+
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage
 
@@ -246,7 +257,11 @@ class NemoFormulae(Nemo):
         passage_data = {'template': 'main::multipassage.html', 'objects': []}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
-            d = self.r_passage(id, subrefers[i], lang=lang)
+            if subrefers[i] == "first":
+                subref = resolver.getReffs(textId=id)[0]
+            else:
+                subref = subrefers[i]
+            d = self.r_passage(id, subref, lang=lang)
             del d['template']
             passage_data['objects'].append(d)
         return passage_data
