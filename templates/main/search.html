@@ -31,9 +31,11 @@
                 </a>
             </li>
             {% for p_url in page_urls %}
+            {{ '...' if loop.index == 2 and p_url|first != 2 }}
+            {{ '...' if loop.last and loop.previtem|first != p_url|first - 1 }}
             <li class="page-item{{ ' active' if loop.index == current_page }}">
-                <a class="page-link" href="{{ p_url }}">
-                    {{ loop.index }}
+                <a class="page-link" href="{{ p_url|last }}">
+                    {{ p_url|first }}
                 </a>
             </li>
             {% endfor %}
