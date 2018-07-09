@@ -17,36 +17,32 @@
             </div>
         </div>
     {% endfor %}
-    {% if last_url %}
+    {% if last_url or first_url %}
     <nav aria-label="Search results pages">
         <ul class="pagination pagination-sm justify-content-center">
-            <li class="page-item">
+            <li class="page-item{{ ' disabled' if not first_url }}">
                 <a class="page-link" href="{{ first_url or '#' }}">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="page-item">
+            <li class="page-item{{ ' disabled' if not prev_url }}">
                 <a class="page-link" href="{{ prev_url or '#' }}">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
             {% for p_url in page_urls %}
-            {% set active = "" %}
-            {% if loop.index == current_page %}
-                {% set active = " active" %}
-            {% endif %}
-            <li class="page-item{{ active }}">
+            <li class="page-item{{ ' active' if loop.index == current_page }}">
                 <a class="page-link" href="{{ p_url }}">
                     {{ loop.index }}
                 </a>
             </li>
             {% endfor %}
-            <li class="page-item">
+            <li class="page-item{{ ' disabled' if not next_url }}">
                 <a class="page-link" href="{{ next_url or '#' }}">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>
-            <li class="page-item">
+            <li class="page-item{{ ' disabled' if not last_url }}">
                 <a class="page-link" href="{{ last_url or '#' }}">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
