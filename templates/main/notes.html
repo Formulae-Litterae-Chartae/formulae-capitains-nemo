@@ -20,12 +20,13 @@
         
         <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
         <div id="instructionsNotes" class="collapse" aria-labelledby="instrNoteHead">
-            <p style="font-size: small;">{{ _('Click on a superscript number or letter in one of the texts to make the text of the corresponding note appear below. You can also click on the small &#8853; to show all notes for a text or the small &#8855; to hide all notes for that text.') }}</p>
+            <p style="font-size: small;">{{ _('Click on a superscript number or letter in one of the texts to make the text of the corresponding note appear below. You can also click on the small &#8853; to show all notes for a text or the small &#8855; to hide all notes for that text. If a text on the left is not shown here, that means there are no notes for that text.') }}</p>
         </div>
         
         <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
         {% if objects %}
             {% for text in objects %}
+            {% if text.notes %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
@@ -35,6 +36,7 @@
                     </div>
                 </div>
                     {{ text.notes }}
+            {% endif %}
             {% endfor %}
         {% else %}
             {{ notes }}
