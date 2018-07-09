@@ -17,21 +17,42 @@
             </div>
         </div>
     {% endfor %}
+    {% if last_url %}
     <nav aria-label="Search results pages">
         <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="{{ prev_url or '#' }}">
+                <a class="page-link" href="{{ first_url or '#' }}">
                     <span aria-hidden="true">&laquo;</span>
-                    {{ _('Previous results') }}
                 </a>
             </li>
             <li class="page-item">
+                <a class="page-link" href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+            {% for p_url in page_urls %}
+            {% set active = "" %}
+            {% if loop.index == current_page %}
+                {% set active = " active" %}
+            {% endif %}
+            <li class="page-item{{ active }}">
+                <a class="page-link" href="{{ p_url }}">
+                    {{ loop.index }}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="page-item">
                 <a class="page-link" href="{{ next_url or '#' }}">
-                    {{ _('Next results') }}
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{ last_url or '#' }}">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
         </ul>
     </nav>
+    {% endif %}
     </article>
 {% endblock %}
