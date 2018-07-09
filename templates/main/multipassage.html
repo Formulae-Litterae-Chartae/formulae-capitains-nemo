@@ -14,15 +14,17 @@
 </header>
 {% endmacro %}
 
-{% macro nav() %}
-    {% if prev %}
-    <a class="btn btn-xs btn-primary" href="{{url_for('.r_passage', objectId=objectId, subreference=prev) }}">
-        <span class="glyphicon glyphicon-chevron-left"></span>
+{% macro nav(text, all_texts, new_reffs, index) %}
+    {% if text.prev %}
+    {% set prev_reffs = new_reffs|replace_indexed_item(index, text.prev) %}
+    <a class="btn btn-sm btn-primary" href="{{url_for('.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=prev_reffs|join_list_values('+')) }}">
+        <span aria-hidden="true">&#9204;</span>
     </a>
     {% endif %}
-    {% if next %}
-    <a class="btn btn-xs btn-primary" href="{{url_for('.r_passage', objectId=objectId, subreference=next) }}">
-        <span class="glyphicon glyphicon-chevron-right"></span>
+    {% if text.next %}
+    {% set next_reffs = new_reffs|replace_indexed_item(index, text.next) %}
+    <a class="btn btn-sm btn-primary ml-auto" href="{{url_for('.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=next_reffs|join_list_values('+')) }}">
+        <span aria-hidden="true">&#9205;</span>
     </a>
     {% endif %}
 {% endmacro %}
@@ -31,7 +33,7 @@
     {% include "main::passage_footer.html" %}
 {% endmacro %}
 
-{% macro show_passage(objects) %}
+{% macro show_passage(objects, navigation) %}
     <div class="">
     <!-- The Modal container for the eLexicon entries. -->
     <div class="modal" id="lexicon-modal" tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
@@ -45,6 +47,8 @@
             {% for text in objects %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
             {%set all_reffs = objects|map(attribute='subreference')|list %}
+            {%set new_reffs = objects|map(attribute='subreference')|list %}
+            {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
                 {% if loop.last %}
                 <section class="col-sm">
                 {% else %}
@@ -54,6 +58,7 @@
                 <a href="{{ url_for('.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Remove this text') }}</a>
                 {% endif %}
                     {{ header_passage(text) }}
+                    <div class="d-flex flex-row">{{ navigation }}</div>
                     {% if text.pdf_path == '' %}
                         {% if cache_active %}
                             {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}

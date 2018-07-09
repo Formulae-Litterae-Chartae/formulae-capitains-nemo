@@ -70,6 +70,7 @@ class NemoFormulae(Nemo):
         super(NemoFormulae, self).__init__(*args, **kwargs)
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
+        self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.before_request(self.before_request)
 
     def f_remove_from_list(self, l, i):
@@ -90,6 +91,17 @@ class NemoFormulae(Nemo):
         :return: a string of the values joined by the separator
         """
         return s.join(l).strip(s)
+
+    def f_replace_indexed_item(self, l, i, v):
+        """
+
+        :param l: the list of values
+        :param i: the index to be replace
+        :param v: the value with which the indexed value will be replaced
+        :return: new list
+        """
+        l[i] = v
+        return l
 
     def r_set_language(self, code):
         """ Sets the seseion's language code which will be used for all requests
