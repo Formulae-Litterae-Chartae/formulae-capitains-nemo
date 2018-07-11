@@ -11,6 +11,7 @@ from elasticsearch import Elasticsearch
 from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
+from werkzeug.contrib.cache import FileSystemCache
 
 general_collection = CtsTextInventoryCollection()
 formulae = CtsTextInventoryMetadata('formulae_collection', parent=general_collection)
@@ -44,7 +45,7 @@ flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
     if flask_app.config['ELASTICSEARCH_URL'] else None
 bootstrap = Bootstrap(flask_app)
 babel = Babel(flask_app, default_locale='de')
-resolver = NautilusCTSResolver(["/home/matt/results/formulae"], dispatcher=organizer)
+resolver = NautilusCTSResolver(["/home/matt/results/formulae"], dispatcher=organizer, cache=FileSystemCache('./cache/'))
 resolver.parse()
 
 @babel.localeselector
