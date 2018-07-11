@@ -24,7 +24,7 @@
         {% if coll.model == 'http://w3id.org/dts-ontology/resource' %}
         <div class="col-6 col-xl-2">
             <div class="card">
-                <div class="card-header">[{{coll.lang}}] {{ coll.label|title }}</div>
+                <div class="card-header">[{{coll.lang}}] {{ coll.label }}</div>
                 <div class="card-body text-center">
                     <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ _('Read') }}</a>
                 </div>
