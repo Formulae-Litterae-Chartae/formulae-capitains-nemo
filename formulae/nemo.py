@@ -1,4 +1,4 @@
-from flask import flash, url_for, Markup, request, g, session
+from flask import flash, url_for, Markup, request, g, session, render_template
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
 from werkzeug.utils import redirect
@@ -30,7 +30,8 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/search", "r_search", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"])
+        ("/lang", "r_set_language", ["GET", "POST"]),
+        ("/error/<error_code>/<error_message>", "r_display_error", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -72,6 +73,9 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
+        # self.app.register_error_handler(404, self.e_not_found_error)
+        # self.app.register_error_handler(500, self.e_internal_error)
+        self.app.register_error_handler(UnknownCollection, self.e_unknown_collection_error)
         self.app.before_request(self.before_request)
 
     def f_remove_from_list(self, l, i):
@@ -414,3 +418,32 @@ class NemoFormulae(Nemo):
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
+
+    def e_not_found_error(self, error):
+        response = ""
+        return redirect(url_for('current_app.r_display_error', error_code="404", error_message=response))
+
+    def e_internal_error(self, error):
+        db.session.rollback()
+        response = ""
+        return redirect(url_for('.r_display_error', error_code="500", error_message=response))
+
+    def e_unknown_collection_error(self, error):
+        response = error.args[0].strip("\"'").split()[0]
+        return render_template('main::unknown_collection.html', message=response)
+        # return redirect(url_for('.r_display_error', error_code="UnknownCollection", error_message=response))
+
+    def r_display_error(self, error_code, error_message):
+        """ Error display form
+
+        :param error_code: the error type
+        :param error_message: the message from the error
+        :return:
+        """
+        if error_code == "UnknownCollection":
+            return {"template": 'main::unknown_collection.html', 'message': error_message,
+                    'parent': '.'.join(error_message.split('.')[:-1])}
+        if error_code == "500":
+            return {"template": 'main::500.html'}
+        if error_code == "404":
+            return {"template": 'main::404.html'}
