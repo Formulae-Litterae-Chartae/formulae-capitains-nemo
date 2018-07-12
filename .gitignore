@@ -39,3 +39,4 @@ app.db
 .env
 logs/
 cache/
+.rngs/
