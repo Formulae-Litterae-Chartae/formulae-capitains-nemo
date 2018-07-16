@@ -46,7 +46,6 @@ flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
 bootstrap = Bootstrap(flask_app)
 babel = Babel(flask_app, default_locale='de')
 resolver = NautilusCTSResolver(["/home/matt/results/formulae"], dispatcher=organizer, cache=FileSystemCache('./cache/'))
-resolver.parse()
 
 @babel.localeselector
 def get_locale():
