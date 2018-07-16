@@ -27,6 +27,7 @@ def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
         search = current_app.elasticsearch.search(
         index="", doc_type="",
         body={'query': {'match_phrase': {field: {'query': query, "slop": 4}}},
+              "sort": 'urn',
               'from': (page - 1) * per_page, 'size': per_page,
               'highlight':
                   {'fields':
@@ -42,6 +43,7 @@ def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
         search = current_app.elasticsearch.search(
         index="", doc_type="",
         body={'query': {'match': {field: {'query': query, 'fuzziness': fuzz}}},
+              "sort": 'urn',
               'from': (page - 1) * per_page, 'size': per_page,
               'highlight':
                   {'fields':
