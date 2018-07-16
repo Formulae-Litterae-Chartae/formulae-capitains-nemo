@@ -11,3 +11,4 @@ class Config(object):
     POSTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     LANGUAGES = ['en', 'de', 'fr']
+    CORPUS_FOLDERS = ["/home/matt/results/formulae"]
