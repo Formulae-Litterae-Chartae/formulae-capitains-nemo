@@ -1,6 +1,4 @@
 from flask import Flask, request, session
-from MyCapytain.resources.prototypes.cts.inventory import CtsTextInventoryCollection, CtsTextInventoryMetadata
-from MyCapytain.resolvers.utils import CollectionDispatcher
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
 from config import Config
@@ -12,27 +10,8 @@ from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from werkzeug.contrib.cache import FileSystemCache
+from .dispatcher_builder import organizer
 
-general_collection = CtsTextInventoryCollection()
-formulae = CtsTextInventoryMetadata('formulae_collection', parent=general_collection)
-formulae.set_label('Formulae', 'lat')
-chartae = CtsTextInventoryMetadata('chartae_collection', parent=general_collection)
-chartae.set_label('Chartae', 'lat')
-elexicon = CtsTextInventoryMetadata('eLexicon_entries', parent=general_collection)
-elexicon.set_label('E-Lexikon', 'lat')
-organizer = CollectionDispatcher(general_collection, default_inventory_name='chartae_collection')
-
-@organizer.inventory("formulae_collection")
-def organize_formulae(collection, path=None, **kwargs):
-    if collection.id.startswith('urn:cts:formulae:andecavensis'):
-        return True
-    return False
-
-@organizer.inventory("eLexicon_entries")
-def organize_elexicon(collection, path=None, **kwargs):
-    if collection.id.startswith('urn:cts:formulae:elexicon'):
-        return True
-    return False
 
 flask_app = Flask("Flask Application for Nemo")
 flask_app.config.from_object(Config)
@@ -45,7 +24,9 @@ flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
     if flask_app.config['ELASTICSEARCH_URL'] else None
 bootstrap = Bootstrap(flask_app)
 babel = Babel(flask_app, default_locale='de')
-resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'], dispatcher=organizer, cache=FileSystemCache('./cache/'))
+resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'],
+                               dispatcher=organizer,
+                               cache=FileSystemCache(flask_app.config['CACHE_DIRECTORY']))
 
 @babel.localeselector
 def get_locale():
