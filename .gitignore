@@ -38,5 +38,5 @@ venv
 app.db
 .env
 logs/
-.rngs/
 cache/
+.rngs/
