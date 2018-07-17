@@ -415,7 +415,8 @@ class NemoFormulae(Nemo):
             if total > page * self.app.config['POSTS_PER_PAGE'] else None
         return {'template': 'main::search.html', 'title': _('Search'), 'posts': posts,
                 'next_url': next_url, 'prev_url': prev_url, 'page_urls': page_urls,
-                "first_url": first_url, "last_url": last_url, "current_page": page}
+                "first_url": first_url, "last_url": last_url, "current_page": page,
+                "search_string": g.search_form.q.data}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
