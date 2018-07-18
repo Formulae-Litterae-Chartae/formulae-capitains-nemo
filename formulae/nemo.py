@@ -430,8 +430,8 @@ class NemoFormulae(Nemo):
         return str(xslt(etree.fromstring(text)))
 
     def e_not_found_error(self, error):
-        response = ""
-        return self.r_display_error(error_code="404", error_message=response)
+        print(request.path)
+        return "404 Error!"
 
     def e_internal_error(self, error):
         db.session.rollback()
@@ -451,6 +451,8 @@ class NemoFormulae(Nemo):
         :return:
         """
         if error_code == "UnknownCollection":
+            if 'elexicon' in error_message:
+                return None
             return self.render(**{"template": 'main::unknown_collection.html', 'message': error_message,
                     'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()})
         if error_code == "500":

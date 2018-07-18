@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:t="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="t">
     
-    <xsl:strip-space elements="t:p" />
+    <!--<xsl:strip-space elements="t:p" />-->
         
     <!-- glyphs -->
     <xsl:template name="split-refs">
@@ -45,9 +45,9 @@
     
     <xsl:template match="t:w">
         <!-- I may need to add the ability to strip space from <p> tags if this produces too much space once we start exporting form CTE -->
-        <xsl:if test="not(preceding-sibling::node()[1][self::text()])">
+        <!--<xsl:if test="not(preceding-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
-        </xsl:if>        
+        </xsl:if> -->       
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="parent::t:seg[@type='font-style:underline;']"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="parent::t:seg[@type='font-style:italic;']"><xsl:text> font-italic</xsl:text></xsl:if>
