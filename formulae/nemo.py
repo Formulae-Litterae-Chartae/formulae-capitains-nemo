@@ -73,7 +73,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.register_error_handler(404, self.e_not_found_error)
-        # self.app.register_error_handler(500, self.e_internal_error)
+        self.app.register_error_handler(500, self.e_internal_error)
         self.app.before_request(self.before_request)
 
     def create_blueprint(self):
@@ -430,17 +430,16 @@ class NemoFormulae(Nemo):
         return str(xslt(etree.fromstring(text)))
 
     def e_not_found_error(self, error):
-        print(request.path)
-        return "404 Error!"
+        response = "<h4>{}</h4>".format(_('The URL you were looking for was not found'))
+        return self.r_display_error(404, response)
 
     def e_internal_error(self, error):
-        db.session.rollback()
-        response = ""
-        return self.r_display_error(error_code="500", error_message=response)
+        response = "<h4>{}</h4><p>{}</p>".format(_('An unexpected error has occurred'),
+                                                 _('The administrator has been notified. Sorry for the inconvenience!'))
+        return self.r_display_error(error_code=500, error_message=response)
 
     def e_unknown_collection_error(self, error):
         response = error.args[0].strip("\"'").split()[0]
-        print(request.endpoint)
         return self.r_display_error(error_code="UnknownCollection", error_message=response)
 
     def r_display_error(self, error_code, error_message):
@@ -450,12 +449,11 @@ class NemoFormulae(Nemo):
         :param error_message: the message from the error
         :return:
         """
+        index_anchor = '<a href="/">{}</a>'.format(_('Back to Home'))
         if error_code == "UnknownCollection":
             if 'elexicon' in error_message:
                 return None
             return self.render(**{"template": 'main::unknown_collection.html', 'message': error_message,
                     'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()})
-        if error_code == "500":
-            return self.render(**{"template": 'main::500.html', 'url': {'error': '500'}}), 500
-        if error_code == "404":
-            return self.render(**{"template": 'main::404.html', 'message': error_message, 'url': dict()})
+        if error_code in (500, 404):
+            return "{}<p>{}</p>".format(error_message, index_anchor), error_code
