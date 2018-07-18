@@ -451,9 +451,7 @@ class NemoFormulae(Nemo):
         """
         index_anchor = '<a href="/">{}</a>'.format(_('Back to Home'))
         if error_code == "UnknownCollection":
-            if 'elexicon' in error_message:
-                return None
             return self.render(**{"template": 'main::unknown_collection.html', 'message': error_message,
-                    'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()})
+                    'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()}), 404
         if error_code in (500, 404):
             return "{}<p>{}</p>".format(error_message, index_anchor), error_code
