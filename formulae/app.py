@@ -12,6 +12,7 @@ from elasticsearch import Elasticsearch
 from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
+from flask_mail import Mail
 from werkzeug.contrib.cache import FileSystemCache
 from .dispatcher_builder import organizer
 
@@ -27,6 +28,7 @@ flask_app.elasticsearch = Elasticsearch(flask_app.config['ELASTICSEARCH_URL']) \
     if flask_app.config['ELASTICSEARCH_URL'] else None
 bootstrap = Bootstrap(flask_app)
 babel = Babel(flask_app, default_locale='de')
+mail = Mail(flask_app)
 resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'],
                                dispatcher=organizer,
                                cache=FileSystemCache(flask_app.config['CACHE_DIRECTORY']))

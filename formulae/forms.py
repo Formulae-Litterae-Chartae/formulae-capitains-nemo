@@ -39,3 +39,14 @@ class SearchForm(FlaskForm):
         if 'csrf_enabled' not in kwargs:
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
+
+
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    submit = SubmitField(_l('Request Password Reset'))
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField(_l('New Password'), validators=[DataRequired()])
+    password2 = PasswordField(_l('Repeat New Password'), validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField(_l('Request Password Reset'))
