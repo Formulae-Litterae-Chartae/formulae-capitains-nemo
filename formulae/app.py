@@ -68,7 +68,8 @@ nemo = NemoFormulae(
     transform={"default": "components/epidoc.xsl",
                "notes": "components/extract_notes.xsl"},
     templates={"main": "templates/main",
-               "errors": "templates/errors"},
+               "errors": "templates/errors",
+               "auth": "templates/auth"},
     pdf_folder="pdf_folder/"
 )
 

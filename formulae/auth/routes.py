@@ -31,7 +31,7 @@ def r_login():
         if not next_page or url_parse(next_page).netloc != '':
             return redirect(url_for('InstanceNemo.r_index'))
         return redirect(next_page)
-    return nemo.render(template='main::login.html', title=_('Sign In'), forms=[form], purpose='login', url=dict())
+    return nemo.render(template='auth::login.html', title=_('Sign In'), forms=[form], purpose='login', url=dict())
 
 
 @bp.route('/logout')
@@ -72,7 +72,7 @@ def r_user(username):
         return redirect(url_for('auth.r_user', username=username))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
-    return nemo.render(template="main::login.html", title=_("Edit Profile"),
+    return nemo.render(template="auth::login.html", title=_("Edit Profile"),
                        forms=[password_form, language_form], username=username, purpose='user', url=dict())
 
 
@@ -91,7 +91,7 @@ def r_reset_password_request():
             send_password_reset_email(user)
         flash(_('Check your email for the instructions to reset your password'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='main::reset_password_request.html', title=_('Reset Password'), form=form, url=dict())
+    return nemo.render(template='auth::reset_password_request.html', title=_('Reset Password'), form=form, url=dict())
 
 
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
@@ -113,4 +113,4 @@ def r_reset_password(token):
         db.session.commit()
         flash(_('Your password has been reset.'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='main::reset_password.html', title=_('Reset Your Password'), form=form, url=dict())
+    return nemo.render(template='auth::reset_password.html', title=_('Reset Your Password'), form=form, url=dict())
