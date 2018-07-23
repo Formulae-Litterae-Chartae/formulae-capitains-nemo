@@ -21,7 +21,7 @@
     {% set prev_reffs = subreference %}
 {% endif %}
 {{ proj_team }}
-<a href="{{ url_for('.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
+<a href="{{ url_for('InstanceNemo.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
   {{ _('Add another text') }}
 </a>
 <!-- THE TEXTS -->

@@ -13,7 +13,7 @@
             <br>
             <p>
                 {{ _('Forgot Your Password?') }}
-                <a href="{{ url_for('.r_reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+                <a href="{{ url_for('auth.r_reset_password_request') }}">{{ _('Click to Reset It') }}</a>
             </p>
             {% endif %}
         </div>

@@ -5,9 +5,9 @@
 {% if not prev_texts %}
 {% set prev_texts = '' %}
 {% set prev_reffs = '' %}
-{% set coll_route = '.r_collection' %}
+{% set coll_route = 'InstanceNemo.r_collection' %}
 {% else %}
-{% set coll_route = '.r_add_text_collection' %}
+{% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
 <header>
         <h1>
@@ -26,7 +26,7 @@
             <div class="card">
                 <div class="card-header">[{{coll.lang}}] {{ coll.label }}</div>
                 <div class="card-body text-center">
-                    <a class="card-link" href="{{url_for('.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ _('Read') }}</a>
+                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ _('Read') }}</a>
                 </div>
             </div>
         </div>

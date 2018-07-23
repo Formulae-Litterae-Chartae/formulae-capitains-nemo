@@ -10,7 +10,7 @@
     {% endif %}
     {% for post in posts %}
         <div class="card">
-            <a class="card-header py-0 text-center" href="{{ url_for('.r_multipassage', objectIds=post['id'], subreferences='1') }}">
+            <a class="card-header py-0 text-center" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='1') }}">
                 {{ post['info']['title'] }}
             </a>
             <div class="card-body py-0">
