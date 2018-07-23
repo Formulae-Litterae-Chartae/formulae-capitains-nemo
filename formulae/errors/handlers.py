@@ -27,7 +27,7 @@ def r_display_error(error_code, error_message):
     from formulae.app import nemo
     index_anchor = '<a href="/">{}</a>'.format(_('Back to Home'))
     if error_code == "UnknownCollection":
-        return nemo.render(**{"template": 'main::unknown_collection.html', 'message': error_message,
+        return nemo.render(**{"template": 'errors::unknown_collection.html', 'message': error_message,
                 'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()}), 404
     if error_code in (500, 404):
         return "{}<p>{}</p>".format(error_message, index_anchor), error_code
