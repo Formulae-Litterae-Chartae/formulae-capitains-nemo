@@ -282,3 +282,14 @@ nav .dropdown:hover .dropdown-menu {
 .navbar-dark label {
     color: rgba(255,255,255,.75);
 }
+
+#right-sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+}
+
+.note-card {
+    max-height: 30vh;
+    overflow: auto;
+}
