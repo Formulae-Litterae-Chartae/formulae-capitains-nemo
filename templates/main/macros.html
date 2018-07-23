@@ -1,6 +1,6 @@
 {% macro single_ref(objectId, subreference, human_reff) -%}
     <li class="col-md-1">
-        <a href="{{url_for('.r_passage', objectId=objectId, subreference=subreference)}}">{{ human_reff }}</a>
+        <a href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=subreference)}}">{{ human_reff }}</a>
     </li>
 {%- endmacro %}
 

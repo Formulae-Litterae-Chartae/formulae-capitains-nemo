@@ -1,20 +1,18 @@
-from flask import flash, url_for, Markup, request, g, session, render_template
-from flask_login import current_user, login_user, logout_user, login_required
+from flask import url_for, Markup, request, g, session
+from flask_login import current_user, login_required
 from flask_babel import _, refresh
 from werkzeug.utils import redirect
-from werkzeug.urls import url_parse
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from math import ceil
-from .app import db, resolver
-from .forms import LoginForm, PasswordChangeForm, SearchForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm
+from .app import resolver
+from .forms import SearchForm
 from lxml import etree
-from .models import User
 from .search import query_index
-from .email import send_password_reset_email
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
+from .auth import bp as auth_bp
 
 
 class NemoFormulae(Nemo):
@@ -25,16 +23,11 @@ class NemoFormulae(Nemo):
         ("/collections/<objectId>", "r_collection", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
-        ("/login", "r_login", ["GET", "POST"]),
-        ("/logout", "r_logout", ["GET"]),
-        ("/user/<username>", "r_user", ["GET", "POST"]),
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/search", "r_search", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"]),
-        ("/reset_password_request", "r_reset_password_request", ["GET", "POST"]),
-        ("/reset_password/<token>", "r_reset_password", ["GET", "POST"])
+        ("/lang", "r_set_language", ["GET", "POST"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -63,7 +56,7 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_user", "r_search"
+        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_search"
     ]
 
     OPEN_COLLECTIONS = []
@@ -78,6 +71,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
+        self.app.register_blueprint(auth_bp, url_prefix="/auth")
         self.app.before_request(self.before_request)
 
     def create_blueprint(self):
@@ -299,63 +293,6 @@ class NemoFormulae(Nemo):
         d['template'] = 'main::lexicon_modal.html'
         return d
 
-    def r_login(self):
-        """ login form
-
-        :return: template, page title, forms
-        :rtype: {str: Any}
-        """
-        if current_user.is_authenticated:
-            return redirect(url_for('.r_index'))
-        form = LoginForm()
-        if form.validate_on_submit():
-            user = User.query.filter_by(username=form.username.data).first()
-            if user is None or not user.check_password(form.password.data):
-                flash(_('Invalid username or password'))
-                return redirect(url_for('.r_login'))
-            login_user(user, remember=form.remember_me.data)
-            next_page = request.args.get('next')
-            if not next_page or url_parse(next_page).netloc != '':
-                return redirect(url_for('.r_index'))
-            return redirect(next_page)
-        return {'template': 'main::login.html', 'title': _('Sign In'), 'forms': [form], 'purpose': 'login'}
-
-    def r_logout(self):
-        """ user logout
-
-        :return: redirect to login page
-        """
-        logout_user()
-        return redirect(url_for('.r_login'))
-
-    def r_user(self, username):
-        """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
-
-        :return: template, page title, forms
-        :rtype: {str: Any}
-        """
-        password_form = PasswordChangeForm()
-        if password_form.validate_on_submit():
-            user = User.query.filter_by(username=username).first_or_404()
-            if not user.check_password(password_form.old_password.data):
-                flash(_("This is not your existing password."))
-                return redirect(url_for('.r_user'))
-            user.set_password(password_form.password.data)
-            db.session.add(user)
-            db.session.commit()
-            flash(_("You have successfully changed your password."))
-            return redirect(url_for('.r_login'))
-        language_form = LanguageChangeForm()
-        if language_form.validate_on_submit():
-            current_user.default_locale = language_form.new_locale.data
-            db.session.commit()
-            flash(_("You have successfully changed your default language."))
-            return redirect(url_for('.r_user', username=username))
-        elif request.method == 'GET':
-            language_form.new_locale.data = current_user.default_locale
-        return {'template': "main::login.html", "title": _("Edit Profile"),
-                "forms": [password_form, language_form], "username": username, 'purpose': 'user'}
-
     def r_search(self):
         if not g.search_form.validate():
             return redirect(url_for('.r_index'))
@@ -433,37 +370,3 @@ class NemoFormulae(Nemo):
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
-
-    def r_reset_password_request(self):
-        """ Route for password reset request
-
-        """
-        if current_user.is_authenticated:
-            return redirect(url_for('.r_index'))
-        form = ResetPasswordRequestForm()
-        if form.validate_on_submit():
-            user = User.query.filter_by(email=form.email.data).first()
-            if user:
-                send_password_reset_email(user)
-            flash(_('Check your email for the instructions to reset your password'))
-            return redirect(url_for('.r_login'))
-        return {'template': 'main::reset_password_request.html', 'title': _('Reset Password'), 'form': form}
-
-    def r_reset_password(self, token):
-        """ Route for the actual resetting of the password
-
-        :param token: the token that was previously sent to the user through the r_reset_password_request route
-        :return: template, form
-        """
-        if current_user.is_authenticated:
-            return redirect(url_for('.r_index'))
-        user = User.verify_reset_password_token(token)
-        if not user:
-            return redirect(url_for('.r_index'))
-        form = ResetPasswordForm()
-        if form.validate_on_submit():
-            user.set_password(form.password.data)
-            db.session.commit()
-            flash(_('Your password has been reset.'))
-            return redirect(url_for('.r_login'))
-        return {'template': 'main::reset_password.html', 'title': _('Reset Your Password'), 'form': form}
