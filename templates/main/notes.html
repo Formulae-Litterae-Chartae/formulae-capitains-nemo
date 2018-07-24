@@ -35,7 +35,9 @@
                         <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Show all notes for this text') }}">&#8853;</button>
                     </div>
                 </div>
+                <div class="note-card">
                     {{ text.notes }}
+                </div>
             {% endif %}
             {% endfor %}
         {% else %}
