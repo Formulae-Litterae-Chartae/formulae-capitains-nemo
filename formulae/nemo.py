@@ -7,12 +7,10 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from math import ceil
-from .app import resolver
 from .forms import SearchForm
 from lxml import etree
 from .search import query_index
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
-from .auth import bp as auth_bp
 
 
 class NemoFormulae(Nemo):
@@ -56,7 +54,8 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_search"
+        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_search", "r_lexicon",
+        "r_add_text_collections", "r_add_text_collection"
     ]
 
     OPEN_COLLECTIONS = []
@@ -71,7 +70,6 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
-        self.app.register_blueprint(auth_bp, url_prefix="/auth")
         self.app.before_request(self.before_request)
 
     def create_blueprint(self):
@@ -270,7 +268,7 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             if subrefers[i] == "first":
-                subref = resolver.getReffs(textId=id)[0]
+                subref = self.resolver.getReffs(textId=id)[0]
             else:
                 subref = subrefers[i]
             d = self.r_passage(id, subref, lang=lang)
