@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-stylesheet type="text/css" href="format.css"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>FORMULA ANDECAVENSIS 1</title>
+            <author/>
+            <editor>Christoph Walther</editor>
+         </titleStmt>
+         <editionStmt>
+            <edition>2017-04-06</edition>
+         </editionStmt>
+         <publicationStmt>
+            <publisher/>
+            <distributor/>
+            <date/>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                                Distributed under a Creative Commons Attribution 4.0 International License.
+                            </licence>
+            </availability>
+         </publicationStmt>
+         <seriesStmt>
+            <title level="s"/>
+            <biblScope unit="vol"/>
+         </seriesStmt>
+         <sourceDesc>
+            <p/>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="formula" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pattern extracts the whole formula</p>
+            </cRefPattern>
+         </refsDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:lang="lat" n="urn:cts:formulae:andecavensis.form001.lat001">
+            <div type="textpart" subtype="formula" n="1">
+               <p xml:space="preserve">Some Text</p>
+               </div>
+         </div>
+      </body>
+   </text>
+</TEI>

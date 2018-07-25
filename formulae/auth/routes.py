@@ -7,7 +7,7 @@ from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPassw
 from formulae.models import User
 from .email import send_password_reset_email
 from formulae.auth import bp
-from formulae.app import db
+from formulae import db
 
 
 @bp.route('/login', methods=['GET', 'POST'])
