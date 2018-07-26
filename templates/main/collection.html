@@ -113,7 +113,7 @@
                             aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">{{ collections.current.label }} {{ loop.index }} - {{ loopend }}</h6>
                             <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">
         {% endif %}
-                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: {{ _('Browse') }} ({{coll.size}})</a></p>
+                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}: <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse') }} ({{coll.size}})</a></p>
         {% if loop.index % 10 == 0 and not loop.last %}
                             </div>
                         </li>
