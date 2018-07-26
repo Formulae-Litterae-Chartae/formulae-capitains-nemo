@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         xmlns:dct="http://purl.org/dc/terms/"
+         xmlns:cpt="http://purl.org/capitains/ns/1.0#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         groupUrn="urn:cts:formulae:stgallen"
+         urn="urn:cts:formulae:stgallen.wartmann0001"
+         xml:lang="lat">
+   <ti:title xml:lang="deu">St. Gallen Urkunden, Wartmann Nummer 1   </ti:title>
+   <ti:edition workUrn="urn:cts:formulae:stgallen.wartmann0001"
+               urn="urn:cts:formulae:stgallen.wartmann0001.lat001">
+      <ti:label xml:lang="deu">Digital Transcription der St. Gallen Urkunden, aus Urkundenbuch der Abtei Sanct Gallen Theil 1., Jahr 700 - 840, von Wartmann, Hermann, Zürich, 1863</ti:label>
+      <ti:description xml:lang="deu">Herzog Gottfried von Alamannien gibt den Ort Biberburg am Neckar an Sanct Gallen.</ti:description>
+      <cpt:structured-metadata xml:lang="deu">
+         <dc:title>Urkundenbuch der Abtei Sanct Gallen Theil 1., Jahr 700 - 840, Nummer 1 (1)</dc:title>
+         <dc:contributor>Pr. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Tabea Henn (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Matthew Munson</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:editor>Wartmann, Hermann</dc:editor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:source>http://d-nb.info/810983249</dc:source>
+         <dc:language>Latein</dc:language>
+         <dc:language>Deutsch</dc:language>
+         <dc:format>text/xml-tei</dc:format>
+         <dc:date>
+            <dct:created>2018</dct:created>
+         </dc:date>
+      </cpt:structured-metadata>
+   </ti:edition>
+</ti:work>

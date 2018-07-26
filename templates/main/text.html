@@ -11,12 +11,12 @@
 
 {% macro nav() %}
     {% if prev %}
-    <a class="btn btn-xs btn-primary" href="{{url_for('.r_passage', objectId=objectId, subreference=prev) }}">
+    <a class="btn btn-xs btn-primary" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=prev) }}">
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     {% endif %}
     {% if next %}
-    <a class="btn btn-xs btn-primary" href="{{url_for('.r_passage', objectId=objectId, subreference=next) }}">
+    <a class="btn btn-xs btn-primary" href="{{url_for('InstanceNemo.r_passage', objectId=objectId, subreference=next) }}">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
     {% endif %}
@@ -60,6 +60,6 @@
 {% block pdfs %}
 {% set path = 'images/' ~ objectId ~ '.pdf' %}
 <div class="embed-responsive embed-responsive-1by1">
-<object data="{{url_for('.static', filename=path)}}" class="embed-responsive-item"></object>
+<object data="{{url_for('InstanceNemo.static', filename=path)}}" class="embed-responsive-item"></object>
 </div>
 {% endblock %}
