@@ -1,0 +1,27 @@
+{% extends main::container.html %}
+
+{% block article %}
+        <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
+        <div class="row justify-content-md-center">
+            <div class="col-9">
+                <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
+                <br/>
+            </div>
+        </div>
+        <!-- 2d row = search entries. -->
+        <form action="{{ url_for('InstanceNemo.search') }}" method="post">
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <div class="form-group">
+                        {{ form.corpus(class="form-control my-0", placeholder=g.search_form.q.label.text) }}
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <p>{{ form.corpus(class="form-control my-0", placeholder=g.search_form.q.label.text) }}</p>
+                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ g.search_form.lemma_search() }} <span class="align-top">{{ g.search_form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ g.search_form.fuzzy_search() }} <span class="align-top">{{ g.search_form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ g.search_form.phrase_search() }} <span class="align-top">{{ g.search_form.phrase_search.label }}</span></span></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+{% endblock %}

@@ -84,7 +84,6 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
             self.assertMessageFlashed('Please log in to access this page.')
             self.assertTemplateUsed('auth::login.html')
-            c.get('/auth/login', follow_redirects=True)
 
     def test_authorized_user(self):
         """ Make sure that all routes are open to authorized users"""
