@@ -7,7 +7,7 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from math import ceil
-from .forms import SearchForm
+from .forms import SearchForm, AdvancedSearchForm
 from lxml import etree
 from .search import query_index
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
@@ -25,7 +25,8 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/search", "r_search", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"])
+        ("/lang", "r_set_language", ["GET", "POST"]),
+        ("/advanced_search", "r_advanced_search", ["GET", "POST"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -55,7 +56,7 @@ class NemoFormulae(Nemo):
 
     PROTECTED = [
         "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_search", "r_lexicon",
-        "r_add_text_collections", "r_add_text_collection"
+        "r_add_text_collections", "r_add_text_collection", "r_advanced_search"
     ]
 
     OPEN_COLLECTIONS = []
@@ -358,6 +359,14 @@ class NemoFormulae(Nemo):
                 "first_url": first_url, "last_url": last_url, "current_page": page,
                 "search_string": g.search_form.q.data}
 
+    def r_advanced_search(self):
+        form = AdvancedSearchForm()
+        if form.validate_on_submit():
+            self.r_search()
+        colls = self.get_all_corpora()
+        form.corpus.choices = [(x['id'], x['label']) for y in colls.values() for x in y]
+        return {'template': 'main::advanced_search.html', }
+
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
         rendered anywhere on the page and not only where they occur in the text.
@@ -368,3 +377,13 @@ class NemoFormulae(Nemo):
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
+
+    def get_all_corpora(self):
+        """ A convenience function to return all sub-corpora in all collections
+
+        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+        """
+        colls = {}
+        for member in self.make_members(self.resolver.getMetadata(), lang=None):
+            colls[member['semantic'].title()] = self.make_members(self.resolver.getMetadata(member['id']))
+        return colls
