@@ -1,0 +1,11 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         groupUrn="urn:cts:formulae:elexicon"
+         xml:lang="deu"
+         urn="urn:cts:formulae:elexicon.abbas_abbatissa">
+   <ti:title xml:lang="lat">Abbas abbatissa</ti:title>
+   <ti:edition urn="urn:cts:formulae:elexicon.abbas_abbatissa.deu001"
+               workUrn="urn:cts:formulae:elexicon.abbas_abbatissa">
+      <ti:label xml:lang="lat">Abbas abbatissa</ti:label>
+      <ti:description xml:lang="lat">Abbas abbatissa</ti:description>
+   </ti:edition>
+</ti:work>

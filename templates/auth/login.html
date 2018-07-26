@@ -9,6 +9,13 @@
         <div class="col-auto">
             <h5>{{ form.title }}</h5>
             {{ wtf.quick_form(form, button_map={'submit': 'outline-secondary'}) }}
+            {% if purpose == 'login' %}
+            <br>
+            <p>
+                {{ _('Forgot Your Password?') }}
+                <a href="{{ url_for('auth.r_reset_password_request') }}">{{ _('Click to Reset It') }}</a>
+            </p>
+            {% endif %}
         </div>
         {% endfor %}
 </div>

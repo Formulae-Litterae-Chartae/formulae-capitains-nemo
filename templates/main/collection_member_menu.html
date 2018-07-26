@@ -33,7 +33,7 @@
                 </div>
                 </div>
             </div>
-        <a class="dropdown-item" href="{{url_for('.r_collection_semantic', objectId=c.id, semantic=c.label|slugify)}}">- {{c.label}}</a>
+        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection_semantic', objectId=c.id, semantic=c.label|slugify)}}">- {{c.label}}</a>
         {% endfor %}
         </div>
       </div>
