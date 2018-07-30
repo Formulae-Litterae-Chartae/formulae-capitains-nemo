@@ -1,6 +1,6 @@
 from flask import flash, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
-from flask_babel import _
+from flask_babel import _, refresh
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm
@@ -68,6 +68,7 @@ def r_user(username):
     if language_form.validate_on_submit():
         current_user.default_locale = language_form.new_locale.data
         db.session.commit()
+        refresh()
         flash(_("You have successfully changed your default language."))
         return redirect(url_for('auth.r_user', username=username))
     elif request.method == 'GET':
