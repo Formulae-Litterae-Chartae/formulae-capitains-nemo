@@ -3,8 +3,9 @@ from flask_wtf import FlaskForm
 from flask_babel import lazy_gettext as _l
 from flask_babel import _
 from wtforms import StringField, BooleanField, SelectMultipleField, IntegerField, SelectField, SubmitField
-from wtforms.validators import DataRequired, NumberRange, Optional, ValidationError
+from wtforms.validators import DataRequired, ValidationError
 from wtforms.widgets import CheckboxInput
+
 
 def validate_optional_number_range(min=-1, max=-1, message=None):
     """ Allows the validation of integer fields with a required number range but that are also optional
@@ -21,6 +22,7 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
                 raise ValidationError(message)
 
     return _length
+
 
 class SearchForm(FlaskForm):
     q = StringField(_l('Search'), validators=[DataRequired()])
