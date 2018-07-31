@@ -25,7 +25,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  app=app, base_url="",
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
-                                            "auth": "templates/auth"},
+                                            "auth": "templates/auth",
+                                            "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
         return app
 
@@ -191,7 +192,6 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), "Invalid corpus choice should not validate")
         form = AdvancedSearchForm(year=200)
         self.assertFalse(form.validate(), "Invalid year choice should not validate")
-        print(form.errors)
         form = AdvancedSearchForm(month="weird")
         self.assertFalse(form.validate(), "Invalid month choice should not validate")
         form = AdvancedSearchForm(day=32)
