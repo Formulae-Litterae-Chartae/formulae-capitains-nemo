@@ -1,4 +1,4 @@
-from flask import url_for, Markup, request, g, session
+from flask import url_for, Markup, request, g, session, flash
 from flask_login import current_user, login_required
 from flask_babel import _, refresh
 from werkzeug.utils import redirect
@@ -26,7 +26,7 @@ class NemoFormulae(Nemo):
         ("/search", "r_search", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang", "r_set_language", ["GET", "POST"]),
-        ("/advanced_search", "r_advanced_search", ["GET", "POST"])
+        ("/advanced_search", "r_advanced_search", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -293,7 +293,7 @@ class NemoFormulae(Nemo):
         return d
 
     def r_search(self):
-        if not g.search_form.validate():
+        if not g.search_form.validate() and "advanced_search" not in request.url:
             return redirect(url_for('.r_index'))
         page = request.args.get('page', 1, type=int)
         if request.args.get('fuzzy_search'):
@@ -361,11 +361,16 @@ class NemoFormulae(Nemo):
 
     def r_advanced_search(self):
         form = AdvancedSearchForm()
-        if form.validate_on_submit():
-            self.r_search()
+        data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
+        if form.validate() and data_present:
+            if data_present != ['submit']:
+                return redirect(url_for('.r_search'))
+            flash(_('Please enter data in at least one field.'))
+        for k, m in form.errors.items():
+            flash(k + ': ' + m[0])
         colls = self.get_all_corpora()
-        form.corpus.choices = [(x['id'], x['label']) for y in colls.values() for x in y]
-        return {'template': 'main::advanced_search.html', }
+        form.corpus.choices = form.corpus.choices + [(x['id'], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
+        return {'template': 'main::advanced_search.html', "form": form}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

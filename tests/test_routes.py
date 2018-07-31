@@ -4,7 +4,7 @@ from formulae import create_app, db
 from formulae.nemo import NemoFormulae
 from formulae.models import User, load_user
 import flask_testing
-from formulae.forms import SearchForm
+from formulae.forms import AdvancedSearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm
 from flask_login import current_user, login_user, logout_user
@@ -179,6 +179,28 @@ class TestForms(Formulae_Testing):
         """ Ensure that the password reset form does not validate when the 2 passwords do not match"""
         form = ResetPasswordForm(password='new', password2='wrong')
         self.assertFalse(form.validate())
+
+    def test_validate_success_advanced_search_form(self):
+        """ Ensure that a form with valid data validates"""
+        form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, century=["600-699", "700-799"],
+                                  century_part=["0-49", "50-74"])
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+
+    def test_validate_invalid_advanced_search_form(self):
+        """ Ensure that a form with invalid data does not validate"""
+        form = AdvancedSearchForm(corpus=[('some corpus')])
+        self.assertFalse(form.validate(), "Invalid corpus choice should not validate")
+        form = AdvancedSearchForm(year=200)
+        self.assertFalse(form.validate(), "Invalid year choice should not validate")
+        print(form.errors)
+        form = AdvancedSearchForm(month="weird")
+        self.assertFalse(form.validate(), "Invalid month choice should not validate")
+        form = AdvancedSearchForm(day=32)
+        self.assertFalse(form.validate(), "Invalid day choice should not validate")
+        form = AdvancedSearchForm(century=["200-299", "400-499"])
+        self.assertFalse(form.validate(), "Invalid century choice should not validate")
+        form = AdvancedSearchForm(century_part=["0-24", "25-50"])
+        self.assertFalse(form.validate(), "Invalid century_part choice should not validate")
 
 
 class TestAuth(Formulae_Testing):

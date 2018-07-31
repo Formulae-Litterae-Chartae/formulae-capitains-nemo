@@ -1,27 +1,76 @@
-{% extends main::container.html %}
+{% extends "main::container.html" %}
 
 {% block article %}
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
-        <div class="row justify-content-md-center">
-            <div class="col-9">
-                <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
-                <br/>
-            </div>
-        </div>
+        <form action="" method="get" id="advanced-form">
+            <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
         <!-- 2d row = search entries. -->
-        <form action="{{ url_for('InstanceNemo.search') }}" method="post">
             <div class="row justify-content-center">
-                <div class="col-3">
+                <div class="col-2">
+                    <span title="{{ _('Hold <CTRL> to select multiple corpora') }}"><div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
+                    {% if form.corpus.errors %}
+                    {{ form.corpus(class="form-control my-0 invalid-field", id="corpus-search", size=form.corpus.choices|length) }}
+                    {% else %}
+                    {{ form.corpus(class="form-control my-0", id="corpus-search", size=form.corpus.choices|length) }}
+                    {% endif %}</span>
+                </div>
+                <div class="col-2">
                     <div class="form-group">
-                        {{ form.corpus(class="form-control my-0", placeholder=g.search_form.q.label.text) }}
+                        <div class="text-center mb-2"><strong>{{ _('Search Specific Words') }}</strong></div>
+                        <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
+                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ form.fuzzy_search() }} <span class="align-top">{{ form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ form.phrase_search() }} <span class="align-top">{{ form.phrase_search.label }}</span></span></p>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <p>{{ form.corpus(class="form-control my-0", placeholder=g.search_form.q.label.text) }}</p>
-                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ g.search_form.lemma_search() }} <span class="align-top">{{ g.search_form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ g.search_form.fuzzy_search() }} <span class="align-top">{{ g.search_form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ g.search_form.phrase_search() }} <span class="align-top">{{ g.search_form.phrase_search.label }}</span></span></p>
+                <div class="col-2">
+                    <div class="text-center mb-2"><strong>{{ _('Search a Specific Date') }}</strong></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.year.label }}</div>
+                            {% if form.year.errors %}
+                            {{ form.year(size=4, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.year(size=4, class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.month.label }}</div>
+                            {% if form.month.errors %}
+                            {{ form.month(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.month(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day.label }}</div>
+                            {% if form.day.errors %}
+                            {{ form.day(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day(size=2, class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center mb-2"><strong>{{ _('Search a Date Range') }}</strong></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.century.label }}</div>
+                            {% if form.century.errors %}
+                            {{ form.century(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.century(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.century_part.label }}</div>
+                            {% if form.century_part.errors %}
+                            {{ form.century_part(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.century_part(class="form-control") }}
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
         </form>
 {% endblock %}

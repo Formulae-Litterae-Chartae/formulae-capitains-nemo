@@ -293,3 +293,11 @@ nav .dropdown:hover .dropdown-menu {
     max-height: 30vh;
     overflow: auto;
 }
+
+#advanced-form {
+    width: 100%;
+}
+
+.invalid-field {
+    border-color: #dc3545;
+}
