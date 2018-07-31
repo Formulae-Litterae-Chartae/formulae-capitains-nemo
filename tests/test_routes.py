@@ -2,13 +2,12 @@ from config import Config
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from formulae import create_app, db
 from formulae.nemo import NemoFormulae
-from formulae.models import User, load_user
+from formulae.models import User
 import flask_testing
-from formulae.forms import AdvancedSearchForm
+from formulae.search.forms import AdvancedSearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm
-from flask_login import current_user, login_user, logout_user
-from flask import current_app, g
+from flask_login import current_user
 
 
 class TestConfig(Config):

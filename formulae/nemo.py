@@ -1,4 +1,4 @@
-from flask import url_for, Markup, request, g, session, flash
+from flask import url_for, Markup, g, session
 from flask_login import current_user, login_required
 from flask_babel import _, refresh
 from werkzeug.utils import redirect
@@ -6,10 +6,8 @@ from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
-from math import ceil
-from .forms import SearchForm, AdvancedSearchForm
+from formulae.search.forms import SearchForm
 from lxml import etree
-from .search import query_index
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 
 
@@ -23,10 +21,8 @@ class NemoFormulae(Nemo):
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
-        ("/search", "r_search", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"]),
-        ("/advanced_search", "r_advanced_search", ["GET"])
+        ("/lang", "r_set_language", ["GET", "POST"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -55,8 +51,8 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_search", "r_lexicon",
-        "r_add_text_collections", "r_add_text_collection", "r_advanced_search"
+        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
+        "r_add_text_collections", "r_add_text_collection"
     ]
 
     OPEN_COLLECTIONS = []
@@ -292,86 +288,6 @@ class NemoFormulae(Nemo):
         d['template'] = 'main::lexicon_modal.html'
         return d
 
-    def r_search(self):
-        if not g.search_form.validate() and "advanced_search" not in request.url:
-            return redirect(url_for('.r_index'))
-        page = request.args.get('page', 1, type=int)
-        if request.args.get('fuzzy_search'):
-            fuzziness = 'y'
-        else:
-            fuzziness = 'n'
-        if request.args.get('lemma_search') == 'y':
-            field = 'lemmas'
-        else:
-            field = 'text'
-        # Unlike in the Flask Megatutorial, I need to specifically pass the field name (here 'text') and instead
-        # of 'current_app.config', I can use self.app since that will always be the current_app instance
-        # The index value is ignored for the simple search since all indices are searched
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, self.app.config['POSTS_PER_PAGE'],
-                                   fuzziness, request.args.get('phrase_search'))
-        first_url = url_for('.r_search', q=g.search_form.q.data,
-                           lemma_search=request.args.get('lemma_search'),
-                           page=1,
-                           fuzzy_search=request.args.get('fuzzy_search'),
-                           phrase_search=request.args.get('phrase_search')) \
-            if page > 1 else None
-        next_url = url_for('.r_search', q=g.search_form.q.data,
-                           lemma_search=request.args.get('lemma_search'),
-                           page=page + 1,
-                           fuzzy_search=request.args.get('fuzzy_search'),
-                           phrase_search=request.args.get('phrase_search')) \
-            if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        prev_url = url_for('.r_search', q=g.search_form.q.data,
-                           lemma_search=request.args.get('lemma_search'),
-                           page=page - 1,  fuzzy_search=request.args.get('fuzzy_search'),
-                           phrase_search=request.args.get('phrase_search')) \
-            if page > 1 else None
-        total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
-        page_urls = []
-        if total_pages > 12:
-            page_urls.append((1, url_for('.r_search', q=g.search_form.q.data,
-                               lemma_search=request.args.get('lemma_search'),
-                               page=1,  fuzzy_search=request.args.get('fuzzy_search'),
-                               phrase_search=request.args.get('phrase_search'))))
-            # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
-            for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
-                page_urls.append((page_num, url_for('.r_search', q=g.search_form.q.data,
-                               lemma_search=request.args.get('lemma_search'),
-                               page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
-                               phrase_search=request.args.get('phrase_search'))))
-            page_urls.append((total_pages, url_for('.r_search', q=g.search_form.q.data,
-                               lemma_search=request.args.get('lemma_search'),
-                               page=total_pages,  fuzzy_search=request.args.get('fuzzy_search'),
-                               phrase_search=request.args.get('phrase_search'))))
-        else:
-            for page_num in range(1, total_pages + 1):
-                page_urls.append((page_num, url_for('.r_search', q=g.search_form.q.data,
-                               lemma_search=request.args.get('lemma_search'),
-                               page=page_num,  fuzzy_search=request.args.get('fuzzy_search'),
-                               phrase_search=request.args.get('phrase_search'))))
-        last_url = url_for('.r_search', q=g.search_form.q.data,
-                           lemma_search=request.args.get('lemma_search'),
-                           page=total_pages,  fuzzy_search=request.args.get('fuzzy_search'),
-                           phrase_search=request.args.get('phrase_search')) \
-            if total > page * self.app.config['POSTS_PER_PAGE'] else None
-        return {'template': 'main::search.html', 'title': _('Search'), 'posts': posts,
-                'next_url': next_url, 'prev_url': prev_url, 'page_urls': page_urls,
-                "first_url": first_url, "last_url": last_url, "current_page": page,
-                "search_string": g.search_form.q.data}
-
-    def r_advanced_search(self):
-        form = AdvancedSearchForm()
-        data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
-        if form.validate() and data_present:
-            if data_present != ['submit']:
-                return redirect(url_for('.r_search'))
-            flash(_('Please enter data in at least one field.'))
-        for k, m in form.errors.items():
-            flash(k + ': ' + m[0])
-        colls = self.get_all_corpora()
-        form.corpus.choices = form.corpus.choices + [(x['id'], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
-        return {'template': 'main::advanced_search.html', "form": form}
-
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
         rendered anywhere on the page and not only where they occur in the text.
@@ -382,13 +298,3 @@ class NemoFormulae(Nemo):
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
-
-    def get_all_corpora(self):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        colls = {}
-        for member in self.make_members(self.resolver.getMetadata(), lang=None):
-            colls[member['semantic'].title()] = self.make_members(self.resolver.getMetadata(member['id']))
-        return colls
