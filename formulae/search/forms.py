@@ -39,8 +39,8 @@ class SearchForm(FlaskForm):
 
 
 class AdvancedSearchForm(SearchForm):
-    q = StringField(_l('Search'))  # query string is not necessary here since someone might want to search on other criteria
-    corpus = SelectMultipleField(_l('Search Specific Corpora'), option_widget=CheckboxInput, choices=[('all', 'All')])
+    q = StringField(_l('Search'))  # query string is not DataRequired here since someone might want to search on other criteria
+    corpus = SelectMultipleField(_l('Search Specific Corpora'))
     year = IntegerField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
                                                                                message=_('The year must be between 500 and 1000'))],
                         default=0)
@@ -51,7 +51,27 @@ class AdvancedSearchForm(SearchForm):
     day = IntegerField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
                                                                              message=_('Day must be between 1 and 31'))],
                        default=0)
-    century = SelectMultipleField(_l('Century'), choices=[('300-399', _l('4th')), ('400-499', _l('5th')),
+    year_start = IntegerField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
+                                                                               message=_('The year must be between 500 and 1000'))],
+                        default=0)
+    month_start = SelectField(_l('Month'), choices=[('none', '...'), ('01', _l('Jan')), ('02', _l('Feb')), ('03', _l('Mar')),
+                                              ('04', _l('Apr')), ('05', _l('May')), ('06', _l('Jun')),
+                                              ('07', _l('Jul')), ('08', _l('Aug')), ('09', _l('Sep')),
+                                              ('10', _l('Oct')), ('11', _l('Nov')), ('12', _l('Dec'))], default='none')
+    day_start = IntegerField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
+                                                                             message=_('Day must be between 1 and 31'))],
+                       default=0)
+    year_end = IntegerField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
+                                                                               message=_('The year must be between 500 and 1000'))],
+                        default=0)
+    month_end = SelectField(_l('Month'), choices=[('none', '...'), ('01', _l('Jan')), ('02', _l('Feb')), ('03', _l('Mar')),
+                                              ('04', _l('Apr')), ('05', _l('May')), ('06', _l('Jun')),
+                                              ('07', _l('Jul')), ('08', _l('Aug')), ('09', _l('Sep')),
+                                              ('10', _l('Oct')), ('11', _l('Nov')), ('12', _l('Dec'))], default='none')
+    day_end = IntegerField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
+                                                                             message=_('Day must be between 1 and 31'))],
+                       default=0)
+    """century = SelectMultipleField(_l('Century'), choices=[('300-399', _l('4th')), ('400-499', _l('5th')),
                                                           ('500-599', _l('6th')), ('600-699', _l('7th')),
                                                           ('700-799', _l('8th')), ('800-899', _l('9th')),
                                                           ('900-999', _l('10th')), ('1000-1099', _l('11th'))])
@@ -60,7 +80,7 @@ class AdvancedSearchForm(SearchForm):
                                                                     ('0-24', _l('First Quarter (00-24)')),
                                                                     ('25-49', _l('Second Quarter (25-49)')),
                                                                     ('50-74', _l('Third Quarter (50-74)')),
-                                                                    ('75-99', _l('Fourth Quarter (75-99)'))])
+                                                                    ('75-99', _l('Fourth Quarter (75-99)'))])"""
     formulae = BooleanField('Formulae')
     chartae = BooleanField('Chartae')
     litterae = BooleanField('Litterae')
