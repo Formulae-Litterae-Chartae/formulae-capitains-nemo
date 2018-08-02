@@ -10,9 +10,7 @@ from formulae.search import bp
 @bp.route("/simple", methods=["GET"])
 @login_required
 def r_simple_search():
-    if not g.search_form.validate():
-        print('early')
-        return redirect(url_for('InstanceNemo.r_index'))
+    if not g.search_form.validate():sudo
     return redirect(url_for('.r_results', source='simple', **request.args))
 
 
@@ -21,8 +19,8 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
+    # This means that someone simply naviageted to the /results page without any search parameters
     if not source:
-        print('later')
         return redirect(url_for('InstanceNemo.r_index'))
     page = request.args.get('page', 1, type=int)
     if request.args.get('fuzzy_search'):
@@ -40,12 +38,12 @@ def r_results():
                                    fuzziness, request.args.get('phrase_search'))
         search_args = {"q": g.search_form.q.data, "lemma_search": request.args.get('lemma_search'),
                        "fuzzy_search": request.args.get('fuzzy_search'),
-                       "phrase_search": request.args.get('phrase_search')}
+                       "phrase_search": request.args.get('phrase_search'), 'source': 'simple'}
     else:
         # Point to a new function in .Search here to deal with more complex searches
         search_args = {'q': request.args.get('q'), "lemma_search": request.args.get('lemma_search'),
                        "fuzzy_search": request.args.get('fuzzy_search'),
-                       "phrase_search": request.args.get('phrase_search')}
+                       "phrase_search": request.args.get('phrase_search'), 'source': 'advanced'}
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
@@ -74,6 +72,8 @@ def r_results():
 def r_advanced_search():
     from formulae.app import nemo
     form = AdvancedSearchForm()
+    colls = get_all_corpora()
+    form.corpus.choices = [('all', 'All')] + [(x['id'], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
     if form.validate() and data_present:
         if data_present != ['submit']:
@@ -81,8 +81,6 @@ def r_advanced_search():
         flash(_('Please enter data in at least one field.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    colls = get_all_corpora()
-    form.corpus.choices = form.corpus.choices + [(x['id'], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
     return nemo.render(template='search::advanced_search.html', form=form, url=dict())
 
 

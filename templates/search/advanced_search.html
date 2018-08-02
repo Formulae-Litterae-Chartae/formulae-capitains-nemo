@@ -7,12 +7,10 @@
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <span title="{{ _('Hold <CTRL> to select multiple corpora') }}"><div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
-                    {% if form.corpus.errors %}
-                    {{ form.corpus(class="form-control my-0 invalid-field", id="corpus-search", size=form.corpus.choices|length) }}
-                    {% else %}
-                    {{ form.corpus(class="form-control my-0", id="corpus-search", size=form.corpus.choices|length) }}
-                    {% endif %}</span>
+                    <div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
+                    {% for choice in form.corpus.choices %}
+                        <p class="my-0" ><input id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</p>
+                    {% endfor %}
                 </div>
                 <div class="col-2">
                     <div class="form-group">
@@ -51,21 +49,57 @@
                     </div>
                     <br>
                     <div class="text-center mb-2"><strong>{{ _('Search a Date Range') }}</strong></div>
+                    <div class="text-center"><em>{{ _('From') }}</em></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
-                            <div class="text-center">{{ form.century.label }}</div>
-                            {% if form.century.errors %}
-                            {{ form.century(class="invalid-field form-control") }}
+                            <div class="text-center">{{ form.year_start.label }}</div>
+                            {% if form.year_start.errors %}
+                            {{ form.year_start(size=4, class="invalid-field form-control") }}
                             {% else %}
-                            {{ form.century(class="form-control") }}
+                            {{ form.year_start(size=4, class="form-control") }}
                             {% endif %}
                         </div>
                         <div class="form-group">
-                            <div class="text-center">{{ form.century_part.label }}</div>
-                            {% if form.century_part.errors %}
-                            {{ form.century_part(class="invalid-field form-control") }}
+                            <div class="text-center">{{ form.month_start.label }}</div>
+                            {% if form.month_start.errors %}
+                            {{ form.month_start(class="invalid-field form-control") }}
                             {% else %}
-                            {{ form.century_part(class="form-control") }}
+                            {{ form.month_start(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day_start.label }}</div>
+                            {% if form.day_start.errors %}
+                            {{ form.day(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day_start(size=2, class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="text-center"><em>{{ _('To') }}</em></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.year_end.label }}</div>
+                            {% if form.year_end.errors %}
+                            {{ form.year_end(size=4, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.year_end(size=4, class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.month_end.label }}</div>
+                            {% if form.month_end.errors %}
+                            {{ form.month_end(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.month_end(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day_end.label }}</div>
+                            {% if form.day_end.errors %}
+                            {{ form.day_end(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day_end(size=2, class="form-control") }}
                             {% endif %}
                         </div>
                     </div>
