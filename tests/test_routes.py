@@ -182,13 +182,13 @@ class TestForms(Formulae_Testing):
 
     def test_validate_success_advanced_search_form(self):
         """ Ensure that a form with valid data validates"""
-        form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, century=["600-699", "700-799"],
-                                  century_part=["0-49", "50-74"])
+        form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
+                                  day_start=12, year_end=700, month_end="01", day_end=12)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
 
     def test_validate_invalid_advanced_search_form(self):
         """ Ensure that a form with invalid data does not validate"""
-        form = AdvancedSearchForm(corpus=[('some corpus')])
+        form = AdvancedSearchForm(corpus=['some corpus'])
         self.assertFalse(form.validate(), "Invalid corpus choice should not validate")
         form = AdvancedSearchForm(year=200)
         self.assertFalse(form.validate(), "Invalid year choice should not validate")
@@ -196,10 +196,18 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), "Invalid month choice should not validate")
         form = AdvancedSearchForm(day=32)
         self.assertFalse(form.validate(), "Invalid day choice should not validate")
-        form = AdvancedSearchForm(century=["200-299", "400-499"])
-        self.assertFalse(form.validate(), "Invalid century choice should not validate")
-        form = AdvancedSearchForm(century_part=["0-24", "25-50"])
-        self.assertFalse(form.validate(), "Invalid century_part choice should not validate")
+        form = AdvancedSearchForm(year_start=200)
+        self.assertFalse(form.validate(), "Invalid year_start choice should not validate")
+        form = AdvancedSearchForm(month_start="weird")
+        self.assertFalse(form.validate(), "Invalid month_start choice should not validate")
+        form = AdvancedSearchForm(day_start=32)
+        self.assertFalse(form.validate(), "Invalid day_start choice should not validate")
+        form = AdvancedSearchForm(year_end=200)
+        self.assertFalse(form.validate(), "Invalid year_end choice should not validate")
+        form = AdvancedSearchForm(month_end="weird")
+        self.assertFalse(form.validate(), "Invalid month_end choice should not validate")
+        form = AdvancedSearchForm(day_end=32)
+        self.assertFalse(form.validate(), "Invalid day_end choice should not validate")
 
 
 class TestAuth(Formulae_Testing):

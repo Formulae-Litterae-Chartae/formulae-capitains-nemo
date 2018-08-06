@@ -8,9 +8,23 @@
             <div class="row justify-content-center">
                 <div class="col-2">
                     <div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
-                    {% for choice in form.corpus.choices %}
-                        <p class="my-0" ><input id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</p>
-                    {% endfor %}
+                    <ul class="corpus-ul">
+                        <li><input id="all" name="corpus" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('All') }}</li>
+                        <ul class="corpus-ul">
+                            <li><input class="under-all" id="formulae" name="corpus" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae</li>
+                                <ul class="corpus-ul">
+                                {% for choice in categories['Formulae'] %}
+                                    <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
+                                {% endfor %}
+                                </ul>
+                            <li><input class="under-all" id="chartae" name="corpus" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-chartae')"> Chartae</li>
+                                <ul class="corpus-ul">
+                                {% for choice in categories['Chartae'] %}
+                                    <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
+                                {% endfor %}
+                                </ul>
+                        </ul>
+                    </ul>
                 </div>
                 <div class="col-2">
                     <div class="form-group">
@@ -102,7 +116,12 @@
                             {{ form.day_end(size=2, class="form-control") }}
                             {% endif %}
                         </div>
-                    </div>
+                    </div>                    
+                    <div class="form-row align-items-center justify-content-center">
+                        <span title="{{ _('Used for both the Specific Date and Date Range searches.') }}"><div class="text-center">{{ form.date_plus_minus.label }}: 
+                        <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
+                        {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
+                    </div></span>
                 </div>
             </div>
             <div class="row justify-content-center">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
