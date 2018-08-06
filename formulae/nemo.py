@@ -224,8 +224,8 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
-        if current_user.project_team is False and str(text.get_creator(lang)) not in self.OPEN_COLLECTIONS:
-            pdf_path = self.pdf_folder + objectId.split(':')[-1] + '.pdf'
+        # if current_user.project_team is False and str(text.get_creator(lang)) not in self.OPEN_COLLECTIONS:
+        #     pdf_path = self.pdf_folder + objectId.split(':')[-1] + '.pdf'
         return {
             "template": "main::text.html",
             "objectId": objectId,
