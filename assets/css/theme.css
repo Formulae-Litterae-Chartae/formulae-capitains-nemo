@@ -301,3 +301,11 @@ nav .dropdown:hover .dropdown-menu {
 .invalid-field {
     border-color: #dc3545;
 }
+
+.corpus-ul {
+    list-style-type: none;
+}
+
+.corpus-ul .corpus-ul {
+    margin-left: -1.5em;
+}

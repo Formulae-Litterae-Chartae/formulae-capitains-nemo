@@ -73,7 +73,8 @@ def r_advanced_search():
     from formulae.app import nemo
     form = AdvancedSearchForm()
     colls = get_all_corpora()
-    form.corpus.choices = [('all', 'All')] + [(x['id'], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
+    form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
+    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'E-Lexikon'])
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
     if form.validate() and data_present:
         if data_present != ['submit']:
@@ -81,7 +82,7 @@ def r_advanced_search():
         flash(_('Please enter data in at least one field.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    return nemo.render(template='search::advanced_search.html', form=form, url=dict())
+    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats, url=dict())
 
 
 def get_all_corpora():
