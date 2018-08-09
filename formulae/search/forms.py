@@ -19,7 +19,7 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
 
     def _length(form, field):
         if field.data:
-            if field.data < min or max != -1 and field.data > max:
+            if int(field.data) < min or max != -1 and int(field.data) > max:
                 raise ValidationError(message)
 
     return _length
@@ -46,20 +46,22 @@ class AdvancedSearchForm(SearchForm):
     year = IntegerField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
                                                                                message=_('The year must be between 500 and 1000'))],
                         default=0)
-    month = SelectField(_l('Month'), choices=[('none', '...'), ('01', _l('Jan')), ('02', _l('Feb')), ('03', _l('Mar')),
-                                              ('04', _l('Apr')), ('05', _l('May')), ('06', _l('Jun')),
-                                              ('07', _l('Jul')), ('08', _l('Aug')), ('09', _l('Sep')),
-                                              ('10', _l('Oct')), ('11', _l('Nov')), ('12', _l('Dec'))], default='none')
+    month = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
+                                              (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
+                                              (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
+                                              (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
+                        default=0, coerce=int)
     day = IntegerField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
                                                                              message=_('Day must be between 1 and 31'))],
                        default=0)
     year_start = IntegerField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
                                                                                      message=_('The year must be between 500 and 1000'))],
                               default=0)
-    month_start = SelectField(_l('Month'), choices=[('none', '...'), ('01', _l('Jan')), ('02', _l('Feb')), ('03', _l('Mar')),
-                                              ('04', _l('Apr')), ('05', _l('May')), ('06', _l('Jun')),
-                                              ('07', _l('Jul')), ('08', _l('Aug')), ('09', _l('Sep')),
-                                              ('10', _l('Oct')), ('11', _l('Nov')), ('12', _l('Dec'))], default='none')
+    month_start = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
+                                              (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
+                                              (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
+                                              (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
+                              default=0, coerce=int)
     day_start = IntegerField(_l('Day'),
                              validators=[validate_optional_number_range(min=1, max=31,
                                                                         message=_('Day must be between 1 and 31'))],
@@ -68,10 +70,11 @@ class AdvancedSearchForm(SearchForm):
                             validators=[validate_optional_number_range(min=500, max=1000,
                                                                        message=_('The year must be between 500 and 1000'))],
                             default=0)
-    month_end = SelectField(_l('Month'), choices=[('none', '...'), ('01', _l('Jan')), ('02', _l('Feb')), ('03', _l('Mar')),
-                                              ('04', _l('Apr')), ('05', _l('May')), ('06', _l('Jun')),
-                                              ('07', _l('Jul')), ('08', _l('Aug')), ('09', _l('Sep')),
-                                              ('10', _l('Oct')), ('11', _l('Nov')), ('12', _l('Dec'))], default='none')
+    month_end = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
+                                              (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
+                                              (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
+                                              (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
+                            default=0, coerce=int)
     day_end = IntegerField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
                                                                                  message=_('Day must be between 1 and 31'))],
                            default=0)
