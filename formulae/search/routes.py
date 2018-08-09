@@ -2,7 +2,7 @@ from flask import redirect, request, url_for, g, flash, current_app
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index
+from .Search import query_index, advanced_query_index
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 
@@ -10,7 +10,8 @@ from formulae.search import bp
 @bp.route("/simple", methods=["GET"])
 @login_required
 def r_simple_search():
-    if not g.search_form.validate():sudo
+    if not g.search_form.validate():
+        return redirect(url_for('.r_index'))
     return redirect(url_for('.r_results', source='simple', **request.args))
 
 
@@ -34,16 +35,25 @@ def r_results():
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     # The index value is ignored for the simple search since all indices are searched
     if source == 'simple':
-        posts, total = query_index('formulae', field, g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'],
+        posts, total = query_index('', field, g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'],
                                    fuzziness, request.args.get('phrase_search'))
         search_args = {"q": g.search_form.q.data, "lemma_search": request.args.get('lemma_search'),
                        "fuzzy_search": request.args.get('fuzzy_search'),
                        "phrase_search": request.args.get('phrase_search'), 'source': 'simple'}
     else:
-        # Point to a new function in .Search here to deal with more complex searches
-        search_args = {'q': request.args.get('q'), "lemma_search": request.args.get('lemma_search'),
-                       "fuzzy_search": request.args.get('fuzzy_search'),
-                       "phrase_search": request.args.get('phrase_search'), 'source': 'advanced'}
+        posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
+                                            q=request.args.get('q'), fuzzy_search=fuzziness, page=page,
+                                            phrase_search=request.args.get('phrase_search'),
+                                            year=int(request.args.get('year')), month=int(request.args.get('month')),
+                                            day=int(request.args.get('day')),
+                                            year_start=int(request.args.get('year_start')),
+                                            month_start=int(request.args.get('month_start')),
+                                            day_start=int(request.args.get('day_start')),
+                                            year_end=int(request.args.get('year_end')),
+                                            month_end=int(request.args.get('month_end')),
+                                            day_end=int(request.args.get('day_end')))
+        search_args = dict(request.args)
+        search_args.pop('page', None)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
