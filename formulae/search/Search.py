@@ -1,4 +1,6 @@
 from flask import current_app, Markup
+# This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
+from tests.fake_es import FakeElasticsearch
 
 
 def add_to_index(index, model):
@@ -94,12 +96,24 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     elif year_start or month_start or day_start or year_end or month_end or year_end:
         body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
                                                                                 year_end, month_end, day_end))
-    print(body_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
+    # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
+    if current_app.config["SAVE_REQUESTS"]:
+        req_name = "corpus={corpus}&field={field}&q={q}&fuzzy_search={fuzz}&phrase_search={phrase}&year={y}&" \
+                   "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
+                   "month_end={m_e}&day_end={d_e}".format(corpus=corpus, field=field, q=q.replace(' ', '+'),
+                                                          fuzz=fuzzy_search, phrase=phrase_search, y=year, m=month,
+                                                          d=day, y_s=year_start, m_s=month_start, d_s=day_start,
+                                                          y_e=year_end, m_e=month_end, d_e=day_end)
+        fake = FakeElasticsearch(req_name, "advanced_search")
+        fake.save_request(body_template)
+        # Remove the textual parts from the results
+        fake.save_ids([{"id": x['id']} for x in ids])
+        fake.save_response(search)
     return ids, search['hits']['total']
 
 
@@ -108,7 +122,6 @@ def build_date_range_template(year_start, month_start, day_start, year_end, mont
     # need to add another clause for the dating field
     gte = '-'.join([str(x).zfill(y) for x, y in [(year_start, 4), (month_start, 2), (day_start, 2)] if x])
     lte = '-'.join([str(x).zfill(y) for x, y in [(year_end, 4), (month_end, 2), (day_end, 2)] if x])
-    print(lte)
     dating_template = {"range": {"dating": {}}}
     if gte:
         dating_template["range"]["dating"].update({"gte": gte})

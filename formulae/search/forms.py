@@ -2,10 +2,9 @@ from flask import request
 from flask_wtf import FlaskForm
 from flask_babel import lazy_gettext as _l
 from flask_babel import _
-from wtforms import StringField, BooleanField, SelectMultipleField, IntegerField, SelectField, SubmitField
+from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from wtforms.fields.html5 import IntegerRangeField
-from wtforms.widgets import CheckboxInput
 
 
 def validate_optional_number_range(min=-1, max=-1, message=None):
@@ -41,7 +40,7 @@ class SearchForm(FlaskForm):
 
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Search'))  # query string is not DataRequired here since someone might want to search on other criteria
-    corpus = SelectMultipleField(_l('Search Specific Corpora'), choices=[('all', 'All'), ('chartae', 'Chartae'),
+    corpus = SelectMultipleField(_l('Search Specific Corpora'), choices=[('all', _l('All')), ('chartae', 'Chartae'),
                                                                          ('formulae', 'Formulae')])
     year = StringField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
                                                                                message=_('The year must be between 500 and 1000'))],

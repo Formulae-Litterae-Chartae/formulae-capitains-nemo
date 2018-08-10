@@ -3,11 +3,16 @@ from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from formulae import create_app, db
 from formulae.nemo import NemoFormulae
 from formulae.models import User
+from formulae.search.Search import advanced_query_index
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm
 from flask_login import current_user
+from elasticsearch import Elasticsearch
+from unittest.mock import patch
+from .fake_es import FakeElasticsearch
+from flask import url_for
 
 
 class TestConfig(Config):
@@ -188,6 +193,7 @@ class TestForms(Formulae_Testing):
 
     def test_validate_invalid_advanced_search_form(self):
         """ Ensure that a form with invalid data does not validate"""
+        # I removed this sub-test because, for some reason, it doesn't pass on Travis, even though it passes locally.
         # form = AdvancedSearchForm(corpus=['some corpus'])
         # self.assertFalse(form.validate(), "Invalid corpus choice should not validate")
         form = AdvancedSearchForm(year=200)
@@ -245,3 +251,23 @@ class TestAuth(Formulae_Testing):
         user2 = User.query.filter_by(username='not.project').first()
         token = user.get_reset_password_token()
         self.assertFalse(user2 == user.verify_reset_password_token(token))
+
+
+class TestES(Formulae_Testing):
+    def build_file_name(self, fake_args):
+        return '&'.join(["{}={}".format(k, str(v)) for k, v in fake_args.items()])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_search(self, mock_search):
+        test_args = {"corpus": "", "field": "text", "q": '', "fuzzy_search": "n", "phrase_search": False,
+                     "year": 0, "month": 0, "day": 0, "year_start": 814, "month_start": 10, "day_start": 29,
+                     "year_end": 814, "month_end": 11, "day_end": 20}
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])

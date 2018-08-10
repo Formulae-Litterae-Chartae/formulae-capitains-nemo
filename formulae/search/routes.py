@@ -20,7 +20,7 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
-    # This means that someone simply naviageted to the /results page without any search parameters
+    # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     page = request.args.get('page', 1, type=int)
@@ -44,7 +44,7 @@ def r_results():
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
                                             fuzzy_search=request.args.get("fuzzy_search", "n"), page=page,
-                                            phrase_search=request.args.get('phrase_search'),
+                                            phrase_search=request.args.get('phrase_search', False),
                                             year=request.args.get('year', 0, type=int),
                                             month=request.args.get('month', 0, type=int),
                                             day=request.args.get('day', 0, type=int),
