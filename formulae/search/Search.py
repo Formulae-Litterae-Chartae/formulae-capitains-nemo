@@ -73,11 +73,11 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     else:
         fuzz = 'AUTO'
     if q:
-        body_template["query"]['highlight'] = {'fields': {field: {}},
-                                               'pre_tags': ["<strong>"],
-                                               'post_tags': ["</strong>"],
-                                               'order': 'score'
-                                               }
+        body_template['highlight'] = {'fields': {field: {}},
+                                      'pre_tags': ["<strong>"],
+                                      'post_tags': ["</strong>"],
+                                      'order': 'score'
+                                      }
         if phrase_search:
             body_template["query"]["bool"]["must"].append({'match_phrase': {field: {'query': q, "slop": 4}}})
         else:
@@ -116,113 +116,198 @@ def build_date_range_template(year_start, month_start, day_start, year_end, mont
         dating_template["range"]["dating"].update({"lte": lte})
     date_template['bool']['should'].append(dating_template)
     if year_start and month_start and day_start:
-        date_template['bool']['should'].append({
-            "bool": {
-                "must": [
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.year": {
-                                        "gte": year_start,
-                                        "lte": year_start
+        if year_start == year_end and month_start == month_end:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_start,
+                                            "lte": year_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "gte": month_start,
+                                            "lte": month_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.day": {
+                                            "gte": day_start,
+                                            "lte": day_end
+                                        }
                                     }
                                 }
                             }
                         }
-                    },
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.month": {
-                                        "gte": month_start,
-                                        "lte": month_start
+                    ]
+                }
+            })
+            return date_template
+        else:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_start,
+                                            "lte": year_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "gte": month_start,
+                                            "lte": month_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.day": {
+                                            "gte": day_start
+                                        }
                                     }
                                 }
                             }
                         }
-                    },
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.day": {
-                                        "gte": day_start
+                    ]
+                }
+            })
+        if year_start != year_end and month_start + 1 != month_end:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_start,
+                                            "lte": year_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "gte": month_start + 1
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                ]
-            }
-        })
-        date_template['bool']['should'].append({
-            "bool": {
-                "must": [
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.year": {
-                                        "gte": year_start,
-                                        "lte": year_start
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.month": {
-                                        "gte": month_start + 1
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        })
+                    ]
+                }
+            })
     elif year_start and month_start:
-        date_template['bool']['should'].append({
-            "bool": {
-                "must": [
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.year": {
-                                        "gte": year_start,
-                                        "lte": year_start
+        # Here we only need a single clause because
+        if year_start == year_end:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_start,
+                                            "lte": year_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "gte": month_start,
+                                            "lte": month_end
+                                        }
                                     }
                                 }
                             }
                         }
-                    },
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.month": {
-                                        "gte": month_start
+                    ]
+                }
+            })
+            return date_template
+        else:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_start,
+                                            "lte": year_start
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "gte": month_start
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                ]
-            }
-        })
+                    ]
+                }
+            })
     if year_end and month_end and day_end:
         date_template['bool']['should'].append({
             "bool": {
@@ -268,37 +353,38 @@ def build_date_range_template(year_start, month_start, day_start, year_end, mont
                 ]
             }
         })
-        date_template['bool']['should'].append({
-            "bool": {
-                "must": [
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.year": {
-                                        "gte": year_end,
-                                        "lte": year_end
+        if month_end - 1 != month_start:
+            date_template['bool']['should'].append({
+                "bool": {
+                    "must": [
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.year": {
+                                            "gte": year_end,
+                                            "lte": year_end
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "nested": {
+                                "path": "specific_date",
+                                "query": {
+                                    "range": {
+                                        "specific_date.month": {
+                                            "lte": month_end - 1
+                                        }
                                     }
                                 }
                             }
                         }
-                    },
-                    {
-                        "nested": {
-                            "path": "specific_date",
-                            "query": {
-                                "range": {
-                                    "specific_date.month": {
-                                        "lte": month_end - 1
-                                    }
-                                }
-                            }
-                        }
-                    }
-                ]
-            }
-        })
+                    ]
+                }
+            })
     elif year_end and month_end:
         date_template['bool']['should'].append({
             "bool": {
