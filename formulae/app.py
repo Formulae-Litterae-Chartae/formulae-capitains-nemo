@@ -23,7 +23,8 @@ nemo = NemoFormulae(
                "notes": "components/extract_notes.xsl"},
     templates={"main": "templates/main",
                "errors": "templates/errors",
-               "auth": "templates/auth"},
+               "auth": "templates/auth",
+               "search": "templates/search"},
     pdf_folder="pdf_folder/"
 )
 

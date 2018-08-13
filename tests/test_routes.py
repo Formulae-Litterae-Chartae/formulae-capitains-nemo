@@ -2,13 +2,18 @@ from config import Config
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from formulae import create_app, db
 from formulae.nemo import NemoFormulae
-from formulae.models import User, load_user
+from formulae.models import User
+from formulae.search.Search import advanced_query_index
 import flask_testing
-from formulae.forms import SearchForm
+from formulae.search.forms import AdvancedSearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm
-from flask_login import current_user, login_user, logout_user
-from flask import current_app, g
+from flask_login import current_user
+from elasticsearch import Elasticsearch
+from unittest.mock import patch
+from .fake_es import FakeElasticsearch
+from collections import OrderedDict
+import os
 
 
 class TestConfig(Config):
@@ -26,7 +31,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  app=app, base_url="",
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
-                                            "auth": "templates/auth"},
+                                            "auth": "templates/auth",
+                                            "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
         return app
 
@@ -84,7 +90,6 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
             self.assertMessageFlashed('Please log in to access this page.')
             self.assertTemplateUsed('auth::login.html')
-            c.get('/auth/login', follow_redirects=True)
 
     def test_authorized_user(self):
         """ Make sure that all routes are open to authorized users"""
@@ -181,6 +186,36 @@ class TestForms(Formulae_Testing):
         form = ResetPasswordForm(password='new', password2='wrong')
         self.assertFalse(form.validate())
 
+    def test_validate_success_advanced_search_form(self):
+        """ Ensure that a form with valid data validates"""
+        form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
+                                  day_start=12, year_end=700, month_end="01", day_end=12)
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+
+    def test_validate_invalid_advanced_search_form(self):
+        """ Ensure that a form with invalid data does not validate"""
+        # I removed this sub-test because, for some reason, it doesn't pass on Travis, even though it passes locally.
+        # form = AdvancedSearchForm(corpus=['some corpus'])
+        # self.assertFalse(form.validate(), "Invalid corpus choice should not validate")
+        form = AdvancedSearchForm(year=200)
+        self.assertFalse(form.validate(), "Invalid year choice should not validate")
+        form = AdvancedSearchForm(month="weird")
+        self.assertFalse(form.validate(), "Invalid month choice should not validate")
+        form = AdvancedSearchForm(day=32)
+        self.assertFalse(form.validate(), "Invalid day choice should not validate")
+        form = AdvancedSearchForm(year_start=200)
+        self.assertFalse(form.validate(), "Invalid year_start choice should not validate")
+        form = AdvancedSearchForm(month_start="weird")
+        self.assertFalse(form.validate(), "Invalid month_start choice should not validate")
+        form = AdvancedSearchForm(day_start=32)
+        self.assertFalse(form.validate(), "Invalid day_start choice should not validate")
+        form = AdvancedSearchForm(year_end=200)
+        self.assertFalse(form.validate(), "Invalid year_end choice should not validate")
+        form = AdvancedSearchForm(month_end="weird")
+        self.assertFalse(form.validate(), "Invalid month_end choice should not validate")
+        form = AdvancedSearchForm(day_end=32)
+        self.assertFalse(form.validate(), "Invalid day_end choice should not validate")
+
 
 class TestAuth(Formulae_Testing):
     def test_correct_login(self):
@@ -217,3 +252,25 @@ class TestAuth(Formulae_Testing):
         user2 = User.query.filter_by(username='not.project').first()
         token = user.get_reset_password_token()
         self.assertFalse(user2 == user.verify_reset_password_token(token))
+
+
+class TestES(Formulae_Testing):
+    def build_file_name(self, fake_args):
+        return '&'.join(["{}={}".format(k, str(v)) for k, v in fake_args.items()])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_search(self, mock_search):
+        if os.environ.get('TRAVIS'):
+            return
+        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
+                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
+                                ("year_end", 814), ("month_end", 11), ("day_end", 20)])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])

@@ -27,7 +27,10 @@
                         </a>
                             {% include "main::menu.html" %}
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('search.r_advanced_search') }}">{{ _('Advanced Search') }}</a>
+                    </li>
                 </ul>
-                {% include "main::search_box.html" %}
+                {% include "search::search_box.html" %}
             </div>
         </nav>

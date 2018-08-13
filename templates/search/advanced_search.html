@@ -1,0 +1,129 @@
+{% extends "main::container.html" %}
+
+{% block article %}
+        <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
+        <form action="" method="get" id="advanced-form">
+            <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
+        <!-- 2d row = search entries. -->
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
+                    <ul class="corpus-ul">
+                        <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('All') }}</li>
+                        <ul class="corpus-ul">
+                            <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae</li>
+                                <ul class="corpus-ul">
+                                {% for choice in categories['Formulae'] %}
+                                    <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
+                                {% endfor %}
+                                </ul>
+                            <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> Chartae</li>
+                                <ul class="corpus-ul">
+                                {% for choice in categories['Chartae'] %}
+                                    <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
+                                {% endfor %}
+                                </ul>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <div class="text-center mb-2"><strong>{{ _('Search Specific Words') }}</strong></div>
+                        <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
+                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ form.fuzzy_search() }} <span class="align-top">{{ form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ form.phrase_search() }} <span class="align-top">{{ form.phrase_search.label }}</span></span></p>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="text-center mb-2"><strong>{{ _('Search a Specific Date') }}</strong></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.year.label }}</div>
+                            {% if form.year.errors %}
+                            {{ form.year(size=4, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.year(size=4, class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.month.label }}</div>
+                            {% if form.month.errors %}
+                            {{ form.month(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.month(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day.label }}</div>
+                            {% if form.day.errors %}
+                            {{ form.day(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day(size=2, class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center mb-2"><strong>{{ _('Search a Date Range') }}</strong></div>
+                    <div class="text-center"><em>{{ _('From') }}</em></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.year_start.label }}</div>
+                            {% if form.year_start.errors %}
+                            {{ form.year_start(size=4, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.year_start(size=4, class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.month_start.label }}</div>
+                            {% if form.month_start.errors %}
+                            {{ form.month_start(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.month_start(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day_start.label }}</div>
+                            {% if form.day_start.errors %}
+                            {{ form.day(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day_start(size=2, class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="text-center"><em>{{ _('To') }}</em></div>
+                    <div class="form-row align-items-center justify-content-center">
+                        <div class="form-group">
+                            <div class="text-center">{{ form.year_end.label }}</div>
+                            {% if form.year_end.errors %}
+                            {{ form.year_end(size=4, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.year_end(size=4, class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.month_end.label }}</div>
+                            {% if form.month_end.errors %}
+                            {{ form.month_end(class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.month_end(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">{{ form.day_end.label }}</div>
+                            {% if form.day_end.errors %}
+                            {{ form.day_end(size=2, class="invalid-field form-control") }}
+                            {% else %}
+                            {{ form.day_end(size=2, class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </div>                    
+                    <div class="form-row align-items-center justify-content-center">
+                        <span title="{{ _('Used for both the Specific Date and Date Range searches.') }}"><div class="text-center">{{ form.date_plus_minus.label }}: 
+                        <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
+                        {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
+                    </div></span>
+                </div>
+            </div>
+            <div class="row justify-content-center">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+        </form>
+{% endblock %}
