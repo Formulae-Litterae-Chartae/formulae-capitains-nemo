@@ -13,6 +13,7 @@ from elasticsearch import Elasticsearch
 from unittest.mock import patch
 from .fake_es import FakeElasticsearch
 from collections import OrderedDict
+import os
 
 
 class TestConfig(Config):
@@ -259,6 +260,8 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_search(self, mock_search):
+        if os.environ.get('TRAVIS'):
+            return
         test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
                                 ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
                                 ("year_end", 814), ("month_end", 11), ("day_end", 20)])

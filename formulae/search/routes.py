@@ -53,7 +53,8 @@ def r_results():
                                             day_start=request.args.get('day_start', 0, type=int),
                                             year_end=request.args.get('year_end', 0, type=int),
                                             month_end=request.args.get('month_end', 0, type=int),
-                                            day_end=request.args.get('day_end', 0, type=int))
+                                            day_end=request.args.get('day_end', 0, type=int),
+                                            date_plus_minus=request.args.get("date_plus_minus", 0, type=int))
         search_args = dict(request.args)
         search_args.pop('page', None)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None

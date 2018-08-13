@@ -63,7 +63,7 @@ def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
 
 def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzzy_search='n', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, **kwargs):
+                         day_end=0, date_plus_minus=0, **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
                      'from': (page - 1) * per_page, 'size': per_page
@@ -86,16 +86,31 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             body_template["query"]["bool"]["must"].append({'match': {field: {'query': q, 'fuzziness': fuzz}}})
     if year or month or day:
         date_template = {"nested": {"path": "specific_date", "query": {"bool": {"must": []}}}}
-        if year:
-            date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.year": year}})
-        if month:
-            date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
-        if day:
-            date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.day": day}})
-        body_template["query"]["bool"]["must"].append(date_template)
+        if not date_plus_minus:
+            if year:
+                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.year": year}})
+            if month:
+                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
+            if day:
+                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.day": day}})
+            body_template["query"]["bool"]["must"].append(date_template)
+        else:
+            if year:
+                date_template["nested"]["query"]['bool']['must'].append({"range":
+                                                                             {"specific_date.year":
+                                                                                  {"gte": year - date_plus_minus,
+                                                                                   "lte": year + date_plus_minus}}})
+            if month:
+                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
+            if day:
+                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.day": day}})
+            body_template["query"]["bool"]["must"].append(date_template)
+
     elif year_start or month_start or day_start or year_end or month_end or year_end:
-        body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
-                                                                                year_end, month_end, day_end))
+        body_template["query"]["bool"]["must"].append(build_date_range_template(year_start - date_plus_minus,
+                                                                                month_start, day_start,
+                                                                                year_end + date_plus_minus, month_end,
+                                                                                day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
