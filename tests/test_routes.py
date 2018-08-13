@@ -259,9 +259,9 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_search(self, mock_search):
-        test_args = OrderedDict({"corpus": "", "field": "text", "q": '', "fuzzy_search": "n", "phrase_search": False,
-                     "year": 0, "month": 0, "day": 0, "year_start": 814, "month_start": 10, "day_start": 29,
-                     "year_end": 814, "month_end": 11, "day_end": 20})
+        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
+                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
+                                ("year_end", 814), ("month_end", 11), ("day_end", 20)])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
