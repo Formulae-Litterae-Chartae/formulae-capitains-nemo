@@ -40,3 +40,4 @@ app.db
 logs/
 cache/
 .rngs/
+tests/test_data/advanced_search/

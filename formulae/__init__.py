@@ -36,6 +36,8 @@ def create_app(config_class=Config):
     babel.init_app(app)
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
+    from .search import bp as search_bp
+    app.register_blueprint(search_bp, url_prefix="/search")
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):

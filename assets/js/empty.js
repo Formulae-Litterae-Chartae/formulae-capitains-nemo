@@ -1,4 +1,7 @@
 var lexModal = document.getElementById('lexicon-modal')
+var allCorporaChecks = document.querySelectorAll('input.under-all')
+var formulaeChecks = document.querySelectorAll('input.under-formulae')
+var chartaeChecks = document.querySelectorAll('input.under-chartae')
 
 function makePopupNote(id) {
     var popup = document.getElementById(id);
@@ -73,5 +76,17 @@ function closeLexEntry() {
 window.onclick = function(event) {
     if (event.target == lexModal) {
         lexModal.style.display = 'none';
+    }
+}
+
+// Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
+function outputUpdate(plusMinus) {
+    document.querySelector('#date-plus-minus').value = plusMinus;
+}
+
+function checkSubCorpora(tag, category) {
+    var subelements = document.getElementsByClassName(category)
+    for(var i=0; i<subelements.length; i++) {
+        subelements[i].checked = tag.checked;
     }
 }
