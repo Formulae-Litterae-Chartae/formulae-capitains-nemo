@@ -57,8 +57,6 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure that protected routes do not work with unauthorized users and that unprotected routes do
 
         """
-        # print(self.app.url_map)
-        user = User.query.filter_by(username="project.member").first()
         with self.client as c:
             c.get('/', follow_redirects=True)
             self.assertMessageFlashed('Please log in to access this page.')
