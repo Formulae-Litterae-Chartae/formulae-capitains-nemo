@@ -67,7 +67,6 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
-        self.app.jinja_env.filters["get_sub_members"] = self.f_get_sub_members
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -112,16 +111,6 @@ class NemoFormulae(Nemo):
         """
         l[i] = v
         return l
-
-    def f_get_sub_members(self, coll, lang=None):
-        """ Gets a list of all the sub-members of a collection.
-
-        :param coll: The id of the collection for which to get the sub-members
-        :return: List of sub-members
-        """
-        collection = self.resolver.getMetadata(coll)
-        return self.make_members(collection, lang=lang)
-
 
     def r_set_language(self, code):
         """ Sets the seseion's language code which will be used for all requests
