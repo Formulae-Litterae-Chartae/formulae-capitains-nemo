@@ -22,7 +22,9 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"])
+        ("/lang", "r_set_language", ["GET", "POST"]),
+        ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
+        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -65,6 +67,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
+        self.app.jinja_env.filters["get_sub_members"] = self.f_get_sub_members
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -109,6 +112,16 @@ class NemoFormulae(Nemo):
         """
         l[i] = v
         return l
+
+    def f_get_sub_members(self, coll, lang=None):
+        """ Gets a list of all the sub-members of a collection.
+
+        :param coll: The id of the collection for which to get the sub-members
+        :return: List of sub-members
+        """
+        collection = self.resolver.getMetadata(coll)
+        return self.make_members(collection, lang=lang)
+
 
     def r_set_language(self, code):
         """ Sets the seseion's language code which will be used for all requests
@@ -298,3 +311,21 @@ class NemoFormulae(Nemo):
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
         return str(xslt(etree.fromstring(text)))
+
+    def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
+        """ A convenience function to return all sub-corpora in all collections
+
+        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+        """
+        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+        texts["template"] = 'main::sub_element_snippet.html'
+        return texts
+
+    def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
+        """ A convenience function to return all sub-corpora in all collections
+
+        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+        """
+        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+        texts["template"] = 'main::sub_element_snippet.html'
+        return texts

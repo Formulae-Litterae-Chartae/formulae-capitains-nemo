@@ -90,3 +90,26 @@ function checkSubCorpora(tag, category) {
         subelements[i].checked = tag.checked;
     }
 }
+
+function getSubElements(coll) {
+        var objectId = coll.getAttribute('sub-element-url');
+        var targetList = document.getElementById(coll.getAttribute('sub-element-id'));
+        if (coll.getAttribute('ul-shown') == 'true') {
+            coll.setAttribute('ul-shown', 'false');
+            targetList.innerHTML = ''
+        } else {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        targetList.innerHTML = this.responseText;
+                        coll.setAttribute('ul-shown', 'true');
+                    } else {
+                        alert("No texts found for collection.")
+                    }
+                }
+            };
+            request.open('GET', objectId, true);
+            request.send()
+    }
+}
