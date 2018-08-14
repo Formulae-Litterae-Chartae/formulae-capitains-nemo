@@ -6,8 +6,10 @@
 {% set prev_texts = '' %}
 {% set prev_reffs = '' %}
 {% set coll_route = 'InstanceNemo.r_collection' %}
+{% set sub_el_route = 'InstanceNemo.r_get_sub_elements' %}
 {% else %}
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
+{% set sub_el_route = 'InstanceNemo.r_add_sub_elements' %}
 {% endif %}
 <header>
         <h1>
@@ -59,7 +61,12 @@
                                     aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ first_letter }}">{{ first_letter }}</h6>
                                     <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ first_letter }}">
             {% endif %}
-                                <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}<a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">: {{ _('Browse') }} ({{coll.size}})</a></p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item pb-0">
+                                        <div class="card-text" sub-element-url="{{url_for(sub_el_route, coll=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}" sub-element-id="ul-{{ coll.id }}" onclick="getSubElements(this)" ul-shown="false">{{ coll.label|title }}</div>
+                                        <ul class="list-group list-group-flush" id="ul-{{ coll.id }}"></ul>
+                                    </li>
+                                </ul>
             {% if loop.last %}
                                 </div>
                             </li>
@@ -113,7 +120,12 @@
                             aria-controls="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">{{ collections.current.label }} {{ loop.index }} - {{ loopend }}</h6>
                             <div class="collapse" id="{{ collections.current.id|replace(':', '')|replace('.', '') }}-{{ loop.index }}to{{ loopend }}">
         {% endif %}
-                            <p class="card-text" style="text-indent:40px;">{{ coll.label|title }}: <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse') }} ({{coll.size}})</a></p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item pb-0">
+                                    <div class="card-text" sub-element-url="{{url_for(sub_el_route, coll=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}" sub-element-id="ul-{{ coll.id }}" onclick="getSubElements(this)" ul-shown="false">{{ coll.label|title }}</div>
+                                    <ul class="list-unstyled" id="ul-{{ coll.id }}"></ul>
+                                </li>
+                            </ul>
         {% if loop.index % 10 == 0 and not loop.last %}
                             </div>
                         </li>

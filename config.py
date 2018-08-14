@@ -20,4 +20,4 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     # This should only be changed to True when collecting search queries and responses for mocking ES
-    SAVE_REQUESTS = True
+    SAVE_REQUESTS = False
