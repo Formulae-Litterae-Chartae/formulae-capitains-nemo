@@ -14,6 +14,7 @@ from unittest.mock import patch
 from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
+from flask import url_for
 
 
 class TestConfig(Config):
@@ -127,9 +128,10 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
                              'year_start600=&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&submit=Search')
-            self.assertRedirects(response, '/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&'
-                                           'month=1&day=31&year_start=&month_start=12&day_start=12&year_end=700&'
-                                           'month_end=1&day_end=12&date_plus_minus=0&submit=True',
+            self.assertRedirects(response, url_for("search.r_results", source="advanced", corpus="formulae+chartae",
+                                                   q="", year=600, month=1, day=31, year_start="", month_start=12,
+                                                   day_start=12, year_end=700, month_end=1, day_end=12,
+                                                   date_plus_minus=0, submit=True),
                                  "Advanced Search data was not correctly redirected.")
             c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&month=1&day=31&year_start=&'
                   'month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&date_plus_minus=0&submit=True')
