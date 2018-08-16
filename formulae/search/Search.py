@@ -121,7 +121,7 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "corpus={corpus}&field={field}&q={q}&fuzzy_search={fuzz}&phrase_search={phrase}&year={y}&" \
                    "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
-                   "month_end={m_e}&day_end={d_e}".format(corpus=corpus, field=field, q=q.replace(' ', '+'),
+                   "month_end={m_e}&day_end={d_e}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'),
                                                           fuzz=fuzzy_search, phrase=phrase_search, y=year, m=month,
                                                           d=day, y_s=year_start, m_s=month_start, d_s=day_start,
                                                           y_e=year_end, m_e=month_end, d_e=day_end)

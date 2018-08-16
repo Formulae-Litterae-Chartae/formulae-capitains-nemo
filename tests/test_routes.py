@@ -117,6 +117,27 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
 
+    @patch("formulae.search.routes.advanced_query_index")
+    def test_search_results(self, mock_search):
+        """ Make sure that the correct search results are passed to the search results form"""
+        mock_search.return_value = [[], 0]
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
+                             'year_start600=&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
+                             'date_plus_minus=0&submit=Search')
+            self.assertRedirects(response, '/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&'
+                                           'month=1&day=31&year_start=&month_start=12&day_start=12&year_end=700&'
+                                           'month_end=1&day_end=12&date_plus_minus=0&submit=True',
+                                 "Advanced Search data was not correctly redirected.")
+            c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&month=1&day=31&year_start=&'
+                  'month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&date_plus_minus=0&submit=True')
+            mock_search.assert_called_with(corpus='formulae+chartae', date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, field='text', fuzzy_search='n', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, phrase_search=False, q='',
+                                           year=600, year_end=700, year_start=0)
+
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
@@ -270,5 +291,22 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         actual, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_multi_corpus_search(self, mock_search):
+        if os.environ.get('TRAVIS'):
+            return
+        test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
+                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
+                                ("year_end", 814), ("month_end", 11), ("day_end", 20)])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
