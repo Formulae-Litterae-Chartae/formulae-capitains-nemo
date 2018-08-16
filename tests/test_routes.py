@@ -121,18 +121,17 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.advanced_query_index")
     def test_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
+        params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
+                      day_start=12, year_end=700, month_end=1, day_end=12)
         mock_search.return_value = [[], 0]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
-                             'year_start600=&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
+                             'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&submit=Search')
-            self.assertRedirects(response, url_for("search.r_results", source="advanced", corpus="formulae+chartae",
-                                                   q="", year=600, month=1, day=31, year_start="", month_start=12,
-                                                   day_start=12, year_end=700, month_end=1, day_end=12,
-                                                   date_plus_minus=0, submit=True),
-                                 "Advanced Search data was not correctly redirected.")
+            for p, v in params.items():
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&month=1&day=31&year_start=&'
                   'month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&date_plus_minus=0&submit=True')
             mock_search.assert_called_with(corpus='formulae+chartae', date_plus_minus=0, day=31, day_end=12,
