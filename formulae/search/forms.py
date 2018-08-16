@@ -91,7 +91,7 @@ class AdvancedSearchForm(SearchForm):
                                                                     ('25-49', _l('Second Quarter (25-49)')),
                                                                     ('50-74', _l('Third Quarter (50-74)')),
                                                                     ('75-99', _l('Fourth Quarter (75-99)'))])"""
-    formulae = BooleanField('Formulae')
-    chartae = BooleanField('Chartae')
-    litterae = BooleanField('Litterae')
+    # formulae = BooleanField('Formulae')
+    # chartae = BooleanField('Chartae')
+    # litterae = BooleanField('Litterae')
     submit = SubmitField(_l('Search'))
