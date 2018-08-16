@@ -65,6 +65,7 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
                      'from': (page - 1) * per_page, 'size': per_page
                      }

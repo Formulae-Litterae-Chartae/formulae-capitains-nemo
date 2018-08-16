@@ -54,7 +54,8 @@ def r_results():
                                             year_end=request.args.get('year_end', 0, type=int),
                                             month_end=request.args.get('month_end', 0, type=int),
                                             day_end=request.args.get('day_end', 0, type=int),
-                                            date_plus_minus=request.args.get("date_plus_minus", 0, type=int))
+                                            date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                            corpus=request.args.get('corpus', ''))
         search_args = dict(request.args)
         search_args.pop('page', None)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
@@ -91,7 +92,11 @@ def r_advanced_search():
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
     if form.validate() and data_present:
         if data_present != ['submit']:
-            return redirect(url_for('.r_results', source="advanced", **request.args))
+            data = form.data
+            corpus = '+'.join(data.pop("corpus"))
+            for k in ["phrase_search", "lemma_search", "fuzzy_search"]:
+                data[k] = request.args.get(k)
+            return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
         flash(_('Please enter data in at least one field.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
