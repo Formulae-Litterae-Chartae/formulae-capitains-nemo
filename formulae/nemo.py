@@ -1,6 +1,6 @@
 from flask import url_for, Markup, g, session
 from flask_login import current_user, login_required
-from flask_babel import _, refresh
+from flask_babel import _, refresh, get_locale
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
@@ -81,6 +81,23 @@ class NemoFormulae(Nemo):
         # blueprint.register_error_handler(500, self.e_internal_error)
         # blueprint.register_error_handler(404, self.e_not_found_error)
         return blueprint
+
+    def get_locale(self):
+        """ Retrieve the best matching locale using request headers
+
+        .. note:: Probably one of the thing to enhance quickly.
+
+        :rtype: str
+        """
+        best_match = str(get_locale())
+        lang = self.__default_lang__
+        if best_match == "de":
+            lang = "ger"
+        elif best_match == "fr":
+            lang = "fre"
+        elif best_match == "en":
+            lang = "eng"
+        return lang
 
     def f_remove_from_list(self, l, i):
         """ remove item "i" from list "l"
