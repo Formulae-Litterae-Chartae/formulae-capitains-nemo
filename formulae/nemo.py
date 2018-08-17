@@ -9,6 +9,7 @@ from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
+import re
 
 
 class NemoFormulae(Nemo):
@@ -17,10 +18,12 @@ class NemoFormulae(Nemo):
         ("/", "r_index", ["GET"]),
         ("/collections", "r_collections", ["GET"]),
         ("/collections/<objectId>", "r_collection", ["GET"]),
+        ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
-        ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
-        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
+        ("/add_collections/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
+        ("/add_collection/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
+        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang", "r_set_language", ["GET", "POST"]),
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
@@ -54,10 +57,12 @@ class NemoFormulae(Nemo):
 
     PROTECTED = [
         "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
-        "r_add_text_collections", "r_add_text_collection"
+        "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
     OPEN_COLLECTIONS = []
+
+    LANGUAGE_MAPPING = {"lat": _('Latin'), "deu": _("German"), "fre": _("French"), "eng": _("English")}
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -157,6 +162,51 @@ class NemoFormulae(Nemo):
             route = login_required(route)
         return route
 
+    def r_collection(self, objectId, lang=None):
+        data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
+        members = data['collections']['members']
+        if len(members) == 1:
+            return redirect(url_for('.r_corpus', objectId=members[0]['id'], lang=lang))
+        data['template'] = "main::sub_collections.html"
+        return data
+
+    def r_corpus(self, objectId, lang=None):
+        """ Route to browse collections and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        r = {}
+        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+            if "salzburg" not in m.id:
+                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+            else:
+                par = '-'.join(m.parent.id.split('-')[1:])
+            if par in r.keys():
+                r[par]["versions"].append((m.id, self.LANGUAGE_MAPPING[m.lang]))
+            else:
+                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                          "versions": [(m.id, self.LANGUAGE_MAPPING[m.lang])]}
+        return {
+            "template": "main::sub_collection.html",
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                },
+                "readable": r,
+                "parents": self.make_parents(collection, lang=lang)
+            }
+        }
+
     def r_add_text_collections(self, objectIds, reffs, lang=None):
         """ Retrieve the top collections of the inventory
 
@@ -177,6 +227,37 @@ class NemoFormulae(Nemo):
         }
 
     def r_add_text_collection(self, objectId, objectIds, reffs, lang=None):
+        """ Route to browse a top-level collection and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        members = self.make_members(collection, lang=lang)
+        if len(members) == 1:
+            return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
+                                    objectIds=objectIds, reffs=reffs, lang=lang))
+        return {
+            "template": "main::sub_collections.html",
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                },
+                "members": members,
+                "parents": self.make_parents(collection, lang=lang)
+            },
+            "prev_texts": objectIds,
+            "prev_reffs": reffs
+        }
+
+    def r_add_text_corpus(self, objectId, objectIds, reffs, lang=None):
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
@@ -187,8 +268,20 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
+        r = {}
+        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+            if "salzburg" not in m.id:
+                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+            else:
+                par = '-'.join(m.parent.id.split('-')[1:])
+            if par in r.keys():
+                r[par]["versions"].append((m.id, self.LANGUAGE_MAPPING[m.lang]))
+            else:
+                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                          "versions": [(m.id, self.LANGUAGE_MAPPING[m.lang])]}
         return {
-            "template": "main::collection.html",
+            "template": "main::sub_collection.html",
             "collections": {
                 "current": {
                     "label": str(collection.get_label(lang)),
@@ -196,7 +289,7 @@ class NemoFormulae(Nemo):
                     "model": str(collection.model),
                     "type": str(collection.type),
                 },
-                "members": self.make_members(collection, lang=lang),
+                "readable": r,
                 "parents": self.make_parents(collection, lang=lang)
             },
             "prev_texts": objectIds,

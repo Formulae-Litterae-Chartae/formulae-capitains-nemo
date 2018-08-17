@@ -5,6 +5,11 @@
         <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ g.search_form.lemma_search() }} <span class="align-top">{{ g.search_form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ g.search_form.fuzzy_search() }} <span class="align-top">{{ g.search_form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ g.search_form.phrase_search() }} <span class="align-top">{{ g.search_form.phrase_search.label }}</span></span></p>
     </div>
 </form>
+<ul class="navbar-nav">
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('search.r_advanced_search') }}">{{ _('Advanced Search') }}</a>
+    </li>
+</ul>
 {% endif %}
 <!--<a class="btn btn-outline-secondary my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->
 <!--<a class="btn btn-outline-info my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->

@@ -7,15 +7,15 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Medieval Latin Formulae and their German translations in the Capitains Format">
     <meta name="keywords" content="XML,TEI,Capitains,latin,medieval,formulae">
-    <meta name="author" conteNt="Matthew Munson">
+    <meta name="author" content="Matthew Munson">
     <title>Formulae - Litterae - Chartae</title>
     {% block metadata %}
       {% include "main::metadata.html" %}
     {% endblock %}
 
     <!-- Bootstrap --><!-- Latest compiled and minified CSS -->
-    <!--<link rel="stylesheet" href="{{url_for('InstanceNemo.static', filename='css/teibp.min.css')}}">-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('InstanceNemo.static', filename='css/theme.min.css')}}">
     {% for filename, directory in assets["css"].items() %}
       {% if directory %}<link rel="stylesheet" href="{{url_for('InstanceNemo.secondary_assets', filetype='css', asset=filename)}}">
