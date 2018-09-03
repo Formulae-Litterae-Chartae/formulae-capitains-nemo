@@ -183,18 +183,26 @@ class NemoFormulae(Nemo):
         collection = self.resolver.getMetadata(objectId)
         r = {}
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
-            if "salzburg" not in m.id:
-                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
-            else:
+            if "salzburg" in m.id:
                 par = '-'.join(m.parent.id.split('-')[1:])
+                template = "main::sub_collection.html"
+                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+            elif "elexicon" in m.id:
+                par = m.parent.id.split('.')[-1][0].capitalize()
+                template = "main::elex_collection.html"
+                metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+            else:
+                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+                template = "main::sub_collection.html"
+                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
             if par in r.keys():
-                r[par]["versions"].append((m.id, self.LANGUAGE_MAPPING[m.lang]))
+                r[par]["versions"].append(metadata)
             else:
                 r[par] = {"short_regest": str(m.get_description()).split(':')[0],
                           "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
-                          "versions": [(m.id, self.LANGUAGE_MAPPING[m.lang])]}
+                          "versions": [metadata]}
         return {
-            "template": "main::sub_collection.html",
+            "template": template,
             "collections": {
                 "current": {
                     "label": str(collection.get_label(lang)),
