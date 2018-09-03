@@ -97,7 +97,7 @@ class NemoFormulae(Nemo):
         best_match = str(get_locale())
         lang = self.__default_lang__
         if best_match == "de":
-            lang = "ger"
+            lang = "deu"
         elif best_match == "fr":
             lang = "fre"
         elif best_match == "en":
@@ -360,7 +360,7 @@ class NemoFormulae(Nemo):
             "pdf_path": pdf_path
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None):
+    def r_multipassage(self, objectIds, subreferences, translations=None, lang=None):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -369,11 +369,13 @@ class NemoFormulae(Nemo):
         :type lang: str
         :param subreferences: Reference identifiers separated by '+'
         :type subreferences: str
+        :param translations: A list of the other editions of this work
+        :type translations: [str]
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
         ids = objectIds.split('+')
-        passage_data = {'template': 'main::multipassage.html', 'objects': []}
+        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             if subrefers[i] == "first":
