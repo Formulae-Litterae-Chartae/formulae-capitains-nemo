@@ -103,6 +103,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/urn:cts:formulae:elexicon', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -114,6 +116,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
             self.assertTemplateUsed('main::lexicon_modal.html')
+            c.get('/add_collection/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             # An authenicated user who surfs to the login page should be redirected to index
             c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
