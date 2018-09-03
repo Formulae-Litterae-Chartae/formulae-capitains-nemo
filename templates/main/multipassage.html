@@ -2,9 +2,7 @@
 
 {% macro header_passage(object) %}
 <header>
-    <h1 class="entry-title text-center">{{object.collections.current.title}}</h1>
-    <h2 class="author vcard text-center"><span class="fn">{{object.collections.current.author}}</span></h2>
-    <p class="entry-summary text-center"><small>{{object.collections.current.label}}</small></p>
+    <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
     {% if 'elexicon' not in object.objectId %}
     <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
     {% include "main::regest_modal.html" %}

@@ -2,13 +2,17 @@
 
 {% block article %}
 {% if not prev_texts %}
-{% set prev_texts = 'None' %}
-{% set prev_reffs = 'None' %}
+{% set prev_texts = '' %}
+{% set prev_reffs = '' %}
+{% set coll_route = 'InstanceNemo.r_corpus' %}
+{% else %}
+{% set coll_route = 'InstanceNemo.r_add_text_corpus' %}
 {% endif %}
 <header>
         <h1>
-        {{ _('Text Collections') }}
+        {{collections.current.label}}
         </h1>
+    </h1>
     </header>
     </div>
     <div class="row justify-content-center">
@@ -16,7 +20,7 @@
         <div class="col-xl-2 col-6">
             <div class="card">
                 <div class="card-header text-center pb-0">
-                    <a class="card-link" href="{{url_for('InstanceNemo.r_add_text_collection', objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
+                    <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
                         <h5>{{ coll.label|title }}</h5>
                     </a>
                 </div>

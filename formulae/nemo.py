@@ -1,6 +1,6 @@
 from flask import url_for, Markup, g, session
 from flask_login import current_user, login_required
-from flask_babel import _, refresh
+from flask_babel import _, refresh, get_locale
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
@@ -9,6 +9,7 @@ from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
+import re
 
 
 class NemoFormulae(Nemo):
@@ -17,10 +18,12 @@ class NemoFormulae(Nemo):
         ("/", "r_index", ["GET"]),
         ("/collections", "r_collections", ["GET"]),
         ("/collections/<objectId>", "r_collection", ["GET"]),
+        ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
-        ("/add_text/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
-        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
+        ("/add_collections/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
+        ("/add_collection/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
+        ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang", "r_set_language", ["GET", "POST"]),
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
@@ -54,10 +57,12 @@ class NemoFormulae(Nemo):
 
     PROTECTED = [
         "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
-        "r_add_text_collections", "r_add_text_collection"
+        "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
     OPEN_COLLECTIONS = []
+
+    LANGUAGE_MAPPING = {"lat": _('Latin'), "deu": _("German"), "fre": _("French"), "eng": _("English")}
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -81,6 +86,23 @@ class NemoFormulae(Nemo):
         # blueprint.register_error_handler(500, self.e_internal_error)
         # blueprint.register_error_handler(404, self.e_not_found_error)
         return blueprint
+
+    def get_locale(self):
+        """ Retrieve the best matching locale using request headers
+
+        .. note:: Probably one of the thing to enhance quickly.
+
+        :rtype: str
+        """
+        best_match = str(get_locale())
+        lang = self.__default_lang__
+        if best_match == "de":
+            lang = "deu"
+        elif best_match == "fr":
+            lang = "fre"
+        elif best_match == "en":
+            lang = "eng"
+        return lang
 
     def f_remove_from_list(self, l, i):
         """ remove item "i" from list "l"
@@ -140,6 +162,51 @@ class NemoFormulae(Nemo):
             route = login_required(route)
         return route
 
+    def r_collection(self, objectId, lang=None):
+        data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
+        members = data['collections']['members']
+        if len(members) == 1:
+            return redirect(url_for('.r_corpus', objectId=members[0]['id'], lang=lang))
+        data['template'] = "main::sub_collections.html"
+        return data
+
+    def r_corpus(self, objectId, lang=None):
+        """ Route to browse collections and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        r = {}
+        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+            if "salzburg" not in m.id:
+                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+            else:
+                par = '-'.join(m.parent.id.split('-')[1:])
+            if par in r.keys():
+                r[par]["versions"].append((m.id, self.LANGUAGE_MAPPING[m.lang]))
+            else:
+                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                          "versions": [(m.id, self.LANGUAGE_MAPPING[m.lang])]}
+        return {
+            "template": "main::sub_collection.html",
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                },
+                "readable": r,
+                "parents": self.make_parents(collection, lang=lang)
+            }
+        }
+
     def r_add_text_collections(self, objectIds, reffs, lang=None):
         """ Retrieve the top collections of the inventory
 
@@ -160,6 +227,37 @@ class NemoFormulae(Nemo):
         }
 
     def r_add_text_collection(self, objectId, objectIds, reffs, lang=None):
+        """ Route to browse a top-level collection and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        members = self.make_members(collection, lang=lang)
+        if len(members) == 1:
+            return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
+                                    objectIds=objectIds, reffs=reffs, lang=lang))
+        return {
+            "template": "main::sub_collections.html",
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                },
+                "members": members,
+                "parents": self.make_parents(collection, lang=lang)
+            },
+            "prev_texts": objectIds,
+            "prev_reffs": reffs
+        }
+
+    def r_add_text_corpus(self, objectId, objectIds, reffs, lang=None):
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
@@ -170,8 +268,20 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
+        r = {}
+        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+            if "salzburg" not in m.id:
+                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+            else:
+                par = '-'.join(m.parent.id.split('-')[1:])
+            if par in r.keys():
+                r[par]["versions"].append((m.id, self.LANGUAGE_MAPPING[m.lang]))
+            else:
+                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                          "versions": [(m.id, self.LANGUAGE_MAPPING[m.lang])]}
         return {
-            "template": "main::collection.html",
+            "template": "main::sub_collection.html",
             "collections": {
                 "current": {
                     "label": str(collection.get_label(lang)),
@@ -179,7 +289,7 @@ class NemoFormulae(Nemo):
                     "model": str(collection.model),
                     "type": str(collection.type),
                 },
-                "members": self.make_members(collection, lang=lang),
+                "readable": r,
                 "parents": self.make_parents(collection, lang=lang)
             },
             "prev_texts": objectIds,
@@ -250,7 +360,7 @@ class NemoFormulae(Nemo):
             "pdf_path": pdf_path
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None):
+    def r_multipassage(self, objectIds, subreferences, translations=None, lang=None):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -259,11 +369,13 @@ class NemoFormulae(Nemo):
         :type lang: str
         :param subreferences: Reference identifiers separated by '+'
         :type subreferences: str
+        :param translations: A list of the other editions of this work
+        :type translations: [str]
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
         ids = objectIds.split('+')
-        passage_data = {'template': 'main::multipassage.html', 'objects': []}
+        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             if subrefers[i] == "first":
