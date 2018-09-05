@@ -41,7 +41,7 @@ class SearchForm(FlaskForm):
     corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formulae')), ('chartae', _l('Charters'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
-                                     message=_('You must select at least one collection to search ("Formulae" and/or "Charters")'))]
+                                     message=_l('You must select at least one collection to search ("Formulae" and/or "Charters")'))]
                                  )
 
     def __init__(self, *args, **kwargs):

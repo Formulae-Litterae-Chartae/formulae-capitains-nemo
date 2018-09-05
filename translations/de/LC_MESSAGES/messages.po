@@ -162,7 +162,9 @@ msgstr "Zurück zur Startseite"
 msgid ""
 "Multiword searches cannot contain wildcard characters (i.e., \"?\" or "
 "\"*\")"
-msgstr "Mehrwortsuchen können keine Platzhalterzeichen enthalten (d.h., \"?\" oder \"*\")"
+msgstr ""
+"Mehrwortsuchen können keine Platzhalterzeichen enthalten (d.h., \"?\" "
+"oder \"*\")"
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
 #: formulae/search/forms.py:114 formulae/search/routes.py:79
@@ -185,7 +187,9 @@ msgstr "Urkunden"
 msgid ""
 "You must select at least one collection to search (\"Formulae\" and/or "
 "\"Charters\")"
-msgstr "Mindestens eine Sammlung müss für die Suche ausgewählt (\"Formeln\" und/oder \"Urkunden\")"
+msgstr ""
+"Mindestens eine Sammlung müss für die Suche ausgewählt (\"Formeln\" "
+"und/oder \"Urkunden\")"
 
 #: formulae/search/forms.py:57 templates/main/lexicon.html:16
 msgid "Lemma"

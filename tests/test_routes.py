@@ -219,6 +219,7 @@ class TestForms(Formulae_Testing):
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
         form = SearchForm(corpus=['formulae', 'chartae'], q='regnum')
+        print(form.corpus.errors, form.q.errors)
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
 
     def test_invalid_data_simple_search_form(self):
