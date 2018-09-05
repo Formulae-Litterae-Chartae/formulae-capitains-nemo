@@ -219,6 +219,7 @@ class TestForms(Formulae_Testing):
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
         form = SearchForm(corpus=['formulae', 'chartae'], q='regnum')
+        form.validate()
         print(form.corpus.errors, form.q.errors)
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
 
@@ -226,8 +227,10 @@ class TestForms(Formulae_Testing):
         """ Ensure that the simple search form returns a ValidationError with invalid search string or no corpus"""
         form = SearchForm(corpus=['formulae', 'chartae'], q='re?num domni')
         self.assertFalse(form.validate(), 'Multiword with wildcard should not validate')
+        self.assertEqual(str(form.q.errors[0]), 'Multiword searches cannot contain wildcard characters (i.e., "?" or "*")')
         form = SearchForm(corpus=[''], q='regnum')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
+        self.assertEqual(form.corpus.errors, ["'' is not a valid choice for this field"])
 
     def test_validate_invalid_advanced_search_form(self):
         """ Ensure that a form with invalid data does not validate"""
