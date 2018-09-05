@@ -299,7 +299,7 @@ class NemoFormulae(Nemo):
                 r[par] = {"short_regest": str(m.get_description()).split(':')[0],
                           "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
                           "versions": [metadata]}
-        for k, v in r.item():
+        for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         return {
             "template": template,
