@@ -1,0 +1,25 @@
+<!-- MANUSCRIPT MENU -->
+<div class="text">
+    <div class="btn-group">
+        <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ _('Add another version of one of these texts') }}
+        </button>
+        <div class="dropdown-menu">
+            <ul class="list-unstyled">
+            {% if objects %}
+            {% for text in objects %}
+            {% if translation[text.objectId] %}
+                <li>{{ text.collections.current.label }}
+                    <ul>
+                    {% for t in translation[text.objectId] %}
+                        <li><a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, t.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ t.get_label()|string }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    </div>
+</div>

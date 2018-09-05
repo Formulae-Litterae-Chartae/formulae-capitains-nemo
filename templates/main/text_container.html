@@ -1,10 +1,16 @@
 {% extends "main::container.html" %}
 
 {% block article %}
-
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
 <!-- THE LEFT COLUMN -->
 <div class="col-auto d-none d-lg-block">
-    {% include "main::manuscript_menu.html" %}
+    {% include "main::version_menu.html" %}
     <br/>
     <br/>
 </div> 
@@ -15,13 +21,7 @@
 {% else %}
 <div class="col-sm hfeed right-columns no-copy" id="reading-container">
 {% endif %}
-{% if objects %}
-    {% set prev_texts = objects|join('+', attribute='objectId') %}
-    {% set prev_reffs = objects|join('+', attribute='subreference') %}
-{% else %}
-    {% set prev_texts = objectId %}
-    {% set prev_reffs = subreference %}
-{% endif %}
+
 {{ proj_team }}
 <a href="{{ url_for('InstanceNemo.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
   {{ _('Add another text') }}

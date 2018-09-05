@@ -381,7 +381,7 @@ class NemoFormulae(Nemo):
             "pdf_path": pdf_path
         }
 
-    def r_multipassage(self, objectIds, subreferences, translations=None, lang=None):
+    def r_multipassage(self, objectIds, subreferences, lang=None):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -390,12 +390,15 @@ class NemoFormulae(Nemo):
         :type lang: str
         :param subreferences: Reference identifiers separated by '+'
         :type subreferences: str
-        :param translations: A list of the other editions of this work
-        :type translations: [str]
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
         ids = objectIds.split('+')
+        translations = {}
+        for i in ids:
+            p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
+            translations[i] = [m for m in p.readableDescendants if m.id != i]
+        print(p, translations)
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
