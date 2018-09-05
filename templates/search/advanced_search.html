@@ -13,13 +13,13 @@
                         <ul class="corpus-ul">
                             <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae</li>
                                 <ul class="corpus-ul">
-                                {% for choice in categories['Formulae'] %}
+                                {% for choice in categories['formulae_collection'] %}
                                     <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
                                 {% endfor %}
                                 </ul>
                             <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> Chartae</li>
                                 <ul class="corpus-ul">
-                                {% for choice in categories['Chartae'] %}
+                                {% for choice in categories['other_collection'] %}
                                     <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"> {{ choice[1] }}</li>
                                 {% endfor %}
                                 </ul>

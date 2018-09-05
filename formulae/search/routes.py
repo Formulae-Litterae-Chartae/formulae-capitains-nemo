@@ -88,8 +88,8 @@ def r_advanced_search():
     from formulae.app import nemo
     form = AdvancedSearchForm()
     colls = get_all_corpora()
-    form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if x['label'] != 'eLexicon']
-    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'E-Lexikon'])
+    form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
+    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
     if form.validate() and data_present:
         if data_present != ['submit']:
@@ -112,5 +112,5 @@ def get_all_corpora():
     from formulae.app import nemo
     colls = {}
     for member in nemo.make_members(nemo.resolver.getMetadata(), lang=None):
-        colls[member['semantic'].title()] = nemo.make_members(nemo.resolver.getMetadata(member['id']))
+        colls[member['id']] = nemo.make_members(nemo.resolver.getMetadata(member['id']))
     return colls

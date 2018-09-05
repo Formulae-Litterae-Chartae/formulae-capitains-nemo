@@ -41,6 +41,8 @@ class FakeElasticsearch(object):
 
     def save_response(self, resp):
         fileName = self.buildPath('_resp.json')
+        for i, h in enumerate(resp['hits']['hits']):
+            resp['hits']['hits'][i]['_source'] = ''
         with open(fileName, 'w') as f:
             return json.dump(resp, f, indent=2)
 
