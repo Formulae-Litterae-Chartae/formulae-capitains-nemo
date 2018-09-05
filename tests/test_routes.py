@@ -308,8 +308,6 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_search(self, mock_search):
-        if os.environ.get('TRAVIS'):
-            return
         test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
                                 ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
                                 ("year_end", 814), ("month_end", 11), ("day_end", 20)])
@@ -325,8 +323,6 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multi_corpus_search(self, mock_search):
-        if os.environ.get('TRAVIS'):
-            return
         test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
                                 ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
                                 ("year_end", 814), ("month_end", 11), ("day_end", 20)])
@@ -341,9 +337,22 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
+    def test_lemma_advanced_search(self, mock_search):
+        test_args = OrderedDict([("corpus", ""), ("field", "lemmas"), ("q", 'regnum'), ("fuzzy_search", "n"), ("phrase_search", False),
+                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 0), ("month_start", 0), ("day_start", 0),
+                                ("year_end", 0), ("month_end", 0), ("day_end", 0)])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     def test_simple_multi_corpus_search(self, mock_search):
-        if os.environ.get('TRAVIS'):
-            return
         test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"])])
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',

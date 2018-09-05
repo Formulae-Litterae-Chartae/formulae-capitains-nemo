@@ -1,0 +1,132 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+              {
+                "range": {
+                  "dating": {
+                    "gte": "0814-10-29",
+                    "lte": "0814-11-20"
+                  }
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 814,
+                              "lte": 814
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 10,
+                              "lte": 10
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.day": {
+                              "gte": 29
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 814,
+                              "lte": 814
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 11,
+                              "lte": 11
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.day": {
+                              "lte": 20
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 815,
+                              "lte": 813
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": "urn",
+  "from": 0,
+  "size": 10
+}

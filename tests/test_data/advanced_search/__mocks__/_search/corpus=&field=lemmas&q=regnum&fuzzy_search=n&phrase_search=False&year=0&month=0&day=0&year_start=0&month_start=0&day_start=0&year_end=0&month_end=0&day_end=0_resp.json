@@ -1,0 +1,46 @@
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 12,
+    "successful": 12,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v1",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": "",
+        "highlight": {
+          "lemmas": [
+            "formula andecavensis in christus nomen incipio dictatus hic sum gero annus quartus <strong>regnum</strong> dominus noster"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v1",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+        "_score": null,
+        "_source": "",
+        "highlight": {
+          "lemmas": [
+            "formula andecavensis incipio dos annus quartus <strong>regnum</strong> dominus noster childebertus rex ego in deus nomen"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form034.lat001"
+        ]
+      }
+    ]
+  }
+}
