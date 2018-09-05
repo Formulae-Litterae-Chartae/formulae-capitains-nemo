@@ -1,6 +1,6 @@
 from flask import url_for, Markup, g, session
 from flask_login import current_user, login_required
-from flask_babel import _, refresh, get_locale
+from flask_babel import _, refresh, get_locale, lazy_gettext
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from MyCapytain.common.constants import Mimetypes
@@ -62,7 +62,8 @@ class NemoFormulae(Nemo):
 
     OPEN_COLLECTIONS = []
 
-    LANGUAGE_MAPPING = {"lat": _('Latin'), "deu": _("German"), "fre": _("French"), "eng": _("English")}
+    LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
+                        "eng": lazy_gettext("English")}
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -201,6 +202,8 @@ class NemoFormulae(Nemo):
                 r[par] = {"short_regest": str(m.get_description()).split(':')[0],
                           "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
                           "versions": [metadata]}
+        for k, v in r.items():
+            r[k]['versions'] = sorted(v['versions'], reverse=True)
         return {
             "template": template,
             "collections": {
@@ -296,6 +299,8 @@ class NemoFormulae(Nemo):
                 r[par] = {"short_regest": str(m.get_description()).split(':')[0],
                           "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
                           "versions": [metadata]}
+        for k, v in r.items():
+            r[k]['versions'] = sorted(v['versions'], reverse=True)
         return {
             "template": template,
             "collections": {
