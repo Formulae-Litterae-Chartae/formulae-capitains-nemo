@@ -5,6 +5,7 @@ from flask_babel import _
 from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from wtforms.fields.html5 import IntegerRangeField
+from wtforms.widgets import CheckboxInput
 
 
 def validate_optional_number_range(min=-1, max=-1, message=None):
@@ -24,11 +25,24 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
     return _length
 
 
+def validate_multiword_not_wildcard(form, field):
+    """ This validates that a multiword search query does not also contain a wildcard character (? or *)
+
+    :param query: the text of the query
+    :return:
+    """
+    field = str(field)
+    if ' ' in field and ('*' in field or '?' in field):
+        raise ValidationError(_l('Multiword searches cannot contain wildcard characters (i.e., "?" or "*")'))
+
+
 class SearchForm(FlaskForm):
-    q = StringField(_l('Search'), validators=[DataRequired()])
-    lemma_search = BooleanField(_l('Lemma'))
-    fuzzy_search = BooleanField(_l('Fuzzy'))
-    phrase_search = BooleanField(_l('Phrase'))
+    q = StringField(_l('Search'), validators=[DataRequired(), validate_multiword_not_wildcard])
+    corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formulae')), ('chartae', _l('Charters'))],
+                                 option_widget=CheckboxInput(),
+                                 validators=[DataRequired(
+                                     message=_l('You must select at least one collection to search ("Formulae" and/or "Charters")'))]
+                                 )
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:
@@ -40,8 +54,11 @@ class SearchForm(FlaskForm):
 
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Search'))  # query string is not DataRequired here since someone might want to search on other criteria
-    corpus = SelectMultipleField(_l('Search Specific Corpora'), choices=[('all', _l('All')), ('chartae', 'Chartae'),
-                                                                         ('formulae', 'Formulae')])
+    lemma_search = BooleanField(_l('Lemma'))
+    fuzzy_search = BooleanField(_l('Fuzzy'))
+    phrase_search = BooleanField(_l('Phrase'))
+    corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('All')), ('chartae', _l('Charters')),
+                                                                         ('formulae', _l('Formulae'))])
     year = StringField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
                                                                                message=_('The year must be between 500 and 1000'))],
                         default="")

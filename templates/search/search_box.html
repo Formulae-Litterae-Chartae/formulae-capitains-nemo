@@ -1,15 +1,14 @@
 {% if g.search_form %}
-<form class="form" method="get" action="{{ url_for('search.r_simple_search') }}">
-    <div class="form-group mb-0">
-        <p class="mb-0">{{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text) }}</p>
-        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ g.search_form.lemma_search() }} <span class="align-top">{{ g.search_form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ g.search_form.fuzzy_search() }} <span class="align-top">{{ g.search_form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ g.search_form.phrase_search() }} <span class="align-top">{{ g.search_form.phrase_search.label }}</span></span></p>
-    </div>
+<form class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
+    <ul class="list-inline mb-0 mt-1" style="font-size: small;">
+        <li class="text-white list-inline-item align-top">{{ _("Search In:") }}</li>
+        {% for corp in g.search_form.corpus %}
+        <li class="list-inline-item">{{corp(checked="")}} {{ corp.label(class="mb-0 align-top") }}</li>
+        {% endfor %}
+    </ul>
+    <p class="mb-0">{{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text) }}</p>
+    <a class="nav-link text-white p-0 text-right" href="{{ url_for('search.r_advanced_search') }}" title="{{ _("Advanced Search") }}" style="font-size: small;">{{ _('Advanced Search') }}</a>
 </form>
-<ul class="navbar-nav">
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('search.r_advanced_search') }}">{{ _('Advanced Search') }}</a>
-    </li>
-</ul>
 {% endif %}
 <!--<a class="btn btn-outline-secondary my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->
 <!--<a class="btn btn-outline-info my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->

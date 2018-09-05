@@ -97,7 +97,7 @@ class NemoFormulae(Nemo):
         best_match = str(get_locale())
         lang = self.__default_lang__
         if best_match == "de":
-            lang = "deu"
+            lang = "ger"
         elif best_match == "fr":
             lang = "fre"
         elif best_match == "en":

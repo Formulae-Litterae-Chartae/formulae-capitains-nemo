@@ -30,37 +30,31 @@
     <![endif]-->
   </head>
   <body>
-          {% include "main::header.html" %}
-      {% include "main::navbar.html" %}
-      <div class="container-fluid" id="main-container">
-      <!--<div class="row">
-        <nav class="col-sm-2 menus">
-          {% include "main::logo.html" %}
-        </nav>
-        <div class="col-sm-10 right-columns">
-              {% include "main::breadcrumb.html" %}
-        </div>
-      </div>-->
-      <div class="row">
-        <!--<nav class="col-sm-2 menus" id="menu-container">
-          {% include "main::menu.html" %}
-        </nav>-->
-        <!-- LEFT-HAND COLUMN -->
-            {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
+    {% include "main::header.html" %}
+    {% include "main::navbar.html" %}
+    <div class="container-fluid" id="main-container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="row pb-0">
+        <ul class="list-unstyled mb-0">
             {% for message in messages %}
-            <div class="alert alert-info" role="alert">{{ message }}</div>
+            <div class="alert alert-info mb-0" role="alert">{{ message }}</div>
             {% endfor %}
         </ul>
-        {% endif %}
-        {% endwith %}
-            
-              {% block article %}
-              {% endblock %}
-          
-      </div>
-      </div>
+    </div>
+    {% endif %}
+    {% endwith %}
+    <div class="row">
+    <!--<nav class="col-sm-2 menus" id="menu-container">
+        {% include "main::menu.html" %}
+    </nav>-->
+    <!-- LEFT-HAND COLUMN -->
+        
+            {% block article %}
+            {% endblock %}
+        
+    </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
