@@ -1,4 +1,4 @@
-from flask import current_app, Markup
+from flask import current_app, Markup, flash
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 
@@ -18,17 +18,15 @@ def remove_from_index(index, model):
     current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
 
 
-def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
+def query_index(index, field, query, page, per_page):
     if not current_app.elasticsearch:
         return [], 0
-    if field == 'lemmas' or fuzzy_search == 'n':
-        fuzz = '0'
-    else:
-        fuzz = 'AUTO'
-    if phrase:
+    if index == ['']:
+        return [], 0
+    if ' ' in query:
         search = current_app.elasticsearch.search(
-        index="", doc_type="",
-        body={'query': {'match_phrase': {field: {'query': query, "slop": 4}}},
+        index=index, doc_type="",
+        body={'query': {'match_phrase': {field: {'query': query, "slop": 0}}},
               "sort": 'urn',
               'from': (page - 1) * per_page, 'size': per_page,
               'highlight':
@@ -37,14 +35,15 @@ def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
                         },
                    'pre_tags': ["<strong>"],
                    'post_tags': ["</strong>"],
-                   'order': 'score'
+                   'order': 'score',
+                   'encoder': 'html'
                    },
               }
-    )
-    else:
+        )
+    elif '*' in query or '?' in query:
         search = current_app.elasticsearch.search(
-        index="", doc_type="",
-        body={'query': {'match': {field: {'query': query, 'fuzziness': fuzz}}},
+        index=index, doc_type="",
+        body={'query': {'wildcard': {field:  query}},
               "sort": 'urn',
               'from': (page - 1) * per_page, 'size': per_page,
               'highlight':
@@ -53,7 +52,25 @@ def query_index(index, field, query, page, per_page, fuzzy_search, phrase):
                         },
                    'pre_tags': ["<strong>"],
                    'post_tags': ["</strong>"],
-                   'order': 'score'
+                   'order': 'score',
+                   'encoder': 'html'
+                   },
+              }
+        )
+    else:
+        search = current_app.elasticsearch.search(
+        index=index, doc_type="",
+        body={'query': {'match': {field: query}},
+              "sort": 'urn',
+              'from': (page - 1) * per_page, 'size': per_page,
+              'highlight':
+                  {'fields':
+                       {field: {}
+                        },
+                   'pre_tags': ["<strong>"],
+                   'post_tags': ["</strong>"],
+                   'order': 'score',
+                   'encoder': 'html'
                    },
               }
     )
@@ -79,7 +96,8 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
         body_template['highlight'] = {'fields': {field: {}},
                                       'pre_tags': ["<strong>"],
                                       'post_tags': ["</strong>"],
-                                      'order': 'score'
+                                      'order': 'score',
+                                      'encoder': 'html'
                                       }
         if phrase_search:
             body_template["query"]["bool"]["must"].append({'match_phrase': {field: {'query': q, "slop": 4}}})

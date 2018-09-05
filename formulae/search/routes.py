@@ -11,8 +11,12 @@ from formulae.search import bp
 @login_required
 def r_simple_search():
     if not g.search_form.validate():
-        return redirect(url_for('.r_index'))
-    return redirect(url_for('.r_results', source='simple', **request.args))
+        for k, m in g.search_form.errors.items():
+            flash(m[0])
+        return redirect(url_for('.r_results', source='simple', q=g.search_form.data['q']))
+    data = g.search_form.data
+    corpus = '+'.join(data.pop("corpus"))
+    return redirect(url_for('.r_results', source='simple', corpus=corpus, **data))
 
 
 @bp.route("/results", methods=["GET"])
@@ -20,6 +24,7 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
+    corpus = request.args.get('corpus', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -33,13 +38,9 @@ def r_results():
     else:
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
-    # The index value is ignored for the simple search since all indices are searched
     if source == 'simple':
-        posts, total = query_index('', field, g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'],
-                                   fuzziness, request.args.get('phrase_search'))
-        search_args = {"q": g.search_form.q.data, "lemma_search": request.args.get('lemma_search'),
-                       "fuzzy_search": request.args.get('fuzzy_search'),
-                       "phrase_search": request.args.get('phrase_search'), 'source': 'simple'}
+        posts, total = query_index(corpus, 'text', g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
+        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': request.args.get('corpus', '')}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),

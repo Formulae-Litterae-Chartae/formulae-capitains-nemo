@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-2">
                     <div class="form-group">
-                        <div class="text-center mb-2"><strong>{{ _('Search Specific Words') }}</strong></div>
+                        <div class="text-center mb-2"><strong>{{ _('Word Search') }}</strong></div>
                         <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
                         <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ form.fuzzy_search() }} <span class="align-top">{{ form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ form.phrase_search() }} <span class="align-top">{{ form.phrase_search.label }}</span></span></p>
                     </div>

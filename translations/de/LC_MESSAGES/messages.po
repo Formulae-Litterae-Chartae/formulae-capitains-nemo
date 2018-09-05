@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-06-29 15:41+0200\n"
+"POT-Creation-Date: 2018-09-05 08:50+0200\n"
 "PO-Revision-Date: 2018-06-29 12:14+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,110 +18,361 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/app.py:41
+#: formulae/__init__.py:18
 msgid "Please log in to access this page."
 msgstr "Bitte einloggen, um diese Seite zu sehen"
 
-#: formulae/forms.py:9
-msgid "Username"
-msgstr "Benutzername"
+#: formulae/nemo.py:65
+msgid "Latin"
+msgstr "Latein"
 
-#: formulae/forms.py:10 formulae/forms.py:18
-msgid "Password"
-msgstr "Passwort"
+#: formulae/nemo.py:65
+msgid "German"
+msgstr "Deutsch"
 
-#: formulae/forms.py:11
-msgid "Remember Me"
-msgstr ""
+#: formulae/nemo.py:65
+msgid "French"
+msgstr "Französisch"
 
-#: formulae/forms.py:12 formulae/nemo.py:276
-msgid "Sign In"
-msgstr "Einloggen"
+#: formulae/nemo.py:65
+msgid "English"
+msgstr "Englisch"
 
-#: formulae/forms.py:16
-msgid "Change your Password"
-msgstr "Passwort Ändern"
-
-#: formulae/forms.py:17
-msgid "Old Password"
-msgstr "Altes Passwort"
-
-#: formulae/forms.py:19
-msgid "Repeat Password"
-msgstr "Passwort wiederholen"
-
-#: formulae/forms.py:20
-msgid "Change Password"
-msgstr "Passwort Ändern"
-
-#: formulae/forms.py:24
-msgid "Change Your Default Language"
-msgstr "Defaultsprache Ändern"
-
-#: formulae/forms.py:27
-msgid "Change Language"
-msgstr "Sprache Ändern"
-
-#: formulae/forms.py:31 formulae/nemo.py:341
-msgid "Search"
-msgstr "Suche"
-
-#: formulae/forms.py:32
-msgid "Lemma"
-msgstr "Lemmata"
-
-#: formulae/forms.py:33
-msgid "Fuzzy"
-msgstr "Unscharf"
-
-#: formulae/forms.py:34
-msgid "Phrase"
-msgstr "Phrase"
-
-#: formulae/nemo.py:185
+#: formulae/nemo.py:343
 msgid "This work has no default edition"
 msgstr "Dieses Werk hat keine Defaultedition"
 
-#: formulae/nemo.py:269
+#: formulae/auth/email.py:8
+msgid "[Formulae - Litterae - Chartae] Reset Your Password"
+msgstr "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
+
+#: formulae/auth/forms.py:8
+msgid "Username"
+msgstr "Benutzername"
+
+#: formulae/auth/forms.py:9 formulae/auth/forms.py:17
+msgid "Password"
+msgstr "Passwort"
+
+#: formulae/auth/forms.py:10
+msgid "Remember Me"
+msgstr ""
+
+#: formulae/auth/forms.py:11 formulae/auth/routes.py:34
+msgid "Sign In"
+msgstr "Einloggen"
+
+#: formulae/auth/forms.py:15
+msgid "Change your Password"
+msgstr "Passwort Ändern"
+
+#: formulae/auth/forms.py:16
+msgid "Old Password"
+msgstr "Altes Passwort"
+
+#: formulae/auth/forms.py:18
+msgid "Repeat Password"
+msgstr "Passwort wiederholen"
+
+#: formulae/auth/forms.py:19
+msgid "Change Password"
+msgstr "Passwort Ändern"
+
+#: formulae/auth/forms.py:23
+msgid "Change Your Default Language"
+msgstr "Defaultsprache Ändern"
+
+#: formulae/auth/forms.py:26
+msgid "Change Language"
+msgstr "Sprache Ändern"
+
+#: formulae/auth/forms.py:30
+msgid "Email"
+msgstr "E-Mail"
+
+#: formulae/auth/forms.py:31
+msgid "Request Password Reset"
+msgstr "Email zum Zurücksetzen Ihres Passworts anfordern"
+
+#: formulae/auth/forms.py:35
+msgid "New Password"
+msgstr "Neues Passwort"
+
+#: formulae/auth/forms.py:36
+msgid "Repeat New Password"
+msgstr "Neues Passwort wiederholen"
+
+#: formulae/auth/forms.py:37 formulae/auth/routes.py:95
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+#: formulae/auth/routes.py:27
 msgid "Invalid username or password"
 msgstr "Benutzername oder Passwort ungültig"
 
-#: formulae/nemo.py:296
+#: formulae/auth/routes.py:60
 msgid "This is not your existing password."
 msgstr "Das ist nicht Ihr aktuelles Passwort"
 
-#: formulae/nemo.py:301
+#: formulae/auth/routes.py:65
 msgid "You have successfully changed your password."
 msgstr "Sie haben Ihr Passwort erfolgreich geändert"
 
-#: formulae/nemo.py:307
+#: formulae/auth/routes.py:72
 msgid "You have successfully changed your default language."
 msgstr "Sie haben Ihre Defaultsprache erfolgreich geändert"
 
-#: formulae/nemo.py:311
+#: formulae/auth/routes.py:76
 msgid "Edit Profile"
 msgstr "Benutzerprofil Ändern"
 
-#: templates/main/add_text.html:13 templates/main/collection.html:17
+#: formulae/auth/routes.py:93
+msgid "Check your email for the instructions to reset your password"
+msgstr ""
+"Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
+"zugeschickt"
+
+#: formulae/auth/routes.py:115
+msgid "Your password has been reset."
+msgstr "Ihr Passwort wurde erfolgreich zurückgesetzt."
+
+#: formulae/auth/routes.py:117
+msgid "Reset Your Password"
+msgstr "Passwort Zurücksetzen"
+
+#: formulae/errors/handlers.py:5
+msgid "The URL you were looking for was not found"
+msgstr "Die gesuchte URL wurde nicht gefunden"
+
+#: formulae/errors/handlers.py:10 templates/main/500.html:4
+msgid "An unexpected error has occurred"
+msgstr "Ein unerwarteter Fehler ist aufgetreten"
+
+#: formulae/errors/handlers.py:11 templates/main/500.html:5
+msgid "The administrator has been notified. Sorry for the inconvenience!"
+msgstr ""
+"Der Administrator wurde benachrichtigt. Entschuldigen Sie die "
+"Unannehmlichkeiten!"
+
+#: formulae/errors/handlers.py:28
+msgid "Back to Home"
+msgstr "Zurück zur Startseite"
+
+#: formulae/search/forms.py:36
+msgid ""
+"Multiword searches cannot contain wildcard characters (i.e., \"?\" or "
+"\"*\")"
+msgstr "Mehrwortsuchen können keine Platzhalterzeichen enthalten (d.h., \"?\" oder \"*\")"
+
+#: formulae/search/forms.py:40 formulae/search/forms.py:56
+#: formulae/search/forms.py:114 formulae/search/routes.py:79
+msgid "Search"
+msgstr "Suche"
+
+#: formulae/search/forms.py:41 formulae/search/forms.py:60
+msgid "Corpora"
+msgstr "Korpora"
+
+#: formulae/search/forms.py:41 formulae/search/forms.py:61
+msgid "Formulae"
+msgstr "Formeln"
+
+#: formulae/search/forms.py:41 formulae/search/forms.py:60
+msgid "Charters"
+msgstr "Urkunden"
+
+#: formulae/search/forms.py:44
+msgid ""
+"You must select at least one collection to search (\"Formulae\" and/or "
+"\"Charters\")"
+msgstr "Mindestens eine Sammlung müss für die Suche ausgewählt (\"Formeln\" und/oder \"Urkunden\")"
+
+#: formulae/search/forms.py:57 templates/main/lexicon.html:16
+msgid "Lemma"
+msgstr "Lemmata"
+
+#: formulae/search/forms.py:58
+msgid "Fuzzy"
+msgstr "Unscharf"
+
+#: formulae/search/forms.py:59
+msgid "Phrase"
+msgstr "Phrase"
+
+#: formulae/search/forms.py:60 templates/search/advanced_search.html:12
+msgid "All"
+msgstr "Alle"
+
+#: formulae/search/forms.py:62 formulae/search/forms.py:73
+#: formulae/search/forms.py:85
+msgid "Year"
+msgstr "Jahr"
+
+#: formulae/search/forms.py:63 formulae/search/forms.py:74
+#: formulae/search/forms.py:87
+msgid "The year must be between 500 and 1000"
+msgstr "Das Jahr muss zwischen 500 und 1000 liegen"
+
+#: formulae/search/forms.py:65 formulae/search/forms.py:76
+#: formulae/search/forms.py:89
+msgid "Month"
+msgstr "Monat"
+
+#: formulae/search/forms.py:65 formulae/search/forms.py:76
+#: formulae/search/forms.py:89
+msgid "Jan"
+msgstr "Jan"
+
+#: formulae/search/forms.py:65 formulae/search/forms.py:76
+#: formulae/search/forms.py:89
+msgid "Feb"
+msgstr "Feb"
+
+#: formulae/search/forms.py:65 formulae/search/forms.py:76
+#: formulae/search/forms.py:89
+msgid "Mar"
+msgstr "Mär"
+
+#: formulae/search/forms.py:66 formulae/search/forms.py:77
+#: formulae/search/forms.py:90
+msgid "Apr"
+msgstr "Apr"
+
+#: formulae/search/forms.py:66 formulae/search/forms.py:77
+#: formulae/search/forms.py:90
+msgid "May"
+msgstr "Mai"
+
+#: formulae/search/forms.py:66 formulae/search/forms.py:77
+#: formulae/search/forms.py:90
+msgid "Jun"
+msgstr "Jun"
+
+#: formulae/search/forms.py:67 formulae/search/forms.py:78
+#: formulae/search/forms.py:91
+msgid "Jul"
+msgstr "Jul"
+
+#: formulae/search/forms.py:67 formulae/search/forms.py:78
+#: formulae/search/forms.py:91
+msgid "Aug"
+msgstr "Aug"
+
+#: formulae/search/forms.py:67 formulae/search/forms.py:78
+#: formulae/search/forms.py:91
+msgid "Sep"
+msgstr "Sep"
+
+#: formulae/search/forms.py:68 formulae/search/forms.py:79
+#: formulae/search/forms.py:92
+msgid "Oct"
+msgstr "Okt"
+
+#: formulae/search/forms.py:68 formulae/search/forms.py:79
+#: formulae/search/forms.py:92
+msgid "Nov"
+msgstr "Nov"
+
+#: formulae/search/forms.py:68 formulae/search/forms.py:79
+#: formulae/search/forms.py:92
+msgid "Dec"
+msgstr "Dez"
+
+#: formulae/search/forms.py:70 formulae/search/forms.py:81
+#: formulae/search/forms.py:94
+msgid "Day"
+msgstr "Tag"
+
+#: formulae/search/forms.py:71 formulae/search/forms.py:83
+#: formulae/search/forms.py:95
+msgid "Day must be between 1 and 31"
+msgstr "Tag muss zwischen 1 und 31 liegen"
+
+#: formulae/search/forms.py:97
+msgid "Date Plus-Minus"
+msgstr "Datum Plus-Minus"
+
+#: formulae/search/forms.py:99
+msgid "Plus-Minus must be between 0 and 100 years"
+msgstr "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
+
+#: formulae/search/routes.py:101
+msgid "Please enter data in at least one field."
+msgstr "Bitte geben Sie Daten in mindestens einem Feld ein"
+
+#: templates/auth/login.html:15
+msgid "Forgot Your Password?"
+msgstr "Passwort Vergessen?"
+
+#: templates/auth/login.html:16
+msgid "Click to Reset It"
+msgstr "Klicken Sie, um es zurückzusetzen"
+
+#: templates/email/reset_password.html:1
+msgid "Dear"
+msgstr " "
+
+#: templates/email/reset_password.html:3
+msgid "To reset your password"
+msgstr "Um Ihr Passwort zurückzusetzen,"
+
+#: templates/email/reset_password.html:5
+msgid "click here"
+msgstr "klicken Sie bitte hier"
+
+#: templates/email/reset_password.html:8
+msgid ""
+"Alternatively, you can paste the following link in your browser's address"
+" bar:"
+msgstr ""
+"Alternativ können Sie den folgenden Link in die Adressleiste Ihres "
+"Browsers einfügen:"
+
+#: templates/email/reset_password.html:10
+msgid "If you have not requested a password reset simply ignore this message."
+msgstr ""
+"Wenn Sie das Zurücksetzen Ihres Passworts nicht angefordert haben, "
+"ignorieren Sie diese Nachricht einfach."
+
+#: templates/email/reset_password.html:11
+msgid "Sincerely,"
+msgstr "Mit freundlichen Grüßen"
+
+#: templates/email/reset_password.html:12
+msgid "The Formulae - Litterae - Chartae Team"
+msgstr "Das Formulae - Litterae - Chartae Team"
+
+#: templates/errors/unknown_collection.html:5
+msgid "Unknown Collection"
+msgstr "Unbekannte Sammlung"
+
+#: templates/errors/unknown_collection.html:6
+msgid "was not found"
+msgstr "wurde nicht gefunden"
+
+#: templates/errors/unknown_collection.html:7
+msgid "Browse other texts in this collection."
+msgstr "Andere Texte in dieser Sammlung durchsuchen."
+
+#: templates/main/404.html:4
+msgid "File Not Found"
+msgstr "Datei nicht gefunden"
+
+#: templates/main/404.html:5 templates/main/500.html:6
+msgid "Back"
+msgstr "Zurück"
+
+#: templates/main/add_text.html:13 templates/main/collection.html:10
 msgid "Text Collections"
 msgstr "Textsammlungen"
 
-#: templates/main/add_text.html:24 templates/main/collection.html:29
+#: templates/main/add_text.html:24 templates/main/sub_element_snippet.html:2
 msgid "Read"
 msgstr "Lesen"
 
-#: templates/main/add_text.html:31 templates/main/collection.html:62
-#: templates/main/collection.html:84 templates/main/collection.html:116
+#: templates/main/add_text.html:31
 msgid "Browse"
 msgstr "Übersicht"
-
-#: templates/main/collection.html:75
-msgid "Browse all"
-msgstr "Übersicht aller"
-
-#: templates/main/collection.html:75
-msgid "Entries"
-msgstr "Einträge"
 
 #: templates/main/collection_member_menu.html:11
 msgid "Choose a collection to see the texts it contains"
@@ -137,6 +388,10 @@ msgstr "Schließen"
 msgid "Save changes"
 msgstr "Änderungen speichern"
 
+#: templates/main/elex_collection.html:18
+msgid "Jump to Letter:"
+msgstr "Zu einer Buchstabe springen:"
+
 #: templates/main/index.html:6
 msgid "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
 msgstr "Willkommen zur<br>Formulae-Litterae-Chartae Werkstatt!"
@@ -149,19 +404,16 @@ msgid ""
 "please do not hesitate to contact us."
 msgstr ""
 
-#: templates/main/lexicon.html:16
-msgid "Linguistic Information"
-msgstr "Linguistische Information"
-
 #: templates/main/lexicon.html:21
 msgid "Mouse over a word to see its lemma."
 msgstr "Auf ein Wort zeigen, um sein Lemma zu sehen"
 
-#: templates/main/menu.html:2 templates/main/navbar.html:26
+#: templates/main/menu.html:2
 msgid "Texts"
 msgstr "Texte"
 
-#: templates/main/menu.html:3
+#: templates/main/menu.html:3 templates/search/advanced_search.html:6
+#: templates/search/search_box.html:10
 msgid "Advanced Search"
 msgstr "Erweiterte Suche"
 
@@ -169,25 +421,29 @@ msgstr "Erweiterte Suche"
 msgid "Collections"
 msgstr "Sammlungen"
 
-#: templates/main/navbar.html:12
+#: templates/main/navbar.html:9
 msgid "About"
 msgstr "Über das Projekt"
 
-#: templates/main/navbar.html:16
+#: templates/main/navbar.html:13
 msgid "Login"
 msgstr "Einloggen"
 
-#: templates/main/navbar.html:18
+#: templates/main/navbar.html:15
 msgid "Change user settings"
 msgstr "Benutzerprofil ändern"
 
-#: templates/main/navbar.html:18
+#: templates/main/navbar.html:15
 msgid "logout"
 msgstr "ausloggen"
 
 #: templates/main/navbar.html:22
 msgid "Lexicon"
 msgstr "Lexikon"
+
+#: templates/main/navbar.html:25
+msgid "Other Texts"
+msgstr "Andere Texte"
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
@@ -206,18 +462,21 @@ msgid ""
 "Click on a superscript number or letter in one of the texts to make the "
 "text of the corresponding note appear below. You can also click on the "
 "small &#8853; to show all notes for a text or the small &#8855; to hide "
-"all notes for that text."
+"all notes for that text. If a text on the left is not shown here, that "
+"means there are no notes for that text."
 msgstr ""
-"Eine hochgestellte Zahl bzw. einen hochgestellten Buchstabe anklicken, um"
-" den Text der dazugehörigen Anmerkung zu zeigen. Wenn Sie auf das kleine "
-"&#8853; oder &#8855;, werden alle Anmerkungen für einen Text ein- bzw. "
-"ausgeblendet."
+"Klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten Zahl in"
+" einem der Texte, um den Text der entsprechenden Notiz hier zu sehen. Sie"
+" können auch auf das kleine &#8853; um alle Notizen für einen Text zu "
+"zeigen oder das kleine &#8855; um alle Notizen für diesen Text zu "
+"verbergen. Wenn ein Text auf der linken Seite hier nicht angezeigt wird, "
+"bedeutet dies, dass für diesen Text keine Notizen vorhanden sind."
 
-#: templates/main/notes.html:33
+#: templates/main/notes.html:34
 msgid "Hide all notes for this text"
 msgstr "Alle Anmerkungen für diesen Text einblenden"
 
-#: templates/main/notes.html:34
+#: templates/main/notes.html:35
 msgid "Show all notes for this text"
 msgstr "Alle Anmerkungen für diesen Text ausblenden"
 
@@ -225,31 +484,110 @@ msgstr "Alle Anmerkungen für diesen Text ausblenden"
 msgid "Register"
 msgstr "Benutzerkonto erstellen"
 
-#: templates/main/search.html:6
-msgid "Search Results"
-msgstr "Suchergebnisse"
+#: templates/main/sub_collection.html:17
+msgid "Jump to Text:"
+msgstr "Zu einem Text springen:"
 
-#: templates/main/search.html:25
-msgid "Previous results"
-msgstr "Vorherige Ergebnisse"
+#: templates/main/sub_collection.html:27
+msgid "Number"
+msgstr "Nummer"
 
-#: templates/main/search.html:30
-msgid "Next results"
-msgstr "Nächste Ergebnisse"
+#: templates/main/sub_collection.html:28
+msgid "Read in: "
+msgstr "Lesen auf:"
 
-#: templates/main/search_box.html:5
+#: templates/main/text_container.html:27
+msgid "Add another text"
+msgstr "Einen Text Hinzufügen"
+
+#: templates/search/advanced_search.html:31
+msgid "Word Search"
+msgstr "Wortsuche"
+
+#: templates/search/advanced_search.html:33
 msgid "Lemma search is currently only available for Latin formulae"
 msgstr "Die Lemmatasuche ist nur für die lateinischen Formeln möglich"
 
-#: templates/main/search_box.html:5
+#: templates/search/advanced_search.html:33
 msgid "Check if you want to perform a fuzzy search"
 msgstr "Unscharfe Suche"
 
-#: templates/main/search_box.html:5
+#: templates/search/advanced_search.html:33
 msgid "Check if you want to search on a phrase"
 msgstr "Nach einer Phrase suche"
 
-#: templates/main/text_container.html:25
-msgid "Add another text"
-msgstr "Einen Text Hinzufügen"
+#: templates/search/advanced_search.html:37
+msgid "Search a Specific Date"
+msgstr "Nach einem bestimmten Datum suchen"
+
+#: templates/search/advanced_search.html:65
+msgid "Search a Date Range"
+msgstr "Nach einer Datumspanne suchen"
+
+#: templates/search/advanced_search.html:66
+msgid "From"
+msgstr "Von"
+
+#: templates/search/advanced_search.html:93
+msgid "To"
+msgstr "Bis"
+
+#: templates/search/advanced_search.html:121
+msgid "Used for both the Specific Date and Date Range searches."
+msgstr ""
+
+#: templates/search/advanced_search.html:122
+msgid "year(s)"
+msgstr "Jahr(e)"
+
+#: templates/search/search.html:6
+msgid "Search Results"
+msgstr "Suchergebnisse"
+
+#: templates/search/search.html:9
+msgid "No results found for"
+msgstr "Keine Ergebnisse gefunden für"
+
+#: templates/search/search_box.html:4
+msgid "Search In:"
+msgstr "Suchen in:"
+
+#~ msgid "Browse all"
+#~ msgstr "Übersicht aller"
+
+#~ msgid "Entries"
+#~ msgstr "Einträge"
+
+#~ msgid ""
+#~ "Click on a superscript number or "
+#~ "letter in one of the texts to "
+#~ "make the text of the corresponding "
+#~ "note appear below. You can also "
+#~ "click on the small &#8853; to show"
+#~ " all notes for a text or the"
+#~ " small &#8855; to hide all notes "
+#~ "for that text."
+#~ msgstr ""
+#~ "Eine hochgestellte Zahl bzw. einen "
+#~ "hochgestellten Buchstabe anklicken, um den "
+#~ "Text der dazugehörigen Anmerkung zu "
+#~ "zeigen. Wenn Sie auf das kleine "
+#~ "&#8853; oder &#8855;, werden alle "
+#~ "Anmerkungen für einen Text ein- bzw. "
+#~ "ausgeblendet."
+
+#~ msgid "Previous results"
+#~ msgstr "Vorherige Ergebnisse"
+
+#~ msgid "Next results"
+#~ msgstr "Nächste Ergebnisse"
+
+#~ msgid "Search Specific Corpora"
+#~ msgstr "Korpora"
+
+#~ msgid "Search Specific Words"
+#~ msgstr ""
+
+#~ msgid "Linguistic Information"
+#~ msgstr "Linguistische Information"
 
