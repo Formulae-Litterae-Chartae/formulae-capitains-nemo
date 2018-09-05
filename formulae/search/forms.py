@@ -31,7 +31,7 @@ def validate_multiword_not_wildcard(form, field):
     :param query: the text of the query
     :return:
     """
-    field = str(field)
+    field = str(field.data)
     if ' ' in field and ('*' in field or '?' in field):
         raise ValidationError(_l('Multiword searches cannot contain wildcard characters (i.e., "?" or "*")'))
 

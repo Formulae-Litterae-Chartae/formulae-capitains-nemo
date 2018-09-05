@@ -216,14 +216,17 @@ class TestForms(Formulae_Testing):
                                   day_start=12, year_end=700, month_end="01", day_end=12)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
 
-    ''' I have had to remove this test since I am not sure why it does not pass on Travis. It passes locally.
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
+        # This test does not work with Travis
+        if os.environ.get('TRAVIS'):
+            return
         form = SearchForm(corpus=['formulae'], q='regnum')
         form.validate()
-        print(form.corpus.errors, form.q.errors)
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
-    '''
+        form = SearchForm(corpus=['formulae'], q='re?num')
+        form.validate()
+        self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
     def test_invalid_data_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with invalid search string or no corpus"""
