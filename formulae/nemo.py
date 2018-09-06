@@ -297,6 +297,8 @@ class NemoFormulae(Nemo):
                 r[par]["versions"].append(metadata)
             else:
                 r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                          # short_regest will change to str(m.get_cts_property('short-regest')) and
+                          # regest will change to str(m.get_description()) once I have reconverted the texts
                           "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
                           "versions": [metadata]}
         for k, v in r.items():
@@ -397,8 +399,7 @@ class NemoFormulae(Nemo):
         translations = {}
         for i in ids:
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [m for m in p.readableDescendants if m.id != i]
-        print(p, translations)
+            translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):

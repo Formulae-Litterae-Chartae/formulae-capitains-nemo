@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-05 08:50+0200\n"
+"POT-Creation-Date: 2018-09-06 09:52+0200\n"
 "PO-Revision-Date: 2018-06-29 12:14+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -22,23 +22,7 @@ msgstr ""
 msgid "Please log in to access this page."
 msgstr "Bitte einloggen, um diese Seite zu sehen"
 
-#: formulae/nemo.py:65
-msgid "Latin"
-msgstr "Latein"
-
-#: formulae/nemo.py:65
-msgid "German"
-msgstr "Deutsch"
-
-#: formulae/nemo.py:65
-msgid "French"
-msgstr "Französisch"
-
-#: formulae/nemo.py:65
-msgid "English"
-msgstr "Englisch"
-
-#: formulae/nemo.py:343
+#: formulae/nemo.py:348
 msgid "This work has no default edition"
 msgstr "Dieses Werk hat keine Defaultedition"
 
@@ -176,6 +160,7 @@ msgid "Corpora"
 msgstr "Korpora"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:61
+#: templates/main/add_text_menu.html:9 templates/main/navbar.html:19
 msgid "Formulae"
 msgstr "Formeln"
 
@@ -193,7 +178,7 @@ msgstr ""
 
 #: formulae/search/forms.py:57 templates/main/lexicon.html:16
 msgid "Lemma"
-msgstr "Lemmata"
+msgstr "Lemma"
 
 #: formulae/search/forms.py:58
 msgid "Fuzzy"
@@ -378,6 +363,18 @@ msgstr "Lesen"
 msgid "Browse"
 msgstr "Übersicht"
 
+#: templates/main/add_text_menu.html:4
+msgid "Compare with a different text from:"
+msgstr "Vergleichen mit einen anderen Text von:"
+
+#: templates/main/add_text_menu.html:12 templates/main/navbar.html:22
+msgid "Lexicon"
+msgstr "Lexikon"
+
+#: templates/main/add_text_menu.html:15 templates/main/navbar.html:25
+msgid "Other Texts"
+msgstr "Andere Texte"
+
 #: templates/main/collection_member_menu.html:11
 msgid "Choose a collection to see the texts it contains"
 msgstr "Eine Sammlung wählen, um ihre Texte zu sehen"
@@ -426,7 +423,7 @@ msgid "Collections"
 msgstr "Sammlungen"
 
 #: templates/main/navbar.html:9
-msgid "About"
+msgid "About the Project"
 msgstr "Über das Projekt"
 
 #: templates/main/navbar.html:13
@@ -440,14 +437,6 @@ msgstr "Benutzerprofil ändern"
 #: templates/main/navbar.html:15
 msgid "logout"
 msgstr "ausloggen"
-
-#: templates/main/navbar.html:22
-msgid "Lexicon"
-msgstr "Lexikon"
-
-#: templates/main/navbar.html:25
-msgid "Other Texts"
-msgstr "Andere Texte"
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
@@ -500,9 +489,17 @@ msgstr "Nummer"
 msgid "Read in: "
 msgstr "Lesen auf: "
 
-#: templates/main/text_container.html:27
+#: templates/main/sub_collection.html:32
+msgid "Back to top"
+msgstr "Zurück zum Seitenanfang"
+
+#: templates/main/text_container.html:28
 msgid "Add another text"
 msgstr "Einen Text Hinzufügen"
+
+#: templates/main/version_menu.html:4
+msgid "Compare with another version"
+msgstr "Mit einer anderen Version vergleichen"
 
 #: templates/search/advanced_search.html:31
 msgid "Word Search"
@@ -594,4 +591,19 @@ msgstr "Suchen in:"
 
 #~ msgid "Linguistic Information"
 #~ msgstr "Linguistische Information"
+
+#~ msgid "Latin"
+#~ msgstr "Latein"
+
+#~ msgid "German"
+#~ msgstr "Deutsch"
+
+#~ msgid "French"
+#~ msgstr "Französisch"
+
+#~ msgid "English"
+#~ msgstr "Englisch"
+
+#~ msgid "About"
+#~ msgstr "Über das Projekt"
 

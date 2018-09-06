@@ -1,0 +1,19 @@
+<!-- MANUSCRIPT MENU -->
+<div class="dropdown">
+    <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ _('Compare with a different text from:') }}
+    </button>
+    <div class="dropdown-menu">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Formulae') }}</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Lexicon') }}</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Other Texts') }}</a>
+            </li>    
+        </ul>
+    </div>
+</div>

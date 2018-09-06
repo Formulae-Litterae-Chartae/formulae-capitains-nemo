@@ -1,25 +1,13 @@
 <!-- THE LEXICON CARD -->
-                <div class="card border-light" style="margin-bottom:5px;" id="lex-card">
-                    
-                    <!-- Hover text containing the whole card header so that it doesn't concern only the text. -->
-                    <div data-toggle="tooltip"
-                        data-placement="bottom"
-                        title="Click to display/hide instructions">
-                        
-                        <!-- Card header controlling the "collapse" instruction text. -->
-                        <div class="card-header"
-                            data-toggle="collapse"
-                            id="instrLexHead"
-                            data-target="#instructionsLex"
-                            aria-expanded="true"
-                            aria-controls="instructionsLex">
-                            {{ _('Lemma') }}
-                        </div>
-                        
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="float-left" style="font-size: small;" id="lem_box">{{ _('Mouse over a word to see its lemma.') }}</div>
-                                
-                    </div>
-                </div>
+<div class="card border-light" style="margin-bottom:5px;" id="lex-card" title="{{ _('Mouse over a word to see its lemma.') }}">
+        
+        <div class="card-header">
+            {{ _('Lemma') }}
+        </div>
+        
+    <div class="card-body p-2">
+        <div class="float-left" style="font-size: small; height: 2em; line-height: 2em;" id="lem_box"><i class="text-muted">{{ _('Lemma') }}</i></div>
+                
+    </div>
+</div>
                 
