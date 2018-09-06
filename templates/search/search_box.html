@@ -1,5 +1,6 @@
 {% if g.search_form %}
 <form class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
+    {{ form.hidden_tag() }}
     <ul class="list-inline mb-0 mt-1" style="font-size: small;">
         <li class="text-white list-inline-item align-top">{{ _("Search In:") }}</li>
         {% for corp in g.search_form.corpus %}
@@ -7,7 +8,7 @@
         {% endfor %}
     </ul>
     <p class="mb-0">{{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text) }}</p>
-    <a class="nav-link text-white p-0 text-right" href="{{ url_for('search.r_advanced_search') }}" title="{{ _("Advanced Search") }}" style="font-size: small;">{{ _('Advanced Search') }}</a>
+    <a class="nav-link text-white p-0 text-right" href="{{ url_for('search.r_advanced_search') }}" style="font-size: small;">{{ _('Advanced Search') }}</a>
 </form>
 {% endif %}
 <!--<a class="btn btn-outline-secondary my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->

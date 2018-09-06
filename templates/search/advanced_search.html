@@ -3,6 +3,7 @@
 {% block article %}
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
         <form action="" method="get" id="advanced-form">
+            {{ form.hidden_tag() }}
             <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
@@ -34,6 +35,7 @@
                     </div>
                 </div>
                 <div class="col-2">
+                    <h6 class="text-center"><i>{{ _('[NB: Date Search only limits Charters.]') }}</i></h6>
                     <div class="text-center mb-2"><strong>{{ _('Search a Specific Date') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
@@ -59,6 +61,10 @@
                             {% else %}
                             {{ form.day(size=2, class="form-control") }}
                             {% endif %}
+                        </div>                    
+                        <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.date_plus_minus.label }}: 
+                            <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
+                            {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
                         </div>
                     </div>
                     <br>
@@ -116,14 +122,10 @@
                             {{ form.day_end(size=2, class="form-control") }}
                             {% endif %}
                         </div>
-                    </div>                    
-                    <div class="form-row align-items-center justify-content-center">
-                        <span title="{{ _('Used for both the Specific Date and Date Range searches.') }}"><div class="text-center">{{ form.date_plus_minus.label }}: 
-                        <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
-                        {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
-                    </div></span>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+            <div class="row justify-content-center pb-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+            <div class="row justify-content-center pt-0"><a href="{{ url_for('search.r_advanced_search') }}">{{ _('Clear All Fields') }}</a></div>
         </form>
 {% endblock %}

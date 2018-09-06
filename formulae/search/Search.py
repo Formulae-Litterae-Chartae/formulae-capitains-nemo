@@ -126,9 +126,9 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             body_template["query"]["bool"]["must"].append(date_template)
 
     elif year_start or month_start or day_start or year_end or month_end or year_end:
-        body_template["query"]["bool"]["must"].append(build_date_range_template(year_start - date_plus_minus,
+        body_template["query"]["bool"]["must"].append(build_date_range_template(year_start,
                                                                                 month_start, day_start,
-                                                                                year_end + date_plus_minus, month_end,
+                                                                                year_end, month_end,
                                                                                 day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
