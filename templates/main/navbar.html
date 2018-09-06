@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav my-0 mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">{{ _('About') }}</a>
+                <a class="nav-link" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('About the Project') }}</a>
             </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
@@ -16,7 +16,7 @@
             {% endif %}
             </li>
             <li class="nav-item active">
-                <a class="nav-link nav" href="{{url_for('InstanceNemo.r_collection', objectId='formulae_collection')}}">Formulae</a>
+                <a class="nav-link nav" href="{{url_for('InstanceNemo.r_collection', objectId='formulae_collection')}}">{{ _('Formulae') }}</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexicon') }}</a>

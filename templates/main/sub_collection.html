@@ -29,6 +29,7 @@
                 </div>
                 {% if values['short_regest'] != values['regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
                 <small>{{ values['regest'] }}</small>
+                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Back to top') }}</small></a></p>
             </li>
         {% endfor %}
         </ul>
