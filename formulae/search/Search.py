@@ -138,22 +138,20 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             for hit in search['hits']['hits']:
                 sentences = []
                 start = 0
-                if phrase_search:
-                    lems = hit['_source']['lemmas']
-                    inflected = hit['_source']['text']
-                    difference = 70
-                    joiner = ''
-                else:
-                    lems = hit['_source']['lemmas'].split()
-                    inflected = hit['_source']['text'].split()
-                    difference = 10
-                    joiner = ' '
+                lems = hit['_source']['lemmas'].split()
+                inflected = hit['_source']['text'].split()
                 ratio = len(inflected)/len(lems)
+                if phrase_search:
+                    query_words = q.split()
+                    for i, w in enumerate(lems):
+                        if w == query_words[0] and set(query_words).issubset(lems[max(i - (slop - 1), 0):min(i + (slop + len(query_words)), len(lems))]):
+                            rounded = round(i * ratio)
+                            sentences.append(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))]))
                 while q in lems[start:]:
                     i = lems.index(q, start)
                     start = i + 1
                     rounded = round(i * ratio)
-                    sentences.append(joiner.join(inflected[max(rounded - difference, 0):min(rounded + difference, len(inflected))]))
+                    sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
                 ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences})
         else:
             ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
