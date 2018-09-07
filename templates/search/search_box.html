@@ -1,4 +1,4 @@
-{% if g.search_form %}
+{% if g.search_form and 'advanced_search' not in request.url %}
 <form class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
     <ul class="list-inline mb-0 mt-1" style="font-size: small;">
         <li class="text-white list-inline-item align-top">{{ _("Search In:") }}</li>
