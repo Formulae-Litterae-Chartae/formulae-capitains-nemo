@@ -80,7 +80,7 @@ def query_index(index, field, query, page, per_page):
 
 def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzzy_search='n', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, **kwargs):
+                         day_end=0, date_plus_minus=0, slop=4, **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
@@ -93,14 +93,15 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     else:
         fuzz = 'AUTO'
     if q:
-        body_template['highlight'] = {'fields': {field: {}},
-                                      'pre_tags': ["<strong>"],
-                                      'post_tags': ["</strong>"],
-                                      'order': 'score',
-                                      'encoder': 'html'
-                                      }
+        if field != 'lemmas':
+            body_template['highlight'] = {'fields': {field: {}},
+                                          'pre_tags': ["<strong>"],
+                                          'post_tags': ["</strong>"],
+                                          'order': 'score',
+                                          'encoder': 'html'
+                                          }
         if phrase_search:
-            body_template["query"]["bool"]["must"].append({'match_phrase': {field: {'query': q, "slop": 4}}})
+            body_template["query"]["bool"]["must"].append({'match_phrase': {field: {'query': q, "slop": slop}}})
         else:
             body_template["query"]["bool"]["must"].append({'match': {field: {'query': q, 'fuzziness': fuzz}}})
     if year or month or day:
@@ -132,7 +133,30 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
                                                                                 day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+        if field == 'lemmas':
+            ids = []
+            for hit in search['hits']['hits']:
+                sentences = []
+                start = 0
+                if phrase_search:
+                    lems = hit['_source']['lemmas']
+                    inflected = hit['_source']['text']
+                    difference = 70
+                    joiner = ''
+                else:
+                    lems = hit['_source']['lemmas'].split()
+                    inflected = hit['_source']['text'].split()
+                    difference = 10
+                    joiner = ' '
+                ratio = len(inflected)/len(lems)
+                while q in lems[start:]:
+                    i = lems.index(q, start)
+                    start = i + 1
+                    rounded = round(i * ratio)
+                    sentences.append(joiner.join(inflected[max(rounded - difference, 0):min(rounded + difference, len(inflected))]))
+                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences})
+        else:
+            ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.

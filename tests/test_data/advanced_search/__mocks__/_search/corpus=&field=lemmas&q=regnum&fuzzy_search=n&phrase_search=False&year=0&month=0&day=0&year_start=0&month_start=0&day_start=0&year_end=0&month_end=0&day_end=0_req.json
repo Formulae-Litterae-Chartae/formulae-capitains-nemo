@@ -15,18 +15,5 @@
   },
   "sort": "urn",
   "from": 0,
-  "size": 10,
-  "highlight": {
-    "fields": {
-      "lemmas": {}
-    },
-    "pre_tags": [
-      "<strong>"
-    ],
-    "post_tags": [
-      "</strong>"
-    ],
-    "order": "score",
-    "encoder": "html"
-  }
+  "size": 10
 }

@@ -1,6 +1,5 @@
 {% if g.search_form %}
 <form class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
-    {{ form.hidden_tag() }}
     <ul class="list-inline mb-0 mt-1" style="font-size: small;">
         <li class="text-white list-inline-item align-top">{{ _("Search In:") }}</li>
         {% for corp in g.search_form.corpus %}
