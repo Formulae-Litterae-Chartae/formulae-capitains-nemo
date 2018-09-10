@@ -116,10 +116,11 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             body_template["query"]["bool"]["must"].append(date_template)
         else:
             if year:
-                date_template["nested"]["query"]['bool']['must'].append({"range":
-                                                                             {"specific_date.year":
-                                                                                  {"gte": year - date_plus_minus,
-                                                                                   "lte": year + date_plus_minus}}})
+                date_template["nested"]["query"]['bool']['must'].append({"range": {"specific_date.year":
+                                                                                       {"gte": year - date_plus_minus,
+                                                                                        "lte": year + date_plus_minus}
+                                                                                   }
+                                                                         })
             if month:
                 date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
             if day:
