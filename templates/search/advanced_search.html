@@ -125,7 +125,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center pb-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
-            <div class="row justify-content-center pt-0"><a href="{{ url_for('search.r_advanced_search') }}">{{ _('Clear All Fields') }}</a></div>
+            <div class="row justify-content-center py-0"><input type="reset" class="btn btn-sm btn-secondary" value="{{ _('Clear All Fields') }}"/></div>
+            <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
         </form>
 {% endblock %}
