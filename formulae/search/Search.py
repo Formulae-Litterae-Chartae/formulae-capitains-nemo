@@ -80,7 +80,7 @@ def query_index(index, field, query, page, per_page):
 
 def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzzy_search='n', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, exclusive_date_range=False, slop=4, **kwargs):
+                         day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
@@ -127,7 +127,7 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             body_template["query"]["bool"]["must"].append(date_template)
 
     elif year_start or month_start or day_start or year_end or month_end or year_end:
-        if exclusive_date_range != 'n':
+        if exclusive_date_range != 'False':
             body_template["query"]["bool"]["must"] += build_spec_date_range_template(year_start, month_start,
                                                                                      day_start, year_end,
                                                                                      month_end, day_end)
@@ -164,10 +164,16 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "corpus={corpus}&field={field}&q={q}&fuzzy_search={fuzz}&phrase_search={phrase}&year={y}&" \
                    "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
-                   "month_end={m_e}&day_end={d_e}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'),
-                                                          fuzz=fuzzy_search, phrase=phrase_search, y=year, m=month,
-                                                          d=day, y_s=year_start, m_s=month_start, d_s=day_start,
-                                                          y_e=year_end, m_e=month_end, d_e=day_end)
+                   "month_end={m_e}&day_end={d_e}&exclusive_date_range={e_d_r}".format(corpus='+'.join(corpus),
+                                                                                       field=field,
+                                                                                       q=q.replace(' ', '+'),
+                                                                                       fuzz=fuzzy_search,
+                                                                                       phrase=phrase_search,
+                                                                                       y=year, m=month, d=day,
+                                                                                       y_s=year_start, m_s=month_start,
+                                                                                       d_s=day_start, y_e=year_end,
+                                                                                       m_e=month_end, d_e=day_end,
+                                                                                       e_d_r=exclusive_date_range)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

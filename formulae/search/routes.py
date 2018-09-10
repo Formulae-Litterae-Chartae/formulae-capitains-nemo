@@ -57,10 +57,9 @@ def r_results():
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
                                             corpus=request.args.get('corpus', ''),
-                                            exclusive_date_range=request.args.get('exclusive_date_range', "n"))
+                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"))
         search_args = dict(request.args)
         search_args.pop('page', None)
-        print(search_args)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None

@@ -141,7 +141,7 @@ class TestIndividualRoutes(Formulae_Testing):
             mock_search.assert_called_with(corpus='formulae+chartae', date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, field='text', fuzzy_search='n', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, phrase_search=False, q='',
-                                           year=600, year_end=700, year_start=0)
+                                           year=600, year_end=700, year_start=0, exclusive_date_range='False')
 
 
 class TestForms(Formulae_Testing):
@@ -311,6 +311,21 @@ class TestES(Formulae_Testing):
         test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
                                 ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
                                 ("year_end", 814), ("month_end", 11), ("day_end", 20)])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_exclusive_date_range_search(self, mock_search):
+        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
+                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 700), ("month_start", 10), ("day_start", 0),
+                                ("year_end", 800), ("month_end", 10), ("day_end", 0), ('exclusive_date_range', 'True')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
