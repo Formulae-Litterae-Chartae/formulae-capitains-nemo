@@ -80,7 +80,7 @@ def query_index(index, field, query, page, per_page):
 
 def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzzy_search='n', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, slop=4, **kwargs):
+                         day_end=0, date_plus_minus=0, exclusive_date_range=False, slop=4, **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
@@ -127,10 +127,13 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
             body_template["query"]["bool"]["must"].append(date_template)
 
     elif year_start or month_start or day_start or year_end or month_end or year_end:
-        body_template["query"]["bool"]["must"].append(build_date_range_template(year_start,
-                                                                                month_start, day_start,
-                                                                                year_end, month_end,
-                                                                                day_end))
+        if exclusive_date_range != 'n':
+            body_template["query"]["bool"]["must"] += build_spec_date_range_template(year_start, month_start,
+                                                                                     day_start, year_end,
+                                                                                     month_end, day_end)
+        else:
+            body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
+                                                                                    year_end, month_end, day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
         if field == 'lemmas':
@@ -173,9 +176,55 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
     return ids, search['hits']['total']
 
 
+def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,
+                                   spec_day_end):
+    """ Builds the date template for the specific date range search.
+        Currently it only works with 'specific_date'. I will need to think about whether it should work with 'dating'.
+
+    :param spec_year_start: the beginning year in which to search
+    :param spec_month_start: the beginning month to search within each year in the year range
+    :param spec_day_start: the beginning day in which to search within each month in the month range
+    :param spec_year_end: the ending year in which to search
+    :param spec_month_end: the ending month to search within each year in the year range
+    :param spec_day_end: the ending day to search within each month in the month range
+    :return: list of query-part dictionaries
+    """
+    date_template = []
+    spec_year_start = spec_year_start or 0
+    spec_year_end = spec_year_end or 2000
+    spec_month_start = spec_month_start or 1
+    spec_month_end = spec_month_end or 12
+    spec_day_start = spec_day_start or 1
+    spec_day_end = spec_day_end or 31
+    date_template.append({"nested":
+                              {'path': "specific_date", "query":
+                                  {'range': {'specific_date.year':
+                                                 {"gte": spec_year_start, 'lte': spec_year_end}
+                                             }
+                                   }
+                               }
+                          })
+    date_template.append({"nested":
+                              {'path': "specific_date", "query":
+                                  {'range': {'specific_date.month':
+                                                 {"gte": spec_month_start, 'lte': spec_month_end}
+                                             }
+                                   }
+                               }
+                          })
+    date_template.append({"nested":
+                              {'path': "specific_date", "query":
+                                  {'range': {'specific_date.day':
+                                                 {"gte": spec_day_start, 'lte': spec_day_end}
+                                             }
+                                   }
+                               }
+                          })
+    return date_template
+
+
 def build_date_range_template(year_start, month_start, day_start, year_end, month_end, day_end):
     date_template = {"bool": {"should": []}}
-    # need to add another clause for the dating field
     gte = '-'.join([str(x).zfill(y) for x, y in [(year_start, 4), (month_start, 2), (day_start, 2)] if x])
     lte = '-'.join([str(x).zfill(y) for x, y in [(year_end, 4), (month_end, 2), (day_end, 2)] if x])
     dating_template = {"range": {"dating": {}}}

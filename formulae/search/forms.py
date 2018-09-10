@@ -60,55 +60,43 @@ class AdvancedSearchForm(SearchForm):
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('All')), ('chartae', _l('Charters')),
                                                                          ('formulae', _l('Formulae'))])
     year = StringField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
-                                                                               message=_('The year must be between 500 and 1000'))],
-                        default="")
+                                                                              message=_('The year must be between 500 and 1000'))],
+                       default="")
     month = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
                                               (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
                                               (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
                                               (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
                         default=0, coerce=int)
     day = StringField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
-                                                                             message=_('Day must be between 1 and 31'))],
-                       default="")
+                                                                            message=_('Day must be between 1 and 31'))],
+                      default="")
     year_start = StringField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
-                                                                                     message=_('The year must be between 500 and 1000'))],
-                              default="")
+                                                                                    message=_('The year must be between 500 and 1000'))],
+                             default="")
     month_start = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
                                               (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
                                               (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
                                               (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
                               default=0, coerce=int)
     day_start = StringField(_l('Day'),
-                             validators=[validate_optional_number_range(min=1, max=31,
-                                                                        message=_('Day must be between 1 and 31'))],
-                             default="")
-    year_end = StringField(_l('Year'),
-                            validators=[validate_optional_number_range(min=500, max=1000,
-                                                                       message=_('The year must be between 500 and 1000'))],
+                            validators=[validate_optional_number_range(min=1, max=31,
+                                                                       message=_('Day must be between 1 and 31'))],
                             default="")
+    year_end = StringField(_l('Year'),
+                           validators=[validate_optional_number_range(min=500, max=1000,
+                                                                      message=_('The year must be between 500 and 1000'))],
+                           default="")
     month_end = SelectField(_l('Month'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mar')),
                                               (4, _l('Apr')), (5, _l('May')), (6, _l('Jun')),
                                               (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
                                               (10, _l('Oct')), (11, _l('Nov')), (12, _l('Dec'))],
                             default=0, coerce=int)
     day_end = StringField(_l('Day'), validators=[validate_optional_number_range(min=1, max=31,
-                                                                                 message=_('Day must be between 1 and 31'))],
-                           default="")
+                                                                                message=_('Day must be between 1 and 31'))],
+                          default="")
     date_plus_minus = IntegerRangeField(_l('Date Plus-Minus'),
                                         validators=[validate_optional_number_range(min=0, max=100,
                                                                                   message=_('Plus-Minus must be between 0 and 100 years'))],
                                         default=0)
-    """century = SelectMultipleField(_l('Century'), choices=[('300-399', _l('4th')), ('400-499', _l('5th')),
-                                                          ('500-599', _l('6th')), ('600-699', _l('7th')),
-                                                          ('700-799', _l('8th')), ('800-899', _l('9th')),
-                                                          ('900-999', _l('10th')), ('1000-1099', _l('11th'))])
-    century_part = SelectMultipleField(_l('Century Part'), choices=[('0-49', _l('First Half (00-49)')),
-                                                                    ('50-99', _l('Last Half (50-99)')),
-                                                                    ('0-24', _l('First Quarter (00-24)')),
-                                                                    ('25-49', _l('Second Quarter (25-49)')),
-                                                                    ('50-74', _l('Third Quarter (50-74)')),
-                                                                    ('75-99', _l('Fourth Quarter (75-99)'))])"""
-    # formulae = BooleanField('Formulae')
-    # chartae = BooleanField('Chartae')
-    # litterae = BooleanField('Litterae')
+    exclusive_date_range = BooleanField(_('Exclusive'))
     submit = SubmitField(_l('Search'))

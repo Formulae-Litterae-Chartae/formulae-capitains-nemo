@@ -56,9 +56,11 @@ def r_results():
                                             month_end=request.args.get('month_end', 0, type=int),
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=request.args.get('corpus', ''))
+                                            corpus=request.args.get('corpus', ''),
+                                            exclusive_date_range=request.args.get('exclusive_date_range', "n"))
         search_args = dict(request.args)
         search_args.pop('page', None)
+        print(search_args)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
@@ -90,7 +92,7 @@ def r_advanced_search():
     colls = get_all_corpora()
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none']
+    data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x != 'exclusive_date_range']
     if form.validate() and data_present:
         if data_present != ['submit']:
             data = form.data

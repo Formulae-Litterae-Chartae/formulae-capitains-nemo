@@ -34,9 +34,9 @@
                         <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ form.fuzzy_search() }} <span class="align-top">{{ form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ form.phrase_search() }} <span class="align-top">{{ form.phrase_search.label }}</span></span></p>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-2 date-search">
                     <h6 class="text-center"><i>{{ _('[NB: Date Search only limits Charters.]') }}</i></h6>
-                    <div class="text-center mb-2"><strong>{{ _('Search a Specific Date') }}</strong></div>
+                    <div class="text-center title"><strong>{{ _('Search a Specific Date') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
                             <div class="text-center">{{ form.year.label }}</div>
@@ -67,8 +67,8 @@
                             {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
                         </div>
                     </div>
-                    <br>
-                    <div class="text-center mb-2"><strong>{{ _('Search a Date Range') }}</strong></div>
+                    <div class="text-center title"><strong>{{ _('Search a Date Range') }}</strong></div>
+                    <div class="text-center" title="{{ _('See search documentation for an explanation of this option.') }}">{{ form.exclusive_date_range.label(class="align-top")}} {{ form.exclusive_date_range() }}</div>
                     <div class="text-center"><em>{{ _('From') }}</em></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
