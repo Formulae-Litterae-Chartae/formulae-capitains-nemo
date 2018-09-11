@@ -31,11 +31,17 @@
                     <div class="form-group">
                         <div class="text-center mb-2"><strong>{{ _('Word Search') }}</strong></div>
                         <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
-                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to perform a fuzzy search') }}">{{ form.fuzzy_search() }} <span class="align-top">{{ form.fuzzy_search.label }}</span></span> <span title="{{ _('Check if you want to search on a phrase') }}">{{ form.phrase_search() }} <span class="align-top">{{ form.phrase_search.label }}</span></span></p>
+                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to preserve word order') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
+                    </div>
+                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }}</p><p>{{ form.fuzziness() }}</p></div>
+                    </div>
+                    <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
+                        <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('word(s)') }}</div>
+                        {{ form.slop(oninput="outputUpdate(value, '#slop-value')") }}
                     </div>
                 </div>
                 <div class="col-2 date-search">
-                    <h6 class="text-center"><i>{{ _('[NB: Date Search only limits Charters.]') }}</i></h6>
+                    <h6 class="text-center" title="{{ _('Entries for date search will not be applied to formulae.') }}"><i>{{ _('[NB: Only applies to Charters.]') }}</i></h6>
                     <div class="text-center title"><strong>{{ _('Search a Specific Date') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
@@ -64,7 +70,7 @@
                         </div>                    
                         <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.date_plus_minus.label }}: 
                             <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
-                            {{ form.date_plus_minus(oninput="outputUpdate(value)") }}
+                            {{ form.date_plus_minus(oninput="outputUpdate(value, '#date-plus-minus')") }}
                         </div>
                     </div>
                     <div class="text-center title"><strong>{{ _('Search a Date Range') }}</strong></div>
@@ -125,7 +131,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center py-0"><input type="reset" class="btn btn-sm btn-secondary" value="{{ _('Clear All Fields') }}"/></div>
             <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+            <br>
+            <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Reset Form') }}</a></div>
         </form>
 {% endblock %}

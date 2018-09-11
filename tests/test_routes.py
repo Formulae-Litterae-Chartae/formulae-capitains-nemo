@@ -136,12 +136,14 @@ class TestIndividualRoutes(Formulae_Testing):
                              'date_plus_minus=0&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
-            c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&year=600&month=1&day=31&year_start=&'
-                  'month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&date_plus_minus=0&submit=True')
+            c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&submit=True')
             mock_search.assert_called_with(corpus='formulae+chartae', date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, field='text', fuzzy_search='n', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, phrase_search=False, q='',
-                                           year=600, year_end=700, year_start=0, exclusive_date_range='False')
+                                           day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False')
 
 
 class TestForms(Formulae_Testing):
@@ -229,10 +231,7 @@ class TestForms(Formulae_Testing):
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
     def test_invalid_data_simple_search_form(self):
-        """ Ensure that the simple search form returns a ValidationError with invalid search string or no corpus"""
-        form = SearchForm(corpus=['formulae', 'chartae'], q='re?num domni')
-        self.assertFalse(form.validate(), 'Multiword with wildcard should not validate')
-        self.assertEqual(str(form.q.errors[0]), 'Multiword searches cannot contain wildcard characters (i.e., "?" or "*")')
+        """ Ensure that the simple search form returns a ValidationError with no corpus"""
         form = SearchForm(corpus=[''], q='regnum')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
@@ -308,11 +307,11 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
-                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
-                                ("year_end", 814), ("month_end", 11), ("day_end", 20)])
+        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
+                                 ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
+                                 ("day_end", 20), ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -323,11 +322,11 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
-                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 700), ("month_start", 10), ("day_start", 0),
-                                ("year_end", 800), ("month_end", 10), ("day_end", 0), ('exclusive_date_range', 'True')])
+        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 10), ("day_end", 0), ('exclusive_date_range', 'True')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -338,11 +337,11 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multi_corpus_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzzy_search", "n"), ("phrase_search", False),
-                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 814), ("month_start", 10), ("day_start", 29),
-                                ("year_end", 814), ("month_end", 11), ("day_end", 20)])
+        test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', 0), ("month", 0), ("day", 0),
+                                 ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
+                                 ("month_end", 11), ("day_end", 20), ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -353,11 +352,11 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "lemmas"), ("q", 'regnum'), ("fuzzy_search", "n"), ("phrase_search", False),
-                                ("year", 0), ("month", 0), ("day", 0), ("year_start", 0), ("month_start", 0), ("day_start", 0),
-                                ("year_end", 0), ("month_end", 0), ("day_end", 0)])
+        test_args = OrderedDict([("corpus", ""), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        test_args['fuzzy_search'] = test_args['fuzzy_search'] or 'n'
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -375,26 +374,20 @@ class TestES(Formulae_Testing):
                                     'highlight': {
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
                                              'total': 0}}
-        body={'query': {'match': {"text": 'regnum'}},
-              "sort": 'urn',
-              'from': 0, 'size': self.app.config['POSTS_PER_PAGE'],
-              'highlight':
-                  {'fields':
-                       {"text": {}
-                        },
-                   'pre_tags': ["<strong>"],
-                   'post_tags': ["</strong>"],
-                   'order': 'score',
-                   'encoder': 'html'
-                   },
-              }
+        body = {'query':
+                    {'span_near':
+                         {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
+                'sort': 'urn', 'from': 0, 'size': 10,
+                'highlight': {'fields': {'text': {'fragment_size': 300}},
+                              'pre_tags': ['</small><strong>'],
+                              'post_tags': ['</strong><small>'], 'encoder': 'html'}}
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 'regnum domni'
-        body['query'] = {"match_phrase": {"text": {"query": "regnum domni", 'slop': 0}}}
+        body['query']['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 're?num'
-        body['query'] = {"wildcard": {"text": "re?num"}}
+        body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)

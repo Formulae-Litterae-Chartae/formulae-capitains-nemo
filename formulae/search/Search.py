@@ -32,15 +32,15 @@ def query_index(index, field, query, page, per_page):
             clauses.append({"span_term": {'text': term}})
     search = current_app.elasticsearch.search(
     index=index, doc_type="",
-    body={'query': {'span_near': {'clauses': clauses}},
+    body={'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
           "sort": 'urn',
           'from': (page - 1) * per_page, 'size': per_page,
           'highlight':
               {'fields':
-                   {field: {}
+                   {field: {"fragment_size": 300}
                     },
-               'pre_tags': ["<strong>"],
-               'post_tags': ["</strong>"],
+               'pre_tags': ["</small><strong>"],
+               'post_tags': ["</strong><small>"],
                'encoder': 'html'
                },
           }
@@ -49,9 +49,10 @@ def query_index(index, field, query, page, per_page):
     return ids, search['hits']['total']
 
 
-def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzzy_search='n', phrase_search=False,
+def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, **kwargs):
+                         day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
+                         **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
@@ -59,22 +60,29 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
                      }
     if not current_app.elasticsearch:
         return [], 0
-    if field == 'lemmas' or fuzzy_search == 'n':
+    if field == 'lemmas':
         fuzz = '0'
     else:
-        fuzz = 'AUTO'
+        fuzz = fuzziness
     if q:
         if field != 'lemmas':
-            body_template['highlight'] = {'fields': {field: {}},
-                                          'pre_tags': ["<strong>"],
-                                          'post_tags': ["</strong>"],
-                                          'order': 'score',
+            # Highlighting for lemma searches is transferred to the "text" field.
+            body_template['highlight'] = {'fields': {field: {"fragment_size": 300}},
+                                          'pre_tags': ["</small><strong>"],
+                                          'post_tags': ["</strong><small>"],
                                           'encoder': 'html'
                                           }
-        if phrase_search:
-            body_template["query"]["bool"]["must"].append({'match_phrase': {field: {'query': q, "slop": slop}}})
-        else:
-            body_template["query"]["bool"]["must"].append({'match': {field: {'query': q, 'fuzziness': fuzz}}})
+        clauses = []
+        ordered_terms = True
+        if in_order == 'False':
+            ordered_terms = False
+        for term in q.split():
+            if '*' in term or '?' in term:
+                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+            else:
+                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
+        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
+                                                                     'in_order': ordered_terms}})
     if year or month or day:
         date_template = {"nested": {"path": "specific_date", "query": {"bool": {"must": []}}}}
         if not date_plus_minus:
@@ -108,6 +116,9 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
                                                                                     year_end, month_end, day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if q:
+        # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
+        # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
+        # match up 1-to-1.
         if field == 'lemmas':
             ids = []
             for hit in search['hits']['hits']:
@@ -134,13 +145,13 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
     if current_app.config["SAVE_REQUESTS"]:
-        req_name = "corpus={corpus}&field={field}&q={q}&fuzzy_search={fuzz}&phrase_search={phrase}&year={y}&" \
+        req_name = "corpus={corpus}&field={field}&q={q}&fuzziness={fuzz}&in_order={in_order}&year={y}&slop={slop}&" \
                    "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
                    "month_end={m_e}&day_end={d_e}&exclusive_date_range={e_d_r}".format(corpus='+'.join(corpus),
                                                                                        field=field,
                                                                                        q=q.replace(' ', '+'),
-                                                                                       fuzz=fuzzy_search,
-                                                                                       phrase=phrase_search,
+                                                                                       fuzz=fuzziness,
+                                                                                       in_order=in_order, slop=slop,
                                                                                        y=year, m=month, d=day,
                                                                                        y_s=year_start, m_s=month_start,
                                                                                        d_s=day_start, y_e=year_end,

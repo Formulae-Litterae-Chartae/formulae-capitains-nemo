@@ -29,10 +29,6 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     page = request.args.get('page', 1, type=int)
-    if request.args.get('fuzzy_search'):
-        fuzziness = 'y'
-    else:
-        fuzziness = 'n'
     if request.args.get('lemma_search') == 'y':
         field = 'lemmas'
     else:
@@ -44,8 +40,9 @@ def r_results():
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
-                                            fuzzy_search=request.args.get("fuzzy_search", "n"), page=page,
-                                            phrase_search=request.args.get('phrase_search', False),
+                                            fuzziness=request.args.get("fuzziness", "0"), page=page,
+                                            in_order=request.args.get('in_order', 'False'),
+                                            slop=request.args.get('slop', '0'),
                                             year=request.args.get('year', 0, type=int),
                                             month=request.args.get('month', 0, type=int),
                                             day=request.args.get('day', 0, type=int),
@@ -91,13 +88,13 @@ def r_advanced_search():
     colls = get_all_corpora()
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x != 'exclusive_date_range']
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
+    data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.validate() and data_present:
         if data_present != ['submit']:
             data = form.data
             corpus = '+'.join(data.pop("corpus"))
-            for k in ["phrase_search", "lemma_search", "fuzzy_search"]:
-                data[k] = request.args.get(k)
+            data['lemma_search'] = request.args.get('lemma_search')
             return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
         flash(_('Please enter data in at least one field.'))
     for k, m in form.errors.items():

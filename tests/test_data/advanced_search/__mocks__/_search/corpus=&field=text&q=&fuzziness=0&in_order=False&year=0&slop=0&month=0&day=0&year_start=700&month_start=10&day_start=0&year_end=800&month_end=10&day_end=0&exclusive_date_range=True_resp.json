@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -20,7 +20,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "Sch\u00e4ftlarn Urkunden, Weissthanner Nummer 12",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
           "specific_date": [
             {
@@ -78,7 +77,8 @@
               "month": 10,
               "day": 9
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
@@ -93,7 +93,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 19",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0019.lat001",
           "specific_date": [
             {
@@ -101,7 +100,8 @@
               "month": 10,
               "day": 27
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0019.lat001"
@@ -116,7 +116,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 23",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0023.lat001",
           "specific_date": [
             {
@@ -124,7 +123,8 @@
               "month": 10,
               "day": 27
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0023.lat001"
@@ -139,7 +139,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 37",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0037.lat001",
           "specific_date": [
             {
@@ -147,7 +146,8 @@
               "month": 10,
               "day": 10
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0037.lat001"
@@ -162,7 +162,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 38",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0038.lat001",
           "specific_date": [
             {
@@ -170,7 +169,8 @@
               "month": 10,
               "day": 11
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0038.lat001"
@@ -185,7 +185,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 50",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0050.lat001",
           "specific_date": [
             {
@@ -193,7 +192,8 @@
               "month": 10,
               "day": 26
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0050.lat001"
@@ -208,7 +208,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 55",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0055.lat001",
           "specific_date": [
             {
@@ -216,7 +215,8 @@
               "month": 10,
               "day": 21
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0055.lat001"
@@ -231,7 +231,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 67",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0067.lat001",
           "specific_date": [
             {
@@ -239,7 +238,8 @@
               "month": 10,
               "day": 20
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0067.lat001"
@@ -254,7 +254,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 149",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0149.lat001",
           "specific_date": [
             {
@@ -262,7 +261,8 @@
               "month": 10,
               "day": 30
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0149.lat001"
@@ -277,7 +277,6 @@
           "text": "text",
           "lemmas": "text",
           "title": "St. Gallen Urkunden, Wartmann Nummer 157",
-          "autocomplete": "text",
           "urn": "urn:cts:formulae:stgallen.wartmann0157.lat001",
           "specific_date": [
             {
@@ -285,7 +284,8 @@
               "month": 10,
               "day": 28
             }
-          ]
+          ],
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0157.lat001"

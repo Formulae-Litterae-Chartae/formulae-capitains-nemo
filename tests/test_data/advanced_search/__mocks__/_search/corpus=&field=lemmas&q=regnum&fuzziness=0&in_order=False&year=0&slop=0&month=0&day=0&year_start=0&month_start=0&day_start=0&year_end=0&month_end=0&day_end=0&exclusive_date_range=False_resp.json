@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -20,8 +20,8 @@
           "text": "text",
           "lemmas": "text",
           "title": "FORMULA ANDECAVENSIS 1",
-          "autocomplete": "text",
-          "urn": "urn:cts:formulae:andecavensis.form001.lat001"
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
@@ -36,8 +36,8 @@
           "text": "text",
           "lemmas": "text",
           "title": "FORMULA ANDECAVENSIS 34",
-          "autocomplete": "text",
-          "urn": "urn:cts:formulae:andecavensis.form034.lat001"
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"

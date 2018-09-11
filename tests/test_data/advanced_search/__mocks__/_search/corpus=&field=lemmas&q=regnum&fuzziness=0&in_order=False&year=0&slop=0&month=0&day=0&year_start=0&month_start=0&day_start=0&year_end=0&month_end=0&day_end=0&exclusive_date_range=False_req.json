@@ -1,0 +1,31 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "span_near": {
+            "clauses": [
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "regnum",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "slop": "0",
+            "in_order": false
+          }
+        }
+      ]
+    }
+  },
+  "sort": "urn",
+  "from": 0,
+  "size": 10
+}

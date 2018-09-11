@@ -55,8 +55,14 @@ class SearchForm(FlaskForm):
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Search'))  # query string is not DataRequired here since someone might want to search on other criteria
     lemma_search = BooleanField(_l('Lemma'))
-    fuzzy_search = BooleanField(_l('Fuzzy'))
-    phrase_search = BooleanField(_l('Phrase'))
+    fuzziness = SelectField(_l("Fuzziness Level"),
+                            choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
+                            default="0")
+    slop = IntegerRangeField(_l("Search Radius"),
+                             validators=[validate_optional_number_range(min=0, max=100,
+                                                                        message=_('Word Radius must be between 0 and 100'))],
+                             default=0)
+    in_order = BooleanField(_l('Keep Word Order?'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('All')), ('chartae', _l('Charters')),
                                                                          ('formulae', _l('Formulae'))])
     year = StringField(_l('Year'), validators=[validate_optional_number_range(min=500, max=1000,
@@ -98,5 +104,5 @@ class AdvancedSearchForm(SearchForm):
                                         validators=[validate_optional_number_range(min=0, max=100,
                                                                                   message=_('Plus-Minus must be between 0 and 100 years'))],
                                         default=0)
-    exclusive_date_range = BooleanField(_('Exclusive'))
+    exclusive_date_range = BooleanField(_l('Exclusive'))
     submit = SubmitField(_l('Search'))
