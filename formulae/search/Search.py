@@ -23,56 +23,27 @@ def query_index(index, field, query, page, per_page):
         return [], 0
     if index == ['']:
         return [], 0
-    if ' ' in query:
-        search = current_app.elasticsearch.search(
-        index=index, doc_type="",
-        body={'query': {'match_phrase': {field: {'query': query, "slop": 0}}},
-              "sort": 'urn',
-              'from': (page - 1) * per_page, 'size': per_page,
-              'highlight':
-                  {'fields':
-                       {field: {}
-                        },
-                   'pre_tags': ["<strong>"],
-                   'post_tags': ["</strong>"],
-                   'order': 'score',
-                   'encoder': 'html'
-                   },
-              }
-        )
-    elif '*' in query or '?' in query:
-        search = current_app.elasticsearch.search(
-        index=index, doc_type="",
-        body={'query': {'wildcard': {field:  query}},
-              "sort": 'urn',
-              'from': (page - 1) * per_page, 'size': per_page,
-              'highlight':
-                  {'fields':
-                       {field: {}
-                        },
-                   'pre_tags': ["<strong>"],
-                   'post_tags': ["</strong>"],
-                   'order': 'score',
-                   'encoder': 'html'
-                   },
-              }
-        )
-    else:
-        search = current_app.elasticsearch.search(
-        index=index, doc_type="",
-        body={'query': {'match': {field: query}},
-              "sort": 'urn',
-              'from': (page - 1) * per_page, 'size': per_page,
-              'highlight':
-                  {'fields':
-                       {field: {}
-                        },
-                   'pre_tags': ["<strong>"],
-                   'post_tags': ["</strong>"],
-                   'order': 'score',
-                   'encoder': 'html'
-                   },
-              }
+    query_terms = query.split()
+    clauses = []
+    for term in query_terms:
+        if '*' in term or '?' in term:
+            clauses.append({'span_multi': {'match': {'wildcard': {'text': term}}}})
+        else:
+            clauses.append({"span_term": {'text': term}})
+    search = current_app.elasticsearch.search(
+    index=index, doc_type="",
+    body={'query': {'span_near': {'clauses': clauses}},
+          "sort": 'urn',
+          'from': (page - 1) * per_page, 'size': per_page,
+          'highlight':
+              {'fields':
+                   {field: {}
+                    },
+               'pre_tags': ["<strong>"],
+               'post_tags': ["</strong>"],
+               'encoder': 'html'
+               },
+          }
     )
     ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     return ids, search['hits']['total']

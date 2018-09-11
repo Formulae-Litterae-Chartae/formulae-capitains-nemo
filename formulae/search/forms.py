@@ -37,7 +37,7 @@ def validate_multiword_not_wildcard(form, field):
 
 
 class SearchForm(FlaskForm):
-    q = StringField(_l('Search'), validators=[DataRequired(), validate_multiword_not_wildcard])
+    q = StringField(_l('Search'), validators=[DataRequired()])
     corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formulae')), ('chartae', _l('Charters'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
