@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -16,11 +16,12 @@
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
-        "_source": "",
-        "highlight": {
-          "lemmas": [
-            "formula andecavensis in christus nomen incipio dictatus hic sum gero annus quartus <strong>regnum</strong> dominus noster"
-          ]
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
@@ -31,11 +32,12 @@
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
-        "_source": "",
-        "highlight": {
-          "lemmas": [
-            "formula andecavensis incipio dos annus quartus <strong>regnum</strong> dominus noster childebertus rex ego in deus nomen"
-          ]
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 34",
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "autocomplete": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"

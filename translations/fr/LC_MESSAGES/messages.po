@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-06 09:52+0200\n"
+"POT-Creation-Date: 2018-09-11 14:19+0200\n"
 "PO-Revision-Date: 2018-06-27 13:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Please log in to access this page."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:348
+#: formulae/nemo.py:350
 msgid "This work has no default edition"
 msgstr "Cette oeuvre n'a pas d'édition par défaut"
 
@@ -145,20 +145,20 @@ msgid ""
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:114 formulae/search/routes.py:79
+#: formulae/search/forms.py:108 formulae/search/routes.py:81
 msgid "Search"
 msgstr "Recherche"
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:60
+#: formulae/search/forms.py:41 formulae/search/forms.py:66
 msgid "Corpora"
 msgstr ""
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:61
+#: formulae/search/forms.py:41 formulae/search/forms.py:67
 #: templates/main/add_text_menu.html:9 templates/main/navbar.html:19
 msgid "Formulae"
 msgstr ""
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:60
+#: formulae/search/forms.py:41 formulae/search/forms.py:66
 msgid "Charters"
 msgstr ""
 
@@ -168,116 +168,133 @@ msgid ""
 "\"Charters\")"
 msgstr ""
 
-#: formulae/search/forms.py:57 templates/main/lexicon.html:16
+#: formulae/search/forms.py:57 templates/main/lexicon.html:5
+#: templates/main/lexicon.html:9
 msgid "Lemma"
 msgstr "Lemmes"
 
 #: formulae/search/forms.py:58
-msgid "Fuzzy"
-msgstr "Approximatif"
+msgid "Fuzziness Level"
+msgstr ""
 
 #: formulae/search/forms.py:59
-msgid "Phrase"
-msgstr "Expression"
+msgid "AUTO"
+msgstr ""
 
-#: formulae/search/forms.py:60 templates/search/advanced_search.html:12
+#: formulae/search/forms.py:61
+msgid "Search Radius"
+msgstr ""
+
+#: formulae/search/forms.py:63
+msgid "Word Radius must be between 0 and 100"
+msgstr ""
+
+#: formulae/search/forms.py:65
+msgid "Keep Word Order?"
+msgstr ""
+
+#: formulae/search/forms.py:66 templates/search/advanced_search.html:13
 msgid "All"
 msgstr ""
 
-#: formulae/search/forms.py:62 formulae/search/forms.py:73
-#: formulae/search/forms.py:85
+#: formulae/search/forms.py:68 formulae/search/forms.py:79
+#: formulae/search/forms.py:91
 msgid "Year"
 msgstr ""
 
-#: formulae/search/forms.py:63 formulae/search/forms.py:74
-#: formulae/search/forms.py:87
+#: formulae/search/forms.py:69 formulae/search/forms.py:80
+#: formulae/search/forms.py:93
 msgid "The year must be between 500 and 1000"
 msgstr ""
 
-#: formulae/search/forms.py:65 formulae/search/forms.py:76
-#: formulae/search/forms.py:89
+#: formulae/search/forms.py:71 formulae/search/forms.py:82
+#: formulae/search/forms.py:95
 msgid "Month"
 msgstr ""
 
-#: formulae/search/forms.py:65 formulae/search/forms.py:76
-#: formulae/search/forms.py:89
+#: formulae/search/forms.py:71 formulae/search/forms.py:82
+#: formulae/search/forms.py:95
 msgid "Jan"
 msgstr ""
 
-#: formulae/search/forms.py:65 formulae/search/forms.py:76
-#: formulae/search/forms.py:89
+#: formulae/search/forms.py:71 formulae/search/forms.py:82
+#: formulae/search/forms.py:95
 msgid "Feb"
 msgstr ""
 
-#: formulae/search/forms.py:65 formulae/search/forms.py:76
-#: formulae/search/forms.py:89
+#: formulae/search/forms.py:71 formulae/search/forms.py:82
+#: formulae/search/forms.py:95
 msgid "Mar"
 msgstr ""
 
-#: formulae/search/forms.py:66 formulae/search/forms.py:77
-#: formulae/search/forms.py:90
+#: formulae/search/forms.py:72 formulae/search/forms.py:83
+#: formulae/search/forms.py:96
 msgid "Apr"
 msgstr ""
 
-#: formulae/search/forms.py:66 formulae/search/forms.py:77
-#: formulae/search/forms.py:90
+#: formulae/search/forms.py:72 formulae/search/forms.py:83
+#: formulae/search/forms.py:96
 msgid "May"
 msgstr ""
 
-#: formulae/search/forms.py:66 formulae/search/forms.py:77
-#: formulae/search/forms.py:90
+#: formulae/search/forms.py:72 formulae/search/forms.py:83
+#: formulae/search/forms.py:96
 msgid "Jun"
 msgstr ""
 
-#: formulae/search/forms.py:67 formulae/search/forms.py:78
-#: formulae/search/forms.py:91
+#: formulae/search/forms.py:73 formulae/search/forms.py:84
+#: formulae/search/forms.py:97
 msgid "Jul"
 msgstr ""
 
-#: formulae/search/forms.py:67 formulae/search/forms.py:78
-#: formulae/search/forms.py:91
+#: formulae/search/forms.py:73 formulae/search/forms.py:84
+#: formulae/search/forms.py:97
 msgid "Aug"
 msgstr ""
 
-#: formulae/search/forms.py:67 formulae/search/forms.py:78
-#: formulae/search/forms.py:91
+#: formulae/search/forms.py:73 formulae/search/forms.py:84
+#: formulae/search/forms.py:97
 msgid "Sep"
 msgstr ""
 
-#: formulae/search/forms.py:68 formulae/search/forms.py:79
-#: formulae/search/forms.py:92
+#: formulae/search/forms.py:74 formulae/search/forms.py:85
+#: formulae/search/forms.py:98
 msgid "Oct"
 msgstr ""
 
-#: formulae/search/forms.py:68 formulae/search/forms.py:79
-#: formulae/search/forms.py:92
+#: formulae/search/forms.py:74 formulae/search/forms.py:85
+#: formulae/search/forms.py:98
 msgid "Nov"
 msgstr ""
 
-#: formulae/search/forms.py:68 formulae/search/forms.py:79
-#: formulae/search/forms.py:92
+#: formulae/search/forms.py:74 formulae/search/forms.py:85
+#: formulae/search/forms.py:98
 msgid "Dec"
 msgstr ""
 
-#: formulae/search/forms.py:70 formulae/search/forms.py:81
-#: formulae/search/forms.py:94
+#: formulae/search/forms.py:76 formulae/search/forms.py:87
+#: formulae/search/forms.py:100
 msgid "Day"
 msgstr ""
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:83
-#: formulae/search/forms.py:95
+#: formulae/search/forms.py:77 formulae/search/forms.py:89
+#: formulae/search/forms.py:101
 msgid "Day must be between 1 and 31"
 msgstr ""
 
-#: formulae/search/forms.py:97
+#: formulae/search/forms.py:103
 msgid "Date Plus-Minus"
 msgstr ""
 
-#: formulae/search/forms.py:99
+#: formulae/search/forms.py:105
 msgid "Plus-Minus must be between 0 and 100 years"
 msgstr ""
 
-#: formulae/search/routes.py:101
+#: formulae/search/forms.py:107
+msgid "Exclusive"
+msgstr ""
+
+#: formulae/search/routes.py:103
 msgid "Please enter data in at least one field."
 msgstr ""
 
@@ -398,7 +415,7 @@ msgstr ""
 "question au sujet des textes ou de l'environnement de lecture, n'hésitez "
 "pas à nous contacter."
 
-#: templates/main/lexicon.html:21
+#: templates/main/lexicon.html:2
 msgid "Mouse over a word to see its lemma."
 msgstr "Survolez un mot avec la souris pour voir son lemme."
 
@@ -406,7 +423,7 @@ msgstr "Survolez un mot avec la souris pour voir son lemme."
 msgid "Texts"
 msgstr "Textes"
 
-#: templates/main/menu.html:3 templates/search/advanced_search.html:6
+#: templates/main/menu.html:3 templates/search/advanced_search.html:7
 #: templates/search/search_box.html:10
 msgid "Advanced Search"
 msgstr "Recherche avancée"
@@ -488,46 +505,58 @@ msgstr "Ajouter un autre texte"
 msgid "Compare with another version"
 msgstr ""
 
-#: templates/search/advanced_search.html:31
+#: templates/search/advanced_search.html:32
 msgid "Word Search"
 msgstr ""
 
-#: templates/search/advanced_search.html:33
+#: templates/search/advanced_search.html:34
 msgid "Lemma search is currently only available for Latin formulae"
 msgstr ""
 "La recherche par lemme est actuellement indisponible pour les formules "
 "latines."
 
-#: templates/search/advanced_search.html:33
-msgid "Check if you want to perform a fuzzy search"
-msgstr "Cochez si vous voulez effectuer une recherche approximative"
+#: templates/search/advanced_search.html:34
+msgid "Check if you want to preserve word order"
+msgstr ""
 
-#: templates/search/advanced_search.html:33
-msgid "Check if you want to search on a phrase"
-msgstr "Cochez si vous voulez effectuer une recherche par expression"
+#: templates/search/advanced_search.html:39
+msgid "word(s)"
+msgstr ""
 
-#: templates/search/advanced_search.html:37
+#: templates/search/advanced_search.html:44
+msgid "Entries for date search will not be applied to formulae."
+msgstr ""
+
+#: templates/search/advanced_search.html:44
+msgid "[NB: Only applies to Charters.]"
+msgstr ""
+
+#: templates/search/advanced_search.html:45
 msgid "Search a Specific Date"
 msgstr ""
 
-#: templates/search/advanced_search.html:65
+#: templates/search/advanced_search.html:72
+msgid "year(s)"
+msgstr ""
+
+#: templates/search/advanced_search.html:76
 msgid "Search a Date Range"
 msgstr ""
 
-#: templates/search/advanced_search.html:66
+#: templates/search/advanced_search.html:77
+msgid "See search documentation for an explanation of this option."
+msgstr ""
+
+#: templates/search/advanced_search.html:78
 msgid "From"
 msgstr ""
 
-#: templates/search/advanced_search.html:93
+#: templates/search/advanced_search.html:105
 msgid "To"
 msgstr ""
 
-#: templates/search/advanced_search.html:121
-msgid "Used for both the Specific Date and Date Range searches."
-msgstr ""
-
-#: templates/search/advanced_search.html:122
-msgid "year(s)"
+#: templates/search/advanced_search.html:136
+msgid "Reset Form"
 msgstr ""
 
 #: templates/search/search.html:6
@@ -597,4 +626,37 @@ msgstr ""
 
 #~ msgid "About"
 #~ msgstr "A propos"
+
+#~ msgid "Fuzzy"
+#~ msgstr "Approximatif"
+
+#~ msgid "Phrase"
+#~ msgstr "Expression"
+
+#~ msgid "Check if you want to search on a phrase"
+#~ msgstr "Cochez si vous voulez effectuer une recherche par expression"
+
+#~ msgid "Used for both the Specific Date and Date Range searches."
+#~ msgstr ""
+
+#~ msgid "Check if you want to perform a fuzzy search"
+#~ msgstr "Cochez si vous voulez effectuer une recherche approximative"
+
+#~ msgid "Set 'Fuzziness' Level"
+#~ msgstr ""
+
+#~ msgid "Set 'Word Radius' Level"
+#~ msgstr ""
+
+#~ msgid "Word Radius"
+#~ msgstr ""
+
+#~ msgid "[NB: Date Search only limits Charters.]"
+#~ msgstr ""
+
+#~ msgid "'Fuzziness' Level"
+#~ msgstr ""
+
+#~ msgid "Clear All Fields"
+#~ msgstr ""
 

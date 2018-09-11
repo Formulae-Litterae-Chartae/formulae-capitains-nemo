@@ -80,8 +80,8 @@ window.onclick = function(event) {
 }
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
-function outputUpdate(plusMinus) {
-    document.querySelector('#date-plus-minus').value = plusMinus;
+function outputUpdate(plusMinus, targetId) {
+    document.querySelector(targetId).value = plusMinus;
 }
 
 function checkSubCorpora(tag, category) {
