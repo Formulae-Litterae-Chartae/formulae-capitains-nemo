@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/Formulae-Litterae-Chartae/formulae-capitains-nemo/badge.svg?branch=create_tree)](https://coveralls.io/github/Formulae-Litterae-Chartae/formulae-capitains-nemo?branch=create_tree)
+[![Coverage Status](https://coveralls.io/repos/github/Formulae-Litterae-Chartae/formulae-capitains-nemo/badge.svg?branch=master)](https://coveralls.io/github/Formulae-Litterae-Chartae/formulae-capitains-nemo?branch=master)
 
 # formulae-capitains-nemo
 This is the class extension "NemoFormulae" for flask_nemo (https://github.com/Capitains/flask-capitains-nemo).
