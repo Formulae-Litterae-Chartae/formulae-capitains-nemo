@@ -40,7 +40,7 @@ def r_results():
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': request.args.get('corpus', '')}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                            q=request.args.get('q').lower(),
+                                            q=request.args.get('q'),
                                             fuzziness=request.args.get("fuzziness", "0"), page=page,
                                             in_order=request.args.get('in_order', 'False'),
                                             slop=request.args.get('slop', '0'),
@@ -78,7 +78,7 @@ def r_results():
     return nemo.render(template='search::search.html', title=_('Search'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data, url=dict())
+                       search_string=g.search_form.q.data.lower(), url=dict())
 
 
 @bp.route("/advanced_search", methods=["GET"])
@@ -94,6 +94,7 @@ def r_advanced_search():
     if form.validate() and data_present:
         if data_present != ['submit']:
             data = form.data
+            data['q'] = data['q'].lower()
             corpus = '+'.join(data.pop("corpus"))
             data['lemma_search'] = request.args.get('lemma_search')
             return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
