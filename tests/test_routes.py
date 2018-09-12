@@ -155,7 +155,7 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.query_index")
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', q='Regnum')
+        params = dict(corpus='formulae%2Bchartae', q='regnum')
         mock_search.return_value = [[], 0]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
