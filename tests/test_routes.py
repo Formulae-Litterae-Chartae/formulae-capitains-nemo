@@ -123,7 +123,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
 
     @patch("formulae.search.routes.advanced_query_index")
-    def test_search_results(self, mock_search):
+    def test_advanced_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
@@ -144,6 +144,25 @@ class TestIndividualRoutes(Formulae_Testing):
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False')
+            # Test to make sure that a capitalized search term is converted to lowercase in advanced search
+            params['q'] = 'regnum'
+            response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=Regnum&year=600&month=1&day=31&'
+                             'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
+                             'date_plus_minus=0&submit=Search')
+            for p, v in params.items():
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+
+    @patch("formulae.search.routes.query_index")
+    def test_simple_search_results(self, mock_search):
+        """ Make sure that the correct search results are passed to the search results form"""
+        params = dict(corpus='formulae%2Bchartae', q='regnum')
+        mock_search.return_value = [[], 0]
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum')
+            for p, v in params.items():
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
 
 
 class TestForms(Formulae_Testing):
