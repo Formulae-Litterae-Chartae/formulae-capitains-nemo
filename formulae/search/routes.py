@@ -15,6 +15,7 @@ def r_simple_search():
             flash(m[0])
         return redirect(url_for('.r_results', source='simple', q=g.search_form.data['q']))
     data = g.search_form.data
+    data['q'] = data['q'].lower()
     corpus = '+'.join(data.pop("corpus"))
     return redirect(url_for('.r_results', source='simple', corpus=corpus, **data))
 
@@ -39,7 +40,7 @@ def r_results():
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': request.args.get('corpus', '')}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                            q=request.args.get('q'),
+                                            q=request.args.get('q').lower(),
                                             fuzziness=request.args.get("fuzziness", "0"), page=page,
                                             in_order=request.args.get('in_order', 'False'),
                                             slop=request.args.get('slop', '0'),
