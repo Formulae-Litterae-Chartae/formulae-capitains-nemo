@@ -90,8 +90,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Please log in to access this page.')
             self.assertTemplateUsed('auth::login.html')
 
-    def test_authorized_user(self):
-        """ Make sure that all routes are open to authorized users"""
+    def test_authorized_project_member(self):
+        """ Make sure that all routes are open to project members"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -101,9 +101,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:stgallen', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            c.get('/collections/urn:cts:formulae:elexicon', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -112,15 +112,65 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
             self.assertTemplateUsed('main::lexicon_modal.html')
-            c.get('/add_collection/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             # An authenicated user who surfs to the login page should be redirected to index
             c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
+            # The following tests are to make sure that non-open texts are available to project members
+            c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+
+    def test_authorized_normal_user(self):
+        """ Make sure that all routes are open to normal users but that some texts are not available"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='not.project', password="some_other_password"),
+                   follow_redirects=True)
+            c.get('/', follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+            c.get('/auth/user/project.member', follow_redirects=True)
+            self.assertTemplateUsed('auth::login.html')
+            c.get('/collections', follow_redirects=True)
+            self.assertTemplateUsed('main::collection.html')
+            c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
+            # r_references does not work right now.
+            # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
+            # self.assertTemplateUsed('main::references.html')
+            c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::collection.html')
+            c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
+            self.assertTemplateUsed('main::lexicon_modal.html')
+            c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
+            # An authenicated user who surfs to the login page should be redirected to index
+            c.get('/auth/login', follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+            # The following tests are to make sure that non-open texts are not available to non-project members
+            c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertMessageFlashed('This collection is under copyright and we do not have permission from the publisher to include its texts.')
+            c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
+            self.assertMessageFlashed('This collection is under copyright and we do not have permission from the publisher to include its texts.')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
+            self.assertMessageFlashed('One or more of the texts that you are trying to display is not available at this point.')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            self.assertMessageFlashed('One or more of the texts that you are trying to display is not available at this point.')
 
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):

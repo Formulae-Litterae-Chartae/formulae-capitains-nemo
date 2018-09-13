@@ -33,7 +33,7 @@
                         <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
                         <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to preserve word order') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
                     </div>
-                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }}</p><p>{{ form.fuzziness() }}</p></div>
+                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a class="fas fa-question-circle" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ _('Fuzziness is a measure of how much a word can deviate from the search input value and still be considered a valid result. The numbers represent how many changes can be made to a word. E.g., 2 means that 2 letters in the word can be replaced, deleted, added or transposed.') }}"></a></p><p>{{ form.fuzziness() }}</p></div>
                     </div>
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
                         <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('word(s)') }}</div>

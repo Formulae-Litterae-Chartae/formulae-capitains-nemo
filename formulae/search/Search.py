@@ -1,4 +1,5 @@
 from flask import current_app, Markup, flash
+from flask_babel import _
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 
@@ -62,6 +63,9 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
         return [], 0
     if field == 'lemmas':
         fuzz = '0'
+        if '*' in q or '?' in q:
+            flash(_('Wildcard characters ("*" and "?") are not allowed in lemma searches.'))
+            return [], 0
     else:
         fuzz = fuzziness
     if q:

@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session
+from flask import url_for, Markup, g, session, flash
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale, lazy_gettext
 from werkzeug.utils import redirect
@@ -60,7 +60,11 @@ class NemoFormulae(Nemo):
         "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = []
+    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau',
+                        'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinau',
+                        'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
+                        'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
                         "eng": lazy_gettext("English")}
@@ -70,6 +74,12 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
+        self.open_texts = []
+        for c in self.OPEN_COLLECTIONS[:-1]:
+            try:
+                self.open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
+            except UnknownCollection:
+                continue
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
@@ -165,9 +175,12 @@ class NemoFormulae(Nemo):
 
     def r_collection(self, objectId, lang=None):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        members = data['collections']['members']
-        if len(members) == 1:
-            return redirect(url_for('.r_corpus', objectId=members[0]['id'], lang=lang))
+        if current_user.project_team is False:
+            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+        if len(data['collections']['members']) == 0:
+            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
+        elif len(data['collections']['members']) == 1:
+            return redirect(url_for('.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
         return data
 
@@ -183,27 +196,31 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
+        if 'elexicon' in objectId:
+            template = "main::elex_collection.html"
+        else:
+            template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
-            if "salzburg" in m.id:
-                par = '-'.join(m.parent.id.split('-')[1:])
-                template = "main::sub_collection.html"
-                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-            elif "elexicon" in m.id:
-                par = m.parent.id.split('.')[-1][0].capitalize()
-                template = "main::elex_collection.html"
-                metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-            else:
-                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
-                template = "main::sub_collection.html"
-                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-            if par in r.keys():
-                r[par]["versions"].append(metadata)
-            else:
-                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
-                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
-                          "versions": [metadata]}
+            if current_user.project_team is True or m.id in self.open_texts:
+                if "salzburg" in m.id:
+                    par = '-'.join(m.parent.id.split('-')[1:])
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+                elif "elexicon" in m.id:
+                    par = m.parent.id.split('.')[-1][0].capitalize()
+                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+                else:
+                    par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+                if par in r.keys():
+                    r[par]["versions"].append(metadata)
+                else:
+                    r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                              "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                              "versions": [metadata]}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
+        if len(r) == 0:
+            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
         return {
             "template": template,
             "collections": {
@@ -249,9 +266,13 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         members = self.make_members(collection, lang=lang)
+        if current_user.project_team is False:
+            members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 1:
             return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
                                     objectIds=objectIds, reffs=reffs, lang=lang))
+        elif len(members) == 0:
+            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
         return {
             "template": "main::sub_collections.html",
             "collections": {
@@ -280,29 +301,33 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
+        if 'elexicon' in objectId:
+            template = "main::elex_collection.html"
+        else:
+            template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
-            if "salzburg" in m.id:
-                par = '-'.join(m.parent.id.split('-')[1:])
-                template = "main::sub_collection.html"
-                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-            elif "elexicon" in m.id:
-                par = m.parent.id.split('.')[-1][0].capitalize()
-                template = "main::elex_collection.html"
-                metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-            else:
-                par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
-                template = "main::sub_collection.html"
-                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-            if par in r.keys():
-                r[par]["versions"].append(metadata)
-            else:
-                r[par] = {"short_regest": str(m.get_description()).split(':')[0],
-                          # short_regest will change to str(m.get_cts_property('short-regest')) and
-                          # regest will change to str(m.get_description()) once I have reconverted the texts
-                          "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
-                          "versions": [metadata]}
+            if current_user.project_team is True or m.id in self.open_texts:
+                if "salzburg" in m.id:
+                    par = '-'.join(m.parent.id.split('-')[1:])
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+                elif "elexicon" in m.id:
+                    par = m.parent.id.split('.')[-1][0].capitalize()
+                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+                else:
+                    par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+                if par in r.keys():
+                    r[par]["versions"].append(metadata)
+                else:
+                    r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                              # short_regest will change to str(m.get_cts_property('short-regest')) and
+                              # regest will change to str(m.get_description()) once I have reconverted the texts
+                              "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                              "versions": [metadata]}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
+        if len(r) == 0:
+            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
         return {
             "template": template,
             "collections": {
@@ -403,13 +428,16 @@ class NemoFormulae(Nemo):
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
-            if subrefers[i] == "first":
-                subref = self.resolver.getReffs(textId=id)[0]
-            else:
-                subref = subrefers[i]
-            d = self.r_passage(id, subref, lang=lang)
-            del d['template']
-            passage_data['objects'].append(d)
+            if current_user.project_team is True or id in self.open_texts:
+                if subrefers[i] == "first":
+                    subref = self.resolver.getReffs(textId=id)[0]
+                else:
+                    subref = subrefers[i]
+                d = self.r_passage(id, subref, lang=lang)
+                del d['template']
+                passage_data['objects'].append(d)
+        if len(ids) > len(passage_data['objects']):
+            flash(_('One or more of the texts that you are trying to display is not available at this point.'))
         return passage_data
 
     def r_lexicon(self, objectId, lang=None):

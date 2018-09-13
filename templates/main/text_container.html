@@ -23,10 +23,6 @@
 <div class="col-sm hfeed right-columns no-copy" id="reading-container">
 {% endif %}
 
-{{ proj_team }}
-<a href="{{ url_for('InstanceNemo.r_add_text_collections', objectIds=prev_texts, reffs=prev_reffs) }}">
-  {{ _('Add another text') }}
-</a>
 <!-- THE TEXTS -->
 {% block texts %}
 {% endblock %}
