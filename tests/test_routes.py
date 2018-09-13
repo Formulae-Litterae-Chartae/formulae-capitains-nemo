@@ -334,22 +334,6 @@ class TestForms(Formulae_Testing):
 
 
 class TestAuth(Formulae_Testing):
-    def test_correct_login(self):
-        """ Ensure that login works with correct credentials"""
-        # For some reason this test does not work on Travis but it works locally.
-        if os.environ.get('TRAVIS') == 'true':
-            return
-        with self.client as c:
-            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
-                   follow_redirects=True)
-            rv = c.post('/auth/login', data=dict(username='project.member', password="some_password"),
-                        follow_redirects=True)
-            self.assert200(rv, 'Login should return 200 code')
-            self.assertTrue(current_user.email == "project.member@uni-hamburg.de")
-            self.assertTrue(current_user.is_active)
-            self.assertTrue(current_user.is_authenticated)
-            self.assertTemplateUsed('main::index.html')
-
     def test_incorrect_login(self):
         """ Ensure that login does not work with incorrect credentials"""
         with self.client as c:
@@ -360,6 +344,14 @@ class TestAuth(Formulae_Testing):
             self.assertFalse(current_user.is_active)
             self.assertFalse(current_user.is_authenticated)
             self.assertTemplateUsed('auth::login.html')
+            # Test with correct credentials
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                        follow_redirects=True)
+            # self.assert200(rv, 'Login should return 200 code')
+            self.assertTrue(current_user.email == "project.member@uni-hamburg.de")
+            self.assertTrue(current_user.is_active)
+            self.assertTrue(current_user.is_authenticated)
+            self.assertTemplateUsed('main::index.html')
 
     def test_confirm_password_change_token(self):
         """ Confirm that a valid jwt token is created when a user requests a password change"""
