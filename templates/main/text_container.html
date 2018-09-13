@@ -17,11 +17,7 @@
 </div> 
 
 {% include "main::no_copy_modal.html" %}
-{% if current_user.project_team %}
 <div class="col-sm hfeed right-columns" id="reading-container">
-{% else %}
-<div class="col-sm hfeed right-columns no-copy" id="reading-container">
-{% endif %}
 
 <!-- THE TEXTS -->
 {% block texts %}

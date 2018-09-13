@@ -14,6 +14,7 @@
     </h1>
 </header>
 </div>
+{% if collections.readable %}
 <h4>{{ _('Jump to Text:') }}</h4>
 {% for number in collections.readable|sort %}
 <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{number}}</a>
@@ -34,5 +35,6 @@
         {% endfor %}
         </ul>
     </div>
+{% endif %}
 </div>
 {% endblock %}
