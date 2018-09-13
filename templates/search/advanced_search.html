@@ -29,19 +29,19 @@
                 </div>
                 <div class="col-2">
                     <div class="form-group">
-                        <div class="text-center mb-2"><strong>{{ _('Word Search') }}</strong></div>
+                        <div class="text-center mb-2"><strong>{{ _('Word Search') }}</strong><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Accepts wildcard characters. A question mark (\'?\') replaces a single character while an asterisk (\'*\') replaces one or more characters. Both only work within a single word. That means that searching for \'christ* nom*\' will return every sequence of two consecutive words where the first word starts with \'christ\' and the second with \'nom\'. If you wish to find these two words where other words can occur between them, set the \'Search Radius\' to be greater than 0.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
                         <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to preserve word order') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
                     </div>
-                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a class="fas fa-question-circle" data-container="body" data-toggle="popover" data-placement="right" data-content="{{ _('Fuzziness is a measure of how much a word can deviate from the search input value and still be considered a valid result. The numbers represent how many changes can be made to a word. E.g., 2 means that 2 letters in the word can be replaced, deleted, added or transposed.') }}"></a></p><p>{{ form.fuzziness() }}</p></div>
+                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link pl-0" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Fuzziness is a measure of how much a word can deviate from the search input value and still be considered a valid result. The numbers represent how many changes can be made to a word. E.g., 2 means that 2 letters in the word can be replaced, deleted, added or transposed.') }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
                     </div>
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
-                        <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('word(s)') }}</div>
+                        <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('word(s)') }}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('The maximum number of unmatched words that can occur between the words of multi-term search query. For instance, searching for \'christ* nom*\' with a Search Radius of 50 will find all occurrences of these two words within 50 words of each other.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         {{ form.slop(oninput="outputUpdate(value, '#slop-value')") }}
                     </div>
                 </div>
                 <div class="col-2 date-search">
-                    <h6 class="text-center" title="{{ _('Entries for date search will not be applied to formulae.') }}"><i>{{ _('[NB: Only applies to Charters.]') }}</i></h6>
+                    <h6 class="text-center"><i>{{ _('[NB: Only applies to Charters.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Since the dating of formulae differs significantly from that of charters, the search will simply ignore any date-search entries when searching formulae. That means that any formula that matches the other (non-date-related) search parameters will be returned no matter what date-search parameters are used.') }}"><i class="fas fa-question-circle" ></i></a></h6>
                     <div class="text-center title"><strong>{{ _('Search a Specific Date') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="text-center title"><strong>{{ _('Search a Date Range') }}</strong></div>
-                    <div class="text-center" title="{{ _('See search documentation for an explanation of this option.') }}">{{ form.exclusive_date_range.label(class="align-top")}} {{ form.exclusive_date_range() }}</div>
+                    <div class="text-center" title="{{ _('See search documentation for an explanation of this option.') }}">{{ form.exclusive_date_range(class="align-text-top") }} {{ form.exclusive_date_range.label()}}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('An \'Exclusive Date Range\' search is a special search that allows you to look for specific dates within the year for a range of years. For instance, by choosing and Exclusive search and then search for a date range from October 7, 700 to October 21, 800, only charters that are dated between October 7 and October 21 within the years between 700 and 800 will be returned. That means that a charter that is dated to October 22, 700 will not be returned.') }}"><i class="fas fa-question-circle" ></i></a></div>
                     <div class="text-center"><em>{{ _('From') }}</em></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">

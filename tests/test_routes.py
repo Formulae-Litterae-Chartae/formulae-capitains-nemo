@@ -14,7 +14,6 @@ from unittest.mock import patch
 from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
-from flask import url_for
 
 
 class TestConfig(Config):
@@ -340,8 +339,6 @@ class TestAuth(Formulae_Testing):
         if os.environ.get('TRAVIS') == 'true':
             return
         with self.client as c:
-            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
-                   follow_redirects=True)
             rv = c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                         follow_redirects=True)
             self.assert200(rv, 'Login should return 200 code')

@@ -3,6 +3,10 @@ var allCorporaChecks = document.querySelectorAll('input.under-all')
 var formulaeChecks = document.querySelectorAll('input.under-formulae')
 var chartaeChecks = document.querySelectorAll('input.under-chartae')
 
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
 function makePopupNote(id) {
     var popup = document.getElementById(id);
     popup.classList.toggle("show");
