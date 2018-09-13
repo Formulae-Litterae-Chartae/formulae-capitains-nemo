@@ -337,7 +337,7 @@ class TestAuth(Formulae_Testing):
     def test_correct_login(self):
         """ Ensure that login works with correct credentials"""
         # For some reason this test does not work on Travis but it works locally.
-        if os.environ.get('TRAVIS'):
+        if os.environ.get('TRAVIS') == 'true':
             return
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
