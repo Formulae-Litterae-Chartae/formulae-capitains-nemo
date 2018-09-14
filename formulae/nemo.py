@@ -60,11 +60,13 @@ class NemoFormulae(Nemo):
         "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau',
-                        'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinau',
-                        'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
-                        'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
+                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
+                             'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
                         "eng": lazy_gettext("English")}
@@ -75,9 +77,15 @@ class NemoFormulae(Nemo):
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
         self.open_texts = []
+        self.half_open_texts = []
         for c in self.OPEN_COLLECTIONS[:-1]:
             try:
                 self.open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
+            except UnknownCollection:
+                continue
+        for c in self.HALF_OPEN_COLLECTIONS:
+            try:
+                self.half_open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
             except UnknownCollection:
                 continue
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
@@ -215,6 +223,8 @@ class NemoFormulae(Nemo):
                     r[par]["versions"].append(metadata)
                 else:
                     r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                              # short_regest will change to str(m.get_cts_property('short-regest')) and
+                              # regest will change to str(m.get_description()) once I have reconverted the texts
                               "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
                               "versions": [metadata]}
         for k, v in r.items():
@@ -229,6 +239,7 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
                 },
                 "readable": r,
                 "parents": self.make_parents(collection, lang=lang)
@@ -299,50 +310,9 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         :rtype: {str: Any}
         """
-        collection = self.resolver.getMetadata(objectId)
-        r = {}
-        if 'elexicon' in objectId:
-            template = "main::elex_collection.html"
-        else:
-            template = "main::sub_collection.html"
-        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
-            if current_user.project_team is True or m.id in self.open_texts:
-                if "salzburg" in m.id:
-                    par = '-'.join(m.parent.id.split('-')[1:])
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-                elif "elexicon" in m.id:
-                    par = m.parent.id.split('.')[-1][0].capitalize()
-                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-                else:
-                    par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-                if par in r.keys():
-                    r[par]["versions"].append(metadata)
-                else:
-                    r[par] = {"short_regest": str(m.get_description()).split(':')[0],
-                              # short_regest will change to str(m.get_cts_property('short-regest')) and
-                              # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
-                              "versions": [metadata]}
-        for k, v in r.items():
-            r[k]['versions'] = sorted(v['versions'], reverse=True)
-        if len(r) == 0:
-            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
-        return {
-            "template": template,
-            "collections": {
-                "current": {
-                    "label": str(collection.get_label(lang)),
-                    "id": collection.id,
-                    "model": str(collection.model),
-                    "type": str(collection.type),
-                },
-                "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
-            },
-            "prev_texts": objectIds,
-            "prev_reffs": reffs
-        }
+        initial = self.r_corpus(objectId)
+        initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
+        return initial
 
     def get_first_passage(self, objectId):
         """ Provides a redirect to the first passage of given objectId
@@ -405,7 +375,7 @@ class NemoFormulae(Nemo):
             "notes": Markup(notes),
             "prev": prev,
             "next": next,
-            "pdf_path": pdf_path
+            "open_regest": objectId not in self.half_open_texts
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):

@@ -4,8 +4,12 @@
 <header>
     <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
     {% if 'elexicon' not in object.objectId %}
-    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
-    {% include "main::regest_modal.html" %}
+        {% if object.open_regest or current_user.project_team %}
+        <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
+        {% include "main::regest_modal.html" %}
+        {% else %}
+        <br>
+        {% endif %}
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
     
@@ -63,16 +67,10 @@
                 {% endif %}
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
-                    {% if text.pdf_path == '' %}
-                        {% if cache_active %}
-                            {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
-                        {% else %}
-                            {{ text.text_passage }}
-                        {% endif %}
+                    {% if cache_active %}
+                        {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
                     {% else %}
-                        <div class="embed-responsive embed-responsive-a4">
-                            <object data="{{url_for('.static', filename=text.pdf_path)}}" class="embed-responsive-item"></object>
-                        </div>
+                        {{ text.text_passage }}
                     {% endif %}
                 </section>
             {% endfor %}
