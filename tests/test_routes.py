@@ -188,7 +188,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&submit=True')
-            mock_search.assert_called_with(corpus='formulae+chartae', date_plus_minus=0, day=31, day_end=12,
+            mock_search.assert_called_with(corpus=['formulae', 'chartae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
@@ -378,7 +378,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
                                  ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
                                  ("day_end", 20), ('exclusive_date_range', 'False')])
@@ -387,13 +387,14 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
         actual, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('exclusive_date_range', 'True')])
@@ -402,8 +403,9 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
         actual, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -417,13 +419,14 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
         actual, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", ""), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
+        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('exclusive_date_range', 'False')])
@@ -432,8 +435,9 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
         actual, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'].split('+'), doc_type="", body=body)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")

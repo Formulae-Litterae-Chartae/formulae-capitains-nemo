@@ -1,0 +1,91 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "nested": {
+            "path": "specific_date",
+            "query": {
+              "bool": {
+                "should": [
+                  {
+                    "match": {
+                      "specific_date.year": "0001"
+                    }
+                  },
+                  {
+                    "bool": {
+                      "must": [
+                        {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 700,
+                              "lte": 800
+                            }
+                          }
+                        },
+                        {
+                          "bool": {
+                            "should": [
+                              {
+                                "bool": {
+                                  "must": [
+                                    {
+                                      "match": {
+                                        "specific_date.month": 10
+                                      }
+                                    },
+                                    {
+                                      "range": {
+                                        "specific_date.day": {
+                                          "gte": 1
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "range": {
+                                  "specific_date.month": {
+                                    "gt": 10,
+                                    "lt": 10
+                                  }
+                                }
+                              },
+                              {
+                                "bool": {
+                                  "must": [
+                                    {
+                                      "match": {
+                                        "specific_date.month": 10
+                                      }
+                                    },
+                                    {
+                                      "range": {
+                                        "specific_date.day": {
+                                          "lte": 31
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": "urn",
+  "from": 0,
+  "size": 10
+}

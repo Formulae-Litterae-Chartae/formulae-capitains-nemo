@@ -50,12 +50,11 @@ def query_index(index, field, query, page, per_page):
     return ids, search['hits']['total']
 
 
-def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
+def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
                          **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
-    corpus = corpus.split('+')
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
                      'from': (page - 1) * per_page, 'size': per_page
                      }
@@ -88,28 +87,36 @@ def advanced_query_index(corpus='', field="text", q='', page=1, per_page=10, fuz
         body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
                                                                      'in_order': ordered_terms}})
     if year or month or day:
-        date_template = {"nested": {"path": "specific_date", "query": {"bool": {"must": []}}}}
+        date_template = {"bool": {"must": []}}
         if not date_plus_minus:
             if year:
-                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.year": year}})
+                date_template['bool']['must'].append({"match": {"specific_date.year": year}})
             if month:
-                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
+                date_template['bool']['must'].append({"match": {"specific_date.month": month}})
             if day:
-                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.day": day}})
-            body_template["query"]["bool"]["must"].append(date_template)
+                date_template['bool']['must'].append({"match": {"specific_date.day": day}})
         else:
             if year:
-                date_template["nested"]["query"]['bool']['must'].append({"range": {"specific_date.year":
+                date_template['bool']['must'].append({"range": {"specific_date.year":
                                                                                        {"gte": year - date_plus_minus,
                                                                                         "lte": year + date_plus_minus}
                                                                                    }
                                                                          })
             if month:
-                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.month": month}})
+                date_template['bool']['must'].append({"match": {"specific_date.month": month}})
             if day:
-                date_template["nested"]["query"]['bool']['must'].append({"match": {"specific_date.day": day}})
-            body_template["query"]["bool"]["must"].append(date_template)
-
+                date_template['bool']['must'].append({"match": {"specific_date.day": day}})
+        if not month and not day:
+            # This line should return True for all formulae
+            should_clause = [date_template, {"match": {"specific_date.year": "0001"}}]
+        else:
+            should_clause = [date_template]
+        date_template = {"nested":
+                             {"path": "specific_date",
+                              "query":
+                                  {"bool":
+                                       {"should": should_clause}}}}
+        body_template["query"]["bool"]["must"].append(date_template)
     elif year_start or month_start or day_start or year_end or month_end or year_end:
         if exclusive_date_range != 'False':
             body_template["query"]["bool"]["must"] += build_spec_date_range_template(year_start, month_start,
@@ -183,36 +190,32 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
     :return: list of query-part dictionaries
     """
     date_template = []
+    if (spec_year_start or spec_year_end) and spec_year_end != spec_year_start:
+        should_clause = [{"match": {"specific_date.year": "0001"}}]
+    else:
+        should_clause = []
     spec_year_start = spec_year_start or 0
     spec_year_end = spec_year_end or 2000
     spec_month_start = spec_month_start or 1
     spec_month_end = spec_month_end or 12
     spec_day_start = spec_day_start or 1
     spec_day_end = spec_day_end or 31
-    date_template.append({"nested":
-                              {'path': "specific_date", "query":
-                                  {'range': {'specific_date.year':
+    date_template.append({'range': {'specific_date.year':
                                                  {"gte": spec_year_start, 'lte': spec_year_end}
-                                             }
-                                   }
-                               }
-                          })
-    date_template.append({"nested":
-                              {'path': "specific_date", "query":
-                                  {'range': {'specific_date.month':
-                                                 {"gte": spec_month_start, 'lte': spec_month_end}
-                                             }
-                                   }
-                               }
-                          })
-    date_template.append({"nested":
-                              {'path': "specific_date", "query":
-                                  {'range': {'specific_date.day':
-                                                 {"gte": spec_day_start, 'lte': spec_day_end}
-                                             }
-                                   }
-                               }
-                          })
+                                             }})
+    day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_start}},
+                                                           {"range": {"specific_date.day": {'gte': spec_day_start}}}]}},
+                                        {"range": {"specific_date.month": {"gt": spec_month_start,
+                                                                           "lt": spec_month_end}}},
+                                        {'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
+                                                           {"range": {"specific_date.day": {'lte': spec_day_end}}}]}}]}}
+    date_template.append(day_template)
+    should_clause.append({"bool": {"must": date_template}})
+    date_template = [{"nested":
+                         {'path': "specific_date",
+                          "query":
+                              {"bool":
+                                   {"should": should_clause}}}}]
     return date_template
 
 
@@ -226,6 +229,9 @@ def build_date_range_template(year_start, month_start, day_start, year_end, mont
     if lte:
         dating_template["range"]["dating"].update({"lte": lte})
     date_template['bool']['should'].append(dating_template)
+    if (year_end or year_start) and year_start != year_end:
+        date_template['bool']['should'].append({"nested": {"path": "specific_date",
+                                                           "query": {"match": {"specific_date.year": "0001"}}}})
     if year_start and month_start and day_start:
         if year_start == year_end and month_start == month_end:
             date_template['bool']['should'].append({
