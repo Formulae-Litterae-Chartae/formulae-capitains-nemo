@@ -25,7 +25,7 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
-    corpus = request.args.get('corpus', '').split('+')
+    corpus = request.args.get('corpus', 'all').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -37,7 +37,7 @@ def r_results():
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
         posts, total = query_index(corpus, 'text', g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': request.args.get('corpus', '')}
+        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus)}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
@@ -54,10 +54,11 @@ def r_results():
                                             month_end=request.args.get('month_end', 0, type=int),
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=request.args.get('corpus', ''),
+                                            corpus=corpus,
                                             exclusive_date_range=request.args.get('exclusive_date_range', "False"))
         search_args = dict(request.args)
         search_args.pop('page', None)
+        search_args['corpus'] = '+'.join(corpus)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
@@ -78,7 +79,7 @@ def r_results():
     return nemo.render(template='search::search.html', title=_('Search'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data.lower(), url=dict())
+                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts)
 
 
 @bp.route("/advanced_search", methods=["GET"])
@@ -95,7 +96,7 @@ def r_advanced_search():
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
-            corpus = '+'.join(data.pop("corpus"))
+            corpus = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
             return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
         flash(_('Please enter data in at least one field.'))

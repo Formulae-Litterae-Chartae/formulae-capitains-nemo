@@ -14,12 +14,13 @@
     </h1>
 </header>
 </div>
+{% if collections.readable %}
 <h4>{{ _('Jump to Text:') }}</h4>
 {% for number in collections.readable|sort %}
 <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{number}}</a>
 {% endfor %}
 <div class="row">
-    <div class="col-6">
+    <div class="{{ 'col-6' if collections.current.open_regesten or current_user.project_team else 'col-3' }}">
         <ul class="list-group list-group-flush">
         {% for number, values in collections.readable|dictsort %}
             <li id="N{{number}}" class="list-group-item flex-column">
@@ -27,12 +28,17 @@
                     <h5>{{ _('Number') }} {{number}}: </h5>
                     <p>{{ _("Read in: ") }}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}</p>
                 </div>
+                {% if current_user.project_team or collections.current.open_regesten %}
                 {% if values['short_regest'] != values['regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
                 <small>{{ values['regest'] }}</small>
                 <p class="mb-0 text-right"><a href="#top"><small>{{ _('Back to top') }}</small></a></p>
+                {% else %}
+                <p class="mb-0"><a href="#top"><small>{{ _('Back to top') }}</small></a></p>
+                {% endif %}
             </li>
         {% endfor %}
         </ul>
     </div>
+{% endif %}
 </div>
 {% endblock %}

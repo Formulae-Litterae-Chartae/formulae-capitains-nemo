@@ -49,7 +49,7 @@
             <xsl:text> </xsl:text>
         </xsl:if> -->       
         <xsl:element name="span">
-            <xsl:attribute name="class">w<xsl:if test="parent::t:seg[@type='font-style:underline;']"><xsl:text> lexicon</xsl:text></xsl:if>
+            <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="parent::t:seg[@type='font-style:italic;']"><xsl:text> font-italic</xsl:text></xsl:if>
                 <xsl:if test="parent::t:seg[@type='font-style:bold;']"><xsl:text> platzhalter</xsl:text></xsl:if>
                 </xsl:attribute>

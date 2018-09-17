@@ -10,6 +10,7 @@
     {% endif %}
     {% for post in posts %}
         <div class="card">
+            {% if current_user.project_team or post['id'] in open_texts %}
             <a class="card-header py-0 text-center" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='1') }}">
                 {{ post['info']['title'] }}
             </a>
@@ -18,6 +19,11 @@
                 <p class="card-text m-0"><small>- {{ sent }}</small></p>
                 {% endfor %}
             </div>
+            {% else %}
+            <a class="card-header py-0 text-center disabled" title="{{ _('This text is not available. Consult the printed edition for the text.') }}">
+                {{ post['info']['title'] }}
+            </a>
+            {% endif %}
         </div>
     {% endfor %}
     {% if last_url or first_url %}

@@ -4,8 +4,12 @@
 <header>
     <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
     {% if 'elexicon' not in object.objectId %}
-    <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
-    {% include "main::regest_modal.html" %}
+        {% if object.open_regest or current_user.project_team %}
+        <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
+        {% include "main::regest_modal.html" %}
+        {% else %}
+        <br>
+        {% endif %}
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
     
@@ -15,14 +19,12 @@
 {% macro nav(text, all_texts, new_reffs, index) %}
     {% if text.prev %}
     {% set prev_reffs = new_reffs|replace_indexed_item(index, text.prev) %}
-    <a class="btn btn-sm btn-primary" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=prev_reffs|join_list_values('+')) }}">
-        <span aria-hidden="true">&#9204;</span>
+    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=prev_reffs|join_list_values('+')) }}">«<small>{{ _('Previous Page') }}</small>
     </a>
     {% endif %}
     {% if text.next %}
     {% set next_reffs = new_reffs|replace_indexed_item(index, text.next) %}
-    <a class="btn btn-sm btn-primary ml-auto" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=next_reffs|join_list_values('+')) }}">
-        <span aria-hidden="true">&#9205;</span>
+    <a class="ml-auto" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=next_reffs|join_list_values('+')) }}"><small>{{ _('Next Page') }}</small>»
     </a>
     {% endif %}
 {% endmacro %}
@@ -47,26 +49,28 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
+            {% if current_user.project_team == False and 'andecavensis' in text.objectId %}
+                {% if loop.last %}
+                <section class="col-sm no-copy">
+                {% else %}
+                <section class="col-sm with-border no-copy">
+                {% endif %}
+            {% else %}
                 {% if loop.last %}
                 <section class="col-sm">
                 {% else %}
                 <section class="col-sm with-border">
                 {% endif %}
+            {% endif %}
                 {% if objects|length > 1 %}
                 <a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Remove this text') }}</a>
                 {% endif %}
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
-                    {% if text.pdf_path == '' %}
-                        {% if cache_active %}
-                            {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
-                        {% else %}
-                            {{ text.text_passage }}
-                        {% endif %}
+                    {% if cache_active %}
+                        {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
                     {% else %}
-                        <div class="embed-responsive embed-responsive-a4">
-                            <object data="{{url_for('.static', filename=text.pdf_path)}}" class="embed-responsive-item"></object>
-                        </div>
+                        {{ text.text_passage }}
                     {% endif %}
                 </section>
             {% endfor %}

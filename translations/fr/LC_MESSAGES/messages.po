@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-11 14:19+0200\n"
+"POT-Creation-Date: 2018-09-14 16:01+0200\n"
 "PO-Revision-Date: 2018-06-27 13:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
@@ -22,9 +22,21 @@ msgstr ""
 msgid "Please log in to access this page."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:350
+#: formulae/nemo.py:189 formulae/nemo.py:233 formulae/nemo.py:286
+msgid ""
+"This collection is under copyright and we do not have permission from the"
+" publisher to include its texts."
+msgstr ""
+
+#: formulae/nemo.py:345
 msgid "This work has no default edition"
 msgstr "Cette oeuvre n'a pas d'édition par défaut"
+
+#: formulae/nemo.py:410
+msgid ""
+"One or more of the texts that you are trying to display is not available "
+"at this point."
+msgstr ""
 
 #: formulae/auth/email.py:8
 msgid "[Formulae - Litterae - Chartae] Reset Your Password"
@@ -138,6 +150,10 @@ msgstr ""
 msgid "Back to Home"
 msgstr ""
 
+#: formulae/search/Search.py:66
+msgid "Wildcard characters (\"*\" and \"?\") are not allowed in lemma searches."
+msgstr ""
+
 #: formulae/search/forms.py:36
 msgid ""
 "Multiword searches cannot contain wildcard characters (i.e., \"?\" or "
@@ -145,7 +161,7 @@ msgid ""
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:108 formulae/search/routes.py:81
+#: formulae/search/forms.py:108 formulae/search/routes.py:79
 msgid "Search"
 msgstr "Recherche"
 
@@ -294,7 +310,7 @@ msgstr ""
 msgid "Exclusive"
 msgstr ""
 
-#: formulae/search/routes.py:103
+#: formulae/search/routes.py:102
 msgid "Please enter data in at least one field."
 msgstr ""
 
@@ -481,25 +497,21 @@ msgstr "Afficher toutes les notes de ce texte"
 msgid "Register"
 msgstr "Identification"
 
-#: templates/main/sub_collection.html:17
+#: templates/main/sub_collection.html:18
 msgid "Jump to Text:"
 msgstr ""
 
-#: templates/main/sub_collection.html:27
+#: templates/main/sub_collection.html:28
 msgid "Number"
 msgstr ""
 
-#: templates/main/sub_collection.html:28
+#: templates/main/sub_collection.html:29
 msgid "Read in: "
 msgstr ""
 
-#: templates/main/sub_collection.html:32
+#: templates/main/sub_collection.html:34 templates/main/sub_collection.html:36
 msgid "Back to top"
 msgstr ""
-
-#: templates/main/text_container.html:28
-msgid "Add another text"
-msgstr "Ajouter un autre texte"
 
 #: templates/main/version_menu.html:4
 msgid "Compare with another version"
@@ -507,6 +519,17 @@ msgstr ""
 
 #: templates/search/advanced_search.html:32
 msgid "Word Search"
+msgstr ""
+
+#: templates/search/advanced_search.html:32
+msgid ""
+"Accepts wildcard characters. A question mark ('?') replaces a single "
+"character while an asterisk ('*') replaces one or more characters. Both "
+"only work within a single word. That means that searching for 'christ* "
+"nom*' will return every sequence of two consecutive words where the first"
+" word starts with 'christ' and the second with 'nom'. If you wish to find"
+" these two words where other words can occur between them, set the "
+"'Search Radius' to be greater than 0."
 msgstr ""
 
 #: templates/search/advanced_search.html:34
@@ -519,16 +542,41 @@ msgstr ""
 msgid "Check if you want to preserve word order"
 msgstr ""
 
+#: templates/search/advanced_search.html:36
+msgid ""
+"Fuzziness is a measure of how much a word can deviate from the search "
+"input value and still be considered a valid result. The numbers represent"
+" how many changes can be made to a word. E.g., 2 means that 2 letters in "
+"the word can be replaced, deleted, added or transposed."
+msgstr ""
+
 #: templates/search/advanced_search.html:39
 msgid "word(s)"
 msgstr ""
 
-#: templates/search/advanced_search.html:44
-msgid "Entries for date search will not be applied to formulae."
+#: templates/search/advanced_search.html:39
+msgid ""
+"The maximum number of unmatched words that can occur between the words of"
+" multi-term search query. For instance, searching for 'christ* nom*' with"
+" a Search Radius of 50 will find all occurrences of these two words "
+"within 50 words of each other."
 msgstr ""
 
 #: templates/search/advanced_search.html:44
 msgid "[NB: Only applies to Charters.]"
+msgstr ""
+
+#: templates/search/advanced_search.html:44
+msgid ""
+"Since the dating of formulae differs significantly from that of charters,"
+" the date search is applied differently for formulae. Any date query that"
+" does not specify a month or a day, whether for a specific date or a date"
+" range, will return all formulae that meet the other search criteria. If,"
+" however, a month or a day is specified, the query will return no "
+"formulae. If you wish to compare the charters that are returned by a date"
+" search that includes a month or a day with formulae that fulfill the "
+"other search criteria, you should do a second search without the date "
+"criteria that is limited to only formulae."
 msgstr ""
 
 #: templates/search/advanced_search.html:45
@@ -545,6 +593,17 @@ msgstr ""
 
 #: templates/search/advanced_search.html:77
 msgid "See search documentation for an explanation of this option."
+msgstr ""
+
+#: templates/search/advanced_search.html:77
+msgid ""
+"An 'Exclusive Date Range' search is a special search that allows you to "
+"look for specific dates within the year for a range of years. For "
+"instance, by choosing and Exclusive search and then search for a date "
+"range from October 7, 700 to October 21, 800, only charters that are "
+"dated between October 7 and October 21 within the years between 700 and "
+"800 will be returned. That means that a charter that is dated to October "
+"22, 700 will not be returned."
 msgstr ""
 
 #: templates/search/advanced_search.html:78
@@ -565,6 +624,10 @@ msgstr "Résultats de la recherche"
 
 #: templates/search/search.html:9
 msgid "No results found for"
+msgstr ""
+
+#: templates/search/search.html:23
+msgid "This text is not available. Consult the printed edition for the text."
 msgstr ""
 
 #: templates/search/search_box.html:4
@@ -658,5 +721,11 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Clear All Fields"
+#~ msgstr ""
+
+#~ msgid "Add another text"
+#~ msgstr "Ajouter un autre texte"
+
+#~ msgid "Entries for date search will not be applied to formulae."
 #~ msgstr ""
 
