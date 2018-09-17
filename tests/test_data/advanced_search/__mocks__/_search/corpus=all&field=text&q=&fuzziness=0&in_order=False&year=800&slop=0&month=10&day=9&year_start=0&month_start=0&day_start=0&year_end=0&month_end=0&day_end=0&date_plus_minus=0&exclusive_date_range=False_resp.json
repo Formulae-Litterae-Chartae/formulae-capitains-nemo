@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -8,43 +8,60 @@
     "failed": 0
   },
   "hits": {
-    "total": 74,
+    "total": 2,
     "max_score": null,
     "hits": [
       {
-        "_index": "werden_v3",
-        "_type": "werden",
-        "_id": "urn:cts:formulae:werden.block0004.lat001",
+        "_index": "schaeftlarn_v3",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 4",
-          "urn": "urn:cts:formulae:werden.block0004.lat001",
+          "title": "Sch\u00e4ftlarn Urkunden, Weissthanner Nummer 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
           "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
             {
               "year": 794,
               "month": 10,
               "day": 9
-            }
-          ],
-          "autocomplete": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:werden.block0004.lat001"
-        ]
-      },
-      {
-        "_index": "werden_v3",
-        "_type": "werden",
-        "_id": "urn:cts:formulae:werden.block0016.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 16",
-          "urn": "urn:cts:formulae:werden.block0016.lat001",
-          "specific_date": [
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
             {
               "year": 798,
               "month": 10,
@@ -54,32 +71,9 @@
               "year": 799,
               "month": 10,
               "day": 9
-            }
-          ],
-          "autocomplete": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:werden.block0016.lat001"
-        ]
-      },
-      {
-        "_index": "werden_v3",
-        "_type": "werden",
-        "_id": "urn:cts:formulae:werden.block0017.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 17",
-          "urn": "urn:cts:formulae:werden.block0017.lat001",
-          "specific_date": [
-            {
-              "year": 798,
-              "month": 10,
-              "day": 9
             },
             {
-              "year": 799,
+              "year": 800,
               "month": 10,
               "day": 9
             }
@@ -87,7 +81,7 @@
           "autocomplete": "text"
         },
         "sort": [
-          "urn:cts:formulae:werden.block0017.lat001"
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
         ]
       },
       {

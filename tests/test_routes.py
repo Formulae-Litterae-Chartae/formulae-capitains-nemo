@@ -377,11 +377,43 @@ class TestES(Formulae_Testing):
         return '&'.join(["{}={}".format(k, str(v)) for k, v in fake_args.items()])
 
     @patch.object(Elasticsearch, "search")
-    def test_date_search(self, mock_search):
+    def test_date_range_search(self, mock_search):
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
                                  ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
-                                 ("day_end", 20), ('exclusive_date_range', 'False')])
+                                 ("day_end", 20), ('date_plus_minus', 0), ('exclusive_date_range', 'False')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_normal_date_search(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _ = advanced_query_index(**test_args)
+        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_plus_minus_search(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -397,7 +429,8 @@ class TestES(Formulae_Testing):
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 10), ("day_end", 0), ('exclusive_date_range', 'True')])
+                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -413,7 +446,8 @@ class TestES(Formulae_Testing):
         test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', 0), ("month", 0), ("day", 0),
                                  ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
-                                 ("month_end", 11), ("day_end", 20), ('exclusive_date_range', 'False')])
+                                 ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -429,7 +463,8 @@ class TestES(Formulae_Testing):
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('exclusive_date_range', 'False')])
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()

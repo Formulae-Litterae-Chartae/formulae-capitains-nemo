@@ -1,0 +1,43 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "nested": {
+            "path": "specific_date",
+            "query": {
+              "bool": {
+                "should": [
+                  {
+                    "bool": {
+                      "must": [
+                        {
+                          "match": {
+                            "specific_date.year": 800
+                          }
+                        },
+                        {
+                          "match": {
+                            "specific_date.month": 10
+                          }
+                        },
+                        {
+                          "match": {
+                            "specific_date.day": 9
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": "urn",
+  "from": 0,
+  "size": 10
+}

@@ -9,11 +9,6 @@
               "bool": {
                 "should": [
                   {
-                    "match": {
-                      "specific_date.year": "0001"
-                    }
-                  },
-                  {
                     "bool": {
                       "must": [
                         {
