@@ -309,3 +309,7 @@ nav .dropdown:hover .dropdown-menu {
 .corpus-ul .corpus-ul {
     margin-left: -1.5em;
 }
+
+#landing-text p {
+    text-align: justify;
+}

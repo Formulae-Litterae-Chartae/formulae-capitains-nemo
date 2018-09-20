@@ -264,6 +264,7 @@
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>
                 <xsl:attribute name="aria-controls"><xsl:value-of select="concat('multiCollapseExample', $note_num)"/></xsl:attribute>
                 <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
+                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
                 <xsl:value-of select="$note_num"/>
                 <xsl:element name="span">
                     <xsl:attribute name="hidden">true</xsl:attribute>

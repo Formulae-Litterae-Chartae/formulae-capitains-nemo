@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-14 16:01+0200\n"
+"POT-Creation-Date: 2018-09-20 09:22+0200\n"
 "PO-Revision-Date: 2018-06-27 13:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr_FR\n"
@@ -20,19 +20,25 @@ msgstr ""
 
 #: formulae/__init__.py:18
 msgid "Please log in to access this page."
-msgstr "Veuillez vous connecter pour accéder à cette page."
+msgstr ""
 
-#: formulae/nemo.py:189 formulae/nemo.py:233 formulae/nemo.py:286
+#: formulae/nemo.py:201
+msgid ""
+"The Formulae Andecavensis collection is undergoing its final edits and "
+"will be available soon."
+msgstr ""
+
+#: formulae/nemo.py:203 formulae/nemo.py:247 formulae/nemo.py:300
 msgid ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts."
 msgstr ""
 
-#: formulae/nemo.py:345
+#: formulae/nemo.py:359
 msgid "This work has no default edition"
-msgstr "Cette oeuvre n'a pas d'édition par défaut"
+msgstr ""
 
-#: formulae/nemo.py:410
+#: formulae/nemo.py:425
 msgid ""
 "One or more of the texts that you are trying to display is not available "
 "at this point."
@@ -44,19 +50,19 @@ msgstr ""
 
 #: formulae/auth/forms.py:8
 msgid "Username"
-msgstr "Utilisateur"
+msgstr ""
 
 #: formulae/auth/forms.py:9 formulae/auth/forms.py:17
 msgid "Password"
-msgstr "Mot de passe"
+msgstr ""
 
 #: formulae/auth/forms.py:10
-msgid "Remember Me"
-msgstr "Se souvenir de moi"
+msgid "Stay Logged In"
+msgstr ""
 
 #: formulae/auth/forms.py:11 formulae/auth/routes.py:34
 msgid "Sign In"
-msgstr "Connexion"
+msgstr ""
 
 #: formulae/auth/forms.py:15
 msgid "Change your Password"
@@ -64,15 +70,15 @@ msgstr ""
 
 #: formulae/auth/forms.py:16
 msgid "Old Password"
-msgstr "Ancien mot de passe"
+msgstr ""
 
 #: formulae/auth/forms.py:18
 msgid "Repeat Password"
-msgstr "Répéter le mot de passe"
+msgstr ""
 
 #: formulae/auth/forms.py:19
 msgid "Change Password"
-msgstr "Changer le mot de passe"
+msgstr ""
 
 #: formulae/auth/forms.py:23
 msgid "Change Your Default Language"
@@ -104,15 +110,15 @@ msgstr ""
 
 #: formulae/auth/routes.py:27
 msgid "Invalid username or password"
-msgstr "Nom d'utilisateur ou mot de passe invalide."
+msgstr ""
 
 #: formulae/auth/routes.py:60
 msgid "This is not your existing password."
-msgstr "Ceci n'est pas votre mot de passe actuel."
+msgstr ""
 
 #: formulae/auth/routes.py:65
 msgid "You have successfully changed your password."
-msgstr "Vous avez réussi à changer votre mot de passe."
+msgstr ""
 
 #: formulae/auth/routes.py:72
 msgid "You have successfully changed your default language."
@@ -163,7 +169,7 @@ msgstr ""
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
 #: formulae/search/forms.py:108 formulae/search/routes.py:79
 msgid "Search"
-msgstr "Recherche"
+msgstr ""
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:66
 msgid "Corpora"
@@ -187,7 +193,7 @@ msgstr ""
 #: formulae/search/forms.py:57 templates/main/lexicon.html:5
 #: templates/main/lexicon.html:9
 msgid "Lemma"
-msgstr "Lemmes"
+msgstr ""
 
 #: formulae/search/forms.py:58
 msgid "Fuzziness Level"
@@ -374,15 +380,15 @@ msgstr ""
 
 #: templates/main/add_text.html:13 templates/main/collection.html:10
 msgid "Text Collections"
-msgstr "Collections de textes"
+msgstr ""
 
 #: templates/main/add_text.html:24 templates/main/sub_element_snippet.html:2
 msgid "Read"
-msgstr "Lire"
+msgstr ""
 
 #: templates/main/add_text.html:31
 msgid "Browse"
-msgstr "Parcourir"
+msgstr ""
 
 #: templates/main/add_text_menu.html:4
 msgid "Compare with a different text from:"
@@ -390,7 +396,7 @@ msgstr ""
 
 #: templates/main/add_text_menu.html:12 templates/main/navbar.html:22
 msgid "Lexicon"
-msgstr "Lexique"
+msgstr ""
 
 #: templates/main/add_text_menu.html:15 templates/main/navbar.html:25
 msgid "Other Texts"
@@ -398,17 +404,17 @@ msgstr ""
 
 #: templates/main/collection_member_menu.html:11
 msgid "Choose a collection to see the texts it contains"
-msgstr "Choisir une collection pour voir les textes qu'elle contient."
+msgstr ""
 
 #: templates/main/collection_member_menu.html:41
 #: templates/main/lexicon_modal.html:17 templates/main/no_copy_modal.html:9
 #: templates/main/regest_modal.html:15
 msgid "Close"
-msgstr "Fermer"
+msgstr ""
 
 #: templates/main/collection_member_menu.html:42
 msgid "Save changes"
-msgstr "Sauvegarder les changements"
+msgstr ""
 
 #: templates/main/elex_collection.html:18
 msgid "Jump to Letter:"
@@ -416,37 +422,93 @@ msgstr ""
 
 #: templates/main/index.html:6
 msgid "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr "Bienvenue au <br>Formulae-Litterae-Chartae Werkstatt!"
+msgstr ""
 
 #: templates/main/index.html:9
 msgid ""
-"The Werkstatt contains all of the available texts for the project. Choose"
-" a collection from the \"Texts\" dropdown menu above to start exploring "
-"the collection. If you have any questions about the texts or the reader, "
-"please do not hesitate to contact us."
+"The Formulae - Litterae - Chartae Werkstatt brings together as many "
+"examples of early medieval formulaic writing, primarily formulae, "
+"charters, and letters, to allow scholars to examine these sources in "
+"context with each other. In the Werkstatt, the user can read several "
+"texts side-by-side in order to compare their content, style, language, "
+"etc. It is also possible to do complex searches in order to find formulae"
+" and/or charters that are related in terms of vocabulary, phraseology, or"
+" date."
 msgstr ""
-"Le Werkstatt contient tous les textes disponibles du projet. Choisissez "
-"une collection à partir du bouton \"Textes\" du menu déroulant ci-dessus "
-"pour commencer à explorer la collection. Si vous avez une quelconque "
-"question au sujet des textes ou de l'environnement de lecture, n'hésitez "
-"pas à nous contacter."
+
+#: templates/main/index.html:10
+msgid ""
+"These texts come from two primary sources. First are new critical "
+"editions, along with their German translations, of the formulae that are "
+"being produced in the project. At this point, the 60 formulae from the "
+"Formulae Andecavensis collection are already available, and more will be "
+"made available as they are completed. The second source are retro-"
+"digitized editions of charters. These charters stand in close "
+"relationship to the formulae and are thus essential to the understanding "
+"of the formulae. Most of these retro-digitized editions are out of "
+"copyright and are thus openly available here. Some, however, are newer "
+"and are therefore still at least partially under copyright. These "
+"copyrighted texts are searchable but the user will have to consult the "
+"print edition for the actual text. All texts that are not under copyright"
+" are made available here under a Creative Commons license. The formulae "
+"are available under a more restrictive Creative Commons Attribution Non-"
+"Commercial No Derivatives (CC-BY NC ND) license, since they have yet to "
+"be published in print in the MGH. The charters, on the other hand, are "
+"under a simple Creative Commons Attribution license (CC-BY). That means "
+"that as long as one notes that the digital text comes from us, one can do"
+" with it whatever one wishes."
+msgstr ""
+
+#: templates/main/index.html:11
+msgid ""
+"In the end, the Formulae - Litterae - Chartae Werkstatt should serve to "
+"promote and simplify research into the important sources of early "
+"medieval cultural, social, and legal history as well as providing a "
+"linguistic source for early medieval Latin. If there is anything that you"
+" believe could be improved in the Werkstatt to make it an ever better "
+"research platform, please don't hesitate to contact us."
+msgstr ""
 
 #: templates/main/lexicon.html:2
 msgid "Mouse over a word to see its lemma."
-msgstr "Survolez un mot avec la souris pour voir son lemme."
+msgstr ""
 
 #: templates/main/menu.html:2
 msgid "Texts"
-msgstr "Textes"
+msgstr ""
 
 #: templates/main/menu.html:3 templates/search/advanced_search.html:7
 #: templates/search/search_box.html:10
 msgid "Advanced Search"
-msgstr "Recherche avancée"
+msgstr ""
 
 #: templates/main/menu.html:5
 msgid "Collections"
-msgstr "Collections"
+msgstr ""
+
+#: templates/main/multipassage.html:8
+msgid "Regest"
+msgstr ""
+
+#: templates/main/multipassage.html:22
+msgid "Previous Page"
+msgstr ""
+
+#: templates/main/multipassage.html:27
+msgid "Next Page"
+msgstr ""
+
+#: templates/main/multipassage.html:39
+msgid "No lexicon entry found for"
+msgstr ""
+
+#: templates/main/multipassage.html:66
+msgid "Remove this text"
+msgstr ""
+
+#: templates/main/multipassage.html:80
+msgid "A text to translate"
+msgstr ""
 
 #: templates/main/navbar.html:9
 msgid "About the Project"
@@ -454,23 +516,21 @@ msgstr ""
 
 #: templates/main/navbar.html:13
 msgid "Login"
-msgstr "Connexion"
+msgstr ""
 
 #: templates/main/navbar.html:15
 msgid "Change user settings"
-msgstr "Changer les paramètres d'utilisateur"
+msgstr ""
 
 #: templates/main/navbar.html:15
 msgid "logout"
-msgstr "Déconnexion"
+msgstr ""
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
 "We are sorry but, since this text has not yet been published, we do not "
 "allow copying of the textual content."
 msgstr ""
-"Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
-"publié, nous n'autorisons pas la copie du contenu textuel."
 
 #: templates/main/notes.html:16
 msgid "Notes"
@@ -487,15 +547,15 @@ msgstr ""
 
 #: templates/main/notes.html:34
 msgid "Hide all notes for this text"
-msgstr "Cacher toutes les notes de ce texte"
+msgstr ""
 
 #: templates/main/notes.html:35
 msgid "Show all notes for this text"
-msgstr "Afficher toutes les notes de ce texte"
+msgstr ""
 
 #: templates/main/register.html:4
 msgid "Register"
-msgstr "Identification"
+msgstr ""
 
 #: templates/main/sub_collection.html:18
 msgid "Jump to Text:"
@@ -535,8 +595,6 @@ msgstr ""
 #: templates/search/advanced_search.html:34
 msgid "Lemma search is currently only available for Latin formulae"
 msgstr ""
-"La recherche par lemme est actuellement indisponible pour les formules "
-"latines."
 
 #: templates/search/advanced_search.html:34
 msgid "Check if you want to preserve word order"
@@ -547,7 +605,11 @@ msgid ""
 "Fuzziness is a measure of how much a word can deviate from the search "
 "input value and still be considered a valid result. The numbers represent"
 " how many changes can be made to a word. E.g., 2 means that 2 letters in "
-"the word can be replaced, deleted, added or transposed."
+"the word can be replaced, deleted, added or transposed. 'AUTO' means that"
+" the number of allowed changes depends on the length of the word: if the "
+"word is 1 or 2 letters long, no changes are allowed, 3-5 letter words "
+"allow 1 change, and longer words allow 2 changes. 'AUTO' should work best"
+" for most searches."
 msgstr ""
 
 #: templates/search/advanced_search.html:39
@@ -592,10 +654,6 @@ msgid "Search a Date Range"
 msgstr ""
 
 #: templates/search/advanced_search.html:77
-msgid "See search documentation for an explanation of this option."
-msgstr ""
-
-#: templates/search/advanced_search.html:77
 msgid ""
 "An 'Exclusive Date Range' search is a special search that allows you to "
 "look for specific dates within the year for a range of years. For "
@@ -603,7 +661,8 @@ msgid ""
 "range from October 7, 700 to October 21, 800, only charters that are "
 "dated between October 7 and October 21 within the years between 700 and "
 "800 will be returned. That means that a charter that is dated to October "
-"22, 700 will not be returned."
+"22, 700 will not be returned, though one dated to October 15, 750 will be"
+" returned."
 msgstr ""
 
 #: templates/search/advanced_search.html:78
@@ -620,7 +679,7 @@ msgstr ""
 
 #: templates/search/search.html:6
 msgid "Search Results"
-msgstr "Résultats de la recherche"
+msgstr ""
 
 #: templates/search/search.html:9
 msgid "No results found for"
@@ -727,5 +786,695 @@ msgstr ""
 #~ msgstr "Ajouter un autre texte"
 
 #~ msgid "Entries for date search will not be applied to formulae."
+#~ msgstr ""
+
+#~ msgid "Remember Me"
+#~ msgstr "Se souvenir de moi"
+
+#~ msgid ""
+#~ "The Werkstatt contains all of the "
+#~ "available texts for the project. Choose"
+#~ " a collection from the \"Texts\" "
+#~ "dropdown menu above to start exploring"
+#~ " the collection. If you have any "
+#~ "questions about the texts or the "
+#~ "reader, please do not hesitate to "
+#~ "contact us."
+#~ msgstr ""
+#~ "Le Werkstatt contient tous les textes"
+#~ " disponibles du projet. Choisissez une "
+#~ "collection à partir du bouton \"Textes\""
+#~ " du menu déroulant ci-dessus pour "
+#~ "commencer à explorer la collection. Si"
+#~ " vous avez une quelconque question au"
+#~ " sujet des textes ou de "
+#~ "l'environnement de lecture, n'hésitez pas "
+#~ "à nous contacter."
+
+#~ msgid ""
+#~ "Fuzziness is a measure of how much"
+#~ " a word can deviate from the "
+#~ "search input value and still be "
+#~ "considered a valid result. The numbers"
+#~ " represent how many changes can be"
+#~ " made to a word. E.g., 2 means"
+#~ " that 2 letters in the word can"
+#~ " be replaced, deleted, added or "
+#~ "transposed."
+#~ msgstr ""
+
+#~ msgid "See search documentation for an explanation of this option."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "An 'Exclusive Date Range' search is "
+#~ "a special search that allows you "
+#~ "to look for specific dates within "
+#~ "the year for a range of years. "
+#~ "For instance, by choosing and Exclusive"
+#~ " search and then search for a "
+#~ "date range from October 7, 700 to"
+#~ " October 21, 800, only charters that"
+#~ " are dated between October 7 and "
+#~ "October 21 within the years between "
+#~ "700 and 800 will be returned. That"
+#~ " means that a charter that is "
+#~ "dated to October 22, 700 will not"
+#~ " be returned."
+#~ msgstr ""
+
+#~ msgid "Please log in to access this page."
+#~ msgstr "Veuillez vous connecter pour accéder à cette page."
+
+#~ msgid ""
+#~ "This collection is under copyright and"
+#~ " we do not have permission from "
+#~ "the publisher to include its texts."
+#~ msgstr ""
+
+#~ msgid "This work has no default edition"
+#~ msgstr "Cette oeuvre n'a pas d'édition par défaut"
+
+#~ msgid ""
+#~ "One or more of the texts that "
+#~ "you are trying to display is not"
+#~ " available at this point."
+#~ msgstr ""
+
+#~ msgid "[Formulae - Litterae - Chartae] Reset Your Password"
+#~ msgstr ""
+
+#~ msgid "Username"
+#~ msgstr "Utilisateur"
+
+#~ msgid "Password"
+#~ msgstr "Mot de passe"
+
+#~ msgid "Stay Logged In"
+#~ msgstr ""
+
+#~ msgid "Sign In"
+#~ msgstr "Connexion"
+
+#~ msgid "Change your Password"
+#~ msgstr ""
+
+#~ msgid "Old Password"
+#~ msgstr "Ancien mot de passe"
+
+#~ msgid "Repeat Password"
+#~ msgstr "Répéter le mot de passe"
+
+#~ msgid "Change Password"
+#~ msgstr "Changer le mot de passe"
+
+#~ msgid "Change Your Default Language"
+#~ msgstr ""
+
+#~ msgid "Change Language"
+#~ msgstr ""
+
+#~ msgid "Email"
+#~ msgstr ""
+
+#~ msgid "Request Password Reset"
+#~ msgstr ""
+
+#~ msgid "New Password"
+#~ msgstr ""
+
+#~ msgid "Repeat New Password"
+#~ msgstr ""
+
+#~ msgid "Reset Password"
+#~ msgstr ""
+
+#~ msgid "Invalid username or password"
+#~ msgstr "Nom d'utilisateur ou mot de passe invalide."
+
+#~ msgid "This is not your existing password."
+#~ msgstr "Ceci n'est pas votre mot de passe actuel."
+
+#~ msgid "You have successfully changed your password."
+#~ msgstr "Vous avez réussi à changer votre mot de passe."
+
+#~ msgid "You have successfully changed your default language."
+#~ msgstr ""
+
+#~ msgid "Edit Profile"
+#~ msgstr ""
+
+#~ msgid "Check your email for the instructions to reset your password"
+#~ msgstr ""
+
+#~ msgid "Your password has been reset."
+#~ msgstr ""
+
+#~ msgid "Reset Your Password"
+#~ msgstr ""
+
+#~ msgid "The URL you were looking for was not found"
+#~ msgstr ""
+
+#~ msgid "An unexpected error has occurred"
+#~ msgstr ""
+
+#~ msgid "The administrator has been notified. Sorry for the inconvenience!"
+#~ msgstr ""
+
+#~ msgid "Back to Home"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Wildcard characters (\"*\" and \"?\") "
+#~ "are not allowed in lemma searches."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Multiword searches cannot contain wildcard "
+#~ "characters (i.e., \"?\" or \"*\")"
+#~ msgstr ""
+
+#~ msgid "Search"
+#~ msgstr "Recherche"
+
+#~ msgid "Corpora"
+#~ msgstr ""
+
+#~ msgid "Formulae"
+#~ msgstr ""
+
+#~ msgid "Charters"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You must select at least one "
+#~ "collection to search (\"Formulae\" and/or "
+#~ "\"Charters\")"
+#~ msgstr ""
+
+#~ msgid "Lemma"
+#~ msgstr "Lemmes"
+
+#~ msgid "Fuzziness Level"
+#~ msgstr ""
+
+#~ msgid "AUTO"
+#~ msgstr ""
+
+#~ msgid "Search Radius"
+#~ msgstr ""
+
+#~ msgid "Word Radius must be between 0 and 100"
+#~ msgstr ""
+
+#~ msgid "Keep Word Order?"
+#~ msgstr ""
+
+#~ msgid "All"
+#~ msgstr ""
+
+#~ msgid "Year"
+#~ msgstr ""
+
+#~ msgid "The year must be between 500 and 1000"
+#~ msgstr ""
+
+#~ msgid "Month"
+#~ msgstr ""
+
+#~ msgid "Jan"
+#~ msgstr ""
+
+#~ msgid "Feb"
+#~ msgstr ""
+
+#~ msgid "Mar"
+#~ msgstr ""
+
+#~ msgid "Apr"
+#~ msgstr ""
+
+#~ msgid "May"
+#~ msgstr ""
+
+#~ msgid "Jun"
+#~ msgstr ""
+
+#~ msgid "Jul"
+#~ msgstr ""
+
+#~ msgid "Aug"
+#~ msgstr ""
+
+#~ msgid "Sep"
+#~ msgstr ""
+
+#~ msgid "Oct"
+#~ msgstr ""
+
+#~ msgid "Nov"
+#~ msgstr ""
+
+#~ msgid "Dec"
+#~ msgstr ""
+
+#~ msgid "Day"
+#~ msgstr ""
+
+#~ msgid "Day must be between 1 and 31"
+#~ msgstr ""
+
+#~ msgid "Date Plus-Minus"
+#~ msgstr ""
+
+#~ msgid "Plus-Minus must be between 0 and 100 years"
+#~ msgstr ""
+
+#~ msgid "Exclusive"
+#~ msgstr ""
+
+#~ msgid "Please enter data in at least one field."
+#~ msgstr ""
+
+#~ msgid "Forgot Your Password?"
+#~ msgstr ""
+
+#~ msgid "Click to Reset It"
+#~ msgstr ""
+
+#~ msgid "Dear"
+#~ msgstr ""
+
+#~ msgid "To reset your password"
+#~ msgstr ""
+
+#~ msgid "click here"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternatively, you can paste the "
+#~ "following link in your browser's address"
+#~ " bar:"
+#~ msgstr ""
+
+#~ msgid "If you have not requested a password reset simply ignore this message."
+#~ msgstr ""
+
+#~ msgid "Sincerely,"
+#~ msgstr ""
+
+#~ msgid "The Formulae - Litterae - Chartae Team"
+#~ msgstr ""
+
+#~ msgid "Unknown Collection"
+#~ msgstr ""
+
+#~ msgid "was not found"
+#~ msgstr ""
+
+#~ msgid "Browse other texts in this collection."
+#~ msgstr ""
+
+#~ msgid "File Not Found"
+#~ msgstr ""
+
+#~ msgid "Back"
+#~ msgstr ""
+
+#~ msgid "Text Collections"
+#~ msgstr "Collections de textes"
+
+#~ msgid "Read"
+#~ msgstr "Lire"
+
+#~ msgid "Browse"
+#~ msgstr "Parcourir"
+
+#~ msgid "Compare with a different text from:"
+#~ msgstr ""
+
+#~ msgid "Lexicon"
+#~ msgstr "Lexique"
+
+#~ msgid "Other Texts"
+#~ msgstr ""
+
+#~ msgid "Choose a collection to see the texts it contains"
+#~ msgstr "Choisir une collection pour voir les textes qu'elle contient."
+
+#~ msgid "Close"
+#~ msgstr "Fermer"
+
+#~ msgid "Save changes"
+#~ msgstr "Sauvegarder les changements"
+
+#~ msgid "Jump to Letter:"
+#~ msgstr ""
+
+#~ msgid "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Bienvenue au <br>Formulae-Litterae-Chartae Werkstatt!"
+
+#~ msgid ""
+#~ "The purpose of the Formulae - "
+#~ "Litterae - Chartae Werkstatt is to "
+#~ "bring together as many examples of "
+#~ "early medieval formulaic writing, primarily"
+#~ " formulae, charters, and letters, to "
+#~ "allow scholars to examine these sources"
+#~ " in context with each other. In "
+#~ "the Werkstatt, the user can read "
+#~ "several texts side-by-side in "
+#~ "order to compare their content, style,"
+#~ " language, etc. It is also possible"
+#~ " to do complex searches in order "
+#~ "to find formulae and/or charters that"
+#~ " are related in terms of vocabulary,"
+#~ " phraseology, or date."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The texts contained within the Werkstatt"
+#~ " environment come from two primary "
+#~ "sources. First are new critical "
+#~ "editions, along with their German "
+#~ "translations, of the formulae that are"
+#~ " being produced in the project. At"
+#~ " this point, only the 60 formulae "
+#~ "from the Formulae Andecavensis collection "
+#~ "are available, but more will be "
+#~ "made available as they are completed."
+#~ " The second source are retro-"
+#~ "digitized editions of charters. These "
+#~ "charters stand in close relationship to"
+#~ " the formulae and are thus essential"
+#~ " to the understanding of the "
+#~ "formulae. Most of these retro-digitized"
+#~ " editions are out of copyright and"
+#~ " are thus openly available here. "
+#~ "Some, however, are newer and are "
+#~ "therefore still at least partially under"
+#~ " copyright. These copyrighted texts are "
+#~ "searchable but the user will have "
+#~ "to consult the print edition for "
+#~ "the actual text. All texts that "
+#~ "are not under copyright are made "
+#~ "available here under a Creative Commons"
+#~ " license. The formulae are available "
+#~ "under a more restrictive Creative "
+#~ "Commons Attribution Non-Commercial No "
+#~ "Derivatives (CC-BY NC ND) license, "
+#~ "since they have yet to be "
+#~ "published in print in the MGH. The"
+#~ " charters, on the other hand, are "
+#~ "under a simple Creative Commons "
+#~ "Attribution license (CC-BY). That means"
+#~ " that as long as one notes that"
+#~ " the digital text comes from us, "
+#~ "one can do with it whatever one"
+#~ " wishes."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In the end, the Formulae - "
+#~ "Litterae - Chartae Werkstatt should "
+#~ "serve to promote and simplify research"
+#~ " into the important sources of early"
+#~ " medieval cultural, social, and legal "
+#~ "history as well as providing a "
+#~ "linguistic source for early medieval "
+#~ "Latin. If there is anything that "
+#~ "you believe could be improved in "
+#~ "the Werkstatt to make it an ever"
+#~ " better research platform, please don't "
+#~ "hesitate to contact us."
+#~ msgstr ""
+
+#~ msgid "Mouse over a word to see its lemma."
+#~ msgstr "Survolez un mot avec la souris pour voir son lemme."
+
+#~ msgid "Texts"
+#~ msgstr "Textes"
+
+#~ msgid "Advanced Search"
+#~ msgstr "Recherche avancée"
+
+#~ msgid "Collections"
+#~ msgstr "Collections"
+
+#~ msgid "Regest"
+#~ msgstr ""
+
+#~ msgid "Previous Page"
+#~ msgstr ""
+
+#~ msgid "Next Page"
+#~ msgstr ""
+
+#~ msgid "No lexicon entry found for"
+#~ msgstr ""
+
+#~ msgid "A text to translate"
+#~ msgstr ""
+
+#~ msgid "Remove this text"
+#~ msgstr ""
+
+#~ msgid "About the Project"
+#~ msgstr ""
+
+#~ msgid "Login"
+#~ msgstr "Connexion"
+
+#~ msgid "Change user settings"
+#~ msgstr "Changer les paramètres d'utilisateur"
+
+#~ msgid "logout"
+#~ msgstr "Déconnexion"
+
+#~ msgid ""
+#~ "We are sorry but, since this text"
+#~ " has not yet been published, we "
+#~ "do not allow copying of the "
+#~ "textual content."
+#~ msgstr ""
+#~ "Nous sommes désolés mais, dans la "
+#~ "mesure où ce texte n'est pas "
+#~ "encore publié, nous n'autorisons pas la"
+#~ " copie du contenu textuel."
+
+#~ msgid "Notes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Click on a superscript number or "
+#~ "letter in one of the texts to "
+#~ "make the text of the corresponding "
+#~ "note appear below. You can also "
+#~ "click on the small &#8853; to show"
+#~ " all notes for a text or the"
+#~ " small &#8855; to hide all notes "
+#~ "for that text. If a text on "
+#~ "the left is not shown here, that"
+#~ " means there are no notes for "
+#~ "that text."
+#~ msgstr ""
+
+#~ msgid "Hide all notes for this text"
+#~ msgstr "Cacher toutes les notes de ce texte"
+
+#~ msgid "Show all notes for this text"
+#~ msgstr "Afficher toutes les notes de ce texte"
+
+#~ msgid "Register"
+#~ msgstr "Identification"
+
+#~ msgid "Jump to Text:"
+#~ msgstr ""
+
+#~ msgid "Number"
+#~ msgstr ""
+
+#~ msgid "Read in: "
+#~ msgstr ""
+
+#~ msgid "Back to top"
+#~ msgstr ""
+
+#~ msgid "Compare with another version"
+#~ msgstr ""
+
+#~ msgid "Word Search"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Accepts wildcard characters. A question "
+#~ "mark ('?') replaces a single character"
+#~ " while an asterisk ('*') replaces one"
+#~ " or more characters. Both only work"
+#~ " within a single word. That means "
+#~ "that searching for 'christ* nom*' will"
+#~ " return every sequence of two "
+#~ "consecutive words where the first word"
+#~ " starts with 'christ' and the second"
+#~ " with 'nom'. If you wish to "
+#~ "find these two words where other "
+#~ "words can occur between them, set "
+#~ "the 'Search Radius' to be greater "
+#~ "than 0."
+#~ msgstr ""
+
+#~ msgid "Lemma search is currently only available for Latin formulae"
+#~ msgstr ""
+#~ "La recherche par lemme est actuellement"
+#~ " indisponible pour les formules latines."
+
+#~ msgid "Check if you want to preserve word order"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Fuzziness is a measure of how much"
+#~ " a word can deviate from the "
+#~ "search input value and still be "
+#~ "considered a valid result. The numbers"
+#~ " represent how many changes can be"
+#~ " made to a word. E.g., 2 means"
+#~ " that 2 letters in the word can"
+#~ " be replaced, deleted, added or "
+#~ "transposed. 'AUTO' means that the number"
+#~ " of allowed changes depends on the"
+#~ " length of the word: if the "
+#~ "word is 1 or 2 letters long, "
+#~ "no changes are allowed, 3-5 letter "
+#~ "words allow 1 change, and longer "
+#~ "words allow 2 changes. 'AUTO' should "
+#~ "work best for most searches."
+#~ msgstr ""
+
+#~ msgid "word(s)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The maximum number of unmatched words"
+#~ " that can occur between the words "
+#~ "of multi-term search query. For "
+#~ "instance, searching for 'christ* nom*' "
+#~ "with a Search Radius of 50 will"
+#~ " find all occurrences of these two"
+#~ " words within 50 words of each "
+#~ "other."
+#~ msgstr ""
+
+#~ msgid "[NB: Only applies to Charters.]"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Since the dating of formulae differs "
+#~ "significantly from that of charters, the"
+#~ " date search is applied differently "
+#~ "for formulae. Any date query that "
+#~ "does not specify a month or a "
+#~ "day, whether for a specific date "
+#~ "or a date range, will return all"
+#~ " formulae that meet the other search"
+#~ " criteria. If, however, a month or"
+#~ " a day is specified, the query "
+#~ "will return no formulae. If you "
+#~ "wish to compare the charters that "
+#~ "are returned by a date search that"
+#~ " includes a month or a day with"
+#~ " formulae that fulfill the other "
+#~ "search criteria, you should do a "
+#~ "second search without the date criteria"
+#~ " that is limited to only formulae."
+#~ msgstr ""
+
+#~ msgid "Search a Specific Date"
+#~ msgstr ""
+
+#~ msgid "year(s)"
+#~ msgstr ""
+
+#~ msgid "Search a Date Range"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "An 'Exclusive Date Range' search is "
+#~ "a special search that allows you "
+#~ "to look for specific dates within "
+#~ "the year for a range of years. "
+#~ "For instance, by choosing and Exclusive"
+#~ " search and then search for a "
+#~ "date range from October 7, 700 to"
+#~ " October 21, 800, only charters that"
+#~ " are dated between October 7 and "
+#~ "October 21 within the years between "
+#~ "700 and 800 will be returned. That"
+#~ " means that a charter that is "
+#~ "dated to October 22, 700 will not"
+#~ " be returned, though one dated to "
+#~ "October 15, 750 will be returned."
+#~ msgstr ""
+
+#~ msgid "From"
+#~ msgstr ""
+
+#~ msgid "To"
+#~ msgstr ""
+
+#~ msgid "Reset Form"
+#~ msgstr ""
+
+#~ msgid "Search Results"
+#~ msgstr "Résultats de la recherche"
+
+#~ msgid "No results found for"
+#~ msgstr ""
+
+#~ msgid "This text is not available. Consult the printed edition for the text."
+#~ msgstr ""
+
+#~ msgid "Search In:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "These texts come from two primary "
+#~ "sources. First are new critical "
+#~ "editions, along with their German "
+#~ "translations, of the formulae that are"
+#~ " being produced in the project. At"
+#~ " this point, only the 60 formulae "
+#~ "from the Formulae Andecavensis collection "
+#~ "are available, but more will be "
+#~ "made available as they are completed."
+#~ " The second source are retro-"
+#~ "digitized editions of charters. These "
+#~ "charters stand in close relationship to"
+#~ " the formulae and are thus essential"
+#~ " to the understanding of the "
+#~ "formulae. Most of these retro-digitized"
+#~ " editions are out of copyright and"
+#~ " are thus openly available here. "
+#~ "Some, however, are newer and are "
+#~ "therefore still at least partially under"
+#~ " copyright. These copyrighted texts are "
+#~ "searchable but the user will have "
+#~ "to consult the print edition for "
+#~ "the actual text. All texts that "
+#~ "are not under copyright are made "
+#~ "available here under a Creative Commons"
+#~ " license. The formulae are available "
+#~ "under a more restrictive Creative "
+#~ "Commons Attribution Non-Commercial No "
+#~ "Derivatives (CC-BY NC ND) license, "
+#~ "since they have yet to be "
+#~ "published in print in the MGH. The"
+#~ " charters, on the other hand, are "
+#~ "under a simple Creative Commons "
+#~ "Attribution license (CC-BY). That means"
+#~ " that as long as one notes that"
+#~ " the digital text comes from us, "
+#~ "one can do with it whatever one"
+#~ " wishes."
 #~ msgstr ""
 

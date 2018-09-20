@@ -22,6 +22,7 @@
             <xsl:attribute name="href"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
             <xsl:attribute name="aria-controls"><xsl:value-of select="$ident"/></xsl:attribute>
             <xsl:attribute name="id"><xsl:value-of select="$ident"/></xsl:attribute>
+            <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
             <!--<xsl:attribute name="style">width: 25rem;</xsl:attribute>-->
             <xsl:element name="div">
                 <xsl:attribute name="class">card</xsl:attribute>

@@ -36,7 +36,7 @@
 {% macro show_passage(objects, navigation) %}
     <div class="">
     <!-- The Modal container for the eLexicon entries. -->
-    <div class="modal" id="lexicon-modal" tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    <div class="modal" id="lexicon-modal" message="{{ _('No lexicon entry found for') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
     
     </div>
         <article class="hentry entry white col-sm-12">
@@ -67,11 +67,7 @@
                 {% endif %}
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
-                    {% if cache_active %}
-                        {% cache cache_time, cache_key %}{{ text.text_passage }} {% endcache %}
-                    {% else %}
                         {{ text.text_passage }}
-                    {% endif %}
                 </section>
             {% endfor %}
             </div>
