@@ -37,11 +37,7 @@
             <div class="row">
                 <section class="col-sm">
                     {{ header }}
-                    {% if cache_active %}
-                        {% cache cache_time, cache_key %}{{ text_passage }} {% endcache %}
-                    {% else %}
                         {{ text_passage }}
-                    {% endif %}
                 </section>
             </div>
             <footer>

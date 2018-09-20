@@ -48,7 +48,7 @@ class NemoFormulae(Nemo):
         # Routes
         "r_index", "r_collection", "r_collections", "r_references", "r_assets", "r_multipassage",
         # Controllers
-        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings",
+        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts",
         # Translater
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
         # Business logic
@@ -63,10 +63,12 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:werden']
+
+    OPEN_NOTES = []
 
     LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
                         "eng": lazy_gettext("English")}
@@ -76,24 +78,33 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
-        self.open_texts = []
-        self.half_open_texts = []
-        for c in self.OPEN_COLLECTIONS[:-1]:
-            try:
-                self.open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
-        for c in self.HALF_OPEN_COLLECTIONS:
-            try:
-                self.half_open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
+        self.open_texts, self.half_open_texts = self.get_open_texts()
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
+
+    def get_open_texts(self):
+        """ Creates the lists of open and half-open texts to be used later. I have moved this to a function to try to
+            cache it.
+
+        :return: list of open texts and half-open texts
+        """
+        open_texts = []
+        half_open_texts = []
+        for c in self.OPEN_COLLECTIONS[:-1]:
+            try:
+                open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
+            except UnknownCollection:
+                continue
+        for c in self.HALF_OPEN_COLLECTIONS:
+            try:
+                half_open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
+            except UnknownCollection:
+                continue
+        return open_texts, half_open_texts
 
     def create_blueprint(self):
         """ Enhance original blueprint creation with error handling
@@ -186,7 +197,10 @@ class NemoFormulae(Nemo):
         if current_user.project_team is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
-            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
+            if "formulae" in objectId:
+                flash(_('The Formulae Andecavensis collection is undergoing its final edits and will be available soon.'))
+            else:
+                flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
         elif len(data['collections']['members']) == 1:
             return redirect(url_for('.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
@@ -375,7 +389,8 @@ class NemoFormulae(Nemo):
             "notes": Markup(notes),
             "prev": prev,
             "next": next,
-            "open_regest": objectId not in self.half_open_texts
+            "open_regest": objectId not in self.half_open_texts,
+            "show_notes": objectId in self.OPEN_NOTES
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -434,6 +449,7 @@ class NemoFormulae(Nemo):
         """
         with open(self._transform['notes']) as f:
             xslt = etree.XSLT(etree.parse(f))
+
         return str(xslt(etree.fromstring(text)))
 
     def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):

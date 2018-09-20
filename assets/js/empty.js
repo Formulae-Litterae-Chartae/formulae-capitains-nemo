@@ -59,13 +59,14 @@ function showNotes(c) {
 function showLexEntry(word) {
         var lemma = word.getAttribute('data-lexicon');
         var request = new XMLHttpRequest();
+        var message = lexModal.getAttribute('message');
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     lexModal.innerHTML = this.responseText;
                     lexModal.style.display = 'block';
                 } else {
-                    alert("Lexicon Entry for " + lemma + " not Found.")
+                    alert(message + lemma)
                 }
             }
         };
