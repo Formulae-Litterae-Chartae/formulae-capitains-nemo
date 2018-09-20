@@ -163,9 +163,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertMessageFlashed('This collection is under copyright and we do not have permission from the publisher to include its texts.')
+            self.assertMessageFlashed('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.')
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
-            self.assertMessageFlashed('This collection is under copyright and we do not have permission from the publisher to include its texts.')
+            self.assertMessageFlashed('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
