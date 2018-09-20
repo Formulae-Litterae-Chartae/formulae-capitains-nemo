@@ -25,7 +25,7 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
-    corpus = request.args.get('corpus', 'all').split('+')
+    corpus = request.args.get('corpus', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -54,7 +54,7 @@ def r_results():
                                             month_end=request.args.get('month_end', 0, type=int),
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=corpus,
+                                            corpus=corpus or ['all'],
                                             exclusive_date_range=request.args.get('exclusive_date_range', "False"))
         search_args = dict(request.args)
         search_args.pop('page', None)

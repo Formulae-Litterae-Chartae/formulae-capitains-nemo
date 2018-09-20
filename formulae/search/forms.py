@@ -41,7 +41,7 @@ class SearchForm(FlaskForm):
     corpus = SelectMultipleField(_l('Korpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
-                                     message=_l('Mindestens eine Sammlung zur Suche auswählen(\"Formeln\" und/oder \"Urkunden\"'))]
+                                     message=_l('Mindestens eine Sammlung zur Suche auswählen(\"Formeln\" und/oder \"Urkunden\")'))]
                                  )
 
     def __init__(self, *args, **kwargs):

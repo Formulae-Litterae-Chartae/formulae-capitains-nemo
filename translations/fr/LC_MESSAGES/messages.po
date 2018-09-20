@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-20 11:59+0200\n"
+"POT-Creation-Date: 2018-09-20 13:50+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,7 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18
+#: formulae/__init__.py:18 tests/test_routes.py:63 tests/test_routes.py:66
+#: tests/test_routes.py:69 tests/test_routes.py:72 tests/test_routes.py:75
+#: tests/test_routes.py:78 tests/test_routes.py:81 tests/test_routes.py:84
+#: tests/test_routes.py:87 tests/test_routes.py:90
 msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
@@ -102,7 +105,7 @@ msgstr ""
 msgid "Passwort zurücksetzen"
 msgstr ""
 
-#: formulae/auth/routes.py:27
+#: formulae/auth/routes.py:27 tests/test_routes.py:356
 msgid "Benutzername oder Passwort ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -180,10 +183,10 @@ msgstr ""
 msgid "Urkunden"
 msgstr ""
 
-#: formulae/search/forms.py:44
+#: formulae/search/forms.py:44 tests/test_routes.py:308
 msgid ""
 "Mindestens eine Sammlung zur Suche auswählen(\"Formeln\" und/oder "
-"\"Urkunden\""
+"\"Urkunden\")"
 msgstr ""
 
 #: formulae/search/forms.py:57 templates/main/lexicon.html:5
@@ -519,7 +522,9 @@ msgstr "Déconnexion"
 msgid ""
 "Da dieses Text noch nicht im Druckform erschienen hat, ist das Kopieren "
 "vom Inhalt nicht gestattet."
-msgstr "Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore publié, nous n'autorisons pas la copie du contenu textuel."
+msgstr ""
+"Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
+"publié, nous n'autorisons pas la copie du contenu textuel."
 
 #: templates/main/notes.html:16
 msgid "Anmerkungen"
@@ -585,7 +590,9 @@ msgstr ""
 
 #: templates/search/advanced_search.html:34
 msgid "Die Lemmatasuche ist nur für die lateinischen Formeln möglich"
-msgstr "La recherche par lemme est actuellement indisponible pour les formules latines."
+msgstr ""
+"La recherche par lemme est actuellement indisponible pour les formules "
+"latines."
 
 #: templates/search/advanced_search.html:34
 msgid "Die Reihenfolge der Wörter behalten"
@@ -692,5 +699,13 @@ msgstr ""
 #~ "This collection is under copyright and"
 #~ " we do not have permission from "
 #~ "the publisher to include its texts."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Mindestens eine Sammlung zur Suche "
+#~ "auswählen(\"Formeln\" und/oder \"Urkunden\""
+#~ msgstr ""
+
+#~ msgid "Invalid username or password"
 #~ msgstr ""
 

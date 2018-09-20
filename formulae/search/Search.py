@@ -22,7 +22,7 @@ def remove_from_index(index, model):
 def query_index(index, field, query, page, per_page):
     if not current_app.elasticsearch:
         return [], 0
-    if index == ['']:
+    if index in ['', ['']]:
         return [], 0
     query_terms = query.split()
     clauses = []

@@ -9,6 +9,7 @@ from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm
 from flask_login import current_user
+from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch
 from .fake_es import FakeElasticsearch
@@ -59,34 +60,34 @@ class TestIndividualRoutes(Formulae_Testing):
         """
         with self.client as c:
             c.get('/', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/auth/user/project.member', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/add_text/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/add_text/urn:cts:formulae:andecavensis.form001/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/search', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
-            self.assertMessageFlashed('Please log in to access this page.')
+            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
 
     def test_authorized_project_member(self):
@@ -304,8 +305,8 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
-                      ["'' is not a valid choice for this field",
-                       'You must select at least one collection to search ("Formulae" and/or "Charters")'])
+                      [_('Mindestens eine Sammlung zur Suche auswählen("Formeln" und/oder "Urkunden")'),
+                       "'' is not a valid choice for this field"])
 
     def test_validate_invalid_advanced_search_form(self):
         """ Ensure that a form with invalid data does not validate"""
@@ -353,7 +354,7 @@ class TestAuth(Formulae_Testing):
             rv = c.post('/auth/login', data=dict(username='pirate.user', password="incorrect"),
                         follow_redirects=True)
             self.assert200(rv, 'Login should return 200 code')
-            self.assertMessageFlashed('Invalid username or password')
+            self.assertMessageFlashed(_('Benutzername oder Passwort ungültig'))
             self.assertFalse(current_user.is_active)
             self.assertFalse(current_user.is_authenticated)
             self.assertTemplateUsed('auth::login.html')
