@@ -4,13 +4,13 @@
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
-            <div class="text-center"><h3><strong>{{ _('Advanced Search') }}</strong></h3></div>
+            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong></h3></div>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
                 <div class="col-2">
                     <div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
                     <ul class="corpus-ul">
-                        <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('All') }}</li>
+                        <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('Alle') }}</li>
                         <ul class="corpus-ul">
                             <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae</li>
                                 <ul class="corpus-ul">
@@ -29,20 +29,20 @@
                 </div>
                 <div class="col-2">
                     <div class="form-group">
-                        <div class="text-center mb-2"><strong>{{ _('Word Search') }}</strong><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Accepts wildcard characters. A question mark (\'?\') replaces a single character while an asterisk (\'*\') replaces one or more characters. Both only work within a single word. That means that searching for \'christ* nom*\' will return every sequence of two consecutive words where the first word starts with \'christ\' and the second with \'nom\'. If you wish to find these two words where other words can occur between them, set the \'Search Radius\' to be greater than 0.') }}"><i class="fas fa-question-circle" ></i></a></div>
+                        <div class="text-center mb-2"><strong>{{ _('Wortsuche') }}</strong><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Wildcard-Zeichen sind erlaubt. Ein Fragezeichen (‚?‘) ersetzt ein einzelnes Zeichen, während ein Stern (‚*‘) ein oder mehr Zeichen ersetzt. Beide funktionieren nur innnerhalb eines Wortes. Das bedeutet, dass für die Suche ‚christ* nom*‘ wird jede Reihe von zwei aufeinander folgenden Worten gefunden, wo das erste Wort mit ‚christ‘ und das zweite mit ‚nom‘ anfängt. Wenn Sie diese beiden Worte finden möchten, wo andere Wort zwischen ihnen auftreten können, stellen Sie die ‚Suchradius‘ größer als 0.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
-                        <p class="mb-0" style="font-size: small"><span title="{{ _('Lemma search is currently only available for Latin formulae') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Check if you want to preserve word order') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
+                        <p class="mb-0" style="font-size: small"><span title="{{ _('Die Lemmatasuche ist nur für die lateinischen Formeln möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Die Reihenfolge der Wörter behalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
                     </div>
-                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link pl-0" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Fuzziness is a measure of how much a word can deviate from the search input value and still be considered a valid result. The numbers represent how many changes can be made to a word. E.g., 2 means that 2 letters in the word can be replaced, deleted, added or transposed. \'AUTO\' means that the number of allowed changes depends on the length of the word: if the word is 1 or 2 letters long, no changes are allowed, 3-5 letter words allow 1 change, and longer words allow 2 changes. \'AUTO\' should work best for most searches.') }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
+                    <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link pl-0" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('‚Fuzziness‘ misst, wie viel ein resultierendes Wort von der Sucheingabe abweichen kann und trotzdem ein gültiges Ergebnis darstellen. Die Zahlen stellen, wie viele Änderungen zu einem Wort gemacht werden können. Z.B. 2 bedeutet, dass zwei Buchstaben im Wort ersetzt, gelöscht, hinzugefügt oder umgesetzt werden können. Mit ‚AUTO‘ ist die erlaubte Zahl solcher Änderungen von der Wortlänge abhängig: wenn das Wort 1 oder 2 Buchstaben hat, sind keine Änderungen erlaubt, mit 3-5 Buchstaben ist eine Änderung erlaubt und für längere Wörter sind 2 Anderungen erlaubt. ‚AUTO‘ soll für die meisten Suchen am Besten funktionieren.') }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
                     </div>
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
-                        <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('word(s)') }}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('The maximum number of unmatched words that can occur between the words of multi-term search query. For instance, searching for \'christ* nom*\' with a Search Radius of 50 will find all occurrences of these two words within 50 words of each other.') }}"><i class="fas fa-question-circle" ></i></a></div>
+                        <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die maximale Anzahl der nicht treffenden Wörter, die zwischen den Worten auftreten können. Zum Beispiel für die Suche nach ‚christ* nom*‘ mit einem Suchradius von 50 werden alle Stellen gefunden, wo diese beiden Wörter innerhalb von 50 Wörtern auftauchen.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         {{ form.slop(oninput="outputUpdate(value, '#slop-value')") }}
                     </div>
                 </div>
                 <div class="col-2 date-search">
-                    <h6 class="text-center"><i>{{ _('[NB: Only applies to Charters.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Since the dating of formulae differs significantly from that of charters, the date search is applied differently for formulae. Any date query that does not specify a month or a day, whether for a specific date or a date range, will return all formulae that meet the other search criteria. If, however, a month or a day is specified, the query will return no formulae. If you wish to compare the charters that are returned by a date search that includes a month or a day with formulae that fulfill the other search criteria, you should do a second search without the date criteria that is limited to only formulae.') }}"><i class="fas fa-question-circle" ></i></a></h6>
-                    <div class="text-center title"><strong>{{ _('Search a Specific Date') }}</strong></div>
+                    <h6 class="text-center"><i>{{ _('[NB: Datumsuche gilt nur für Urkunden.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Da die Datierung der Formeln sich von der der Urkunden deutlich unterscheidet, wird die Datumssuche anders für die Formel angewandt. Wenn Sie eine Datumssuchen machen, die keinen Monat oder einen Tag enthält, ob für ein bestimmtes Datum oder einen Datumsspanne, werden alle Formeln zurückgegeben, die die anderen Suchkriterien entsprechen. Wenn jedoch ein Monat oder ein Tag angegeben wird, wird die Abfrage keine Formel zurückgeben. Wenn Sie die Urkunden, die von einem Datum Suche mit Tag bzw. Monat zurückgegeben werden, mit Formeln, die die anderen Suchkriterien erfüllen, vergleichen möchten, sollten Sie eine zweite Suche ohne Datum durchführen, die auf die Formel begrenzt ist.') }}"><i class="fas fa-question-circle" ></i></a></h6>
+                    <div class="text-center title"><strong>{{ _('Nach einem bestimmten Datum suchen') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
                             <div class="text-center">{{ form.year.label }}</div>
@@ -69,13 +69,13 @@
                             {% endif %}
                         </div>                    
                         <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.date_plus_minus.label }}: 
-                            <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('year(s)') }}</div>
+                            <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('Jahr(e)') }}</div>
                             {{ form.date_plus_minus(oninput="outputUpdate(value, '#date-plus-minus')") }}
                         </div>
                     </div>
-                    <div class="text-center title"><strong>{{ _('Search a Date Range') }}</strong></div>
-                    <div class="text-center">{{ form.exclusive_date_range(class="align-text-top") }} {{ form.exclusive_date_range.label()}}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('An \'Exclusive Date Range\' search is a special search that allows you to look for specific dates within the year for a range of years. For instance, by choosing and Exclusive search and then search for a date range from October 7, 700 to October 21, 800, only charters that are dated between October 7 and October 21 within the years between 700 and 800 will be returned. That means that a charter that is dated to October 22, 700 will not be returned, though one dated to October 15, 750 will be returned.') }}"><i class="fas fa-question-circle" ></i></a></div>
-                    <div class="text-center"><em>{{ _('From') }}</em></div>
+                    <div class="text-center title"><strong>{{ _('Nach einer Datumspanne suchen') }}</strong></div>
+                    <div class="text-center">{{ form.exclusive_date_range(class="align-text-top") }} {{ form.exclusive_date_range.label()}}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Eine exklusive Datumspannesuche ist eine spezielle Suche, die nach einer bestimmten Zeitspanne innerhalb des Jahres für eine Reihe von Jahren sucht. Zum Beispiel eine exklusive Suche für den Zeitraum von 7. Oktober 700 bis 21. Oktober 800 findet Dokumente, die zwischen 7. Oktober und 21. Oktober in den Jahren zwischen 700 und 800 datiert sind. Das bedeutet, dass ein Dokument, die um 22. Oktober 700 datiert ist, nicht zurückgegeben wird. Eins, das um den 15. Oktober 750 datiert wird, jedoch schon.') }}"><i class="fas fa-question-circle" ></i></a></div>
+                    <div class="text-center"><em>{{ _('Von') }}</em></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
                             <div class="text-center">{{ form.year_start.label }}</div>
@@ -102,7 +102,7 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="text-center"><em>{{ _('To') }}</em></div>
+                    <div class="text-center"><em>{{ _('Bis') }}</em></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">
                             <div class="text-center">{{ form.year_end.label }}</div>
@@ -133,6 +133,6 @@
             </div>
             <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
             <br>
-            <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Reset Form') }}</a></div>
+            <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Form zurücksetzen') }}</a></div>
         </form>
 {% endblock %}

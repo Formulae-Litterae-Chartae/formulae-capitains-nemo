@@ -1,3 +1,3 @@
 {% for coll in collections.members|sort(attribute="id") %}
-    <li class="pt-1 pl-3"><em>- [{{coll.lang}}] {{ coll.label }}: <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ _('Read') }}</a></em></li>
+    <li class="pt-1 pl-3"><em>- [{{coll.lang}}] {{ coll.label }}: <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, coll.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">{{ _('Lesen') }}</a></em></li>
 {% endfor %}

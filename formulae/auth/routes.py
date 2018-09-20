@@ -24,14 +24,14 @@ def r_login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash(_('Invalid username or password'))
+            flash(_('Benutzername oder Passwort ungültig'))
             return redirect(url_for('auth.r_login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             return redirect(url_for('InstanceNemo.r_index'))
         return redirect(next_page)
-    return nemo.render(template='auth::login.html', title=_('Sign In'), forms=[form], purpose='login', url=dict())
+    return nemo.render(template='auth::login.html', title=_('Einloggen'), forms=[form], purpose='login', url=dict())
 
 
 @bp.route('/logout')
@@ -57,23 +57,23 @@ def r_user(username):
     if password_form.validate_on_submit():
         user = User.query.filter_by(username=username).first_or_404()
         if not user.check_password(password_form.old_password.data):
-            flash(_("This is not your existing password."))
+            flash(_("Das ist nicht Ihr aktuelles Passwort."))
             return redirect(url_for('auth.r_user'))
         user.set_password(password_form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash(_("You have successfully changed your password."))
+        flash(_("Sie haben Ihr Passwort erfolgreich geändert."))
         return redirect(url_for('auth.r_login'))
     language_form = LanguageChangeForm()
     if language_form.validate_on_submit():
         current_user.default_locale = language_form.new_locale.data
         db.session.commit()
         refresh()
-        flash(_("You have successfully changed your default language."))
+        flash(_("Sie haben Ihre Defaultsprache erfolgreich geändert."))
         return redirect(url_for('auth.r_user', username=username))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
-    return nemo.render(template="auth::login.html", title=_("Edit Profile"),
+    return nemo.render(template="auth::login.html", title=_("Benutzerprofil Ändern"),
                        forms=[password_form, language_form], username=username, purpose='user', url=dict())
 
 
@@ -90,9 +90,9 @@ def r_reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
             send_password_reset_email(user)
-        flash(_('Check your email for the instructions to reset your password'))
+        flash(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='auth::reset_password_request.html', title=_('Reset Password'), form=form, url=dict())
+    return nemo.render(template='auth::reset_password_request.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
 
 
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
@@ -112,6 +112,6 @@ def r_reset_password(token):
     if form.validate_on_submit():
         user.set_password(form.password.data)
         db.session.commit()
-        flash(_('Your password has been reset.'))
+        flash(_('Ihr Passwort wurde erfolgreich zurückgesetzt.'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='auth::reset_password.html', title=_('Reset Your Password'), form=form, url=dict())
+    return nemo.render(template='auth::reset_password.html', title=_('Passwort zurücksetzen'), form=form, url=dict())

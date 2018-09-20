@@ -1,8 +1,8 @@
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <a class="dropdown-item" href="{{ url_for('InstanceNemo.r_collections') }}">{{ _('Texts') }}</a>
-    <a class="dropdown-item" href="BIDOUILLE_advanced_charter_search.html">{{ _('Advanced Search') }}</a>
+    <a class="dropdown-item" href="{{ url_for('InstanceNemo.r_collections') }}">{{ _('Texte') }}</a>
+    <a class="dropdown-item" href="BIDOUILLE_advanced_charter_search.html">{{ _('Erweiterte Suche') }}</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="{{ url_for('InstanceNemo.r_collections') }}">{{ _('Collections') }}</a>
+    <a class="dropdown-item" href="{{ url_for('InstanceNemo.r_collections') }}">{{ _('Sammlungen') }}</a>
     {% for c in main_collections %}
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection_semantic', objectId=c.id, semantic=c.label|slugify)}}">- {{c.label}}</a>
     {% endfor %}

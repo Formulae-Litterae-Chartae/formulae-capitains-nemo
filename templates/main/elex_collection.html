@@ -15,7 +15,7 @@
         </h1>
     </header>
     </div>
-    <h4>{{ _('Jump to Letter:') }}</h4>
+    <h4>{{ _('Zu einer Buchstabe springen:') }}</h4>
     {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
     <a type="button" class="btn px-1 mx-0 {% if letter not in collections.readable %}btn-outline-secondary disabled{% else %}btn-outline-primary{% endif %}" href="#L-{{letter}}" >{{letter}}</a>
     {% endfor %}

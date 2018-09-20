@@ -3,10 +3,10 @@
 {% block article %}
     <article>
     <header>
-    <h1>{{ _('Search Results') }}</h1>
+    <h1>{{ _('Suchergebnisse') }}</h1>
     </header>
     {% if posts|length == 0 %}
-    <h4>{{ _("No results found for") }} <span class="font-italic">{{ search_string }}</span>.</h4>
+    <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
     {% for post in posts %}
         <div class="card">
@@ -20,7 +20,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <a class="card-header py-0 text-center disabled" title="{{ _('This text is not available. Consult the printed edition for the text.') }}">
+            <a class="card-header py-0 text-center disabled" title="{{ _('Dieser Text ist nicht online verfügbar. Sie können den Text in der gedruckten Version finden.') }}">
                 {{ post['info']['title'] }}
             </a>
             {% endif %}
