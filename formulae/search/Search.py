@@ -22,7 +22,7 @@ def remove_from_index(index, model):
 def query_index(index, field, query, page, per_page):
     if not current_app.elasticsearch:
         return [], 0
-    if index == ['']:
+    if index in ['', ['']]:
         return [], 0
     query_terms = query.split()
     clauses = []
@@ -63,7 +63,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if field == 'lemmas':
         fuzz = '0'
         if '*' in q or '?' in q:
-            flash(_('Wildcard characters ("*" and "?") are not allowed in lemma searches.'))
+            flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") funktionieren nicht mit der Lemmasuche."))
             return [], 0
     else:
         fuzz = fuzziness

@@ -25,7 +25,7 @@ def r_simple_search():
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
-    corpus = request.args.get('corpus', 'all').split('+')
+    corpus = request.args.get('corpus', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -54,7 +54,7 @@ def r_results():
                                             month_end=request.args.get('month_end', 0, type=int),
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=corpus,
+                                            corpus=corpus or ['all'],
                                             exclusive_date_range=request.args.get('exclusive_date_range', "False"))
         search_args = dict(request.args)
         search_args.pop('page', None)
@@ -76,7 +76,7 @@ def r_results():
             page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
     last_url = url_for('.r_results', **search_args, page=total_pages) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    return nemo.render(template='search::search.html', title=_('Search'), posts=posts,
+    return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
                        search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts)
@@ -99,7 +99,7 @@ def r_advanced_search():
             corpus = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
             return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
-        flash(_('Please enter data in at least one field.'))
+        flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats, url=dict())

@@ -2,8 +2,8 @@
 
 {% block article %}
     <article>
-    <h1>{{ _('Unknown Collection') }}</h1>
-    <p>{{ message }} {{ _("was not found") }}</p>
-    <p><a href="{{ url_for('.r_collection', objectId=parent) }}">{{ _('Browse other texts in this collection.') }}</a></p>
+    <h1>{{ _('Unbekannte Sammlung') }}</h1>
+    <p>{{ message }} {{ _("wurde nicht gefunden") }}</p>
+    <p><a href="{{ url_for('.r_collection', objectId=parent) }}">{{ _('Andere Texte in dieser Sammlung durchsuchen.') }}</a></p>
     </article>
 {% endblock %}

@@ -19,12 +19,12 @@
 {% macro nav(text, all_texts, new_reffs, index) %}
     {% if text.prev %}
     {% set prev_reffs = new_reffs|replace_indexed_item(index, text.prev) %}
-    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=prev_reffs|join_list_values('+')) }}">«<small>{{ _('Previous Page') }}</small>
+    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=prev_reffs|join_list_values('+')) }}">«<small>{{ _('Vorherige Seite') }}</small>
     </a>
     {% endif %}
     {% if text.next %}
     {% set next_reffs = new_reffs|replace_indexed_item(index, text.next) %}
-    <a class="ml-auto" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=next_reffs|join_list_values('+')) }}"><small>{{ _('Next Page') }}</small>»
+    <a class="ml-auto" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=next_reffs|join_list_values('+')) }}"><small>{{ _('Nächste Seite') }}</small>»
     </a>
     {% endif %}
 {% endmacro %}
@@ -36,7 +36,7 @@
 {% macro show_passage(objects, navigation) %}
     <div class="">
     <!-- The Modal container for the eLexicon entries. -->
-    <div class="modal" id="lexicon-modal" message="{{ _('No lexicon entry found for') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    <div class="modal" id="lexicon-modal" message="{{ _('Es gibt keinen Lexikoneintrag für') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
     
     </div>
         <article class="hentry entry white col-sm-12">
@@ -63,7 +63,7 @@
                 {% endif %}
             {% endif %}
                 {% if objects|length > 1 %}
-                <a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Remove this text') }}</a>
+                <a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Diesen Text ausblenden') }}</a>
                 {% endif %}
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>

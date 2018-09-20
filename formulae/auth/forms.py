@@ -5,33 +5,33 @@ from wtforms.validators import DataRequired, Email, EqualTo
 
 
 class LoginForm(FlaskForm):
-    username = StringField(_l('Username'), validators=[DataRequired()])
-    password = PasswordField(_l('Password'), validators=[DataRequired()])
-    remember_me = BooleanField(_l('Stay Logged In'))
-    submit = SubmitField(_l('Sign In'))
+    username = StringField(_l('Benutzername'), validators=[DataRequired()])
+    password = PasswordField(_l('Passwort'), validators=[DataRequired()])
+    remember_me = BooleanField(_l('Eingeloggt bleiben'))
+    submit = SubmitField(_l('Einloggen'))
 
 
 class PasswordChangeForm(FlaskForm):
-    title = _l('Change your Password')
-    old_password = PasswordField(_l("Old Password"), validators=[DataRequired()])
-    password = PasswordField(_l("Password"), validators=[DataRequired()])
-    password2 = PasswordField(_l("Repeat Password"), validators=[DataRequired(), EqualTo("password")])
-    submit = SubmitField(_l("Change Password"))
+    title = _l('Passwort ändern')
+    old_password = PasswordField(_l("Altes Passwort"), validators=[DataRequired()])
+    password = PasswordField(_l("Passwort"), validators=[DataRequired()])
+    password2 = PasswordField(_l("Passwort wiederholen"), validators=[DataRequired(), EqualTo("password")])
+    submit = SubmitField(_l("Passwort ändern"))
 
 
 class LanguageChangeForm(FlaskForm):
-    title = _l("Change Your Default Language")
+    title = _l("Defaultsprache Ändern")
     new_locale = RadioField(choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
                             validators=[DataRequired()])
-    submit = SubmitField(_l("Change Language"))
+    submit = SubmitField(_l("Sprache Ändern"))
 
 
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
-    submit = SubmitField(_l('Request Password Reset'))
+    submit = SubmitField(_l('Email zum Zurücksetzen Ihres Passworts anfordern'))
 
 
 class ResetPasswordForm(FlaskForm):
-    password = PasswordField(_l('New Password'), validators=[DataRequired()])
-    password2 = PasswordField(_l('Repeat New Password'), validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField(_l('Reset Password'))
+    password = PasswordField(_l('Neues Passwort'), validators=[DataRequired()])
+    password2 = PasswordField(_l('Neues Passwort wiederholen'), validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField(_l('Passwort zurücksetzen'))

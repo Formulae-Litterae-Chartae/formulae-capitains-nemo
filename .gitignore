@@ -41,3 +41,4 @@ logs/
 cache/
 .rngs/
 htmlcov/
+old_translations/

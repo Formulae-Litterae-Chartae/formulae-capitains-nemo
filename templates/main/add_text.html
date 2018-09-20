@@ -10,7 +10,7 @@
         {% if collections.current %}
         {{collections.current.label}}
         {% else %}
-        {{ _('Text Collections') }}
+        {{ _('Textsammlungen') }}
         {% endif %}
         </h1>
     </header>
@@ -21,14 +21,14 @@
         <div class="col-2">
             <div class="card">
                 [{{coll.lang}}] {{ coll.label|title }}<br />
-                <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, coll.id]|join('+'), subreferences=[prev_reffs, '1']|join('+'))}}">{{ _('Read') }}</a>
+                <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, coll.id]|join('+'), subreferences=[prev_reffs, '1']|join('+'))}}">{{ _('Lesen') }}</a>
             </div>
         </div>
         {% elif collections.members|length <= 20 %}
         <div class="col-2">
             <div class="card">
                 {{ coll.label|title }}<br />
-                <a class="card-link" href="{{url_for('InstanceNemo.r_add_text_collection', objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Browse') }} ({{coll.size}})</a>
+                <a class="card-link" href="{{url_for('InstanceNemo.r_add_text_collection', objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">{{ _('Übersicht') }} ({{coll.size}})</a>
             </div>
         </div>
         {% else %}

@@ -198,9 +198,9 @@ class NemoFormulae(Nemo):
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
             if "formulae" in objectId:
-                flash(_('The Formulae Andecavensis collection is undergoing its final edits and will be available soon.'))
+                flash(_('Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald zur Verfügung stehen.'))
             else:
-                flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
+                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         elif len(data['collections']['members']) == 1:
             return redirect(url_for('.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
@@ -244,7 +244,7 @@ class NemoFormulae(Nemo):
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
-            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
+            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
@@ -297,7 +297,7 @@ class NemoFormulae(Nemo):
             return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         elif len(members) == 0:
-            flash(_('This collection is under copyright and we do not have permission from the publisher to include its texts.'))
+            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": "main::sub_collections.html",
             "collections": {
@@ -356,7 +356,7 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection(_("This work has no default edition"))
+                raise UnknownCollection(_("Dieses Werk hat keine Defaultedition"))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         text = self.get_passage(objectId=objectId, subreference=subreference)
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
@@ -422,7 +422,7 @@ class NemoFormulae(Nemo):
                 del d['template']
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
-            flash(_('One or more of the texts that you are trying to display is not available at this point.'))
+            flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         return passage_data
 
     def r_lexicon(self, objectId, lang=None):
