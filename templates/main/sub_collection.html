@@ -30,7 +30,9 @@
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
                 {% if values['short_regest'] != values['regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
-                <small>{{ values['regest'] }}</small>
+                {% for p in values['regest'] %}
+                <p><small>{{ p }}</small></p>
+                {% endfor %}
                 <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% else %}
                 <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>

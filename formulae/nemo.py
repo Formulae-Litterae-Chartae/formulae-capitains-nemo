@@ -94,7 +94,7 @@ class NemoFormulae(Nemo):
         """
         open_texts = []
         half_open_texts = []
-        for c in self.OPEN_COLLECTIONS[:-1]:
+        for c in self.OPEN_COLLECTIONS: # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
             try:
                 open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
             except UnknownCollection:
@@ -236,10 +236,10 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
                 else:
-                    r[par] = {"short_regest": str(m.get_description()).split(':')[0],
+                    r[par] = {"short_regest": str(m.get_description()).split(':')[0] if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": ':'.join(str(m.get_description()).split(':')[1:]) or str(m.get_description()),
+                              "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "versions": [metadata]}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
