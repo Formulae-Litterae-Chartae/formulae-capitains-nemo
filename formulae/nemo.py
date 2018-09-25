@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale, lazy_gettext
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
+from rdflib.namespace import DC, DCTERMS
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
@@ -240,6 +241,8 @@ class NemoFormulae(Nemo):
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
                               "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
+                              "dating": str(m.metadata.get_single(DCTERMS.temporal)),
+                              "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": [metadata]}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
