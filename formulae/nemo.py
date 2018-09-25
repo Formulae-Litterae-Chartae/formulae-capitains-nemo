@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale, lazy_gettext
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
-from rdflib.namespace import DC, DCTERMS
+from rdflib.namespace import DCTERMS, Namespace
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
@@ -74,18 +74,35 @@ class NemoFormulae(Nemo):
     LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
                         "eng": lazy_gettext("English")}
 
+    BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
+
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
         self.open_texts, self.half_open_texts = self.get_open_texts()
+        self.sub_colls = self.get_all_corpora()
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
+
+    def get_all_corpora(self):
+        """ A convenience function to return all sub-corpora in all collections
+
+        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+        """
+        colls = {}
+        for member in self.make_members(self.resolver.getMetadata(), lang=None):
+            members = self.make_members(self.resolver.getMetadata(member['id']))
+            for m in members:
+                m.update({'short_title':
+                              str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
+            colls[member['id']] = members
+        return colls
 
     def get_open_texts(self):
         """ Creates the lists of open and half-open texts to be used later. I have moved this to a function to try to

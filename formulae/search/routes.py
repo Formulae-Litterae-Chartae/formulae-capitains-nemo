@@ -87,9 +87,9 @@ def r_results():
 def r_advanced_search():
     from formulae.app import nemo
     form = AdvancedSearchForm()
-    colls = get_all_corpora()
-    form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['label'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
-    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['label'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
+    colls = nemo.sub_colls
+    form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
+    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.validate() and data_present:
@@ -103,15 +103,3 @@ def r_advanced_search():
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats, url=dict())
-
-
-def get_all_corpora():
-    """ A convenience function to return all sub-corpora in all collections
-
-    :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-    """
-    from formulae.app import nemo
-    colls = {}
-    for member in nemo.make_members(nemo.resolver.getMetadata(), lang=None):
-        colls[member['id']] = nemo.make_members(nemo.resolver.getMetadata(member['id']))
-    return colls
