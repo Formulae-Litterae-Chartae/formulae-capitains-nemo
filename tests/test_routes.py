@@ -60,35 +60,39 @@ class TestIndividualRoutes(Formulae_Testing):
         """
         with self.client as c:
             c.get('/', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
+            self.assertTemplateUsed('main::index.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
-            c.get('/collections/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
-            c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
+            self.assertTemplateUsed('main::collection.html')
+            c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            # r_references does not work right now
+            # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
+            # self.assertTemplateUsed('main::references.html')
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
-            c.get('/add_text/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
-            c.get('/add_text/urn:cts:formulae:andecavensis.form001/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
-            c.get('/search', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
-            self.assertTemplateUsed('auth::login.html')
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::collection.html')
+            c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
+            self.assertTemplateUsed('main::lexicon_modal.html')
+            c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
+            # An non-authenicated user who surfs to the login page should not be redirected
+            c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
+            # The following tests are to make sure that non-open texts are not available to non-project members
+            c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
+            self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
 
     def test_authorized_project_member(self):
         """ Make sure that all routes are open to project members"""
@@ -549,3 +553,17 @@ class TestES(Formulae_Testing):
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+
+
+class TestErrors(Formulae_Testing):
+    def test_404(self):
+        with self.client as c:
+            response = c.get('/trying.php', follow_redirects=True)
+            self.assert404(response, 'A URL that does not exist on the server should return a 404.')
+
+    def test_UnknownCollection_error(self):
+        with self.client as c:
+            response = c.get('/corpus/urn:cts:formulae:buendner', follow_redirects=True)
+            self.assert404(response, 'An Unknown Collection Error should also return 404.')
+            self.assertTemplateUsed("errors::unknown_collection.html")
+

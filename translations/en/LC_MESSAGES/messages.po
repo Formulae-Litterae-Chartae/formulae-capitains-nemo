@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 10:57+0200\n"
+"POT-Creation-Date: 2018-09-26 11:17+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -25,7 +25,23 @@ msgstr ""
 msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
 msgstr "Please log in to access this page."
 
-#: formulae/nemo.py:219
+#: formulae/nemo.py:75
+msgid "Latein"
+msgstr "Latin"
+
+#: formulae/nemo.py:75
+msgid "Deutsch"
+msgstr "German"
+
+#: formulae/nemo.py:75
+msgid "Französisch"
+msgstr "French"
+
+#: formulae/nemo.py:76
+msgid "Englisch"
+msgstr "English"
+
+#: formulae/nemo.py:220
 msgid ""
 "Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald "
 "zur Verfügung stehen."
@@ -33,17 +49,17 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:221 formulae/nemo.py:267 formulae/nemo.py:320
+#: formulae/nemo.py:222 formulae/nemo.py:268 formulae/nemo.py:321
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:379
+#: formulae/nemo.py:380
 msgid "Dieses Werk hat keine Defaultedition"
 msgstr "This work has no default edition"
 
-#: formulae/nemo.py:445
+#: formulae/nemo.py:446
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -552,8 +568,8 @@ msgid ""
 "Datenschutzerklärung der Universität Hamburg überein. Sie können mehr "
 "hier darüber lesen:"
 msgstr ""
-"Any personal data that we collect is handled according to the "
-"Privacy Policy of the University of Hamburg. For more information see: "
+"Any personal data that we collect is handled according to the Privacy "
+"Policy of the University of Hamburg. For more information see: "
 
 #: templates/main/index.html:12
 msgid "https://www.uni-hamburg.de/datenschutz.html"
