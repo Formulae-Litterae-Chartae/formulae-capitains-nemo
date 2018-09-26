@@ -1,5 +1,13 @@
 {% extends "main::container.html" %}
 
+{% macro make_dates(values) %}
+
+{% if values['dating'] %}
+<p class="mb-0 temp-place">{{ values['dating'] }}{% if values['ausstellungsort'] %} [{{ values['ausstellungsort'] }}]{% endif %}</p>
+{% endif %}
+
+{% endmacro %}
+
 {% block article %}
 {% if not prev_texts %}
 {% set prev_texts = '' %}
@@ -29,12 +37,14 @@
                     <p>{{ _("Lesen: ") }}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}</p>
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
-                {% if values['short_regest'] != values['regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
+                {% if values['short_regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
+                {{ make_dates(values) }}
                 {% for p in values['regest'] %}
                 <p><small>{{ p }}</small></p>
                 {% endfor %}
                 <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% else %}
+                {{ make_dates(values) }}
                 <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% endif %}
             </li>

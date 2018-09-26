@@ -313,3 +313,9 @@ nav .dropdown:hover .dropdown-menu {
 #landing-text p {
     text-align: justify;
 }
+
+.temp-place {
+    font-style: italic;
+    font-size: 0.875em;
+    font-weight: bold;
+}
