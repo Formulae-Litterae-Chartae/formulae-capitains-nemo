@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-20 13:50+0200\n"
+"POT-Creation-Date: 2018-09-26 10:57+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -25,21 +25,21 @@ msgstr ""
 msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:201
+#: formulae/nemo.py:219
 msgid ""
 "Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald "
 "zur Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:203 formulae/nemo.py:247 formulae/nemo.py:300
+#: formulae/nemo.py:221 formulae/nemo.py:267 formulae/nemo.py:320
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:359
+#: formulae/nemo.py:379
 msgid "Dieses Werk hat keine Defaultedition"
 msgstr "Cette oeuvre n'a pas d'édition par défaut"
 
-#: formulae/nemo.py:425
+#: formulae/nemo.py:445
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -47,65 +47,83 @@ msgstr ""
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr ""
 
-#: formulae/auth/forms.py:8
+#: formulae/auth/forms.py:9 formulae/auth/forms.py:42
 msgid "Benutzername"
 msgstr "Utilisateur"
 
-#: formulae/auth/forms.py:9 formulae/auth/forms.py:17
+#: formulae/auth/forms.py:10 formulae/auth/forms.py:18
+#: formulae/auth/forms.py:44
 msgid "Passwort"
 msgstr "Mot de passe"
 
-#: formulae/auth/forms.py:10
+#: formulae/auth/forms.py:11
 msgid "Eingeloggt bleiben"
 msgstr "Se souvenir de moi"
 
-#: formulae/auth/forms.py:11 formulae/auth/routes.py:34
+#: formulae/auth/forms.py:12 formulae/auth/routes.py:34
 #: templates/main/navbar.html:13
 msgid "Einloggen"
 msgstr "Connexion"
 
-#: formulae/auth/forms.py:15 formulae/auth/forms.py:19
+#: formulae/auth/forms.py:16 formulae/auth/forms.py:20
 msgid "Passwort ändern"
 msgstr "Changer le mot de passe"
 
-#: formulae/auth/forms.py:16
+#: formulae/auth/forms.py:17
 msgid "Altes Passwort"
 msgstr "Ancien mot de passe"
 
-#: formulae/auth/forms.py:18
+#: formulae/auth/forms.py:19 formulae/auth/forms.py:45
 msgid "Passwort wiederholen"
 msgstr "Répéter le mot de passe"
 
-#: formulae/auth/forms.py:23
+#: formulae/auth/forms.py:24
 msgid "Defaultsprache Ändern"
 msgstr ""
 
-#: formulae/auth/forms.py:26
+#: formulae/auth/forms.py:27
 msgid "Sprache Ändern"
 msgstr ""
 
-#: formulae/auth/forms.py:30
+#: formulae/auth/forms.py:31 formulae/auth/forms.py:43
 msgid "Email"
 msgstr ""
 
-#: formulae/auth/forms.py:31
+#: formulae/auth/forms.py:32
 msgid "Email zum Zurücksetzen Ihres Passworts anfordern"
 msgstr ""
 
-#: formulae/auth/forms.py:35
+#: formulae/auth/forms.py:36
 msgid "Neues Passwort"
 msgstr ""
 
-#: formulae/auth/forms.py:36
+#: formulae/auth/forms.py:37
 msgid "Neues Passwort wiederholen"
 msgstr ""
 
-#: formulae/auth/forms.py:37 formulae/auth/routes.py:95
+#: formulae/auth/forms.py:38 formulae/auth/routes.py:95
 #: formulae/auth/routes.py:117
 msgid "Passwort zurücksetzen"
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:356
+#: formulae/auth/forms.py:46
+msgid "Defaultsprache"
+msgstr ""
+
+#: formulae/auth/forms.py:48 formulae/auth/routes.py:139
+#: templates/auth/register.html:5
+msgid "Anmelden"
+msgstr "Identification"
+
+#: formulae/auth/forms.py:53 tests/test_routes.py:345
+msgid "Bitte verwenden Sie eine andere Benutzername."
+msgstr ""
+
+#: formulae/auth/forms.py:58 tests/test_routes.py:347
+msgid "Bitte verwenden Sie eine andere Emailaddresse."
+msgstr ""
+
+#: formulae/auth/routes.py:27 tests/test_routes.py:374
 msgid "Benutzername oder Passwort ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -133,6 +151,10 @@ msgstr ""
 
 #: formulae/auth/routes.py:115
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
+msgstr ""
+
+#: formulae/auth/routes.py:137 tests/test_routes.py:400
+msgid "Sie sind jetzt registriert."
 msgstr ""
 
 #: formulae/errors/handlers.py:5
@@ -327,6 +349,14 @@ msgstr ""
 msgid "Klicken Sie, um es zurückzusetzen"
 msgstr ""
 
+#: templates/auth/login.html:18
+msgid "Noch kein Benutzerkonto?"
+msgstr ""
+
+#: templates/auth/login.html:18
+msgid "Klicken Sie hier"
+msgstr ""
+
 #: templates/email/reset_password.html:1
 msgid "Sehr geehrte(r)"
 msgstr ""
@@ -469,6 +499,25 @@ msgid ""
 "haben, können Sie uns gern kontaktieren."
 msgstr ""
 
+#: templates/main/index.html:12
+msgid ""
+"Unser Schutz von personenbezogenen Daten stimmt mit der "
+"Datenschutzerklärung der Universität Hamburg überein. Sie können mehr "
+"hier darüber lesen:"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "https://www.uni-hamburg.de/datenschutz.html"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "Datenschutzerklärung der Universität Hamburg"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "Wenn Sie noch Fragen haben, kontaktieren Sie uns."
+msgstr ""
+
 #: templates/main/lexicon.html:2
 msgid "Auf ein Wort zeigen, um sein Lemma zu sehen."
 msgstr "Survolez un mot avec la souris pour voir son lemme."
@@ -548,23 +597,19 @@ msgstr "Cacher toutes les notes de ce texte"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
 
-#: templates/main/register.html:4
-msgid "Anmelden"
-msgstr "Identification"
-
-#: templates/main/sub_collection.html:18
+#: templates/main/sub_collection.html:26
 msgid "Zu einem Text springen:"
 msgstr ""
 
-#: templates/main/sub_collection.html:28
+#: templates/main/sub_collection.html:36
 msgid "Nummer"
 msgstr ""
 
-#: templates/main/sub_collection.html:29
+#: templates/main/sub_collection.html:37
 msgid "Lesen: "
 msgstr ""
 
-#: templates/main/sub_collection.html:34 templates/main/sub_collection.html:36
+#: templates/main/sub_collection.html:45 templates/main/sub_collection.html:48
 msgid "Zurück zum Seitenanfang"
 msgstr ""
 
@@ -645,15 +690,15 @@ msgstr ""
 msgid "Nach einem bestimmten Datum suchen"
 msgstr ""
 
-#: templates/search/advanced_search.html:72
+#: templates/search/advanced_search.html:73
 msgid "Jahr(e)"
 msgstr ""
 
-#: templates/search/advanced_search.html:76
+#: templates/search/advanced_search.html:78
 msgid "Nach einer Datumspanne suchen"
 msgstr ""
 
-#: templates/search/advanced_search.html:77
+#: templates/search/advanced_search.html:79
 msgid ""
 "Eine exklusive Datumspannesuche ist eine spezielle Suche, die nach einer "
 "bestimmten Zeitspanne innerhalb des Jahres für eine Reihe von Jahren "
@@ -665,15 +710,15 @@ msgid ""
 " schon."
 msgstr ""
 
-#: templates/search/advanced_search.html:78
+#: templates/search/advanced_search.html:80
 msgid "Von"
 msgstr ""
 
-#: templates/search/advanced_search.html:105
+#: templates/search/advanced_search.html:107
 msgid "Bis"
 msgstr ""
 
-#: templates/search/advanced_search.html:136
+#: templates/search/advanced_search.html:138
 msgid "Form zurücksetzen"
 msgstr ""
 

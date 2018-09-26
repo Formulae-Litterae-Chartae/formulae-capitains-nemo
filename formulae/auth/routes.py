@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
 from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
-from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm
+from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, RegistrationForm
 from formulae.models import User
 from .email import send_password_reset_email
 from formulae.auth import bp
@@ -115,3 +115,25 @@ def r_reset_password(token):
         flash(_('Ihr Passwort wurde erfolgreich zurückgesetzt.'))
         return redirect(url_for('auth.r_login'))
     return nemo.render(template='auth::reset_password.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+
+
+@bp.route("/register", methods=['GET', 'POST'])
+def r_register():
+    """ Route for new users to register for accounts
+
+    :return: template, form
+    """
+    from formulae.app import nemo
+    if current_user.is_authenticated:
+        return redirect(url_for('main:index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data, default_locale=form.default_locale.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        current_user.default_locale = form.default_locale.data
+        refresh()
+        flash(_('Sie sind jetzt registriert.'))
+        return redirect(url_for('auth.r_login'))
+    return nemo.render(template='auth::register.html', title=_('Anmelden'), form=form, url=dict())
