@@ -27,19 +27,19 @@ msgstr "Please log in to access this page."
 
 #: formulae/nemo.py:75
 msgid "Latein"
-msgstr ""
+msgstr "Latin"
 
 #: formulae/nemo.py:75
 msgid "Deutsch"
-msgstr ""
+msgstr "German"
 
 #: formulae/nemo.py:75
 msgid "Französisch"
-msgstr ""
+msgstr "French"
 
 #: formulae/nemo.py:76
 msgid "Englisch"
-msgstr ""
+msgstr "English"
 
 #: formulae/nemo.py:220
 msgid ""

@@ -553,3 +553,17 @@ class TestES(Formulae_Testing):
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+
+
+class TestErrors(Formulae_Testing):
+    def test_404(self):
+        with self.client as c:
+            response = c.get('/trying.php', follow_redirects=True)
+            self.assert404(response, 'A URL that does not exist on the server should return a 404.')
+
+    def test_UnknownCollection_error(self):
+        with self.client as c:
+            response = c.get('/corpus/urn:cts:formulae:buendner', follow_redirects=True)
+            self.assert404(response, 'An Unknown Collection Error should also return 404.')
+            self.assertTemplateUsed("errors::unknown_collection.html")
+
