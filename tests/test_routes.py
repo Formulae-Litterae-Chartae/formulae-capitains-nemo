@@ -7,7 +7,7 @@ from formulae.search.Search import advanced_query_index, query_index
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
-    ResetPasswordRequestForm
+    ResetPasswordRequestForm, RegistrationForm, ValidationError
 from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
@@ -332,6 +332,23 @@ class TestForms(Formulae_Testing):
         form = AdvancedSearchForm(day_end=32)
         self.assertFalse(form.validate(), "Invalid day_end choice should not validate")
 
+    def test_validate_valid_registration_form(self):
+        """ Ensure that correct data for new user registration validates"""
+        form = RegistrationForm(username='new.user', email='some@email.com', password='some_new_password',
+                                password2='some_new_password', default_locale="de")
+        self.assertTrue(form.validate())
+
+    def test_validate_invalidate_existing_user_registration_form(self):
+        """ Ensure that correct data for new user registration validates"""
+        form = RegistrationForm(username="not.project", email="not.project@uni-hamburg.de", password='some_new_password',
+                                password2='some_new_password', default_locale="de")
+        with self.assertRaisesRegex(ValidationError, _('Bitte verwenden Sie eine andere Benutzername.')):
+            form.validate_username(form.username)
+        with self.assertRaisesRegex(ValidationError, _('Bitte verwenden Sie eine andere Emailaddresse.')):
+            form.validate_email(form.email)
+        self.assertFalse(form.validate())
+
+
 
 class TestAuth(Formulae_Testing):
     def test_correct_login(self):
@@ -371,6 +388,18 @@ class TestAuth(Formulae_Testing):
         user2 = User.query.filter_by(username='not.project').first()
         token = user.get_reset_password_token()
         self.assertFalse(user2 == user.verify_reset_password_token(token))
+
+    def test_correct_registration(self):
+        """ Ensure that new user registration works with correct credentials"""
+        with self.client as c:
+            rv = c.post('/auth/register', data=dict(username='new.user', email="email@email.com",
+                                                    password="some_password", password2="some_password",
+                                                    default_locale="de"),
+                        follow_redirects=True)
+            self.assert200(rv, 'Login should return 200 code')
+            self.assertMessageFlashed(_('Sie sind jetzt registriert.'))
+            self.assertTrue(User.query.filter_by(username='new.user').first(), "It should have added new.user.")
+            self.assertTemplateUsed('auth::login.html')
 
 
 class TestES(Formulae_Testing):

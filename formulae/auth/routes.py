@@ -135,5 +135,5 @@ def r_register():
         current_user.default_locale = form.default_locale.data
         refresh()
         flash(_('Sie sind jetzt registriert.'))
-        return redirect(url_for('auth:r_login'))
+        return redirect(url_for('auth.r_login'))
     return nemo.render(template='auth::register.html', title=_('Anmelden'), form=form, url=dict())
