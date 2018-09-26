@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 09:35+0200\n"
+"POT-Creation-Date: 2018-09-26 10:57+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -115,15 +115,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53
+#: formulae/auth/forms.py:53 tests/test_routes.py:345
 msgid "Bitte verwenden Sie eine andere Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58
+#: formulae/auth/forms.py:58 tests/test_routes.py:347
 msgid "Bitte verwenden Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:357
+#: formulae/auth/routes.py:27 tests/test_routes.py:374
 msgid "Benutzername oder Passwort ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137
+#: formulae/auth/routes.py:137 tests/test_routes.py:400
 msgid "Sie sind jetzt registriert."
 msgstr ""
 
@@ -497,6 +497,25 @@ msgid ""
 " dieser wichtigen kulturelle, soziale, rechtliche und linguistische "
 "Quelle zu fördern und zu vereinfachen. Wenn Sie Verbesserungsvorschläge "
 "haben, können Sie uns gern kontaktieren."
+msgstr ""
+
+#: templates/main/index.html:12
+msgid ""
+"Unser Schutz von personenbezogenen Daten stimmt mit der "
+"Datenschutzerklärung der Universität Hamburg überein. Sie können mehr "
+"hier darüber lesen:"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "https://www.uni-hamburg.de/datenschutz.html"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "Datenschutzerklärung der Universität Hamburg"
+msgstr ""
+
+#: templates/main/index.html:12
+msgid "Wenn Sie noch Fragen haben, kontaktieren Sie uns."
 msgstr ""
 
 #: templates/main/lexicon.html:2

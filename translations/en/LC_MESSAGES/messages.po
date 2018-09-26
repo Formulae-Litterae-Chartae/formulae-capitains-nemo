@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 09:35+0200\n"
+"POT-Creation-Date: 2018-09-26 10:57+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -121,15 +121,15 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53
+#: formulae/auth/forms.py:53 tests/test_routes.py:345
 msgid "Bitte verwenden Sie eine andere Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58
+#: formulae/auth/forms.py:58 tests/test_routes.py:347
 msgid "Bitte verwenden Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:357
+#: formulae/auth/routes.py:27 tests/test_routes.py:374
 msgid "Benutzername oder Passwort ungültig"
 msgstr "Invalid username or password"
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:137
+#: formulae/auth/routes.py:137 tests/test_routes.py:400
 msgid "Sie sind jetzt registriert."
 msgstr "You are now registered."
 
@@ -545,6 +545,27 @@ msgstr ""
 "linguistic source for early medieval Latin. If there is anything that you"
 " believe could be improved in the Werkstatt to make it an ever better "
 "research platform, please don't hesitate to contact us."
+
+#: templates/main/index.html:12
+msgid ""
+"Unser Schutz von personenbezogenen Daten stimmt mit der "
+"Datenschutzerklärung der Universität Hamburg überein. Sie können mehr "
+"hier darüber lesen:"
+msgstr ""
+"Any personal data that we collect is handled according to the "
+"Privacy Policy of the University of Hamburg. For more information see: "
+
+#: templates/main/index.html:12
+msgid "https://www.uni-hamburg.de/datenschutz.html"
+msgstr "https://www.uni-hamburg.de/en/datenschutz.html"
+
+#: templates/main/index.html:12
+msgid "Datenschutzerklärung der Universität Hamburg"
+msgstr "Privacy Policy of the University of Hamburg"
+
+#: templates/main/index.html:12
+msgid "Wenn Sie noch Fragen haben, kontaktieren Sie uns."
+msgstr "If you have any questions, feel free to contact us."
 
 #: templates/main/lexicon.html:2
 msgid "Auf ein Wort zeigen, um sein Lemma zu sehen."
