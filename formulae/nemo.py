@@ -1,6 +1,7 @@
 from flask import url_for, Markup, g, session, flash
 from flask_login import current_user, login_required
-from flask_babel import _, refresh, get_locale, lazy_gettext
+from flask_babel import _, refresh, get_locale
+from flask_babel import lazy_gettext as _l
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from rdflib.namespace import DCTERMS, Namespace
@@ -57,8 +58,8 @@ class NemoFormulae(Nemo):
     ]
 
     PROTECTED = [
-        "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
-        "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
+        # "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
+        # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
@@ -71,8 +72,8 @@ class NemoFormulae(Nemo):
 
     OPEN_NOTES = []
 
-    LANGUAGE_MAPPING = {"lat": lazy_gettext('Latin'), "deu": lazy_gettext("German"), "fre": lazy_gettext("French"),
-                        "eng": lazy_gettext("English")}
+    LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
+                        "eng": _l("Englisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 
@@ -123,6 +124,13 @@ class NemoFormulae(Nemo):
             except UnknownCollection:
                 continue
         return open_texts, half_open_texts
+
+    def check_project_team(self):
+        """ A convenience function that checks if the current user is a part of the project team"""
+        try:
+            return current_user.project_team is True
+        except AttributeError:
+            return False
 
     def create_blueprint(self):
         """ Enhance original blueprint creation with error handling
@@ -192,8 +200,7 @@ class NemoFormulae(Nemo):
         refresh()
 
     def before_request(self):
-        if current_user.is_authenticated:
-            g.search_form = SearchForm()
+        g.search_form = SearchForm()
 
     def view_maker(self, name, instance=None):
         """ Create a view
@@ -212,7 +219,7 @@ class NemoFormulae(Nemo):
 
     def r_collection(self, objectId, lang=None):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        if current_user.project_team is False:
+        if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
             if "formulae" in objectId:
@@ -241,7 +248,7 @@ class NemoFormulae(Nemo):
         else:
             template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
-            if current_user.project_team is True or m.id in self.open_texts:
+            if self.check_project_team() is True or m.id in self.open_texts:
                 if "salzburg" in m.id:
                     par = '-'.join(m.parent.id.split('-')[1:])
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
@@ -311,7 +318,7 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         members = self.make_members(collection, lang=lang)
-        if current_user.project_team is False:
+        if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 1:
             return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
@@ -433,7 +440,7 @@ class NemoFormulae(Nemo):
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
-            if current_user.project_team is True or id in self.open_texts:
+            if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] == "first":
                     subref = self.resolver.getReffs(textId=id)[0]
                 else:

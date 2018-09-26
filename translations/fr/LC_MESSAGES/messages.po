@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 10:57+0200\n"
+"POT-Creation-Date: 2018-09-26 11:17+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -25,21 +25,37 @@ msgstr ""
 msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:219
+#: formulae/nemo.py:75
+msgid "Latein"
+msgstr ""
+
+#: formulae/nemo.py:75
+msgid "Deutsch"
+msgstr ""
+
+#: formulae/nemo.py:75
+msgid "Französisch"
+msgstr ""
+
+#: formulae/nemo.py:76
+msgid "Englisch"
+msgstr ""
+
+#: formulae/nemo.py:220
 msgid ""
 "Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald "
 "zur Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:221 formulae/nemo.py:267 formulae/nemo.py:320
+#: formulae/nemo.py:222 formulae/nemo.py:268 formulae/nemo.py:321
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:379
+#: formulae/nemo.py:380
 msgid "Dieses Werk hat keine Defaultedition"
 msgstr "Cette oeuvre n'a pas d'édition par défaut"
 
-#: formulae/nemo.py:445
+#: formulae/nemo.py:446
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 

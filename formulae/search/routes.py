@@ -8,7 +8,7 @@ from formulae.search import bp
 
 
 @bp.route("/simple", methods=["GET"])
-@login_required
+# @login_required
 def r_simple_search():
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
@@ -21,7 +21,7 @@ def r_simple_search():
 
 
 @bp.route("/results", methods=["GET"])
-@login_required
+# @login_required
 def r_results():
     from formulae.app import nemo
     source = request.args.get('source', None)
@@ -83,7 +83,7 @@ def r_results():
 
 
 @bp.route("/advanced_search", methods=["GET"])
-@login_required
+# @login_required
 def r_advanced_search():
     from formulae.app import nemo
     form = AdvancedSearchForm()
