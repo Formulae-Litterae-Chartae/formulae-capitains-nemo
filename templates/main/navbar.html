@@ -8,6 +8,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
+            </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
                 <a class="nav-link" href="{{ url_for('auth.r_login') }}">{{ _('Einloggen') }}</a>

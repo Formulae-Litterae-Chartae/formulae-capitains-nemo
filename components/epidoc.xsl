@@ -51,6 +51,7 @@
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="parent::t:seg[@type='font-style:italic;']"><xsl:text> font-italic</xsl:text></xsl:if>
+                <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
                 <xsl:if test="parent::t:seg[@type='font-style:bold;']"><xsl:text> platzhalter</xsl:text></xsl:if>
                 </xsl:attribute>
             <xsl:if test="@lemma">
@@ -246,6 +247,7 @@
     
     <xsl:template match="t:note">
         <xsl:param name="note_num">
+            <!-- I will need to change this to testing if there is an @n attribute. If so, use the value there. If not, find count(preceding::t:note[@type="a1"]) + 1 -->
             <xsl:choose>
                 <xsl:when test="/t:TEI/t:text/t:body/t:div[1]/@xml:lang = 'deu'">
                     <xsl:number value="count(preceding::t:note) + 1" format="1"/>
@@ -274,6 +276,7 @@
         </xsl:element>
     </xsl:template>
     
+    <!-- I don't think there will be any more anchors in the next conversion, at least none without notes associated with them. So I think I can probably delete this template. -->
     <xsl:template match="t:anchor[ancestor-or-self::t:div[@xml:lang='lat']]">
         <xsl:param name="app_id" select="concat('#', translate(@xml:id, 'a', 'w'))"></xsl:param>
         <xsl:param name="note_num"><xsl:number value="count(preceding::t:anchor) + 1" format="a"/></xsl:param>

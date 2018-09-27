@@ -29,7 +29,8 @@ class NemoFormulae(Nemo):
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang", "r_set_language", ["GET", "POST"]),
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
-        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"])
+        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
+        ("/imprint", "r_impressum", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -466,6 +467,14 @@ class NemoFormulae(Nemo):
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
         return d
+
+    def r_impressum(self):
+        """ Impressum route function
+
+        :return: Template to use for Impressum page
+        :rtype: {str: str}
+        """
+        return {"template": "main::impressum.html"}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
