@@ -11,18 +11,18 @@
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
-            <a class="card-header py-0 text-center" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='1') }}">
+            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='1') }}">
                 {{ post['info']['title'] }}
-            </a>
+            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}</div>
             <div class="card-body py-0">
                 {% for sent in post['sents'] %}
                 <p class="card-text m-0"><small>- {{ sent }}</small></p>
                 {% endfor %}
             </div>
             {% else %}
-            <a class="card-header py-0 text-center disabled" title="{{ _('Dieser Text ist nicht online verfügbar. Sie können den Text in der gedruckten Version finden.') }}">
+            <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text ist nicht online verfügbar. Sie können den Text in der gedruckten Version finden.') }}">
                 {{ post['info']['title'] }}
-            </a>
+            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}</div>
             {% endif %}
         </div>
     {% endfor %}
