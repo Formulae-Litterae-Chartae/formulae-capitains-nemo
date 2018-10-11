@@ -70,6 +70,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
+            self.assertTemplateUsed('main::salzburg_collection.html')
             # r_references does not work right now
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -111,6 +113,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
+            self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             # r_references does not work right now.
@@ -154,6 +158,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
+            self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             # r_references does not work right now.
