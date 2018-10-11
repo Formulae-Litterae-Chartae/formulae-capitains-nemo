@@ -357,4 +357,16 @@
         <strong><xsl:apply-templates/></strong>
     </xsl:template>
     
+    <xsl:template match="t:list">
+        <ul class="list-unstyled">
+            <xsl:apply-templates/>
+        </ul>
+    </xsl:template>
+    
+    <xsl:template match="t:item">
+        <li>
+            <xsl:apply-templates/>
+        </li>
+    </xsl:template>
+    
 </xsl:stylesheet>
