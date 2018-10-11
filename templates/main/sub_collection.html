@@ -34,7 +34,7 @@
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="d-flex w-100 justify-content-between">
                     <h5>{{ _('Nummer') }} {{number}}: </h5>
-                    <p>{{ _("Lesen: ") }}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}</p>
+                    <p>{{ _("Lesen: ") }}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}</p>
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
                 {% if values['short_regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}

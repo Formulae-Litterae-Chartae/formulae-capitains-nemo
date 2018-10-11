@@ -397,7 +397,7 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        pdf_path = ''
+        # pdf_path = ''
         collection = self.get_collection(objectId)
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
@@ -460,8 +460,8 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             if self.check_project_team() is True or id in self.open_texts:
-                if subrefers[i] == "first":
-                    subref = self.resolver.getReffs(textId=id)[0]
+                if subrefers[i] == "all":
+                    subref = self.get_reffs(id)[0][0]
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
