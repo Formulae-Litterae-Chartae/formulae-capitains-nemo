@@ -78,6 +78,10 @@ class NemoFormulae(Nemo):
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 
+    SALZBURG_MAPPING = {'a': 'Codex Odalberti', 'b': 'Codex Fridarici', 'c': 'Codex Hartuuici', 'd': 'Codex Tietmari II',
+                        'e': 'Codex Balduuini', 'bn': 'Breves Notitiae', 'na': 'Notitia Arnonis',
+                        'bna': 'Breves Notitiae Anhang'}
+
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
             self.pdf_folder = kwargs["pdf_folder"]
@@ -246,12 +250,26 @@ class NemoFormulae(Nemo):
         r = {}
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
+        elif 'salzburg' in objectId:
+            template = "main::salzburg_collection.html"
         else:
             template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
             if self.check_project_team() is True or m.id in self.open_texts:
                 if "salzburg" in m.id:
-                    par = '-'.join(m.parent.id.split('-')[1:])
+                    par = m.parent.id.split('-')[1:]
+                    if len(par) == 2:
+                        full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
+                    else:
+                        p = re.match(r'(\D+)(\d+)', par[0])
+                        if p:
+                            full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
+                        else:
+                            full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
+                    par = '-'.join(par)
+                    if 'n' in par:
+                        par = 'z' + par
+                    par = (par, full_par)
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 elif "elexicon" in m.id:
                     par = m.parent.id.split('.')[-1][0].capitalize()
