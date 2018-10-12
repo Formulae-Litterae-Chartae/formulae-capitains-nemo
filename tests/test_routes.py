@@ -77,6 +77,9 @@ class TestIndividualRoutes(Formulae_Testing):
             # self.assertTemplateUsed('main::references.html')
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            # Check for backwards compatibility of URLs
+            c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+first', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -122,6 +125,9 @@ class TestIndividualRoutes(Formulae_Testing):
             # self.assertTemplateUsed('main::references.html')
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            # Check for backwards compatibility of URLs
+            c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+first', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -166,6 +172,9 @@ class TestIndividualRoutes(Formulae_Testing):
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            # Check for backwards compatibility of URLs
+            c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+first', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
