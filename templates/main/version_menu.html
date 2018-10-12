@@ -9,7 +9,7 @@
         {% if translation[text.objectId] %}
             <span class="dropdown-item-text">{{ text.collections.current.label }}</span>
             {% for t in translation[text.objectId] %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, t.id]|join_list_values('+'), subreferences=[prev_reffs, 'first']|join_list_values('+'))}}">- <span class="text-primary">{{ t.get_label()|string }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, t.id]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ t.get_label()|string }}</span></a>
             {% endfor %}
         {% endif %}
         {% if not loop.last %}<div class="dropdown-divider"></div>{% endif %}
