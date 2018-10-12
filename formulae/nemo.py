@@ -460,7 +460,7 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             if self.check_project_team() is True or id in self.open_texts:
-                if subrefers[i] == "all":
+                if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
                 else:
                     subref = subrefers[i]
