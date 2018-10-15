@@ -27,11 +27,11 @@ msgstr "Veuillez vous connecter pour accéder à cette page."
 
 #: formulae/nemo.py:75
 msgid "Latein"
-msgstr ""
+msgstr "Latin"
 
 #: formulae/nemo.py:75
 msgid "Deutsch"
-msgstr ""
+msgstr "Allemand"
 
 #: formulae/nemo.py:75
 msgid "Französisch"
@@ -95,11 +95,11 @@ msgstr "Répéter le mot de passe"
 
 #: formulae/auth/forms.py:24
 msgid "Defaultsprache Ändern"
-msgstr ""
+msgstr "Changer la langue par défault"
 
 #: formulae/auth/forms.py:27
 msgid "Sprache Ändern"
-msgstr ""
+msgstr "Changer la langue"
 
 #: formulae/auth/forms.py:31 formulae/auth/forms.py:43
 msgid "Email"
@@ -206,20 +206,20 @@ msgstr ""
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
 #: formulae/search/forms.py:108 formulae/search/routes.py:79
 msgid "Suche"
-msgstr ""
+msgstr "Recherche"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:66
 msgid "Korpora"
-msgstr ""
+msgstr "Corpora"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:67
 #: templates/main/add_text_menu.html:9 templates/main/navbar.html:19
 msgid "Formeln"
-msgstr ""
+msgstr "Formules"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:66
 msgid "Urkunden"
-msgstr ""
+msgstr "Chartes"
 
 #: formulae/search/forms.py:44 tests/test_routes.py:308
 msgid ""
@@ -234,7 +234,7 @@ msgstr "Lemmes"
 
 #: formulae/search/forms.py:58
 msgid "Unschärfeniveau"
-msgstr ""
+msgstr "Niveau de flou"
 
 #: formulae/search/forms.py:59
 msgid "AUTO"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: formulae/search/forms.py:61
 msgid "Suchradius"
-msgstr ""
+msgstr "Étendue de la recherche"
 
 #: formulae/search/forms.py:63
 msgid "Suchradius muss zwischen 0 und 100 liegen"
@@ -250,16 +250,16 @@ msgstr ""
 
 #: formulae/search/forms.py:65
 msgid "Reihenfolge der Wörter behalten?"
-msgstr ""
+msgstr "Garder l’ordre des mots ?"
 
 #: formulae/search/forms.py:66 templates/search/advanced_search.html:13
 msgid "Alle"
-msgstr ""
+msgstr "Tous"
 
 #: formulae/search/forms.py:68 formulae/search/forms.py:79
 #: formulae/search/forms.py:91
 msgid "Jahr"
-msgstr ""
+msgstr "Année"
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:80
 #: formulae/search/forms.py:93
@@ -269,7 +269,7 @@ msgstr ""
 #: formulae/search/forms.py:71 formulae/search/forms.py:82
 #: formulae/search/forms.py:95
 msgid "Monat"
-msgstr ""
+msgstr "Mois"
 
 #: formulae/search/forms.py:71 formulae/search/forms.py:82
 #: formulae/search/forms.py:95
@@ -334,7 +334,7 @@ msgstr ""
 #: formulae/search/forms.py:76 formulae/search/forms.py:87
 #: formulae/search/forms.py:100
 msgid "Tag"
-msgstr ""
+msgstr "Jour"
 
 #: formulae/search/forms.py:77 formulae/search/forms.py:89
 #: formulae/search/forms.py:101
@@ -343,7 +343,7 @@ msgstr ""
 
 #: formulae/search/forms.py:103
 msgid "Datum Plus-Minus"
-msgstr ""
+msgstr "Date à plus-ou-moins "
 
 #: formulae/search/forms.py:105
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
@@ -351,7 +351,7 @@ msgstr ""
 
 #: formulae/search/forms.py:107
 msgid "Exklusiv"
-msgstr ""
+msgstr "Exclusif"
 
 #: formulae/search/routes.py:102
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
@@ -439,7 +439,7 @@ msgstr "Parcourir"
 
 #: templates/main/add_text_menu.html:4
 msgid "Vergleichen mit einen anderen Text von:"
-msgstr ""
+msgstr "Comparer avec un texte de type"
 
 #: templates/main/add_text_menu.html:12 templates/main/navbar.html:22
 msgid "Lexikon"
@@ -447,7 +447,7 @@ msgstr "Lexique"
 
 #: templates/main/add_text_menu.html:15 templates/main/navbar.html:25
 msgid "Andere Texte"
-msgstr ""
+msgstr "Autres textes"
 
 #: templates/main/collection_member_menu.html:11
 msgid "Eine Sammlung wählen, um ihre Texte zu sehen"
@@ -465,7 +465,7 @@ msgstr "Sauvegarder les changements"
 
 #: templates/main/elex_collection.html:18
 msgid "Zu einer Buchstabe springen:"
-msgstr ""
+msgstr "Aller à une lettre"
 
 #: templates/main/index.html:6
 msgid "Willkommen zur<br>Formulae-Litterae-Chartae Werkstatt!"
@@ -577,7 +577,7 @@ msgstr "A propos"
 
 #: templates/main/navbar.html:15
 msgid "Benutzerprofil ändern"
-msgstr "Changer les paramètres d'utilisateur"
+msgstr "Changer le profil d’utilisateur"
 
 #: templates/main/navbar.html:15
 msgid "ausloggen"
@@ -619,23 +619,23 @@ msgstr ""
 
 #: templates/main/sub_collection.html:36
 msgid "Nummer"
-msgstr ""
+msgstr "Numéro"
 
 #: templates/main/sub_collection.html:37
 msgid "Lesen: "
-msgstr ""
+msgstr "Lire: "
 
 #: templates/main/sub_collection.html:45 templates/main/sub_collection.html:48
 msgid "Zurück zum Seitenanfang"
-msgstr ""
+msgstr "Retourner en haut de la page"
 
 #: templates/main/version_menu.html:4
 msgid "Mit einer anderen Version vergleichen"
-msgstr ""
+msgstr "Comparer avec une autre version"
 
 #: templates/search/advanced_search.html:32
 msgid "Wortsuche"
-msgstr ""
+msgstr "Recherche de mot"
 
 #: templates/search/advanced_search.html:32
 msgid ""
@@ -647,7 +647,7 @@ msgid ""
 "anfängt. Wenn Sie diese beiden Worte finden möchten, wo andere Wort "
 "zwischen ihnen auftreten können, stellen Sie die ‚Suchradius‘ größer als "
 "0."
-msgstr ""
+msgstr "Les caractères spéciaux sont autorisés. Un point d'interrogation (,?') Remplace un seul caractère, tandis qu'un astérisque (,*') remplace un ou plusieurs caractères. Les deux fonctionnent seulement à l’intérieur d’un mot. Cela signifie que la recherche \"christ* nom*\" trouvera chaque série de deux mots consécutifs où le premier mot commence par \"christ-\" et le second par \"nom-\". Si vous souhaitez trouver ces deux mots, contenant potentiellement d'autres mots entre eux, définissez un «rayon de recherche» supérieur à 0."
 
 #: templates/search/advanced_search.html:34
 msgid "Die Lemmatasuche ist nur für die lateinischen Formeln möglich"
@@ -670,11 +670,11 @@ msgid ""
 "hat, sind keine Änderungen erlaubt, mit 3-5 Buchstaben ist eine Änderung "
 "erlaubt und für längere Wörter sind 2 Anderungen erlaubt. ‚AUTO‘ soll für"
 " die meisten Suchen am Besten funktionieren."
-msgstr ""
+msgstr "Le ‘flou’ mesure à quel point un mot résultant peut s'écarter du terme recherché et toujours former un résultat valide. Les nombres représentent combien de modifications peuvent être apportées à un mot. Par exemple, 2 signifie que deux lettres du mot peuvent être remplacées, supprimées, ajoutées ou changées. Avec 'AUTO', le nombre autorisé de telles modifications dépend de la longueur du mot: si le mot compte 1 ou 2 lettres, aucune modification n'est autorisée, de 3 à 5 lettres, 1 modification est autorisée et pour les mots plus longs 2 modifications sont autorisées. \"AUTO\" devrait fonctionner au mieux pour la plupart des recherches."
 
 #: templates/search/advanced_search.html:39
 msgid "Wörter"
-msgstr ""
+msgstr "Mots"
 
 #: templates/search/advanced_search.html:39
 msgid ""
@@ -682,11 +682,11 @@ msgid ""
 "auftreten können. Zum Beispiel für die Suche nach ‚christ* nom*‘ mit "
 "einem Suchradius von 50 werden alle Stellen gefunden, wo diese beiden "
 "Wörter innerhalb von 50 Wörtern auftauchen."
-msgstr ""
+msgstr "Le nombre maximum de mots imprécis pouvant se trouver entre les mots recherchés. Par exemple, rechercher ,christ* nom*’ avec un rayon de recherche de 50 trouvera tous les endroits où ces deux mots apparaissent dans les 50 mots."
 
 #: templates/search/advanced_search.html:44
 msgid "[NB: Datumsuche gilt nur für Urkunden.]"
-msgstr ""
+msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
 #: templates/search/advanced_search.html:44
 msgid ""
@@ -700,19 +700,19 @@ msgid ""
 "bzw. Monat zurückgegeben werden, mit Formeln, die die anderen "
 "Suchkriterien erfüllen, vergleichen möchten, sollten Sie eine zweite "
 "Suche ohne Datum durchführen, die auf die Formel begrenzt ist."
-msgstr ""
+msgstr "La datation des formules étant très différente de celle des chartes, la recherche par date est appliquée différemment pour les formules. Si vous effectuez une recherche par date qui ne contient ni mois ni jour, que ce soit pour une date spécifique ou une étendue entre deux dates, toutes les formules correspondant aux autres critères de recherche seront renvoyées. Toutefois, si un mois ou un jour est spécifié, la requête ne renverra aucune formule. Si vous souhaitez comparer les documents renvoyés par une recherche de date avec jour ou mois aux formules correspondant aux autres critères de recherche, vous devez effectuer une deuxième recherche sans date limitée aux formules."
 
 #: templates/search/advanced_search.html:45
 msgid "Nach einem bestimmten Datum suchen"
-msgstr ""
+msgstr "Rechercher une date précise"
 
 #: templates/search/advanced_search.html:73
 msgid "Jahr(e)"
-msgstr ""
+msgstr "an(s)"
 
 #: templates/search/advanced_search.html:78
 msgid "Nach einer Datumspanne suchen"
-msgstr ""
+msgstr "Rechercher dans un laps de temps"
 
 #: templates/search/advanced_search.html:79
 msgid ""
@@ -724,19 +724,19 @@ msgid ""
 "dass ein Dokument, die um 22. Oktober 700 datiert ist, nicht "
 "zurückgegeben wird. Eins, das um den 15. Oktober 750 datiert wird, jedoch"
 " schon."
-msgstr ""
+msgstr "Une recherche par plage de dates exclusive est une recherche spéciale qui porte sur un certain nombre d’années pendant un certain nombre d’années. Par exemple, une recherche exclusive pour la période du 7 octobre 700 au 21 octobre 800 permettra de trouver des documents datés entre le 7 et le 21 octobre, entre 700 et 800. Cela signifie qu'un document daté du 22 octobre 700 ne sera pas retourné. Un document daté du 15 octobre 750 environ le sera cependant."
 
 #: templates/search/advanced_search.html:80
 msgid "Von"
-msgstr ""
+msgstr "A partir de"
 
 #: templates/search/advanced_search.html:107
 msgid "Bis"
-msgstr ""
+msgstr "Jusqu’à"
 
 #: templates/search/advanced_search.html:138
 msgid "Form zurücksetzen"
-msgstr ""
+msgstr "Réinitialiser la page"
 
 #: templates/search/search.html:6
 msgid "Suchergebnisse"
@@ -754,7 +754,7 @@ msgstr ""
 
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
-msgstr ""
+msgstr "Chercher dans"
 
 #~ msgid ""
 #~ "This collection is under copyright and"
