@@ -209,8 +209,11 @@ class NemoFormulae(Nemo):
         g.search_form = SearchForm()
 
     def after_request(self, response):
-        """ Currently used only for the Cache-Control header"""
-        response.cache_control.max_age = 300
+        """ Currently used only for the Cache-Control header
+            max_age calculates days, hours, minutes and seconds and adds them together.
+            First number after '+' is the respective number for each value.
+        """
+        response.cache_control.max_age = self.app.config['CACHE_MAX_AGE']
         response.cache_control.public = True
         return response
 
