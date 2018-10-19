@@ -49,9 +49,9 @@ class NemoFormulae(Nemo):
 
     CACHED = [
         # Routes
-        "r_index", "r_collection", "r_collections", "r_references", "r_assets", "r_multipassage",
+        "r_index", # "r_collection", "r_collections", "r_references", "r_assets", "r_multipassage",
         # Controllers
-        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts",
+        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts", "get_all_corpora",
         # Translater
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
         # Business logic
@@ -95,6 +95,7 @@ class NemoFormulae(Nemo):
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
+        self.app.after_request(self.after_request)
 
     def get_all_corpora(self):
         """ A convenience function to return all sub-corpora in all collections
@@ -206,6 +207,12 @@ class NemoFormulae(Nemo):
 
     def before_request(self):
         g.search_form = SearchForm()
+
+    def after_request(self, response):
+        """ Currently used only for the Cache-Control header"""
+        response.cache_control.max_age = 300
+        response.cache_control.public = True
+        return response
 
     def view_maker(self, name, instance=None):
         """ Create a view
