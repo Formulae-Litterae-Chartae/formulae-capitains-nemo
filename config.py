@@ -21,3 +21,4 @@ class Config(object):
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
+    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 604800 # 7 days
