@@ -1,0 +1,9 @@
+{% extends "main::container.html" %}
+
+{% block article %}
+    <article>
+    <h1>{{ _('Unbekannte Referenz') }}</h1>
+    <p>{{ message }} {{ _("wurde nicht gefunden") }}</p>
+    <p><a href="{{ url_for('.r_multipassage', objectIds=parent, subreferences='all') }}">{{ _('Den ganzen Text lesen.') }}</a></p>
+    </article>
+{% endblock %}
