@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-26 11:17+0200\n"
+"POT-Creation-Date: 2018-10-23 13:45+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,30 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18 tests/test_routes.py:63 tests/test_routes.py:66
-#: tests/test_routes.py:69 tests/test_routes.py:72 tests/test_routes.py:75
-#: tests/test_routes.py:78 tests/test_routes.py:81 tests/test_routes.py:84
-#: tests/test_routes.py:87 tests/test_routes.py:90
+#: formulae/__init__.py:18 tests/test_routes.py:67
 msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
 msgstr "Please log in to access this page."
 
-#: formulae/nemo.py:75
+#: formulae/nemo.py:76
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:75
+#: formulae/nemo.py:76
 msgid "Deutsch"
 msgstr "German"
 
-#: formulae/nemo.py:75
+#: formulae/nemo.py:76
 msgid "Französisch"
 msgstr "French"
 
-#: formulae/nemo.py:76
+#: formulae/nemo.py:77
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:220
+#: formulae/nemo.py:241
 msgid ""
 "Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald "
 "zur Verfügung stehen."
@@ -49,17 +46,22 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:222 formulae/nemo.py:268 formulae/nemo.py:321
+#: formulae/nemo.py:243 formulae/nemo.py:303 formulae/nemo.py:356
+#: tests/test_routes.py:96 tests/test_routes.py:98
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:380
+#: formulae/nemo.py:415
 msgid "Dieses Werk hat keine Defaultedition"
 msgstr "This work has no default edition"
 
-#: formulae/nemo.py:446
+#: formulae/nemo.py:422
+msgid " wurde nicht gefunden. Der ganze Text wird hier gezeigt."
+msgstr " was not found. The whole text is being shown instead."
+
+#: formulae/nemo.py:487 tests/test_routes.py:100 tests/test_routes.py:102
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -83,7 +85,7 @@ msgid "Eingeloggt bleiben"
 msgstr "Stay Logged In"
 
 #: formulae/auth/forms.py:12 formulae/auth/routes.py:34
-#: templates/main/navbar.html:13
+#: templates/main/navbar.html:16
 msgid "Einloggen"
 msgstr "Sign In"
 
@@ -137,15 +139,15 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:345
+#: formulae/auth/forms.py:53 tests/test_routes.py:373
 msgid "Bitte verwenden Sie eine andere Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:347
+#: formulae/auth/forms.py:58 tests/test_routes.py:375
 msgid "Bitte verwenden Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:374
+#: formulae/auth/routes.py:27 tests/test_routes.py:402
 msgid "Benutzername oder Passwort ungültig"
 msgstr "Invalid username or password"
 
@@ -177,7 +179,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:400
+#: formulae/auth/routes.py:137 tests/test_routes.py:428
 msgid "Sie sind jetzt registriert."
 msgstr "You are now registered."
 
@@ -185,17 +187,17 @@ msgstr "You are now registered."
 msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
-#: formulae/errors/handlers.py:10 templates/main/500.html:4
+#: formulae/errors/handlers.py:11 templates/main/500.html:4
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
-#: formulae/errors/handlers.py:11 templates/main/500.html:5
+#: formulae/errors/handlers.py:12 templates/main/500.html:5
 msgid ""
 "Der Administrator wurde benachrichtigt. Entschuldigen Sie die "
 "Unannehmlichkeiten!"
 msgstr "The administrator has been notified. Sorry for the inconvenience!"
 
-#: formulae/errors/handlers.py:28
+#: formulae/errors/handlers.py:34
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
@@ -223,7 +225,7 @@ msgid "Korpora"
 msgstr "Corpora"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:67
-#: templates/main/add_text_menu.html:9 templates/main/navbar.html:19
+#: templates/main/add_text_menu.html:9 templates/main/navbar.html:22
 msgid "Formeln"
 msgstr "Formulae"
 
@@ -231,7 +233,7 @@ msgstr "Formulae"
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:308
+#: formulae/search/forms.py:44 tests/test_routes.py:336
 msgid ""
 "Mindestens eine Sammlung zur Suche auswählen(\"Formeln\" und/oder "
 "\"Urkunden\")"
@@ -424,12 +426,21 @@ msgid "Unbekannte Sammlung"
 msgstr "Unknown Collection"
 
 #: templates/errors/unknown_collection.html:6
+#: templates/errors/unknown_reference.html:6
 msgid "wurde nicht gefunden"
 msgstr "was not found"
 
 #: templates/errors/unknown_collection.html:7
 msgid "Andere Texte in dieser Sammlung durchsuchen."
 msgstr "Browse other texts in this collection."
+
+#: templates/errors/unknown_reference.html:5
+msgid "Unbekannte Referenz"
+msgstr "Unknown Reference."
+
+#: templates/errors/unknown_reference.html:7
+msgid "Den ganzen Text lesen."
+msgstr "Read the whole text."
 
 #: templates/main/404.html:4
 msgid "Datei nicht gefunden"
@@ -455,11 +466,11 @@ msgstr "Browse"
 msgid "Vergleichen mit einen anderen Text von:"
 msgstr "Compare with a different text from:"
 
-#: templates/main/add_text_menu.html:12 templates/main/navbar.html:22
+#: templates/main/add_text_menu.html:12 templates/main/navbar.html:25
 msgid "Lexikon"
 msgstr "Lexicon"
 
-#: templates/main/add_text_menu.html:15 templates/main/navbar.html:25
+#: templates/main/add_text_menu.html:15 templates/main/navbar.html:28
 msgid "Andere Texte"
 msgstr "Other Texts"
 
@@ -480,6 +491,68 @@ msgstr "Save changes"
 #: templates/main/elex_collection.html:18
 msgid "Zu einer Buchstabe springen:"
 msgstr "Jump to Letter:"
+
+#: templates/main/impressum.html:6 templates/main/navbar.html:12
+msgid "Impressum"
+msgstr "Impress"
+
+#: templates/main/impressum.html:10
+msgid "Inhaltliche Verantwortlichkeit i. S. v. § 5 TMG und § 55 Abs. 2 RStV"
+msgstr ""
+
+#: templates/main/impressum.html:11
+msgid ""
+"Für die Richtigkeit und Aktualität der Inhalte sind die jeweiligen "
+"Erstellerinnen und Ersteller der einzelnen Seiten verantwortlich."
+msgstr ""
+
+#: templates/main/impressum.html:12
+msgid "Technische Verantwortlichkeit"
+msgstr ""
+
+#: templates/main/impressum.html:14
+msgid "Zentrale Addresse der Universität Hamburg"
+msgstr ""
+
+#: templates/main/impressum.html:16
+msgid "Rechtsform und gesetzliche Vertretung"
+msgstr ""
+
+#: templates/main/impressum.html:17
+msgid ""
+"Die Universität Hamburg ist eine Körperschaft des Öffentlichen Rechts.Sie"
+" wird gesetzlich vertreten durch Prof. Dr. Dieter Lenzen, Präsident der "
+"Universität Hamburg, Mittelweg 177, 20148 Hamburg, Deutschland."
+msgstr ""
+
+#: templates/main/impressum.html:18
+msgid "Zuständige Aufsichtsbehörde"
+msgstr ""
+
+#: templates/main/impressum.html:19
+msgid ""
+"Behörde für Wissenschaft, Forschung und Gleichstellung der Freien und "
+"Hansestadt Hamburg, Hamburger Straße 37, 22083 Hamburg"
+msgstr ""
+
+#: templates/main/impressum.html:20
+msgid "Umsatzsteueridentifikationsnummer"
+msgstr ""
+
+#: templates/main/impressum.html:22
+msgid "Haftungsausschluss"
+msgstr ""
+
+#: templates/main/impressum.html:23
+msgid ""
+"Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung "
+"für die Richtigkeit, Vollständigkeit und Aktualität unserer Webseiten "
+"sowie für die Inhalte externer Links. Von den Inhalten der verlinkten "
+"Seiten – auf deren Inhalt wir keinen Einfluss haben – distanzieren wir "
+"uns ausdrücklich. Diese Erklärung gilt für alle auf den Webseiten "
+"angebrachten Links und für alle Inhalte der Seiten, zu denen Links oder "
+"Banner führen."
+msgstr ""
 
 #: templates/main/index.html:6
 msgid "Willkommen zur<br>Formulae-Litterae-Chartae Werkstatt!"
@@ -624,11 +697,11 @@ msgstr "Remove this text"
 msgid "Über das Projekt"
 msgstr "About the Project"
 
-#: templates/main/navbar.html:15
+#: templates/main/navbar.html:18
 msgid "Benutzerprofil ändern"
 msgstr "Change user settings"
 
-#: templates/main/navbar.html:15
+#: templates/main/navbar.html:18
 msgid "ausloggen"
 msgstr "logout"
 
@@ -667,21 +740,40 @@ msgstr "Hide all notes for this text"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Show all notes for this text"
 
+#: templates/main/salzburg_collection.html:6
+#: templates/main/sub_collection.html:6
+msgid "Datum"
+msgstr "Date"
+
+#: templates/main/salzburg_collection.html:6
+#: templates/main/sub_collection.html:6
+msgid "Ausstellungsort"
+msgstr "Place of Composition"
+
+#: templates/main/salzburg_collection.html:27
 #: templates/main/sub_collection.html:26
 msgid "Zu einem Text springen:"
 msgstr "Jump to Text:"
 
-#: templates/main/sub_collection.html:36
-msgid "Nummer"
-msgstr "Number"
-
+#: templates/main/salzburg_collection.html:53
 #: templates/main/sub_collection.html:37
 msgid "Lesen: "
 msgstr "Read: "
 
+#: templates/main/salzburg_collection.html:53
+#: templates/main/sub_collection.html:37
+msgid "Version"
+msgstr ""
+
+#: templates/main/salzburg_collection.html:61
+#: templates/main/salzburg_collection.html:64
 #: templates/main/sub_collection.html:45 templates/main/sub_collection.html:48
 msgid "Zurück zum Seitenanfang"
 msgstr "Back to top"
+
+#: templates/main/sub_collection.html:36
+msgid "Nummer"
+msgstr "Number"
 
 #: templates/main/version_menu.html:4
 msgid "Mit einer anderen Version vergleichen"
@@ -860,4 +952,7 @@ msgstr "Search In:"
 
 #~ msgid "Invalid username or password"
 #~ msgstr ""
+
+#~ msgid "{}.{} wurde nicht gefunden. Der ganze Text wird hier gezeigt."
+#~ msgstr "{}.{} was not found. The whole text is being shown below."
 

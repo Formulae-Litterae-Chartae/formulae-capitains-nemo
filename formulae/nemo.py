@@ -419,8 +419,7 @@ class NemoFormulae(Nemo):
         except IndexError:
             new_subref = self.get_reffs(objectId)[0][0]
             text = self.get_passage(objectId=objectId, subreference=new_subref)
-            flash(_('{}.{} wurde nicht gefunden. Der ganze Text wird hier gezeigt.'.format(collection.get_label(lang),
-                                                                                           subreference)))
+            flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird hier gezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
         if 'notes' in self._transform:
