@@ -414,7 +414,14 @@ class NemoFormulae(Nemo):
             if len(editions) == 0:
                 raise UnknownCollection(_("Dieses Werk hat keine Defaultedition"))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
-        text = self.get_passage(objectId=objectId, subreference=subreference)
+        try:
+            text = self.get_passage(objectId=objectId, subreference=subreference)
+        except IndexError:
+            new_subref = self.get_reffs(objectId)[0][0]
+            text = self.get_passage(objectId=objectId, subreference=new_subref)
+            flash(_('{}.{} wurde nicht gefunden. Der ganze Text wird hier gezeigt.'.format(collection.get_label(lang),
+                                                                                           subreference)))
+            subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
