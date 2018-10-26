@@ -29,15 +29,16 @@ class Formulae_Testing(flask_testing.TestCase):
 
         try:
             app = create_app(TestConfig)
-        except Exception as E:
-            print(E)
-        self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
+            self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
                                  app=app, base_url="",
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+        except Exception as E:
+            print(E)
+            
         return app
 
     def setUp(self):
