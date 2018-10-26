@@ -27,18 +27,15 @@ class TestConfig(Config):
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
-        try:
-            app = create_app(TestConfig)
-            self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
+        app = create_app(TestConfig)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
                                  app=app, base_url="",
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
-        except Exception as E:
-            print(E)
-            
+
         return app
 
     def setUp(self):

@@ -6,6 +6,7 @@ from .nemo import NemoFormulae
 from .dispatcher_builder import organizer
 
 flask_app = create_app()
+print('Now in app.py')
 resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'],
                                dispatcher=organizer,
                                # cache=FileSystemCache(flask_app.config['CACHE_DIRECTORY'])
