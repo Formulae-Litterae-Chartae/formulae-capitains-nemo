@@ -21,7 +21,7 @@ migrate = Migrate()
 bootstrap = Bootstrap()
 babel = Babel()
 mail = Mail()
-cache = Cache(config={'CACHE_TYPE': 'simple'})
+cache = Cache(config={'CACHE_TYPE': 'redis'})
 
 
 def create_app(config_class=Config):
