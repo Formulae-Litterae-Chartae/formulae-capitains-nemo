@@ -414,6 +414,8 @@ class NemoFormulae(Nemo):
             if len(editions) == 0:
                 raise UnknownCollection(_("Dieses Werk hat keine Defaultedition"))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
+        # This catches IndexErrors that are thrown when 'subreference' is not a valid citation in the document
+        # It loads the whole text instead of the invalid reference
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:

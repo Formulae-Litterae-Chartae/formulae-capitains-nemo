@@ -1,7 +1,7 @@
 from werkzeug.contrib.cache import FileSystemCache
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
-from . import create_app
+from . import create_app, cache
 from .nemo import NemoFormulae
 from .dispatcher_builder import organizer
 
@@ -14,6 +14,7 @@ resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'],
 nemo = NemoFormulae(
     name="InstanceNemo",
     app=flask_app,
+    cache=cache,
     resolver=resolver,
     base_url="",
     css=["assets/css/theme.css"],
