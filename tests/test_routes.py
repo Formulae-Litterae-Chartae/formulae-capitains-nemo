@@ -27,7 +27,10 @@ class TestConfig(Config):
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
-        app = create_app(TestConfig)
+        try:
+            app = create_app(TestConfig)
+        except Exception as E:
+            print(E)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
                                  app=app, base_url="",
                                  templates={"main": "templates/main",
