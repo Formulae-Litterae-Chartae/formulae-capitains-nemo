@@ -1,4 +1,4 @@
-from werkzeug.contrib.cache import FileSystemCache
+from werkzeug.contrib.cache import NullCache
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
 from . import create_app
@@ -8,7 +8,7 @@ from .dispatcher_builder import organizer
 flask_app = create_app()
 resolver = NautilusCTSResolver(flask_app.config['CORPUS_FOLDERS'],
                                dispatcher=organizer,
-                               # cache=FileSystemCache(flask_app.config['CACHE_DIRECTORY'])
+                               cache=NullCache()
                                )
 # nautilus_api = FlaskNautilus(prefix="/api", resolver=resolver, app=flask_app)
 
