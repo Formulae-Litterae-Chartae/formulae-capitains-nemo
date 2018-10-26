@@ -11,7 +11,6 @@ from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from flask_mail import Mail
-from flask_caching import Cache
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -21,7 +20,6 @@ migrate = Migrate()
 bootstrap = Bootstrap()
 babel = Babel()
 mail = Mail()
-cache = Cache(config={'CACHE_TYPE': 'redis'})
 
 
 def create_app(config_class=Config):
@@ -36,7 +34,6 @@ def create_app(config_class=Config):
     mail.init_app(app)
     bootstrap.init_app(app)
     babel.init_app(app)
-    cache.init_app(app)
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp
