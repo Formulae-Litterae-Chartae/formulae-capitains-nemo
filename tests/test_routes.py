@@ -35,6 +35,7 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+
         return app
 
     def setUp(self):
