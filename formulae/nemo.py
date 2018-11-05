@@ -12,6 +12,7 @@ from formulae.search.forms import SearchForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
+from datetime import date
 
 
 class NemoFormulae(Nemo):
@@ -238,7 +239,7 @@ class NemoFormulae(Nemo):
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
             if "formulae" in objectId:
-                flash(_('Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald zur Verfügung stehen.'))
+                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         elif len(data['collections']['members']) == 1:
@@ -412,14 +413,14 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection(_("Dieses Werk hat keine Defaultedition"))
+                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
             return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
             new_subref = self.get_reffs(objectId)[0][0]
             text = self.get_passage(objectId=objectId, subreference=new_subref)
-            flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird hier gezeigt.'))
+            flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
         if 'notes' in self._transform:
@@ -452,7 +453,8 @@ class NemoFormulae(Nemo):
             "prev": prev,
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
-            "show_notes": objectId in self.OPEN_NOTES
+            "show_notes": objectId in self.OPEN_NOTES,
+            "date": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):

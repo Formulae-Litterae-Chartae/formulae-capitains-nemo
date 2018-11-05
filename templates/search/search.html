@@ -20,7 +20,7 @@
                 {% endfor %}
             </div>
             {% else %}
-            <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text ist nicht online verfügbar. Sie können den Text in der gedruckten Version finden.') }}">
+            <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">
                 {{ post['info']['title'] }}
             </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}</div>
             {% endif %}

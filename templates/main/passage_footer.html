@@ -1,12 +1,6 @@
-{% if translation_passage %}
-<div class="row">
-    <section class="col-sm-6">
-        <div class="firsturn"><a href="/api/cts?request=GetPassage&urn={{objectId}}:{{subreference}}" target='_blank'>{{objectId}}</a></div>
-    </section>
-    <section class="col-sm-6">
-        <div class="lasturn"><a href="/api/cts?request=GetPassage&urn={{translationId}}:{{subreference}}" target='_blank'>{{translationId}}</a></div>
-    </section>
+{% if "elexicon" in text.objectId %}
+<div class="citationStyle">
+    <p><strong>{{ _('Empfohlene Zitierweise') }}:</strong></p>
+    <p>{{ text.collections.current.description }}. URL: https://werkstatt.formulae.uni-hamburg.de{{ url_for('InstanceNemo.r_multipassage', objectIds=text.objectId, subreferences='all') }} ({{ _('abgerufen am') }} {{ text.date }})</p>
 </div>
-{% else %}
-<div class="ctsurn"><a href="/api/cts?request=GetPassage&urn={{objectId}}:{{subreference}}" target='_blank'>{{objectId}}</a></div>
 {% endif %}
