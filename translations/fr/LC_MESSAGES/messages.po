@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-05 09:00+0100\n"
+"POT-Creation-Date: 2018-11-05 09:48+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: formulae/__init__.py:18 tests/test_routes.py:68
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
-msgstr ""
+msgstr "Veuillez vous connecter pour accéder à cette page."
 
 #: formulae/nemo.py:77
 msgid "Latein"
@@ -32,11 +32,11 @@ msgstr "Allemand"
 
 #: formulae/nemo.py:77
 msgid "Französisch"
-msgstr ""
+msgstr "Français"
 
 #: formulae/nemo.py:78
 msgid "Englisch"
-msgstr ""
+msgstr "Anglais"
 
 #: formulae/nemo.py:242
 msgid ""
@@ -83,9 +83,9 @@ msgstr "Se souvenir de moi"
 msgid "Einloggen"
 msgstr "Connexion"
 
-#: formulae/auth/forms.py:16
-msgid "Passwort Ändern"
-msgstr ""
+#: formulae/auth/forms.py:16 formulae/auth/forms.py:20
+msgid "Passwort ändern"
+msgstr "Changer le mot de passe"
 
 #: formulae/auth/forms.py:17
 msgid "Altes Passwort"
@@ -95,16 +95,12 @@ msgstr "Ancien mot de passe"
 msgid "Passwort wiederholen"
 msgstr "Répéter le mot de passe"
 
-#: formulae/auth/forms.py:20
-msgid "Passwort ändern"
-msgstr "Changer le mot de passe"
-
 #: formulae/auth/forms.py:24
 msgid "Benutzersprache Ändern"
-msgstr ""
+msgstr "Changer la langue par défault"
 
 #: formulae/auth/forms.py:27
-msgid "Sprache Ändern"
+msgid "Sprache ändern"
 msgstr "Changer la langue"
 
 #: formulae/auth/forms.py:31 formulae/auth/forms.py:43
@@ -147,7 +143,7 @@ msgstr ""
 
 #: formulae/auth/routes.py:27 tests/test_routes.py:403
 msgid "Benutzername oder Passwort ist ungültig"
-msgstr ""
+msgstr "Nom d'utilisateur ou mot de passe invalide."
 
 #: formulae/auth/routes.py:60
 msgid "Das ist nicht Ihr aktuelles Passwort."
@@ -240,7 +236,7 @@ msgstr "Lemmes"
 
 #: formulae/search/forms.py:58
 msgid "Unschärfegrad"
-msgstr ""
+msgstr "Niveau de flou"
 
 #: formulae/search/forms.py:59
 msgid "AUTO"
@@ -256,7 +252,7 @@ msgstr ""
 
 #: formulae/search/forms.py:65
 msgid "Wortreihenfolge beachten?"
-msgstr ""
+msgstr "Garder l’ordre des mots ?"
 
 #: formulae/search/forms.py:66 templates/search/advanced_search.html:13
 msgid "Alle"
@@ -454,7 +450,7 @@ msgstr "Parcourir"
 
 #: templates/main/add_text_menu.html:4
 msgid "Mit einen anderen Text vergleichen aus:"
-msgstr ""
+msgstr "Comparer avec un texte de type"
 
 #: templates/main/add_text_menu.html:12 templates/main/navbar.html:25
 msgid "Lexikon"
@@ -466,7 +462,7 @@ msgstr "Autres textes"
 
 #: templates/main/collection_member_menu.html:11
 msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
-msgstr ""
+msgstr "Choisir une collection pour voir les textes qu'elle contient."
 
 #: templates/main/collection_member_menu.html:41
 #: templates/main/lexicon_modal.html:17 templates/main/no_copy_modal.html:9
@@ -480,7 +476,7 @@ msgstr "Sauvegarder les changements"
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
-msgstr ""
+msgstr "Aller à une lettre"
 
 #: templates/main/impressum.html:6 templates/main/navbar.html:12
 msgid "Impressum"
@@ -612,7 +608,7 @@ msgstr ""
 
 #: templates/main/lexicon.html:2
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
-msgstr ""
+msgstr "Survolez un mot avec la souris pour voir son lemme."
 
 #: templates/main/menu.html:2
 msgid "Texte"
@@ -660,6 +656,8 @@ msgid ""
 "Da dieses Text noch nicht im Druckform veröffentlicht wurde, ist das "
 "Kopieren vom Inhalt nicht gestattet."
 msgstr ""
+"Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
+"publié, nous n'autorisons pas la copie du contenu textuel."
 
 #: templates/main/notes.html:16
 msgid "Anmerkungen"
@@ -744,10 +742,20 @@ msgid ""
 "Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
 " stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
+"Les caractères spéciaux sont autorisés. Un point d'interrogation (,?') "
+"Remplace un seul caractère, tandis qu'un astérisque (,*') remplace un ou "
+"plusieurs caractères. Les deux fonctionnent seulement à l’intérieur d’un "
+"mot. Cela signifie que la recherche \"christ* nom*\" trouvera chaque "
+"série de deux mots consécutifs où le premier mot commence par \"christ-\""
+" et le second par \"nom-\". Si vous souhaitez trouver ces deux mots, "
+"contenant potentiellement d'autres mots entre eux, définissez un «rayon "
+"de recherche» supérieur à 0."
 
 #: templates/search/advanced_search.html:34
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
 msgstr ""
+"La recherche par lemme est actuellement indisponible pour les formules "
+"latines."
 
 #: templates/search/advanced_search.html:34
 msgid "Die Reihenfolge der Wörter beibehalten"
@@ -766,6 +774,16 @@ msgid ""
 "Wörtern sind 2 Änderungen erlaubt. 'AUTO' eignet sich für die meisten "
 "Suchanfragen."
 msgstr ""
+"Le ‘flou’ mesure à quel point un mot résultant peut s'écarter du terme "
+"recherché et toujours former un résultat valide. Les nombres représentent"
+" combien de modifications peuvent être apportées à un mot. Par exemple, 2"
+" signifie que deux lettres du mot peuvent être remplacées, supprimées, "
+"ajoutées ou changées. Avec 'AUTO', le nombre autorisé de telles "
+"modifications dépend de la longueur du mot: si le mot compte 1 ou 2 "
+"lettres, aucune modification n'est autorisée, de 3 à 5 lettres, 1 "
+"modification est autorisée et pour les mots plus longs 2 modifications "
+"sont autorisées. \"AUTO\" devrait fonctionner au mieux pour la plupart "
+"des recherches."
 
 #: templates/search/advanced_search.html:39
 msgid "Wörter"
@@ -778,23 +796,37 @@ msgid ""
 "von 50 werden beispielsweise alle Stellen gefunden, wo beide Begriffe "
 "innerhalb von 50 Wörtern auftauchen."
 msgstr ""
+"Le nombre maximum de mots imprécis pouvant se trouver entre les mots "
+"recherchés. Par exemple, rechercher ,christ* nom*’ avec un rayon de "
+"recherche de 50 trouvera tous les endroits où ces deux mots apparaissent "
+"dans les 50 mots."
 
 #: templates/search/advanced_search.html:44
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
-msgstr ""
+msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
 #: templates/search/advanced_search.html:44
 msgid ""
 "Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
-"unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen "
-"angewandt. Eine Datumssuche für ein bestimmtes Datum oder eine "
-"Datumsspanne, die keinen Monat oder keinen Tag enthält, liefert alle "
-"Formeln, die den anderen Suchkriterien entsprechen. Sind ein Monat oder "
-"ein Tag angegeben, liefert die Abfrage keine Formel. Falls Sie nach einer"
-" Datumssuche mit Tag bzw. Monat die gefundenen Urkunden, mit Formeln "
-"vergleichen möchten, die die übrigen Suchkriterien erfüllen, sollten Sie "
-"eine zweite Suche ohne Datum durchführen, die auf Formel begrenzt ist."
+"unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
+"Eine Datumssuche für ein bestimmtes Datum oder eine Datumsspanne, die "
+"keinen Monat oder keinen Tag enthält, liefert alle Formeln, die den "
+"anderen Suchkriterien entsprechen. Sind ein Monat oder ein Tag angegeben,"
+" liefert die Abfrage keine Formel. Falls Sie nach einer Datumssuche mit "
+"Tag bzw. Monat die gefundenen Urkunden, mit Formeln vergleichen möchten, "
+"die die übrigen Suchkriterien erfüllen, sollten Sie eine zweite Suche "
+"ohne Datum durchführen, die auf Formel begrenzt ist."
 msgstr ""
+"La datation des formules étant très différente de celle des chartes, la "
+"recherche par date est appliquée différemment pour les formules. Si vous "
+"effectuez une recherche par date qui ne contient ni mois ni jour, que ce "
+"soit pour une date spécifique ou une étendue entre deux dates, toutes les"
+" formules correspondant aux autres critères de recherche seront "
+"renvoyées. Toutefois, si un mois ou un jour est spécifié, la requête ne "
+"renverra aucune formule. Si vous souhaitez comparer les documents "
+"renvoyés par une recherche de date avec jour ou mois aux formules "
+"correspondant aux autres critères de recherche, vous devez effectuer une "
+"deuxième recherche sans date limitée aux formules."
 
 #: templates/search/advanced_search.html:45
 msgid "Nach einem bestimmten Datum suchen"
@@ -806,7 +838,7 @@ msgstr "an(s)"
 
 #: templates/search/advanced_search.html:78
 msgid "Nach einer Datumsspanne suchen"
-msgstr ""
+msgstr "Rechercher dans un laps de temps"
 
 #: templates/search/advanced_search.html:79
 msgid ""
@@ -819,6 +851,13 @@ msgid ""
 "als Suchergebnis. Ein Dokument, das auf den 15. Oktober 750 datiert wird,"
 " jedoch schon."
 msgstr ""
+"Une recherche par plage de dates exclusive est une recherche spéciale qui"
+" porte sur un certain nombre d’années pendant un certain nombre d’années."
+" Par exemple, une recherche exclusive pour la période du 7 octobre 700 au"
+" 21 octobre 800 permettra de trouver des documents datés entre le 7 et le"
+" 21 octobre, entre 700 et 800. Cela signifie qu'un document daté du 22 "
+"octobre 700 ne sera pas retourné. Un document daté du 15 octobre 750 "
+"environ le sera cependant."
 
 #: templates/search/advanced_search.html:80
 msgid "Von"
@@ -1352,4 +1391,30 @@ msgstr "Chercher dans"
 #~ " 15. Oktober 750 datiert wird, jedoch"
 #~ " schon."
 #~ msgstr ""
+
+#~ msgid ""
+#~ "Da sich die Datierung einer "
+#~ "Formelsammlungen von Urkundendatierungen "
+#~ "unterscheidet, führt die Datumssuche bei "
+#~ "Formeln zu anderen Ergebnissen angewandt. "
+#~ "Eine Datumssuche für ein bestimmtes "
+#~ "Datum oder eine Datumsspanne, die keinen"
+#~ " Monat oder keinen Tag enthält, "
+#~ "liefert alle Formeln, die den anderen"
+#~ " Suchkriterien entsprechen. Sind ein Monat"
+#~ " oder ein Tag angegeben, liefert die"
+#~ " Abfrage keine Formel. Falls Sie nach"
+#~ " einer Datumssuche mit Tag bzw. Monat"
+#~ " die gefundenen Urkunden, mit Formeln "
+#~ "vergleichen möchten, die die übrigen "
+#~ "Suchkriterien erfüllen, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf Formel begrenzt ist."
+#~ msgstr ""
+
+#~ msgid "Passwort Ändern"
+#~ msgstr "Changer le mot de passe"
+
+#~ msgid "Sprache Ändern"
+#~ msgstr "Changer la langue"
 

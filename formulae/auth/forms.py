@@ -13,7 +13,7 @@ class LoginForm(FlaskForm):
 
 
 class PasswordChangeForm(FlaskForm):
-    title = _l('Passwort Ändern')
+    title = _l('Passwort ändern')
     old_password = PasswordField(_l("Altes Passwort"), validators=[DataRequired()])
     password = PasswordField(_l("Passwort"), validators=[DataRequired()])
     password2 = PasswordField(_l("Passwort wiederholen"), validators=[DataRequired(), EqualTo("password")])
@@ -24,7 +24,7 @@ class LanguageChangeForm(FlaskForm):
     title = _l("Benutzersprache Ändern")
     new_locale = RadioField(choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
                             validators=[DataRequired()])
-    submit = SubmitField(_l("Sprache Ändern"))
+    submit = SubmitField(_l("Sprache ändern"))
 
 
 class ResetPasswordRequestForm(FlaskForm):
