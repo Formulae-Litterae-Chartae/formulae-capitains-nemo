@@ -36,7 +36,7 @@
 {% macro show_passage(objects, navigation) %}
     <div class="">
     <!-- The Modal container for the eLexicon entries. -->
-    <div class="modal" id="lexicon-modal" message="{{ _('Es gibt keinen Lexikoneintrag für') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
     
     </div>
         <article class="hentry entry white col-sm-12">
@@ -68,6 +68,7 @@
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
                         {{ text.text_passage }}
+                    <footer>{% include "main::passage_footer.html" %}</footer>
                 </section>
             {% endfor %}
             </div>

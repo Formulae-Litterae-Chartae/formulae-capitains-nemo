@@ -24,7 +24,7 @@ def r_login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash(_('Benutzername oder Passwort ungültig'))
+            flash(_('Benutzername oder Passwort ist ungültig'))
             return redirect(url_for('auth.r_login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -69,11 +69,11 @@ def r_user(username):
         current_user.default_locale = language_form.new_locale.data
         db.session.commit()
         refresh()
-        flash(_("Sie haben Ihre Defaultsprache erfolgreich geändert."))
+        flash(_("Sie haben Ihre Benutzersprache erfolgreich geändert."))
         return redirect(url_for('auth.r_user', username=username))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
-    return nemo.render(template="auth::login.html", title=_("Benutzerprofil Ändern"),
+    return nemo.render(template="auth::login.html", title=_("Benutzerprofil ändern"),
                        forms=[password_form, language_form], username=username, purpose='user', url=dict())
 
 
@@ -134,6 +134,6 @@ def r_register():
         db.session.commit()
         current_user.default_locale = form.default_locale.data
         refresh()
-        flash(_('Sie sind jetzt registriert.'))
+        flash(_('Sie sind nun registriert.'))
         return redirect(url_for('auth.r_login'))
     return nemo.render(template='auth::register.html', title=_('Anmelden'), form=form, url=dict())

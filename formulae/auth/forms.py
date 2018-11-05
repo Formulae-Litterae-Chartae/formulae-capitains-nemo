@@ -21,10 +21,10 @@ class PasswordChangeForm(FlaskForm):
 
 
 class LanguageChangeForm(FlaskForm):
-    title = _l("Defaultsprache Ändern")
+    title = _l("Benutzersprache Ändern")
     new_locale = RadioField(choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
                             validators=[DataRequired()])
-    submit = SubmitField(_l("Sprache Ändern"))
+    submit = SubmitField(_l("Sprache ändern"))
 
 
 class ResetPasswordRequestForm(FlaskForm):
@@ -43,16 +43,16 @@ class RegistrationForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     password = PasswordField(_l('Passwort'), validators=[DataRequired()])
     password2 = PasswordField(_l('Passwort wiederholen'), validators=[DataRequired(), EqualTo('password')])
-    default_locale = RadioField(_l('Defaultsprache'), choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
+    default_locale = RadioField(_l('Benutzersprache'), choices=[('de', 'Deutsch'), ('en', 'English'), ('fr', 'Français')],
                                 validators=[DataRequired()], default='de')
     submit = SubmitField(_l('Anmelden'))
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
-            raise ValidationError(_l('Bitte verwenden Sie eine andere Benutzername.'))
+            raise ValidationError(_l('Bitte wählen Sie einen anderen Benutzername.'))
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError(_l('Bitte verwenden Sie eine andere Emailaddresse.'))
+            raise ValidationError(_l('Bitte wählen Sie eine andere Emailaddresse.'))

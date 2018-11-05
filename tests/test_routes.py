@@ -65,7 +65,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/imprint', follow_redirects=True)
             self.assertTemplateUsed('main::impressum.html')
             c.get('/auth/user/project.member', follow_redirects=True)
-            self.assertMessageFlashed(_('Loggen Sie bitte ein, um diese Seite zu sehen.'))
+            self.assertMessageFlashed(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
@@ -150,7 +150,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+12', follow_redirects=True)
-            self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird hier gezeigt.')
+            self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
 
     def test_authorized_normal_user(self):
@@ -334,7 +334,7 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
-                      [_('Mindestens eine Sammlung zur Suche auswählen("Formeln" und/oder "Urkunden")'),
+                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
                        "'' is not a valid choice for this field"])
 
     def test_validate_invalid_advanced_search_form(self):
@@ -371,9 +371,9 @@ class TestForms(Formulae_Testing):
         """ Ensure that correct data for new user registration validates"""
         form = RegistrationForm(username="not.project", email="not.project@uni-hamburg.de", password='some_new_password',
                                 password2='some_new_password', default_locale="de")
-        with self.assertRaisesRegex(ValidationError, _('Bitte verwenden Sie eine andere Benutzername.')):
+        with self.assertRaisesRegex(ValidationError, _('Bitte wählen Sie einen anderen Benutzername.')):
             form.validate_username(form.username)
-        with self.assertRaisesRegex(ValidationError, _('Bitte verwenden Sie eine andere Emailaddresse.')):
+        with self.assertRaisesRegex(ValidationError, _('Bitte wählen Sie eine andere Emailaddresse.')):
             form.validate_email(form.email)
         self.assertFalse(form.validate())
 
@@ -400,7 +400,7 @@ class TestAuth(Formulae_Testing):
             rv = c.post('/auth/login', data=dict(username='pirate.user', password="incorrect"),
                         follow_redirects=True)
             self.assert200(rv, 'Login should return 200 code')
-            self.assertMessageFlashed(_('Benutzername oder Passwort ungültig'))
+            self.assertMessageFlashed(_('Benutzername oder Passwort ist ungültig'))
             self.assertFalse(current_user.is_active)
             self.assertFalse(current_user.is_authenticated)
             self.assertTemplateUsed('auth::login.html')
@@ -426,7 +426,7 @@ class TestAuth(Formulae_Testing):
                                                     default_locale="de"),
                         follow_redirects=True)
             self.assert200(rv, 'Login should return 200 code')
-            self.assertMessageFlashed(_('Sie sind jetzt registriert.'))
+            self.assertMessageFlashed(_('Sie sind nun registriert.'))
             self.assertTrue(User.query.filter_by(username='new.user').first(), "It should have added new.user.")
             self.assertTemplateUsed('auth::login.html')
 

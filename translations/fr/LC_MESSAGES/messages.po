@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-10-23 13:45+0200\n"
+"POT-Creation-Date: 2018-11-05 09:48+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,46 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18 tests/test_routes.py:67
-msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
+#: formulae/__init__.py:18 tests/test_routes.py:68
+msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:76
+#: formulae/nemo.py:77
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:76
+#: formulae/nemo.py:77
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:76
-msgid "Französisch"
-msgstr ""
-
 #: formulae/nemo.py:77
+msgid "Französisch"
+msgstr "Français"
+
+#: formulae/nemo.py:78
 msgid "Englisch"
-msgstr ""
+msgstr "Anglais"
 
-#: formulae/nemo.py:241
+#: formulae/nemo.py:242
 msgid ""
-"Die Formulae Andecavensis Sammlung ist in der Endredaktion und wird bald "
-"zur Verfügung stehen."
+"Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
+"Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:243 formulae/nemo.py:303 formulae/nemo.py:356
-#: tests/test_routes.py:96 tests/test_routes.py:98
+#: formulae/nemo.py:244 formulae/nemo.py:304 formulae/nemo.py:357
+#: tests/test_routes.py:97 tests/test_routes.py:99
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:415
-msgid "Dieses Werk hat keine Defaultedition"
-msgstr "Cette oeuvre n'a pas d'édition par défaut"
-
-#: formulae/nemo.py:422
-msgid " wurde nicht gefunden. Der ganze Text wird hier gezeigt."
+#: formulae/nemo.py:416
+msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:487 tests/test_routes.py:100 tests/test_routes.py:102
+#: formulae/nemo.py:423
+msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
+msgstr ""
+
+#: formulae/nemo.py:489 tests/test_routes.py:101 tests/test_routes.py:103
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -96,11 +96,11 @@ msgid "Passwort wiederholen"
 msgstr "Répéter le mot de passe"
 
 #: formulae/auth/forms.py:24
-msgid "Defaultsprache Ändern"
+msgid "Benutzersprache Ändern"
 msgstr "Changer la langue par défault"
 
 #: formulae/auth/forms.py:27
-msgid "Sprache Ändern"
+msgid "Sprache ändern"
 msgstr "Changer la langue"
 
 #: formulae/auth/forms.py:31 formulae/auth/forms.py:43
@@ -125,7 +125,7 @@ msgid "Passwort zurücksetzen"
 msgstr ""
 
 #: formulae/auth/forms.py:46
-msgid "Defaultsprache"
+msgid "Benutzersprache"
 msgstr ""
 
 #: formulae/auth/forms.py:48 formulae/auth/routes.py:139
@@ -133,16 +133,16 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:373
-msgid "Bitte verwenden Sie eine andere Benutzername."
+#: formulae/auth/forms.py:53 tests/test_routes.py:374
+msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:375
-msgid "Bitte verwenden Sie eine andere Emailaddresse."
+#: formulae/auth/forms.py:58 tests/test_routes.py:376
+msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:402
-msgid "Benutzername oder Passwort ungültig"
+#: formulae/auth/routes.py:27 tests/test_routes.py:403
+msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
 #: formulae/auth/routes.py:60
@@ -154,12 +154,12 @@ msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "Vous avez réussi à changer votre mot de passe."
 
 #: formulae/auth/routes.py:72
-msgid "Sie haben Ihre Defaultsprache erfolgreich geändert."
+msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr ""
 
-#: formulae/auth/routes.py:76
-msgid "Benutzerprofil Ändern"
-msgstr ""
+#: formulae/auth/routes.py:76 templates/main/navbar.html:18
+msgid "Benutzerprofil ändern"
+msgstr "Changer le profil d’utilisateur"
 
 #: formulae/auth/routes.py:93
 msgid ""
@@ -171,8 +171,8 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:428
-msgid "Sie sind jetzt registriert."
+#: formulae/auth/routes.py:137 tests/test_routes.py:429
+msgid "Sie sind nun registriert."
 msgstr ""
 
 #: formulae/errors/handlers.py:5
@@ -185,7 +185,7 @@ msgstr ""
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:5
 msgid ""
-"Der Administrator wurde benachrichtigt. Entschuldigen Sie die "
+"Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
 msgstr ""
 
@@ -195,14 +195,14 @@ msgstr ""
 
 #: formulae/search/Search.py:66
 msgid ""
-"'Wildcard'-Zeichen (\"*\" and \"?\") funktionieren nicht mit der "
-"Lemmasuche."
+"'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
+"möglich."
 msgstr ""
 
 #: formulae/search/forms.py:36
 msgid ""
-"Multi-wort Suchen dürfen keine \"Wildcard\"-Zeichen enthalten (d.h. \"?\""
-" oder \"*\")"
+"Suchanfragen mit mehreren Wörtern dürfen keine \"Wildcard\"-Zeichen "
+"enthalten (d.h. \"?\" oder \"*\")"
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
@@ -211,8 +211,8 @@ msgid "Suche"
 msgstr "Recherche"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:66
-msgid "Korpora"
-msgstr "Corpora"
+msgid "Corpora"
+msgstr ""
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:67
 #: templates/main/add_text_menu.html:9 templates/main/navbar.html:22
@@ -223,10 +223,10 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:336
+#: formulae/search/forms.py:44 tests/test_routes.py:337
 msgid ""
-"Mindestens eine Sammlung zur Suche auswählen(\"Formeln\" und/oder "
-"\"Urkunden\")"
+"Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
+"und/oder \"Urkunden\")"
 msgstr ""
 
 #: formulae/search/forms.py:57 templates/main/lexicon.html:5
@@ -235,7 +235,7 @@ msgid "Lemma"
 msgstr "Lemmes"
 
 #: formulae/search/forms.py:58
-msgid "Unschärfeniveau"
+msgid "Unschärfegrad"
 msgstr "Niveau de flou"
 
 #: formulae/search/forms.py:59
@@ -247,12 +247,12 @@ msgid "Suchradius"
 msgstr "Étendue de la recherche"
 
 #: formulae/search/forms.py:63
-msgid "Suchradius muss zwischen 0 und 100 liegen"
+msgid "Der Suchradius muss zwischen 0 und 100 liegen"
 msgstr ""
 
 #: formulae/search/forms.py:65
-msgid "Reihenfolge der Wörter behalten?"
-msgstr "Garder l’ordre des mots ?"
+msgid "Wortreihenfolge beachten?"
+msgstr "Garder l’ordre des mots ?"
 
 #: formulae/search/forms.py:66 templates/search/advanced_search.html:13
 msgid "Alle"
@@ -265,7 +265,7 @@ msgstr "Année"
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:80
 #: formulae/search/forms.py:93
-msgid "Das Jahr muss zwischen 500 und 1000 liegen"
+msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr ""
 
 #: formulae/search/forms.py:71 formulae/search/forms.py:82
@@ -340,7 +340,7 @@ msgstr "Jour"
 
 #: formulae/search/forms.py:77 formulae/search/forms.py:89
 #: formulae/search/forms.py:101
-msgid "Tag muss zwischen 1 und 31 liegen"
+msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr ""
 
 #: formulae/search/forms.py:103
@@ -364,7 +364,7 @@ msgid "Passwort Vergessen?"
 msgstr ""
 
 #: templates/auth/login.html:16
-msgid "Klicken Sie, um es zurückzusetzen"
+msgid "Klicken Sie hier, um ihr Passwort zurückzusetzen"
 msgstr ""
 
 #: templates/auth/login.html:18
@@ -390,13 +390,13 @@ msgstr ""
 #: templates/email/reset_password.html:8
 msgid ""
 "Alternativ können Sie den folgenden Link in die Adressleiste Ihres "
-"Browsers einfügen:"
+"Browsers eingeben:"
 msgstr ""
 
 #: templates/email/reset_password.html:10
 msgid ""
-"Wenn Sie das Zurücksetzen Ihres Passworts nicht angefordert haben, "
-"ignorieren Sie diese Nachricht einfach."
+"Wenn Sie ihr Passwort nicht zurücksetzen möchten, ignorieren Sie diese "
+"Nachricht bitte."
 msgstr ""
 
 #: templates/email/reset_password.html:11
@@ -449,7 +449,7 @@ msgid "Übersicht"
 msgstr "Parcourir"
 
 #: templates/main/add_text_menu.html:4
-msgid "Vergleichen mit einen anderen Text von:"
+msgid "Mit einen anderen Text vergleichen aus:"
 msgstr "Comparer avec un texte de type"
 
 #: templates/main/add_text_menu.html:12 templates/main/navbar.html:25
@@ -461,7 +461,7 @@ msgid "Andere Texte"
 msgstr "Autres textes"
 
 #: templates/main/collection_member_menu.html:11
-msgid "Eine Sammlung wählen, um ihre Texte zu sehen"
+msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
 msgstr "Choisir une collection pour voir les textes qu'elle contient."
 
 #: templates/main/collection_member_menu.html:41
@@ -475,7 +475,7 @@ msgid "Änderungen speichern"
 msgstr "Sauvegarder les changements"
 
 #: templates/main/elex_collection.html:18
-msgid "Zu einer Buchstabe springen:"
+msgid "Gehe zu Buchstabe:"
 msgstr "Aller à une lettre"
 
 #: templates/main/impressum.html:6 templates/main/navbar.html:12
@@ -541,58 +541,57 @@ msgid ""
 msgstr ""
 
 #: templates/main/index.html:6
-msgid "Willkommen zur<br>Formulae-Litterae-Chartae Werkstatt!"
+msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
 msgstr ""
 
 #: templates/main/index.html:9
 msgid ""
-"Die Formulae - Litterae - Chartae Werkstatt sammelt etliche Beispiele "
-"formulaisches Schreiben aus dem frühen Mittelalter, hauptsächlich "
-"Formeln, Urkunden, und Briefe. Sie bietet Wissenschaftler neue "
-"Möglichkeiten, die Verbindungen zwischen diesen Quellen zu erforschen. "
-"Man kann mehrere Texte nebeneinander lesen, um ihren Inhalt, ihren Stil, "
-"ihre Sprache, usw. zu vergleichen. Komplexe Suchen auf Basis von "
-"Vokabeln, Ausdrucksweise oder Datum erlauben es, ähnliche Formeln oder "
-"Urkunden schnell zu finden."
+"Die Formulae - Litterae - Chartae Werkstatt enthält Beispiele für "
+"formelhaftes Schreiben aus dem frühen Mittelalter in Form von Formeln, "
+"Urkunden und Briefe. Sie bietet Wissenschaftler damit neue Möglichkeiten,"
+" Verbindungen zwischen einzelnen Texten zu erforschen.  Mehrere Texte "
+"lassen sich parallel konsultieren, um Inhalt, Stil und Sprache zu "
+"vergleichen. Komplexe Suchen auf Basis von Vokabular, Ausdrucksweise oder"
+" Datum erlauben es, ähnliche Formeln oder Urkunden schnell zu "
+"identifizieren."
 msgstr ""
 
 #: templates/main/index.html:10
 msgid ""
-"Die Texte stammen aus zwei Quellen. Zuerst sind die neue kritische "
-"Editionen der Formeln, die im Projekt vorbereitet werden, mit ihren "
-"dazugehörigen deutsche Übersetzungen. Aktuell stehen die 60 Formeln aus "
-"der Formulae Andecavensis Sammlung schon zu Verfügung und weitere Formeln"
-" sind noch in Bearbeitung. Die zweite Quelle sind retrodigitalisierte "
-"Urkundensammlungen. Diese Urkunden sind eng mit den Formeln verbunden und"
-" sind daher unabdingbar für die Forschung an den Formeln. Die meisten von"
-" diesen retrodigitalisierten Editionen stehen nicht mehr unter "
-"Copyrightschutz und sind daher in der Werkstatt frei verfügbar. Manche "
-"sind aber neuer und sind noch nicht völlig gemeinfrei. Die "
-"urheberrechtlich geschützten Texte sind Suchbar aber die Texte müssen in "
-"den Druckausgaben gefunden werden. Alle digitale Texte, die nicht "
-"urheberrechtlich geschutzt sind, werden hier unter einer Creative-"
-"Commons-Lizenz veröffentlicht. Da die Formeln noch nicht bei der MGH "
-"veröffentlicht werden, unterliegen sie eine restriktivere Creative "
-"Commons Namensnennung-Nicht kommerziell-Keine Bearbeitungen (CC-BY NC ND)"
-" Lizenz. Dahingegen werden die Urkunden unter einer einfachen "
-"Namensnennung Lizenz (CC-BY). Das bedeutet, dass so lange das Projekt als"
-" Quelle der digitalen Text genannt wird, kann man mit dem Text machen, "
-"was man will."
+"Die Texte sind unterschiedlicher Herkunft. Die Formeln sind neuen "
+"kritischen Editionen der mittelalterlichen Formelsammlungen entnommen, "
+"die derzeit zusammen mit einer deutschen Übersetzung im Projekt "
+"entstehen. Aktuell stehen die 60 Formeln der Formelsammlung von Angers "
+"(Formulae Andecavensis) zu Verfügung. Weitere Formeln sind in "
+"Bearbeitung. Die Urkunden sind retrodigitalisierten Urkundensammlungen "
+"entnommen. Urkunden sind eng mit den Formeln verbunden und daher "
+"unabdingbar für die Erforschung von Formeln und Formelsammlungen. Die "
+"meisten dieser retrodigitalisierten Editionen unterliegen nicht mehr dem "
+"Urheberrecht und sind daher in der Werkstatt frei verfügbar. "
+"Urheberrechtlich geschützte Texte sind durchsuchbar, können aber nicht im"
+" Volltext angezeigt werde und müssen in den Druckausgaben kobsultiert "
+"werden. Alle nicht urheberrechtlich geschützten digitalen Texte, werden "
+"hier unter einer Creative-Commons-Lizenz veröffentlicht. Da die Formeln "
+"noch nicht bei den MGH veröffentlicht wurden, unterliegen sie einer "
+"restriktiveren Creative Commons Namensnennung-Nicht kommerziell-Keine "
+"Bearbeitungen (CC-BY NC ND) Lizenz. Die Urkunden unterliegen einer "
+"einfachen Namensnennung Lizenz (CC-BY). Unter Nennung des Projekts "
+"Formulae - Litterae - Chartae als Quelle der digitalen Texte stehen diese"
+" Texte unter CC-BY Lizenz zur freien Verfügung."
 msgstr ""
 
 #: templates/main/index.html:11
 msgid ""
-"Das Ziel der Formulae - Litterae - Chartae Werkstatt ist, die Erforschung"
-" dieser wichtigen kulturelle, soziale, rechtliche und linguistische "
-"Quelle zu fördern und zu vereinfachen. Wenn Sie Verbesserungsvorschläge "
-"haben, können Sie uns gern kontaktieren."
+"Das Ziel der Formulae - Litterae - Chartae Werkstatt ist es, die "
+"Erforschung dieser wichtigen kulturellen, sozialen, rechtlichen und "
+"linguistischen Quellen zu fördern und zu vereinfachen. Sollten Sie "
+"Verbesserungsvorschläge haben, zögern Sie nicht, uns zu kontaktieren."
 msgstr ""
 
 #: templates/main/index.html:12
 msgid ""
-"Unser Schutz von personenbezogenen Daten stimmt mit der "
-"Datenschutzerklärung der Universität Hamburg überein. Sie können mehr "
-"hier darüber lesen:"
+"Unser Umgang mit personenbezogenen Daten entspricht der "
+"Datenschutzerklärung der Universität Hamburg. Für weitere Informationen: "
 msgstr ""
 
 #: templates/main/index.html:12
@@ -604,11 +603,11 @@ msgid "Datenschutzerklärung der Universität Hamburg"
 msgstr ""
 
 #: templates/main/index.html:12
-msgid "Wenn Sie noch Fragen haben, kontaktieren Sie uns."
+msgid "Sollten Sie Fragen haben, kontaktieren Sie uns bitte."
 msgstr ""
 
 #: templates/main/lexicon.html:2
-msgid "Auf ein Wort zeigen, um sein Lemma zu sehen."
+msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Survolez un mot avec la souris pour voir son lemme."
 
 #: templates/main/menu.html:2
@@ -637,7 +636,7 @@ msgid "Nächste Seite"
 msgstr ""
 
 #: templates/main/multipassage.html:39
-msgid "Es gibt keinen Lexikoneintrag für"
+msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
 msgstr ""
 
 #: templates/main/multipassage.html:66
@@ -649,17 +648,13 @@ msgid "Über das Projekt"
 msgstr "A propos"
 
 #: templates/main/navbar.html:18
-msgid "Benutzerprofil ändern"
-msgstr "Changer le profil d’utilisateur"
-
-#: templates/main/navbar.html:18
 msgid "ausloggen"
 msgstr "Déconnexion"
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
-"Da dieses Text noch nicht im Druckform erschienen hat, ist das Kopieren "
-"vom Inhalt nicht gestattet."
+"Da dieses Text noch nicht im Druckform veröffentlicht wurde, ist das "
+"Kopieren vom Inhalt nicht gestattet."
 msgstr ""
 "Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
 "publié, nous n'autorisons pas la copie du contenu textuel."
@@ -670,12 +665,12 @@ msgstr ""
 
 #: templates/main/notes.html:23
 msgid ""
-"Klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten Zahl in"
-" einem der Texte, um den Text der entsprechenden Notiz hier zu sehen. Sie"
-" können auch auf das kleine &#8853; um alle Notizen für einen Text zu "
-"zeigen oder das kleine &#8855; um alle Notizen für diesen Text zu "
-"verbergen. Wenn ein Text auf der linken Seite hier nicht angezeigt wird, "
-"bedeutet dies, dass für diesen Text keine Notizen vorhanden sind."
+"Bitte klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten "
+"Buchstaben, um den Text der entsprechenden Anmerkung zu sehen. Bitte "
+"klicken Sie auf das kleine &#8853;, um alle Notizen für einen Text "
+"anzeigen oder das kleine &#8855;, um alle Anmerkungen für diesen Text zu "
+"verbergen. Wird auf der linken Seite kein Text angezeigt, sind keine "
+"Anmerkungen vorhanden."
 msgstr ""
 
 #: templates/main/notes.html:34
@@ -685,6 +680,14 @@ msgstr "Cacher toutes les notes de ce texte"
 #: templates/main/notes.html:35
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
+
+#: templates/main/passage_footer.html:3
+msgid "Empfohlene Zitierweise"
+msgstr ""
+
+#: templates/main/passage_footer.html:4
+msgid "abgerufen am"
+msgstr ""
 
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
@@ -698,7 +701,7 @@ msgstr ""
 
 #: templates/main/salzburg_collection.html:27
 #: templates/main/sub_collection.html:26
-msgid "Zu einem Text springen:"
+msgid "Gehe zu (Text):"
 msgstr ""
 
 #: templates/main/salzburg_collection.html:53
@@ -731,14 +734,13 @@ msgstr "Recherche de mot"
 
 #: templates/search/advanced_search.html:32
 msgid ""
-"Wildcard-Zeichen sind erlaubt. Ein Fragezeichen (‚?‘) ersetzt ein "
-"einzelnes Zeichen, während ein Stern (‚*‘) ein oder mehr Zeichen ersetzt."
-" Beide funktionieren nur innnerhalb eines Wortes. Das bedeutet, dass für "
-"die Suche ‚christ* nom*‘ wird jede Reihe von zwei aufeinander folgenden "
-"Worten gefunden, wo das erste Wort mit ‚christ‘ und das zweite mit ‚nom‘ "
-"anfängt. Wenn Sie diese beiden Worte finden möchten, wo andere Wort "
-"zwischen ihnen auftreten können, stellen Sie die ‚Suchradius‘ größer als "
-"0."
+"Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein "
+"einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide "
+"funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage 'christ* "
+"nom*' wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei"
+" der das erste Wort mit 'christ' und das zweite mit 'nom' beginnt. "
+"Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
+" stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
 "Les caractères spéciaux sont autorisés. Un point d'interrogation (,?') "
 "Remplace un seul caractère, tandis qu'un astérisque (,*') remplace un ou "
@@ -750,26 +752,27 @@ msgstr ""
 "de recherche» supérieur à 0."
 
 #: templates/search/advanced_search.html:34
-msgid "Die Lemmatasuche ist nur für die lateinischen Formeln möglich"
+msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
 msgstr ""
 "La recherche par lemme est actuellement indisponible pour les formules "
 "latines."
 
 #: templates/search/advanced_search.html:34
-msgid "Die Reihenfolge der Wörter behalten"
+msgid "Die Reihenfolge der Wörter beibehalten"
 msgstr ""
 
 #: templates/search/advanced_search.html:36
 msgid ""
-"‚Fuzziness‘ misst, wie viel ein resultierendes Wort von der Sucheingabe "
-"abweichen kann und trotzdem ein gültiges Ergebnis darstellen. Die Zahlen "
-"stellen, wie viele Änderungen zu einem Wort gemacht werden können. Z.B. 2"
-" bedeutet, dass zwei Buchstaben im Wort ersetzt, gelöscht, hinzugefügt "
-"oder umgesetzt werden können. Mit ‚AUTO‘ ist die erlaubte Zahl solcher "
-"Änderungen von der Wortlänge abhängig: wenn das Wort 1 oder 2 Buchstaben "
-"hat, sind keine Änderungen erlaubt, mit 3-5 Buchstaben ist eine Änderung "
-"erlaubt und für längere Wörter sind 2 Anderungen erlaubt. ‚AUTO‘ soll für"
-" die meisten Suchen am Besten funktionieren."
+"Der 'Unschärfegrad' legt fest, wie stark ein Ergebnis von der Sucheingabe"
+" abweichen darf und trotzdem als gültiges Ergebnis gilt. Die Zahlen "
+"quantifizieren, wie viele Abweichungen im Suchergebnis toleriert werden. "
+"Unschärfegrad 2 bedeutet z.B., dass zwei Buchstaben im Wort ersetzt, "
+"gelöscht, hinzugefügt oder umgesetzt sein dürfen. Mit der Einstellung "
+"'AUTO' wird die erlaubte Zahl solcher Änderungen von der Wortlänge "
+"abhängig: bei einem Wort mit 1 oder 2 Buchstaben sind keine Änderungen "
+"erlaubt, bei 3-5 Buchstaben ist eine Änderung erlaubt und bei längeren "
+"Wörtern sind 2 Änderungen erlaubt. 'AUTO' eignet sich für die meisten "
+"Suchanfragen."
 msgstr ""
 "Le ‘flou’ mesure à quel point un mot résultant peut s'écarter du terme "
 "recherché et toujours former un résultat valide. Les nombres représentent"
@@ -788,10 +791,10 @@ msgstr "Mots"
 
 #: templates/search/advanced_search.html:39
 msgid ""
-"Die maximale Anzahl der nicht treffenden Wörter, die zwischen den Worten "
-"auftreten können. Zum Beispiel für die Suche nach ‚christ* nom*‘ mit "
-"einem Suchradius von 50 werden alle Stellen gefunden, wo diese beiden "
-"Wörter innerhalb von 50 Wörtern auftauchen."
+"Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen"
+" auftreten können. Bei der Suche nach 'christ* nom' mit einem Suchradius "
+"von 50 werden beispielsweise alle Stellen gefunden, wo beide Begriffe "
+"innerhalb von 50 Wörtern auftauchen."
 msgstr ""
 "Le nombre maximum de mots imprécis pouvant se trouver entre les mots "
 "recherchés. Par exemple, rechercher ,christ* nom*’ avec un rayon de "
@@ -799,21 +802,20 @@ msgstr ""
 "dans les 50 mots."
 
 #: templates/search/advanced_search.html:44
-msgid "[NB: Datumsuche gilt nur für Urkunden.]"
-msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
+msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
+msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
 #: templates/search/advanced_search.html:44
 msgid ""
-"Da die Datierung der Formeln sich von der der Urkunden deutlich "
-"unterscheidet, wird die Datumssuche anders für die Formel angewandt. Wenn"
-" Sie eine Datumssuchen machen, die keinen Monat oder einen Tag enthält, "
-"ob für ein bestimmtes Datum oder einen Datumsspanne, werden alle Formeln "
-"zurückgegeben, die die anderen Suchkriterien entsprechen. Wenn jedoch ein"
-" Monat oder ein Tag angegeben wird, wird die Abfrage keine Formel "
-"zurückgeben. Wenn Sie die Urkunden, die von einem Datum Suche mit Tag "
-"bzw. Monat zurückgegeben werden, mit Formeln, die die anderen "
-"Suchkriterien erfüllen, vergleichen möchten, sollten Sie eine zweite "
-"Suche ohne Datum durchführen, die auf die Formel begrenzt ist."
+"Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
+"unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
+"Eine Datumssuche für ein bestimmtes Datum oder eine Datumsspanne, die "
+"keinen Monat oder keinen Tag enthält, liefert alle Formeln, die den "
+"anderen Suchkriterien entsprechen. Sind ein Monat oder ein Tag angegeben,"
+" liefert die Abfrage keine Formel. Falls Sie nach einer Datumssuche mit "
+"Tag bzw. Monat die gefundenen Urkunden, mit Formeln vergleichen möchten, "
+"die die übrigen Suchkriterien erfüllen, sollten Sie eine zweite Suche "
+"ohne Datum durchführen, die auf Formel begrenzt ist."
 msgstr ""
 "La datation des formules étant très différente de celle des chartes, la "
 "recherche par date est appliquée différemment pour les formules. Si vous "
@@ -835,19 +837,19 @@ msgid "Jahr(e)"
 msgstr "an(s)"
 
 #: templates/search/advanced_search.html:78
-msgid "Nach einer Datumspanne suchen"
+msgid "Nach einer Datumsspanne suchen"
 msgstr "Rechercher dans un laps de temps"
 
 #: templates/search/advanced_search.html:79
 msgid ""
-"Eine exklusive Datumspannesuche ist eine spezielle Suche, die nach einer "
-"bestimmten Zeitspanne innerhalb des Jahres für eine Reihe von Jahren "
-"sucht. Zum Beispiel eine exklusive Suche für den Zeitraum von 7. Oktober "
-"700 bis 21. Oktober 800 findet Dokumente, die zwischen 7. Oktober und 21."
-" Oktober in den Jahren zwischen 700 und 800 datiert sind. Das bedeutet, "
-"dass ein Dokument, die um 22. Oktober 700 datiert ist, nicht "
-"zurückgegeben wird. Eins, das um den 15. Oktober 750 datiert wird, jedoch"
-" schon."
+"Die 'exklusive Datumsspannensuche' ist eine spezielle Suche, die für eine"
+" Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des "
+"Kalenderjahres sucht. Eine exklusive Suche für den Zeitraum vom 7. "
+"Oktober 700 bis 21. Oktober 800 findet alle Dokumente, die zwischen 7. "
+"Oktober und 21. Oktober in den Jahren zwischen 700 und 800 datiert sind. "
+"Ein Dokument, das auf den 22. Oktober 700 datiert wird, erscheint nicht "
+"als Suchergebnis. Ein Dokument, das auf den 15. Oktober 750 datiert wird,"
+" jedoch schon."
 msgstr ""
 "Une recherche par plage de dates exclusive est une recherche spéciale qui"
 " porte sur un certain nombre d’années pendant un certain nombre d’années."
@@ -866,8 +868,8 @@ msgid "Bis"
 msgstr "Jusqu’à"
 
 #: templates/search/advanced_search.html:138
-msgid "Form zurücksetzen"
-msgstr "Réinitialiser la page"
+msgid "Zurücksetzen"
+msgstr ""
 
 #: templates/search/search.html:6
 msgid "Suchergebnisse"
@@ -879,8 +881,8 @@ msgstr ""
 
 #: templates/search/search.html:23
 msgid ""
-"Dieser Text ist nicht online verfügbar. Sie können den Text in der "
-"gedruckten Version finden."
+"Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
+"Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
 msgstr ""
 
 #: templates/search/search_box.html:4
@@ -903,4 +905,516 @@ msgstr "Chercher dans"
 
 #~ msgid "{}.{} wurde nicht gefunden. Der ganze Text wird hier gezeigt."
 #~ msgstr ""
+
+#~ msgid "Loggen Sie bitte ein, um diese Seite zu sehen."
+#~ msgstr "Veuillez vous connecter pour accéder à cette page."
+
+#~ msgid ""
+#~ "Die Formulae Andecavensis Sammlung ist "
+#~ "in der Endredaktion und wird bald "
+#~ "zur Verfügung stehen."
+#~ msgstr ""
+
+#~ msgid "Dieses Werk hat keine Defaultedition"
+#~ msgstr "Cette oeuvre n'a pas d'édition par défaut"
+
+#~ msgid " wurde nicht gefunden. Der ganze Text wird hier gezeigt."
+#~ msgstr ""
+
+#~ msgid "Defaultsprache Ändern"
+#~ msgstr "Changer la langue par défault"
+
+#~ msgid "Defaultsprache"
+#~ msgstr ""
+
+#~ msgid "Benutzername oder Passwort ungültig"
+#~ msgstr "Nom d'utilisateur ou mot de passe invalide."
+
+#~ msgid "Sie haben Ihre Defaultsprache erfolgreich geändert."
+#~ msgstr ""
+
+#~ msgid "Benutzerprofil Ändern"
+#~ msgstr ""
+
+#~ msgid "Sie sind jetzt registriert."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Der Administrator wurde benachrichtigt. "
+#~ "Entschuldigen Sie die Unannehmlichkeiten!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "'Wildcard'-Zeichen (\"*\" and \"?\") "
+#~ "funktionieren nicht mit der Lemmasuche."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Multi-wort Suchen dürfen keine "
+#~ "\"Wildcard\"-Zeichen enthalten (d.h. \"?\" "
+#~ "oder \"*\")"
+#~ msgstr ""
+
+#~ msgid "Korpora"
+#~ msgstr "Corpora"
+
+#~ msgid "Unschärfeniveau"
+#~ msgstr "Niveau de flou"
+
+#~ msgid "Suchradius muss zwischen 0 und 100 liegen"
+#~ msgstr ""
+
+#~ msgid "Reihenfolge der Wörter behalten?"
+#~ msgstr "Garder l’ordre des mots ?"
+
+#~ msgid "Das Jahr muss zwischen 500 und 1000 liegen"
+#~ msgstr ""
+
+#~ msgid "Tag muss zwischen 1 und 31 liegen"
+#~ msgstr ""
+
+#~ msgid "Klicken Sie, um es zurückzusetzen"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternativ können Sie den folgenden Link"
+#~ " in die Adressleiste Ihres Browsers "
+#~ "einfügen:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Wenn Sie das Zurücksetzen Ihres "
+#~ "Passworts nicht angefordert haben, ignorieren"
+#~ " Sie diese Nachricht einfach."
+#~ msgstr ""
+
+#~ msgid "Vergleichen mit einen anderen Text von:"
+#~ msgstr "Comparer avec un texte de type"
+
+#~ msgid "Eine Sammlung wählen, um ihre Texte zu sehen"
+#~ msgstr "Choisir une collection pour voir les textes qu'elle contient."
+
+#~ msgid "Zu einer Buchstabe springen:"
+#~ msgstr "Aller à une lettre"
+
+#~ msgid "Willkommen zur<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Die Formulae - Litterae - Chartae "
+#~ "Werkstatt sammelt etliche Beispiele "
+#~ "formulaisches Schreiben aus dem frühen "
+#~ "Mittelalter, hauptsächlich Formeln, Urkunden, "
+#~ "und Briefe. Sie bietet Wissenschaftler "
+#~ "neue Möglichkeiten, die Verbindungen zwischen"
+#~ " diesen Quellen zu erforschen. Man "
+#~ "kann mehrere Texte nebeneinander lesen, "
+#~ "um ihren Inhalt, ihren Stil, ihre "
+#~ "Sprache, usw. zu vergleichen. Komplexe "
+#~ "Suchen auf Basis von Vokabeln, "
+#~ "Ausdrucksweise oder Datum erlauben es, "
+#~ "ähnliche Formeln oder Urkunden schnell "
+#~ "zu finden."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Die Texte stammen aus zwei Quellen. "
+#~ "Zuerst sind die neue kritische Editionen"
+#~ " der Formeln, die im Projekt "
+#~ "vorbereitet werden, mit ihren dazugehörigen"
+#~ " deutsche Übersetzungen. Aktuell stehen die"
+#~ " 60 Formeln aus der Formulae "
+#~ "Andecavensis Sammlung schon zu Verfügung "
+#~ "und weitere Formeln sind noch in "
+#~ "Bearbeitung. Die zweite Quelle sind "
+#~ "retrodigitalisierte Urkundensammlungen. Diese "
+#~ "Urkunden sind eng mit den Formeln "
+#~ "verbunden und sind daher unabdingbar für"
+#~ " die Forschung an den Formeln. Die"
+#~ " meisten von diesen retrodigitalisierten "
+#~ "Editionen stehen nicht mehr unter "
+#~ "Copyrightschutz und sind daher in der"
+#~ " Werkstatt frei verfügbar. Manche sind "
+#~ "aber neuer und sind noch nicht "
+#~ "völlig gemeinfrei. Die urheberrechtlich "
+#~ "geschützten Texte sind Suchbar aber die"
+#~ " Texte müssen in den Druckausgaben "
+#~ "gefunden werden. Alle digitale Texte, "
+#~ "die nicht urheberrechtlich geschutzt sind, "
+#~ "werden hier unter einer Creative-"
+#~ "Commons-Lizenz veröffentlicht. Da die "
+#~ "Formeln noch nicht bei der MGH "
+#~ "veröffentlicht werden, unterliegen sie eine"
+#~ " restriktivere Creative Commons Namensnennung-"
+#~ "Nicht kommerziell-Keine Bearbeitungen (CC-"
+#~ "BY NC ND) Lizenz. Dahingegen werden "
+#~ "die Urkunden unter einer einfachen "
+#~ "Namensnennung Lizenz (CC-BY). Das "
+#~ "bedeutet, dass so lange das Projekt "
+#~ "als Quelle der digitalen Text genannt"
+#~ " wird, kann man mit dem Text "
+#~ "machen, was man will."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Das Ziel der Formulae - Litterae -"
+#~ " Chartae Werkstatt ist, die Erforschung "
+#~ "dieser wichtigen kulturelle, soziale, "
+#~ "rechtliche und linguistische Quelle zu "
+#~ "fördern und zu vereinfachen. Wenn Sie"
+#~ " Verbesserungsvorschläge haben, können Sie "
+#~ "uns gern kontaktieren."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Unser Schutz von personenbezogenen Daten "
+#~ "stimmt mit der Datenschutzerklärung der "
+#~ "Universität Hamburg überein. Sie können "
+#~ "mehr hier darüber lesen:"
+#~ msgstr ""
+
+#~ msgid "Wenn Sie noch Fragen haben, kontaktieren Sie uns."
+#~ msgstr ""
+
+#~ msgid "Auf ein Wort zeigen, um sein Lemma zu sehen."
+#~ msgstr "Survolez un mot avec la souris pour voir son lemme."
+
+#~ msgid "Es gibt keinen Lexikoneintrag für"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Da dieses Text noch nicht im "
+#~ "Druckform erschienen hat, ist das "
+#~ "Kopieren vom Inhalt nicht gestattet."
+#~ msgstr ""
+#~ "Nous sommes désolés mais, dans la "
+#~ "mesure où ce texte n'est pas "
+#~ "encore publié, nous n'autorisons pas la"
+#~ " copie du contenu textuel."
+
+#~ msgid ""
+#~ "Klicken Sie auf eine hochgestellte Zahl"
+#~ " bzw. einen hochgestellten Zahl in "
+#~ "einem der Texte, um den Text der"
+#~ " entsprechenden Notiz hier zu sehen. "
+#~ "Sie können auch auf das kleine "
+#~ "&#8853; um alle Notizen für einen "
+#~ "Text zu zeigen oder das kleine "
+#~ "&#8855; um alle Notizen für diesen "
+#~ "Text zu verbergen. Wenn ein Text "
+#~ "auf der linken Seite hier nicht "
+#~ "angezeigt wird, bedeutet dies, dass für"
+#~ " diesen Text keine Notizen vorhanden "
+#~ "sind."
+#~ msgstr ""
+
+#~ msgid "Zu einem Text springen:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Wildcard-Zeichen sind erlaubt. Ein "
+#~ "Fragezeichen (‚?‘) ersetzt ein einzelnes "
+#~ "Zeichen, während ein Stern (‚*‘) ein "
+#~ "oder mehr Zeichen ersetzt. Beide "
+#~ "funktionieren nur innnerhalb eines Wortes. "
+#~ "Das bedeutet, dass für die Suche "
+#~ "‚christ* nom*‘ wird jede Reihe von "
+#~ "zwei aufeinander folgenden Worten gefunden,"
+#~ " wo das erste Wort mit ‚christ‘ "
+#~ "und das zweite mit ‚nom‘ anfängt. "
+#~ "Wenn Sie diese beiden Worte finden "
+#~ "möchten, wo andere Wort zwischen ihnen"
+#~ " auftreten können, stellen Sie die "
+#~ "‚Suchradius‘ größer als 0."
+#~ msgstr ""
+#~ "Les caractères spéciaux sont autorisés. "
+#~ "Un point d'interrogation (,?') Remplace "
+#~ "un seul caractère, tandis qu'un "
+#~ "astérisque (,*') remplace un ou "
+#~ "plusieurs caractères. Les deux fonctionnent"
+#~ " seulement à l’intérieur d’un mot. "
+#~ "Cela signifie que la recherche \"christ*"
+#~ " nom*\" trouvera chaque série de deux"
+#~ " mots consécutifs où le premier mot"
+#~ " commence par \"christ-\" et le "
+#~ "second par \"nom-\". Si vous souhaitez"
+#~ " trouver ces deux mots, contenant "
+#~ "potentiellement d'autres mots entre eux, "
+#~ "définissez un «rayon de recherche» "
+#~ "supérieur à 0."
+
+#~ msgid "Die Lemmatasuche ist nur für die lateinischen Formeln möglich"
+#~ msgstr ""
+#~ "La recherche par lemme est actuellement"
+#~ " indisponible pour les formules latines."
+
+#~ msgid "Die Reihenfolge der Wörter behalten"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "‚Fuzziness‘ misst, wie viel ein "
+#~ "resultierendes Wort von der Sucheingabe "
+#~ "abweichen kann und trotzdem ein gültiges"
+#~ " Ergebnis darstellen. Die Zahlen stellen,"
+#~ " wie viele Änderungen zu einem Wort"
+#~ " gemacht werden können. Z.B. 2 "
+#~ "bedeutet, dass zwei Buchstaben im Wort"
+#~ " ersetzt, gelöscht, hinzugefügt oder "
+#~ "umgesetzt werden können. Mit ‚AUTO‘ ist"
+#~ " die erlaubte Zahl solcher Änderungen "
+#~ "von der Wortlänge abhängig: wenn das "
+#~ "Wort 1 oder 2 Buchstaben hat, sind"
+#~ " keine Änderungen erlaubt, mit 3-5 "
+#~ "Buchstaben ist eine Änderung erlaubt und"
+#~ " für längere Wörter sind 2 Anderungen"
+#~ " erlaubt. ‚AUTO‘ soll für die meisten"
+#~ " Suchen am Besten funktionieren."
+#~ msgstr ""
+#~ "Le ‘flou’ mesure à quel point un"
+#~ " mot résultant peut s'écarter du "
+#~ "terme recherché et toujours former un"
+#~ " résultat valide. Les nombres représentent"
+#~ " combien de modifications peuvent être "
+#~ "apportées à un mot. Par exemple, 2"
+#~ " signifie que deux lettres du mot "
+#~ "peuvent être remplacées, supprimées, ajoutées"
+#~ " ou changées. Avec 'AUTO', le nombre"
+#~ " autorisé de telles modifications dépend"
+#~ " de la longueur du mot: si le"
+#~ " mot compte 1 ou 2 lettres, "
+#~ "aucune modification n'est autorisée, de "
+#~ "3 à 5 lettres, 1 modification est"
+#~ " autorisée et pour les mots plus "
+#~ "longs 2 modifications sont autorisées. "
+#~ "\"AUTO\" devrait fonctionner au mieux "
+#~ "pour la plupart des recherches."
+
+#~ msgid ""
+#~ "Die maximale Anzahl der nicht treffenden"
+#~ " Wörter, die zwischen den Worten "
+#~ "auftreten können. Zum Beispiel für die"
+#~ " Suche nach ‚christ* nom*‘ mit einem"
+#~ " Suchradius von 50 werden alle "
+#~ "Stellen gefunden, wo diese beiden Wörter"
+#~ " innerhalb von 50 Wörtern auftauchen."
+#~ msgstr ""
+#~ "Le nombre maximum de mots imprécis "
+#~ "pouvant se trouver entre les mots "
+#~ "recherchés. Par exemple, rechercher ,christ*"
+#~ " nom*’ avec un rayon de recherche "
+#~ "de 50 trouvera tous les endroits "
+#~ "où ces deux mots apparaissent dans "
+#~ "les 50 mots."
+
+#~ msgid "[NB: Datumsuche gilt nur für Urkunden.]"
+#~ msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
+
+#~ msgid ""
+#~ "Da die Datierung der Formeln sich "
+#~ "von der der Urkunden deutlich "
+#~ "unterscheidet, wird die Datumssuche anders "
+#~ "für die Formel angewandt. Wenn Sie "
+#~ "eine Datumssuchen machen, die keinen "
+#~ "Monat oder einen Tag enthält, ob "
+#~ "für ein bestimmtes Datum oder einen "
+#~ "Datumsspanne, werden alle Formeln "
+#~ "zurückgegeben, die die anderen Suchkriterien"
+#~ " entsprechen. Wenn jedoch ein Monat "
+#~ "oder ein Tag angegeben wird, wird "
+#~ "die Abfrage keine Formel zurückgeben. "
+#~ "Wenn Sie die Urkunden, die von "
+#~ "einem Datum Suche mit Tag bzw. "
+#~ "Monat zurückgegeben werden, mit Formeln, "
+#~ "die die anderen Suchkriterien erfüllen, "
+#~ "vergleichen möchten, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf die Formel begrenzt ist."
+#~ msgstr ""
+#~ "La datation des formules étant très "
+#~ "différente de celle des chartes, la "
+#~ "recherche par date est appliquée "
+#~ "différemment pour les formules. Si vous"
+#~ " effectuez une recherche par date qui"
+#~ " ne contient ni mois ni jour, "
+#~ "que ce soit pour une date "
+#~ "spécifique ou une étendue entre deux "
+#~ "dates, toutes les formules correspondant "
+#~ "aux autres critères de recherche seront"
+#~ " renvoyées. Toutefois, si un mois ou"
+#~ " un jour est spécifié, la requête "
+#~ "ne renverra aucune formule. Si vous "
+#~ "souhaitez comparer les documents renvoyés "
+#~ "par une recherche de date avec "
+#~ "jour ou mois aux formules correspondant"
+#~ " aux autres critères de recherche, "
+#~ "vous devez effectuer une deuxième "
+#~ "recherche sans date limitée aux "
+#~ "formules."
+
+#~ msgid "Nach einer Datumspanne suchen"
+#~ msgstr "Rechercher dans un laps de temps"
+
+#~ msgid ""
+#~ "Eine exklusive Datumspannesuche ist eine "
+#~ "spezielle Suche, die nach einer "
+#~ "bestimmten Zeitspanne innerhalb des Jahres "
+#~ "für eine Reihe von Jahren sucht. "
+#~ "Zum Beispiel eine exklusive Suche für"
+#~ " den Zeitraum von 7. Oktober 700 "
+#~ "bis 21. Oktober 800 findet Dokumente,"
+#~ " die zwischen 7. Oktober und 21. "
+#~ "Oktober in den Jahren zwischen 700 "
+#~ "und 800 datiert sind. Das bedeutet, "
+#~ "dass ein Dokument, die um 22. "
+#~ "Oktober 700 datiert ist, nicht "
+#~ "zurückgegeben wird. Eins, das um den "
+#~ "15. Oktober 750 datiert wird, jedoch "
+#~ "schon."
+#~ msgstr ""
+#~ "Une recherche par plage de dates "
+#~ "exclusive est une recherche spéciale qui"
+#~ " porte sur un certain nombre d’années"
+#~ " pendant un certain nombre d’années. "
+#~ "Par exemple, une recherche exclusive "
+#~ "pour la période du 7 octobre 700"
+#~ " au 21 octobre 800 permettra de "
+#~ "trouver des documents datés entre le "
+#~ "7 et le 21 octobre, entre 700 "
+#~ "et 800. Cela signifie qu'un document "
+#~ "daté du 22 octobre 700 ne sera "
+#~ "pas retourné. Un document daté du "
+#~ "15 octobre 750 environ le sera "
+#~ "cependant."
+
+#~ msgid "Form zurücksetzen"
+#~ msgstr "Réinitialiser la page"
+
+#~ msgid ""
+#~ "Dieser Text ist nicht online verfügbar."
+#~ " Sie können den Text in der "
+#~ "gedruckten Version finden."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Die Datumsspannensuche ist eine spezielle "
+#~ "Suche, die für eine Reihe von "
+#~ "Jahren nach einer bestimmten Zeitspanne "
+#~ "innerhalb des Kalenderjahres sucht. Eine "
+#~ "exklusive Suche für den Zeitraum vom "
+#~ "7. Oktober 700 bis 21. Oktober 800"
+#~ " findet alle Dokumente, die zwischen "
+#~ "7. Oktober und 21. Oktober in den"
+#~ " Jahren zwischen 700 und 800 datiert"
+#~ " sind. Ein Dokument, das auf den "
+#~ "22. Oktober 700 datiert wird, erscheint"
+#~ " nicht als Suchergebnis. Ein Dokument, "
+#~ "das auf den 15. Oktober 750 "
+#~ "datiert wird, jedoch schon."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Mindestens eine Sammlung zur Suche "
+#~ "auswählen(\"Formeln\" und/oder \"Urkunden\")"
+#~ msgstr ""
+
+#~ msgid "Bitte verwenden Sie eine andere Benutzername."
+#~ msgstr ""
+
+#~ msgid "Bitte verwenden Sie eine andere Emailaddresse."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Da sich die Datierung einer "
+#~ "Formelsammlungen von Urkundendatierungen "
+#~ "unterscheidet, führt die Datumssuche bei "
+#~ "Formeln zu anderen Ergebnissen angewandt. "
+#~ "Eine Datumssuche für ein bestimmtes "
+#~ "Datum oder einen Datumsspanne, die "
+#~ "keinen Monat oder einen Tag enthält, "
+#~ "liefert alle Formeln, die den anderen"
+#~ " Suchkriterien entsprechen. Sind ein Monat"
+#~ " oder ein Tag angegeben, liefert die"
+#~ " Abfrage keine Formel. Falls Sie nach"
+#~ " einer Datumssuche mit Tag bzw. Monat"
+#~ " die gefundenen Urkunden, mit Formeln "
+#~ "vergleichen möchten, die die übrigen "
+#~ "Suchkriterien erfüllen, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf Formel begrenzt ist."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Sie müssen mindestens eine Sammlung für"
+#~ " die Suche auswählen(\"Formeln\" und/oder "
+#~ "\"Urkunden\")"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Mindestens eine Sammlung zur Suche "
+#~ "auswählen (\"Formeln\" und/oder \"Urkunden\")"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Da sich die Datierung einer "
+#~ "Formelsammlungen von Urkundendatierungen "
+#~ "unterscheidet, führt die Datumssuche bei "
+#~ "Formeln zu anderen Ergebnissen angewandt. "
+#~ "Eine Datumssuche für ein bestimmtes "
+#~ "Datum oder eine Datumsspanne, die keinen"
+#~ " Monat oder einen Tag enthält, "
+#~ "liefert alle Formeln, die den anderen"
+#~ " Suchkriterien entsprechen. Sind ein Monat"
+#~ " oder ein Tag angegeben, liefert die"
+#~ " Abfrage keine Formel. Falls Sie nach"
+#~ " einer Datumssuche mit Tag bzw. Monat"
+#~ " die gefundenen Urkunden, mit Formeln "
+#~ "vergleichen möchten, die die übrigen "
+#~ "Suchkriterien erfüllen, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf Formel begrenzt ist."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Die exklusive Datumsspannensuche ist eine "
+#~ "spezielle Suche, die für eine Reihe "
+#~ "von Jahren nach einer bestimmten "
+#~ "Zeitspanne innerhalb des Kalenderjahres sucht."
+#~ " Eine exklusive Suche für den "
+#~ "Zeitraum vom 7. Oktober 700 bis "
+#~ "21. Oktober 800 findet alle Dokumente,"
+#~ " die zwischen 7. Oktober und 21. "
+#~ "Oktober in den Jahren zwischen 700 "
+#~ "und 800 datiert sind. Ein Dokument, "
+#~ "das auf den 22. Oktober 700 "
+#~ "datiert wird, erscheint nicht als "
+#~ "Suchergebnis. Ein Dokument, das auf den"
+#~ " 15. Oktober 750 datiert wird, jedoch"
+#~ " schon."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Da sich die Datierung einer "
+#~ "Formelsammlungen von Urkundendatierungen "
+#~ "unterscheidet, führt die Datumssuche bei "
+#~ "Formeln zu anderen Ergebnissen angewandt. "
+#~ "Eine Datumssuche für ein bestimmtes "
+#~ "Datum oder eine Datumsspanne, die keinen"
+#~ " Monat oder keinen Tag enthält, "
+#~ "liefert alle Formeln, die den anderen"
+#~ " Suchkriterien entsprechen. Sind ein Monat"
+#~ " oder ein Tag angegeben, liefert die"
+#~ " Abfrage keine Formel. Falls Sie nach"
+#~ " einer Datumssuche mit Tag bzw. Monat"
+#~ " die gefundenen Urkunden, mit Formeln "
+#~ "vergleichen möchten, die die übrigen "
+#~ "Suchkriterien erfüllen, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf Formel begrenzt ist."
+#~ msgstr ""
+
+#~ msgid "Passwort Ändern"
+#~ msgstr "Changer le mot de passe"
+
+#~ msgid "Sprache Ändern"
+#~ msgstr "Changer la langue"
 
