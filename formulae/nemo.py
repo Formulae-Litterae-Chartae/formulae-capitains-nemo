@@ -4,7 +4,7 @@ from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
-from rdflib.namespace import DCTERMS, Namespace
+from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
@@ -423,6 +423,7 @@ class NemoFormulae(Nemo):
             flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        metadata = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
         else:
@@ -440,11 +441,14 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
-                    "author": text.get_creator(lang),
+                    "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
                     "citation": collection.citation,
-                    "coins": self.make_coins(collection, text, subreference, lang=lang)
+                    "coins": self.make_coins(collection, text, subreference, lang=lang),
+                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
+                    "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
+                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None))
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },
@@ -454,7 +458,7 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "date": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
