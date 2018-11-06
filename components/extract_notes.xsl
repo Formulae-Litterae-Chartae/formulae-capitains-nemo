@@ -32,7 +32,7 @@
                         <xsl:attribute name="type">button</xsl:attribute>
                         <xsl:attribute name="class">close</xsl:attribute>
                         <xsl:attribute name="data-target"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
-                        <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
+                        <xsl:attribute name="data-toggle">collapse</xsl:attribute>
                         <xsl:attribute name="aria-label">Close</xsl:attribute>
                         <xsl:element name="span">
                             <xsl:attribute name="aria-hidden">true</xsl:attribute>
