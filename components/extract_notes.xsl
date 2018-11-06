@@ -16,10 +16,10 @@
         <xsl:param name="ident" select="translate(@href, '#', '')"/>
         <xsl:element name="div">
             <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/></xsl:attribute>
-            <xsl:attribute name="data-toggle">collapse</xsl:attribute>
+            <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
             <xsl:attribute name="aria-expanded">false</xsl:attribute>
-            <xsl:attribute name="role">button</xsl:attribute>
-            <xsl:attribute name="href"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
+            <!--<xsl:attribute name="role">button</xsl:attribute>-->
+            <!--<xsl:attribute name="href"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>-->
             <xsl:attribute name="aria-controls"><xsl:value-of select="$ident"/></xsl:attribute>
             <xsl:attribute name="id"><xsl:value-of select="$ident"/></xsl:attribute>
             <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
@@ -27,7 +27,20 @@
             <xsl:element name="div">
                 <xsl:attribute name="class">card</xsl:attribute>
                 <xsl:attribute name="style">font-size: small; color: black; text-decoration: none;</xsl:attribute>
-                <span><xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:apply-templates mode="noteContent" select="span"/></span>
+                <xsl:element name="span">
+                    <xsl:element name="button">
+                        <xsl:attribute name="type">button</xsl:attribute>
+                        <xsl:attribute name="class">close</xsl:attribute>
+                        <xsl:attribute name="data-target"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
+                        <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
+                        <xsl:attribute name="aria-label">Close</xsl:attribute>
+                        <xsl:element name="span">
+                            <xsl:attribute name="aria-hidden">true</xsl:attribute>
+                            <xsl:text>×</xsl:text>
+                        </xsl:element>
+                    </xsl:element>
+                    <xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:apply-templates mode="noteContent" select="span"/>
+                </xsl:element>
             </xsl:element>
         </xsl:element>
     </xsl:template>
