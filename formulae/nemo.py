@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash
+from flask import url_for, Markup, g, session, flash, request
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -519,8 +519,12 @@ class NemoFormulae(Nemo):
         :param text: the string to be transformed
         :return: dict('note_id': 'note_content')
         """
-        with open(self._transform['notes']) as f:
-            xslt = etree.XSLT(etree.parse(f))
+        if '/lexicon/' in str(request.path):
+            with open(self._transform['elex_notes']) as f:
+                xslt = etree.XSLT(etree.parse(f))
+        else:
+            with open(self._transform['notes']) as f:
+                xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
 

@@ -333,3 +333,11 @@ nav .dropdown:hover .dropdown-menu {
 button.close {
     color: red;
 }
+
+.bibl-popover {
+    max-width: 50%;
+}
+
+.elex-modal-popover {
+    max-width: 50%;
+}
