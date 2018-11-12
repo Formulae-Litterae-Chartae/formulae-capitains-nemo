@@ -7,6 +7,7 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
+// These are the popovers for the notes in the right column of the normal text view.
 $(function () {
   $('[data-toggle="bibl-popover"]').popover(
       {placement: 'left', 
@@ -17,6 +18,9 @@ $(function () {
   )
 })
 
+// These are the popups in the elexicon modal notes.
+// This is required to initialize popovers that are not part of the DOM when the document is loaded.
+// https://github.com/twbs/bootstrap/issues/4215
 $(function () {
   $(document).popover(
       {selector: '.modal-popover',
