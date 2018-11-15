@@ -329,3 +329,7 @@ nav .dropdown:hover .dropdown-menu {
     line-height: 1.0;
     margin: 0.5rem;
 }
+
+.searched {
+    background-color: yellow;
+}
