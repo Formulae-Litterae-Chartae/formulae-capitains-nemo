@@ -76,7 +76,9 @@
       <body>
                <div type="edition" xml:lang="lat" n="urn:cts:formulae:salzburg.hauthaler-a0001.lat001">
                   <div type="textpart" subtype="charta" n="1">
-                     <p>Text</p>
+                     <p><w>Text</w> <w>that</w></p>
+                     <p><w>I</w></p>
+                     <p><w>want</w> <w>to</w> <w>search</w></p>
                   </div>
                </div>
             </body>

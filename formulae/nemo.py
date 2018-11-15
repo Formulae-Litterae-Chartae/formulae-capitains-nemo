@@ -517,10 +517,10 @@ class NemoFormulae(Nemo):
                     spans[i].set('class', spans[i].get('class') + ' searched-start')
                     spans[i + len(words) - 1].set('class', spans[i + len(words) - 1].get('class') + ' searched-end')
                     for span in spans[i:i + len(words)]:
-                        if span == span.getparent().findall('span')[-1] and 'searched-end' not in span.get('class'):
-                            span.set('class', span.get('class') + ' searched-end')
                         if span.getparent().index(span) == 0 and 'searched-start' not in span.get('class'):
                             span.set('class', span.get('class') + ' searched-start')
+                        if span == span.getparent().findall('span')[-1] and 'searched-end' not in span.get('class'):
+                            span.set('class', span.get('class') + ' searched-end')
                     break
         xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                     with_tail=True, standalone=None)
