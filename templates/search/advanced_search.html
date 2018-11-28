@@ -39,6 +39,17 @@
                         <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen auftreten können. Bei der Suche nach \'christ* nom\' mit einem Suchradius von 50 werden beispielsweise alle Stellen gefunden, wo beide Begriffe innerhalb von 50 Wörtern auftauchen.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         {{ form.slop(oninput="outputUpdate(value, '#slop-value')") }}
                     </div>
+                    <div class="form-group">
+                        <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Eine Erklärung für die Ausstellungsortsuche.') }}"><i class="fas fa-question-circle" ></i></a></div>
+                        <div>
+                            {{ form.composition_place(class="form-control my-0", id="place-search", list="place-datalist", placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
+                            <datalist id="place-datalist">
+                                {% for place in composition_places %}
+                                <option value="{{place}}"></option>
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-auto date-search">
                     <h6 class="text-center"><i>{{ _('[NB: Datumssuche funktioniert nur bei Urkunden.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Da sich die Datierung einer Formelsammlungen von Urkundendatierungen unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. Eine Datumssuche für ein bestimmtes Datum oder eine Datumsspanne, die keinen Monat oder keinen Tag enthält, liefert alle Formeln, die den anderen Suchkriterien entsprechen. Sind ein Monat oder ein Tag angegeben, liefert die Abfrage keine Formel. Falls Sie nach einer Datumssuche mit Tag bzw. Monat die gefundenen Urkunden, mit Formeln vergleichen möchten, die die übrigen Suchkriterien erfüllen, sollten Sie eine zweite Suche ohne Datum durchführen, die auf Formel begrenzt ist.') }}"><i class="fas fa-question-circle" ></i></a></h6>

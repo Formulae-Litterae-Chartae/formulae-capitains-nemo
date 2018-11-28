@@ -50,6 +50,18 @@ def query_index(index, field, query, page, per_page):
     return ids, search['hits']['total']
 
 
+def suggest_composition_places():
+    """ To enable search-as-you-type for the place of composition field
+
+    :param index: (sub-)string on which to do the edge n-gram search
+    :return: sorted set of results
+    """
+    body = {'query': {'exists': {'field': 'comp_ort'}}}
+    return sorted(set([x['_source']['comp_ort'] for x in current_app.elasticsearch.search(index='',
+                                                                                          doc_type='', size=10000,
+                                                                                          body=body)['hits']['hits']]))
+
+
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
@@ -67,6 +79,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             return [], 0
     else:
         fuzz = fuzziness
+    if kwargs['composition_place']:
+        body_template['query']['bool']['must'].append({'match': {'comp_ort': kwargs['composition_place']}})
     if q:
         if field != 'lemmas':
             # Highlighting for lemma searches is transferred to the "text" field.

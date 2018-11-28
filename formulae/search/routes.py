@@ -2,9 +2,10 @@ from flask import redirect, request, url_for, g, flash, current_app
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index, advanced_query_index
+from .Search import query_index, advanced_query_index, suggest_composition_places
 from .forms import AdvancedSearchForm
 from formulae.search import bp
+from json import dumps
 
 
 @bp.route("/simple", methods=["GET"])
@@ -55,7 +56,8 @@ def r_results():
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
                                             corpus=corpus or ['all'],
-                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"))
+                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                            composition_place=request.args.get('composition_place'))
         search_args = dict(request.args)
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
@@ -102,4 +104,14 @@ def r_advanced_search():
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats, url=dict())
+    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats,
+                       composition_places=suggest_composition_places(), url=dict())
+
+
+""" This might be useful for the next search-as-you-type attempt.
+@bp.route("/suggest/<place>", methods=["GET"])
+def composition_place_suggester(place):
+    places = suggest_composition_places(place)
+    print(places)
+    return dumps(places)
+"""
