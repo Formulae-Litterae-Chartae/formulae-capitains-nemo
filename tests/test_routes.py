@@ -3,7 +3,7 @@ from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from formulae import create_app, db
 from formulae.nemo import NemoFormulae
 from formulae.models import User
-from formulae.search.Search import advanced_query_index, query_index
+from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -599,6 +599,20 @@ class TestES(Formulae_Testing):
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_composition_places(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", '')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = [' ', 'Kloster St. Gallen', "Stetten", 'Wila']
+        mock_search.return_value = resp
+        results = suggest_composition_places()
+        self.assertEqual(results, expected, 'The true results should match the expected results.')
 
 
 class TestErrors(Formulae_Testing):
