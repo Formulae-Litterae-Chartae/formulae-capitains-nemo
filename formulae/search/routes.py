@@ -57,7 +57,7 @@ def r_results():
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
                                             corpus=corpus or ['all'],
                                             exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                            composition_place=request.args.get('composition_place'))
+                                            composition_place=request.args.get('composition_place', ''))
         search_args = dict(request.args)
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)

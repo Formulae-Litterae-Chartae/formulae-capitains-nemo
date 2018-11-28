@@ -1,0 +1,66 @@
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 12,
+    "successful": 12,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0015.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 15",
+          "urn": "urn:cts:formulae:stgallen.wartmann0015.lat001",
+          "date_string": "752 04 14",
+          "comp_ort": "(Basel- oder Kaiser-)Augst",
+          "specific_date": [
+            {
+              "year": 752,
+              "month": 4,
+              "day": 14
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0015.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 291",
+          "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
+          "date_string": "825 05 11",
+          "comp_ort": "(Basel-)Augst",
+          "specific_date": [
+            {
+              "year": 825,
+              "month": 5,
+              "day": 11
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0291.lat001"
+        ]
+      }
+    ]
+  }
+}

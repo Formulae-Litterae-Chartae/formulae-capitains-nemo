@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 7,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -8,19 +8,21 @@
     "failed": 0
   },
   "hits": {
-    "total": 7,
+    "total": 9,
     "max_score": null,
     "hits": [
       {
-        "_index": "schaeftlarn_v3",
+        "_index": "schaeftlarn_v5",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Sch\u00e4ftlarn Urkunden, Weissthanner Nummer 12",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -85,15 +87,167 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+        ]
+      },
+      {
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0004.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 4",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 4",
           "urn": "urn:cts:formulae:werden.block0004.lat001",
+          "date_string": "794 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 794,
@@ -108,15 +262,17 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0016.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 16",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 16",
           "urn": "urn:cts:formulae:werden.block0016.lat001",
+          "date_string": "798 - 799 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 798,
@@ -136,15 +292,17 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0017.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 17",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 17",
           "urn": "urn:cts:formulae:werden.block0017.lat001",
+          "date_string": "798 - 799 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 798,
@@ -164,15 +322,17 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0021.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 21",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 21",
           "urn": "urn:cts:formulae:werden.block0021.lat001",
+          "date_string": "799 \u2013 800 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 799,
@@ -192,15 +352,17 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0030.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 30",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 30",
           "urn": "urn:cts:formulae:werden.block0030.lat001",
+          "date_string": "806 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 806,
@@ -215,15 +377,17 @@
         ]
       },
       {
-        "_index": "werden_v3",
+        "_index": "werden_v5",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0031.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Werden Urkunden, Block Nummer 31",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 31",
           "urn": "urn:cts:formulae:werden.block0031.lat001",
+          "date_string": "806 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 806,

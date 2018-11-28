@@ -3,6 +3,12 @@
     "id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
   },
   {
+    "id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+  },
+  {
     "id": "urn:cts:formulae:stgallen.wartmann0019.lat001"
   },
   {
@@ -22,11 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:stgallen.wartmann0067.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0149.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0157.lat001"
   }
 ]
