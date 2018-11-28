@@ -1,7 +1,9 @@
-var lexModal = document.getElementById('lexicon-modal')
-var allCorporaChecks = document.querySelectorAll('input.under-all')
-var formulaeChecks = document.querySelectorAll('input.under-formulae')
-var chartaeChecks = document.querySelectorAll('input.under-chartae')
+var lexModal = document.getElementById('lexicon-modal');
+var allCorporaChecks = document.querySelectorAll('input.under-all');
+var formulaeChecks = document.querySelectorAll('input.under-formulae');
+var chartaeChecks = document.querySelectorAll('input.under-chartae');
+var placeData = document.getElementById('place-datalist');
+var placeInput = document.getElementById('place-search');
 
 $(function () {
   $('[data-toggle="popover"]').popover()
@@ -118,3 +120,44 @@ function getSubElements(coll) {
             request.send()
     }
 }
+
+// for autocomplete as you type I need the following things:
+// - a listener for when the field changes
+// $('#place-search').on("focus", function() {
+//        var word = $(this).val();
+//        if(word !== ''){
+//            previous = word;
+//            suggestion();
+//        }
+// });
+// - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
+// this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
+// function suggestion(){
+//     var request = new XMLHttpRequest();
+//     
+//     request.onreadystatechange = function(response) {
+//         if (request.readyState === 4) {
+//             if (request.status === 200) {
+//                 var jsonOptions = JSON.parse(request.responseText);
+//                 
+//                 jsonOptions.forEach(function(item) {
+//                     var option = document.createElement('option');
+//                     option.value = item;
+//                     placeData.appendChild(option);
+//                 });
+//             placeInput.placeholder = placeInput.getAttribute('default');
+//             } else {
+//                 // An error occured
+//                 placeInput.placeholder = "Couldn't load places.";
+//             }
+//         }
+//     }
+//     
+//     placeInput.placeholder = "Loading options...";
+//     
+//     // Set up and make the request.
+//     request.open('GET', '/search/suggest/word', true);
+//     request.send();
+// };
+// - something that adds the returned results to something (a dropdown menu?) from which the user can choose an element which will fill the search query box
+// see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas

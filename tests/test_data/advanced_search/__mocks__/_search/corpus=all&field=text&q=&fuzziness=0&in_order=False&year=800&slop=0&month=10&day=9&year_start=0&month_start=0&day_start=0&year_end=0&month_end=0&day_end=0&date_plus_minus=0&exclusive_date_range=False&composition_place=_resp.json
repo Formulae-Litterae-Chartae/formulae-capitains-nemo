@@ -1,0 +1,271 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 12,
+    "successful": 12,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 4,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+        ]
+      },
+      {
+        "_index": "werden_v5",
+        "_type": "werden",
+        "_id": "urn:cts:formulae:werden.block0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 21",
+          "urn": "urn:cts:formulae:werden.block0021.lat001",
+          "date_string": "799 \u2013 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:werden.block0021.lat001"
+        ]
+      }
+    ]
+  }
+}

@@ -105,4 +105,5 @@ class AdvancedSearchForm(SearchForm):
                                                                                   message=_('Plus-Minus muss zwischen 0 und 100 Jahren liegen'))],
                                         default=0)
     exclusive_date_range = BooleanField(_l('Exklusiv'))
+    composition_place = StringField(_l('Ausstellungsort'))
     submit = SubmitField(_l('Suche'))

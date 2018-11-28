@@ -1,5 +1,5 @@
 {
-  "took": 28,
+  "took": 10,
   "timed_out": false,
   "_shards": {
     "total": 12,
@@ -8,19 +8,21 @@
     "failed": 0
   },
   "hits": {
-    "total": 14,
+    "total": 16,
     "max_score": null,
     "hits": [
       {
-        "_index": "schaeftlarn_v3",
+        "_index": "schaeftlarn_v5",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Sch\u00e4ftlarn Urkunden, Weissthanner Nummer 12",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -85,15 +87,167 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v5",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "autocomplete": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+        ]
+      },
+      {
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 19",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 19",
           "urn": "urn:cts:formulae:stgallen.wartmann0019.lat001",
+          "date_string": "754 10 27",
+          "comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 754,
@@ -108,15 +262,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 23",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 23",
           "urn": "urn:cts:formulae:stgallen.wartmann0023.lat001",
+          "date_string": "758 10 27",
+          "comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 758,
@@ -131,15 +287,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0037.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 37",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 37",
           "urn": "urn:cts:formulae:stgallen.wartmann0037.lat001",
+          "date_string": "762 10 10",
+          "comp_ort": "Wila",
           "specific_date": [
             {
               "year": 762,
@@ -154,15 +312,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0038.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 38",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 38",
           "urn": "urn:cts:formulae:stgallen.wartmann0038.lat001",
+          "date_string": "763 10 11",
+          "comp_ort": "Stetten",
           "specific_date": [
             {
               "year": 763,
@@ -177,15 +337,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0050.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 50",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 50",
           "urn": "urn:cts:formulae:stgallen.wartmann0050.lat001",
+          "date_string": "766 10 26",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 766,
@@ -200,15 +362,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0055.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 55",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 55",
           "urn": "urn:cts:formulae:stgallen.wartmann0055.lat001",
+          "date_string": "769 10 21",
+          "comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 769,
@@ -223,15 +387,17 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0067.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 67",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 67",
           "urn": "urn:cts:formulae:stgallen.wartmann0067.lat001",
+          "date_string": "772 10 20",
+          "comp_ort": " ",
           "specific_date": [
             {
               "year": 772,
@@ -243,52 +409,6 @@
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0067.lat001"
-        ]
-      },
-      {
-        "_index": "stgallen_v3",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0149.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 149",
-          "urn": "urn:cts:formulae:stgallen.wartmann0149.lat001",
-          "specific_date": [
-            {
-              "year": 797,
-              "month": 10,
-              "day": 30
-            }
-          ],
-          "autocomplete": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:stgallen.wartmann0149.lat001"
-        ]
-      },
-      {
-        "_index": "stgallen_v3",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0157.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "St. Gallen Urkunden, Wartmann Nummer 157",
-          "urn": "urn:cts:formulae:stgallen.wartmann0157.lat001",
-          "specific_date": [
-            {
-              "year": 799,
-              "month": 10,
-              "day": 28
-            }
-          ],
-          "autocomplete": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:stgallen.wartmann0157.lat001"
         ]
       }
     ]
