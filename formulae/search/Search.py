@@ -53,13 +53,13 @@ def query_index(index, field, query, page, per_page):
 def suggest_composition_places():
     """ To enable search-as-you-type for the place of composition field
 
-    :param index: (sub-)string on which to do the edge n-gram search
     :return: sorted set of results
     """
     body = {'query': {'exists': {'field': 'comp_ort'}}}
-    return sorted(set([x['_source']['comp_ort'] for x in current_app.elasticsearch.search(index='',
-                                                                                          doc_type='', size=10000,
-                                                                                          body=body)['hits']['hits']]))
+    results = []
+    for x in current_app.elasticsearch.search(index='', doc_type='', size=10000, body=body)['hits']['hits']:
+        results += x['_source']['comp_ort'].split('; ')
+    return sorted(set(results))
 
 
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
