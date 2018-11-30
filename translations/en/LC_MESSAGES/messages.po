@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-05 09:48+0100\n"
+"POT-Creation-Date: 2018-11-29 09:06+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -103,7 +103,7 @@ msgstr "Change Your Default Language"
 
 #: formulae/auth/forms.py:27
 msgid "Sprache ändern"
-msgstr ""
+msgstr "Change Language"
 
 #: formulae/auth/forms.py:31 formulae/auth/forms.py:43
 msgid "Email"
@@ -195,7 +195,7 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:66
+#: formulae/search/Search.py:78
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -210,7 +210,7 @@ msgstr ""
 "\"*\")"
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:108 formulae/search/routes.py:79
+#: formulae/search/forms.py:109 formulae/search/routes.py:81
 msgid "Suche"
 msgstr "Search"
 
@@ -361,7 +361,12 @@ msgstr "Plus-Minus must be between 0 and 100 years"
 msgid "Exklusiv"
 msgstr "Exclusive"
 
-#: formulae/search/routes.py:102
+#: formulae/search/forms.py:108 templates/main/salzburg_collection.html:6
+#: templates/main/sub_collection.html:6
+msgid "Ausstellungsort"
+msgstr "Place of Composition"
+
+#: formulae/search/routes.py:104
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
@@ -742,11 +747,6 @@ msgstr "visited on"
 msgid "Datum"
 msgstr "Date"
 
-#: templates/main/salzburg_collection.html:6
-#: templates/main/sub_collection.html:6
-msgid "Ausstellungsort"
-msgstr "Place of Composition"
-
 #: templates/main/salzburg_collection.html:27
 #: templates/main/sub_collection.html:26
 msgid "Gehe zu (Text):"
@@ -844,11 +844,15 @@ msgstr ""
 " a Search Radius of 50 will find all occurrences of these two words "
 "within 50 words of each other."
 
-#: templates/search/advanced_search.html:44
+#: templates/search/advanced_search.html:43
+msgid "Ausstellungsortsuche"
+msgstr "Place of Composition Search"
+
+#: templates/search/advanced_search.html:55
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
 msgstr "[NB: Only applies to Charters.]"
 
-#: templates/search/advanced_search.html:44
+#: templates/search/advanced_search.html:55
 msgid ""
 "Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
 "unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
@@ -870,19 +874,19 @@ msgstr ""
 "other search criteria, you should do a second search without the date "
 "criteria that is limited to only formulae."
 
-#: templates/search/advanced_search.html:45
+#: templates/search/advanced_search.html:56
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Search a Specific Date"
 
-#: templates/search/advanced_search.html:73
+#: templates/search/advanced_search.html:84
 msgid "Jahr(e)"
 msgstr "year(s)"
 
-#: templates/search/advanced_search.html:78
+#: templates/search/advanced_search.html:89
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Search a Date Range"
 
-#: templates/search/advanced_search.html:79
+#: templates/search/advanced_search.html:90
 msgid ""
 "Die 'exklusive Datumsspannensuche' ist eine spezielle Suche, die für eine"
 " Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des "
@@ -902,15 +906,15 @@ msgstr ""
 "22, 700 will not be returned, though one dated to October 15, 750 will be"
 " returned."
 
-#: templates/search/advanced_search.html:80
+#: templates/search/advanced_search.html:91
 msgid "Von"
 msgstr "From"
 
-#: templates/search/advanced_search.html:107
+#: templates/search/advanced_search.html:118
 msgid "Bis"
 msgstr "To"
 
-#: templates/search/advanced_search.html:138
+#: templates/search/advanced_search.html:149
 msgid "Zurücksetzen"
 msgstr "Reset Form"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-05 09:48+0100\n"
+"POT-Creation-Date: 2018-11-29 09:06+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:66
+#: formulae/search/Search.py:78
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -206,7 +206,7 @@ msgid ""
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:108 formulae/search/routes.py:79
+#: formulae/search/forms.py:109 formulae/search/routes.py:81
 msgid "Suche"
 msgstr "Recherche"
 
@@ -355,7 +355,12 @@ msgstr ""
 msgid "Exklusiv"
 msgstr "Exclusif"
 
-#: formulae/search/routes.py:102
+#: formulae/search/forms.py:108 templates/main/salzburg_collection.html:6
+#: templates/main/sub_collection.html:6
+msgid "Ausstellungsort"
+msgstr ""
+
+#: formulae/search/routes.py:104
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr ""
 
@@ -694,11 +699,6 @@ msgstr ""
 msgid "Datum"
 msgstr ""
 
-#: templates/main/salzburg_collection.html:6
-#: templates/main/sub_collection.html:6
-msgid "Ausstellungsort"
-msgstr ""
-
 #: templates/main/salzburg_collection.html:27
 #: templates/main/sub_collection.html:26
 msgid "Gehe zu (Text):"
@@ -801,11 +801,15 @@ msgstr ""
 "recherche de 50 trouvera tous les endroits où ces deux mots apparaissent "
 "dans les 50 mots."
 
-#: templates/search/advanced_search.html:44
+#: templates/search/advanced_search.html:43
+msgid "Ausstellungsortsuche"
+msgstr ""
+
+#: templates/search/advanced_search.html:55
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
 msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
-#: templates/search/advanced_search.html:44
+#: templates/search/advanced_search.html:55
 msgid ""
 "Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
 "unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
@@ -828,19 +832,19 @@ msgstr ""
 "correspondant aux autres critères de recherche, vous devez effectuer une "
 "deuxième recherche sans date limitée aux formules."
 
-#: templates/search/advanced_search.html:45
+#: templates/search/advanced_search.html:56
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Rechercher une date précise"
 
-#: templates/search/advanced_search.html:73
+#: templates/search/advanced_search.html:84
 msgid "Jahr(e)"
 msgstr "an(s)"
 
-#: templates/search/advanced_search.html:78
+#: templates/search/advanced_search.html:89
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Rechercher dans un laps de temps"
 
-#: templates/search/advanced_search.html:79
+#: templates/search/advanced_search.html:90
 msgid ""
 "Die 'exklusive Datumsspannensuche' ist eine spezielle Suche, die für eine"
 " Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des "
@@ -859,15 +863,15 @@ msgstr ""
 "octobre 700 ne sera pas retourné. Un document daté du 15 octobre 750 "
 "environ le sera cependant."
 
-#: templates/search/advanced_search.html:80
+#: templates/search/advanced_search.html:91
 msgid "Von"
 msgstr "A partir de"
 
-#: templates/search/advanced_search.html:107
+#: templates/search/advanced_search.html:118
 msgid "Bis"
 msgstr "Jusqu’à"
 
-#: templates/search/advanced_search.html:138
+#: templates/search/advanced_search.html:149
 msgid "Zurücksetzen"
 msgstr ""
 
