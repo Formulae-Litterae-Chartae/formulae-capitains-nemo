@@ -67,10 +67,10 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                             'urn:cts:formulae:werden']
+                             'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
 
     OPEN_NOTES = []
 
@@ -286,7 +286,7 @@ class NemoFormulae(Nemo):
                     par = m.parent.id.split('.')[-1][0].capitalize()
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
-                    par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+                    par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
@@ -297,7 +297,7 @@ class NemoFormulae(Nemo):
                               "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                              "versions": [metadata]}
+                              "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
