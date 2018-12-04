@@ -2,6 +2,8 @@ from flask import current_app, Markup, flash
 from flask_babel import _
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
+from string import punctuation
+import re
 
 
 def add_to_index(index, model):
@@ -60,6 +62,24 @@ def suggest_composition_places():
     for x in current_app.elasticsearch.search(index='', doc_type='', size=10000, body=body)['hits']['hits']:
         results += x['_source']['comp_ort'].split('; ')
     return sorted(set(results))
+
+def suggest_word_search(word):
+    """ To enable search-as-you-type for the text search
+
+    :return: sorted set of results
+    """
+    query = {"span_near": {'clauses': [{"span_term": {"autocomplete": w}} for w in word.split()], 'in_order': True}}
+    body = {'query': query}
+    results = []
+    w = ' ' + word
+    for x in current_app.elasticsearch.search(index='', doc_type='', size=10, body=body)['hits']['hits']:
+        r = x['_source']['autocomplete']
+        ind = 0
+        while w in r[ind:]:
+            i = r.find(w, ind)
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 2), len(r))]))
+            ind = r.find(w, ind) + 1
+    return list(set(results))
 
 
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,

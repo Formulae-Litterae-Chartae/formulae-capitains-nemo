@@ -2,8 +2,9 @@ var lexModal = document.getElementById('lexicon-modal');
 var allCorporaChecks = document.querySelectorAll('input.under-all');
 var formulaeChecks = document.querySelectorAll('input.under-formulae');
 var chartaeChecks = document.querySelectorAll('input.under-chartae');
-var placeData = document.getElementById('place-datalist');
-var placeInput = document.getElementById('place-search');
+var wordSearchData = document.getElementById('word-search-datalist');
+var wordSearchInput = document.getElementById('word-search-box');
+var textSearchTimeout = null;
 
 $(function () {
   $('[data-toggle="popover"]').popover()
@@ -123,41 +124,44 @@ function getSubElements(coll) {
 
 // for autocomplete as you type I need the following things:
 // - a listener for when the field changes
-// $('#place-search').on("focus", function() {
-//        var word = $(this).val();
-//        if(word !== ''){
-//            previous = word;
-//            suggestion();
-//        }
-// });
-// - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
-// this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
-// function suggestion(){
-//     var request = new XMLHttpRequest();
-//     
-//     request.onreadystatechange = function(response) {
-//         if (request.readyState === 4) {
-//             if (request.status === 200) {
-//                 var jsonOptions = JSON.parse(request.responseText);
-//                 
-//                 jsonOptions.forEach(function(item) {
-//                     var option = document.createElement('option');
-//                     option.value = item;
-//                     placeData.appendChild(option);
-//                 });
-//             placeInput.placeholder = placeInput.getAttribute('default');
-//             } else {
-//                 // An error occured
-//                 placeInput.placeholder = "Couldn't load places.";
-//             }
-//         }
-//     }
-//     
-//     placeInput.placeholder = "Loading options...";
-//     
-//     // Set up and make the request.
-//     request.open('GET', '/search/suggest/word', true);
-//     request.send();
-// };
-// - something that adds the returned results to something (a dropdown menu?) from which the user can choose an element which will fill the search query box
+wordSearchInput.onkeyup = function(e) {
+    // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
+    // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
+    clearTimeout(textSearchTimeout);
+    textSearchTimeout = setTimeout(function () {
+        // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
+        // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
+        var word = wordSearchInput.value;
+        if(word !== ''){
+            previous = word;
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function(response) {
+                if (request.readyState === 4) {
+                    if (request.status === 200) {
+                        var jsonOptions = JSON.parse(request.responseText);
+                        var docFrag = document.createDocumentFragment();
+                        jsonOptions.forEach(function(item) {
+                            var option = document.createElement('option');
+                            option.value = item;
+                            docFrag.appendChild(option);
+                        });
+                        wordSearchData.innerHTML = '';
+                        wordSearchData.appendChild(docFrag);
+                        wordSearchInput.placeholder = wordSearchInput.getAttribute('default');
+                    } else {
+                        // An error occured
+                        wordSearchInput.placeholder = "Couldn't load suggestions.";
+                    }
+                }
+            };
+            
+            wordSearchInput.placeholder = "Loading options...";
+            
+            // Set up and make the request.
+            request.open('GET', '/search/suggest/' + word, true);
+            request.send();
+        }
+    }, 500);
+};
+
 // see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas

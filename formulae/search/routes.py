@@ -2,7 +2,7 @@ from flask import redirect, request, url_for, g, flash, current_app
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index, advanced_query_index, suggest_composition_places
+from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
@@ -108,10 +108,7 @@ def r_advanced_search():
                        composition_places=suggest_composition_places(), url=dict())
 
 
-""" This might be useful for the next search-as-you-type attempt.
-@bp.route("/suggest/<place>", methods=["GET"])
-def composition_place_suggester(place):
-    places = suggest_composition_places(place)
-    print(places)
-    return dumps(places)
-"""
+@bp.route("/suggest/<word>", methods=["GET"])
+def word_search_suggester(word):
+    words = suggest_word_search(word)
+    return dumps(words)
