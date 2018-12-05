@@ -63,17 +63,19 @@ def suggest_composition_places():
         results += x['_source']['comp_ort'].split('; ')
     return sorted(set(results))
 
-def suggest_word_search(word):
+
+def suggest_word_search(word, **kwargs):
     """ To enable search-as-you-type for the text search
 
     :return: sorted set of results
     """
-    query = {"span_near": {'clauses': [{"span_term": {"autocomplete": w}} for w in word.split()], 'in_order': True}}
-    body = {'query': query}
+    # query = {"span_near": {'clauses': [{"span_term": {"autocomplete": w}} for w in word.split()], 'in_order': True}}
+    # body = {'query': query}
     results = []
     w = ' ' + word
-    for x in current_app.elasticsearch.search(index='', doc_type='', size=10, body=body)['hits']['hits']:
-        r = x['_source']['autocomplete']
+    posts, total = advanced_query_index(q=word, **kwargs)
+    for post in posts:
+        r = post['info'][kwargs['field']]
         ind = 0
         while w in r[ind:]:
             i = r.find(w, ind)

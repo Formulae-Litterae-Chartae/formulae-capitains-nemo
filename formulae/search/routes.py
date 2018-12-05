@@ -110,5 +110,21 @@ def r_advanced_search():
 
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
-    words = suggest_word_search(word)
+    words = suggest_word_search(word, field = request.args.get('field', 'autocomplete'),
+                                fuzziness=request.args.get("fuzziness", "0"),
+                                in_order=request.args.get('in_order', 'False'),
+                                slop=request.args.get('slop', '0'),
+                                year=request.args.get('year', 0, type=int),
+                                month=request.args.get('month', 0, type=int),
+                                day=request.args.get('day', 0, type=int),
+                                year_start=request.args.get('year_start', 0, type=int),
+                                month_start=request.args.get('month_start', 0, type=int),
+                                day_start=request.args.get('day_start', 0, type=int),
+                                year_end=request.args.get('year_end', 0, type=int),
+                                month_end=request.args.get('month_end', 0, type=int),
+                                day_end=request.args.get('day_end', 0, type=int),
+                                date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                corpus=request.args.get('corpus', '').split('+') or ['all'],
+                                exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                composition_place=request.args.get('composition_place', ''))
     return dumps(words)
