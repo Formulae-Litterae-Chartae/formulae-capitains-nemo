@@ -69,18 +69,20 @@ def suggest_word_search(word, **kwargs):
 
     :return: sorted set of results
     """
-    # query = {"span_near": {'clauses': [{"span_term": {"autocomplete": w}} for w in word.split()], 'in_order': True}}
-    # body = {'query': query}
     results = []
     w = ' ' + word
+    kwargs['fragment_size'] = 1000
     posts, total = advanced_query_index(q=word, **kwargs)
     for post in posts:
-        r = post['info'][kwargs['field']]
-        ind = 0
-        while w in r[ind:]:
-            i = r.find(w, ind)
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
-            ind = r.find(w, ind) + 1
+        for sent in post['sents']:
+            r = str(sent[sent.find('</small><strong>'):])
+            r = r.replace('</small><strong>', '').replace('</strong><small>', '')
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(word) + 30), len(r))]))
+            """ind = 0
+            while w in r[ind:]:
+                i = r.find(w, ind)
+                results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
+                ind = r.find(w, ind) + 1"""
     return list(set(results))
 
 
@@ -106,7 +108,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if q:
         if field != 'lemmas':
             # Highlighting for lemma searches is transferred to the "text" field.
-            body_template['highlight'] = {'fields': {field: {"fragment_size": 300}},
+            body_template['highlight'] = {'fields': {field: {"fragment_size": kwargs['fragment_size'] if 'fragment_size' in kwargs else 300}},
                                           'pre_tags': ["</small><strong>"],
                                           'post_tags': ["</strong><small>"],
                                           'encoder': 'html'

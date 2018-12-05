@@ -110,7 +110,7 @@ def r_advanced_search():
 
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
-    words = suggest_word_search(word, field = request.args.get('field', 'autocomplete'),
+    words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
                                 in_order=request.args.get('in_order', 'False'),
                                 slop=request.args.get('slop', '0'),

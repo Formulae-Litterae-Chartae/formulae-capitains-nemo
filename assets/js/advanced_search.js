@@ -4,7 +4,26 @@ var chartaeChecks = document.querySelectorAll('input.under-chartae');
 var wordSearchData = document.getElementById('word-search-datalist');
 var wordSearchInput = document.getElementById('word-search-box');
 var textSearchTimeout = null;
-var searchLemmas = false;
+var searchLemmas = document.getElementById('lemma_search');
+var params = {
+    corpus:'all',
+    field:'autocomplete',
+    fuzziness:'0',
+    in_order:'False',
+    year:'0',
+    slop:'0',
+    month:'0',
+    day:'0',
+    year_start:'0',
+    month_start:'0',
+    day_start:'0',
+    year_end:'0',
+    month_end:'0',
+    day_end:'0',
+    date_plus_minus:'0',
+    exclusive_date_range:'False',
+    composition_place:''
+};
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -67,30 +86,23 @@ wordSearchInput.onkeyup = function(e) {
 
 // build the tail end of the url to submit via AJAX
 function buildUrl() {
-    var corpus = 'all';
-    var field = 'autocomplete';
-    var fuzziness = '0';
-    var in_order = 'False';
-    var year = '0';
-    var slop = '0';
-    var month = '0';
-    var day = '0';
-    var year_start = '0';
-    var month_start = '0';
-    var day_start = '0';
-    var year_end = '0';
-    var month_end = '0';
-    var day_end = '0';
-    var date_plus_minus = '0';
-    var exclusive_date_range = 'False';
-    var composition_place= '';
-    if (searchLemmas === true) {
-        field = 'autocomplete_lemmas';
+    if (searchLemmas.checked) {
+        params.field = 'autocomplete_lemmas';
+    } else {
+        params.field = 'autocomplete';
     }
-    var urlExt = "?corpus=" + corpus + "&field=" + field + "&fuzziness=" + fuzziness + "&in_order=" + in_order + "&year=" + year + "&slop=" + slop + "&month=" + month + "&day=" + day + "&year_start=" + year_start + "&month_start=" + month_start + "&day_start=" + day_start + "&year_end=" + year_end + "&month_end=" + month_end + "&day_end=" + day_end + "&date_plus_minus=" + date_plus_minus + "&exclusive_date_range=" + exclusive_date_range + "&composition_place=" + composition_place;
+    var urlExt = "?corpus=" + params.corpus + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place;
     return urlExt;
 }
 
 function change_lemma_search() {
     searchLemmas = !searchLemmas;
+}
+
+function updateParam(par) {
+    if (par === 'searchLemmas') {
+        params.field = this.val();
+    } else {
+        params[par] = this.value;
+    }
 }
