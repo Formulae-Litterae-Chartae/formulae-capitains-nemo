@@ -108,6 +108,13 @@ def r_advanced_search():
                        composition_places=suggest_composition_places(), url=dict())
 
 
+@bp.route("/doc", methods=["GET"])
+def r_search_docs():
+    """ Route to the documentation page for the advanced search"""
+    from formulae.app import nemo
+    return nemo.render(template="search::documentation.html", url=dict())
+
+
 """ This might be useful for the next search-as-you-type attempt.
 @bp.route("/suggest/<place>", methods=["GET"])
 def composition_place_suggester(place):

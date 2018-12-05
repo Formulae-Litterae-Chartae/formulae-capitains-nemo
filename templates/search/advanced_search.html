@@ -4,7 +4,7 @@
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
-            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong></h3></div>
+            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a tabindex="0" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
                 <div class="col-2">
