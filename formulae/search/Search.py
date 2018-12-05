@@ -77,7 +77,7 @@ def suggest_word_search(word):
         ind = 0
         while w in r[ind:]:
             i = r.find(w, ind)
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 2), len(r))]))
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
             ind = r.find(w, ind) + 1
     return list(set(results))
 
