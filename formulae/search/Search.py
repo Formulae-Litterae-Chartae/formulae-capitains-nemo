@@ -2,6 +2,8 @@ from flask import current_app, Markup, flash
 from flask_babel import _
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
+from string import punctuation
+import re
 
 
 def add_to_index(index, model):
@@ -62,6 +64,49 @@ def suggest_composition_places():
     return sorted(set(results))
 
 
+def suggest_word_search(word, **kwargs):
+    """ To enable search-as-you-type for the text search
+
+    :return: sorted set of results
+    """
+    results = []
+    kwargs['fragment_size'] = 1000
+    posts, total = advanced_query_index(q=word, **kwargs)
+    for post in posts:
+        for sent in post['sents']:
+            r = str(sent[sent.find('</small><strong>'):])
+            r = r.replace('</small><strong>', '').replace('</strong><small>', '')
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(word) + 30), len(r))]))
+            """ind = 0
+            while w in r[ind:]:
+                i = r.find(w, ind)
+                results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
+                ind = r.find(w, ind) + 1"""
+    return list(set(results))
+
+
+def highlight_segment(orig_str, chars_before, chars_after, pre_tag, post_tag):
+    """ returns only a section of the highlighting returned by Elasticsearch. This should keep highlighted phrases
+        from breaking over lines
+
+    :param orig_str: the original highlight string that should be shortened
+    :param chars_before: the number of characters to include before the pre_tag
+    :param chars_after: the number of characters to include after the post_tag
+    :param pre_tag: the tag(s) that mark the beginning of the highlighted section
+    :param post_tag: the tag(s) that mark the end of the highlighted section
+    :return: the string to show in the search results
+    """
+    init_index = 0
+    end_index = len(orig_str)
+    if orig_str.find(pre_tag) - chars_before > 0:
+        init_index = max(orig_str.rfind(' ', 0, orig_str.find(pre_tag) - chars_before), 0)
+    if orig_str.rfind(post_tag) + chars_after + len(post_tag) < len(orig_str):
+        end_index = min(orig_str.find(' ', orig_str.rfind(post_tag) + chars_after + len(post_tag)), len(orig_str))
+    if end_index == -1:
+        end_index = len(orig_str)
+    return orig_str[init_index:end_index]
+
+
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
@@ -70,6 +115,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
                      'from': (page - 1) * per_page, 'size': per_page
                      }
+    pre_tags = "</small><strong>"
+    post_tags = "</strong><small>"
     if not current_app.elasticsearch:
         return [], 0
     if field == 'lemmas':
@@ -84,9 +131,9 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if q:
         if field != 'lemmas':
             # Highlighting for lemma searches is transferred to the "text" field.
-            body_template['highlight'] = {'fields': {field: {"fragment_size": 300}},
-                                          'pre_tags': ["</small><strong>"],
-                                          'post_tags': ["</strong><small>"],
+            body_template['highlight'] = {'fields': {field: {"fragment_size": kwargs['fragment_size'] if 'fragment_size' in kwargs else 1000}},
+                                          'pre_tags': [pre_tags],
+                                          'post_tags': [post_tags],
                                           'encoder': 'html'
                                           }
         clauses = []
@@ -167,7 +214,9 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                         sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
                 ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences})
         else:
-            ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+            ids = [{'id': hit['_id'],
+                    'info': hit['_source'],
+                    'sents': [Markup(highlight_segment(x, 30, 30, pre_tags, post_tags)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
