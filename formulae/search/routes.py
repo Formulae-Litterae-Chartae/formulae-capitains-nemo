@@ -124,7 +124,7 @@ def word_search_suggester(word):
                                 month_end=request.args.get('month_end', 0, type=int),
                                 day_end=request.args.get('day_end', 0, type=int),
                                 date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                corpus=request.args.get('corpus', '').split('+') or ['all'],
+                                corpus=request.args.get('corpus', '').split() or ['all'],
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                 composition_place=request.args.get('composition_place', ''))
     return dumps(words)
