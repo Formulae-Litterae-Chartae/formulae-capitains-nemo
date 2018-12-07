@@ -2,7 +2,7 @@ from flask import redirect, request, url_for, g, flash, current_app
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index, advanced_query_index, suggest_composition_places
+from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
@@ -115,10 +115,23 @@ def r_search_docs():
     return nemo.render(template="search::documentation.html", url=dict())
 
 
-""" This might be useful for the next search-as-you-type attempt.
-@bp.route("/suggest/<place>", methods=["GET"])
-def composition_place_suggester(place):
-    places = suggest_composition_places(place)
-    print(places)
-    return dumps(places)
-"""
+@bp.route("/suggest/<word>", methods=["GET"])
+def word_search_suggester(word):
+    words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
+                                fuzziness=request.args.get("fuzziness", "0"),
+                                in_order=request.args.get('in_order', 'False'),
+                                slop=request.args.get('slop', '0'),
+                                year=request.args.get('year', 0, type=int),
+                                month=request.args.get('month', 0, type=int),
+                                day=request.args.get('day', 0, type=int),
+                                year_start=request.args.get('year_start', 0, type=int),
+                                month_start=request.args.get('month_start', 0, type=int),
+                                day_start=request.args.get('day_start', 0, type=int),
+                                year_end=request.args.get('year_end', 0, type=int),
+                                month_end=request.args.get('month_end', 0, type=int),
+                                day_end=request.args.get('day_end', 0, type=int),
+                                date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                corpus=request.args.get('corpus', '').split() or ['all'],
+                                exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                composition_place=request.args.get('composition_place', ''))
+    return dumps(words)
