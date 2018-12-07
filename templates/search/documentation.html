@@ -7,22 +7,26 @@
     </header>
     <section id="search-documentation-text">
         <h4>{{ _('Corpora') }}</h4>
-        <p>{{ _('Diese Liste enthält alle durchsuchbaren Corpora des Projektes. Manche dieser Corpora stehen noch unter ') }}</p>
+        <p>{{ _("Die Liste der Corpora enthält alle durchsuchbaren Corpora des Projektes. Manche dieser Corpora sind urheberrechtlich geschützt. Obwohl diese Corpora hier durchsuchbar sind und als Treffer angezeigt werden, dürfen wir den Text dieser Editionen nicht zeigen. Sie können aber die Stellen in der Printedition nachschlagen.") }}</p>
+        <p>{{ _("Die verschiedenen Corpora-Kategorien ('Formulae' oder 'Chartae') sind verschieden indiziert. Beide sind Volltext-Indiziert, so dass man nach flektierten Wortformen suchen kann. Aus diesem Grund funktionieren Wildcard-Zeichen, 'Wortreihenfolge', 'Unschärfegrad', und 'Suchradius' für alle Dokumente. 'Lemmasuche' funktioniert aber nur für die Formeln. Und weil die Formeln keine genaue Datierung haben, funktioniert alle Datumssuchmöglichkeiten nur für die Urkunden. Wenn man nur ein Jahr entweder für eine bestimmte Datumssuche oder Datumsspannesuche eingibt, werden alle Formeln, die die andere Suchparametern (z.B. Wortsuche) erfüllen, gezeigt. Wenn man ein genaueres Datum eingibt, d.h. mit Monats- oder Tageseingabe, dann werden keine Formeln gezeigt.") }}</p>
         <h4>{{ _('Wortsuche') }}</h4>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Die Wortsuche sucht nur durch die lateinischen Texten. Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage <em><b>christ* nom*</b></em> wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei der das erste Wort mit <em><b>christ</b></em> und das zweite mit <em><b>nom</b></em> beginnt. Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen, stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein.") }}</p>
+        <h5>{{ _('Vorschlagssuche') }}</h5>
+        <p>{{ _("Die Vorschläge, die in der Wortsuche gezeigt werden, basieren auf alle andere Eingaben in der Suchmaske. Wenn man zum Beispiel <em><b>Andecavensis</b></em> als Corpus anklickt, werden nur Vorschläge aus den Formeln von Angers gezeigt. Die oben erwähnten Suchbeschränkungen gelten auch hier. Z.B. Lemmasuche liefert keine Vorschläge aus den Urkunden. Der einzige Parameter, der auf den gezeigten Vorschlägen keinen Einfluss hat, ist 'Wortreihenfolge'. Nur Vorschläge, die die selbe Wortreihenfolge haben, werden gezeigt.") }}</p>
         <h5>{{ _('Lemma') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Mit der Lemmasuche sucht man nach Wörterbuchformen statt flektierten Formen von Wörtern. Wenn man z.B. eine Lemmasuche nach <em><b>dominus</b></em> macht, dann findet man alle flektierten Formen dieses Wortes wie z.B. <em><b>domni</b></em> oder <em><b>Domeno</b></em>. Wie oben schon erwähnt funktioniert die Lemmasuche nur mit den Formeln. Die benutzte Lemmatisierungsregeln sind <a href='#'>hier</a> zu finden.") }}</p>
         <h5>{{ _('Wortreihenfolge') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Wenn die Reihenfolge der Wörter wichtig ist, dann hier anklicken. Dadurch wird z.B. eine Suche nach <em><b>uenerabile uir</b></em> ein Dokument mit <em><b>uir uenerabile</b></em> nicht finden. Wortreihenfolge wird auch mit einem Suchradius über 0 beachtet. D.h. eine Suche nach <em><b>magnificis uiris</b></em> mit einer Suchradius von 10 Wörtern wird <em><b>magnificis rei puplici uiris</b></em> finden aber <em><b>uiris uenerabilibus adque magnificis</b></em> nicht.") }}</p>
         <h5>{{ _('Unschärfegrad') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Der 'Unschärfegrad' legt fest, wie stark ein Ergebnis von der Sucheingabe abweichen darf und trotzdem als gültiges Ergebnis gilt. Die Zahlen quantifizieren, wie viele Abweichungen im Suchergebnis toleriert werden. Unschärfegrad 2 bedeutet z.B., dass zwei Buchstaben im Wort ersetzt, gelöscht, hinzugefügt oder umgesetzt sein dürfen. Wenn man z.B. nach <em><b>regnum</b></em> mit einem 'Unschärfegrad' von 2 sucht, werden die Wörter <em><b>regno</b></em> und <em><b>regni</b></em> aber auch <em><b>magnum</b></em> ('m' ersetzt 'r' und 'a' ersetzt 'e') und <em><b>legum</b></em> ('l' ersetzt 'r' und 'n' wird gelöscht) gefunden.</p>
+        <p>Mit der Einstellung 'AUTO' wird die erlaubte Zahl solcher Änderungen von der Wortlänge abhängig: bei einem Wort mit 1 oder 2 Buchstaben sind keine Änderungen erlaubt, bei 3-5 Buchstaben ist eine Änderung erlaubt und bei längeren Wörtern sind 2 Änderungen erlaubt. 'AUTO' eignet sich für die meisten Suchanfragen.") }}</p>
         <h5>{{ _('Suchradius') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen auftreten können. Bei der Suche z.B. nach <em><b>uenerabilibus uiris</b></em> mit einem Suchradius von 4 wird <em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em> gefunden.") }}</p>
         <h4>{{ _('Ausstellungsortsuche') }}</h4>
         <p>{{ _('') }}</p>
-        <h4>{{ _('Datumsuche') }}</h4>
+        <h4>{{ _('Datumssuche') }}</h4>
         <p>{{ _('') }}</p>
-        <h5>{{ _('Nach eine bestimmten Datum suchen') }}</h5>
+        <h5>{{ _('Nach einem bestimmten Datum suchen') }}</h5>
         <p>{{ _('') }}</p>
         <h6>{{ _('Datum Plus-Minus') }}</h6>
         <p>{{ _('') }}</p>
