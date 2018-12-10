@@ -8,13 +8,13 @@
     <section id="search-documentation-text">
         <h4>{{ _('Corpora') }}</h4>
         <p>{{ _("Die Liste der Corpora enthält alle durchsuchbaren Corpora des Projektes. Manche dieser Corpora sind urheberrechtlich geschützt. Obwohl diese Corpora hier durchsuchbar sind und als Treffer angezeigt werden, dürfen wir den Text dieser Editionen nicht zeigen. Sie können aber die Stellen in der Printedition nachschlagen.") }}</p>
-        <p>{{ _("Die verschiedenen Corpora-Kategorien ('Formulae' oder 'Chartae') sind verschieden indiziert. Beide sind Volltext-Indiziert, so dass man nach flektierten Wortformen suchen kann. Aus diesem Grund funktionieren Wildcard-Zeichen, 'Wortreihenfolge', 'Unschärfegrad', und 'Suchradius' für alle Dokumente. 'Lemmasuche' funktioniert aber nur für die Formeln. Und weil die Formeln keine genaue Datierung haben, funktioniert alle Datumssuchmöglichkeiten nur für die Urkunden. Wenn man nur ein Jahr entweder für eine bestimmte Datumssuche oder Datumsspannesuche eingibt, werden alle Formeln, die die andere Suchparametern (z.B. Wortsuche) erfüllen, gezeigt. Wenn man ein genaueres Datum eingibt, d.h. mit Monats- oder Tageseingabe, dann werden keine Formeln gezeigt.") }}</p>
+        <p>{{ _("Die verschiedenen Corpora-Kategorien ('Formulae' oder 'Chartae') sind verschieden indiziert. Beide sind Volltext-Indiziert, so dass man nach flektierten Wortformen suchen kann. Aus diesem Grund funktionieren Wildcard-Zeichen, 'Wortreihenfolge', 'Unschärfegrad', und 'Suchradius' für alle Dokumente. 'Lemmasuche' funktioniert aber nur für die Formeln. Und weil die Formeln weder genaue Datierung noch Ausstellungsortsangaben haben, funktionieren alle Datumssuchmöglichkeiten und Ausstellungsortsuche nur für die Urkunden. Siehe unten für mehr Information dazu.") }}</p>
         <h4>{{ _('Wortsuche') }}</h4>
         <p>{{ _("Die Wortsuche sucht nur durch die lateinischen Texten. Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage <em><b>christ* nom*</b></em> wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei der das erste Wort mit <em><b>christ</b></em> und das zweite mit <em><b>nom</b></em> beginnt. Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen, stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein.") }}</p>
         <h5>{{ _('Vorschlagssuche') }}</h5>
         <p>{{ _("Die Vorschläge, die in der Wortsuche gezeigt werden, basieren auf alle andere Eingaben in der Suchmaske. Wenn man zum Beispiel <em><b>Andecavensis</b></em> als Corpus anklickt, werden nur Vorschläge aus den Formeln von Angers gezeigt. Die oben erwähnten Suchbeschränkungen gelten auch hier. Z.B. Lemmasuche liefert keine Vorschläge aus den Urkunden. Der einzige Parameter, der auf den gezeigten Vorschlägen keinen Einfluss hat, ist 'Wortreihenfolge'. Nur Vorschläge, die die selbe Wortreihenfolge haben, werden gezeigt.") }}</p>
         <h5>{{ _('Lemma') }}</h5>
-        <p>{{ _("Mit der Lemmasuche sucht man nach Wörterbuchformen statt flektierten Formen von Wörtern. Wenn man z.B. eine Lemmasuche nach <em><b>dominus</b></em> macht, dann findet man alle flektierten Formen dieses Wortes wie z.B. <em><b>domni</b></em> oder <em><b>Domeno</b></em>. Wie oben schon erwähnt funktioniert die Lemmasuche nur mit den Formeln. Die benutzte Lemmatisierungsregeln sind <a href='#'>hier</a> zu finden.") }}</p>
+        <p>{{ _("Mit der Lemmasuche sucht man nach Wörterbuchformen statt flektierten Formen von Wörtern. Wenn man z.B. eine Lemmasuche nach <em><b>dominus</b></em> macht, dann findet man alle flektierten Formen dieses Wortes wie z.B. <em><b>domni</b></em> oder <em><b>Domeno</b></em>. Wie oben schon erwähnt funktioniert die Lemmasuche nur mit den Formeln. Die Lemmatisierungsregeln sind <a href='#'>hier</a> zu finden.") }}</p>
         <h5>{{ _('Wortreihenfolge') }}</h5>
         <p>{{ _("Wenn die Reihenfolge der Wörter wichtig ist, dann hier anklicken. Dadurch wird z.B. eine Suche nach <em><b>uenerabile uir</b></em> ein Dokument mit <em><b>uir uenerabile</b></em> nicht finden. Wortreihenfolge wird auch mit einem Suchradius über 0 beachtet. D.h. eine Suche nach <em><b>magnificis uiris</b></em> mit einer Suchradius von 10 Wörtern wird <em><b>magnificis rei puplici uiris</b></em> finden aber <em><b>uiris uenerabilibus adque magnificis</b></em> nicht.") }}</p>
         <h5>{{ _('Unschärfegrad') }}</h5>
@@ -23,17 +23,17 @@
         <h5>{{ _('Suchradius') }}</h5>
         <p>{{ _("Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen auftreten können. Bei der Suche z.B. nach <em><b>uenerabilibus uiris</b></em> mit einem Suchradius von 4 wird <em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em> gefunden.") }}</p>
         <h4>{{ _('Ausstellungsortsuche') }}</h4>
-        <p>{{ _('') }}</p>
+        <p>{{ _('Wie oben schon erwähnt, funktioniert die Ausstellungsortsuche nur für Urkunden.') }}</p>
         <h4>{{ _('Datumssuche') }}</h4>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Da Formeln keine genaue Datierung haben, funktioniert die Datumssuche für Formeln als für Urkunden. Wenn man eine Suche macht, wo keine Monats- oder Tagesangaben sind, dann findet man alle Formeln, die die anderen Suchparametern erfüllen. Wenn man eine bestimmte Datumssuche oder eine 'exklusive' Datumsspannesuche mit Monats- oder Tagesangaben macht, dann findet man keine Formeln. Aber wenn man eine nicht 'exklusive' Datumsspannesuche macht, die mehrere Jahre spannt (auch mit Monats- oder Tagesangaben), findet man alle Formeln, die die anderen Suchparametern erfüllen.") }}</p>
         <h5>{{ _('Nach einem bestimmten Datum suchen') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Liefert alle Suchergebnisse, die den Datumsangaben entsprechen. Wenn man z.B. das Jahr 800 eingibt, werden Dokumente mit Datierungen im Jahr 800 (z.B. '17. Juni 800') aber auch mit Datumsspannen, die mit dem Jahr 800 überlappen (z.B. '769-813'), gefunden.") }}</p>
         <h6>{{ _('Datum Plus-Minus') }}</h6>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Hier wird die erlaubte Abweichung vom eingegebene Jahresangabe in der Suche nach einem bestimmten Datum. Gibt man z.B. '800 Juni 17' mit einem Datum Plus-Minus von 49 Jahren, findet man Dokumente die am 17. Juni zwischen den Jahren 751 und 849 ausgestellt wurden.") }}</p>
         <h5>{{ _('Nach einer Datumsspanne suchen') }}</h5>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Wenn man nach einer Datumsspanne sucht, dann findet man alle Dokumente, die zwischen den Anfangs- und Enddaten sind. Wenn man von '750 Juni 17' bis '850 Juni 17' sucht, findet man z.B. Dokumente von 31. Dezember 777 oder 12. Februar 813.") }}</p>
         <h6>{{ _('Excklusiv') }}</h6>
-        <p>{{ _('') }}</p>
+        <p>{{ _("Wenn man eine 'exklusive' Datumsspannesuche macht, dann sucht man nach eine bestimmte Monats- oder Tagesspanne innerhalb mehreren Jahren. Wenn man 'exklusiv' z.B. von 17. Juni 800 bis 22. November 813 sucht, dann findet man nur Dokumente, die zwischen dem 17. Juni und dem 22. November zwischen den Jahren 800 und 813 ausgestellt wurden. Das heißt, man findet ein Dokument, das zum 18. November 803 datiert ist, aber nicht eins, das zum 23. November 803 datiert ist.") }}</p>
     </section>
     <footer>
 
