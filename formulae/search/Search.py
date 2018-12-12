@@ -25,13 +25,27 @@ def remove_from_index(index, model):
     current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
 
 
-def query_index(index, field, query, page, per_page):
+def build_sort_list(sort_str):
+    if sort_str == 'urn':
+        return 'urn'
+    if sort_str == 'min_date_asc':
+        return [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn']
+    if sort_str == 'max_date_asc':
+        return [{'all_dates': {'order': 'asc', 'mode': 'max'}}, 'urn']
+    if sort_str == 'min_date_desc':
+        return [{'all_dates': {'order': 'desc', 'mode': 'min'}}, 'urn']
+    if sort_str == 'max_date_desc':
+        return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
+
+
+def query_index(index, field, query, page, per_page, sort='urn'):
     if not current_app.elasticsearch:
         return [], 0
     if index in ['', ['']]:
         return [], 0
     query_terms = query.split()
     clauses = []
+    sort = build_sort_list(sort)
     for term in query_terms:
         if '*' in term or '?' in term:
             clauses.append({'span_multi': {'match': {'wildcard': {'text': term}}}})
@@ -40,7 +54,7 @@ def query_index(index, field, query, page, per_page):
     search = current_app.elasticsearch.search(
     index=index, doc_type="",
     body={'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
-          "sort": 'urn',
+          "sort": sort,
           'from': (page - 1) * per_page, 'size': per_page,
           'highlight':
               {'fields':
@@ -116,6 +130,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
                          composition_place='', sort='urn', **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    sort = build_sort_list(sort)
     body_template = {"query": {"bool": {"must": []}}, "sort": sort,
                      'from': (page - 1) * per_page, 'size': per_page
                      }

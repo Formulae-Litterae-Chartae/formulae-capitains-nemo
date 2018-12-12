@@ -222,7 +222,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='')
+                                           exclusive_date_range='False', composition_place='', sort="urn")
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=Regnum&year=600&month=1&day=31&'
@@ -234,7 +234,7 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.query_index")
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', q='regnum')
+        params = dict(corpus='formulae%2Bchartae', q='regnum', sort='urn')
         mock_search.return_value = [[], 0]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),

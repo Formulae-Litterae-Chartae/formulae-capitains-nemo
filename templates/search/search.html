@@ -8,6 +8,7 @@
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
+    <p>{{ _('Sort by:') }} <a href="{{ sort_urls['urn'] }}">{{ _('Corpus') }}</a> <a href="{{ sort_urls['min_date_asc'] }}">{{ _('Date Asc') }}</a></p>
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
