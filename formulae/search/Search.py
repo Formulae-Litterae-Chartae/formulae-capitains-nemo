@@ -36,6 +36,8 @@ def build_sort_list(sort_str):
         return [{'all_dates': {'order': 'desc', 'mode': 'min'}}, 'urn']
     if sort_str == 'max_date_desc':
         return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
+    if sort_str == 'urn_desc':
+        return [{'urn': {'order': 'desc'}}]
 
 
 def query_index(index, field, query, page, per_page, sort='urn'):

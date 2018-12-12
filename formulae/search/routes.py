@@ -41,7 +41,8 @@ def r_results():
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
-        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus)}
+        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
+                       'sort': request.args.get('sort', 'urn')}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
@@ -84,7 +85,7 @@ def r_results():
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     orig_sort = search_args.pop('sort', '')
     sort_urls = dict()
-    for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc']:
+    for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
