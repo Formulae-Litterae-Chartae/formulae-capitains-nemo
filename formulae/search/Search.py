@@ -132,6 +132,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
                          composition_place='', sort='urn', **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    old_sort = sort
     sort = build_sort_list(sort)
     body_template = {"query": {"bool": {"must": []}}, "sort": sort,
                      'from': (page - 1) * per_page, 'size': per_page
@@ -239,20 +240,16 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"]:
-        req_name = "corpus={corpus}&field={field}&q={q}&fuzziness={fuzz}&in_order={in_order}&year={y}&slop={slop}&" \
-                   "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
-                   "month_end={m_e}&day_end={d_e}&date_plus_minus={d_p_m}&" \
-                   "exclusive_date_range={e_d_r}&composition_place={c_p}".format(corpus='+'.join(corpus), field=field,
-                                                                                 q=q.replace(' ', '+'),
-                                                                                 fuzz=fuzziness, in_order=in_order,
-                                                                                 slop=slop, y=year, m=month, d=day,
-                                                                                 y_s=year_start, m_s=month_start,
-                                                                                 d_s=day_start, y_e=year_end,
-                                                                                 m_e=month_end, d_e=day_end,
-                                                                                 d_p_m=date_plus_minus,
-                                                                                 e_d_r=exclusive_date_range,
-                                                                                 c_p=kwargs['composition_place'])
+    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field:
+        req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
+                   "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
+                   "{m_e}&{d_e}&{d_p_m}&" \
+                   "{e_d_r}&{c_p}&" \
+                   "{sort}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
+                                        in_order=in_order, slop=slop, y=year, m=month,  d=day, y_s=year_start,
+                                        m_s=month_start, d_s=day_start, y_e=year_end, m_e=month_end, d_e=day_end,
+                                        d_p_m=date_plus_minus, e_d_r=exclusive_date_range,
+                                        c_p=composition_place, sort=old_sort)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results
