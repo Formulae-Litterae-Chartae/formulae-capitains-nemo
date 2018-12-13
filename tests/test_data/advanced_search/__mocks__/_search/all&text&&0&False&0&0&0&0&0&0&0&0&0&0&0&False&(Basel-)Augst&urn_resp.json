@@ -1,9 +1,9 @@
 {
-  "took": 3,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 12,
-    "successful": 12,
+    "total": 13,
+    "successful": 13,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v5",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0015.lat001",
         "_score": null,
@@ -23,6 +23,8 @@
           "urn": "urn:cts:formulae:stgallen.wartmann0015.lat001",
           "date_string": "752 04 14",
           "comp_ort": "(Basel- oder Kaiser-)Augst",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "specific_date": [
             {
               "year": 752,
@@ -30,14 +32,16 @@
               "day": 14
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0752-04-14"
+          ]
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0015.lat001"
         ]
       },
       {
-        "_index": "stgallen_v5",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -48,6 +52,8 @@
           "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "date_string": "825 05 11",
           "comp_ort": "(Basel-)Augst",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "specific_date": [
             {
               "year": 825,
@@ -55,7 +61,9 @@
               "day": 11
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0825-05-11"
+          ]
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0291.lat001"

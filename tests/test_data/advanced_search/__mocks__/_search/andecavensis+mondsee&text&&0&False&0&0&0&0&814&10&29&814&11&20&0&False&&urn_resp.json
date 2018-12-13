@@ -1,5 +1,5 @@
 {
-  "took": 22,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -23,20 +23,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0003.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -47,20 +52,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0012.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -71,20 +81,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0041.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -95,20 +110,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0043.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -119,20 +139,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0046.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0046.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -143,20 +168,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0048.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -167,20 +197,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0051.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0051.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -191,20 +226,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0054.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -215,20 +255,25 @@
           "urn": "urn:cts:formulae:mondsee.rath0058.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0058.lat001"
         ]
       },
       {
-        "_index": "mondsee_v5",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0065.lat001",
         "_score": null,
@@ -239,13 +284,18 @@
           "urn": "urn:cts:formulae:mondsee.rath0065.lat001",
           "date_string": "Vor 803 - 816 03 29",
           "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0803",
               "lte": "0816-03-29"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0803",
+            "0816-03-29"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0065.lat001"
