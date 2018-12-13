@@ -6,6 +6,10 @@ from string import punctuation
 import re
 
 
+PRE_TAGS = "</small><strong>"
+POST_TAGS = "</strong><small>"
+
+
 def add_to_index(index, model):
     if not current_app.elasticsearch:
         return
@@ -21,13 +25,29 @@ def remove_from_index(index, model):
     current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
 
 
-def query_index(index, field, query, page, per_page):
+def build_sort_list(sort_str):
+    if sort_str == 'urn':
+        return 'urn'
+    if sort_str == 'min_date_asc':
+        return [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn']
+    if sort_str == 'max_date_asc':
+        return [{'all_dates': {'order': 'asc', 'mode': 'max'}}, 'urn']
+    if sort_str == 'min_date_desc':
+        return [{'all_dates': {'order': 'desc', 'mode': 'min'}}, 'urn']
+    if sort_str == 'max_date_desc':
+        return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
+    if sort_str == 'urn_desc':
+        return [{'urn': {'order': 'desc'}}]
+
+
+def query_index(index, field, query, page, per_page, sort='urn'):
     if not current_app.elasticsearch:
         return [], 0
     if index in ['', ['']]:
         return [], 0
     query_terms = query.split()
     clauses = []
+    sort = build_sort_list(sort)
     for term in query_terms:
         if '*' in term or '?' in term:
             clauses.append({'span_multi': {'match': {'wildcard': {'text': term}}}})
@@ -36,19 +56,19 @@ def query_index(index, field, query, page, per_page):
     search = current_app.elasticsearch.search(
     index=index, doc_type="",
     body={'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
-          "sort": 'urn',
+          "sort": sort,
           'from': (page - 1) * per_page, 'size': per_page,
           'highlight':
               {'fields':
                    {field: {"fragment_size": 300}
                     },
-               'pre_tags': ["</small><strong>"],
-               'post_tags': ["</strong><small>"],
+               'pre_tags': [PRE_TAGS],
+               'post_tags': [POST_TAGS],
                'encoder': 'html'
                },
           }
     )
-    ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(x) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+    ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     return ids, search['hits']['total']
 
 
@@ -110,13 +130,13 @@ def highlight_segment(orig_str, chars_before, chars_after, pre_tag, post_tag):
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         **kwargs):
+                         composition_place='', sort='urn', **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
-    body_template = {"query": {"bool": {"must": []}}, "sort": 'urn',
+    old_sort = sort
+    sort = build_sort_list(sort)
+    body_template = {"query": {"bool": {"must": []}}, "sort": sort,
                      'from': (page - 1) * per_page, 'size': per_page
                      }
-    pre_tags = "</small><strong>"
-    post_tags = "</strong><small>"
     if not current_app.elasticsearch:
         return [], 0
     if field == 'lemmas':
@@ -126,14 +146,14 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             return [], 0
     else:
         fuzz = fuzziness
-    if kwargs['composition_place']:
-        body_template['query']['bool']['must'].append({'match': {'comp_ort': kwargs['composition_place']}})
+    if composition_place:
+        body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
         if field != 'lemmas':
             # Highlighting for lemma searches is transferred to the "text" field.
             body_template['highlight'] = {'fields': {field: {"fragment_size": kwargs['fragment_size'] if 'fragment_size' in kwargs else 1000}},
-                                          'pre_tags': [pre_tags],
-                                          'post_tags': [post_tags],
+                                          'pre_tags': [PRE_TAGS],
+                                          'post_tags': [POST_TAGS],
                                           'encoder': 'html'
                                           }
         clauses = []
@@ -216,24 +236,20 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x, 30, 30, pre_tags, post_tags)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+                    'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"]:
-        req_name = "corpus={corpus}&field={field}&q={q}&fuzziness={fuzz}&in_order={in_order}&year={y}&slop={slop}&" \
-                   "month={m}&day={d}&year_start={y_s}&month_start={m_s}&day_start={d_s}&year_end={y_e}&" \
-                   "month_end={m_e}&day_end={d_e}&date_plus_minus={d_p_m}&" \
-                   "exclusive_date_range={e_d_r}&composition_place={c_p}".format(corpus='+'.join(corpus), field=field,
-                                                                                 q=q.replace(' ', '+'),
-                                                                                 fuzz=fuzziness, in_order=in_order,
-                                                                                 slop=slop, y=year, m=month, d=day,
-                                                                                 y_s=year_start, m_s=month_start,
-                                                                                 d_s=day_start, y_e=year_end,
-                                                                                 m_e=month_end, d_e=day_end,
-                                                                                 d_p_m=date_plus_minus,
-                                                                                 e_d_r=exclusive_date_range,
-                                                                                 c_p=kwargs['composition_place'])
+    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field:
+        req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
+                   "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
+                   "{m_e}&{d_e}&{d_p_m}&" \
+                   "{e_d_r}&{c_p}&" \
+                   "{sort}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
+                                        in_order=in_order, slop=slop, y=year, m=month,  d=day, y_s=year_start,
+                                        m_s=month_start, d_s=day_start, y_e=year_end, m_e=month_end, d_e=day_end,
+                                        d_p_m=date_plus_minus, e_d_r=exclusive_date_range,
+                                        c_p=composition_place, sort=old_sort)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results
