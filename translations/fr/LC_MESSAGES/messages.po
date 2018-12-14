@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-29 09:06+0100\n"
+"POT-Creation-Date: 2018-12-14 13:55+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,46 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18 tests/test_routes.py:68
+#: formulae/__init__.py:18 tests/test_routes.py:70
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:77
+#: formulae/nemo.py:78
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:77
+#: formulae/nemo.py:78
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:77
+#: formulae/nemo.py:78
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:242
+#: formulae/nemo.py:243
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:244 formulae/nemo.py:304 formulae/nemo.py:357
-#: tests/test_routes.py:97 tests/test_routes.py:99
+#: formulae/nemo.py:245 formulae/nemo.py:305 formulae/nemo.py:358
+#: tests/test_routes.py:99 tests/test_routes.py:101
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:416
+#: formulae/nemo.py:417
 msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:423
+#: formulae/nemo.py:424
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:489 tests/test_routes.py:101 tests/test_routes.py:103
+#: formulae/nemo.py:496 tests/test_routes.py:103 tests/test_routes.py:105
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:374
+#: formulae/auth/forms.py:53 tests/test_routes.py:402
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:376
+#: formulae/auth/forms.py:58 tests/test_routes.py:404
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:403
+#: formulae/auth/routes.py:27 tests/test_routes.py:431
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:429
+#: formulae/auth/routes.py:137 tests/test_routes.py:457
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:78
+#: formulae/search/Search.py:145
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -206,7 +206,7 @@ msgid ""
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:109 formulae/search/routes.py:81
+#: formulae/search/forms.py:109 formulae/search/routes.py:91
 msgid "Suche"
 msgstr "Recherche"
 
@@ -223,7 +223,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:337
+#: formulae/search/forms.py:44 tests/test_routes.py:365
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -360,7 +360,7 @@ msgstr "Exclusif"
 msgid "Ausstellungsort"
 msgstr ""
 
-#: formulae/search/routes.py:104
+#: formulae/search/routes.py:115
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
 msgstr ""
 
-#: templates/main/multipassage.html:66
+#: templates/main/multipassage.html:67
 msgid "Diesen Text ausblenden"
 msgstr ""
 
@@ -751,17 +751,17 @@ msgstr ""
 "contenant potentiellement d'autres mots entre eux, définissez un «rayon "
 "de recherche» supérieur à 0."
 
-#: templates/search/advanced_search.html:34
+#: templates/search/advanced_search.html:38
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
 msgstr ""
 "La recherche par lemme est actuellement indisponible pour les formules "
 "latines."
 
-#: templates/search/advanced_search.html:34
+#: templates/search/advanced_search.html:38
 msgid "Die Reihenfolge der Wörter beibehalten"
 msgstr ""
 
-#: templates/search/advanced_search.html:36
+#: templates/search/advanced_search.html:40
 msgid ""
 "Der 'Unschärfegrad' legt fest, wie stark ein Ergebnis von der Sucheingabe"
 " abweichen darf und trotzdem als gültiges Ergebnis gilt. Die Zahlen "
@@ -785,11 +785,11 @@ msgstr ""
 "sont autorisées. \"AUTO\" devrait fonctionner au mieux pour la plupart "
 "des recherches."
 
-#: templates/search/advanced_search.html:39
+#: templates/search/advanced_search.html:43
 msgid "Wörter"
 msgstr "Mots"
 
-#: templates/search/advanced_search.html:39
+#: templates/search/advanced_search.html:43
 msgid ""
 "Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen"
 " auftreten können. Bei der Suche nach 'christ* nom' mit einem Suchradius "
@@ -801,15 +801,15 @@ msgstr ""
 "recherche de 50 trouvera tous les endroits où ces deux mots apparaissent "
 "dans les 50 mots."
 
-#: templates/search/advanced_search.html:43
+#: templates/search/advanced_search.html:47
 msgid "Ausstellungsortsuche"
 msgstr ""
 
-#: templates/search/advanced_search.html:55
+#: templates/search/advanced_search.html:59
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
 msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
-#: templates/search/advanced_search.html:55
+#: templates/search/advanced_search.html:59
 msgid ""
 "Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
 "unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
@@ -832,19 +832,19 @@ msgstr ""
 "correspondant aux autres critères de recherche, vous devez effectuer une "
 "deuxième recherche sans date limitée aux formules."
 
-#: templates/search/advanced_search.html:56
+#: templates/search/advanced_search.html:60
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Rechercher une date précise"
 
-#: templates/search/advanced_search.html:84
+#: templates/search/advanced_search.html:88
 msgid "Jahr(e)"
 msgstr "an(s)"
 
-#: templates/search/advanced_search.html:89
+#: templates/search/advanced_search.html:93
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Rechercher dans un laps de temps"
 
-#: templates/search/advanced_search.html:90
+#: templates/search/advanced_search.html:94
 msgid ""
 "Die 'exklusive Datumsspannensuche' ist eine spezielle Suche, die für eine"
 " Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des "
@@ -863,15 +863,15 @@ msgstr ""
 "octobre 700 ne sera pas retourné. Un document daté du 15 octobre 750 "
 "environ le sera cependant."
 
-#: templates/search/advanced_search.html:91
+#: templates/search/advanced_search.html:95
 msgid "Von"
 msgstr "A partir de"
 
-#: templates/search/advanced_search.html:118
+#: templates/search/advanced_search.html:122
 msgid "Bis"
 msgstr "Jusqu’à"
 
-#: templates/search/advanced_search.html:149
+#: templates/search/advanced_search.html:153
 msgid "Zurücksetzen"
 msgstr ""
 
@@ -883,7 +883,27 @@ msgstr "Résultats de la recherche"
 msgid "Keine Ergebnisse gefunden für"
 msgstr ""
 
-#: templates/search/search.html:23
+#: templates/search/search.html:15
+msgid "Sortieren nach"
+msgstr ""
+
+#: templates/search/search.html:18
+msgid "Name"
+msgstr ""
+
+#: templates/search/search.html:19
+msgid "Datierung"
+msgstr ""
+
+#: templates/search/search.html:24 templates/search/search.html:26
+msgid "Aufsteigend"
+msgstr ""
+
+#: templates/search/search.html:25 templates/search/search.html:27
+msgid "Absteigend"
+msgstr ""
+
+#: templates/search/search.html:44
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
