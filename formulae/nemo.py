@@ -509,7 +509,7 @@ class NemoFormulae(Nemo):
         """
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
-        texts = [re.sub('[{}„“…]'.format(punctuation), '', x.text) for x in spans if re.sub('[{}„“…]'.format(punctuation), '', x.text) != '']
+        texts = [re.sub('[{}„“…]'.format(punctuation), '', re.sub(r'&[lg]t;', '', x.text)) for x in spans if re.sub('[{}„“…]'.format(punctuation), '', x.text) != '']
         for sent in sents:
             words = sent.split()
             for i in range(len(spans)):
