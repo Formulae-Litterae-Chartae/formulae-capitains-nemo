@@ -79,7 +79,7 @@ def suggest_composition_places():
     """
     body = {'query': {'exists': {'field': 'comp_ort'}}}
     results = []
-    for x in current_app.elasticsearch.search(index='', doc_type='', size=10000, body=body)['hits']['hits']:
+    for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
         results += x['_source']['comp_ort'].split('; ')
     return sorted(set(results))
 
