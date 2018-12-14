@@ -1,233 +1,304 @@
 {
-  "took": 17,
+  "took": 1,
   "timed_out": false,
   "_shards": {
-    "total": 12,
-    "successful": 12,
+    "total": 2,
+    "successful": 2,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 42,
+    "total": 20,
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 3",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
           "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0003.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 12",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
           "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0012.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
-        "_type": "mondsee",
-        "_id": "urn:cts:formulae:mondsee.rath0018.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 18",
-          "urn": "urn:cts:formulae:mondsee.rath0018.lat001",
-          "dating": [
-            {
-              "lte": "0816"
-            }
-          ],
-          "autocomplete": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:mondsee.rath0018.lat001"
-        ]
-      },
-      {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 41",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
           "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0041.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 43",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
           "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0043.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 46",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 46",
           "urn": "urn:cts:formulae:mondsee.rath0046.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0046.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 48",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
           "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0048.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 51",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 51",
           "urn": "urn:cts:formulae:mondsee.rath0051.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0051.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 54",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
           "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0054.lat001"
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Mondsee Urkunden , Rath/Reiter Nummer 58",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 58",
           "urn": "urn:cts:formulae:mondsee.rath0058.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
           "dating": [
             {
               "gte": "0748",
               "lte": "0829"
             }
           ],
-          "autocomplete": "text"
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
         },
         "sort": [
           "urn:cts:formulae:mondsee.rath0058.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v1",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0065.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 65",
+          "urn": "urn:cts:formulae:mondsee.rath0065.lat001",
+          "date_string": "Vor 803 - 816 03 29",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "gte": "0803",
+              "lte": "0816-03-29"
+            }
+          ],
+          "all_dates": [
+            "0803",
+            "0816-03-29"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:mondsee.rath0065.lat001"
         ]
       }
     ]

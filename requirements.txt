@@ -17,3 +17,4 @@ PyJWT>=1.6.4
 python-slugify==1.2.1
 python-dotenv>=0.8.2
 SQLAlchemy>=1.2.7
+gunicorn>=19.9.0

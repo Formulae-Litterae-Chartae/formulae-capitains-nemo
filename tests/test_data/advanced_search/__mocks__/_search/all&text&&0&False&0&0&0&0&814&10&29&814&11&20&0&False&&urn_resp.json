@@ -1,0 +1,294 @@
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 13,
+    "successful": 13,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 48,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.1",
+          "urn": "urn:cts:formulae:luzern.schiess0001.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0001.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.2",
+          "urn": "urn:cts:formulae:luzern.schiess0002.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0002.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.3",
+          "urn": "urn:cts:formulae:luzern.schiess0003.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0003.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.4",
+          "urn": "urn:cts:formulae:luzern.schiess0004.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0004.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.5",
+          "urn": "urn:cts:formulae:luzern.schiess0005.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0005.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.6",
+          "urn": "urn:cts:formulae:luzern.schiess0006.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "lte": "0840"
+            }
+          ],
+          "all_dates": [
+            "0840"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0006.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v1",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
+          "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:mondsee.rath0003.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v1",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
+          "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:mondsee.rath0012.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v1",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
+          "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:mondsee.rath0041.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v1",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
+          "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:mondsee.rath0043.lat001"
+        ]
+      }
+    ]
+  }
+}

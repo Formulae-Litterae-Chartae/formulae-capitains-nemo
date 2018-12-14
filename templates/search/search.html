@@ -8,12 +8,33 @@
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
+    <p>
+        <table id="results-sort-table" class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th colspan="4">{{ _('Sortieren nach') }}</th>
+                </tr>
+                <tr>
+                    <th colspan="2">{{ _('Name') }}</th>
+                    <th colspan="2">{{ _('Datierung') }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="{{ sort_urls['urn'] }}">{{ _('Auf') }}</a></td>
+                    <td><a href="{{ sort_urls['urn_desc'] }}">{{ _('Ab') }}</a></td>
+                    <td><a href="{{ sort_urls['min_date_asc'] }}">{{ _('Auf') }}</a></td>
+                    <td><a href="{{ sort_urls['min_date_desc'] }}">{{ _('Ab') }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
             <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all', result_sents=post['sents']|join('$')) }}">
                 {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}</div>
+            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['comp_ort']  != ' ' %} ({{ post['info']['comp_ort'] }}){% endif %}</div>
             <div class="card-body py-0">
                 {% for sent in post['sents'] %}
                 <p class="card-text m-0"><small>- {{ sent }}</small></p>
@@ -22,7 +43,7 @@
             {% else %}
             <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">
                 {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}</div>
+            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['comp_ort']  != ' ' %} ({{ post['info']['comp_ort'] }}){% endif %}</div>
             {% endif %}
         </div>
     {% endfor %}

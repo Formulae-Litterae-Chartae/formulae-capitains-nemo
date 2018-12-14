@@ -333,3 +333,12 @@ nav .dropdown:hover .dropdown-menu {
 .searched {
     background-color: yellow;
 }
+    
+#results-sort-table {
+    width: 300px; 
+    margin: auto;
+}
+
+#results-sort-table th, #results-sort-table td {
+    text-align: center;
+}

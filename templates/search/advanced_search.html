@@ -30,7 +30,11 @@
                 <div class="col-2">
                     <div class="form-group">
                         <div class="text-center mb-2"><strong>{{ _('Wortsuche') }}</strong><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Wildcard-Zeichen sind erlaubt. Ein Fragezeichen (\'?\') ersetzt ein einzelnes Zeichen, ein Stern (\'*\') ein oder mehr Zeichen. Beide funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage \'christ* nom*\' wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei der das erste Wort mit \'christ\' und das zweite mit \'nom\' beginnt. Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen, stellen Sie bitte einen entsprechenden \'Suchradius\' größer als 0 ein.') }}"><i class="fas fa-question-circle" ></i></a></div>
-                        <p>{{ form.q(class="form-control my-0", placeholder=form.q.label.text) }}</p>
+                        <div>
+                            {{ form.q(class="form-control my-0", placeholder=form.q.label.text, id="word-search-box", list="word-search-datalist", default=form.q.label.text, autocomplete="off") }}
+                            <datalist id="word-search-datalist">
+                            </datalist>
+                        </div>
                         <p class="mb-0" style="font-size: small"><span title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label }}</span></span> <span title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label }}</span></span></p>
                     </div>
                     <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link pl-0" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Der \'Unschärfegrad\' legt fest, wie stark ein Ergebnis von der Sucheingabe abweichen darf und trotzdem als gültiges Ergebnis gilt. Die Zahlen quantifizieren, wie viele Abweichungen im Suchergebnis toleriert werden. Unschärfegrad 2 bedeutet z.B., dass zwei Buchstaben im Wort ersetzt, gelöscht, hinzugefügt oder umgesetzt sein dürfen. Mit der Einstellung \'AUTO\' wird die erlaubte Zahl solcher Änderungen von der Wortlänge abhängig: bei einem Wort mit 1 oder 2 Buchstaben sind keine Änderungen erlaubt, bei 3-5 Buchstaben ist eine Änderung erlaubt und bei längeren Wörtern sind 2 Änderungen erlaubt. \'AUTO\' eignet sich für die meisten Suchanfragen.') }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
@@ -38,6 +42,17 @@
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
                         <output for="slop" id="slop-value">{{ form.slop.data }}</output> {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen auftreten können. Bei der Suche nach \'christ* nom\' mit einem Suchradius von 50 werden beispielsweise alle Stellen gefunden, wo beide Begriffe innerhalb von 50 Wörtern auftauchen.') }}"><i class="fas fa-question-circle" ></i></a></div>
                         {{ form.slop(oninput="outputUpdate(value, '#slop-value')") }}
+                    </div>
+                    <div class="form-group">
+                        <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong></div>
+                        <div>
+                            {{ form.composition_place(class="form-control my-0", id="place-search", list="place-datalist", placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
+                            <datalist id="place-datalist">
+                                {% for place in composition_places %}
+                                <option value="{{place}}"></option>
+                                {% endfor %}
+                            </datalist>
+                        </div>
                     </div>
                 </div>
                 <div class="col-auto date-search">
@@ -70,10 +85,10 @@
                         </div>  
                     </div>
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.date_plus_minus.label }}: 
-                        <output for="date_plus_minus" id="date-plus-minus">{{ form.date_plus_minus.data }}</output> {{ _('Jahr(e)') }}</div>
+                        <output for="date_plus_minus" id="date-plus-minus-output">{{ form.date_plus_minus.data }}</output> {{ _('Jahr(e)') }}</div>
                     </div>
                     <div class="form-row align-items-center justify-content-center">
-                        {{ form.date_plus_minus(oninput="outputUpdate(value, '#date-plus-minus')") }}
+                        {{ form.date_plus_minus(oninput="outputUpdate(value, '#date-plus-minus-output')") }}
                     </div>
                     <div class="text-center title"><strong>{{ _('Nach einer Datumsspanne suchen') }}</strong></div>
                     <div class="text-center">{{ form.exclusive_date_range(class="align-text-top") }} {{ form.exclusive_date_range.label()}}<a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die \'exklusive Datumsspannensuche\' ist eine spezielle Suche, die für eine Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des Kalenderjahres sucht. Eine exklusive Suche für den Zeitraum vom 7. Oktober 700 bis 21. Oktober 800 findet alle Dokumente, die zwischen 7. Oktober und 21. Oktober in den Jahren zwischen 700 und 800 datiert sind. Ein Dokument, das auf den 22. Oktober 700 datiert wird, erscheint nicht als Suchergebnis. Ein Dokument, das auf den 15. Oktober 750 datiert wird, jedoch schon.') }}"><i class="fas fa-question-circle" ></i></a></div>
@@ -137,4 +152,8 @@
             <br>
             <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Zurücksetzen') }}</a></div>
         </form>
+{% endblock %}
+
+{% block additionalscript %}
+<script src="{{url_for('InstanceNemo.static', filename='js/advanced_search.js')}}"></script>
 {% endblock %}

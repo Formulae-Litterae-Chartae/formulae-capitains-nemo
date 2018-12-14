@@ -2,9 +2,10 @@ from flask import redirect, request, url_for, g, flash, current_app
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index, advanced_query_index
+from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search
 from .forms import AdvancedSearchForm
 from formulae.search import bp
+from json import dumps
 
 
 @bp.route("/simple", methods=["GET"])
@@ -17,7 +18,7 @@ def r_simple_search():
     data = g.search_form.data
     data['q'] = data['q'].lower()
     corpus = '+'.join(data.pop("corpus"))
-    return redirect(url_for('.r_results', source='simple', corpus=corpus, **data))
+    return redirect(url_for('.r_results', source='simple', corpus=corpus, sort="urn", **data))
 
 
 @bp.route("/results", methods=["GET"])
@@ -36,8 +37,12 @@ def r_results():
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total = query_index(corpus, 'text', g.search_form.q.data, page, current_app.config['POSTS_PER_PAGE'])
-        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus)}
+        posts, total = query_index(corpus, 'text',
+                                   g.search_form.q.data,
+                                   page, current_app.config['POSTS_PER_PAGE'],
+                                   sort=request.args.get('sort', 'urn'))
+        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
+                       'sort': request.args.get('sort', 'urn')}
     else:
         posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
@@ -55,7 +60,9 @@ def r_results():
                                             day_end=request.args.get('day_end', 0, type=int),
                                             date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
                                             corpus=corpus or ['all'],
-                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"))
+                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                            composition_place=request.args.get('composition_place', ''),
+                                            sort=request.args.get('sort', 'urn'))
         search_args = dict(request.args)
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
@@ -76,10 +83,16 @@ def r_results():
             page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
     last_url = url_for('.r_results', **search_args, page=total_pages) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
+    orig_sort = search_args.pop('sort', '')
+    sort_urls = dict()
+    for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
+        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
+    search_args['sort'] = orig_sort
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts)
+                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts,
+                       sort_urls=sort_urls)
 
 
 @bp.route("/advanced_search", methods=["GET"])
@@ -98,8 +111,31 @@ def r_advanced_search():
             data['q'] = data['q'].lower()
             corpus = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
-            return redirect(url_for('.r_results', source="advanced", corpus=corpus, **data))
+            return redirect(url_for('.r_results', source="advanced", corpus=corpus, sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats, url=dict())
+    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats,
+                       composition_places=suggest_composition_places(), url=dict())
+
+
+@bp.route("/suggest/<word>", methods=["GET"])
+def word_search_suggester(word):
+    words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
+                                fuzziness=request.args.get("fuzziness", "0"),
+                                in_order=request.args.get('in_order', 'False'),
+                                slop=request.args.get('slop', '0'),
+                                year=request.args.get('year', 0, type=int),
+                                month=request.args.get('month', 0, type=int),
+                                day=request.args.get('day', 0, type=int),
+                                year_start=request.args.get('year_start', 0, type=int),
+                                month_start=request.args.get('month_start', 0, type=int),
+                                day_start=request.args.get('day_start', 0, type=int),
+                                year_end=request.args.get('year_end', 0, type=int),
+                                month_end=request.args.get('month_end', 0, type=int),
+                                day_end=request.args.get('day_end', 0, type=int),
+                                date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                corpus=request.args.get('corpus', '').split() or ['all'],
+                                exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                composition_place=request.args.get('composition_place', ''))
+    return dumps(words)
