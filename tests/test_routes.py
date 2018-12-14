@@ -15,6 +15,8 @@ from unittest.mock import patch
 from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
+from MyCapytain.common.constants import Mimetypes
+from flask import Markup
 
 
 class TestConfig(Config):
@@ -29,7 +31,7 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
-                                 app=app, base_url="",
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl"},
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
@@ -242,6 +244,32 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+
+    def test_search_result_highlighting(self):
+        """ Make sure that highlighting of search results works correctly"""
+        # Highlighting should cross boundary of parent nodes
+        search_string = ['Text that I want to search']
+        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w searched-end">that</span></span></p><p><span class="searched"><span class="w searched-start searched-end">I</span></span></p><p><span class="searched"><span class="w searched-start">want</span><span class="w">to</span><span class="w searched-end">search</span></span>'
+        obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
+        result = self.nemo.highlight_found_sents(html_input, search_string)
+        self.assertIn(expected, result)
+        # Should be able to deal with editorial punctuation in the text
+        search_string = ['Text with special editorial signs in it']
+        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w">with</span><span class="w">sp&lt;e&gt;cial</span><span class="w">[edi]torial</span><span class="w">[signs</span><span class="w">in</span><span class="w searched-end">i]t</span></span>'
+        obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
+        result = self.nemo.highlight_found_sents(html_input, search_string)
+        self.assertIn(expected, result)
+
+    def test_convert_result_sents(self):
+        """ Make sure that search result_sents are converted correctly"""
+        input_str = 'Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in%24Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone'
+        output = self.nemo.convert_result_sents(input_str)
+        expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
+        self.assertEqual(output, expected)
 
 
 class TestForms(Formulae_Testing):

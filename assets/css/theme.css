@@ -330,6 +330,10 @@ nav .dropdown:hover .dropdown-menu {
     margin: 0.5rem;
 }
 
+.searched {
+    background-color: yellow;
+}
+    
 #results-sort-table {
     width: 300px; 
     margin: auto;
