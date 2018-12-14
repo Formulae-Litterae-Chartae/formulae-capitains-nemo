@@ -489,16 +489,24 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
                 if result_sents:
-                    intermediate = result_sents.replace('+', ' ').replace('%2C', '')
-                    intermediate = re.sub('strong|small', '', intermediate)
-                    intermediate = re.sub('\s+', ' ', intermediate)
-                    intermediate = intermediate.split('$')
-                    new_sents = [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
-                    d['text_passage'] = self.highlight_found_sents(d['text_passage'], new_sents)
+                    d['text_passage'] = self.highlight_found_sents(d['text_passage'],
+                                                                   self.convert_result_sents(result_sents))
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         return passage_data
+
+    def convert_result_sents(self, sents):
+        """ Remove extraneous markup and punctuation from the result_sents returned from the search page
+
+        :param sents: the original 'result_sents' request argument
+        :return: list of the individual sents with extraneous markup and punctuation removed
+        """
+        intermediate = sents.replace('+', ' ').replace('%2C', '').replace('%2F', '').replace('%24', '$')
+        intermediate = re.sub('strong|small', '', intermediate)
+        intermediate = re.sub('\s+', ' ', intermediate)
+        intermediate = intermediate.split('$')
+        return [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
 
     def highlight_found_sents(self, html, sents):
         """ Adds "searched" to the classList of words in "sents" from elasticsearch results

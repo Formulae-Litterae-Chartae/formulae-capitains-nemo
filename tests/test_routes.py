@@ -264,6 +264,13 @@ class TestIndividualRoutes(Formulae_Testing):
         result = self.nemo.highlight_found_sents(html_input, search_string)
         self.assertIn(expected, result)
 
+    def test_convert_result_sents(self):
+        """ Make sure that search result_sents are converted correctly"""
+        input_str = 'Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in%24Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone'
+        output = self.nemo.convert_result_sents(input_str)
+        expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
+        self.assertEqual(output, expected)
+
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
