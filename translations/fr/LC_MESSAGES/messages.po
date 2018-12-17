@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-14 13:55+0100\n"
+"POT-Creation-Date: 2018-12-17 17:47+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:145
+#: formulae/search/Search.py:170
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -875,35 +875,51 @@ msgstr "Jusqu’à"
 msgid "Zurücksetzen"
 msgstr ""
 
-#: templates/search/search.html:6
+#: templates/search/search.html:9 templates/search/search.html:38
 msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
 
 #: templates/search/search.html:9
-msgid "Keine Ergebnisse gefunden für"
+msgid "Mehr Statistiken"
 msgstr ""
 
-#: templates/search/search.html:15
-msgid "Sortieren nach"
+#: templates/search/search.html:9 templates/search/search.html:38
+msgid " Treffer"
 msgstr ""
 
-#: templates/search/search.html:18
-msgid "Name"
+#: templates/search/search.html:14
+msgid "Corpus"
 msgstr ""
 
-#: templates/search/search.html:19
+#: templates/search/search.html:15 templates/search/search.html:52
 msgid "Datierung"
 msgstr ""
 
-#: templates/search/search.html:24 templates/search/search.html:26
+#: templates/search/search.html:26
+msgid "k.A."
+msgstr ""
+
+#: templates/search/search.html:42
+msgid "Keine Ergebnisse gefunden für"
+msgstr ""
+
+#: templates/search/search.html:48
+msgid "Sortieren nach"
+msgstr ""
+
+#: templates/search/search.html:51
+msgid "Name"
+msgstr ""
+
+#: templates/search/search.html:57 templates/search/search.html:59
 msgid "Aufsteigend"
 msgstr ""
 
-#: templates/search/search.html:25 templates/search/search.html:27
+#: templates/search/search.html:58 templates/search/search.html:60
 msgid "Absteigend"
 msgstr ""
 
-#: templates/search/search.html:44
+#: templates/search/search.html:78
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."

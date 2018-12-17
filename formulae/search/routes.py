@@ -37,14 +37,14 @@ def r_results():
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total = query_index(corpus, 'text',
+        posts, total, aggs = query_index(corpus, 'text',
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
                        'sort': request.args.get('sort', 'urn')}
     else:
-        posts, total = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
+        posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                             q=request.args.get('q'),
                                             fuzziness=request.args.get("fuzziness", "0"), page=page,
                                             in_order=request.args.get('in_order', 'False'),
@@ -92,7 +92,7 @@ def r_results():
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
                        search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts,
-                       sort_urls=sort_urls)
+                       sort_urls=sort_urls, total_results=total, aggs=aggs)
 
 
 @bp.route("/advanced_search", methods=["GET"])
