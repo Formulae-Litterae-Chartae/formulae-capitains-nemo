@@ -208,7 +208,7 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
-        mock_search.return_value = [[], 0]
+        mock_search.return_value = [[], 0, {}]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -476,7 +476,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -493,7 +493,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -510,7 +510,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -527,7 +527,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -544,7 +544,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -561,7 +561,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -579,7 +579,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -598,7 +598,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -610,14 +610,43 @@ class TestES(Formulae_Testing):
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001'},
                                     'highlight': {
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
-                                             'total': 0}}
+                                             'total': 0},
+                                    'aggregations': {}}
         body = {'query':
                     {'span_near':
                          {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
                 'sort': 'urn', 'from': 0, 'size': 10,
                 'highlight': {'fields': {'text': {'fragment_size': 300}},
                               'pre_tags': ['</small><strong>'],
-                              'post_tags': ['</strong><small>'], 'encoder': 'html'}}
+                              'post_tags': ['</strong><small>'], 'encoder': 'html'},
+                'aggs': {'range':
+                             {'date_range':
+                                  {'field': 'min_date',
+                                   'format': 'yyyy',
+                                   'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                              {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                              {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                              {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                              {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                              {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                              {'key': '>1000', 'from': '1000'}]}},
+                         'corpus':
+                             {'filters':
+                                  {'filters':
+                                       {'Rätien': {'match': {'_type': 'raetien'}},
+                                        'Angers': {'match': {'_type': 'andecavensis'}},
+                                        'Bünden': {'match': {'_type': 'buenden'}},
+                                        'Luzern': {'match': {'_type': 'luzern'}},
+                                        'Mondsee': {'match': {'_type': 'mondsee'}},
+                                        'Passau': {'match': {'_type': 'passau'}},
+                                        'Regensburg': {'match': {'_type': 'regensburg'}},
+                                        'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                        'Salzburg': {'match': {'_type': 'salzburg'}},
+                                        'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                        'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                        'Werden': {'match': {'_type': 'werden'}},
+                                        'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                         'no_date': {'missing': {'field': 'min_date'}}}}
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 'regnum domni'

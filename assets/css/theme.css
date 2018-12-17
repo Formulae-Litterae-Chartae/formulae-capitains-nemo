@@ -342,3 +342,22 @@ nav .dropdown:hover .dropdown-menu {
 #results-sort-table th, #results-sort-table td {
     text-align: center;
 }
+
+.search-stat {
+    padding: 0rem 1.5rem;
+    margin-left: 0.25rem;
+}
+
+#searchTotal {
+    color: blue;
+}
+
+#search-stat-table th {
+    border-right: 1px solid #ddd;
+    padding-left: 0.5rem;
+}
+
+#search-stat-table td {
+    border-right: 1px solid #ddd;
+    vertical-align:top;
+}
