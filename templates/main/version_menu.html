@@ -1,4 +1,11 @@
 <!-- MANUSCRIPT MENU -->
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
 <div class="dropdown">
     <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ _('Mit einer anderen Version vergleichen') }}

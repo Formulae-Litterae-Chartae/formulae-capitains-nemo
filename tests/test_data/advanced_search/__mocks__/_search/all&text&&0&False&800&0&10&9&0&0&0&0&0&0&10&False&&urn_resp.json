@@ -1,5 +1,5 @@
 {
-  "took": 12,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -25,6 +25,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -94,7 +95,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
@@ -114,6 +116,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -183,7 +186,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
@@ -203,6 +207,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -272,7 +277,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
@@ -292,6 +298,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 794,
@@ -301,7 +308,8 @@
           ],
           "all_dates": [
             "0794-10-09"
-          ]
+          ],
+          "min_date": "0794-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0004.lat001"
@@ -321,6 +329,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 798,
@@ -336,7 +345,8 @@
           "all_dates": [
             "0798-10-09",
             "0799-10-09"
-          ]
+          ],
+          "min_date": "0798-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0016.lat001"
@@ -356,6 +366,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 798,
@@ -371,7 +382,8 @@
           "all_dates": [
             "0798-10-09",
             "0799-10-09"
-          ]
+          ],
+          "min_date": "0798-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0017.lat001"
@@ -391,6 +403,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 799,
@@ -406,7 +419,8 @@
           "all_dates": [
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0799-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0021.lat001"
@@ -426,6 +440,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 806,
@@ -435,7 +450,8 @@
           ],
           "all_dates": [
             "0806-10-09"
-          ]
+          ],
+          "min_date": "0806-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0030.lat001"
@@ -455,6 +471,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 806,
@@ -464,12 +481,119 @@
           ],
           "all_dates": [
             "0806-10-09"
-          ]
+          ],
+          "min_date": "0806-10-09"
         },
         "sort": [
           "urn:cts:formulae:werden.block0031.lat001"
         ]
       }
     ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 3
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 6
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 6
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 2
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
   }
 }

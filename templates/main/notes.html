@@ -30,7 +30,7 @@
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
-                        <span class="align-middle">{{ text.collections.current.label }}</span>
+                        <span class="align-middle">{{ text.collections.current.label }} ({{ text.collections.current.lang }})</span>
                         <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
                         <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>

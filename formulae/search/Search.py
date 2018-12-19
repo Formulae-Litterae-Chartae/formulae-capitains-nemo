@@ -8,6 +8,29 @@ import re
 
 PRE_TAGS = "</small><strong>"
 POST_TAGS = "</strong><small>"
+AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
+                                         'format': 'yyyy',
+                                         'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                                    {'key': '>1000', 'from': '1000'}]}},
+                'corpus': {'filters': {'filters': {'Rätien': {'match': {'_type': 'raetien'}},
+                                                   'Angers': {'match': {'_type': 'andecavensis'}},
+                                                   'Bünden': {'match': {'_type': 'buenden'}},
+                                                   'Luzern': {'match': {'_type': 'luzern'}},
+                                                   'Mondsee': {'match': {'_type': 'mondsee'}},
+                                                   'Passau': {'match': {'_type': 'passau'}},
+                                                   'Regensburg': {'match': {'_type': 'regensburg'}},
+                                                   'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                                   'Salzburg': {'match': {'_type': 'salzburg'}},
+                                                   'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                                   'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                                   'Werden': {'match': {'_type': 'werden'}},
+                                                   'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                'no_date': {'missing': {'field': 'min_date'}}}
 
 
 def add_to_index(index, model):
@@ -42,9 +65,9 @@ def build_sort_list(sort_str):
 
 def query_index(index, field, query, page, per_page, sort='urn'):
     if not current_app.elasticsearch:
-        return [], 0
+        return [], 0, {}
     if index in ['', ['']]:
-        return [], 0
+        return [], 0, {}
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
@@ -66,10 +89,11 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                'post_tags': [POST_TAGS],
                'encoder': 'html'
                },
+          'aggs': AGGREGATIONS
           }
     )
     ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
-    return ids, search['hits']['total']
+    return ids, search['hits']['total'], search['aggregations']
 
 
 def suggest_composition_places():
@@ -135,10 +159,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     old_sort = sort
     sort = build_sort_list(sort)
     body_template = {"query": {"bool": {"must": []}}, "sort": sort,
-                     'from': (page - 1) * per_page, 'size': per_page
+                     'from': (page - 1) * per_page, 'size': per_page,
+                     'aggs': AGGREGATIONS
                      }
     if not current_app.elasticsearch:
-        return [], 0
+        return [], 0, {}
     if field == 'lemmas':
         fuzz = '0'
         if '*' in q or '?' in q:
@@ -255,7 +280,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         # Remove the textual parts from the results
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
-    return ids, search['hits']['total']
+    return ids, search['hits']['total'], search['aggregations']
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,

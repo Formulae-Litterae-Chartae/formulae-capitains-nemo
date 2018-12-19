@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -25,6 +25,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -94,7 +95,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
@@ -114,6 +116,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -183,7 +186,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
@@ -203,6 +207,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 790,
@@ -272,7 +277,8 @@
             "0798-10-09",
             "0799-10-09",
             "0800-10-09"
-          ]
+          ],
+          "min_date": "0790-10-09"
         },
         "sort": [
           "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
@@ -292,6 +298,7 @@
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 754,
@@ -301,7 +308,8 @@
           ],
           "all_dates": [
             "0754-10-27"
-          ]
+          ],
+          "min_date": "0754-10-27"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0019.lat001"
@@ -321,6 +329,7 @@
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 758,
@@ -330,7 +339,8 @@
           ],
           "all_dates": [
             "0758-10-27"
-          ]
+          ],
+          "min_date": "0758-10-27"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0023.lat001"
@@ -350,6 +360,7 @@
           "comp_ort": "Wila",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Wila",
           "specific_date": [
             {
               "year": 762,
@@ -359,7 +370,8 @@
           ],
           "all_dates": [
             "0762-10-10"
-          ]
+          ],
+          "min_date": "0762-10-10"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0037.lat001"
@@ -379,6 +391,7 @@
           "comp_ort": "Stetten",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Stetten",
           "specific_date": [
             {
               "year": 763,
@@ -388,7 +401,8 @@
           ],
           "all_dates": [
             "0763-10-11"
-          ]
+          ],
+          "min_date": "0763-10-11"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0038.lat001"
@@ -408,6 +422,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 766,
@@ -417,7 +432,8 @@
           ],
           "all_dates": [
             "0766-10-26"
-          ]
+          ],
+          "min_date": "0766-10-26"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0050.lat001"
@@ -437,6 +453,7 @@
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
               "year": 769,
@@ -446,7 +463,8 @@
           ],
           "all_dates": [
             "0769-10-21"
-          ]
+          ],
+          "min_date": "0769-10-21"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0055.lat001"
@@ -466,6 +484,7 @@
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 772,
@@ -475,12 +494,119 @@
           ],
           "all_dates": [
             "0772-10-20"
-          ]
+          ],
+          "min_date": "0772-10-20"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0067.lat001"
         ]
       }
     ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 3
+        },
+        "St. Gallen": {
+          "doc_count": 9
+        },
+        "Werden": {
+          "doc_count": 4
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 14
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
   }
 }

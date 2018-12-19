@@ -15,6 +15,8 @@ from unittest.mock import patch
 from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
+from MyCapytain.common.constants import Mimetypes
+from flask import Markup
 
 
 class TestConfig(Config):
@@ -29,7 +31,7 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
-                                 app=app, base_url="",
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl"},
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
@@ -206,7 +208,7 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
-        mock_search.return_value = [[], 0]
+        mock_search.return_value = [[], 0, {}]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -242,6 +244,32 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+
+    def test_search_result_highlighting(self):
+        """ Make sure that highlighting of search results works correctly"""
+        # Highlighting should cross boundary of parent nodes
+        search_string = ['Text that I want to search']
+        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w searched-end">that</span></span></p><p><span class="searched"><span class="w searched-start searched-end">I</span></span></p><p><span class="searched"><span class="w searched-start">want</span><span class="w">to</span><span class="w searched-end">search</span></span>'
+        obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
+        result = self.nemo.highlight_found_sents(html_input, search_string)
+        self.assertIn(expected, result)
+        # Should be able to deal with editorial punctuation in the text
+        search_string = ['Text with special editorial signs in it']
+        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w">with</span><span class="w">sp&lt;e&gt;cial</span><span class="w">[edi]torial</span><span class="w">[signs</span><span class="w">in</span><span class="w searched-end">i]t</span></span>'
+        obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
+        result = self.nemo.highlight_found_sents(html_input, search_string)
+        self.assertIn(expected, result)
+
+    def test_convert_result_sents(self):
+        """ Make sure that search result_sents are converted correctly"""
+        input_str = 'Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in%24Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone'
+        output = self.nemo.convert_result_sents(input_str)
+        expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
+        self.assertEqual(output, expected)
 
 
 class TestForms(Formulae_Testing):
@@ -448,7 +476,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -465,7 +493,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -482,7 +510,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -499,7 +527,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -516,7 +544,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -533,7 +561,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -551,7 +579,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -570,7 +598,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _ = advanced_query_index(**test_args)
+        actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -582,14 +610,43 @@ class TestES(Formulae_Testing):
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001'},
                                     'highlight': {
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
-                                             'total': 0}}
+                                             'total': 0},
+                                    'aggregations': {}}
         body = {'query':
                     {'span_near':
                          {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
                 'sort': 'urn', 'from': 0, 'size': 10,
                 'highlight': {'fields': {'text': {'fragment_size': 300}},
                               'pre_tags': ['</small><strong>'],
-                              'post_tags': ['</strong><small>'], 'encoder': 'html'}}
+                              'post_tags': ['</strong><small>'], 'encoder': 'html'},
+                'aggs': {'range':
+                             {'date_range':
+                                  {'field': 'min_date',
+                                   'format': 'yyyy',
+                                   'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                              {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                              {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                              {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                              {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                              {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                              {'key': '>1000', 'from': '1000'}]}},
+                         'corpus':
+                             {'filters':
+                                  {'filters':
+                                       {'Rätien': {'match': {'_type': 'raetien'}},
+                                        'Angers': {'match': {'_type': 'andecavensis'}},
+                                        'Bünden': {'match': {'_type': 'buenden'}},
+                                        'Luzern': {'match': {'_type': 'luzern'}},
+                                        'Mondsee': {'match': {'_type': 'mondsee'}},
+                                        'Passau': {'match': {'_type': 'passau'}},
+                                        'Regensburg': {'match': {'_type': 'regensburg'}},
+                                        'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                        'Salzburg': {'match': {'_type': 'salzburg'}},
+                                        'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                        'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                        'Werden': {'match': {'_type': 'werden'}},
+                                        'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                         'no_date': {'missing': {'field': 'min_date'}}}}
         query_index(**test_args)
         mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 'regnum domni'

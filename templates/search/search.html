@@ -3,12 +3,45 @@
 {% block article %}
     <article>
     <header>
-    <h1>{{ _('Suchergebnisse') }}</h1>
+    {% if total_results > 0 %}
+    <div class="btn-group dropright">
+         <a type="button" id="searchStats" class="btn btn-link pl-1 h1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <h1>{{ _('Suchergebnisse') }} (<span id="searchTotal" title="{{ _('Mehr Statistiken') }}">{{ total_results|string }}</span> {{ _(' Treffer') }})</h1>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="searchStats">
+            <table id="search-stat-table">
+            <tr>
+            <th>{{ _('Corpus') }}</th>
+            <th>{{ _('Datierung') }}</th>
+            </tr>
+            <tr>
+                <td>
+                {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
+                {% if corp_hits['doc_count'] != 0 %}
+                <span class="dropdown-item-text search-stat">{{ search_corp }}: {{ corp_hits['doc_count'] }}</span>
+                {% endif %}
+                {% endfor %}
+                </td>
+                <td>
+                {% if aggs['no_date']['doc_count'] != 0 %}<span class="dropdown-item-text search-stat">{{ _('k.A.') }}: {{ aggs['no_date']['doc_count'] }}</span>{% endif %}
+                {% for cent in aggs['range']['buckets'] %}
+                {% if cent['doc_count'] != 0 %}
+                <span class="dropdown-item-text search-stat">{{ cent['key'] }}: {{ cent['doc_count'] }}</span>
+                {% endif %}
+                {% endfor %}
+                </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <h1>{{ _('Suchergebnisse') }} ({{ total_results|string }} {{ _(' Treffer') }})</h1>
+    {% endif %}
     </header>
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
-    <p>
+    {% if total_results > 0 %}<p>
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>
                 <tr>
@@ -21,18 +54,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="{{ sort_urls['urn'] }}">{{ _('Auf') }}</a></td>
-                    <td><a href="{{ sort_urls['urn_desc'] }}">{{ _('Ab') }}</a></td>
-                    <td><a href="{{ sort_urls['min_date_asc'] }}">{{ _('Auf') }}</a></td>
-                    <td><a href="{{ sort_urls['min_date_desc'] }}">{{ _('Ab') }}</a></td>
+                    <td><a href="{{ sort_urls['urn'] }}">{{ _('Aufsteigend') }}</a></td>
+                    <td><a href="{{ sort_urls['urn_desc'] }}">{{ _('Absteigend') }}</a></td>
+                    <td><a href="{{ sort_urls['min_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
+                    <td><a href="{{ sort_urls['min_date_desc'] }}">{{ _('Absteigend') }}</a></td>
                 </tr>
             </tbody>
         </table>
     </p>
+    {% endif %}
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
-            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='1') }}">
+            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all', result_sents=post['sents']|join('$')) }}">
                 {{ post['info']['title'] }}
             </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
             <div class="card-body py-0">
