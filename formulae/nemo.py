@@ -445,7 +445,8 @@ class NemoFormulae(Nemo):
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
                     "citation": collection.citation,
-                    "coins": self.make_coins(collection, text, subreference, lang=lang)
+                    "coins": self.make_coins(collection, text, subreference, lang=lang),
+                    'lang': collection.lang
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },
