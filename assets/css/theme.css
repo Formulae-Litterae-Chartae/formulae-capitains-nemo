@@ -361,3 +361,10 @@ nav .dropdown:hover .dropdown-menu {
     border-right: 1px solid #ddd;
     vertical-align:top;
 }
+
+.version-dropdown span, .version-dropdown a {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    font-size: 0.875rem;
+    line-height: 1.2rem;
+}
