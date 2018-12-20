@@ -360,6 +360,14 @@
         </xsl:choose>
     </xsl:template>
     
+    <xsl:template match="t:bibl" mode="noteSegs">
+        <xsl:element name="bibl">
+            <xsl:attribute name="source"><xsl:value-of select="@source"/></xsl:attribute>
+            <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
     <xsl:template match="t:seg[@type='lex-title']">
         <strong><xsl:apply-templates/></strong>
     </xsl:template>

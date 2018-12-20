@@ -330,6 +330,7 @@ nav .dropdown:hover .dropdown-menu {
     margin: 0.5rem;
 }
 
+<<<<<<< HEAD
 .searched {
     background-color: yellow;
 }
@@ -371,4 +372,16 @@ nav .dropdown:hover .dropdown-menu {
 
 span[class="book-title"] {
     font-weight: bold;
+}
+
+button.close {
+    color: red;
+}
+
+.bibl-popover {
+    max-width: 50%;
+}
+
+.elex-modal-popover {
+    max-width: 50%;
 }

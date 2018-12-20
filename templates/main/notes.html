@@ -16,7 +16,7 @@
             {{ _('Anmerkungen') }}</div>
         
     </div>
-    <div class="card-body p-2" style="min-height: 2em;>
+    <div class="card-body p-2" style="min-height: 2em;">
         
         <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
         <div id="instructionsNotes" class="collapse" aria-labelledby="instrNoteHead">
@@ -35,7 +35,7 @@
                         <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>
                 </div>
-                <div class="note-card">
+                <div class="note-card" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
                     {{ text.notes }}
                 </div>
             {% endif %}
