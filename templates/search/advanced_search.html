@@ -4,7 +4,7 @@
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
-            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong></h3></div>
+            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a tabindex="0" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
                 <div class="col-2">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="col-auto date-search">
-                    <h6 class="text-center"><i>{{ _('[NB: Datumssuche funktioniert nur bei Urkunden.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Da sich die Datierung einer Formelsammlungen von Urkundendatierungen unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. Eine Datumssuche für ein bestimmtes Datum oder eine Datumsspanne, die keinen Monat oder keinen Tag enthält, liefert alle Formeln, die den anderen Suchkriterien entsprechen. Sind ein Monat oder ein Tag angegeben, liefert die Abfrage keine Formel. Falls Sie nach einer Datumssuche mit Tag bzw. Monat die gefundenen Urkunden, mit Formeln vergleichen möchten, die die übrigen Suchkriterien erfüllen, sollten Sie eine zweite Suche ohne Datum durchführen, die auf Formel begrenzt ist.') }}"><i class="fas fa-question-circle" ></i></a></h6>
+                    <h6 class="text-center"><i>{{ _('[NB: Datumssuche funktioniert nur bei Urkunden.]') }}</i><a tabindex="0" type="button" class="btn btn-link pl-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Da Formeln keine exakte Datumsangabe besitzen, werden bei einer Datumssuche keine Formeln angezeigt.') }}"><i class="fas fa-question-circle" ></i></a></h6>
                     <div class="text-center title"><strong>{{ _('Nach einem bestimmten Datum suchen') }}</strong></div>
                     <div class="form-row align-items-center justify-content-center">
                         <div class="form-group">

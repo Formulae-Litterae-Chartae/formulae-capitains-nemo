@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-17 17:47+0100\n"
+"POT-Creation-Date: 2018-12-20 11:13+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -57,7 +57,7 @@ msgstr " was not found."
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:496 tests/test_routes.py:103 tests/test_routes.py:105
+#: formulae/nemo.py:497 tests/test_routes.py:103 tests/test_routes.py:105
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -215,11 +215,13 @@ msgid "Suche"
 msgstr "Search"
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:66
+#: templates/search/documentation.html:9
 msgid "Corpora"
 msgstr ""
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:67
-#: templates/main/add_text_menu.html:9 templates/main/navbar.html:22
+#: templates/main/add_text_menu.html:9 templates/main/multipassage.html:41
+#: templates/main/navbar.html:22
 msgid "Formeln"
 msgstr "Formulae"
 
@@ -236,11 +238,11 @@ msgstr ""
 "\"Charters\")"
 
 #: formulae/search/forms.py:57 templates/main/lexicon.html:5
-#: templates/main/lexicon.html:9
+#: templates/main/lexicon.html:9 templates/search/documentation.html:17
 msgid "Lemma"
 msgstr "Lemma"
 
-#: formulae/search/forms.py:58
+#: formulae/search/forms.py:58 templates/search/documentation.html:21
 msgid "Unschärfegrad"
 msgstr "Fuzziness Level"
 
@@ -248,7 +250,7 @@ msgstr "Fuzziness Level"
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:61
+#: formulae/search/forms.py:61 templates/search/documentation.html:24
 msgid "Suchradius"
 msgstr "Search Radius"
 
@@ -349,7 +351,7 @@ msgstr "Day"
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "Day must be between 1 and 31"
 
-#: formulae/search/forms.py:103
+#: formulae/search/forms.py:103 templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
 msgstr "Date Plus-Minus"
 
@@ -357,7 +359,7 @@ msgstr "Date Plus-Minus"
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Plus-Minus must be between 0 and 100 years"
 
-#: formulae/search/forms.py:107
+#: formulae/search/forms.py:107 templates/search/documentation.html:36
 msgid "Exklusiv"
 msgstr "Exclusive"
 
@@ -465,11 +467,13 @@ msgstr "Browse"
 msgid "Mit einen anderen Text vergleichen aus:"
 msgstr "Compare with a different text from:"
 
-#: templates/main/add_text_menu.html:12 templates/main/navbar.html:25
+#: templates/main/add_text_menu.html:12 templates/main/multipassage.html:42
+#: templates/main/navbar.html:25
 msgid "Lexikon"
 msgstr "Lexicon"
 
-#: templates/main/add_text_menu.html:15 templates/main/navbar.html:28
+#: templates/main/add_text_menu.html:15 templates/main/multipassage.html:43
+#: templates/main/navbar.html:28
 msgid "Andere Texte"
 msgstr "Other Texts"
 
@@ -671,23 +675,35 @@ msgstr "Advanced Search"
 msgid "Sammlungen"
 msgstr "Collections"
 
-#: templates/main/multipassage.html:8
+#: templates/main/multipassage.html:9
 msgid "Regest"
 msgstr ""
 
-#: templates/main/multipassage.html:22
+#: templates/main/multipassage.html:30
+msgid "Vergleichen mit..."
+msgstr "Compare with..."
+
+#: templates/main/multipassage.html:34
+msgid "einer anderen Version"
+msgstr "another Version"
+
+#: templates/main/multipassage.html:40
+msgid "einem anderen Text aus:"
+msgstr "another text from:"
+
+#: templates/main/multipassage.html:51
 msgid "Vorherige Seite"
 msgstr "Previous Page"
 
-#: templates/main/multipassage.html:27
+#: templates/main/multipassage.html:56
 msgid "Nächste Seite"
 msgstr "Next Page"
 
-#: templates/main/multipassage.html:39
+#: templates/main/multipassage.html:68
 msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
 msgstr "No lexicon entry found for"
 
-#: templates/main/multipassage.html:67
+#: templates/main/multipassage.html:96
 msgid "Diesen Text ausblenden"
 msgstr "Remove this text"
 
@@ -772,11 +788,16 @@ msgstr "Back to top"
 msgid "Nummer"
 msgstr "Number"
 
-#: templates/main/version_menu.html:4
+#: templates/main/version_menu.html:11
 msgid "Mit einer anderen Version vergleichen"
 msgstr "Compare with another version"
 
+#: templates/search/advanced_search.html:7
+msgid "Zur ausführlichen Dokumentation der erweiterten Suche"
+msgstr "Advanced Search Documentation"
+
 #: templates/search/advanced_search.html:32
+#: templates/search/documentation.html:12
 msgid "Wortsuche"
 msgstr "Word Search"
 
@@ -845,6 +866,7 @@ msgstr ""
 "within 50 words of each other."
 
 #: templates/search/advanced_search.html:47
+#: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
 msgstr "Place of Composition Search"
 
@@ -854,27 +876,14 @@ msgstr "[NB: Only applies to Charters.]"
 
 #: templates/search/advanced_search.html:59
 msgid ""
-"Da sich die Datierung einer Formelsammlungen von Urkundendatierungen "
-"unterscheidet, führt die Datumssuche bei Formeln zu anderen Ergebnissen. "
-"Eine Datumssuche für ein bestimmtes Datum oder eine Datumsspanne, die "
-"keinen Monat oder keinen Tag enthält, liefert alle Formeln, die den "
-"anderen Suchkriterien entsprechen. Sind ein Monat oder ein Tag angegeben,"
-" liefert die Abfrage keine Formel. Falls Sie nach einer Datumssuche mit "
-"Tag bzw. Monat die gefundenen Urkunden, mit Formeln vergleichen möchten, "
-"die die übrigen Suchkriterien erfüllen, sollten Sie eine zweite Suche "
-"ohne Datum durchführen, die auf Formel begrenzt ist."
+"Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
+"Datumssuche keine Formeln angezeigt."
 msgstr ""
-"Since the dating of formulae differs significantly from that of charters,"
-" the date search is applied differently for formulae. Any date query that"
-" does not specify a month or a day, whether for a specific date or a date"
-" range, will return all formulae that meet the other search criteria. If,"
-" however, a month or a day is specified, the query will return no "
-"formulae. If you wish to compare the charters that are returned by a date"
-" search that includes a month or a day with formulae that fulfill the "
-"other search criteria, you should do a second search without the date "
-"criteria that is limited to only formulae."
+"Since formulae have no precise date information, any search that contains"
+" date information will return no formulae."
 
 #: templates/search/advanced_search.html:60
+#: templates/search/documentation.html:30
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Search a Specific Date"
 
@@ -883,6 +892,7 @@ msgid "Jahr(e)"
 msgstr "year(s)"
 
 #: templates/search/advanced_search.html:93
+#: templates/search/documentation.html:34
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Search a Date Range"
 
@@ -917,6 +927,268 @@ msgstr "To"
 #: templates/search/advanced_search.html:153
 msgid "Zurücksetzen"
 msgstr "Reset Form"
+
+#: templates/search/documentation.html:6
+msgid "Dokumentation der erweiterten Suche"
+msgstr "Advanced Search Documentation"
+
+#: templates/search/documentation.html:10
+msgid ""
+"Die Liste enthält alle durchsuchbaren Corpora des Projektes. Einige "
+"Corpora sind jedoch urheberrechtlich geschützt und können nicht im "
+"Volltext angezeigt werden. Sämtliche Corpora sind durchsuchbar und auch "
+"Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
+"können diese Stellen in der angegebenen Printedition nachschlagen."
+msgstr ""
+"All of the project's searchable corpora are in this list. Some of these "
+"are still under copyright protection and thus we are unable to display "
+"their full text. However, even these copyrighted corpora are searchable. "
+"The user should refer to the print editions of these corpora for the "
+"text."
+
+#: templates/search/documentation.html:11
+msgid ""
+"Die verschiedenen Kategorien ('Formulae' oder 'Chartae') sind "
+"unterschiedlich indiziert. In allen Fällen ist jedoch die Suche nach "
+"flektierten Wortformen möglich. Die Wildcard-Zeichen, 'Wortreihenfolge', "
+"'Unschärfegrad', und 'Suchradius' funktionieren für alle Dokumente. Die "
+"'Lemmasuche' funktioniert nur für Formeln. Datumssuchmöglichkeiten und "
+"Ausstellungsortsuche funktionieren nur für Urkunden. Siehe <a href"
+"='#date-search'>unten</a> für weitere Information."
+msgstr ""
+"The different corpus categories ('Formulae' or 'Chartae') are indexed "
+"differently. One can search for inflected word forms in all texts. This "
+"means that 'Word Order', 'Fuzziness', 'Search Radius', and the use of "
+"wildcard characters are supported for all corpora. 'Lemma' searches, "
+"however, will return results only for the 'Formulae'. The 'Date' search "
+"only works for 'Chartae'. See <a href='#date-search'>below</a> for more "
+"details."
+
+#: templates/search/documentation.html:13
+msgid ""
+"Die Wortsuche durchsucht nur die lateinischen Texte. Wildcard-Zeichen "
+"sind erlaubt. Ein Fragezeichen ('?') ersetzt ein einzelnes Zeichen, ein "
+"Stern ('*') ein oder mehr Zeichen. Beide funktionieren nur innnerhalb "
+"eines Wortes. Bei der Suchanfrage <em><b>christ* nom*</b></em> wird jede "
+"Reihe von zwei aufeinander folgenden Worten gefunden, bei der das erste "
+"Wort mit <em><b>christ</b></em> und das zweite mit <em><b>nom</b></em> "
+"beginnt. Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen "
+"zulassen, stellen Sie bitte einen entsprechenden 'Suchradius' größer als "
+"0 ein."
+msgstr ""
+"The 'Word Search' searches only the Latin text of the formulae and the "
+"charters. Wildcard characters are allowed. A question mark ('?') replaces"
+" a single character while an asterisk ('*') replaces one or more "
+"characters. Both of these replace characters within a single word and "
+"not, e.g., spaces between words. So if one searches for <em><b>christ* "
+"nom*</b></em>, all documents that contain two consecutive words, the "
+"first of which starts with <em><b>christ</b></em> and the second with "
+"<em><b>nom</b></em>, would be returned. If one wishes to find these two "
+"words where other words might occur between them, then set the 'Search "
+"Radius' to a value greater than '0'."
+
+#: templates/search/documentation.html:14
+msgid "Vorschlagssuche"
+msgstr "Search-as-you-type"
+
+#: templates/search/documentation.html:15
+msgid ""
+"Die Vorschläge, die in der Wortsuche gezeigt werden, basieren auf alle "
+"andere Eingaben in der Suchmaske. Wenn man zum Beispiel "
+"<em><b>Andecavensis</b></em> als zu durchsuchendes Corpus auswählt, "
+"werden nur Vorschläge aus den Formeln von Angers gezeigt. Die oben "
+"erwähnten Suchbeschränkungen gelten auch hier. Die Lemmasuche liefert "
+"keine Vorschläge aus den Urkunden. Der einzige Parameter, der keinen "
+"Einfluss auf die angezeigten Vorschlägen hat, ist 'Wortreihenfolge'. Nur "
+"Vorschläge, die die selbe Wortreihenfolge haben, werden angezeigt."
+msgstr ""
+"The suggestions returned by the 'search-as-you-type' functionality in the"
+" 'Word Search' are also based on the other entries in the search form. "
+"For instance, if one selects <em><b>Andecavensis</b></em> under "
+"'Corpora', the 'search-as-you-type' suggestions will be limited to the "
+"Angers Formulae. The applicability of the various search functions "
+"mentioned above also apply here. E.g., the 'Lemma' search will only "
+"return suggested strings of lemmas from the formulae. The only parameter "
+"that has no effect on these suggestions is 'Word Order'. The suggestions "
+"will always show only words that occur in the same order as they are "
+"typed."
+
+#: templates/search/documentation.html:16
+msgid ""
+"Wählt man eine vorgeschlagene Phrase noch bevor man andere Suchparametern"
+" einstellt, so haben diese Parameter keinen Einfluss mehr auf die "
+"Vorschläge. Das kann dazu führen, dass keine Treffer gefunden werden, "
+"weil die gesuchte Phrase in keinem Dokument erscheint, das mit den "
+"anderen Suchparametern übereinstimmt. Von daher ist es ratsam, "
+"Suchparameter einzustellen, bevor man einen der Vorschläge auswählt."
+msgstr ""
+"If one selects a suggested phrase before setting the other search "
+"parameters then these other parameters will have no influence on the "
+"suggestions. That can lead to cases where no results will be shown "
+"because the chosen phrase does not occur in any document that fulfills "
+"the other parameters of the search. It is thus advisable to first set the"
+" other search parameters before choosing a 'search-as-you-type' "
+"suggestion."
+
+#: templates/search/documentation.html:18
+msgid ""
+"Mit der Lemmasuche sucht man nach Wörterbuchformen statt flektierten "
+"Formen. Eine Lemmasuche nach <em><b>dominus</b></em> beispielsweise ruft "
+"alle flektierten Formen dieses Wortes wie <em><b>domini</b></em> oder "
+"<em><b>Domino</b></em>. Auch orthographische Varianten wie "
+"<em><b>domni</b></em> oder <em><b>Domeno</b></em> werden durchsucht. Die "
+"Lemmasuche funktioniert nur mit den Formeln. Die Lemmatisierungsregeln "
+"sind <a href='#'>hier</a> zu finden."
+msgstr ""
+"A 'Lemma' search searches for the dictionary forms of words instead of "
+"normally inflected forms. If one searches for <em><b>dominus</b></em> "
+"with the 'Lemma' option checked, the results will include all inflected "
+"forms, such as <em><b>domini</b></em> or <em><b>Domino</b></em>. It will "
+"also return all orthographic variations such as <em><b>domni</b></em> or "
+"<em><b>Domeno</b></em>. The 'Lemma' automatically restricts the search to"
+" the formulae. A description of the rules used for lemmatization (in "
+"German) can be found <a href='#'>here</a>."
+
+#: templates/search/documentation.html:19
+msgid "Wortreihenfolge"
+msgstr "Word Order"
+
+#: templates/search/documentation.html:20
+msgid ""
+"Ist die Reihenfolge der Worte wichtig, hier klicken. Dadurch wird z.B. "
+"bei einer Suche nach <em><b>uenerabile uir</b></em> kein Dokument mit "
+"<em><b>uir uenerabile</b></em> als Treffer angezeigt. Wortreihenfolge "
+"wird auch bei einem Suchradius über 0 beachtet. D.h. bei einer Suche nach"
+" <em><b>magnificis uiris</b></em> mit einem Suchradius von 10 Worten wird"
+" <em><b>magnificis rei puplici uiris</b></em> angezeit, <em><b>uiris "
+"uenerabilibus adque magnificis</b></em> aber nicht."
+msgstr ""
+"Select this option if the order of the words as typed is important. With "
+"this option, the search string <em><b>uenerabile uir</b></em> would "
+"return no document that only has the words in the reverse order, i.e., "
+"<em><b>uir uenerabile</b></em>. 'Word Order' also works with a 'Search "
+"Radius' above '0'. For instance, searching for <em><b>magnificis "
+"uiris</b></em> with a 'Search Radius' of '10' words would return a "
+"document with <em><b>magnificis rei puplici uiris</b></em> but not one "
+"with <em><b>uiris uenerabilibus adque magnificis</b></em>."
+
+#: templates/search/documentation.html:22
+msgid ""
+"Der 'Unschärfegrad' legt fest, wie stark ein Ergebnis von der Sucheingabe"
+" abweichen darf und trotzdem als gültiges Ergebnis gilt. Die Zahlen "
+"quantifizieren, wie viele Abweichungen im Suchergebnis toleriert werden. "
+"Unschärfegrad 2 bedeutet z.B., dass zwei Buchstaben im Wort ersetzt, "
+"gelöscht, hinzugefügt oder umgesetzt sein dürfen. Wenn man z.B. nach "
+"<em><b>regnum</b></em> mit einem 'Unschärfegrad' von 2 sucht, werden die "
+"Wörter <em><b>regno</b></em> und <em><b>regni</b></em> aber auch "
+"<em><b>magnum</b></em> ('m' ersetzt 'r' und 'a' ersetzt 'e') und "
+"<em><b>legum</b></em> ('l' ersetzt 'r' und 'n' wird gelöscht) gefunden."
+msgstr ""
+"Fuzziness is a measure of how much a word can deviate from the search "
+"input value and still be considered a valid result. The numbers represent"
+" how many changes can be made to a word. E.g., 2 means that 2 letters in "
+"the word can be replaced, deleted, added or transposed. So if one were to"
+" search for <em><b>regnum</b></em> with the 'Fuzziness Level' set at '2' "
+"one would find the words <em><b>regno</b></em> and <em><b>regni</b></em> "
+"but also <em><b>magnum</b></em> ('m' replaces 'r' and 'a' replaces 'e') "
+"and <em><b>legum</b></em> ('l' replaces 'r' and 'n' is deleted)."
+
+#: templates/search/documentation.html:23
+msgid ""
+"Mit der Einstellung 'AUTO' wird die erlaubte Zahl solcher Änderungen von "
+"der Wortlänge abhängig: bei einem Wort mit 1 oder 2 Buchstaben sind keine"
+" Änderungen erlaubt, bei 3-5 Buchstaben ist eine Änderung erlaubt und bei"
+" längeren Wörtern sind 2 Änderungen erlaubt. 'AUTO' eignet sich für die "
+"meisten Suchanfragen."
+msgstr ""
+"'AUTO' means that the number of allowed changes depends on the length of "
+"the word: if the word is 1 or 2 letters long, no changes are allowed, 3-5"
+" letter words allow 1 change, and longer words allow 2 changes. 'AUTO' "
+"should work best for most searches."
+
+#: templates/search/documentation.html:25
+msgid ""
+"Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen"
+" auftreten können. Bei der Suche z.B. nach <em><b>uenerabilibus "
+"uiris</b></em> mit einem Suchradius von 4 wird <em><b>uenerabilibus "
+"atquae magnificis rei puplici uiris</b></em> als treffer angezeigt."
+msgstr ""
+"The maximum number of words between the search terms. For instance, "
+"searching for <em><b>uenerabilibus uiris</b></em> with a 'Search Radius' "
+"of '4' would return the phrase <em><b>uenerabilibus atquae magnificis rei"
+" puplici uiris</b></em>."
+
+#: templates/search/documentation.html:27
+msgid "Die Ausstellungsortsuche funktioniert nur für Urkunden."
+msgstr "The 'Place of Composition' search applies only to charters."
+
+#: templates/search/documentation.html:28
+msgid "Datumssuche"
+msgstr "Date Search"
+
+#: templates/search/documentation.html:29
+msgid ""
+"Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
+"'Datumssuche' keine Formeln angezeigt."
+msgstr ""
+"Since formulae have no precise date information, any search that contains"
+" date information will return no formulae."
+
+#: templates/search/documentation.html:31
+msgid ""
+"Liefert alle Suchergebnisse, die den Datumsangaben entsprechen. Gibt man "
+"z.B. das Jahr 800 ein, werden Dokumente mit Datierungen im Jahr 800 (z.B."
+" '17. Juni 800') aber auch mit Datumsspannen, die mit dem Jahr 800 "
+"überlappen (z.B. '769-813'), als Treffer angezeigt."
+msgstr ""
+"Returns results that are either dated to this precise date or that have a"
+" date range that includes the date. For instance, a search for the year "
+"'800' will return all documents dates to '800' (e.g., 'June 17, 800') but"
+" also those where the year 800 is included their range (e.g., '769-813')."
+
+#: templates/search/documentation.html:33
+msgid ""
+"Hier wird die erlaubte Abweichung von der eingegebenen Jahresangabe bei "
+"der Suche nach einem bestimmten Datum gewählt. Gibt man z.B. '800 Juni "
+"17' mit einem Datum Plus-Minus von 49 Jahren, findet man Dokumente die am"
+" 17. Juni zwischen den Jahren 751 und 849 ausgestellt wurden."
+msgstr ""
+"This determines the number of years that the date of a document can "
+"differ from the date given and still be returned as a result. If one were"
+" to search for '800 June 17' with a 'Date Plus-Minus' value of 49 years, "
+"one would find all documents that are dated to June 17 for all years "
+"between 751 and 849."
+
+#: templates/search/documentation.html:35
+msgid ""
+"Bei der Suche nach einer Datumsspanne werden alle Dokumente, die zwischen"
+" den Anfangs- und Enddaten liegen als Treffer angezeigt. Wenn man von "
+"'750 Juni 17' bis '850 Juni 17' sucht, findet man bespielsweise Dokumente"
+" vom 31. Dezember 777 oder 12. Februar 813."
+msgstr ""
+"A 'Date Range' search will return all documents that are dated between "
+"the 'From' and 'To' dates. If one were to search for '750 July 17' to "
+"'850 June 17', one would find documents that were dated to December 31, "
+"777 or February 12, 813."
+
+#: templates/search/documentation.html:37
+msgid ""
+"Bei einer 'exklusive' Datumsspannesuche sucht man nach eine bestimmte "
+"Monats- oder Tagesspanne innerhalb von mehreren Jahren. Sucht man "
+"beispielsweise 'exklusiv' vom 17. Juni 800 bis zum 22. November 813, "
+"findet man nur Dokumente, die zwischen dem 17. Juni und dem 22. November "
+"zwischen den Jahren 800 und 813 ausgestellt wurden. Ein Dokument, das auf"
+" den 18. November 803 datiert ist wird als Treffer angezeigt, ein "
+"Dokument, das auf den 23. November 803 datiert ist, nicht."
+msgstr ""
+"If one chooses the 'Exclusive' option for a 'Date Range' search, then the"
+" results will be limited to the documents that are dated between the "
+"month and day ranges within the year range. That means that if one "
+"performs an 'Exclusive' date range search between '800 June 17' and '813 "
+"November 22', one would find all documents that are dated between June "
+"17th and November 22 in the years between 800 and 813. This would return "
+"a document that is dated to November 18, 803 but not one dated to "
+"November 23, 803."
 
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid "Suchergebnisse"
@@ -1920,4 +2192,97 @@ msgstr "Search In:"
 
 #~ msgid "Sprache Ändern"
 #~ msgstr "Change Language"
+
+#~ msgid ""
+#~ "Die verschiedenen Kategorien ('Formulae' oder"
+#~ " 'Chartae') sind unterschiedlich indiziert. "
+#~ "In allen Fällen ist jedoch die "
+#~ "Suche nach flektierten Wortformen möglich. "
+#~ "Die Wildcard-Zeichen, 'Wortreihenfolge', "
+#~ "'Unschärfegrad', und 'Suchradius' funktionieren "
+#~ "für alle Dokumente. Die 'Lemmasuche' "
+#~ "funktioniert nur für Formeln. "
+#~ "Datumssuchmöglichkeiten und Ausstellungsortsuche "
+#~ "funktionieren nur für Urkunden. Siehe "
+#~ "unten für weitere Information."
+#~ msgstr ""
+#~ "The different corpus categories ('Formulae'"
+#~ " or 'Chartae') are indexed differently. "
+#~ "One can search for inflected word "
+#~ "forms in all texts. This means "
+#~ "that 'Word Order', 'Fuzziness', 'Search "
+#~ "Radius', and the use of wildcard "
+#~ "characters are supported for all "
+#~ "corpora. 'Lemma' searches, however, will "
+#~ "return results only for the 'Formulae'."
+#~ " The 'Date' search works differently "
+#~ "for 'Formulae' and 'Chartae'. See below"
+#~ " for more details."
+
+#~ msgid ""
+#~ "Da Formeln keine exakte Datumsangabe "
+#~ "besitzen, werden bei einer 'Datumssuche' "
+#~ "keine Formeln angezeigt."
+#~ msgstr ""
+#~ "Since formulae have not precise date "
+#~ "information, any search that contains "
+#~ "date information will return no "
+#~ "formulae."
+
+#~ msgid ""
+#~ "Da sich die Datierung einer "
+#~ "Formelsammlungen von Urkundendatierungen "
+#~ "unterscheidet, führt die Datumssuche bei "
+#~ "Formeln zu anderen Ergebnissen. Eine "
+#~ "Datumssuche für ein bestimmtes Datum "
+#~ "oder eine Datumsspanne, die keinen Monat"
+#~ " oder keinen Tag enthält, liefert "
+#~ "alle Formeln, die den anderen "
+#~ "Suchkriterien entsprechen. Sind ein Monat "
+#~ "oder ein Tag angegeben, liefert die "
+#~ "Abfrage keine Formel. Falls Sie nach "
+#~ "einer Datumssuche mit Tag bzw. Monat "
+#~ "die gefundenen Urkunden, mit Formeln "
+#~ "vergleichen möchten, die die übrigen "
+#~ "Suchkriterien erfüllen, sollten Sie eine "
+#~ "zweite Suche ohne Datum durchführen, die"
+#~ " auf Formel begrenzt ist."
+#~ msgstr ""
+#~ "Since the dating of formulae differs "
+#~ "significantly from that of charters, the"
+#~ " date search is applied differently "
+#~ "for formulae. Any date query that "
+#~ "does not specify a month or a "
+#~ "day, whether for a specific date "
+#~ "or a date range, will return all"
+#~ " formulae that meet the other search"
+#~ " criteria. If, however, a month or"
+#~ " a day is specified, the query "
+#~ "will return no formulae. If you "
+#~ "wish to compare the charters that "
+#~ "are returned by a date search that"
+#~ " includes a month or a day with"
+#~ " formulae that fulfill the other "
+#~ "search criteria, you should do a "
+#~ "second search without the date criteria"
+#~ " that is limited to only formulae."
+
+#~ msgid ""
+#~ "Da Formeln keine exakte Datumsangabe "
+#~ "besitzen, werden Formeln nur bei einer"
+#~ " Suche ohne Monats- oder Tagesangaben "
+#~ "als Treffer angezeigt. Als Treffer "
+#~ "werden alle Formeln markiert, die den"
+#~ " anderen Suchparametern entsprechen. Bei "
+#~ "der Suche nach einem bestimmten Datum"
+#~ " oder einer 'exklusiv' Suche nach "
+#~ "einer Datumsspanne mit Monats- oder "
+#~ "Tagesangaben werden keine Formeln als "
+#~ "Treffer angezeigt. Bei einer nicht "
+#~ "'exklusiv' Suche nach einer Datumsspanne "
+#~ "über mehrere Jahre hinweg (auch mit "
+#~ "Monats- oder Tagesangaben), werden alle "
+#~ "Formeln angezeigt, die die übrigen "
+#~ "Suchparametern entsprechen."
+#~ msgstr ""
 

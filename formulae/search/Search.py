@@ -103,7 +103,7 @@ def suggest_composition_places():
     """
     body = {'query': {'exists': {'field': 'comp_ort'}}}
     results = []
-    for x in current_app.elasticsearch.search(index='', doc_type='', size=10000, body=body)['hits']['hits']:
+    for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
         results += x['_source']['comp_ort'].split('; ')
     return sorted(set(results))
 
@@ -115,7 +115,7 @@ def suggest_word_search(word, **kwargs):
     """
     results = []
     kwargs['fragment_size'] = 1000
-    posts, total = advanced_query_index(q=word, **kwargs)
+    posts, total, aggs = advanced_query_index(q=word, **kwargs)
     for post in posts:
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
@@ -217,11 +217,28 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             should_clause = [date_template, {"match": {"specific_date.year": "0001"}}]
         else:
             should_clause = [date_template]
-        date_template = {"nested":
-                             {"path": "specific_date",
-                              "query":
-                                  {"bool":
-                                       {"should": should_clause}}}}
+        date_template = {'bool': {'should': []}}
+        if year:
+            if not date_plus_minus:
+                date_template['bool']['should'].append({'match':
+                                                        {'dating':
+                                                            '{:04}{}{}'.format(year,
+                                                                               '-{:02}'.format(month) if month else '',
+                                                                               '-{:02}'.format(day) if month and day else '')}})
+            else:
+                date_template['bool']['should'].append({'range':
+                                                        {'dating':
+                                                            {'gte': '{:04}{}{}'.format(year - date_plus_minus,
+                                                                                       '-{:02}'.format(month) if month else '',
+                                                                                       '-{:02}'.format(day) if month and day else ''),
+                                                             'lte': '{:04}{}{}'.format(year + date_plus_minus,
+                                                                                       '-{:02}'.format(month) if month else '',
+                                                                                       '-{:02}'.format(day) if month and day else '')}}})
+        date_template['bool']['should'].append({"nested":
+                                                    {"path": "specific_date",
+                                                     "query":
+                                                         {"bool":
+                                                              {"should": should_clause}}}})
         body_template["query"]["bool"]["must"].append(date_template)
     elif year_start or month_start or day_start or year_end or month_end or year_end:
         if exclusive_date_range != 'False':

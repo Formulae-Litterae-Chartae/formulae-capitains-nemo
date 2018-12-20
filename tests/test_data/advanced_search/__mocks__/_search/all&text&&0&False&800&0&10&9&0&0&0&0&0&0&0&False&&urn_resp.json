@@ -1,5 +1,5 @@
 {
-  "took": 9,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -8,317 +8,331 @@
     "failed": 0
   },
   "hits": {
-    "total": 4,
+    "total": 81,
     "max_score": null,
     "hits": [
       {
-        "_index": "schaeftlarn_v1",
-        "_type": "schaeftlarn",
-        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
-          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "date_string": "769\u2013800, [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
           "specific_date": [
             {
-              "year": 790,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 791,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 792,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 793,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 794,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 795,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 796,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 797,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 798,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 799,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 800,
-              "month": 10,
-              "day": 9
+              "year": 814
             }
           ],
           "all_dates": [
-            "0790-10-09",
-            "0791-10-09",
-            "0792-10-09",
-            "0793-10-09",
-            "0794-10-09",
-            "0795-10-09",
-            "0796-10-09",
-            "0797-10-09",
-            "0798-10-09",
-            "0799-10-09",
-            "0800-10-09"
+            "0769",
+            "0801",
+            "0814"
           ],
-          "min_date": "0790-10-09"
+          "min_date": "0769"
         },
         "sort": [
-          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
+          "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
-        "_type": "schaeftlarn",
-        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
-          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+          "date_string": "769\u2013800, [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
           "specific_date": [
             {
-              "year": 790,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 791,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 792,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 793,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 794,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 795,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 796,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 797,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 798,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 799,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 800,
-              "month": 10,
-              "day": 9
+              "year": 814
             }
           ],
           "all_dates": [
-            "0790-10-09",
-            "0791-10-09",
-            "0792-10-09",
-            "0793-10-09",
-            "0794-10-09",
-            "0795-10-09",
-            "0796-10-09",
-            "0797-10-09",
-            "0798-10-09",
-            "0799-10-09",
-            "0800-10-09"
+            "0769",
+            "0801",
+            "0814"
           ],
-          "min_date": "0790-10-09"
+          "min_date": "0769"
         },
         "sort": [
-          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+          "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
-        "_type": "schaeftlarn",
-        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
-          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+          "date_string": "768\u2013800, [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
           "specific_date": [
             {
-              "year": 790,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 791,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 792,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 793,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 794,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 795,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 796,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 797,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 798,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 799,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 800,
-              "month": 10,
-              "day": 9
+              "year": 814
             }
           ],
           "all_dates": [
-            "0790-10-09",
-            "0791-10-09",
-            "0792-10-09",
-            "0793-10-09",
-            "0794-10-09",
-            "0795-10-09",
-            "0796-10-09",
-            "0797-10-09",
-            "0798-10-09",
-            "0799-10-09",
-            "0800-10-09"
+            "0768",
+            "0801",
+            "0814"
           ],
-          "min_date": "0790-10-09"
+          "min_date": "0768"
         },
         "sort": [
-          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+          "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
       },
       {
-        "_index": "werden_v1",
-        "_type": "werden",
-        "_id": "urn:cts:formulae:werden.block0021.lat001",
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "De oudste particuliere oorkonden van Werden (Ed. Block) Nr. 21",
-          "urn": "urn:cts:formulae:werden.block0021.lat001",
-          "date_string": "799 \u2013 800 10 09",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+          "date_string": "768\u2013800, [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
           "specific_date": [
             {
-              "year": 799,
-              "month": 10,
-              "day": 9
-            },
-            {
-              "year": 800,
-              "month": 10,
-              "day": 9
+              "year": 814
             }
           ],
           "all_dates": [
-            "0799-10-09",
-            "0800-10-09"
+            "0768",
+            "0801",
+            "0814"
           ],
-          "min_date": "0799-10-09"
+          "min_date": "0768"
         },
         "sort": [
-          "urn:cts:formulae:werden.block0021.lat001"
+          "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+          "date_string": "ca. 791\u2013806",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0791",
+              "lte": "0807"
+            }
+          ],
+          "all_dates": [
+            "0791",
+            "0807"
+          ],
+          "min_date": "0791"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.1",
+          "urn": "urn:cts:formulae:luzern.schiess0001.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0001.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.2",
+          "urn": "urn:cts:formulae:luzern.schiess0002.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0002.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.3",
+          "urn": "urn:cts:formulae:luzern.schiess0003.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0003.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.4",
+          "urn": "urn:cts:formulae:luzern.schiess0004.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0004.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.5",
+          "urn": "urn:cts:formulae:luzern.schiess0005.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0005.lat001"
         ]
       }
     ]
@@ -330,31 +344,31 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "Luzern": {
-          "doc_count": 0
+          "doc_count": 6
         },
         "Mondsee": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "Passau": {
-          "doc_count": 0
+          "doc_count": 25
         },
         "Regensburg": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Rheinisch": {
-          "doc_count": 0
+          "doc_count": 4
         },
         "R\u00e4tien": {
-          "doc_count": 0
+          "doc_count": 7
         },
         "Salzburg": {
-          "doc_count": 0
+          "doc_count": 9
         },
         "Sch\u00e4ftlarn": {
-          "doc_count": 3
+          "doc_count": 7
         },
         "St. Gallen": {
           "doc_count": 0
@@ -399,7 +413,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 3
+          "doc_count": 54
         },
         {
           "key": "800-899",
@@ -407,7 +421,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 0
+          "doc_count": 16
         },
         {
           "key": "900-999",
@@ -415,13 +429,13 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 0
+          "doc_count": 4
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 0
+          "doc_count": 5
         }
       ]
     },

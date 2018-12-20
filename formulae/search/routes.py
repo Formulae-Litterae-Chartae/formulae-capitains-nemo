@@ -119,6 +119,13 @@ def r_advanced_search():
                        composition_places=suggest_composition_places(), url=dict())
 
 
+@bp.route("/doc", methods=["GET"])
+def r_search_docs():
+    """ Route to the documentation page for the advanced search"""
+    from formulae.app import nemo
+    return nemo.render(template="search::documentation.html", url=dict())
+
+
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
     words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
