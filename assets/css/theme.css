@@ -368,3 +368,7 @@ nav .dropdown:hover .dropdown-menu {
     font-size: 0.875rem;
     line-height: 1.2rem;
 }
+
+span[class="book-title"] {
+    font-weight: bold;
+}

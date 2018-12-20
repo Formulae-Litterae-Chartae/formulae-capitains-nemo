@@ -349,8 +349,15 @@
         <span class="unclear"><xsl:value-of select="." /></span>
     </xsl:template>
     
-    <xsl:template match="t:seg[@type='font-style:italic;']" mode="noteSegs">
-        <span class="font-italic"><xsl:apply-templates/></span>
+    <xsl:template match="t:seg" mode="noteSegs">
+        <xsl:choose>
+            <xsl:when test="./@type='font-style:italic;'">
+                <span class="font-italic"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:when test="./@type='book_title'">
+                <span class="book-title"><xsl:apply-templates/></span>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='lex-title']">
