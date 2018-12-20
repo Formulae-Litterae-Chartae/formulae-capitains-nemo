@@ -3,38 +3,52 @@
     "bool": {
       "must": [
         {
-          "nested": {
-            "path": "specific_date",
-            "query": {
-              "bool": {
-                "should": [
-                  {
+          "bool": {
+            "should": [
+              {
+                "range": {
+                  "dating": {
+                    "gte": "0790-10-09",
+                    "lte": "0810-10-09"
+                  }
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
                     "bool": {
-                      "must": [
+                      "should": [
                         {
-                          "range": {
-                            "specific_date.year": {
-                              "gte": 790,
-                              "lte": 810
-                            }
-                          }
-                        },
-                        {
-                          "match": {
-                            "specific_date.month": 10
-                          }
-                        },
-                        {
-                          "match": {
-                            "specific_date.day": 9
+                          "bool": {
+                            "must": [
+                              {
+                                "range": {
+                                  "specific_date.year": {
+                                    "gte": 790,
+                                    "lte": 810
+                                  }
+                                }
+                              },
+                              {
+                                "match": {
+                                  "specific_date.month": 10
+                                }
+                              },
+                              {
+                                "match": {
+                                  "specific_date.day": 9
+                                }
+                              }
+                            ]
                           }
                         }
                       ]
                     }
                   }
-                ]
+                }
               }
-            }
+            ]
           }
         }
       ]

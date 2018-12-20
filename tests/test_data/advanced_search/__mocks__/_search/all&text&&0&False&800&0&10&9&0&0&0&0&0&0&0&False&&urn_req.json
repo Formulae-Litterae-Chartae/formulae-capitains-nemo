@@ -3,35 +3,46 @@
     "bool": {
       "must": [
         {
-          "nested": {
-            "path": "specific_date",
-            "query": {
-              "bool": {
-                "should": [
-                  {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "dating": "0800-10-09"
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
                     "bool": {
-                      "must": [
+                      "should": [
                         {
-                          "match": {
-                            "specific_date.year": 800
-                          }
-                        },
-                        {
-                          "match": {
-                            "specific_date.month": 10
-                          }
-                        },
-                        {
-                          "match": {
-                            "specific_date.day": 9
+                          "bool": {
+                            "must": [
+                              {
+                                "match": {
+                                  "specific_date.year": 800
+                                }
+                              },
+                              {
+                                "match": {
+                                  "specific_date.month": 10
+                                }
+                              },
+                              {
+                                "match": {
+                                  "specific_date.day": 9
+                                }
+                              }
+                            ]
                           }
                         }
                       ]
                     }
                   }
-                ]
+                }
               }
-            }
+            ]
           }
         }
       ]
