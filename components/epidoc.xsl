@@ -355,7 +355,10 @@
                 <span class="font-italic"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="./@type='book_title'">
-                <span class="book-title"><xsl:apply-templates/></span>
+                <xsl:element name="bibl">
+                    <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
