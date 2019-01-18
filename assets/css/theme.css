@@ -368,3 +368,7 @@ nav .dropdown:hover .dropdown-menu {
     font-size: 0.875rem;
     line-height: 1.2rem;
 }
+
+.surname {
+    font-variant: small-caps;
+}
