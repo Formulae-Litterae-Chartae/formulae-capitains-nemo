@@ -330,7 +330,6 @@ nav .dropdown:hover .dropdown-menu {
     margin: 0.5rem;
 }
 
-<<<<<<< HEAD
 .searched {
     background-color: yellow;
 }
@@ -384,4 +383,8 @@ button.close {
 
 .elex-modal-popover {
     max-width: 50%;
+}
+
+.surname {
+    font-variant: small-caps;
 }

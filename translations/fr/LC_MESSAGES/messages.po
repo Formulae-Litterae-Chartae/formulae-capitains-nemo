@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-12-20 11:13+0100\n"
+"POT-Creation-Date: 2019-01-18 12:50+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,46 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18 tests/test_routes.py:70
+#: formulae/__init__.py:18 tests/test_routes.py:72
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:243
+#: formulae/nemo.py:244
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:245 formulae/nemo.py:305 formulae/nemo.py:358
-#: tests/test_routes.py:99 tests/test_routes.py:101
+#: formulae/nemo.py:246 formulae/nemo.py:306 formulae/nemo.py:359
+#: tests/test_routes.py:101 tests/test_routes.py:103
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:417
+#: formulae/nemo.py:418
 msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:424
+#: formulae/nemo.py:425
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:497 tests/test_routes.py:103 tests/test_routes.py:105
+#: formulae/nemo.py:498 tests/test_routes.py:105 tests/test_routes.py:107
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:402
+#: formulae/auth/forms.py:53 tests/test_routes.py:408
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:404
+#: formulae/auth/forms.py:58 tests/test_routes.py:410
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:431
+#: formulae/auth/routes.py:27 tests/test_routes.py:437
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:457
+#: formulae/auth/routes.py:137 tests/test_routes.py:463
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:365
+#: formulae/search/forms.py:44 tests/test_routes.py:371
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -468,6 +468,10 @@ msgstr "Lexique"
 #: templates/main/navbar.html:28
 msgid "Andere Texte"
 msgstr "Autres textes"
+
+#: templates/main/bibliography.html:6
+msgid "Bibliographie"
+msgstr ""
 
 #: templates/main/collection_member_menu.html:11
 msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
