@@ -1,9 +1,10 @@
-from flask import current_app, Markup, flash
+from flask import current_app, Markup, flash, session
 from flask_babel import _
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
 import re
+from copy import copy
 
 
 PRE_TAGS = "</small><strong>"
@@ -31,6 +32,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                    'Werden': {'match': {'_type': 'werden'}},
                                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
                 'no_date': {'missing': {'field': 'min_date'}}}
+HITS_TO_READER = 200
 
 
 def add_to_index(index, model):
@@ -68,6 +70,7 @@ def query_index(index, field, query, page, per_page, sort='urn'):
         return [], 0, {}
     if index in ['', ['']]:
         return [], 0, {}
+    session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
@@ -76,24 +79,31 @@ def query_index(index, field, query, page, per_page, sort='urn'):
             clauses.append({'span_multi': {'match': {'wildcard': {'text': term}}}})
         else:
             clauses.append({"span_term": {'text': term}})
-    search = current_app.elasticsearch.search(
-    index=index, doc_type="",
-    body={'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
-          "sort": sort,
-          'from': (page - 1) * per_page, 'size': per_page,
-          'highlight':
-              {'fields':
-                   {field: {"fragment_size": 300}
-                    },
-               'pre_tags': [PRE_TAGS],
-               'post_tags': [POST_TAGS],
-               'encoder': 'html'
-               },
-          'aggs': AGGREGATIONS
-          }
-    )
+    search_body = {'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
+                   "sort": sort,
+                   'from': (page - 1) * per_page, 'size': per_page,
+                   'highlight':
+                       {'fields':
+                            {field: {"fragment_size": 300}
+                             },
+                        'pre_tags': [PRE_TAGS],
+                        'post_tags': [POST_TAGS],
+                        'encoder': 'html'
+                        },
+                   'aggs': AGGREGATIONS
+                   }
+    search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
+    set_session_token(index, search_body)
     ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     return ids, search['hits']['total'], search['aggregations']
+
+
+def set_session_token(index, orig_template):
+    """ Sets session['previous_search'] to include the first X search results"""
+    template = copy(orig_template)
+    template.update({'from': 0, 'size': HITS_TO_READER})
+    session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
+    session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in session_search['hits']['hits']]
 
 
 def suggest_composition_places():
@@ -158,6 +168,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     old_sort = sort
     sort = build_sort_list(sort)
+    session.pop('previous_search', None)
     body_template = {"query": {"bool": {"must": []}}, "sort": sort,
                      'from': (page - 1) * per_page, 'size': per_page,
                      'aggs': AGGREGATIONS
@@ -249,6 +260,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
                                                                                     year_end, month_end, day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
+    set_session_token(corpus, body_template)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't

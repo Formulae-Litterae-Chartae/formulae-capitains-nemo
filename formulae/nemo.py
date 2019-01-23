@@ -210,6 +210,8 @@ class NemoFormulae(Nemo):
 
     def before_request(self):
         g.search_form = SearchForm()
+        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url:
+            session.pop('previous_search', None)
 
     def after_request(self, response):
         """ Currently used only for the Cache-Control header
