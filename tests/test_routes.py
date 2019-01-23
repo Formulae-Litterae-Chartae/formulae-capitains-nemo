@@ -25,6 +25,7 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
     WTF_CSRF_ENABLED = False
+    SESSION_TYPE = 'filesystem'
 
 
 class Formulae_Testing(flask_testing.TestCase):
