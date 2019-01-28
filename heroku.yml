@@ -1,0 +1,7 @@
+build:
+  languages:
+    - python
+  pre: 
+    - git clone https://github.com/Formulae-Litterae-Chartae/formulae-open.git
+run:
+  web: 'gunicorn app:flask_app'
