@@ -42,4 +42,4 @@ cache/
 .rngs/
 htmlcov/
 old_translations/
-flask_sessions/
+flask_session/
