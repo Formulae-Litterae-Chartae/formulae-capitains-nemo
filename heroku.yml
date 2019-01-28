@@ -3,5 +3,6 @@ build:
     - python
   pre: 
     - git clone https://github.com/Formulae-Litterae-Chartae/formulae-open.git
+    - rm -rf formulae-open/data/stgallen/
 run:
   web: 'gunicorn app:flask_app'
