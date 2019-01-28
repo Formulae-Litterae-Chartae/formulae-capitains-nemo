@@ -4,5 +4,6 @@ build:
   pre: 
     - git clone https://github.com/Formulae-Litterae-Chartae/formulae-open.git
     - rm -rf formulae-open/data/stgallen/
+    - cp formulae-open/robots.txt ./
 run:
   web: 'gunicorn app:flask_app'
