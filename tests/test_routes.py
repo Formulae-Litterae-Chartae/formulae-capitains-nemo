@@ -279,7 +279,8 @@ class TestIndividualRoutes(Formulae_Testing):
         expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
         self.assertEqual(output, expected)
 
-    def test_session_previous_results_set(self):
+    @patch.object(Elasticsearch, "search")
+    def test_session_previous_results_set(self, mock_search):
         """ Make sure that session['previous_results'] is set correctly"""
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -289,6 +290,7 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        mock_search.return_value = resp
         set_session_token('all', body)
         self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in resp['hits']['hits']])
 
