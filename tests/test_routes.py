@@ -296,19 +296,24 @@ class TestIndividualRoutes(Formulae_Testing):
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
-        session['previous_search'] = {'id': 'something', 'title': 'something else'}
-        with self.client as c:
-            c.get('/', follow_redirects=True)
-            self.assertTrue('previous_search' not in session, 'Not text and not search should clear "previous_search"')
-            session['previous_search'] = {'id': 'something', 'title': 'something else'}
-            c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            self.assertTrue('previous_search' not in session, 'Not text and not search should clear "previous_search"')
-            session['previous_search'] = {'id': 'something', 'title': 'something else'}
-            # For whatever reason, this doesn't work. I think it is an important test, however, and will continue to work on it.
-            if os.environ.get('TRAVIS') != 'true':
-                c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=False)
-                self.assertTrue('previous_search' in session, 'Text pages should not clear "previous_search"')
-
+        test_urls = {'clearing': [('/', 'index should clear previous_search'),
+                                  ('/corpus/urn:cts:formulae:salzburg', 'corpus should clear previous_search')],
+                     'not_clearing': [('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/1',
+                                       'text reading page should not clear previous_search'),
+                                      ('/search/results?corpus=formulae%2Bchartae&q=regnum&source=simple',
+                                       'search page should not clear previous search')]}
+        for url, message in test_urls['clearing']:
+            with self.app.test_request_context(url):
+                session['previous_search'] = {'id': 'something', 'title': 'something else'}
+                self.assertTrue('previous_search' in session, 'previous_search should be set')
+                self.app.preprocess_request()
+                self.assertFalse('previous_search' in session, message)
+        for url, message in test_urls['not_clearing']:
+            with self.app.test_request_context(url):
+                session['previous_search'] = {'id': 'something', 'title': 'something else'}
+                self.assertTrue('previous_search' in session, 'previous_search should be set')
+                self.app.preprocess_request()
+                self.assertTrue('previous_search' in session, message)
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
