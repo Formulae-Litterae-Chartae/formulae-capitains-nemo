@@ -9,6 +9,8 @@ from copy import copy
 
 PRE_TAGS = "</small><strong>"
 POST_TAGS = "</strong><small>"
+HIGHLIGHT_CHARS_BEFORE = 30
+HIGHLIGHT_CHARS_AFTER = 30
 AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                          'format': 'yyyy',
                                          'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
@@ -93,17 +95,22 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    set_session_token(index, search_body)
-    ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+    set_session_token(index, search_body, field, query)
+    ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template):
+def set_session_token(index, orig_template, field, q):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
-    session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in session_search['hits']['hits']]
+    if q:
+        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
+                                       'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in session_search['hits']['hits']]
+    else:
+        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
+                                       'sents': []} for hit in session_search['hits']['hits']]
 
 
 def suggest_composition_places():
@@ -139,7 +146,7 @@ def suggest_word_search(word, **kwargs):
     return list(set(results))
 
 
-def highlight_segment(orig_str, chars_before, chars_after, pre_tag, post_tag):
+def highlight_segment(orig_str):
     """ returns only a section of the highlighting returned by Elasticsearch. This should keep highlighted phrases
         from breaking over lines
 
@@ -152,6 +159,8 @@ def highlight_segment(orig_str, chars_before, chars_after, pre_tag, post_tag):
     """
     init_index = 0
     end_index = len(orig_str)
+    chars_before, chars_after = HIGHLIGHT_CHARS_BEFORE, HIGHLIGHT_CHARS_AFTER
+    pre_tag, post_tag = PRE_TAGS, POST_TAGS
     if orig_str.find(pre_tag) - chars_before > 0:
         init_index = max(orig_str.rfind(' ', 0, orig_str.find(pre_tag) - chars_before), 0)
     if orig_str.rfind(post_tag) + chars_after + len(post_tag) < len(orig_str):
@@ -260,7 +269,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
                                                                                     year_end, month_end, day_end))
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    set_session_token(corpus, body_template)
+    set_session_token(corpus, body_template, field, q if field == 'text' else '')
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
@@ -290,7 +299,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x, 30, 30, PRE_TAGS, POST_TAGS)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.

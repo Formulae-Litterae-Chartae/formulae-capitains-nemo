@@ -462,7 +462,7 @@ class NemoFormulae(Nemo):
             "date": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None, result_sents=''):
+    def r_multipassage(self, objectIds, subreferences, lang=None):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -483,7 +483,7 @@ class NemoFormulae(Nemo):
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
-        result_sents = request.args.get('result_sents')
+        # result_sents = request.args.get('result_sents')
         for i, id in enumerate(ids):
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
@@ -492,24 +492,29 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                if result_sents:
-                    d['text_passage'] = self.highlight_found_sents(d['text_passage'],
-                                                                   self.convert_result_sents(result_sents))
+                if 'previous_search' in session:
+                    result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
+                    if result_sents:
+                        d['text_passage'] = self.highlight_found_sents(d['text_passage'],
+                                                                       self.convert_result_sents(result_sents))
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         return passage_data
 
-    def convert_result_sents(self, sents):
+    def convert_result_sents(self, result_sents):
         """ Remove extraneous markup and punctuation from the result_sents returned from the search page
 
         :param sents: the original 'result_sents' request argument
         :return: list of the individual sents with extraneous markup and punctuation removed
         """
-        intermediate = sents.replace('+', ' ').replace('%2C', '').replace('%2F', '').replace('%24', '$')
-        intermediate = re.sub('strong|small', '', intermediate)
-        intermediate = re.sub('\s+', ' ', intermediate)
-        intermediate = intermediate.split('$')
+        intermediate = []
+        sents = result_sents[0]
+        for sent in sents:
+            sent = sent.replace('+', ' ').replace('%2C', '').replace('%2F', '').replace('%24', '$')
+            sent = re.sub('strong|small', '', sent)
+            sent = re.sub('\s+', ' ', sent)
+            intermediate.append(sent)
         return [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
 
     def highlight_found_sents(self, html, sents):
