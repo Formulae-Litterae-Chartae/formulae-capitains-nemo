@@ -1,4 +1,4 @@
-from flask import redirect, request, url_for, g, flash, current_app
+from flask import redirect, request, url_for, g, flash, current_app, session
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
@@ -146,3 +146,4 @@ def word_search_suggester(word):
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                 composition_place=request.args.get('composition_place', ''))
     return dumps(words)
+

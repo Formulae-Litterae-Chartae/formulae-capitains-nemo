@@ -289,6 +289,12 @@ nav .dropdown:hover .dropdown-menu {
     top: 100px;
 }
 
+#left-sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+}
+
 .note-card {
     max-height: 30vh;
     overflow: auto;
@@ -371,4 +377,14 @@ nav .dropdown:hover .dropdown-menu {
 
 .surname {
     font-variant: small-caps;
+}
+
+.search-hit {
+    padding: 0rem 0rem;
+}
+
+.search-hit span {
+    font-size: small;
+    color: black;
+    text-decoration: none;
 }
