@@ -3,7 +3,8 @@ from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from formulae import create_app, db
 from formulae.nemo import NemoFormulae
 from formulae.models import User
-from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list
+from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
+    set_session_token
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -16,7 +17,7 @@ from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup
+from flask import Markup, session
 
 
 class TestConfig(Config):
@@ -24,6 +25,7 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
     WTF_CSRF_ENABLED = False
+    SESSION_TYPE = 'filesystem'
 
 
 class Formulae_Testing(flask_testing.TestCase):
@@ -272,11 +274,46 @@ class TestIndividualRoutes(Formulae_Testing):
 
     def test_convert_result_sents(self):
         """ Make sure that search result_sents are converted correctly"""
-        input_str = 'Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in%24Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone'
+        input_str = [['Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in', 'Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone']]
         output = self.nemo.convert_result_sents(input_str)
         expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
         self.assertEqual(output, expected)
 
+    @patch.object(Elasticsearch, "search")
+    def test_session_previous_results_set(self, mock_search):
+        """ Make sure that session['previous_results'] is set correctly"""
+        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        mock_search.return_value = resp
+        set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
+        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title'], 'sents': []} for hit in resp['hits']['hits']])
+
+    def test_session_previous_result_unset(self):
+        """ Make sure that session['previous_result'] is unset in the right circumstances"""
+        test_urls = {'clearing': [('/', 'index should clear previous_search'),
+                                  ('/corpus/urn:cts:formulae:salzburg', 'corpus should clear previous_search')],
+                     'not_clearing': [('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/1',
+                                       'text reading page should not clear previous_search'),
+                                      ('/search/results?corpus=formulae%2Bchartae&q=regnum&source=simple',
+                                       'search page should not clear previous search')]}
+        for url, message in test_urls['clearing']:
+            with self.app.test_request_context(url):
+                session['previous_search'] = {'id': 'something', 'title': 'something else'}
+                self.assertTrue('previous_search' in session, 'previous_search should be set')
+                self.app.preprocess_request()
+                self.assertFalse('previous_search' in session, message)
+        for url, message in test_urls['not_clearing']:
+            with self.app.test_request_context(url):
+                session['previous_search'] = {'id': 'something', 'title': 'something else'}
+                self.assertTrue('previous_search' in session, 'previous_search should be set')
+                self.app.preprocess_request()
+                self.assertTrue('previous_search' in session, message)
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
@@ -483,7 +520,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _  = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -500,7 +537,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -517,7 +554,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _  = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -534,7 +571,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _  = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -551,7 +588,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -568,7 +605,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -586,7 +623,7 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -605,7 +642,7 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_called_with(index=test_args['corpus'], doc_type="", body=body)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -613,7 +650,8 @@ class TestES(Formulae_Testing):
         test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
-                                    '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001'},
+                                    '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
+                                                'title': 'St. Gallen 259'},
                                     'highlight': {
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
                                              'total': 0},
@@ -654,15 +692,15 @@ class TestES(Formulae_Testing):
                                         'Zürich': {'match': {'_type': 'zuerich'}}}}},
                          'no_date': {'missing': {'field': 'min_date'}}}}
         query_index(**test_args)
-        mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 'regnum domni'
         body['query']['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
         query_index(**test_args)
-        mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 're?num'
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
-        mock_search.assert_called_with(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
