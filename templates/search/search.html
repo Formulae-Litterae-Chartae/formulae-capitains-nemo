@@ -41,6 +41,7 @@
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
+    <a href="{{ url_for('search.r_advanced_search') }}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{val}}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}"> {{ _('Diese Suche Ändern') }}</a>
     {% if total_results > 0 %}<p>
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>

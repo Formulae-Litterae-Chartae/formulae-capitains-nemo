@@ -88,6 +88,7 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
+    session['previous_search_args'] = search_args
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
@@ -105,7 +106,9 @@ def r_advanced_search():
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
-    if form.validate() and data_present:
+    if len(form.corpus.data) == 1:
+        form.corpus.data = form.corpus.data[0].split(' ')
+    if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
