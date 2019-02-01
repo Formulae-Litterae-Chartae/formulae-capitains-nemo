@@ -64,6 +64,7 @@ def r_results():
                                             composition_place=request.args.get('composition_place', ''),
                                             sort=request.args.get('sort', 'urn'))
         search_args = dict(request.args)
+        old_search = search_args.pop('old_search', None)
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
@@ -88,7 +89,8 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
-    session['previous_search_args'] = search_args
+    if old_search is None:
+        session['previous_search_args'] = search_args
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
@@ -114,7 +116,8 @@ def r_advanced_search():
             data['q'] = data['q'].lower()
             corpus = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
-            return redirect(url_for('.r_results', source="advanced", corpus=corpus, sort='urn', **data))
+            data['corpus'] = corpus
+            return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
