@@ -64,9 +64,9 @@ def r_results():
                                             composition_place=request.args.get('composition_place', ''),
                                             sort=request.args.get('sort', 'urn'))
         search_args = dict(request.args)
-        old_search = search_args.pop('old_search', None)
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
+    old_search = search_args.pop('old_search', None)
     first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
@@ -89,6 +89,7 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
+    g.corpora = session['previous_search_args']['corpus'].split('+')
     if old_search is None:
         session['previous_search_args'] = search_args
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,

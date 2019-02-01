@@ -41,7 +41,33 @@
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
-    <a href="{{ url_for('search.r_advanced_search') }}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{val}}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}"> {{ _('Diese Suche Ändern') }}</a>
+    <table id="re-search-table" class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th colspan="2">{{ _('Diese Suche:') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th colspan="2"><a href="{{ url_for('search.r_advanced_search') }}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{val}}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}"> {{ _('ändern') }}</a></th>
+            </tr>
+            {% if g.corpora|length > 1 %}
+            <tr>
+                <th rowspan="{{ g.corpora|length + 1}}">{{ _('beschränken auf:') }}</th>
+                <th><a href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ g.corpora[0] }}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ g.corpora[0] }}</a></th>
+            </tr>
+            {% for corp in g.corpora[1:] %}
+            <tr>
+                <th><a href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ corp }}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ corp }}</a></th>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th><a href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Alle') }}</a></th>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
     {% if total_results > 0 %}<p>
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>
