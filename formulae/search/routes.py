@@ -89,7 +89,8 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
-    g.corpora = session['previous_search_args']['corpus'].split('+')
+    if 'previous_search_args' in session:
+        g.corpora = session['previous_search_args']['corpus'].split('+')
     if old_search is None:
         session['previous_search_args'] = search_args
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
