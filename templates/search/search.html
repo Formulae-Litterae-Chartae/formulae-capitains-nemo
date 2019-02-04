@@ -48,9 +48,9 @@
         </button>
         <div class="dropdown-menu corpora-search-results-dropdown">
             {% for corp in g.corpora %}
-            <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ corp }}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ corp|title }}</a>
+            <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ corp }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ corp|title }}</a>
             {% endfor %}
-            <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{val|join_list_values('+') }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+            <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
         </div>
     </div>
     
