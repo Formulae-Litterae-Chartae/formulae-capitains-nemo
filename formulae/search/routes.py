@@ -93,6 +93,9 @@ def r_results():
         g.corpora = session['previous_search_args']['corpus'].split('+')
     if old_search is None:
         session['previous_search_args'] = search_args
+        if session['previous_search_args']['corpus'] == 'all':
+            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            session['previous_search_args']['corpus'] = '+'.join(corps)
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
@@ -110,7 +113,7 @@ def r_advanced_search():
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
-    if len(form.corpus.data) == 1:
+    if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:

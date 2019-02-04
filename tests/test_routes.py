@@ -281,7 +281,6 @@ class TestIndividualRoutes(Formulae_Testing):
         session['previous_search'] = [{'id': obj_id, 'title': 'Salzburg A1', 'sents': search_string}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         self.assertIn(expected, passage_data['objects'][0]['text_passage'])
-        print(passage_data['objects'][0]['text_passage'])
 
     def test_convert_result_sents(self):
         """ Make sure that search result_sents are converted correctly"""
@@ -325,6 +324,29 @@ class TestIndividualRoutes(Formulae_Testing):
                 self.assertTrue('previous_search' in session, 'previous_search should be set')
                 self.app.preprocess_request()
                 self.assertTrue('previous_search' in session, message)
+
+    @patch.object(Elasticsearch, "search")
+    def test_session_previous_search_args_all_corps(self, mock_search):
+        """ Make sure that session['previous_search_args'] is set correctly with 'all' corpora"""
+        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        mock_search.return_value = resp
+        session['previous_search_args'] = {'source': ['advanced'], 'corpus': 'all', 'q': ['regnum'], 'fuzziness': ['0'],
+                                           'slop': ['0'], 'in_order': ['False'], 'year': [''], 'month': ['0'],
+                                           'day': [''], 'year_start': [''], 'month_start': ['0'], 'day_start': [''],
+                                           'year_end': [''], 'month_end': ['0'], 'day_end': [''],
+                                           'date_plus_minus': ['0'], 'exclusive_date_range': ['False'],
+                                           'composition_place': [''], 'submit': ['True'], 'sort': ['urn']}
+        with self.client as c:
+            c.get("/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end=", follow_redirects=True)
+            self.assertRegex(session['previous_search_args']['corpus'],
+                             'andecavensis\+[\w\+]*raetien+[\w\+]*salzburg+[\w\+]*stgallen',
+                             'Corpus "all" should be expanded to a string with all corpora.')
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
