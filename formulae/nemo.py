@@ -33,7 +33,8 @@ class NemoFormulae(Nemo):
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
         ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
-        ("/bibliography", "r_bibliography", ["GET"])
+        ("/bibliography", "r_bibliography", ["GET"]),
+        ("/contact", "r_contact", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -575,6 +576,14 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::bibliography.html"}
+
+    def r_contact(self):
+        """ Contact route function
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::contact.html"}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
