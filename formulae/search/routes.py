@@ -63,7 +63,7 @@ def r_results():
                                             exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                             composition_place=request.args.get('composition_place', ''),
                                             sort=request.args.get('sort', 'urn'))
-        search_args = dict(request.args)
+        search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
     old_search = search_args.pop('old_search', None)
