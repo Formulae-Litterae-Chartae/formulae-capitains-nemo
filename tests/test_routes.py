@@ -70,6 +70,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::impressum.html')
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
+            c.get('/contact', follow_redirects=True)
+            self.assertTemplateUsed('main::contact.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertMessageFlashed(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
             self.assertTemplateUsed('auth::login.html')
@@ -119,6 +121,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::impressum.html')
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
+            c.get('/contact', follow_redirects=True)
+            self.assertTemplateUsed('main::contact.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
@@ -172,6 +176,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::impressum.html')
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
+            c.get('/contact', follow_redirects=True)
+            self.assertTemplateUsed('main::contact.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
@@ -271,6 +277,11 @@ class TestIndividualRoutes(Formulae_Testing):
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         result = self.nemo.highlight_found_sents(html_input, search_string)
         self.assertIn(expected, result)
+        # Should return the same result when passed in the session variable to r_multipassage
+        session['previous_search'] = [{'id': obj_id, 'title': 'Salzburg A1', 'sents': search_string}]
+        passage_data = self.nemo.r_multipassage(obj_id, '1')
+        self.assertIn(expected, passage_data['objects'][0]['text_passage'])
+        print(passage_data['objects'][0]['text_passage'])
 
     def test_convert_result_sents(self):
         """ Make sure that search result_sents are converted correctly"""
