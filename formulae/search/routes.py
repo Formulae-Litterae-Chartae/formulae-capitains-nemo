@@ -2,10 +2,13 @@ from flask import redirect, request, url_for, g, flash, current_app, session
 from flask_babel import _
 from flask_login import login_required
 from math import ceil
-from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search
+from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
+
+
+CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
 
 
 @bp.route("/simple", methods=["GET"])
@@ -90,9 +93,10 @@ def r_results():
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
     if 'previous_search_args' in session:
-        g.corpora = session['previous_search_args']['corpus'].split('+')
+        g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
     if old_search is None:
         session['previous_search_args'] = search_args
+        session['previous_aggregations'] = aggs
         if session['previous_search_args']['corpus'] == 'all':
             corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)

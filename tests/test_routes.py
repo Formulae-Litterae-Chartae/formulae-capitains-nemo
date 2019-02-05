@@ -17,7 +17,7 @@ from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session
+from flask import Markup, session, g
 
 
 class TestConfig(Config):
@@ -328,6 +328,11 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_session_previous_search_args_all_corps(self, mock_search):
         """ Make sure that session['previous_search_args'] is set correctly with 'all' corpora"""
+        search_url = "/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end="
+        previous_args = {'source': 'advanced', 'corpus': 'all', 'q': 'regnum', 'fuzziness': '0', 'slop': '0',
+                         'in_order': 'False', 'year': '', 'month': '0', 'day': '', 'year_start': '', 'month_start': '0',
+                         'day_start': '', 'year_end': '', 'month_end': '0', 'day_end': '', 'date_plus_minus': '0',
+                         'exclusive_date_range': 'False', 'composition_place': '', 'submit': 'True', 'sort': 'urn'}
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -336,17 +341,15 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
-        session['previous_search_args'] = {'source': ['advanced'], 'corpus': 'all', 'q': ['regnum'], 'fuzziness': ['0'],
-                                           'slop': ['0'], 'in_order': ['False'], 'year': [''], 'month': ['0'],
-                                           'day': [''], 'year_start': [''], 'month_start': ['0'], 'day_start': [''],
-                                           'year_end': [''], 'month_end': ['0'], 'day_end': [''],
-                                           'date_plus_minus': ['0'], 'exclusive_date_range': ['False'],
-                                           'composition_place': [''], 'submit': ['True'], 'sort': ['urn']}
         with self.client as c:
-            c.get("/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end=", follow_redirects=True)
+            session['previous_search_args'] = previous_args
+            c.get(search_url, follow_redirects=True)
             self.assertRegex(session['previous_search_args']['corpus'],
                              'andecavensis\+[\w\+]*raetien+[\w\+]*salzburg+[\w\+]*stgallen',
                              'Corpus "all" should be expanded to a string with all corpora.')
+            c.get(search_url, follow_redirects=True)
+            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+                          'g.corpora should be set when session["previous_search_args"] is set.')
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
