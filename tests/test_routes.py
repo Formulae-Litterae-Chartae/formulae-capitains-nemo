@@ -222,7 +222,50 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
-        mock_search.return_value = [[], 0, {}]
+        aggs = {"corpus": {
+                  "buckets": {
+                    "Angers": {
+                      "doc_count": 2
+                    },
+                    "B\u00fcnden": {
+                      "doc_count": 0
+                    },
+                    "Luzern": {
+                      "doc_count": 0
+                    },
+                    "Mondsee": {
+                      "doc_count": 0
+                    },
+                    "Passau": {
+                      "doc_count": 0
+                    },
+                    "Regensburg": {
+                      "doc_count": 0
+                    },
+                    "Rheinisch": {
+                      "doc_count": 0
+                    },
+                    "R\u00e4tien": {
+                      "doc_count": 0
+                    },
+                    "Salzburg": {
+                      "doc_count": 0
+                    },
+                    "Sch\u00e4ftlarn": {
+                      "doc_count": 0
+                    },
+                    "St. Gallen": {
+                      "doc_count": 0
+                    },
+                    "Werden": {
+                      "doc_count": 0
+                    },
+                    "Z\u00fcrich": {
+                      "doc_count": 0
+                    }
+                  }
+                }}
+        mock_search.return_value = [[], 0, aggs]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -231,21 +274,37 @@ class TestIndividualRoutes(Formulae_Testing):
                              'date_plus_minus=0&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
-            c.get('/search/results?source=advanced&corpus=formulae%2Bchartae&q=&fuzziness=0&slop=0&in_order=False&'
+            c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
+                  'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
+                  'date_plus_minus=0&submit=Search', follow_redirects=True)
+            # Check g.corpora
+            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+                          'g.corpora should be set when session["previous_search_args"] is set.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&submit=True')
-            mock_search.assert_called_with(corpus=['formulae', 'chartae'], date_plus_minus=0, day=31, day_end=12,
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn")
+            # Check g.corpora
+            self.assertIn(('andecavensis', 'Angers'), g.corpora,
+                          'g.corpora should be set when session["previous_search_args"] is set.')
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
-            response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=Regnum&year=600&month=1&day=31&'
+            params['corpus'] = 'chartae'
+            response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+            c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
+                  'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
+                  'date_plus_minus=0&submit=Search', follow_redirects=True)
+            # Check g.corpora
+            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+                          'g.corpora should be set when session["previous_search_args"] is set.')
 
     @patch("formulae.search.routes.query_index")
     def test_simple_search_results(self, mock_search):
