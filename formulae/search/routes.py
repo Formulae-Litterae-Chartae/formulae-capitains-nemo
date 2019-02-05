@@ -92,14 +92,20 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
-    if 'previous_search_args' in session:
-        g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
     if old_search is None:
         session['previous_search_args'] = search_args
         session['previous_aggregations'] = aggs
-        if session['previous_search_args']['corpus'] == 'all':
+        if session['previous_search_args']['corpus'] in ['all', 'formulae+chartae']:
             corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)
+        elif session['previous_search_args']['corpus'] == 'formulae':
+            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']]
+            session['previous_search_args']['corpus'] = '+'.join(corps)
+        elif session['previous_search_args']['corpus'] == 'chartae':
+            corps = sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            session['previous_search_args']['corpus'] = '+'.join(corps)
+    if 'previous_search_args' in session:
+        g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
     return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
