@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-18 12:50+0100\n"
+"POT-Creation-Date: 2019-02-07 14:40+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,46 +18,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:18 tests/test_routes.py:72
+#: formulae/__init__.py:19 tests/test_routes.py:76
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:80
+#: formulae/nemo.py:81
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:244
+#: formulae/nemo.py:247
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:246 formulae/nemo.py:306 formulae/nemo.py:359
-#: tests/test_routes.py:101 tests/test_routes.py:103
+#: formulae/nemo.py:249 formulae/nemo.py:309 formulae/nemo.py:362
+#: tests/test_routes.py:105 tests/test_routes.py:107
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:418
+#: formulae/nemo.py:421
 msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:425
+#: formulae/nemo.py:428
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:498 tests/test_routes.py:105 tests/test_routes.py:107
+#: formulae/nemo.py:503 tests/test_routes.py:109 tests/test_routes.py:111
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -79,7 +79,7 @@ msgid "Eingeloggt bleiben"
 msgstr "Se souvenir de moi"
 
 #: formulae/auth/forms.py:12 formulae/auth/routes.py:34
-#: templates/main/navbar.html:16
+#: templates/main/navbar.html:19
 msgid "Einloggen"
 msgstr "Connexion"
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:408
+#: formulae/auth/forms.py:53 tests/test_routes.py:540
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:410
+#: formulae/auth/forms.py:58 tests/test_routes.py:542
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:437
+#: formulae/auth/routes.py:27 tests/test_routes.py:569
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -157,7 +157,7 @@ msgstr "Vous avez réussi à changer votre mot de passe."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr ""
 
-#: formulae/auth/routes.py:76 templates/main/navbar.html:18
+#: formulae/auth/routes.py:76 templates/main/navbar.html:21
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:463
+#: formulae/auth/routes.py:137 tests/test_routes.py:595
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:170
+#: formulae/search/Search.py:190
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -206,7 +206,7 @@ msgid ""
 msgstr ""
 
 #: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:109 formulae/search/routes.py:91
+#: formulae/search/forms.py:109 formulae/search/routes.py:109
 msgid "Suche"
 msgstr "Recherche"
 
@@ -216,8 +216,7 @@ msgid "Corpora"
 msgstr ""
 
 #: formulae/search/forms.py:41 formulae/search/forms.py:67
-#: templates/main/add_text_menu.html:9 templates/main/multipassage.html:41
-#: templates/main/navbar.html:22
+#: templates/main/multipassage.html:41 templates/main/navbar.html:25
 msgid "Formeln"
 msgstr "Formules"
 
@@ -225,7 +224,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:371
+#: formulae/search/forms.py:44 tests/test_routes.py:503
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -362,7 +361,7 @@ msgstr "Exclusif"
 msgid "Ausstellungsort"
 msgstr ""
 
-#: formulae/search/routes.py:115
+#: formulae/search/routes.py:136
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr ""
 
@@ -455,21 +454,11 @@ msgstr "Lire"
 msgid "Übersicht"
 msgstr "Parcourir"
 
-#: templates/main/add_text_menu.html:4
-msgid "Mit einen anderen Text vergleichen aus:"
-msgstr "Comparer avec un texte de type"
+#: templates/main/add_text_menu.html:11
+msgid "Ergebnisse der letzten Suche"
+msgstr ""
 
-#: templates/main/add_text_menu.html:12 templates/main/multipassage.html:42
-#: templates/main/navbar.html:25
-msgid "Lexikon"
-msgstr "Lexique"
-
-#: templates/main/add_text_menu.html:15 templates/main/multipassage.html:43
-#: templates/main/navbar.html:28
-msgid "Andere Texte"
-msgstr "Autres textes"
-
-#: templates/main/bibliography.html:6
+#: templates/main/bibliography.html:6 templates/main/navbar.html:34
 msgid "Bibliographie"
 msgstr ""
 
@@ -486,6 +475,26 @@ msgstr "Fermer"
 #: templates/main/collection_member_menu.html:42
 msgid "Änderungen speichern"
 msgstr "Sauvegarder les changements"
+
+#: templates/main/contact.html:6 templates/main/navbar.html:15
+msgid "Kontakt"
+msgstr ""
+
+#: templates/main/contact.html:10
+msgid "Anmerkungen/Verbesserungsvorschläge"
+msgstr ""
+
+#: templates/main/contact.html:11
+msgid ""
+"Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge zur Formulae - Litterae"
+" - Chartae Werkstatt haben, schicken Sie einfach eine <a "
+"href=\"mailto:formulae.geschichte@uni-hamburg.de\">Email</a> an uns. Wenn"
+" es um eine bestimmte Seite in der Werkstatt handelt, nennen Sie bitte "
+"die volle URL in den Text Ihre Email. Wenn es um einen bestimmten Text "
+"handelt, nennen Sie bitte ebenso die volle URL mit dem vollen Titel des "
+"Textes und eine genaue Beschreibung des Problems und des Vorschlags, das "
+"Problem zu beheben."
+msgstr ""
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
@@ -652,6 +661,14 @@ msgstr ""
 msgid "einem anderen Text aus:"
 msgstr ""
 
+#: templates/main/multipassage.html:42 templates/main/navbar.html:28
+msgid "Lexikon"
+msgstr "Lexique"
+
+#: templates/main/multipassage.html:43 templates/main/navbar.html:31
+msgid "Andere Texte"
+msgstr "Autres textes"
+
 #: templates/main/multipassage.html:51
 msgid "Vorherige Seite"
 msgstr ""
@@ -672,7 +689,7 @@ msgstr ""
 msgid "Über das Projekt"
 msgstr "A propos"
 
-#: templates/main/navbar.html:18
+#: templates/main/navbar.html:21
 msgid "ausloggen"
 msgstr "Déconnexion"
 
@@ -1058,19 +1075,19 @@ msgstr ""
 msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
 
-#: templates/search/search.html:9
-msgid "Mehr Statistiken"
-msgstr ""
-
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid " Treffer"
+msgstr ""
+
+#: templates/search/search.html:9
+msgid "Mehr Statistiken"
 msgstr ""
 
 #: templates/search/search.html:14
 msgid "Corpus"
 msgstr ""
 
-#: templates/search/search.html:15 templates/search/search.html:52
+#: templates/search/search.html:15
 msgid "Datierung"
 msgstr ""
 
@@ -1082,23 +1099,44 @@ msgstr ""
 msgid "Keine Ergebnisse gefunden für"
 msgstr ""
 
-#: templates/search/search.html:48
+#: templates/search/search.html:45
+msgid "Diese Suche ändern"
+msgstr ""
+
+#: templates/search/search.html:49
+msgid "Zeig nur Resultate aus:"
+msgstr ""
+
+#: templates/search/search.html:57
+msgid "Zeig Alle Resultate"
+msgstr ""
+
+#: templates/search/search.html:67
 msgid "Sortieren nach"
 msgstr ""
 
-#: templates/search/search.html:51
-msgid "Name"
+#: templates/search/search.html:70
+msgid "Sammlung"
 msgstr ""
 
-#: templates/search/search.html:57 templates/search/search.html:59
+#: templates/search/search.html:71
+msgid "Terminus post quem"
+msgstr ""
+
+#: templates/search/search.html:72
+msgid "Terminus ante quem"
+msgstr ""
+
+#: templates/search/search.html:77 templates/search/search.html:78
+#: templates/search/search.html:80
 msgid "Aufsteigend"
 msgstr ""
 
-#: templates/search/search.html:58 templates/search/search.html:60
+#: templates/search/search.html:79 templates/search/search.html:81
 msgid "Absteigend"
 msgstr ""
 
-#: templates/search/search.html:78
+#: templates/search/search.html:99
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
@@ -1708,5 +1746,11 @@ msgstr "Chercher dans"
 #~ "Monats- oder Tagesangaben), werden alle "
 #~ "Formeln angezeigt, die die übrigen "
 #~ "Suchparametern entsprechen."
+#~ msgstr ""
+
+#~ msgid "Mit einen anderen Text vergleichen aus:"
+#~ msgstr "Comparer avec un texte de type"
+
+#~ msgid "Name"
 #~ msgstr ""
 

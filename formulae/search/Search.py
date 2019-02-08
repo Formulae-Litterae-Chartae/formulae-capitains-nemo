@@ -86,7 +86,7 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                    'from': (page - 1) * per_page, 'size': per_page,
                    'highlight':
                        {'fields':
-                            {field: {"fragment_size": 300}
+                            {field: {"fragment_size": 1000}
                              },
                         'pre_tags': [PRE_TAGS],
                         'post_tags': [POST_TAGS],
@@ -137,13 +137,13 @@ def suggest_word_search(word, **kwargs):
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(word) + 30), len(r))]))
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(word) + 30) + 1, len(r))]))
             """ind = 0
             while w in r[ind:]:
                 i = r.find(w, ind)
                 results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
                 ind = r.find(w, ind) + 1"""
-    return list(set(results))
+    return [word] + sorted(list(set(results)), key=str.lower)
 
 
 def highlight_segment(orig_str):
@@ -196,7 +196,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if q:
         if field != 'lemmas':
             # Highlighting for lemma searches is transferred to the "text" field.
-            body_template['highlight'] = {'fields': {field: {"fragment_size": kwargs['fragment_size'] if 'fragment_size' in kwargs else 1000}},
+            body_template['highlight'] = {'fields': {field: {"fragment_size": 1000}},
                                           'pre_tags': [PRE_TAGS],
                                           'post_tags': [POST_TAGS],
                                           'encoder': 'html'
