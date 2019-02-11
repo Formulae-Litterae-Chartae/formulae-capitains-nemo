@@ -11,6 +11,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
+            </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
                 <a class="nav-link" href="{{ url_for('auth.r_login') }}">{{ _('Einloggen') }}</a>
@@ -26,7 +29,10 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('InstanceNemo.r_collection', objectId='other_collection')}}">{{ _('Andere Texte') }}</a>
-            </li>            
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
+            </li>       
         </ul>
         {% include "search::search_box.html" %}
     </div>

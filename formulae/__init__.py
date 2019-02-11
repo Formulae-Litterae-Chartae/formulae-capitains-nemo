@@ -11,6 +11,7 @@ from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from flask_mail import Mail
+from flask_session import Session
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -20,6 +21,7 @@ migrate = Migrate()
 bootstrap = Bootstrap()
 babel = Babel()
 mail = Mail()
+sess = Session()
 
 
 def create_app(config_class=Config):
@@ -34,6 +36,7 @@ def create_app(config_class=Config):
     mail.init_app(app)
     bootstrap.init_app(app)
     babel.init_app(app)
+    sess.init_app(app)
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp

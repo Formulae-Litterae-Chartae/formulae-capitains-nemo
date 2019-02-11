@@ -6,7 +6,7 @@
     {% if total_results > 0 %}
     <div class="btn-group dropright">
          <a type="button" id="searchStats" class="btn btn-link pl-1 h1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <h1>{{ _('Suchergebnisse') }} (<span id="searchTotal" title="{{ _('Mehr Statistiken') }}">{{ total_results|string }}</span> {{ _(' Treffer') }})</h1>
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer') }} <span id="searchTotal" title="{{ _('Mehr Statistiken') }}"><i class="fas fa-question-circle"></i></span></h1>
         </a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <table id="search-stat-table">
@@ -41,23 +41,44 @@
     {% if posts|length == 0 %}
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
+    <div class="row search-subtitle-row">
+        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto">
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ _('Zeig nur Resultate aus:') }}
+                </button>
+                <div class="dropdown-menu corpora-search-results-dropdown">
+                    {% for corp in g.corpora %}
+                        {% if session['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                        <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ corp[0] }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ corp[1] }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     {% if total_results > 0 %}<p>
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>
                 <tr>
-                    <th colspan="4">{{ _('Sortieren nach') }}</th>
+                    <th colspan="5">{{ _('Sortieren nach') }}</th>
                 </tr>
                 <tr>
-                    <th colspan="2">{{ _('Name') }}</th>
-                    <th colspan="2">{{ _('Datierung') }}</th>
+                    <th colspan="1">{{ _('Sammlung') }}</th>
+                    <th colspan="2">{{ _('Terminus post quem') }}</th>
+                    <th colspan="2">{{ _('Terminus ante quem') }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><a href="{{ sort_urls['urn'] }}">{{ _('Aufsteigend') }}</a></td>
-                    <td><a href="{{ sort_urls['urn_desc'] }}">{{ _('Absteigend') }}</a></td>
                     <td><a href="{{ sort_urls['min_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
                     <td><a href="{{ sort_urls['min_date_desc'] }}">{{ _('Absteigend') }}</a></td>
+                    <td><a href="{{ sort_urls['max_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
+                    <td><a href="{{ sort_urls['max_date_desc'] }}">{{ _('Absteigend') }}</a></td>
                 </tr>
             </tbody>
         </table>
@@ -66,7 +87,7 @@
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
-            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all', result_sents=post['sents']|join('$')) }}">
+            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">
                 {{ post['info']['title'] }}
             </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
             <div class="card-body py-0">
