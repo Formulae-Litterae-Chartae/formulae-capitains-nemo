@@ -70,6 +70,24 @@ function showLexEntry(word) {
         request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
         request.send()
     }
+    
+function restrictSearch(urlBase) {
+        var corpora = document.getElementsByClassName('corp-restrict-to').checked;
+        var request = new XMLHttpRequest();
+        var message = lexModal.getAttribute('message');
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    lexModal.innerHTML = this.responseText;
+                    lexModal.style.display = 'block';
+                } else {
+                    alert(message + lemma)
+                }
+            }
+        };
+        request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
+        request.send()
+    }
 
 function closeLexEntry() {
     lexModal.style.display = "none";

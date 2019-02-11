@@ -403,3 +403,13 @@ nav .dropdown:hover .dropdown-menu {
 .search-subtitle-row {
     padding-top: 0rem;
 }
+
+.corpora-search-results-dropdown .dropdown-item {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.corpora-search-results-dropdown .dropdown-divider {
+    margin-bottom: .25rem;
+    margin-top: .25rem;
+}
