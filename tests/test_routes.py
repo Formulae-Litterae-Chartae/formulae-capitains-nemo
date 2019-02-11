@@ -755,7 +755,7 @@ class TestES(Formulae_Testing):
                     {'span_near':
                          {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
                 'sort': 'urn', 'from': 0, 'size': 10,
-                'highlight': {'fields': {'text': {'fragment_size': 300}},
+                'highlight': {'fields': {'text': {'fragment_size': 1000}},
                               'pre_tags': ['</small><strong>'],
                               'post_tags': ['</strong><small>'], 'encoder': 'html'},
                 'aggs': {'range':
