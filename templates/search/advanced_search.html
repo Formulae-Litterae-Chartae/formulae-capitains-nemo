@@ -49,7 +49,7 @@
                             {{ form.composition_place(class="form-control my-0", id="place-search", list="place-datalist", placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
                             <datalist id="place-datalist">
                                 {% for place in composition_places %}
-                                <option value="{{place}}"></option>
+                                <option>{{place}}</option>
                                 {% endfor %}
                             </datalist>
                         </div>
