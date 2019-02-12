@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash
+from flask import url_for, Markup, g, session, flash, request
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -13,6 +13,7 @@ from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
 from datetime import date
+from string import punctuation
 
 
 class NemoFormulae(Nemo):
@@ -31,7 +32,9 @@ class NemoFormulae(Nemo):
         ("/lang", "r_set_language", ["GET", "POST"]),
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
         ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
-        ("/imprint", "r_impressum", ["GET"])
+        ("/imprint", "r_impressum", ["GET"]),
+        ("/bibliography", "r_bibliography", ["GET"]),
+        ("/contact", "r_contact", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -67,10 +70,10 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                             'urn:cts:formulae:werden']
+                             'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
 
     OPEN_NOTES = []
 
@@ -208,6 +211,8 @@ class NemoFormulae(Nemo):
 
     def before_request(self):
         g.search_form = SearchForm()
+        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url:
+            session.pop('previous_search', None)
 
     def after_request(self, response):
         """ Currently used only for the Cache-Control header
@@ -286,7 +291,7 @@ class NemoFormulae(Nemo):
                     par = m.parent.id.split('.')[-1][0].capitalize()
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
-                    par = int(re.sub(r'.*?(\d+)', r'\1', m.parent.id))
+                    par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
@@ -297,7 +302,7 @@ class NemoFormulae(Nemo):
                               "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                              "versions": [metadata]}
+                              "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
@@ -448,7 +453,8 @@ class NemoFormulae(Nemo):
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
-                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None))
+                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None)),
+                    'lang': collection.lang
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },
@@ -470,6 +476,8 @@ class NemoFormulae(Nemo):
         :type lang: str
         :param subreferences: Reference identifiers separated by '+'
         :type subreferences: str
+        :param result_sents: The list of sentences from elasticsearch results
+        :type result_sents: str
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
@@ -480,6 +488,7 @@ class NemoFormulae(Nemo):
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
+        # result_sents = request.args.get('result_sents')
         for i, id in enumerate(ids):
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
@@ -488,10 +497,58 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
+                if 'previous_search' in session:
+                    result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
+                    if result_sents:
+                        d['text_passage'] = self.highlight_found_sents(d['text_passage'],
+                                                                       self.convert_result_sents(result_sents))
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         return passage_data
+
+    def convert_result_sents(self, result_sents):
+        """ Remove extraneous markup and punctuation from the result_sents returned from the search page
+
+        :param sents: the original 'result_sents' request argument
+        :return: list of the individual sents with extraneous markup and punctuation removed
+        """
+        intermediate = []
+        sents = result_sents[0]
+        for sent in sents:
+            sent = sent.replace('+', ' ').replace('%2C', '').replace('%2F', '').replace('%24', '$')
+            sent = re.sub('strong|small', '', sent)
+            sent = re.sub('\s+', ' ', sent)
+            intermediate.append(sent)
+        return [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
+
+    def highlight_found_sents(self, html, sents):
+        """ Adds "searched" to the classList of words in "sents" from elasticsearch results
+
+        :param html: the marked-up text to be searched
+        :param sents: list of the "sents" strings
+        :return: transformed html
+        """
+        root = etree.fromstring(html)
+        spans = root.xpath('//span[contains(@class, "w")]')
+        texts = [re.sub('[{}„“…]'.format(punctuation), '', re.sub(r'&[lg]t;', '', x.text)) for x in spans if re.sub('[{}„“…]'.format(punctuation), '', x.text) != '']
+        for sent in sents:
+            words = sent.split()
+            for i in range(len(spans)):
+                if words == texts[i:i + len(words)]:
+                    spans[i].set('class', spans[i].get('class') + ' searched-start')
+                    spans[i + len(words) - 1].set('class', spans[i + len(words) - 1].get('class') + ' searched-end')
+                    for span in spans[i:i + len(words)]:
+                        if span.getparent().index(span) == 0 and 'searched-start' not in span.get('class'):
+                            span.set('class', span.get('class') + ' searched-start')
+                        if span == span.getparent().findall('span')[-1] and 'searched-end' not in span.get('class'):
+                            span.set('class', span.get('class') + ' searched-end')
+                    break
+        xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
+                                    with_tail=True, standalone=None)
+        span_pattern = re.compile(r'(<span class="w \w*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+        xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
+        return Markup(xml_string)
 
     def r_lexicon(self, objectId, lang=None):
         """ Retrieve the eLexicon entry for a word
@@ -515,6 +572,22 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::impressum.html"}
+
+    def r_bibliography(self):
+        """ Bibliography route function
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::bibliography.html"}
+
+    def r_contact(self):
+        """ Contact route function
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::contact.html"}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

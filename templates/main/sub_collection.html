@@ -24,8 +24,8 @@
 </div>
 {% if collections.readable %}
 <h4>{{ _('Gehe zu (Text):') }}</h4>
-{% for number in collections.readable|sort %}
-<a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{number}}</a>
+{% for number, values in collections.readable|dictsort %}
+<a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']}}</a>
 {% endfor %}
 <div class="row">
     <div class="{{ 'col-6' if collections.current.open_regesten or current_user.project_team else 'col-3' }}">
@@ -33,7 +33,7 @@
         {% for number, values in collections.readable|dictsort %}
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5>{{ _('Nummer') }} {{number}}: </h5>
+                    <h5>{{ _('Nummer') }} {{values['name']}}: </h5>
                     <p>{{ _("Lesen: ") }}{% if 'andecavensis' in collections.current.id %}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}{% else %}{% for urn, lang in values['versions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>{% endfor %}{% endif %}</p>
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
