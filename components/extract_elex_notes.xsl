@@ -57,8 +57,9 @@
         <xsl:element name="a">
             <xsl:attribute name="data-content"><xsl:value-of select="@n"/><xsl:value-of select="$closeButton"/></xsl:attribute>
             <xsl:attribute name="tabindex">0</xsl:attribute>
-            <xsl:attribute name="data-container">body</xsl:attribute>
-            <xsl:attribute name="data-toggle">bibl-popover</xsl:attribute>
+            <xsl:attribute name="data-container">#lexicon-modal</xsl:attribute>
+            <xsl:attribute name="data-toggle">elex-modal-popover</xsl:attribute>
+            <xsl:attribute name="class">modal-popover</xsl:attribute>
             <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
