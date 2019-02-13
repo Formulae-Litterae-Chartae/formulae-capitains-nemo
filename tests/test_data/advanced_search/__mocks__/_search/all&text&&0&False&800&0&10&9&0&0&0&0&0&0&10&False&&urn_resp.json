@@ -1,0 +1,454 @@
+{
+  "took": 15,
+  "timed_out": false,
+  "_shards": {
+    "total": 13,
+    "successful": 13,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 116,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 21",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+          "date_string": "790-796",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0790",
+              "lte": "0797"
+            }
+          ],
+          "all_dates": [
+            "0790",
+            "0797"
+          ],
+          "min_date": "0790"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0021.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 22",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+          "date_string": "792\u2013796 (?)",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0792",
+              "lte": "0797"
+            }
+          ],
+          "all_dates": [
+            "0792",
+            "0797"
+          ],
+          "min_date": "0792"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0022.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "date_string": "769\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0769"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+          "date_string": "769\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0769"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+          "date_string": "768\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+          "date_string": "768\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
+          "date_string": "801-803",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0804"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0804"
+          ],
+          "min_date": "0801"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0031.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
+          "date_string": "801-804",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0805"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0805"
+          ],
+          "min_date": "0801"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0032.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v1",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+          "date_string": "ca. 791\u2013806",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0791",
+              "lte": "0807"
+            }
+          ],
+          "all_dates": [
+            "0791",
+            "0807"
+          ],
+          "min_date": "0791"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v1",
+        "_type": "luzern",
+        "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.1",
+          "urn": "urn:cts:formulae:luzern.schiess0001.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "lte": "0841"
+            }
+          ],
+          "all_dates": [
+            "0841"
+          ],
+          "min_date": "0841"
+        },
+        "sort": [
+          "urn:cts:formulae:luzern.schiess0001.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 9
+        },
+        "Luzern": {
+          "doc_count": 6
+        },
+        "Mondsee": {
+          "doc_count": 24
+        },
+        "Passau": {
+          "doc_count": 32
+        },
+        "Regensburg": {
+          "doc_count": 3
+        },
+        "Rheinisch": {
+          "doc_count": 9
+        },
+        "R\u00e4tien": {
+          "doc_count": 7
+        },
+        "Salzburg": {
+          "doc_count": 9
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 9
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 8
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 71
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 34
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 4
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 5
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

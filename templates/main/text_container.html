@@ -9,11 +9,10 @@
     {% set prev_reffs = subreference %}
 {% endif %}
 <!-- THE LEFT COLUMN -->
-<div class="col-auto d-none d-lg-block">
-    {% include "main::version_menu.html" %}
-    <br/>
-    <br/>
-    {% include "main::add_text_menu.html" %}
+<div class="col-2 d-none d-lg-block">
+    <div class="d-flex flex-column" id="left-sticky-col">
+        {% include "main::add_text_menu.html" %}
+    </div>
 </div> 
 
 {% include "main::no_copy_modal.html" %}
