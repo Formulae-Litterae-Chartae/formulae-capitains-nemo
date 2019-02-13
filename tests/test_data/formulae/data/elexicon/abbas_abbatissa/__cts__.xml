@@ -2,10 +2,22 @@
          groupUrn="urn:cts:formulae:elexicon"
          xml:lang="deu"
          urn="urn:cts:formulae:elexicon.abbas_abbatissa">
-   <ti:title xml:lang="lat">Abbas abbatissa</ti:title>
+   <ti:title xml:lang="lat">Abbas, abbatissa</ti:title>
    <ti:edition urn="urn:cts:formulae:elexicon.abbas_abbatissa.deu001"
                workUrn="urn:cts:formulae:elexicon.abbas_abbatissa">
-      <ti:label xml:lang="lat">Abbas abbatissa</ti:label>
-      <ti:description xml:lang="lat">Abbas abbatissa</ti:description>
+      <ti:label xml:lang="lat">Abbas, abbatissa</ti:label>
+      <ti:description xml:lang="mul">Lößlein, Horst, "Abbas, abbatissa", in: Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg (2019-02-12)</ti:description>
+      <cpt:structured-metadata xmlns:dct="http://purl.org/dc/terms/"
+                               xmlns:cpt="http://purl.org/capitains/ns/1.0#"
+                               xmlns:dc="http://purl.org/dc/elements/1.1/"
+                               xml:lang="deu">
+         <dc:title>Abbas, abbatissa</dc:title>
+         <dc:creator>Horst Lößlein</dc:creator>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg</dc:publisher>
+         <dc:language>Deutsch</dc:language>
+         <dc:format>application/tei+xml</dc:format>
+         <dct:bibliographicCitation>Lößlein, Horst, "Abbas, abbatissa", in: Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg (2019-02-12)</dct:bibliographicCitation>
+         <dct:created>2019-02-12</dct:created>
+      </cpt:structured-metadata>
    </ti:edition>
 </ti:work>
