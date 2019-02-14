@@ -4,9 +4,47 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
+// These are the popovers for the notes in the right column of the normal text view.
+$(function () {
+  $('[data-toggle="bibl-popover"]').popover(
+      {placement: 'left', 
+          boundary: 'window',
+          template: '<div class="popover bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+          html: true
+    }
+  )
+})
+
+// These are the popups in the elexicon modal notes.
+// This is required to initialize popovers that are not part of the DOM when the document is loaded.
+// https://github.com/twbs/bootstrap/issues/4215
+$(function () {
+  $(document).popover(
+      {selector: '.modal-popover',
+          placement: 'top', 
+          boundary: 'window',
+          template: '<div class="popover elex-modal-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+          html: true
+    }
+  )
+})
+
 function makePopupNote(id) {
     var popup = document.getElementById(id);
     popup.classList.toggle("show");
+}
+
+function closePopup(id) {
+    document.getElementById(id).click();
+}
+
+function closeNote(id) {
+    var popup = document.getElementById(id);
+    popup.classList.toggle("show");
+    var elements = document.getElementById(id).querySelectorAll("[aria-describedby]");
+    for (let element of elements) {
+        element.click();
+    }
 }
 
 function showLemma(x) {
@@ -42,6 +80,10 @@ function hideNotes(c) {
     while (matches.length > 0) {
         matches.item(0).setAttribute('aria-expanded', 'false');
         matches.item(0).classList.remove('show');
+    }
+    var elements = document.getElementById('header-' + c).querySelectorAll("[aria-describedby]");
+    for (let element of elements) {
+        element.click();
     }
 }
 

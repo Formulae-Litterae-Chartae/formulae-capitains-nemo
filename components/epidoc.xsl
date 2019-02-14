@@ -349,8 +349,26 @@
         <span class="unclear"><xsl:value-of select="." /></span>
     </xsl:template>
     
-    <xsl:template match="t:seg[@type='font-style:italic;']" mode="noteSegs">
-        <span class="font-italic"><xsl:apply-templates/></span>
+    <xsl:template match="t:seg" mode="noteSegs">
+        <xsl:choose>
+            <xsl:when test="./@type='font-style:italic;'">
+                <span class="font-italic"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:when test="./@type='book_title'">
+                <xsl:element name="bibl">
+                    <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:when>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="t:bibl" mode="noteSegs">
+        <xsl:element name="bibl">
+            <xsl:attribute name="source"><xsl:value-of select="@source"/></xsl:attribute>
+            <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='lex-title']">

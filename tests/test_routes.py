@@ -33,7 +33,9 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=NautilusCTSResolver(app.config['CORPUS_FOLDERS']),
-                                 app=app, base_url="", transform={"default": "components/epidoc.xsl"},
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
@@ -410,6 +412,15 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
 
+    def test_bibliography_links(self):
+        """ Make sure the bibliographical links in the notes work correctly"""
+        expected = '<sup>1</sup>  <a data-content="&lt;span class=&quot;surname&quot;&gt;Hegglin&lt;/span&gt;, TITLE&lt'
+        with self.client as c:
+            response = c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True)
+            self.assertIn(expected, response.get_data(as_text=True))
+            response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertIn(expected, response.get_data(as_text=True))
+
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
         """ Ensure that correct data in form validates
@@ -755,7 +766,7 @@ class TestES(Formulae_Testing):
                     {'span_near':
                          {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
                 'sort': 'urn', 'from': 0, 'size': 10,
-                'highlight': {'fields': {'text': {'fragment_size': 300}},
+                'highlight': {'fields': {'text': {'fragment_size': 1000}},
                               'pre_tags': ['</small><strong>'],
                               'post_tags': ['</strong><small>'], 'encoder': 'html'},
                 'aggs': {'range':

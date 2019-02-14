@@ -132,7 +132,7 @@ def suggest_word_search(word, **kwargs):
     """
     results = []
     kwargs['fragment_size'] = 1000
-    posts, total, aggs = advanced_query_index(q=word, **kwargs)
+    posts, total, aggs = advanced_query_index(q=word, per_page=1000, **kwargs)
     for post in posts:
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
@@ -143,7 +143,7 @@ def suggest_word_search(word, **kwargs):
                 i = r.find(w, ind)
                 results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
                 ind = r.find(w, ind) + 1"""
-    return [word] + sorted(list(set(results)), key=str.lower)
+    return [word] + sorted(list(set(results)), key=str.lower)[:10]
 
 
 def highlight_segment(orig_str):
