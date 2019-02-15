@@ -122,7 +122,7 @@ def suggest_composition_places():
     results = []
     for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
         results += x['_source']['comp_ort'].split('; ')
-    return sorted(set(results))
+    return sorted(list(set(results)))
 
 
 def suggest_word_search(word, **kwargs):

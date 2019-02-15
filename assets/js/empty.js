@@ -112,6 +112,20 @@ function showLexEntry(word) {
         request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
         request.send()
     }
+    
+function restrictSearch() {
+    var button = document.getElementById('restrictSearchButton');
+    var re = new RegExp('&corpus=[^&]*');
+    var corpora = document.getElementsByClassName('corp-restrict-to');
+    var oldUrl = button.getAttribute('href');
+    var newCorpora = new Array();
+    for (let corp of corpora){
+        if (corp.checked) {
+            newCorpora.push(corp.getAttribute('value'));
+        }
+    }
+    button.setAttribute('href', oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B') + '&old_search=True'));
+}
 
 function closeLexEntry() {
     lexModal.style.display = "none";
