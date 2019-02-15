@@ -46,12 +46,8 @@
                     <div class="form-group">
                         <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong></div>
                         <div>
-                            {{ form.composition_place(class="form-control my-0", id="place-search", list="place-datalist", placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
-                            <datalist id="place-datalist">
-                                {% for place in composition_places %}
-                                <option>{{place}}</option>
-                                {% endfor %}
-                            </datalist>
+                            {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
+                            
                         </div>
                     </div>
                 </div>
@@ -155,5 +151,9 @@
 {% endblock %}
 
 {% block additionalscript %}
+<script>
+    var tags = {{ composition_places|tojson }};
+</script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 <script src="{{url_for('InstanceNemo.static', filename='js/advanced_search.js')}}"></script>
 {% endblock %}
