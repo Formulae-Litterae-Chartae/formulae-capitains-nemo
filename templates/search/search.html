@@ -56,7 +56,7 @@
                         <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}"> {{ corp[1] }}</input></span>
                         {% endif %}
                     {% endfor %}
-                    <span class="dropdown-item"><button type="button" class="btn btn-sm btn-primary">Los!</button></span>
+                    <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">Los!</a></span>
                 </div>
             </div>
         </div>
