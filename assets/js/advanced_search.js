@@ -5,6 +5,7 @@ var wordSearchData = document.getElementById('word-search-datalist');
 var wordSearchInput = document.getElementById('word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
+var firstLetter = document.getElementById('firstLetter');
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -137,9 +138,16 @@ function updateParam(par) {
 // autocomplete for the Issued At search using JQuery UI
 $( "#place-search" ).autocomplete({
     source: function( request, response ) {
-        var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+        if ( firstLetter.checked ) {
+            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+            response( $.grep( tags, function( item ){
+                return matcher.test( item );
+            }) );
+    } else {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
         response( $.grep( tags, function( item ){
             return matcher.test( item );
         }) );
+    }
     }
 });
