@@ -435,3 +435,7 @@ button.close {
     margin-bottom: .25rem;
     margin-top: .25rem;
 }
+
+.smallfont {
+    font-size: small;
+}
