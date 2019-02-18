@@ -45,6 +45,7 @@
                     </div>
                     <div class="form-group">
                         <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong></div>
+                        <div><input id="firstLetter" name="corpus" type="checkbox"> {{ _("Von Anfang") }}</input></div>
                         <div>
                             {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
                             
