@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-12 09:40+0100\n"
+"POT-Creation-Date: 2019-02-18 11:20+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:19 tests/test_routes.py:76
+#: formulae/__init__.py:19 tests/test_routes.py:78
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
@@ -45,7 +45,7 @@ msgid ""
 msgstr ""
 
 #: formulae/nemo.py:249 formulae/nemo.py:309 formulae/nemo.py:362
-#: tests/test_routes.py:105 tests/test_routes.py:107
+#: tests/test_routes.py:107 tests/test_routes.py:109
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:503 tests/test_routes.py:109 tests/test_routes.py:111
+#: formulae/nemo.py:507 tests/test_routes.py:111 tests/test_routes.py:113
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:540
+#: formulae/auth/forms.py:53 tests/test_routes.py:551
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:542
+#: formulae/auth/forms.py:58 tests/test_routes.py:553
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:569
+#: formulae/auth/routes.py:27 tests/test_routes.py:580
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:595
+#: formulae/auth/routes.py:137 tests/test_routes.py:606
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:503
+#: formulae/search/forms.py:44 tests/test_routes.py:514
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -467,7 +467,7 @@ msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
 msgstr "Choisir une collection pour voir les textes qu'elle contient."
 
 #: templates/main/collection_member_menu.html:41
-#: templates/main/lexicon_modal.html:17 templates/main/no_copy_modal.html:9
+#: templates/main/lexicon_modal.html:18 templates/main/no_copy_modal.html:9
 #: templates/main/regest_modal.html:15
 msgid "Schließen"
 msgstr "Fermer"
@@ -499,6 +499,14 @@ msgstr ""
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
 msgstr "Aller à une lettre"
+
+#: templates/main/elex_modal_footer.html:3 templates/main/passage_footer.html:3
+msgid "Empfohlene Zitierweise"
+msgstr ""
+
+#: templates/main/elex_modal_footer.html:4 templates/main/passage_footer.html:4
+msgid "letzter Aufruf:"
+msgstr ""
 
 #: templates/main/impressum.html:6 templates/main/navbar.html:12
 msgid "Impressum"
@@ -723,14 +731,6 @@ msgstr "Cacher toutes les notes de ce texte"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
 
-#: templates/main/passage_footer.html:3
-msgid "Empfohlene Zitierweise"
-msgstr ""
-
-#: templates/main/passage_footer.html:4
-msgid "abgerufen am"
-msgstr ""
-
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Datum"
@@ -848,31 +848,31 @@ msgstr ""
 msgid "Ausstellungsortsuche"
 msgstr ""
 
-#: templates/search/advanced_search.html:59
+#: templates/search/advanced_search.html:55
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
 msgstr "[NB : Recherche des dates uniquement disponible pour les chartes.]"
 
-#: templates/search/advanced_search.html:59
+#: templates/search/advanced_search.html:55
 msgid ""
 "Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
 "Datumssuche keine Formeln angezeigt."
 msgstr ""
 
-#: templates/search/advanced_search.html:60
+#: templates/search/advanced_search.html:56
 #: templates/search/documentation.html:30
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Rechercher une date précise"
 
-#: templates/search/advanced_search.html:88
+#: templates/search/advanced_search.html:84
 msgid "Jahr(e)"
 msgstr "an(s)"
 
-#: templates/search/advanced_search.html:93
+#: templates/search/advanced_search.html:89
 #: templates/search/documentation.html:34
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Rechercher dans un laps de temps"
 
-#: templates/search/advanced_search.html:94
+#: templates/search/advanced_search.html:90
 msgid ""
 "Die 'exklusive Datumsspannensuche' ist eine spezielle Suche, die für eine"
 " Reihe von Jahren nach einer bestimmten Zeitspanne innerhalb des "
@@ -891,15 +891,15 @@ msgstr ""
 "octobre 700 ne sera pas retourné. Un document daté du 15 octobre 750 "
 "environ le sera cependant."
 
-#: templates/search/advanced_search.html:95
+#: templates/search/advanced_search.html:91
 msgid "Von"
 msgstr "A partir de"
 
-#: templates/search/advanced_search.html:122
+#: templates/search/advanced_search.html:118
 msgid "Bis"
 msgstr "Jusqu’à"
 
-#: templates/search/advanced_search.html:153
+#: templates/search/advanced_search.html:149
 msgid "Zurücksetzen"
 msgstr ""
 
@@ -1115,39 +1115,39 @@ msgstr ""
 msgid "Zeig nur Resultate aus:"
 msgstr ""
 
-#: templates/search/search.html:57
+#: templates/search/search.html:52
 msgid "Zeig Alle Resultate"
 msgstr ""
 
-#: templates/search/search.html:67
+#: templates/search/search.html:69
 msgid "Sortieren nach"
 msgstr ""
 
-#: templates/search/search.html:70
+#: templates/search/search.html:72
 msgid "Korpus"
 msgstr ""
 
-#: templates/search/search.html:71
+#: templates/search/search.html:73
 msgid "Terminus post quem"
 msgstr ""
 
-#: templates/search/search.html:72
+#: templates/search/search.html:74
 msgid "Terminus ante quem"
 msgstr ""
 
-#: templates/search/search.html:77
+#: templates/search/search.html:79
 msgid "Alphabetisch"
 msgstr ""
 
-#: templates/search/search.html:78 templates/search/search.html:80
+#: templates/search/search.html:80 templates/search/search.html:82
 msgid "Aufsteigend"
 msgstr ""
 
-#: templates/search/search.html:79 templates/search/search.html:81
+#: templates/search/search.html:81 templates/search/search.html:83
 msgid "Absteigend"
 msgstr ""
 
-#: templates/search/search.html:99
+#: templates/search/search.html:101
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
@@ -1951,5 +1951,8 @@ msgstr "Chercher dans"
 #~ msgstr ""
 
 #~ msgid "Sammlung"
+#~ msgstr ""
+
+#~ msgid "abgerufen am"
 #~ msgstr ""
 
