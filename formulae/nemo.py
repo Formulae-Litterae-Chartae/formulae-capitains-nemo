@@ -29,7 +29,7 @@ class NemoFormulae(Nemo):
         ("/add_collection/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"]),
+        ("/lang/<code>", "r_set_language", ["GET", "POST"]),
         ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
         ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
@@ -208,6 +208,11 @@ class NemoFormulae(Nemo):
         """
         session['locale'] = code
         refresh()
+        if request.args.get('ajax'):
+            return 'OK'
+        else:
+            flash('Language Changed. You may need to refresh the page in your browser.')
+            return redirect(request.referrer)
 
     def before_request(self):
         g.search_form = SearchForm()
@@ -219,7 +224,10 @@ class NemoFormulae(Nemo):
             max_age calculates days, hours, minutes and seconds and adds them together.
             First number after '+' is the respective number for each value.
         """
-        response.cache_control.max_age = self.app.config['CACHE_MAX_AGE']
+        max_age = self.app.config['CACHE_MAX_AGE']
+        if '/lang/' in request.url:
+            max_age = 0
+        response.cache_control.max_age = max_age
         response.cache_control.public = True
         return response
 

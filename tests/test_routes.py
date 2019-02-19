@@ -512,7 +512,7 @@ class TestForms(Formulae_Testing):
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
                       [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
-                       "'' is not a valid choice for this field"])
+                       _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_validate_invalid_advanced_search_form(self):
         """ Ensure that a form with invalid data does not validate"""
