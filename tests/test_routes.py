@@ -17,7 +17,7 @@ from .fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g
+from flask import Markup, session, g, url_for
 
 
 class TestConfig(Config):
@@ -111,6 +111,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('.r_bibliography')})
+            self.assertTemplateUsed('main::bibliography.html')
+            self.assertEqual(session['locale'], 'en')
+            response = c.get('/lang/en', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
+            self.assertEqual(response.get_data(as_text=True), 'OK')
 
     def test_authorized_project_member(self):
         """ Make sure that all routes are open to project members"""
