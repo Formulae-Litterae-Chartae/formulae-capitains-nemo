@@ -201,14 +201,14 @@ class NemoFormulae(Nemo):
         return l
 
     def r_set_language(self, code):
-        """ Sets the seseion's language code which will be used for all requests
+        """ Sets the session's language code which will be used for all requests
 
         :param code: The 2-letter language code
         :type code: str
         """
         session['locale'] = code
         refresh()
-        if request.args.get('ajax'):
+        if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
         else:
             flash('Language Changed. You may need to refresh the page in your browser.')
@@ -225,7 +225,7 @@ class NemoFormulae(Nemo):
             First number after '+' is the respective number for each value.
         """
         max_age = self.app.config['CACHE_MAX_AGE']
-        if '/lang/' in request.url:
+        if re.search('/(lang|auth)/', request.url):
             max_age = 0
         response.cache_control.max_age = max_age
         response.cache_control.public = True

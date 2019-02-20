@@ -174,6 +174,7 @@ $('.lang-link').bind('click', function(event) {
             }
         }
     };
-    request.open('GET', '/lang/' + e.getAttribute('value') + '?ajax=y', true);
+    request.open('GET', '/lang/' + e.getAttribute('value'), true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     request.send()
 })

@@ -1,7 +1,7 @@
-from flask import flash, url_for, request
+from flask import flash, url_for, request, redirect
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
-from werkzeug.utils import redirect
+# from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, RegistrationForm
 from formulae.models import User
