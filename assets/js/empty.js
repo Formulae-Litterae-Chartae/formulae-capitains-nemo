@@ -159,3 +159,22 @@ function getSubElements(coll) {
             request.send()
     }
 }
+
+// AJAX request to change locale and then refresh the page
+$('.lang-link').bind('click', function(event) {
+    event.preventDefault();
+    e = this;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change language')
+            }
+        }
+    };
+    request.open('GET', '/lang/' + e.getAttribute('value'), true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+})

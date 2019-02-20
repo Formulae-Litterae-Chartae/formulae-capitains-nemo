@@ -11,6 +11,7 @@ class Config(object):
     POSTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     LANGUAGES = ['en', 'de', 'fr']
+    BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["/home/matt/results/formulae"]
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
