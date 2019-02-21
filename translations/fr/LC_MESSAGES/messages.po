@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-18 11:20+0100\n"
+"POT-Creation-Date: 2019-02-21 09:30+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -38,26 +38,26 @@ msgstr "Français"
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:247
+#: formulae/nemo.py:255
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
 
-#: formulae/nemo.py:249 formulae/nemo.py:309 formulae/nemo.py:362
+#: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
 #: tests/test_routes.py:107 tests/test_routes.py:109
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
-#: formulae/nemo.py:421
+#: formulae/nemo.py:429
 msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:428
+#: formulae/nemo.py:436
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:507 tests/test_routes.py:111 tests/test_routes.py:113
+#: formulae/nemo.py:515 tests/test_routes.py:111 tests/test_routes.py:113
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:551
+#: formulae/auth/forms.py:53 tests/test_routes.py:556
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:553
+#: formulae/auth/forms.py:58 tests/test_routes.py:558
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:580
+#: formulae/auth/routes.py:27 tests/test_routes.py:585
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:606
+#: formulae/auth/routes.py:137 tests/test_routes.py:611
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:514
+#: formulae/search/forms.py:44 tests/test_routes.py:519
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -467,7 +467,7 @@ msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
 msgstr "Choisir une collection pour voir les textes qu'elle contient."
 
 #: templates/main/collection_member_menu.html:41
-#: templates/main/lexicon_modal.html:18 templates/main/no_copy_modal.html:9
+#: templates/main/lexicon_modal.html:19 templates/main/no_copy_modal.html:9
 #: templates/main/regest_modal.html:15
 msgid "Schließen"
 msgstr "Fermer"
@@ -640,6 +640,10 @@ msgstr ""
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Survolez un mot avec la souris pour voir son lemme."
 
+#: templates/main/lexicon_modal.html:12
+msgid "Dieser Beitrag parallel lesen"
+msgstr ""
+
 #: templates/main/menu.html:2
 msgid "Texte"
 msgstr "Textes"
@@ -658,15 +662,15 @@ msgid "Regest"
 msgstr ""
 
 #: templates/main/multipassage.html:30
-msgid "Vergleichen mit..."
+msgid "Quelle oder Beitrag hinzufügen"
 msgstr ""
 
 #: templates/main/multipassage.html:34
-msgid "einer anderen Version"
+msgid "andere Version(en) dieser Text"
 msgstr ""
 
 #: templates/main/multipassage.html:40
-msgid "einem anderen Text aus:"
+msgid "anderen Texte"
 msgstr ""
 
 #: templates/main/multipassage.html:42 templates/main/navbar.html:28
@@ -846,6 +850,16 @@ msgstr ""
 #: templates/search/advanced_search.html:47
 #: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
+msgstr ""
+
+#: templates/search/advanced_search.html:51
+msgid "Anfangsbuchstaben"
+msgstr ""
+
+#: templates/search/advanced_search.html:51
+msgid ""
+"Ob die Buchstaben im Suchfeld am Anfang der Ortsnamensvorschläge "
+"vorkommen müssen."
 msgstr ""
 
 #: templates/search/advanced_search.html:55
@@ -1156,6 +1170,10 @@ msgstr ""
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
 msgstr "Chercher dans"
+
+#: tests/test_routes.py:520
+msgid "'' ist kein gültige Auswahl für dieses Feld."
+msgstr ""
 
 #~ msgid ""
 #~ "This collection is under copyright and"
@@ -1954,5 +1972,17 @@ msgstr "Chercher dans"
 #~ msgstr ""
 
 #~ msgid "abgerufen am"
+#~ msgstr ""
+
+#~ msgid "Vergleichen mit..."
+#~ msgstr ""
+
+#~ msgid "einer anderen Version"
+#~ msgstr ""
+
+#~ msgid "einem anderen Text aus:"
+#~ msgstr ""
+
+#~ msgid "Weitere Quellen und Beiträge"
 #~ msgstr ""
 

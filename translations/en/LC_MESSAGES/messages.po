@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-18 11:20+0100\n"
+"POT-Creation-Date: 2019-02-21 09:30+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -34,7 +34,7 @@ msgstr "French"
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:247
+#: formulae/nemo.py:255
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
@@ -42,22 +42,22 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:249 formulae/nemo.py:309 formulae/nemo.py:362
+#: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
 #: tests/test_routes.py:107 tests/test_routes.py:109
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:421
+#: formulae/nemo.py:429
 msgid " wurde nicht gefunden."
 msgstr " was not found."
 
-#: formulae/nemo.py:428
+#: formulae/nemo.py:436
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:507 tests/test_routes.py:111 tests/test_routes.py:113
+#: formulae/nemo.py:515 tests/test_routes.py:111 tests/test_routes.py:113
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -135,15 +135,15 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:551
+#: formulae/auth/forms.py:53 tests/test_routes.py:556
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:553
+#: formulae/auth/forms.py:58 tests/test_routes.py:558
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:580
+#: formulae/auth/routes.py:27 tests/test_routes.py:585
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
@@ -173,7 +173,7 @@ msgstr "Instructions for resetting your password have been emailed to you."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:606
+#: formulae/auth/routes.py:137 tests/test_routes.py:611
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -228,7 +228,7 @@ msgstr "Formulae"
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:514
+#: formulae/search/forms.py:44 tests/test_routes.py:519
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -475,7 +475,7 @@ msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
 msgstr "Choose a collection to see the texts it contains"
 
 #: templates/main/collection_member_menu.html:41
-#: templates/main/lexicon_modal.html:18 templates/main/no_copy_modal.html:9
+#: templates/main/lexicon_modal.html:19 templates/main/no_copy_modal.html:9
 #: templates/main/regest_modal.html:15
 msgid "Schließen"
 msgstr "Close"
@@ -692,6 +692,10 @@ msgstr "If you have any questions, feel free to contact us."
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Mouse over a word to see its lemma."
 
+#: templates/main/lexicon_modal.html:12
+msgid "Dieser Beitrag parallel lesen"
+msgstr "Read this entry in the parallel view"
+
 #: templates/main/menu.html:2
 msgid "Texte"
 msgstr "Texts"
@@ -710,16 +714,16 @@ msgid "Regest"
 msgstr ""
 
 #: templates/main/multipassage.html:30
-msgid "Vergleichen mit..."
-msgstr "Compare with..."
+msgid "Quelle oder Beitrag hinzufügen"
+msgstr "Add another text"
 
 #: templates/main/multipassage.html:34
-msgid "einer anderen Version"
-msgstr "another Version"
+msgid "andere Version(en) dieser Text"
+msgstr "other version(s) of this text"
 
 #: templates/main/multipassage.html:40
-msgid "einem anderen Text aus:"
-msgstr "another text from:"
+msgid "anderen Texte"
+msgstr "other texts"
 
 #: templates/main/multipassage.html:42 templates/main/navbar.html:28
 msgid "Lexikon"
@@ -899,6 +903,18 @@ msgstr ""
 #: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
 msgstr "Issued At"
+
+#: templates/search/advanced_search.html:51
+msgid "Anfangsbuchstaben"
+msgstr "First Letters"
+
+#: templates/search/advanced_search.html:51
+msgid ""
+"Ob die Buchstaben im Suchfeld am Anfang der Ortsnamensvorschläge "
+"vorkommen müssen."
+msgstr ""
+"Determines if the letters in the search field should occur at the "
+"beginning each suggested place name."
 
 #: templates/search/advanced_search.html:55
 msgid "[NB: Datumssuche funktioniert nur bei Urkunden.]"
@@ -1301,6 +1317,10 @@ msgstr "This text is not available. Consult the printed edition for the text."
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
 msgstr "Search In:"
+
+#: tests/test_routes.py:520
+msgid "'' ist kein gültige Auswahl für dieses Feld."
+msgstr ""
 
 #~ msgid ""
 #~ "This collection is under copyright and"
@@ -2703,4 +2723,19 @@ msgstr "Search In:"
 
 #~ msgid "abgerufen am"
 #~ msgstr "visited on"
+
+#~ msgid "Vergleichen mit..."
+#~ msgstr "Compare with..."
+
+#~ msgid "einer anderen Version"
+#~ msgstr "another Version"
+
+#~ msgid "einem anderen Text aus:"
+#~ msgstr "another text from:"
+
+#~ msgid "Quelle oder Beitrag hinzufügen"
+#~ msgstr "Add Another Texts"
+
+#~ msgid "Weitere Quellen und Beiträge"
+#~ msgstr ""
 
