@@ -9,6 +9,7 @@
     </div>
     <div class="modal-body">
     {{ text_passage }}
+    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, objectId]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Dieser Beitrag parallel lesen') }}</a>
     </div>
     <div class="card-body">
     {{ notes }}

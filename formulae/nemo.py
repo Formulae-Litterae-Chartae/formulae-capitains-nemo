@@ -568,9 +568,12 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
+        d['prev_texts'] = m.group(1)
+        d['prev_reffs'] = m.group(2)
         return d
 
     def r_impressum(self):
