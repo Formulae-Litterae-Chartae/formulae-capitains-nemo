@@ -296,8 +296,13 @@ nav .dropdown:hover .dropdown-menu {
 }
 
 .note-card {
-    max-height: 30vh;
+    max-height: 22vh;
     overflow: auto;
+}
+
+.two-line {
+    max-height: 3em;
+    overflow: hidden;
 }
 
 #advanced-form {
