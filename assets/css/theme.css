@@ -296,13 +296,16 @@ nav .dropdown:hover .dropdown-menu {
 }
 
 .note-card {
-    max-height: 22vh;
     overflow: auto;
 }
 
 .two-line {
-    max-height: 3em;
+    max-height: 3.7em;
     overflow: hidden;
+}
+
+.two-line.expanded {
+    max-height: 100em;
 }
 
 #advanced-form {
@@ -408,6 +411,11 @@ button.close {
 
 .surname {
     font-variant: small-caps;
+}
+
+.search-hit-menu {
+    max-height: 30vh;
+    overflow: auto;
 }
 
 .search-hit {
