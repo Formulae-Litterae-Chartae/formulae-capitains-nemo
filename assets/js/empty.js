@@ -198,11 +198,12 @@ $(function() {
         var textHeight = $( element ).find('.card').height();
         if (textHeight < noteHeight) {
             $( element ).find('.expand').hide();
+            $( element ).removeClass('fade');
         }
     });
 });
 
 // Expands and contracts the note when the expand arrow is clicked
 $('.expand').click(function() {
-    $('#' + $(this).attr('toExpand')).toggleClass('expanded');
+    $('#' + $(this).attr('toExpand')).toggleClass('expanded fade');
 });

@@ -308,6 +308,21 @@ nav .dropdown:hover .dropdown-menu {
     max-height: 100em;
 }
 
+.fade {
+    position: relative;
+}
+
+.fade::after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.2em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
 #advanced-form {
     width: 100%;
 }
