@@ -310,11 +310,11 @@ nav .dropdown:hover .dropdown-menu {
 }
 
 /* The fade idea is thanks to https://css-tricks.com/line-clampin/ using the "Fade-Out Way" */
-.fade {
+.fade-out {
     position: relative;
 }
 
-.fade::after {
+.fade-out::after {
     content: "";
     text-align: right;
     position: absolute;
