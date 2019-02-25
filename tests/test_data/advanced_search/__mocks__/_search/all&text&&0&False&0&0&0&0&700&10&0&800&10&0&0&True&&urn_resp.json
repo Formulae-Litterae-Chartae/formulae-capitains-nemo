@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 25,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v2",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -103,7 +103,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v2",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -194,7 +194,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v2",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -285,7 +285,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -316,7 +316,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
@@ -347,7 +347,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0037.lat001",
         "_score": null,
@@ -378,7 +378,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0038.lat001",
         "_score": null,
@@ -409,7 +409,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0050.lat001",
         "_score": null,
@@ -440,7 +440,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0055.lat001",
         "_score": null,
@@ -471,7 +471,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0067.lat001",
         "_score": null,
@@ -510,6 +510,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
           "doc_count": 0
         },
         "Luzern": {

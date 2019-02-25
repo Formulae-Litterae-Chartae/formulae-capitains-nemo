@@ -15,7 +15,7 @@
     <xsl:template name="build_note" match="a">
         <xsl:param name="ident" select="translate(@href, '#', '')"/>
         <xsl:element name="div">
-            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/></xsl:attribute>
+            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/> show two-line fade-out</xsl:attribute>
             <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
             <xsl:attribute name="aria-expanded">false</xsl:attribute>
             <!--<xsl:attribute name="role">button</xsl:attribute>-->
@@ -38,6 +38,18 @@
                         <xsl:element name="span">
                             <xsl:attribute name="aria-hidden">true</xsl:attribute>
                             <xsl:text>☒</xsl:text>
+                        </xsl:element>
+                    </xsl:element>
+                    <xsl:element name="button">
+                        <xsl:attribute name="type">button</xsl:attribute>
+                        <xsl:attribute name="class">close expand</xsl:attribute>
+                        <!--<xsl:attribute name="data-target"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
+                        <xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
+                        <xsl:attribute name="toExpand"><xsl:value-of select="$ident"/></xsl:attribute>
+                        <xsl:attribute name="aria-label">Expand</xsl:attribute>
+                        <xsl:element name="span">
+                            <xsl:attribute name="aria-hidden">true</xsl:attribute>
+                            <xsl:text>&#8691;</xsl:text>
                         </xsl:element>
                     </xsl:element>
                     <xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:apply-templates mode="noteContent" select="span"/>

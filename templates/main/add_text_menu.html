@@ -10,7 +10,7 @@
         aria-controls="instructionsNotes">
         {{ _('Ergebnisse der letzten Suche') }}
     </div>
-    <div class="card-body p-2 note-card search-hit-menu">
+    <div class="card-body p-2 search-hit-menu">
         
         <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
         {% for hit in session['previous_search'] %}

@@ -144,6 +144,11 @@
               "_type": "buenden"
             }
           },
+          "Freising": {
+            "match": {
+              "_type": "freising"
+            }
+          },
           "Luzern": {
             "match": {
               "_type": "luzern"

@@ -1,5 +1,5 @@
 {
-  "took": 10,
+  "took": 17,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -51,6 +51,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
           "doc_count": 0
         },
         "Luzern": {

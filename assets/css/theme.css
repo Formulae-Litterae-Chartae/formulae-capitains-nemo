@@ -296,8 +296,33 @@ nav .dropdown:hover .dropdown-menu {
 }
 
 .note-card {
-    max-height: 30vh;
     overflow: auto;
+}
+
+/* To make this show three lines, change max-height to 3.7em */
+.two-line {
+    max-height: 2.7em;
+    overflow: hidden;
+}
+
+.two-line.expanded {
+    max-height: 100em;
+}
+
+/* The fade idea is thanks to https://css-tricks.com/line-clampin/ using the "Fade-Out Way" */
+.fade-out {
+    position: relative;
+}
+
+.fade-out::after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.2em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
 
 #advanced-form {
@@ -403,6 +428,11 @@ button.close {
 
 .surname {
     font-variant: small-caps;
+}
+
+.search-hit-menu {
+    max-height: 30vh;
+    overflow: auto;
 }
 
 .search-hit {
