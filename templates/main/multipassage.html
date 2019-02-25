@@ -128,3 +128,11 @@
 
 {% block metadata %}
 {% endblock %}
+
+{% block additionalscript %}
+<script>
+     var expMess="{{ _('Mehr zeigen') }}";
+     var conMess="{{ _('Weniger zeigen') }}";
+</script>
+<script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
+{% endblock %}
