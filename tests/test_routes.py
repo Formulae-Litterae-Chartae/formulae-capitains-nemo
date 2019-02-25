@@ -240,6 +240,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "B\u00fcnden": {
                       "doc_count": 0
                     },
+                      "Freising": {
+                          "doc_count": 0
+                      },
                     "Luzern": {
                       "doc_count": 0
                     },
@@ -795,6 +798,7 @@ class TestES(Formulae_Testing):
                                        {'Rätien': {'match': {'_type': 'raetien'}},
                                         'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
+                                        'Freising': {'match': {'_type': 'freising'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
