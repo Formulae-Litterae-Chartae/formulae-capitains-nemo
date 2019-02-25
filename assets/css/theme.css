@@ -299,8 +299,9 @@ nav .dropdown:hover .dropdown-menu {
     overflow: auto;
 }
 
+/* To make this show three lines, change max-height to 3.7em */
 .two-line {
-    max-height: 3.7em;
+    max-height: 2.7em;
     overflow: hidden;
 }
 
@@ -308,6 +309,7 @@ nav .dropdown:hover .dropdown-menu {
     max-height: 100em;
 }
 
+/* The fade idea is thanks to https://css-tricks.com/line-clampin/ using the "Fade-Out Way" */
 .fade {
     position: relative;
 }
