@@ -1,6 +1,6 @@
 from config import Config
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
-from formulae import create_app, db
+from formulae import create_app, db, mail, dispatcher_builder
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
@@ -13,11 +13,11 @@ from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch
-from .fake_es import FakeElasticsearch
+from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for
+from flask import Markup, session, g, url_for, current_app
 
 
 class TestConfig(Config):
@@ -567,7 +567,6 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate())
 
 
-
 class TestAuth(Formulae_Testing):
     def test_correct_login(self):
         """ Ensure that login works with correct credentials"""
@@ -618,6 +617,84 @@ class TestAuth(Formulae_Testing):
             self.assertMessageFlashed(_('Sie sind nun registriert.'))
             self.assertTrue(User.query.filter_by(username='new.user').first(), "It should have added new.user.")
             self.assertTemplateUsed('auth::login.html')
+
+    def test_send_email_existing_user(self):
+        """ Ensure that emails are constructed correctly"""
+        with self.client as c:
+            with mail.record_messages() as outbox:
+                c.post('/auth/reset_password_request', data=dict(email="project.member@uni-hamburg.de"),
+                       follow_redirects=True)
+                self.assertEqual(len(outbox), 1, 'One email should be sent')
+                self.assertEqual(outbox[0].recipients, ["project.member@uni-hamburg.de"],
+                                 'The recipient email address should be correct.')
+                self.assertEqual(outbox[0].subject, _('[Formulae - Litterae - Chartae] Passwort zurücksetzen'),
+                                 'The Email should have the correct subject.')
+                self.assertIn(_('Sehr geehrte(r)') + ' project.member', outbox[0].html,
+                              'The email text should be addressed to the correct user.')
+                self.assertEqual(outbox[0].sender, 'no-reply@example.com',
+                                 'The email should come from the correct sender.')
+                self.assertMessageFlashed(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
+
+    def test_send_email_not_existing_user(self):
+        """ Ensure that emails are constructed correctly"""
+        with self.client as c:
+            with mail.record_messages() as outbox:
+                c.post('/auth/reset_password_request', data=dict(email="pirate.user@uni-hamburg.de"),
+                       follow_redirects=True)
+                self.assertEqual(len(outbox), 0, 'No email should be sent when the email is not in the database.')
+                self.assertMessageFlashed(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
+
+    def test_reset_password_from_email_token(self):
+        """ Make sure that a correct email token allows the user to reset their password while an incorrect one doesn't"""
+        with self.client as c:
+            user = User.query.filter_by(username='project.member').first()
+            token = user.get_reset_password_token()
+            c.post(url_for('auth.r_reset_password', token=token, _external=True),
+                   data={'password': 'some_new_password', 'password2': 'some_new_password'})
+            self.assertTrue(user.check_password('some_new_password'), 'User\'s password should be changed.')
+            c.post(url_for('auth.r_reset_password', token='some_weird_token', _external=True),
+                   data={'password': 'some_password', 'password2': 'some_password'}, follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+            self.assertTrue(user.check_password('some_new_password'), 'User\'s password should not have changed.')
+
+    def test_user_logout(self):
+        """ Make sure that the user is correctly logged out and redirected"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            self.assertTrue(current_user.is_authenticated, 'User should be logged in.')
+            c.get('/auth/logout', follow_redirects=True)
+            self.assertFalse(current_user.is_authenticated, 'User should now be logged out.')
+            self.assertTemplateUsed('auth::login.html')
+
+    def test_user_change_prefs(self):
+        """ Make sure that the user can change their language and password"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            self.assertEqual(current_user.default_locale, 'de', '"de" should be the default language.')
+            c.post('/auth/user/project.member', data={'new_locale': "en"})
+            self.assertEqual(current_user.default_locale, 'en', 'User language should have been changed to "en"')
+            c.post('/auth/user/project.member', data={'old_password': 'some_password', 'password': 'some_new_password',
+                                                      'password2': 'some_new_password'},
+                   follow_redirects=True)
+            self.assertTrue(User.query.filter_by(username='project.member').first().check_password('some_new_password'),
+                            'User should have a new password: "some_new_password".')
+            self.assertTemplateUsed('main::index.html')
+
+    def test_user_change_prefs_incorrect(self):
+        """ Make sure that a user who gives the false old password is not able to change their password"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            self.assertTrue(current_user.is_authenticated)
+            c.post(url_for('auth.r_user', username='project.member'), data={'old_password': 'some_wrong_password',
+                                                                            'password': 'some_new_password',
+                                                                            'password2': 'some_new_password'},
+                   follow_redirects=True)
+            self.assertTrue(User.query.filter_by(username='project.member').first().check_password('some_password'),
+                            'User\'s password should not have changed.')
+            self.assertMessageFlashed(_("Das ist nicht Ihr aktuelles Passwort."))
 
 
 class TestES(Formulae_Testing):
