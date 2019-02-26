@@ -57,10 +57,10 @@ def create_app(config_class=Config):
 
 @babel.localeselector
 def get_locale():
-    if 'locale' in session:
-        return session['locale']
     if current_user.is_authenticated and current_user.default_locale:
         return current_user.default_locale
+    if 'locale' in session:
+        return session['locale']
     return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
 from formulae import models
