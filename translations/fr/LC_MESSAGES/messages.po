@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-21 09:30+0100\n"
+"POT-Creation-Date: 2019-02-26 08:54+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -45,7 +45,7 @@ msgid ""
 msgstr ""
 
 #: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
-#: tests/test_routes.py:107 tests/test_routes.py:109
+#: tests/test_routes.py:108 tests/test_routes.py:110
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:515 tests/test_routes.py:111 tests/test_routes.py:113
+#: formulae/nemo.py:515 tests/test_routes.py:112 tests/test_routes.py:114
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
@@ -133,15 +133,15 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:556
+#: formulae/auth/forms.py:53 tests/test_routes.py:563
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:558
+#: formulae/auth/forms.py:58 tests/test_routes.py:565
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:585
+#: formulae/auth/routes.py:27 tests/test_routes.py:592
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:611
+#: formulae/auth/routes.py:137 tests/test_routes.py:618
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:190
+#: formulae/search/Search.py:191
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -224,7 +224,7 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:519
+#: formulae/search/forms.py:44 tests/test_routes.py:526
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -697,6 +697,14 @@ msgstr ""
 msgid "Diesen Text ausblenden"
 msgstr ""
 
+#: templates/main/multipassage.html:134
+msgid "Mehr zeigen"
+msgstr ""
+
+#: templates/main/multipassage.html:135
+msgid "Weniger zeigen"
+msgstr ""
+
 #: templates/main/navbar.html:9
 msgid "Über das Projekt"
 msgstr "A propos"
@@ -713,11 +721,11 @@ msgstr ""
 "Nous sommes désolés mais, dans la mesure où ce texte n'est pas encore "
 "publié, nous n'autorisons pas la copie du contenu textuel."
 
-#: templates/main/notes.html:16
+#: templates/main/notes.html:17
 msgid "Anmerkungen"
 msgstr ""
 
-#: templates/main/notes.html:23
+#: templates/main/notes.html:24
 msgid ""
 "Bitte klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten "
 "Buchstaben, um den Text der entsprechenden Anmerkung zu sehen. Bitte "
@@ -727,11 +735,11 @@ msgid ""
 "Anmerkungen vorhanden."
 msgstr ""
 
-#: templates/main/notes.html:34
+#: templates/main/notes.html:35
 msgid "Alle Anmerkungen für diesen Text ausblenden"
 msgstr "Cacher toutes les notes de ce texte"
 
-#: templates/main/notes.html:35
+#: templates/main/notes.html:36
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
 
@@ -1171,7 +1179,7 @@ msgstr ""
 msgid "Suchen in:"
 msgstr "Chercher dans"
 
-#: tests/test_routes.py:520
+#: tests/test_routes.py:527
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 

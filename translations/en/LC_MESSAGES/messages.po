@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-21 09:30+0100\n"
+"POT-Creation-Date: 2019-02-26 08:54+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -43,7 +43,7 @@ msgstr ""
 "will be available soon"
 
 #: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
-#: tests/test_routes.py:107 tests/test_routes.py:109
+#: tests/test_routes.py:108 tests/test_routes.py:110
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
@@ -57,7 +57,7 @@ msgstr " was not found."
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:515 tests/test_routes.py:111 tests/test_routes.py:113
+#: formulae/nemo.py:515 tests/test_routes.py:112 tests/test_routes.py:114
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -135,15 +135,15 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:556
+#: formulae/auth/forms.py:53 tests/test_routes.py:563
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:558
+#: formulae/auth/forms.py:58 tests/test_routes.py:565
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:585
+#: formulae/auth/routes.py:27 tests/test_routes.py:592
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
@@ -173,7 +173,7 @@ msgstr "Instructions for resetting your password have been emailed to you."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:611
+#: formulae/auth/routes.py:137 tests/test_routes.py:618
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -195,7 +195,7 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:190
+#: formulae/search/Search.py:191
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -228,7 +228,7 @@ msgstr "Formulae"
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:519
+#: formulae/search/forms.py:44 tests/test_routes.py:526
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -749,6 +749,14 @@ msgstr "No lexicon entry found for"
 msgid "Diesen Text ausblenden"
 msgstr "Remove this text"
 
+#: templates/main/multipassage.html:134
+msgid "Mehr zeigen"
+msgstr "Read More"
+
+#: templates/main/multipassage.html:135
+msgid "Weniger zeigen"
+msgstr "Read Less"
+
 #: templates/main/navbar.html:9
 msgid "Über das Projekt"
 msgstr "About the Project"
@@ -765,11 +773,11 @@ msgstr ""
 "We are sorry but, since this text has not yet been published, we do not  "
 "allow copying of the textual content."
 
-#: templates/main/notes.html:16
+#: templates/main/notes.html:17
 msgid "Anmerkungen"
 msgstr "Notes"
 
-#: templates/main/notes.html:23
+#: templates/main/notes.html:24
 msgid ""
 "Bitte klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten "
 "Buchstaben, um den Text der entsprechenden Anmerkung zu sehen. Bitte "
@@ -784,11 +792,11 @@ msgstr ""
 "all notes for that text. If a text on the left is not shown here, that "
 "means there are no notes for that text."
 
-#: templates/main/notes.html:34
+#: templates/main/notes.html:35
 msgid "Alle Anmerkungen für diesen Text ausblenden"
 msgstr "Hide all notes for this text"
 
-#: templates/main/notes.html:35
+#: templates/main/notes.html:36
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Show all notes for this text"
 
@@ -1318,7 +1326,7 @@ msgstr "This text is not available. Consult the printed edition for the text."
 msgid "Suchen in:"
 msgstr "Search In:"
 
-#: tests/test_routes.py:520
+#: tests/test_routes.py:527
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
