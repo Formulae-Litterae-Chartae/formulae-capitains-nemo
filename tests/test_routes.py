@@ -913,7 +913,7 @@ class TestES(Formulae_Testing):
         self.assertEqual(results, expected, 'The true results should match the expected results.')
 
     @patch.object(Elasticsearch, "search")
-    def test_suggest_composition_places(self, mock_search):
+    def test_suggest_word_search_completion(self, mock_search):
         test_args = OrderedDict([("corpus", "buenden"), ("field", "autocomplete"), ("q", 'ill'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
