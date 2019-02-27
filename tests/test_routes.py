@@ -77,8 +77,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::contact.html')
             c.get('/search/doc', follow_redirects=True)
             self.assertTemplateUsed('search::documentation.html')
-            c.get('/search/advanced_search', follow_redirects=True)
-            self.assertTemplateUsed('search::advanced_search.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertMessageFlashed(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
             self.assertTemplateUsed('auth::login.html')
@@ -428,11 +426,14 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
 
-    def test_flashed_search_form_errors(self):
+    @patch.object(Elasticsearch, "search")
+    def test_flashed_search_form_errors(self, mock_search):
         """ Make sure that errors in the form will result in no search being done and a flashed message"""
+        mock_search.return_value = {'hits': {'hits': ''}}
         with self.client as c:
             c.get('/search/advanced_search?year=1500&submit=y')
             self.assertMessageFlashed('year: ' + _('Die Jahreszahl muss zwischen 500 und 1000 liegen'))
+            self.assertTemplateUsed('search::advanced_search.html')
 
     @patch("formulae.search.routes.suggest_word_search")
     def test_word_search_suggester_route(self, mock_suggest):
