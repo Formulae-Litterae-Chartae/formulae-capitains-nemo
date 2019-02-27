@@ -58,7 +58,7 @@ def r_user(username):
         user = User.query.filter_by(username=username).first_or_404()
         if not user.check_password(password_form.old_password.data):
             flash(_("Das ist nicht Ihr aktuelles Passwort."))
-            return redirect(url_for('auth.r_user'))
+            return redirect(url_for('auth.r_user', username=username))
         user.set_password(password_form.password.data)
         db.session.add(user)
         db.session.commit()
