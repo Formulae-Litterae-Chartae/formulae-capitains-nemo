@@ -4,7 +4,7 @@ from formulae import create_app, db, mail, dispatcher_builder
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token
+    set_session_token, suggest_word_search
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -17,7 +17,7 @@ from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for, current_app
+from flask import Markup, session, g, url_for
 
 
 class TestConfig(Config):
@@ -910,6 +910,25 @@ class TestES(Formulae_Testing):
         expected = [' ', 'St. Gallen', "Stetten", 'Wila']
         mock_search.return_value = resp
         results = suggest_composition_places()
+        self.assertEqual(results, expected, 'The true results should match the expected results.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_composition_places(self, mock_search):
+        test_args = OrderedDict([("corpus", "buenden"), ("field", "autocomplete"), ("q", 'ill'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = ['ill', '', 'illa curiensis esset distructa et ', 'illa qui possit nobis prestare solatium ',
+                    'illa testimonia qui de ipso pago ', 'illam audire desiderabilem „ euge ',
+                    'illam divisionem quam bonae memoriae ', 'illam divisionem vel ordinationem ',
+                    'illam indictionem ducatum tibi cedimus ', 'ille sicut illi semetipsum hiato terrae ',
+                    'illi et mihi econtra donaretur et ']
+        mock_search.return_value = resp
+        test_args.pop('q')
+        results = suggest_word_search('ill', **test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
 
     def test_results_sort_option(self):
