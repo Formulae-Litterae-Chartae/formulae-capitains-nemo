@@ -1,6 +1,6 @@
 from config import Config
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
-from formulae import create_app, db, mail, dispatcher_builder
+from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
@@ -18,6 +18,7 @@ from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for
+from json import dumps
 
 
 class TestConfig(Config):
@@ -74,6 +75,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::bibliography.html')
             c.get('/contact', follow_redirects=True)
             self.assertTemplateUsed('main::contact.html')
+            c.get('/search/doc', follow_redirects=True)
+            self.assertTemplateUsed('search::documentation.html')
+            c.get('/search/advanced_search', follow_redirects=True)
+            self.assertTemplateUsed('search::advanced_search.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertMessageFlashed(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
             self.assertTemplateUsed('auth::login.html')
@@ -422,6 +427,24 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(search_url, follow_redirects=True)
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
+
+    def test_flashed_search_form_errors(self):
+        """ Make sure that errors in the form will result in no search being done and a flashed message"""
+        with self.client as c:
+            c.get('/search/advanced_search?year=1500&submit=y')
+            self.assertMessageFlashed('year: ' + _('Die Jahreszahl muss zwischen 500 und 1000 liegen'))
+
+    @patch("formulae.search.routes.suggest_word_search")
+    def test_word_search_suggester_route(self, mock_suggest):
+        """ Make sure that the word search suggester route returns correctly formatted JSON"""
+        results = ['ill', '', 'illa curiensis esset distructa et ', 'illa qui possit nobis prestare solatium ',
+                   'illam audire desiderabilem „ euge ', 'illam divisionem quam bonae memoriae ',
+                   'illam divisionem vel ordinationem ', 'illam indictionem ducatum tibi cedimus ',
+                   'ille sicut illi semetipsum hiato terrae ', 'illi et mihi econtra donaretur et ']
+        mock_suggest.return_value = results
+        expected = dumps(results)
+        r = self.client.get('/search/suggest/ill')
+        self.assertEqual(expected, r.get_data(as_text=True))
 
     def test_bibliography_links(self):
         """ Make sure the bibliographical links in the notes work correctly"""
