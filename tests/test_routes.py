@@ -987,7 +987,52 @@ class TestES(Formulae_Testing):
                                     'highlight': {
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
                                              'total': 0},
-                                    'aggregations': {}}
+                                    'aggregations': {"corpus": {
+                                                      "buckets": {
+                                                        "Angers": {
+                                                          "doc_count": 2
+                                                        },
+                                                        "B\u00fcnden": {
+                                                          "doc_count": 0
+                                                        },
+                                                          "Freising": {
+                                                              "doc_count": 0
+                                                          },
+                                                        "Luzern": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Mondsee": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Passau": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Regensburg": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Rheinisch": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "R\u00e4tien": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Salzburg": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Sch\u00e4ftlarn": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "St. Gallen": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Werden": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Z\u00fcrich": {
+                                                          "doc_count": 0
+                                                        }
+                                                      }
+                                                    }}}
         body = {'query':
                     {'span_near':
                          {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
@@ -1034,6 +1079,10 @@ class TestES(Formulae_Testing):
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        with self.client:
+            self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
+            self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
+                                      _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
