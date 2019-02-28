@@ -12,12 +12,12 @@ from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeFor
 from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
-from unittest.mock import patch
+from unittest.mock import patch, mock_open
 from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for
+from flask import Markup, session, g, url_for, Response
 from json import dumps
 import re
 
@@ -1164,6 +1164,30 @@ class TestES(Formulae_Testing):
         self.assertEqual(build_sort_list('max_date_desc'), [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn'])
         self.assertEqual(build_sort_list('urn_desc'), [{'urn': {'order': 'desc'}}])
 
+    @patch.object(Elasticsearch, "search")
+    def test_save_requests(self, mock_search):
+        self.app.config['SAVE_REQUESTS'] = True
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
+                                 ('sort', 'urn')])
+        file_name_base = self.build_file_name(test_args)
+        fake = FakeElasticsearch(file_name_base, 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        with patch('builtins.open', new_callable=mock_open()) as m:
+            with patch('json.dump') as mock_dump:
+                actual, _, _ = advanced_query_index(**test_args)
+                mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2)
+                mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2)
+                mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2)
+
 
 class TestErrors(Formulae_Testing):
     def test_404(self):
@@ -1177,3 +1201,11 @@ class TestErrors(Formulae_Testing):
             self.assert404(response, 'An Unknown Collection Error should also return 404.')
             self.assertTemplateUsed("errors::unknown_collection.html")
 
+    # def test_500(self):
+    #     with self.client as c:
+    #         expected = "<h4>{}</h4><p>{}</p>".format(_('Ein unerwarteter Fehler ist aufgetreten'),
+    #                                                  _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!'))
+    #         # mock_response.return_value = Response(response='', status=500)
+    #         response = c.get('/corpus/urn:cts:formulae:buenden', follow_redirects=True)
+    #         self.assert500(response, 'This should mock a 500 response')
+    #         # self.assertIn(expected, response.get_data(as_text=True))
