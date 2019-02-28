@@ -251,7 +251,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
-            if "formulae" in objectId:
+            if "andecavensis" in objectId:
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -427,7 +427,8 @@ class NemoFormulae(Nemo):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
                 raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
-            return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
+            objectId = str(editions[0].id)
+            collection = self.get_collection(objectId)
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
