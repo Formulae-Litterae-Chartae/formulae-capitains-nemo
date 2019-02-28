@@ -17,7 +17,7 @@ from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for, Response
+from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 
@@ -44,6 +44,10 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
 
         return app
 
@@ -1286,11 +1290,10 @@ class TestErrors(Formulae_Testing):
             self.assert404(response, 'An Unknown Collection Error should also return 404.')
             self.assertTemplateUsed("errors::unknown_collection.html")
 
-    # def test_500(self):
-    #     with self.client as c:
-    #         expected = "<h4>{}</h4><p>{}</p>".format(_('Ein unerwarteter Fehler ist aufgetreten'),
-    #                                                  _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!'))
-    #         # mock_response.return_value = Response(response='', status=500)
-    #         response = c.get('/corpus/urn:cts:formulae:buenden', follow_redirects=True)
-    #         self.assert500(response, 'This should mock a 500 response')
-    #         # self.assertIn(expected, response.get_data(as_text=True))
+    def test_500(self):
+        with self.client as c:
+            expected = "<h4>{}</h4><p>{}</p>".format(_('Ein unerwarteter Fehler ist aufgetreten'),
+                                                     _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!'))
+            response = c.get('/500', follow_redirects=True)
+            self.assert500(response, 'Should raise 500 error.')
+            self.assertIn(expected, response.get_data(as_text=True))
