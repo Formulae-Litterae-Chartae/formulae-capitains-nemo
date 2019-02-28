@@ -1,0 +1,241 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+              {
+                "range": {
+                  "dating": {
+                    "gte": "0800-10",
+                    "lte": "0801-11"
+                  }
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
+                    "match": {
+                      "specific_date.year": "0001"
+                    }
+                  }
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 800,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 10
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 801,
+                              "lte": 801
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "lte": 11
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 801,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": "urn",
+  "from": 0,
+  "size": 10,
+  "aggs": {
+    "range": {
+      "date_range": {
+        "field": "min_date",
+        "format": "yyyy",
+        "ranges": [
+          {
+            "key": "<499",
+            "from": "0002",
+            "to": "0499"
+          },
+          {
+            "key": "500-599",
+            "from": "0500",
+            "to": "0599"
+          },
+          {
+            "key": "600-699",
+            "from": "0600",
+            "to": "0699"
+          },
+          {
+            "key": "700-799",
+            "from": "0700",
+            "to": "0799"
+          },
+          {
+            "key": "800-899",
+            "from": "0800",
+            "to": "0899"
+          },
+          {
+            "key": "900-999",
+            "from": "0900",
+            "to": "0999"
+          },
+          {
+            "key": ">1000",
+            "from": "1000"
+          }
+        ]
+      }
+    },
+    "corpus": {
+      "filters": {
+        "filters": {
+          "R\u00e4tien": {
+            "match": {
+              "_type": "raetien"
+            }
+          },
+          "Angers": {
+            "match": {
+              "_type": "andecavensis"
+            }
+          },
+          "B\u00fcnden": {
+            "match": {
+              "_type": "buenden"
+            }
+          },
+          "Freising": {
+            "match": {
+              "_type": "freising"
+            }
+          },
+          "Luzern": {
+            "match": {
+              "_type": "luzern"
+            }
+          },
+          "Mondsee": {
+            "match": {
+              "_type": "mondsee"
+            }
+          },
+          "Passau": {
+            "match": {
+              "_type": "passau"
+            }
+          },
+          "Regensburg": {
+            "match": {
+              "_type": "regensburg"
+            }
+          },
+          "Rheinisch": {
+            "match": {
+              "_type": "rheinisch"
+            }
+          },
+          "Salzburg": {
+            "match": {
+              "_type": "salzburg"
+            }
+          },
+          "Sch\u00e4ftlarn": {
+            "match": {
+              "_type": "schaeftlarn"
+            }
+          },
+          "St. Gallen": {
+            "match": {
+              "_type": "stgallen"
+            }
+          },
+          "Werden": {
+            "match": {
+              "_type": "werden"
+            }
+          },
+          "Z\u00fcrich": {
+            "match": {
+              "_type": "zuerich"
+            }
+          }
+        }
+      }
+    },
+    "no_date": {
+      "missing": {
+        "field": "min_date"
+      }
+    }
+  }
+}
