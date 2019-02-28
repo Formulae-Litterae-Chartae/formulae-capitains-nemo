@@ -19,7 +19,7 @@ import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for
 from json import dumps
-from formulae.dispatcher_builder import organizer
+import re
 
 
 class TestConfig(Config):
@@ -95,7 +95,7 @@ class TestIndividualRoutes(Formulae_Testing):
             # r_references does not work right now
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
-            r = c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             # Check for backwards compatibility of URLs
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+first', follow_redirects=True)
@@ -119,6 +119,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            # Make sure the Salzburg collection is ordered correctly
+            r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
+            p = re.compile('<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>.+<h5>Notitia Arnonis Notitia Arnonis: </h5>',
+                           re.DOTALL)
+            self.assertRegex(r.get_data(as_text=True), p)
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
@@ -482,6 +487,13 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual(passage, '1')
         passage = self.nemo.get_first_passage('urn:cts:formulae:andecavensis.form001.lat001')
         self.assertEqual(passage, '2')
+
+    def test_NemoFormulae_f_replace_indexed_item(self):
+        """ Make sure that the replace_indexed_item filter works correctly"""
+        old_list = [1, 2, 3, 5, 5, 6, 7]
+        new_list = [1, 2, 3, 4, 5, 6, 7]
+        test_list = self.nemo.f_replace_indexed_item(old_list, 3, 4)
+        self.assertEqual(test_list, new_list)
 
 
 class TestForms(Formulae_Testing):

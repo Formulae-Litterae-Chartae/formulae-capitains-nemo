@@ -30,8 +30,8 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
-        ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
-        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
+        # ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
+        # ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"])
@@ -617,20 +617,21 @@ class NemoFormulae(Nemo):
 
         return str(xslt(etree.fromstring(text)))
 
-    def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
-
-    def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
+    # These were used in a previous version of the app and should be removed.
+    # def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts
+    #
+    # def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts
