@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-26 08:54+0100\n"
+"POT-Creation-Date: 2019-02-28 15:42+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:19 tests/test_routes.py:78
+#: formulae/__init__.py:19 tests/test_routes.py:87
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
@@ -38,14 +38,15 @@ msgstr "Français"
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:255
+#: formulae/nemo.py:255 tests/test_routes.py:92 tests/test_routes.py:220
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
 
 #: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
-#: tests/test_routes.py:108 tests/test_routes.py:110
+#: tests/test_routes.py:94 tests/test_routes.py:123 tests/test_routes.py:125
+#: tests/test_routes.py:222
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 
@@ -53,15 +54,15 @@ msgstr ""
 msgid " wurde nicht gefunden."
 msgstr ""
 
-#: formulae/nemo.py:436
+#: formulae/nemo.py:437
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr ""
 
-#: formulae/nemo.py:515 tests/test_routes.py:112 tests/test_routes.py:114
+#: formulae/nemo.py:516 tests/test_routes.py:132 tests/test_routes.py:134
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 
-#: formulae/auth/email.py:8
+#: formulae/auth/email.py:8 tests/test_routes.py:697
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr ""
 
@@ -133,19 +134,19 @@ msgstr ""
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:563
+#: formulae/auth/forms.py:53 tests/test_routes.py:630
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr ""
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:565
+#: formulae/auth/forms.py:58 tests/test_routes.py:632
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr ""
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:592
+#: formulae/auth/routes.py:27 tests/test_routes.py:658
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:60
+#: formulae/auth/routes.py:60 tests/test_routes.py:764
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
@@ -161,7 +162,7 @@ msgstr ""
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
-#: formulae/auth/routes.py:93
+#: formulae/auth/routes.py:93 tests/test_routes.py:703 tests/test_routes.py:712
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -171,7 +172,7 @@ msgstr ""
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr ""
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:618
+#: formulae/auth/routes.py:137 tests/test_routes.py:684
 msgid "Sie sind nun registriert."
 msgstr ""
 
@@ -180,10 +181,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr ""
 
 #: formulae/errors/handlers.py:11 templates/main/500.html:4
+#: tests/test_routes.py:1295
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr ""
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:5
+#: tests/test_routes.py:1296
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -193,7 +196,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr ""
 
-#: formulae/search/Search.py:191
+#: formulae/search/Search.py:192 tests/test_routes.py:1087
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -224,7 +227,8 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:526
+#: formulae/search/forms.py:44 tests/test_routes.py:593
+#: tests/test_routes.py:1212
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -265,7 +269,7 @@ msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:80
-#: formulae/search/forms.py:93
+#: formulae/search/forms.py:93 tests/test_routes.py:461
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr ""
 
@@ -361,6 +365,10 @@ msgstr "Exclusif"
 msgid "Ausstellungsort"
 msgstr ""
 
+#: formulae/search/routes.py:19 tests/test_routes.py:1213
+msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
+msgstr ""
+
 #: formulae/search/routes.py:136
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr ""
@@ -381,7 +389,7 @@ msgstr ""
 msgid "Klicken Sie hier"
 msgstr ""
 
-#: templates/email/reset_password.html:1
+#: templates/email/reset_password.html:1 tests/test_routes.py:699
 msgid "Sehr geehrte(r)"
 msgstr ""
 
@@ -1179,7 +1187,7 @@ msgstr ""
 msgid "Suchen in:"
 msgstr "Chercher dans"
 
-#: tests/test_routes.py:527
+#: tests/test_routes.py:594
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
