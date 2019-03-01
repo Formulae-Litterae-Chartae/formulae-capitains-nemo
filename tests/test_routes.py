@@ -503,13 +503,13 @@ class TestIndividualRoutes(Formulae_Testing):
 
     def test_bibliography_links(self):
         """ Make sure the bibliographical links in the notes work correctly"""
-        expected = '<sup>1</sup>  <a data-content="&lt;span class=&quot;surname&quot;&gt;Hegglin&lt;/span&gt;, TITLE&lt'
+        expected = re.compile('<sup>1</sup>  <a data-content="[^"]*&lt;span class=&quot;surname&quot;&gt;Hegglin&lt;/span&gt;, TITLE')
         with self.client as c:
             response = c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
                              headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
-            self.assertIn(expected, response.get_data(as_text=True))
+            self.assertRegex(response.get_data(as_text=True), expected)
             response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
-            self.assertIn(expected, response.get_data(as_text=True))
+            self.assertRegex(response.get_data(as_text=True), expected)
 
 
 class TestFunctions(Formulae_Testing):
