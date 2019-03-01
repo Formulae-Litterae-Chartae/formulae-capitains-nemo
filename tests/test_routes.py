@@ -20,6 +20,7 @@ from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
+from math import ceil
 
 
 class TestConfig(Config):
@@ -815,13 +816,6 @@ class TestES(Formulae_Testing):
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        # A simple search with no index should also return empty results
-        simple_test_args = OrderedDict([("index", ['']), ("query", 'regnum'), ("field", "text"),
-                                        ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
-        hits, total, aggs = query_index(**simple_test_args)
-        self.assertEqual(hits, [], 'Hits should be an empty list.')
-        self.assertEqual(total, 0, 'Total should be 0')
-        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
                                  ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
@@ -947,9 +941,17 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, total, _  = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
+        with self.client as c:
+            test_args['source'] = 'advanced'
+            r = c.get('/search/results', query_string=test_args, follow_redirects=True)
+            print(total_pages)
+            p = re.compile('\.\.\..+<li class="page-item".+<a class="page-link".+page={total}">'.format(total=total_pages),
+                           re.DOTALL)
+            self.assertRegex(r.get_data(as_text=True), p)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):
@@ -1356,6 +1358,16 @@ class TestES(Formulae_Testing):
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        test_args['index'] = ['']
+        hits, total, aggs = query_index(**test_args)
+        self.assertEqual(hits, [], 'Hits should be an empty list.')
+        self.assertEqual(total, 0, 'Total should be 0')
+        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
+        test_args['index'] = ''
+        hits, total, aggs = query_index(**test_args)
+        self.assertEqual(hits, [], 'Hits should be an empty list.')
+        self.assertEqual(total, 0, 'Total should be 0')
+        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
