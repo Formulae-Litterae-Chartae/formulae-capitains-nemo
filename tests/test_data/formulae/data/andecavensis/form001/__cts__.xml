@@ -8,4 +8,10 @@
       <ti:label xml:lang="lat">FORMULA ANDECAVENSIS 1</ti:label>
       <ti:description xml:lang="deu">Eintrag in die Gesta Municipalis: Ein Sachwalter (prosecutor) erscheint vor der öffentlichen Versammlung (curia publica) von Angers und bittet, bevollmächtigt durch ein Mandat einer Frau, um die Öffnung der öffentlichen Bücher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgeschäfte bezüglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigengüter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse Güter überträgt.</ti:description>
    </ti:edition>
+   <ti:translation xml:lang="deu"
+                   urn="urn:cts:formulae:andecavensis.form001.deu001"
+                   workUrn="urn:cts:formulae:andecavensis.form001">
+      <ti:label xml:lang="deu">Formel von Angers 1</ti:label>
+      <ti:description xml:lang="deu">Eintrag in die Gesta Municipalis: Ein Sachwalter (prosecutor) erscheint vor der öffentlichen Versammlung (curia publica) von Angers und bittet, bevollmächtigt durch ein Mandat einer Frau, um die Öffnung der öffentlichen Bücher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgeschäfte bezüglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigengüter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse Güter überträgt.Filename: file:/home/matt/results/formulae/data/andecavensis/form001/andecavensis.form001.deu001.xml</ti:description>
+   </ti:translation>
 </ti:work>

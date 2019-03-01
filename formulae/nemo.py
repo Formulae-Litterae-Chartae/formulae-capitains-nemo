@@ -30,8 +30,8 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
-        ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
-        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
+        # ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
+        # ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"])
@@ -251,7 +251,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
-            if "formulae" in objectId:
+            if "andecavensis" in objectId:
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -427,7 +427,8 @@ class NemoFormulae(Nemo):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
                 raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
-            return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
+            objectId = str(editions[0].id)
+            collection = self.get_collection(objectId)
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
@@ -616,20 +617,21 @@ class NemoFormulae(Nemo):
 
         return str(xslt(etree.fromstring(text)))
 
-    def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
-
-    def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
+    # These were used in a previous version of the app and should be removed.
+    # def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts
+    #
+    # def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts

@@ -23,4 +23,4 @@ class Config(object):
     SESSION_TYPE = 'filesystem'
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
-    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 604800 # 7 days
+    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0 # Only need cache on the server, where this should be set in env

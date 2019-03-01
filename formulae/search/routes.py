@@ -16,8 +16,8 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 def r_simple_search():
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
-            flash(m[0])
-        return redirect(url_for('.r_results', source='simple', q=g.search_form.data['q']))
+            flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+        return redirect(url_for('.r_results', source='simple', corpus=['formulae', 'chartae'], q=g.search_form.data['q']))
     data = g.search_form.data
     data['q'] = data['q'].lower()
     corpus = '+'.join(data.pop("corpus"))
