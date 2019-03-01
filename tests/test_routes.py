@@ -948,8 +948,7 @@ class TestES(Formulae_Testing):
         with self.client as c:
             test_args['source'] = 'advanced'
             r = c.get('/search/results', query_string=test_args, follow_redirects=True)
-            print(total_pages)
-            p = re.compile('\.\.\..+<li class="page-item".+<a class="page-link".+page={total}">'.format(total=total_pages),
+            p = re.compile('\.\.\..+<li class="page-item">\n\s+<a class="page-link"[^>]+page={total}'.format(total=total_pages),
                            re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), p)
 
