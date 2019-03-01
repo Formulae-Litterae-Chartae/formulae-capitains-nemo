@@ -47,6 +47,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "search": "templates/search"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
 
+        app.config['nemo_app'] = self.nemo
+
         @app.route('/500', methods=['GET'])
         def r_500():
             abort(500)

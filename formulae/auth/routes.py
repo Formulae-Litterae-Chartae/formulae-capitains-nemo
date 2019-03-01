@@ -1,4 +1,4 @@
-from flask import flash, url_for, request, redirect
+from flask import flash, url_for, request, redirect, current_app
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
 # from werkzeug.utils import redirect
@@ -17,7 +17,7 @@ def r_login():
     :return: template, page title, forms
     :rtype: {str: Any}
     """
-    from formulae.app import nemo
+    # from formulae.app import nemo
     if current_user.is_authenticated:
         return redirect(url_for('InstanceNemo.r_index'))
     form = LoginForm()
@@ -31,7 +31,7 @@ def r_login():
         if not next_page or url_parse(next_page).netloc != '':
             return redirect(url_for('InstanceNemo.r_index'))
         return redirect(next_page)
-    return nemo.render(template='auth::login.html', title=_('Einloggen'), forms=[form], purpose='login', url=dict())
+    return current_app.config['nemo_app'].render(template='auth::login.html', title=_('Einloggen'), forms=[form], purpose='login', url=dict())
 
 
 @bp.route('/logout')
@@ -124,7 +124,7 @@ def r_register():
 
     :return: template, form
     """
-    from formulae.app import nemo
+    # from formulae.app import nemo
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt.'))
         return redirect(url_for('InstanceNemo.r_index'))
@@ -138,4 +138,4 @@ def r_register():
         refresh()
         flash(_('Sie sind nun registriert.'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='auth::register.html', title=_('Anmelden'), form=form, url=dict())
+    return current_app.config['nemo_app'].render(template='auth::register.html', title=_('Anmelden'), form=form, url=dict())
