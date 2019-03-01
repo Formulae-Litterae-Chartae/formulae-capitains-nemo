@@ -200,6 +200,7 @@ ul.reffs > li {
 #breadcrumb ol.breadcrumb {
         margin-bottom:0;
     }
+    
 .reference {
     font-weight: bold;
 }
@@ -221,17 +222,4 @@ ul.reffs > li {
 
 .embed-responsive-a4::before {
     padding-top:141.428571429%
-}
-
-img[id$="-flag-navbar"] {
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-#lang-nav {
-    padding-left: 1rem;
-}
-
-.lang-link {
-    padding: 0 1rem;
 }

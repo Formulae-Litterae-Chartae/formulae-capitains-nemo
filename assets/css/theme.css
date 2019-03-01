@@ -415,7 +415,8 @@ span[class="book-title"] {
 }
 
 button.close {
-    color: red;
+    color: #263d3d;
+    font-size: 1rem;
 }
 
 .bibl-popover {
@@ -468,4 +469,17 @@ button.close {
 
 .smallfont {
     font-size: small;
+}
+
+img[id$="-flag-navbar"] {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+#lang-nav {
+    padding-left: 1rem;
+}
+
+.lang-link {
+    padding: 0 1rem;
 }
