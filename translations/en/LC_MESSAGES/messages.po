@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-02-28 15:42+0100\n"
+"POT-Creation-Date: 2019-03-01 12:12+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.6.0\n"
 
-#: formulae/__init__.py:19 tests/test_routes.py:87
+#: formulae/__init__.py:19 tests/test_routes.py:89
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Please log in to access this page."
 
@@ -34,7 +34,7 @@ msgstr "French"
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:255 tests/test_routes.py:92 tests/test_routes.py:220
+#: formulae/nemo.py:255 tests/test_routes.py:98 tests/test_routes.py:245
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
@@ -43,8 +43,8 @@ msgstr ""
 "will be available soon"
 
 #: formulae/nemo.py:257 formulae/nemo.py:317 formulae/nemo.py:370
-#: tests/test_routes.py:94 tests/test_routes.py:123 tests/test_routes.py:125
-#: tests/test_routes.py:222
+#: tests/test_routes.py:100 tests/test_routes.py:119 tests/test_routes.py:122
+#: tests/test_routes.py:133 tests/test_routes.py:135 tests/test_routes.py:247
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
@@ -58,13 +58,13 @@ msgstr " was not found."
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:516 tests/test_routes.py:132 tests/test_routes.py:134
+#: formulae/nemo.py:516 tests/test_routes.py:142 tests/test_routes.py:144
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/auth/email.py:8 tests/test_routes.py:697
+#: formulae/auth/email.py:8 tests/test_routes.py:725
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Reset Your Password"
 
@@ -123,7 +123,7 @@ msgid "Neues Passwort wiederholen"
 msgstr "Repeat New Password"
 
 #: formulae/auth/forms.py:38 formulae/auth/routes.py:95
-#: formulae/auth/routes.py:117
+#: formulae/auth/routes.py:118
 msgid "Passwort zurücksetzen"
 msgstr "Reset Password"
 
@@ -131,24 +131,24 @@ msgstr "Reset Password"
 msgid "Benutzersprache"
 msgstr "Default Language"
 
-#: formulae/auth/forms.py:48 formulae/auth/routes.py:139
+#: formulae/auth/forms.py:48 formulae/auth/routes.py:141
 #: templates/auth/register.html:5
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:630
+#: formulae/auth/forms.py:53 tests/test_routes.py:658
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:632
+#: formulae/auth/forms.py:58 tests/test_routes.py:660
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:27 tests/test_routes.py:658
+#: formulae/auth/routes.py:27 tests/test_routes.py:686
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
-#: formulae/auth/routes.py:60 tests/test_routes.py:764
+#: formulae/auth/routes.py:60 tests/test_routes.py:803
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "This is not your existing password."
 
@@ -164,17 +164,25 @@ msgstr "You have successfully changed your default language."
 msgid "Benutzerprofil ändern"
 msgstr "Edit Profile"
 
-#: formulae/auth/routes.py:93 tests/test_routes.py:703 tests/test_routes.py:712
+#: formulae/auth/routes.py:93 tests/test_routes.py:731 tests/test_routes.py:740
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr "Instructions for resetting your password have been emailed to you."
 
-#: formulae/auth/routes.py:115
+#: formulae/auth/routes.py:107 tests/test_routes.py:763
+msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
+msgstr "You are already logged in. You can change your password here."
+
+#: formulae/auth/routes.py:116
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:684
+#: formulae/auth/routes.py:129 tests/test_routes.py:241
+msgid "Sie sind schon eingeloggt."
+msgstr "You are already logged in."
+
+#: formulae/auth/routes.py:139 tests/test_routes.py:712
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -183,12 +191,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:11 templates/main/500.html:4
-#: tests/test_routes.py:1295
+#: tests/test_routes.py:1455
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:5
-#: tests/test_routes.py:1296
+#: tests/test_routes.py:1456
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -198,41 +206,33 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:192 tests/test_routes.py:1087
+#: formulae/search/Search.py:192 tests/test_routes.py:1237
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr "Wildcard characters (\"*\" and \"?\") are not allowed in lemma searches."
 
-#: formulae/search/forms.py:36
-msgid ""
-"Suchanfragen mit mehreren Wörtern dürfen keine \"Wildcard\"-Zeichen "
-"enthalten (d.h. \"?\" oder \"*\")"
-msgstr ""
-"Multiword searches cannot contain wildcard characters (i.e., \"?\" or "
-"\"*\")"
-
-#: formulae/search/forms.py:40 formulae/search/forms.py:56
-#: formulae/search/forms.py:109 formulae/search/routes.py:109
+#: formulae/search/forms.py:29 formulae/search/forms.py:45
+#: formulae/search/forms.py:98 formulae/search/routes.py:109
 msgid "Suche"
 msgstr "Search"
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:66
+#: formulae/search/forms.py:30 formulae/search/forms.py:55
 #: templates/search/documentation.html:9
 msgid "Corpora"
 msgstr ""
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:67
+#: formulae/search/forms.py:30 formulae/search/forms.py:56
 #: templates/main/multipassage.html:41 templates/main/navbar.html:25
 msgid "Formeln"
 msgstr "Formulae"
 
-#: formulae/search/forms.py:41 formulae/search/forms.py:66
+#: formulae/search/forms.py:30 formulae/search/forms.py:55
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:44 tests/test_routes.py:593
-#: tests/test_routes.py:1212
+#: formulae/search/forms.py:33 tests/test_routes.py:621
+#: tests/test_routes.py:1372
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -240,142 +240,142 @@ msgstr ""
 "You must select at least one collection to search (\"Formulae\" and/or "
 "\"Charters\")"
 
-#: formulae/search/forms.py:57 templates/main/lexicon.html:5
+#: formulae/search/forms.py:46 templates/main/lexicon.html:5
 #: templates/main/lexicon.html:9 templates/search/documentation.html:17
 msgid "Lemma"
 msgstr "Lemma"
 
-#: formulae/search/forms.py:58 templates/search/documentation.html:21
+#: formulae/search/forms.py:47 templates/search/documentation.html:21
 msgid "Unschärfegrad"
 msgstr "Fuzziness Level"
 
-#: formulae/search/forms.py:59
+#: formulae/search/forms.py:48
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:61 templates/search/documentation.html:24
+#: formulae/search/forms.py:50 templates/search/documentation.html:24
 msgid "Suchradius"
 msgstr "Search Radius"
 
-#: formulae/search/forms.py:63
+#: formulae/search/forms.py:52
 msgid "Der Suchradius muss zwischen 0 und 100 liegen"
 msgstr "Search Radius must be between 0 and 100"
 
-#: formulae/search/forms.py:65
+#: formulae/search/forms.py:54
 msgid "Wortreihenfolge beachten?"
 msgstr "Keep Word Order?"
 
-#: formulae/search/forms.py:66 templates/search/advanced_search.html:13
+#: formulae/search/forms.py:55 templates/search/advanced_search.html:13
 msgid "Alle"
 msgstr "All"
 
-#: formulae/search/forms.py:68 formulae/search/forms.py:79
-#: formulae/search/forms.py:91
+#: formulae/search/forms.py:57 formulae/search/forms.py:68
+#: formulae/search/forms.py:80
 msgid "Jahr"
 msgstr "Year"
 
-#: formulae/search/forms.py:69 formulae/search/forms.py:80
-#: formulae/search/forms.py:93 tests/test_routes.py:461
+#: formulae/search/forms.py:58 formulae/search/forms.py:69
+#: formulae/search/forms.py:82 tests/test_routes.py:486
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "The year must be between 500 and 1000"
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:82
-#: formulae/search/forms.py:95
+#: formulae/search/forms.py:60 formulae/search/forms.py:71
+#: formulae/search/forms.py:84
 msgid "Monat"
 msgstr "Month"
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:82
-#: formulae/search/forms.py:95
+#: formulae/search/forms.py:60 formulae/search/forms.py:71
+#: formulae/search/forms.py:84
 msgid "Jan"
 msgstr ""
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:82
-#: formulae/search/forms.py:95
+#: formulae/search/forms.py:60 formulae/search/forms.py:71
+#: formulae/search/forms.py:84
 msgid "Feb"
 msgstr ""
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:82
-#: formulae/search/forms.py:95
+#: formulae/search/forms.py:60 formulae/search/forms.py:71
+#: formulae/search/forms.py:84
 msgid "Mär"
 msgstr "Mar"
 
-#: formulae/search/forms.py:72 formulae/search/forms.py:83
-#: formulae/search/forms.py:96
+#: formulae/search/forms.py:61 formulae/search/forms.py:72
+#: formulae/search/forms.py:85
 msgid "Apr"
 msgstr ""
 
-#: formulae/search/forms.py:72 formulae/search/forms.py:83
-#: formulae/search/forms.py:96
+#: formulae/search/forms.py:61 formulae/search/forms.py:72
+#: formulae/search/forms.py:85
 msgid "Mai"
 msgstr "May"
 
-#: formulae/search/forms.py:72 formulae/search/forms.py:83
-#: formulae/search/forms.py:96
+#: formulae/search/forms.py:61 formulae/search/forms.py:72
+#: formulae/search/forms.py:85
 msgid "Jun"
 msgstr ""
 
-#: formulae/search/forms.py:73 formulae/search/forms.py:84
-#: formulae/search/forms.py:97
+#: formulae/search/forms.py:62 formulae/search/forms.py:73
+#: formulae/search/forms.py:86
 msgid "Jul"
 msgstr ""
 
-#: formulae/search/forms.py:73 formulae/search/forms.py:84
-#: formulae/search/forms.py:97
+#: formulae/search/forms.py:62 formulae/search/forms.py:73
+#: formulae/search/forms.py:86
 msgid "Aug"
 msgstr ""
 
-#: formulae/search/forms.py:73 formulae/search/forms.py:84
-#: formulae/search/forms.py:97
+#: formulae/search/forms.py:62 formulae/search/forms.py:73
+#: formulae/search/forms.py:86
 msgid "Sep"
 msgstr ""
 
-#: formulae/search/forms.py:74 formulae/search/forms.py:85
-#: formulae/search/forms.py:98
+#: formulae/search/forms.py:63 formulae/search/forms.py:74
+#: formulae/search/forms.py:87
 msgid "Okt"
 msgstr "Oct"
 
-#: formulae/search/forms.py:74 formulae/search/forms.py:85
-#: formulae/search/forms.py:98
+#: formulae/search/forms.py:63 formulae/search/forms.py:74
+#: formulae/search/forms.py:87
 msgid "Nov"
 msgstr ""
 
-#: formulae/search/forms.py:74 formulae/search/forms.py:85
-#: formulae/search/forms.py:98
+#: formulae/search/forms.py:63 formulae/search/forms.py:74
+#: formulae/search/forms.py:87
 msgid "Dez"
 msgstr "Dec"
 
-#: formulae/search/forms.py:76 formulae/search/forms.py:87
-#: formulae/search/forms.py:100
+#: formulae/search/forms.py:65 formulae/search/forms.py:76
+#: formulae/search/forms.py:89
 msgid "Tag"
 msgstr "Day"
 
-#: formulae/search/forms.py:77 formulae/search/forms.py:89
-#: formulae/search/forms.py:101
+#: formulae/search/forms.py:66 formulae/search/forms.py:78
+#: formulae/search/forms.py:90
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "Day must be between 1 and 31"
 
-#: formulae/search/forms.py:103 templates/search/documentation.html:32
+#: formulae/search/forms.py:92 templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
 msgstr "Date Plus-Minus"
 
-#: formulae/search/forms.py:105
+#: formulae/search/forms.py:94
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Plus-Minus must be between 0 and 100 years"
 
-#: formulae/search/forms.py:107 templates/search/documentation.html:36
+#: formulae/search/forms.py:96 templates/search/documentation.html:36
 msgid "Exklusiv"
 msgstr "Exclusive"
 
-#: formulae/search/forms.py:108 templates/main/salzburg_collection.html:6
+#: formulae/search/forms.py:97 templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Ausstellungsort"
 msgstr "Issued At"
 
-#: formulae/search/routes.py:19 tests/test_routes.py:1213
+#: formulae/search/routes.py:19 tests/test_routes.py:1373
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:136
+#: formulae/search/routes.py:136 tests/test_routes.py:489
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
@@ -395,7 +395,7 @@ msgstr "New User?"
 msgid "Klicken Sie hier"
 msgstr "Click to Register"
 
-#: templates/email/reset_password.html:1 tests/test_routes.py:699
+#: templates/email/reset_password.html:1 tests/test_routes.py:727
 msgid "Sehr geehrte(r)"
 msgstr "Dear"
 
@@ -1334,7 +1334,7 @@ msgstr "This text is not available. Consult the printed edition for the text."
 msgid "Suchen in:"
 msgstr "Search In:"
 
-#: tests/test_routes.py:594
+#: tests/test_routes.py:622
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
