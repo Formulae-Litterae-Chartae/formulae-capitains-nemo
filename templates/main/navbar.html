@@ -33,18 +33,20 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
             </li>
-            {% if current_user.is_anonymous %}
-            <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" title="Deutsch" value="de">🇩🇪</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" title="English" value="en">🇬🇧</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" title="Français" value="fr">🇫🇷</a>
-            </li>
-            {% endif %}
         </ul>
         {% include "search::search_box.html" %}
+        {% if current_user.is_anonymous %}
+        <ul class="navbar-nav flex-column" id="lang-nav">
+            <li class="nav-item active">
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" title="Deutsch" value="de"><img id="de-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/DE_flag.png')}}" alt="DE"></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" title="English" value="en"><img id="uk-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/UK_flag.png')}}" alt="EN"></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" title="Français" value="fr"><img id="fr-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/FR_flag.png')}}" alt="FR"></a>
+            </li>
+        </ul>
+        {% endif %}
     </div>
 </nav>
