@@ -28,6 +28,7 @@ class TestConfig(Config):
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
+    SAVE_REQUESTS = False
 
 
 class Formulae_Testing(flask_testing.TestCase):
@@ -86,6 +87,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertMessageFlashed(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
             self.assertTemplateUsed('auth::login.html')
+            c.get('/auth/reset_password_request', follow_redirects=True)
+            self.assertTemplateUsed('auth::reset_password_request.html')
+            c.get('/auth/register', follow_redirects=True)
+            self.assertTemplateUsed('auth::register.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -108,8 +113,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_collection/default/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
+            c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertTemplateUsed('main::lexicon_modal.html')
@@ -137,6 +146,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(session['locale'], 'en')
             response = c.get('/lang/en', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
             self.assertEqual(response.get_data(as_text=True), 'OK')
+            # Navigating to the results page with no search args should redirect the user to the index
+            c.get('/search/results', follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+
 
     def test_authorized_project_member(self):
         """ Make sure that all routes are open to project members"""
@@ -184,10 +197,15 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
             # The following tests are to make sure that non-open texts are available to project members
+            c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
@@ -202,8 +220,9 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
         with self.client as c:
-            c.post('/auth/login', data=dict(username='not.project', password="some_other_password"),
+            c.post('/auth/login?next=/imprint', data=dict(username='not.project', password="some_other_password"),
                    follow_redirects=True)
+            self.assertTemplateUsed('main::impressum.html')
             c.get('/', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
             c.get('/imprint', follow_redirects=True)
@@ -214,6 +233,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::contact.html')
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
+            c.get('/auth/reset_password_request', follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+            c.get('/auth/register', follow_redirects=True)
+            self.assertTemplateUsed('main::index.html')
+            self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -459,6 +483,9 @@ class TestIndividualRoutes(Formulae_Testing):
         with self.client as c:
             c.get('/search/advanced_search?year=1500&submit=y')
             self.assertMessageFlashed('year: ' + _('Die Jahreszahl muss zwischen 500 und 1000 liegen'))
+            self.assertTemplateUsed('search::advanced_search.html')
+            c.get('/search/advanced_search?submit=y')
+            self.assertMessageFlashed(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
             self.assertTemplateUsed('search::advanced_search.html')
 
     @patch("formulae.search.routes.suggest_word_search")
@@ -716,6 +743,10 @@ class TestAuth(Formulae_Testing):
         with self.client as c:
             user = User.query.filter_by(username='project.member').first()
             token = user.get_reset_password_token()
+            # Make sure that the template renders correctly with correct token
+            c.post(url_for('auth.r_reset_password', token=token, _external=True))
+            self.assertTemplateUsed('auth::reset_password.html')
+            # Make sure the correct token allows the user to change their password
             c.post(url_for('auth.r_reset_password', token=token, _external=True),
                    data={'password': 'some_new_password', 'password2': 'some_new_password'})
             self.assertTrue(user.check_password('some_new_password'), 'User\'s password should be changed.')
@@ -723,6 +754,13 @@ class TestAuth(Formulae_Testing):
                    data={'password': 'some_password', 'password2': 'some_password'}, follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
             self.assertTrue(user.check_password('some_new_password'), 'User\'s password should not have changed.')
+            # Make sure that a logged in user who comes to this page with a token is redirected to their user page with a flashed message
+            c.post('/auth/login', data=dict(username='project.member', password="some_new_password"),
+                   follow_redirects=True)
+            c.post(url_for('auth.r_reset_password', token=token, _external=True), follow_redirects=True)
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
+            self.assertEqual(repr(user), '<User project.member>')
 
     def test_user_logout(self):
         """ Make sure that the user is correctly logged out and redirected"""
@@ -767,6 +805,32 @@ class TestAuth(Formulae_Testing):
 class TestES(Formulae_Testing):
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
+
+    def test_return_when_no_es(self):
+        """ Make sure that when ElasticSearch is not active, calls to the search functions return empty results instead of errors"""
+        self.app.elasticsearch = None
+        simple_test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
+                                        ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
+        hits, total, aggs = query_index(**simple_test_args)
+        self.assertEqual(hits, [], 'Hits should be an empty list.')
+        self.assertEqual(total, 0, 'Total should be 0')
+        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
+        # A simple search with no index should also return empty results
+        simple_test_args = OrderedDict([("index", ['']), ("query", 'regnum'), ("field", "text"),
+                                        ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
+        hits, total, aggs = query_index(**simple_test_args)
+        self.assertEqual(hits, [], 'Hits should be an empty list.')
+        self.assertEqual(total, 0, 'Total should be 0')
+        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
+                                 ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
+                                 ("day_end", 20), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn')])
+        hits, total, aggs = advanced_query_index(**test_args)
+        self.assertEqual(hits, [], 'Hits should be an empty list.')
+        self.assertEqual(total, 0, 'Total should be 0')
+        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_year(self, mock_search):
@@ -871,6 +935,74 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
+    def test_date_range_search_only_start_year(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _  = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_range_search_only_end_year(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _  = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_range_search_only_start_year_and_month(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _  = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_date_range_search_only_end_year_and_month(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _  = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     def test_normal_date_search(self, mock_search):
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
@@ -927,6 +1059,23 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _  = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_exclusive_date_range_search_only_year(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()

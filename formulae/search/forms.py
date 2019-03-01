@@ -25,17 +25,6 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
     return _length
 
 
-def validate_multiword_not_wildcard(form, field):
-    """ This validates that a multiword search query does not also contain a wildcard character (? or *)
-
-    :param query: the text of the query
-    :return:
-    """
-    field = str(field.data)
-    if ' ' in field and ('*' in field or '?' in field):
-        raise ValidationError(_l('Suchanfragen mit mehreren Wörtern dürfen keine "Wildcard"-Zeichen enthalten (d.h. "?" oder "*")'))
-
-
 class SearchForm(FlaskForm):
     q = StringField(_l('Suche'), validators=[DataRequired()])
     corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden'))],
