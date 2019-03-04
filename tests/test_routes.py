@@ -46,7 +46,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
-                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
 
         app.config['nemo_app'] = self.nemo
 
@@ -66,10 +67,20 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.add(u)
         db.session.commit()
 
-
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+
+class TestNemoSetup(Formulae_Testing):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
 
 class TestIndividualRoutes(Formulae_Testing):
