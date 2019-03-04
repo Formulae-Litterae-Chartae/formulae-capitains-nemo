@@ -1,0 +1,24 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:cpt="http://purl.org/capitains/ns/1.0#" xmlns:dc="http://purl.org/dc/elements/1.1/" groupUrn="urn:cts:formulae:salzburg" urn="urn:cts:formulae:salzburg.hauthaler-na" xml:lang="lat">
+   <ti:title xml:lang="deu">Salzburger Urkundenbuch (Ed. Hauthaler); Notitia Arnonis</ti:title>
+   <ti:edition workUrn="urn:cts:formulae:salzburg.hauthaler-na" urn="urn:cts:formulae:salzburg.hauthaler-na.lat001">
+      <ti:label xml:lang="deu">Salzburger Urkundenbuch,; Notitia Arnonis</ti:label>
+      <ti:description xml:lang="deu">Salzburger Urkundenbuch Traditionscodices, Notitia Arnonis</ti:description>
+      <cpt:structured-metadata xml:lang="deu">
+         <dc:title>Salzburger Urkundenbuch Traditionscodices, Notitia Arnonis</dc:title>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Margherita Mariani (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:editor>Abt Willibald Hauthaler O.S.B</dc:editor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:source>http://d-nb.info/458436127</dc:source>
+         <dc:language>Latein</dc:language>
+         <dc:language>Deutsch</dc:language>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:date>
+            <dct:created>2018</dct:created>
+         </dc:date>
+      <dct:temporal></dct:temporal><dct:spatial></dct:spatial></cpt:structured-metadata>
+   </ti:edition>
+</ti:work>

@@ -11,6 +11,7 @@ class Config(object):
     POSTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     LANGUAGES = ['en', 'de', 'fr']
+    BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["/home/matt/results/formulae"]
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
@@ -22,4 +23,4 @@ class Config(object):
     SESSION_TYPE = 'filesystem'
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
-    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 604800 # 7 days
+    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0 # Only need cache on the server, where this should be set in env

@@ -1,6 +1,6 @@
 {% if "elexicon" in text.objectId %}
 <div class="citationStyle">
     <p><strong>{{ _('Empfohlene Zitierweise') }}:</strong></p>
-    <p>{{ text.collections.current.description }}. URL: https://werkstatt.formulae.uni-hamburg.de{{ url_for('InstanceNemo.r_multipassage', objectIds=text.objectId, subreferences='all') }} ({{ _('abgerufen am') }} {{ text.date }})</p>
+    <p>{{ text.collections.current.description }}. URL: https://werkstatt.formulae.uni-hamburg.de{{ url_for('InstanceNemo.r_multipassage', objectIds=text.objectId, subreferences='all') }} ({{ _('letzter Aufruf:') }} {{ text.urldate }})</p>
 </div>
 {% endif %}

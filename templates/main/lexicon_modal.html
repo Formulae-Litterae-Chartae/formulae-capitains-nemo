@@ -9,11 +9,13 @@
     </div>
     <div class="modal-body">
     {{ text_passage }}
+    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, objectId]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Dieser Beitrag parallel lesen') }}</a>
     </div>
     <div class="card-body">
     {{ notes }}
     </div>
     <div class="modal-footer">
+        {% include "main::elex_modal_footer.html" %}
         <button type="button" class="btn btn-secondary" onclick="closeLexEntry()">{{ _('Schließen') }}</button>
     </div>
     </div>

@@ -4,7 +4,7 @@ from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
 from werkzeug.utils import redirect
 from flask_nemo import Nemo
-from rdflib.namespace import DCTERMS, Namespace
+from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
@@ -29,9 +29,9 @@ class NemoFormulae(Nemo):
         ("/add_collection/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
-        ("/lang", "r_set_language", ["GET", "POST"]),
-        ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
-        ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
+        ("/lang/<code>", "r_set_language", ["GET", "POST"]),
+        # ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
+        # ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"])
@@ -201,13 +201,18 @@ class NemoFormulae(Nemo):
         return l
 
     def r_set_language(self, code):
-        """ Sets the seseion's language code which will be used for all requests
+        """ Sets the session's language code which will be used for all requests
 
         :param code: The 2-letter language code
         :type code: str
         """
         session['locale'] = code
         refresh()
+        if request.headers.get('X-Requested-With') == "XMLHttpRequest":
+            return 'OK'
+        else:
+            flash('Language Changed. You may need to refresh the page in your browser.')
+            return redirect(request.referrer)
 
     def before_request(self):
         g.search_form = SearchForm()
@@ -219,7 +224,10 @@ class NemoFormulae(Nemo):
             max_age calculates days, hours, minutes and seconds and adds them together.
             First number after '+' is the respective number for each value.
         """
-        response.cache_control.max_age = self.app.config['CACHE_MAX_AGE']
+        max_age = self.app.config['CACHE_MAX_AGE']
+        if re.search('/(lang|auth)/', request.url):
+            max_age = 0
+        response.cache_control.max_age = max_age
         response.cache_control.public = True
         return response
 
@@ -243,7 +251,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if len(data['collections']['members']) == 0:
-            if "formulae" in objectId:
+            if "andecavensis" in objectId:
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -419,7 +427,8 @@ class NemoFormulae(Nemo):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
                 raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
-            return redirect(url_for(".r_passage", objectId=str(editions[0].id), subreference=subreference))
+            objectId = str(editions[0].id)
+            collection = self.get_collection(objectId)
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
@@ -428,6 +437,7 @@ class NemoFormulae(Nemo):
             flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        metadata = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
         else:
@@ -445,11 +455,14 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
-                    "author": text.get_creator(lang),
+                    "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
                     "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
+                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
+                    "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
+                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None)),
                     'lang': collection.lang
                 },
                 "parents": self.make_parents(collection, lang=lang)
@@ -460,7 +473,7 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "date": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -556,9 +569,12 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
+        d['prev_texts'] = m.group(1)
+        d['prev_reffs'] = m.group(2)
         return d
 
     def r_impressum(self):
@@ -592,25 +608,30 @@ class NemoFormulae(Nemo):
         :param text: the string to be transformed
         :return: dict('note_id': 'note_content')
         """
-        with open(self._transform['notes']) as f:
-            xslt = etree.XSLT(etree.parse(f))
+        if '/lexicon/' in str(request.path):
+            with open(self._transform['elex_notes']) as f:
+                xslt = etree.XSLT(etree.parse(f))
+        else:
+            with open(self._transform['notes']) as f:
+                xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
 
-    def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
-
-    def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
-        """ A convenience function to return all sub-corpora in all collections
-
-        :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-        """
-        texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-        texts["template"] = 'main::sub_element_snippet.html'
-        return texts
+    # These were used in a previous version of the app and should be removed.
+    # def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts
+    #
+    # def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
+    #     """ A convenience function to return all sub-corpora in all collections
+    #
+    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
+    #     """
+    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
+    #     texts["template"] = 'main::sub_element_snippet.html'
+    #     return texts

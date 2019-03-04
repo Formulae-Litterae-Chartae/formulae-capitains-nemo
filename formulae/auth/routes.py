@@ -1,7 +1,7 @@
-from flask import flash, url_for, request
+from flask import flash, url_for, request, redirect
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
-from werkzeug.utils import redirect
+# from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, RegistrationForm
 from formulae.models import User
@@ -58,7 +58,7 @@ def r_user(username):
         user = User.query.filter_by(username=username).first_or_404()
         if not user.check_password(password_form.old_password.data):
             flash(_("Das ist nicht Ihr aktuelles Passwort."))
-            return redirect(url_for('auth.r_user'))
+            return redirect(url_for('auth.r_user', username=username))
         user.set_password(password_form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -104,7 +104,8 @@ def r_reset_password(token):
     """
     from formulae.app import nemo
     if current_user.is_authenticated:
-        return redirect(url_for('InstanceNemo.r_index'))
+        flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
+        return redirect(url_for('auth.r_user', username=current_user.username))
     user = User.verify_reset_password_token(token)
     if not user:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -125,7 +126,8 @@ def r_register():
     """
     from formulae.app import nemo
     if current_user.is_authenticated:
-        return redirect(url_for('main:index'))
+        flash(_('Sie sind schon eingeloggt.'))
+        return redirect(url_for('InstanceNemo.r_index'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, default_locale=form.default_locale.data)

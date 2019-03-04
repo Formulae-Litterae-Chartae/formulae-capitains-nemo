@@ -23,6 +23,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                 'corpus': {'filters': {'filters': {'Rätien': {'match': {'_type': 'raetien'}},
                                                    'Angers': {'match': {'_type': 'andecavensis'}},
                                                    'Bünden': {'match': {'_type': 'buenden'}},
+                                                   'Freising': {'match': {'_type': 'freising'}},
                                                    'Luzern': {'match': {'_type': 'luzern'}},
                                                    'Mondsee': {'match': {'_type': 'mondsee'}},
                                                    'Passau': {'match': {'_type': 'passau'}},
@@ -37,19 +38,20 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
 HITS_TO_READER = 200
 
 
-def add_to_index(index, model):
-    if not current_app.elasticsearch:
-        return
-    payload = {}
-    for field in model.__searchable__:
-        payload[field] = getattr(model, field)
-    current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
-
-
-def remove_from_index(index, model):
-    if not current_app.elasticsearch:
-        return
-    current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
+# I take care of adding indices to ES outside of the app.
+# def add_to_index(index, model):
+#     if not current_app.elasticsearch:
+#         return
+#     payload = {}
+#     for field in model.__searchable__:
+#         payload[field] = getattr(model, field)
+#     current_app.elasticsearch.index(index=index, doc_type=index, id=model.id, body=payload)
+#
+#
+# def remove_from_index(index, model):
+#     if not current_app.elasticsearch:
+#         return
+#     current_app.elasticsearch.delete(index=index, doc_type=index, id=model.id)
 
 
 def build_sort_list(sort_str):
@@ -122,28 +124,28 @@ def suggest_composition_places():
     results = []
     for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
         results += x['_source']['comp_ort'].split('; ')
-    return sorted(set(results))
+    return sorted(list(set(results)))
 
 
-def suggest_word_search(word, **kwargs):
+def suggest_word_search(term, **kwargs):
     """ To enable search-as-you-type for the text search
 
     :return: sorted set of results
     """
     results = []
     kwargs['fragment_size'] = 1000
-    posts, total, aggs = advanced_query_index(q=word, per_page=1000, **kwargs)
+    posts, total, aggs = advanced_query_index(q=term, per_page=1000, **kwargs)
     for post in posts:
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(word) + 30) + 1, len(r))]))
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(term) + 30) + 1, len(r))]).lower())
             """ind = 0
             while w in r[ind:]:
                 i = r.find(w, ind)
                 results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
                 ind = r.find(w, ind) + 1"""
-    return [word] + sorted(list(set(results)), key=str.lower)[:10]
+    return [term] + sorted(list(set(results)), key=str.lower)[:10]
 
 
 def highlight_segment(orig_str):

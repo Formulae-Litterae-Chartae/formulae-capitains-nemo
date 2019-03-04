@@ -1,105 +1,61 @@
-var lexModal = document.getElementById('lexicon-modal');
-
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
-
-function makePopupNote(id) {
-    var popup = document.getElementById(id);
-    popup.classList.toggle("show");
-}
-
-function showLemma(x) {
-    var lemma = x.getAttribute("lemma");
-    var lem_box = document.getElementById("lem_box");
-    lem_box.setAttribute("default-data", lem_box.innerHTML);
-    lem_box.innerHTML = lemma;
-}
-
-function hideLemma() {
-    var lem_box = document.getElementById("lem_box");
-    lem_box.innerHTML = lem_box.getAttribute("default-data");
-    lem_box.removeAttribute("default-data");
-}
-
-//to disable cut, copy, paste, and mouse right-click
-$(document).ready(function () {    
-    //Disable cut, copy, and paste
-    $('.no-copy').bind('cut copy paste', function (e) {
-        e.preventDefault();
-        $('#no-copy-message').modal('show')
-    });
-    
-    //Disable right-mouse click
-    $(".no-copy").on("contextmenu",function(e){
-        return false;
-    });
-});
-
-function hideNotes(c) {
-    var nodeclass = c + ' show'
-    var matches = document.getElementsByClassName(nodeclass);
-    while (matches.length > 0) {
-        matches.item(0).setAttribute('aria-expanded', 'false');
-        matches.item(0).classList.remove('show');
+  
+function restrictSearch() {
+    var button = document.getElementById('restrictSearchButton');
+    var re = new RegExp('&corpus=[^&]*');
+    var corpora = document.getElementsByClassName('corp-restrict-to');
+    var oldUrl = button.getAttribute('href');
+    var newCorpora = new Array();
+    for (let corp of corpora){
+        if (corp.checked) {
+            newCorpora.push(corp.getAttribute('value'));
+        }
     }
+    button.setAttribute('href', oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B') + '&old_search=True'));
 }
 
-function showNotes(c) {
-    var matches = document.getElementsByClassName(c);
-    for (var i=0; i<matches.length; i++) {
-        matches[i].classList.add('show');
-        matches[i].setAttribute('aria-expanded', 'true');
-    }
-}
+// I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
+// I don't think it is needed any more so I am commenting it out and testing, just to make sure.
+// function getSubElements(coll) {
+//         var objectId = coll.getAttribute('sub-element-url');
+//         var targetList = document.getElementById(coll.getAttribute('sub-element-id'));
+//         if (coll.getAttribute('ul-shown') == 'true') {
+//             coll.setAttribute('ul-shown', 'false');
+//             targetList.innerHTML = ''
+//         } else {
+//             var request = new XMLHttpRequest();
+//             request.onreadystatechange = function() {
+//                 if (this.readyState == 4) {
+//                     if (this.status == 200) {
+//                         targetList.innerHTML = this.responseText;
+//                         coll.setAttribute('ul-shown', 'true');
+//                     } else {
+//                         alert("No texts found for collection.")
+//                     }
+//                 }
+//             };
+//             request.open('GET', objectId, true);
+//             request.send()
+//     }
+// }
 
-function showLexEntry(word) {
-        var lemma = word.getAttribute('data-lexicon');
-        var request = new XMLHttpRequest();
-        var message = lexModal.getAttribute('message');
-        request.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    lexModal.innerHTML = this.responseText;
-                    lexModal.style.display = 'block';
-                } else {
-                    alert(message + lemma)
-                }
+// AJAX request to change locale and then refresh the page
+$('.lang-link').bind('click', function(event) {
+    event.preventDefault();
+    e = this;
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change language')
             }
-        };
-        request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
-        request.send()
-    }
-
-function closeLexEntry() {
-    lexModal.style.display = "none";
-}
-    
-window.onclick = function(event) {
-    if (event.target == lexModal) {
-        lexModal.style.display = 'none';
-    }
-}
-
-function getSubElements(coll) {
-        var objectId = coll.getAttribute('sub-element-url');
-        var targetList = document.getElementById(coll.getAttribute('sub-element-id'));
-        if (coll.getAttribute('ul-shown') == 'true') {
-            coll.setAttribute('ul-shown', 'false');
-            targetList.innerHTML = ''
-        } else {
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        targetList.innerHTML = this.responseText;
-                        coll.setAttribute('ul-shown', 'true');
-                    } else {
-                        alert("No texts found for collection.")
-                    }
-                }
-            };
-            request.open('GET', objectId, true);
-            request.send()
-    }
-}
+        }
+    };
+    request.open('GET', '/lang/' + e.getAttribute('value'), true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+})

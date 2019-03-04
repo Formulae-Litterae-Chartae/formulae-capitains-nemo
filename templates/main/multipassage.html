@@ -27,17 +27,17 @@
 {% endif %}
 <div class="dropdown">
     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ _('Vergleichen mit...') }}
+        {{ _('Quelle oder Beitrag hinzufügen') }}
     </button>
     <div class="dropdown-menu version-dropdown">
         {% if translation[objId] %}
-            <span class="dropdown-item-text">{{ _('einer anderen Version') }}</span>
+            <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
             {% for t in translation[objId] %}
             <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, t.id]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ t.get_label()|string + ' (' + t.lang + ')' }}</span></a>
             {% endfor %}
             <div class="dropdown-divider"></div>
         {% endif %}
-        <span class="dropdown-item-text">{{ _('einem anderen Text aus:') }}</span>
+        <span class="dropdown-item-text">{{ _('anderen Texte') }}</span>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Andere Texte') }}</span></a>
@@ -98,7 +98,7 @@
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
                         {{ text.text_passage }}
-                    <!-- <footer>{% include "main::passage_footer.html" %}</footer> -->
+                    <footer>{% include "main::passage_footer.html" %}</footer>
                 </section>
             {% endfor %}
             </div>
@@ -127,4 +127,12 @@
 {% endblock %}
 
 {% block metadata %}
+{% endblock %}
+
+{% block additionalscript %}
+<script>
+     var expMess="{{ _('Mehr zeigen') }}";
+     var conMess="{{ _('Weniger zeigen') }}";
+</script>
+<script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
 {% endblock %}

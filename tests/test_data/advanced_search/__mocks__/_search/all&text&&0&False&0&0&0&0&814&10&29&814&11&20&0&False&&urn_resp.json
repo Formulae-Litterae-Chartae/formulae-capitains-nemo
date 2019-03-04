@@ -1,5 +1,5 @@
 {
-  "took": 19,
+  "took": 22,
   "timed_out": false,
   "_shards": {
     "total": 13,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 48,
+    "total": 50,
     "max_score": null,
     "hits": [
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -28,20 +28,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0001.lat001"
         ]
       },
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -57,20 +57,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0002.lat001"
         ]
       },
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -86,20 +86,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0003.lat001"
         ]
       },
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -115,20 +115,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0004.lat001"
         ]
       },
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -144,20 +144,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0005.lat001"
         ]
       },
       {
-        "_index": "luzern_v1",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
         "_score": null,
@@ -173,20 +173,20 @@
           "orig_comp_ort": " ",
           "dating": [
             {
-              "lte": "0840"
+              "lte": "0841"
             }
           ],
           "all_dates": [
-            "0840"
+            "0841"
           ],
-          "min_date": "0840"
+          "min_date": "0841"
         },
         "sort": [
           "urn:cts:formulae:luzern.schiess0006.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -203,12 +203,12 @@
           "dating": [
             {
               "gte": "0748",
-              "lte": "0829"
+              "lte": "0830"
             }
           ],
           "all_dates": [
             "0748",
-            "0829"
+            "0830"
           ],
           "min_date": "0748"
         },
@@ -217,7 +217,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -234,12 +234,12 @@
           "dating": [
             {
               "gte": "0748",
-              "lte": "0829"
+              "lte": "0830"
             }
           ],
           "all_dates": [
             "0748",
-            "0829"
+            "0830"
           ],
           "min_date": "0748"
         },
@@ -248,7 +248,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -265,12 +265,12 @@
           "dating": [
             {
               "gte": "0748",
-              "lte": "0829"
+              "lte": "0830"
             }
           ],
           "all_dates": [
             "0748",
-            "0829"
+            "0830"
           ],
           "min_date": "0748"
         },
@@ -279,7 +279,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -296,12 +296,12 @@
           "dating": [
             {
               "gte": "0748",
-              "lte": "0829"
+              "lte": "0830"
             }
           ],
           "all_dates": [
             "0748",
-            "0829"
+            "0830"
           ],
           "min_date": "0748"
         },
@@ -320,6 +320,9 @@
         "B\u00fcnden": {
           "doc_count": 0
         },
+        "Freising": {
+          "doc_count": 0
+        },
         "Luzern": {
           "doc_count": 6
         },
@@ -333,7 +336,7 @@
           "doc_count": 3
         },
         "Rheinisch": {
-          "doc_count": 2
+          "doc_count": 4
         },
         "R\u00e4tien": {
           "doc_count": 0
@@ -395,7 +398,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 22
+          "doc_count": 24
         },
         {
           "key": "900-999",
