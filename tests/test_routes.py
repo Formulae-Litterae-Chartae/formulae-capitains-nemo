@@ -21,6 +21,7 @@ from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 from math import ceil
+from formulae.dispatcher_builder import organizer
 
 
 class TestConfig(Config):
@@ -36,7 +37,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'])
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -45,7 +46,10 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
-                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -63,10 +67,20 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.add(u)
         db.session.commit()
 
-
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+
+class TestNemoSetup(Formulae_Testing):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
 
 class TestIndividualRoutes(Formulae_Testing):
@@ -112,7 +126,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/add_collection/default/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
