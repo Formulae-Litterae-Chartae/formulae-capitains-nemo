@@ -1,7 +1,6 @@
 from flask import flash, url_for, request, redirect, current_app
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
-# from werkzeug.utils import redirect
 from werkzeug.urls import url_parse
 from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, RegistrationForm
 from formulae.models import User
@@ -17,7 +16,6 @@ def r_login():
     :return: template, page title, forms
     :rtype: {str: Any}
     """
-    # from formulae.app import nemo
     if current_user.is_authenticated:
         return redirect(url_for('InstanceNemo.r_index'))
     form = LoginForm()
@@ -52,7 +50,6 @@ def r_user(username):
     :return: template, page title, forms
     :rtype: {str: Any}
     """
-    from formulae.app import nemo
     password_form = PasswordChangeForm()
     if password_form.validate_on_submit():
         user = User.query.filter_by(username=username).first_or_404()
@@ -73,7 +70,7 @@ def r_user(username):
         return redirect(url_for('auth.r_user', username=username))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
-    return nemo.render(template="auth::login.html", title=_("Benutzerprofil ändern"),
+    return current_app.config['nemo_app'].render(template="auth::login.html", title=_("Benutzerprofil ändern"),
                        forms=[password_form, language_form], username=username, purpose='user', url=dict())
 
 
@@ -82,7 +79,6 @@ def r_reset_password_request():
     """ Route for password reset request
 
     """
-    from formulae.app import nemo
     if current_user.is_authenticated:
         return redirect(url_for('InstanceNemo.r_index'))
     form = ResetPasswordRequestForm()
@@ -92,7 +88,7 @@ def r_reset_password_request():
             send_password_reset_email(user)
         flash(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='auth::reset_password_request.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+    return current_app.config['nemo_app'].render(template='auth::reset_password_request.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
 
 
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
@@ -102,7 +98,6 @@ def r_reset_password(token):
     :param token: the token that was previously sent to the user through the r_reset_password_request route
     :return: template, form
     """
-    from formulae.app import nemo
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
         return redirect(url_for('auth.r_user', username=current_user.username))
@@ -115,7 +110,7 @@ def r_reset_password(token):
         db.session.commit()
         flash(_('Ihr Passwort wurde erfolgreich zurückgesetzt.'))
         return redirect(url_for('auth.r_login'))
-    return nemo.render(template='auth::reset_password.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+    return current_app.config['nemo_app'].render(template='auth::reset_password.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
 
 
 @bp.route("/register", methods=['GET', 'POST'])
@@ -124,7 +119,6 @@ def r_register():
 
     :return: template, form
     """
-    # from formulae.app import nemo
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt.'))
         return redirect(url_for('InstanceNemo.r_index'))

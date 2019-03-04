@@ -27,7 +27,6 @@ def r_simple_search():
 @bp.route("/results", methods=["GET"])
 # @login_required
 def r_results():
-    from formulae.app import nemo
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
@@ -96,29 +95,28 @@ def r_results():
         session['previous_search_args'] = search_args
         session['previous_aggregations'] = aggs
         if session['previous_search_args']['corpus'] in ['all', 'formulae+chartae']:
-            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)
         elif session['previous_search_args']['corpus'] == 'formulae':
-            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']]
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
             session['previous_search_args']['corpus'] = '+'.join(corps)
         elif session['previous_search_args']['corpus'] == 'chartae':
-            corps = sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)
     if 'previous_search_args' in session:
         g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
-    return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
+    return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts,
+                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
                        sort_urls=sort_urls, total_results=total, aggs=aggs)
 
 
 @bp.route("/advanced_search", methods=["GET"])
 # @login_required
 def r_advanced_search():
-    from formulae.app import nemo
     form = AdvancedSearchForm()
-    colls = nemo.sub_colls
+    colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
@@ -136,15 +134,14 @@ def r_advanced_search():
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats,
+    return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
                        composition_places=suggest_composition_places(), url=dict())
 
 
 @bp.route("/doc", methods=["GET"])
 def r_search_docs():
     """ Route to the documentation page for the advanced search"""
-    from formulae.app import nemo
-    return nemo.render(template="search::documentation.html", url=dict())
+    return current_app.config['nemo_app'].render(template="search::documentation.html", url=dict())
 
 
 @bp.route("/suggest/<word>", methods=["GET"])

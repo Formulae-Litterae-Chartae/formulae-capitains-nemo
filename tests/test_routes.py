@@ -21,6 +21,7 @@ from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 from math import ceil
+from formulae.dispatcher_builder import organizer
 
 
 class TestConfig(Config):
@@ -36,7 +37,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'])
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -114,7 +115,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/add_collection/default/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
