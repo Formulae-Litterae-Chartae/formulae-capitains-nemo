@@ -483,3 +483,7 @@ img[id$="-flag-navbar"] {
 .lang-link {
     padding: 0 1rem;
 }
+
+#date_plus_minus,#slop {
+    width: 4rem;
+}

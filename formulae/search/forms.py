@@ -4,7 +4,7 @@ from flask_babel import lazy_gettext as _l
 from flask_babel import _
 from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
-from wtforms.fields.html5 import IntegerRangeField
+from wtforms.fields.html5 import IntegerField
 from wtforms.widgets import CheckboxInput
 
 
@@ -47,10 +47,10 @@ class AdvancedSearchForm(SearchForm):
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
-    slop = IntegerRangeField(_l("Suchradius"),
-                             validators=[validate_optional_number_range(min=0, max=100,
-                                                                        message=_l('Der Suchradius muss zwischen 0 und 100 liegen'))],
-                             default=0)
+    slop = IntegerField(_l("Suchradius"),
+                        validators=[validate_optional_number_range(min=0, max=100,
+                                                                   message=_l('Der Suchradius muss zwischen 0 und 100 liegen'))],
+                        default=0)
     in_order = BooleanField(_l('Wortreihenfolge beachten?'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln'))])
@@ -89,10 +89,10 @@ class AdvancedSearchForm(SearchForm):
     day_end = StringField(_l('Tag'), validators=[validate_optional_number_range(min=1, max=31,
                                                                                 message=_l('Das Datum muss zwischen 1 und 31 liegen'))],
                           default="")
-    date_plus_minus = IntegerRangeField(_l('Datum Plus-Minus'),
-                                        validators=[validate_optional_number_range(min=0, max=100,
-                                                                                  message=_l('Plus-Minus muss zwischen 0 und 100 Jahren liegen'))],
-                                        default=0)
+    date_plus_minus = IntegerField(_l('Datum Plus-Minus'),
+                                   validators=[validate_optional_number_range(min=0, max=100,
+                                                                              message=_l('Plus-Minus muss zwischen 0 und 100 Jahren liegen'))],
+                                   default=0)
     exclusive_date_range = BooleanField(_l('Exklusiv'))
     composition_place = StringField(_l('Ausstellungsort'))
     submit = SubmitField(_l('Suche'))

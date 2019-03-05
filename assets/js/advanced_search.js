@@ -151,3 +151,21 @@ $( "#place-search" ).autocomplete({
     }
     }
 });
+
+$('#date_plus_minus').on('input', function () {
+    this.setCustomValidity("");
+    this.checkValidity();
+});
+
+$('#date_plus_minus').on('invalid', function () {
+    this.setCustomValidity(datePlusMinusInvalidMessage);
+});
+
+$('#slop').on('input', function () {
+    this.setCustomValidity("");
+    this.checkValidity();
+});
+
+$('#slop').on('invalid', function () {
+    this.setCustomValidity(slopInvalidMessage);
+});
