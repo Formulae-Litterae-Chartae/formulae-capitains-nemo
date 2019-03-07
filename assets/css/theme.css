@@ -487,3 +487,17 @@ img[id$="-flag-navbar"] {
 #date_plus_minus,#slop {
     width: 4rem;
 }
+
+.date-range-label {
+    margin-top: 1rem;
+    font-style: italic;
+    width: 2.3rem;
+}
+
+#weekday-row .form-group {
+    margin-right: .25rem;
+}
+
+#weekday-row .form-check-label,#holiday-row .form-check-label {
+    margin-right: .25rem;
+}

@@ -175,7 +175,7 @@ def highlight_segment(orig_str):
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         composition_place='', sort='urn', **kwargs):
+                         composition_place='', sort='urn', special_days=[], **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     old_sort = sort
     sort = build_sort_list(sort)
@@ -270,6 +270,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         else:
             body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
                                                                                     year_end, month_end, day_end))
+    if any(special_days):
+        s_d_template = {'bool': {'should': []}}
+        for s_d in special_days:
+            s_d_template['bool']['should'].append({'match': {'days': s_d}})
+        body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     set_session_token(corpus, body_template, field, q if field == 'text' else '')
     if q:
