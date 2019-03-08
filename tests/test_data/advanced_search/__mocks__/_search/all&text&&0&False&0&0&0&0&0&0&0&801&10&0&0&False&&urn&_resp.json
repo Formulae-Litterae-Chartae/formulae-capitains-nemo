@@ -1,0 +1,934 @@
+{
+  "took": 8,
+  "timed_out": false,
+  "_shards": {
+    "total": 14,
+    "successful": 14,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 560,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Formula ducatus Raetiarum Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur quia non est tale pacatis regionibus ius dicere quale suspectis gentibus assidere ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat sed tubarum crepitus frequenter insultat Raetiae namque munimina sunt Italiae et claustra provinciae quae non immerito sic appellate esse iudicamus quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas quia non parvam rem tibi respicis fuisse commissam quando tranquillitas regni nostri tua creditur sollicitudine custodiri Ita tamen ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus qui se sentit armatum quia clipeus ille exercitus nostri quietem debet praestare Romanis quos ideo constat appositos ut intus vita felicior secura libertate carpatur Quapropter responde nostro iudicio fide nobis et industria placiturus ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas ad necessitatem siquidem rarius venitur armorum ubi suscepta surreptio custodiri posse sentitur Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 3",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+          "date_string": "Vor 507",
+          "comp_ort": " ",
+          "autocomplete": "Formula ducatus Raetiarum Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur quia non est tale pacatis regionibus ius dicere quale suspectis gentibus assidere ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat sed tubarum crepitus frequenter insultat Raetiae namque munimina sunt Italiae et claustra provinciae quae non immerito sic appellate esse iudicamus quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas quia non parvam rem tibi respicis fuisse commissam quando tranquillitas regni nostri tua creditur sollicitudine custodiri Ita tamen ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus qui se sentit armatum quia clipeus ille exercitus nostri quietem debet praestare Romanis quos ideo constat appositos ut intus vita felicior secura libertate carpatur Quapropter responde nostro iudicio fide nobis et industria placiturus ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas ad necessitatem siquidem rarius venitur armorum ubi suscepta surreptio custodiri posse sentitur Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0400",
+              "lte": "0508"
+            }
+          ],
+          "all_dates": [
+            "0400",
+            "0508"
+          ],
+          "min_date": "0400"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0003.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In nomine domini nostri Iesu Christi Notum sit omnibus tam posteris quam praesentibus quod comes Wido de Lomello et Sparavayra tale praedium quale habuit Anthsona quod situm est iuxta Vareia dedit libera et potestativa manu sine omni contradictione mortua Adelheida uxore sua et post mortem suam anno duodecimo sancto Martino Sigisberto Placido patronis Disertinae cum omnibus pertinentiis eiusdem praedii scilicet cum duabus capellis sancti Blasii et sancti Galli et alia capella sancti Steffani protomartyris sita iuxta fluvium Dagonda cum decimis primitiis dotalibus cum familia viris et mulieribus aquis aquae ducti bus piscinis piscationibus molendinis olivetis ficetis castanetis vitetis exitibus et reditibus agris pratis pascuis et omnia eius reliqua praedia sita a fluvio Dagonda usque ad Cugirum et usque ad Vareia et usque ad terminos Cambiri ea conditione ut semper praedicta capella sancti Blasii semper munita monachis esset Disertinensis coenobii et iidem monachi victuarent de praedictis dotalitiis et rebus et ut ibidem praedicarent iidem fratres docerent communicarent absolverent paenitentes baptizarent sepelirent omnes de eadem familia et omnes christianos qui eadem sacramenta inibi quaererunt Reliqua quoque multa alia praedia coenobio dedit Disertinensi scilicet Docimbir quidquid in eodem vico et reliquis subscriptis vicis habuit omnia dedit fratribus coenobitis Desertinae in vico Amortinzun Assisurr Asgozila Acaminach Adaguna Adcursenna Appiubia Aduliagas Ecedia Admine Adinmunge ad Centum Valle ad Lucarne Gadampiri Vartelotosa Piura Primuna Pladamia Amurcukot Crenarde Crantula Luvin Ferraira Belede Ista praedia et possessiones quas habuit praedictus comes Wido in istis vicis et praedictis terminis omnia libere sicut possedit dedit coenobio Disertino Siquidem beatus et piae memoriae predictus comes Wido satisfacturus imperio Pipini imperatoris patris Caroli Magni qui visitaturus Curiam venit Desertinam sub Ursicino tunc temporis episcopo Curiensi et abbate Disertinae ibique infirmatus est fratribus vero orationibus subvenientibus et gemitibus condolendo compatientibus conpunctione et instinctu spiritus sancti confortatus rogavit ut intercederent patronos suos Martinum scilicet Sigisbertum et Placidum quorum precibus consolidatus pristinis redintegratus ea quae praediximus dedit coenobio Disertinensi Huius rei testes sunt Hugilo Vitalis Wernerus Udalricus Lanzo Huno Gothescalcus Perrexit autem praedictus comes Wido ad Curiam et donationem istam et quae ipse dedit sancto Martino Disertinensi in praesentia imperatoris confirmavit In reditu vero iterum infirmatus et mortuus est apud Disertinam sepultus Imperator autem Pipinus fecit sententiam supra hanc donationem Wydonis tenoris huius ut quicunque temere haec praedia violaverit vel invaserit centum talenta auri fischo imperatoris persolvat si liber est si servus centum uncias debeat dare et regionem terrae suae exeat Et si liber aut servus uterque ablata non reddiderint bona eorum publicentur et quamdiu haec non fecerint a lege gentis suae alieni existant Acta feliciter donatio Wydonis comitis in loco Disertinensi Confirmatio autem Pipini imperatoris in loco qui dicitur Asia Ursicino simul episcopo Curiae et abbate Disertinae Debent et enim reges locis illis qui specialiter ad regales fasces pertinent specialem defensionem",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 16",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
+          "date_string": "751\u2013759/60",
+          "comp_ort": "Disentis",
+          "autocomplete": "In nomine domini nostri Iesu Christi Notum sit omnibus tam posteris quam praesentibus quod comes Wido de Lomello et Sparavayra tale praedium quale habuit Anthsona quod situm est iuxta Vareia dedit libera et potestativa manu sine omni contradictione mortua Adelheida uxore sua et post mortem suam anno duodecimo sancto Martino Sigisberto Placido patronis Disertinae cum omnibus pertinentiis eiusdem praedii scilicet cum duabus capellis sancti Blasii et sancti Galli et alia capella sancti Steffani protomartyris sita iuxta fluvium Dagonda cum decimis primitiis dotalibus cum familia viris et mulieribus aquis aquae ducti bus piscinis piscationibus molendinis olivetis ficetis castanetis vitetis exitibus et reditibus agris pratis pascuis et omnia eius reliqua praedia sita a fluvio Dagonda usque ad Cugirum et usque ad Vareia et usque ad terminos Cambiri ea conditione ut semper praedicta capella sancti Blasii semper munita monachis esset Disertinensis coenobii et iidem monachi victuarent de praedictis dotalitiis et rebus et ut ibidem praedicarent iidem fratres docerent communicarent absolverent paenitentes baptizarent sepelirent omnes de eadem familia et omnes christianos qui eadem sacramenta inibi quaererunt Reliqua quoque multa alia praedia coenobio dedit Disertinensi scilicet Docimbir quidquid in eodem vico et reliquis subscriptis vicis habuit omnia dedit fratribus coenobitis Desertinae in vico Amortinzun Assisurr Asgozila Acaminach Adaguna Adcursenna Appiubia Aduliagas Ecedia Admine Adinmunge ad Centum Valle ad Lucarne Gadampiri Vartelotosa Piura Primuna Pladamia Amurcukot Crenarde Crantula Luvin Ferraira Belede Ista praedia et possessiones quas habuit praedictus comes Wido in istis vicis et praedictis terminis omnia libere sicut possedit dedit coenobio Disertino Siquidem beatus et piae memoriae predictus comes Wido satisfacturus imperio Pipini imperatoris patris Caroli Magni qui visitaturus Curiam venit Desertinam sub Ursicino tunc temporis episcopo Curiensi et abbate Disertinae ibique infirmatus est fratribus vero orationibus subvenientibus et gemitibus condolendo compatientibus conpunctione et instinctu spiritus sancti confortatus rogavit ut intercederent patronos suos Martinum scilicet Sigisbertum et Placidum quorum precibus consolidatus pristinis redintegratus ea quae praediximus dedit coenobio Disertinensi Huius rei testes sunt Hugilo Vitalis Wernerus Udalricus Lanzo Huno Gothescalcus Perrexit autem praedictus comes Wido ad Curiam et donationem istam et quae ipse dedit sancto Martino Disertinensi in praesentia imperatoris confirmavit In reditu vero iterum infirmatus et mortuus est apud Disertinam sepultus Imperator autem Pipinus fecit sententiam supra hanc donationem Wydonis tenoris huius ut quicunque temere haec praedia violaverit vel invaserit centum talenta auri fischo imperatoris persolvat si liber est si servus centum uncias debeat dare et regionem terrae suae exeat Et si liber aut servus uterque ablata non reddiderint bona eorum publicentur et quamdiu haec non fecerint a lege gentis suae alieni existant Acta feliciter donatio Wydonis comitis in loco Disertinensi Confirmatio autem Pipini imperatoris in loco qui dicitur Asia Ursicino simul episcopo Curiae et abbate Disertinae Debent et enim reges locis illis qui specialiter ad regales fasces pertinent specialem defensionem",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Disentis",
+          "dating": [
+            {
+              "gte": "0751",
+              "lte": "0761"
+            }
+          ],
+          "all_dates": [
+            "0751",
+            "0761"
+          ],
+          "min_date": "0751"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0016.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In nomine sanctae trinitatis Cum mysterium optamus recordari et secreta cordis nostri semper debere reminisci altissimi beneficia humano generi tributa cum dominus deus noster Iesus Christus dignatus est descendere de sinu patris ad nos redimendos qui me etiam indignum et exiguum omnium servorum dei non meis meritis sed sua clementia inter praesules ecclesiae suae dignatus est collocare et ut perpendo infelicitatem meam nec minus casu fragilitatis meae quod non meis meritis ullis sed sua immensa pietate cupio reminisci adhuc sicut meis et humanae fragilitatis obvolutum peccatis proximorum meorum quod per primum parentem nostrum datum est et incertae vitae huius exitus et spem recuperans ipso domino clementer promittente peccatoribus quod eleemosynis possint qui voluerint peccata sua redimere Nam et ego indignus Tello vocatus episcopus non mea ei tribuo sed sua ipso tribuente reddo cum ipse per prophetam dicit Domini est terra et plenitudo eius et ut possim dicere cum ipse propheta ait Dominus pars heraeditatis meae Et dum tres ecclesi ae istius sanctae Mariae semper virginis matris domini nostri Iesu Christi seu sancti Martini seu sancti Petri quas in hoc loco constructas esse scimus seu ceterorum sanctorum quorum nomina in hoc loco constructa sunt quorum norma plurimorum servorum dei in loco qui dicitur Desertina monasterium regularium constructum esse scimus qua ego indignus ac si peccator Tello episcopus possidere videor et impensis meis plusquam debeo utor seu pro peccatis meis multis abluendis vel parentum meorum dono et ad ipsam ecclesiam sanctae Mariae seu sancti Martini seu sancti Petri transfundo hoc est avi mei Jactati et aviae a meae Salviae et genitoris mei Victoris vel illustris praesidis et genitricis meae Teusindae seu avunculi mei Vigilii episcopi et germanorum meorum Zacconis Jaetati et Vigilii et nepotis mei Victoris et germanae meae Salviae seu neptis meae Teusinde et Oddae Et adhuc dicente scriptura quod qui res ecclesiae possedit sue aliquid proprietatis habuerit testantur canones cum rebus ecclesiae debet sociari propterea ego Tello peccator ordinatus episcopus hic superius testimoniis confirmatis cedo post obitum meum vel decessum ad supradictam sacrosanctam ecclesiam sanctae Mariae et sancti Martini seu sancti Petri censum quem in perpetuum esse constituo atque discerno et de iure meo in ius et dominationi eius trado atque usque in perpetuum transfundo Hoc est terra vel haereditas patris mei Victoris vel illustris praesidis quaecunque acquisivit per singula strumenta de quocunque ingenio conquisita ac mihi dominus per suam largitatem dare dignatus est Hoc est curtem meam in Secanio imprimis salam cum solario subter caminata desuper alias caminatas subter cellarium coquina stuba circa curtem stabulum tabulata torhaces vel alia hospitali a vel cellaria et quidquid ad ipsam curtem pertinet omnia ex integro Item curtinum cum pomiferis suis Item ortos et vineas subter curtem ex integro Item in castro sala muricia subter cellaria torbaces in ipso castro quantum ad me legitime pertinet omnia ex integro Item ad vicum curtem meam cum tabulata cum bareca cum omnibus quae ad ipsam curtem pertinent cum introitu suo ex integro Item in territoriis agrum ad Buliu modiales sexaginta quinque confiniente ad ipsam curtem alia parte ad sanctum Columbanum agrum ad Secanina modiales viginti confiniente in via publica agrum trans vicum modiales decem confiniente ad Gallonicum alia parte ad Amanti agrum in Stava modiales octodecim confiniente ad Victoris alia parte in via agrum in Camguna modiales viginti quatuor confiniente in Johannis alia parte in via agrum in Sarrs modiales octoginta confiniente ad sancti CoIumbani alia parte in via agrum in Astivedae modiales quinquaginta confiniente ad Calansionis alia parte ad Vigili agrum in Renio modiales triginta confiniente ad Lobeceni alia parte ad Viventi agrum in Renio modiales quadraginta confiniente ad Iactati alia parte ad Vrseceni agrum in ipso loco confiniente ad Pauli modiales duodecim agrum ante sala modiales duo agrum subter sala modiales sex confiniente in via agrum Alevenoce modiales triginta confiniente ad sancti Columbani cum casa cum duobus tabulatis cum curte et introitu suo et cum canicunis suis confinientern ipsum agrum ad viam alium agrum modiales decem confinientern ad Solemnis ad sancti Martini ad summum Levenoce roncale cum aedificio suo ex integro Item pradum curtinum subter Secanio et onera sexaginta cum aedificio suo confiniente ad sancti Columbani alia parte in via aliud curti num subter vico onera decem confiniente ad sancti Columbani de ambabus partibus aliud curtinum onera octo confiniente ad curtem pradum in Heretis onera sexaginta confiniente ad sanctae Mariae alia parte in via pradum in Levenoce onera quindecim confiniens ad sancti Columbani et in Prado onera viginti confiniens ad sanctum Columbani alia parte in Vedalionis quantum me in ipso Levenoce habere videtur ex integro Item in alpe Agise onera centum pradum in Castrices in Roncale onera viginti confiniens ad Agusti alia parte in via pradum Suprasaxa roncale onera triginta confiniens in sancti Martini alia parte in Vederanionis et super Falariae pradum onera sex confiniens in sancti Stephani alia parte ad Lobonis Item in Flemme roncale ex integro Item de colonis de ipsa curte Secanio Ariscio Gaudentius Exoberius Calanho Valerius Anulfus Crespio Iactatus isti omnes cum uxoribus et filiis suis agri prata et quidquid ad ipsas colonias pertinet \u00b7cum omni sondro suo ex integro Item de spehaticis Froncione Proiectum Evalern Flecholvum Lobecinum Aurelium Victorem Saturninum Massonem Rusticum Desiderium Lobucionem isti omnes cum uxoribus et filiis suis agri prata vel quidquid ad ipsos spicios pertinet cum omni sondro suo ex integro Amantius persona praeter terram solam sanctae Mariae Auster cum fratre suo Aurelianus Praestantius Valerius 5 Viventius Columba hos omnes cum uxoribus et filiis et quidquid ipsi colere videntur revertantur sicut priores Item villam meam Iliande salam cum cellario cum omnibus quae circa ipsam salam haberi videntur ex integro torbaces tabulata barecae curtes ortus omnia cum introitu suo quae circa ipsam curtem haberi videntur quae ad me legitime pertinent ex integro agrum subter Lobene modiales sexaginta confinientem in sancti Martini agrum ad curtem modiales quindecim confinientern in sanctae Mariae agrum Aflupio modiales sex confinientern in Quartini agrum Roncale modiales sex agrum ante vicum modiales sex confinientem in via Item pradum in Campaniola onera decem confinientern in sanctae Mariae pradum in in Longorione onera decem confinientem in sanctae Mariae Item Supersaxa villam meam cum casa cum tabulata cum torbacibus cum orto et omnibus quae circa ipsam curtem adpertinent ex integro agrum modiales sexaginta pradum onera centum alium locum Maniniocum agrum modiales viginti aliud pradum Naulo onera quadraginta haec omnia sint data ad supradictam ecclesiam Item coloni de ipsa curte Iliande Sporcio Vidalinus hos duos cum uxoribus et filiis agros prata et cum omni sondro suo ex integro Item Despicus Vidalianus Maurentius Martinus Calvolus Lidorius isti omnes cum suis uxoriri bus et filiis suis et cum omni sondro suo ex integro Lopus et Vrsoci us b qui sunt sine terra et ipsi sint dati ad sanctam ecclesiam Item curtem meam in Bregelo quam addo ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item muriciam salam cum cellario cum caminatis cum solario cum torbace cum stabulo cum barecis cum tabulata orto curte et quidquid ad ipsam curtem adpertinet cum introitu suo omnia ex integro Item agrum in Ruane modiales triginta quinque confinientem in flumine altera parte in sanctae Mariae agrum in ipso Ruane modiales quatuor et confinientem ad Juliani alia parte ad Oanis agrum trans flumen modiales undecim confinientem ad Proiecti alia parte in flumen agrum super castellum modiales octo confinientern ad Siluionis alia parte ad Evalentis agrum ad ipsam curtem modiales octo confinientem ad Juliani agrum in Vorce modiales sexaginta confinientem in Vuaonis alia parte in via cum aedificio suo cum curte et introitu suo omnia ex integro Item in Selauno curtem meam cum tabulata cum bareca cum torbace cum omni adpertinentia sua I et quidquid ad ipsam curtem pertinet ex integro item agrum ad Feniles modiales octoginta confinientem ad ipsam curtem agrum Ardunae modiales sexdecim confinientem ad Evalentis alia parte in Juuenti agrum in Vieinaues modiales septemdecim confinientem ad Lomelengum alia parte in sancti Martini item pradum ad Sorella onera octo confinientem ad Lidori pradum Anives in curtino onera duodecim confinientem ad abatissae pradum in Esce onera viginti confinientern ad Bevani pradum in Colimne onera quinque pradum ad Renum onera viginti confinientem ad Vieturucionis altera parte ad Juliani pradum in Ruane onera decem confinientern ad sancti Martini pradum in Valle Cava onera quatuor confinientern in via pradum Macene onera vigintiquinque confinientem in via alia parte Crespionis Item coloni de ipsa curte Tauronto Laurentius et Lopus hos duos cum omni sondro suo ex integro De Selauno Lidorius Maurus Befanius Sicharius isti omnes cum uxoribus et filiis suis et cum omni sondro suo ex integro Item Specius de Andeste Amantius Montanarius Exoberius Frictellinus Johannes isti omnes cum uxoribus et filiis suis cum omni sondro suo ex integro Item de ipsa curte Maurelius Dominicus Donadus isti omnes cum uxoribus et filiis suis agrum pradum vel quidquid circa ipsas casas adpertinet omnia ex integro Leo persona sola Fescianus cum uxore et filiis suis agri prada et cum omni sondro suo ex integro Isti omnes revertantur post obitum nostrum ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item in Maile agri prada sola orti cum pomiferis quantum ad me legitime pertinet praeter terram ecclesiis portionem meam ex integro et praeter coloniam quae concessi iuniori meo Senatori pro servitio suo in ipso Maile Item in Canpellos agros prada sola ortos cum pomiferis suis et quidquid ad me legitime pertinet omnia ex integro Similiter et Silva plana super Maile quantum ad me legitime pertinet sit datum et concessum ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item silvas scales fructiferas quas damus ad ipsum monasteriums quod superius nominavimus super Iliande quantum ad me pertinet ex integro Item in Rucene curtem meam cum sala cum cellario cum caminata cum solario cum torbace cum stabulo cum bareca cum tabulata cum orto et quidquid circa ipsam curtem adpertinet cum introitu suo et exitu cum aquis cum pascuis in silvis omnia ex integro Item roboredum subter Rucene ex integro Item alpes quas damus ad ipsum monasterium quod superius nominavimus Naulo media Mendane cum secivo suo ex integro in Fadohine portionemf meam ex integro in Ceipene 10 portionem P meam ex integro Item definimus de fidelibus nostris quibus quantum concessimus nobis viventibus et post obitum nostrum donamus Imprimis Lidorius tenet specium quem colit Vidales ipse revertatur post obitum nostrum ad ipsum monasterium cum omni adpertinentia sua similiter et terra quam ipse Lidorius possidet donamus ei agros prada modiales septuaginta nam omnia quae super hunc numerun habere videtur revertantur ad supradictum monasterium Item et Alecus tenet in ipso Iliande agrum modiales quadraginta et ipse revertatur post obitum nostrum ad ipsum monasterium Item Gaudentius tenet agrum modiales quindecim et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Crescentianus tenet specium in Rucene et quatuor modiales in Renio et ipsum revertatur sicut superius Item Leontius camerarius tenet modiales quinque de Helanengo item presbiter Vigilius tenet modiales tres de Helarinengo et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Goncio tenet in Vorce agrum modiales octoginta et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Vadardus tenet agrum modiales quinquaginta ipsum revertatur post obitum nostrum ad ipsum monasterium Item Ianuarius tenet in Tauronto duas colonias preter homines et ipsae revertantur ad ipsum monasterium post obitum nostrum Item quam coloniam tenet presbiter Silvanus agri prada sola orti aedificia cum omni adpertinentia et cum ipso servo nostro nomine Viventio qui in ipsa n casa habitat revertantur haec omnia post obitum nostrum ad ipsum monasterium Item colonias quas tenet presbiter Lepus in Falarie una cum homine alia sine homine pradum onera quindecim agrum in Roncalina modiales viginti revertantur haec omnia post obitum nostrum tam servi quam terra ad ipsum monasterium Item colonia in ipso Falarie quam colit Iactatus ipsam donamus iuniori nostro Senatori tam nos viventes quam post obitum nostrum ad possidendum Item coloniam quam tenet Amicho ipsa revertatur post obitum nostrum ad ipsam ecclesiam Item colonia quam tenet Laveso in Fleme quam colit Orsianus ipsa revertatur post obitum nostrum ad ipsum monasterium Item in Valendano Maiorinus tenet agrum modiales viginti quinque ipse revertatur post obitum nostrum ad ipsum monasterium Similiter et in Amede coloniam quam ipse possidet habeat commendatione ipse Maiorinus cum ipsa n colonia ad ipsum monasterium cum uxore et filiis suis nutrimentum quos si semetipsum ab ipso loco abstraxerit ipsa possessio in ipso monasterio stabilis sit permanere nec liceat alicui ab hoc abstrahere Item terram quam tenet Drucio in Castrice ipsa revertatur post obitum nostrum ad supradictum monasterium et ipsum Drucionem statuemus ad ipsum locum sacrum esse commendatum Hoc stabilimentum proponimus et quidquid immemores fuimus aut in hac donatione sanctorum non conscripsimus preter quartam quam reliquimus curti nostrae Flumini de omnibus rebus nostris absolucionem uti conscripta est permanere Et dum mihi omnipotens deus in hoc saeculo a vitam concesserit omnia in mea permaneant potestate et donatio haec post obitum meum firma permaneat tam agris quam pradis solis ortis aedificiis farinariis alpibus silvis aquis pascuis accessionibus vineis pomiferis peculiis maiore minore aeramentis ferraturis loramentis vasis utensilibus mobile et immobile omne quidquid ad vitam hominis pertinet sit datum atque concessum ad ipsum monasterium sanctae Mariae seu sancti Martini sive sancti Petri quod nuncupatur Desertina Si quis quod futurum esse non credimus quod ego ut absit aut ullus de haeredibus vel proheredibus meis tam virilis sexus quam foeminei genere ortus seu de certis vel incertis aut praetextatisa cognationibus nati tam propinqui generi meo quam ex longinquo mihi proximi vel quaelibet extranea persona minima vel maxima iudicia agens cura aut regalis potestas vel aliquis per regalium potestatem concessam aut dogalium presentiam commotam aut per muneris dona vel potestate propria inepte superba crediterit aut ausus fuerit ab h is eccleai is abstrahere et contra hoc factum nostrum aut genitoris mei quod ipse praecepit ut ita fieret mandatum ut haec conscriptio proprietatis facultatum nostrarum fieret tam de compactione quam de proprietate de qualicunque tractu vel conquisito ad nos nosse pervenisse Hoc stabilimentum redemptionis peccatorum nostrorum statuimus habere et consortio sanctorum obfirmari quod ego indignus sana mente et sospite corde me vivente patris mei praecepta mea desideria curavi adimplere ut pro me et pro omnibus parentum meorum qui superius conscripti sunt ab altissimo iudice mereamurs veniam de peccatis promereri Propter hoc mundi creatorem posui intermedium iudicari ut infestus fiat contra eum qui contra factum istud ausus fuerit inrumpere aut temptare vel quolibet ingenio calumniam contra ipsas ecclesias praesumpserit a generare Inprimis iram domini nostri Iesu Christi incurrat et a sancta trinitate id est patris et filii et spiritus sancti anathema fiat parique modo in die iudicii ad sinistram cum impiis in profundum inferni descendat sicut Dathan et Abiron et Core qui contra Moisen rebelles steterant sic ille sicut illi semetipsum hiato terrae demergat et sicut Iudas traditor domini semetipsum in laqueo suspendat corpus et animam poenalium gehenna sine fine obtineat Et quantum de peccatis nostris et parentum nostrorum et fidelium nostrorum divina pietas pro his clementer iusserit indulgere horum omnium peccata tota super ipsum veniant et cum diabolo et ministris eius damnationem accipiat et cunctorum catholicorum fidelium consortio extraneus appareat Insuper et in resurrectione humani generis septem damnationes mortis in stagno ignis super ipsum incumbant prima damnatio a sanctis separatio secunda a facie domini repulsio tertia in inferno demersio quarta operis eius retributio quinta sine poenitentia quia nulla erit remissio sexta sine fine cruciatio septima omnium poenarum non erit finiti o et ab ipso consortio qui illic diu noctuque deserviunt Et super haec omnia insuper sit culpabilis ad actores saepedict is ecclesi is auri libras viginti et argenti pondus quadraginta et quod repetit in nullo petitio sua obtineat affectum sed fiat ut decet confusus de omnibus Et cessio mea quam ego prompta voluntate et devota mente rogavi fieri inconvulsa omni tempore usque in perpetuum obtineat firmitatem stipulatione subnexa Anno XV sub regno domini nostri Pipini regis quod est XVIII kaI ianuarias facta charta donationis sanctorum acta Curia in civitate publica sub praesentia virorum bonorum plurimorum testium + Signum manus domini Tellonis episcopi Iargitoris qui haec fieri iussi et manu mea propria firmavi + Signum presbyteri Silvani a testis + Signum manus Iustiniani iudicis testis + Signum Prestantis a curialis testis + Signum Lobucionis de Amede curialis testis + Signum Constanti de Senegaune curialis testis + Signum Lobucionis de Maile militis testis + Signum Pauli de Tremine militis testis + Signum Claudi de Curia curialis testis + Signum Vrseceni de Scanauico curialis testis + Signum Victoris filii Praestantis militis testis + Signum Iustiniani de vico Moldene militis testis + Signum Foscionis de Pogio militis testis Et ego Foscio presbyter iussus a domino me Tellone episcopo hanc donationem scripsi et manu mea propria subscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 17",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
+          "date_string": "765 12 15",
+          "comp_ort": "Chur",
+          "autocomplete": "In nomine sanctae trinitatis Cum mysterium optamus recordari et secreta cordis nostri semper debere reminisci altissimi beneficia humano generi tributa cum dominus deus noster Iesus Christus dignatus est descendere de sinu patris ad nos redimendos qui me etiam indignum et exiguum omnium servorum dei non meis meritis sed sua clementia inter praesules ecclesiae suae dignatus est collocare et ut perpendo infelicitatem meam nec minus casu fragilitatis meae quod non meis meritis ullis sed sua immensa pietate cupio reminisci adhuc sicut meis et humanae fragilitatis obvolutum peccatis proximorum meorum quod per primum parentem nostrum datum est et incertae vitae huius exitus et spem recuperans ipso domino clementer promittente peccatoribus quod eleemosynis possint qui voluerint peccata sua redimere Nam et ego indignus Tello vocatus episcopus non mea ei tribuo sed sua ipso tribuente reddo cum ipse per prophetam dicit Domini est terra et plenitudo eius et ut possim dicere cum ipse propheta ait Dominus pars heraeditatis meae Et dum tres ecclesi ae istius sanctae Mariae semper virginis matris domini nostri Iesu Christi seu sancti Martini seu sancti Petri quas in hoc loco constructas esse scimus seu ceterorum sanctorum quorum nomina in hoc loco constructa sunt quorum norma plurimorum servorum dei in loco qui dicitur Desertina monasterium regularium constructum esse scimus qua ego indignus ac si peccator Tello episcopus possidere videor et impensis meis plusquam debeo utor seu pro peccatis meis multis abluendis vel parentum meorum dono et ad ipsam ecclesiam sanctae Mariae seu sancti Martini seu sancti Petri transfundo hoc est avi mei Jactati et aviae a meae Salviae et genitoris mei Victoris vel illustris praesidis et genitricis meae Teusindae seu avunculi mei Vigilii episcopi et germanorum meorum Zacconis Jaetati et Vigilii et nepotis mei Victoris et germanae meae Salviae seu neptis meae Teusinde et Oddae Et adhuc dicente scriptura quod qui res ecclesiae possedit sue aliquid proprietatis habuerit testantur canones cum rebus ecclesiae debet sociari propterea ego Tello peccator ordinatus episcopus hic superius testimoniis confirmatis cedo post obitum meum vel decessum ad supradictam sacrosanctam ecclesiam sanctae Mariae et sancti Martini seu sancti Petri censum quem in perpetuum esse constituo atque discerno et de iure meo in ius et dominationi eius trado atque usque in perpetuum transfundo Hoc est terra vel haereditas patris mei Victoris vel illustris praesidis quaecunque acquisivit per singula strumenta de quocunque ingenio conquisita ac mihi dominus per suam largitatem dare dignatus est Hoc est curtem meam in Secanio imprimis salam cum solario subter caminata desuper alias caminatas subter cellarium coquina stuba circa curtem stabulum tabulata torhaces vel alia hospitali a vel cellaria et quidquid ad ipsam curtem pertinet omnia ex integro Item curtinum cum pomiferis suis Item ortos et vineas subter curtem ex integro Item in castro sala muricia subter cellaria torbaces in ipso castro quantum ad me legitime pertinet omnia ex integro Item ad vicum curtem meam cum tabulata cum bareca cum omnibus quae ad ipsam curtem pertinent cum introitu suo ex integro Item in territoriis agrum ad Buliu modiales sexaginta quinque confiniente ad ipsam curtem alia parte ad sanctum Columbanum agrum ad Secanina modiales viginti confiniente in via publica agrum trans vicum modiales decem confiniente ad Gallonicum alia parte ad Amanti agrum in Stava modiales octodecim confiniente ad Victoris alia parte in via agrum in Camguna modiales viginti quatuor confiniente in Johannis alia parte in via agrum in Sarrs modiales octoginta confiniente ad sancti CoIumbani alia parte in via agrum in Astivedae modiales quinquaginta confiniente ad Calansionis alia parte ad Vigili agrum in Renio modiales triginta confiniente ad Lobeceni alia parte ad Viventi agrum in Renio modiales quadraginta confiniente ad Iactati alia parte ad Vrseceni agrum in ipso loco confiniente ad Pauli modiales duodecim agrum ante sala modiales duo agrum subter sala modiales sex confiniente in via agrum Alevenoce modiales triginta confiniente ad sancti Columbani cum casa cum duobus tabulatis cum curte et introitu suo et cum canicunis suis confinientern ipsum agrum ad viam alium agrum modiales decem confinientern ad Solemnis ad sancti Martini ad summum Levenoce roncale cum aedificio suo ex integro Item pradum curtinum subter Secanio et onera sexaginta cum aedificio suo confiniente ad sancti Columbani alia parte in via aliud curti num subter vico onera decem confiniente ad sancti Columbani de ambabus partibus aliud curtinum onera octo confiniente ad curtem pradum in Heretis onera sexaginta confiniente ad sanctae Mariae alia parte in via pradum in Levenoce onera quindecim confiniens ad sancti Columbani et in Prado onera viginti confiniens ad sanctum Columbani alia parte in Vedalionis quantum me in ipso Levenoce habere videtur ex integro Item in alpe Agise onera centum pradum in Castrices in Roncale onera viginti confiniens ad Agusti alia parte in via pradum Suprasaxa roncale onera triginta confiniens in sancti Martini alia parte in Vederanionis et super Falariae pradum onera sex confiniens in sancti Stephani alia parte ad Lobonis Item in Flemme roncale ex integro Item de colonis de ipsa curte Secanio Ariscio Gaudentius Exoberius Calanho Valerius Anulfus Crespio Iactatus isti omnes cum uxoribus et filiis suis agri prata et quidquid ad ipsas colonias pertinet \u00b7cum omni sondro suo ex integro Item de spehaticis Froncione Proiectum Evalern Flecholvum Lobecinum Aurelium Victorem Saturninum Massonem Rusticum Desiderium Lobucionem isti omnes cum uxoribus et filiis suis agri prata vel quidquid ad ipsos spicios pertinet cum omni sondro suo ex integro Amantius persona praeter terram solam sanctae Mariae Auster cum fratre suo Aurelianus Praestantius Valerius 5 Viventius Columba hos omnes cum uxoribus et filiis et quidquid ipsi colere videntur revertantur sicut priores Item villam meam Iliande salam cum cellario cum omnibus quae circa ipsam salam haberi videntur ex integro torbaces tabulata barecae curtes ortus omnia cum introitu suo quae circa ipsam curtem haberi videntur quae ad me legitime pertinent ex integro agrum subter Lobene modiales sexaginta confinientem in sancti Martini agrum ad curtem modiales quindecim confinientern in sanctae Mariae agrum Aflupio modiales sex confinientern in Quartini agrum Roncale modiales sex agrum ante vicum modiales sex confinientem in via Item pradum in Campaniola onera decem confinientern in sanctae Mariae pradum in in Longorione onera decem confinientem in sanctae Mariae Item Supersaxa villam meam cum casa cum tabulata cum torbacibus cum orto et omnibus quae circa ipsam curtem adpertinent ex integro agrum modiales sexaginta pradum onera centum alium locum Maniniocum agrum modiales viginti aliud pradum Naulo onera quadraginta haec omnia sint data ad supradictam ecclesiam Item coloni de ipsa curte Iliande Sporcio Vidalinus hos duos cum uxoribus et filiis agros prata et cum omni sondro suo ex integro Item Despicus Vidalianus Maurentius Martinus Calvolus Lidorius isti omnes cum suis uxoriri bus et filiis suis et cum omni sondro suo ex integro Lopus et Vrsoci us b qui sunt sine terra et ipsi sint dati ad sanctam ecclesiam Item curtem meam in Bregelo quam addo ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item muriciam salam cum cellario cum caminatis cum solario cum torbace cum stabulo cum barecis cum tabulata orto curte et quidquid ad ipsam curtem adpertinet cum introitu suo omnia ex integro Item agrum in Ruane modiales triginta quinque confinientem in flumine altera parte in sanctae Mariae agrum in ipso Ruane modiales quatuor et confinientem ad Juliani alia parte ad Oanis agrum trans flumen modiales undecim confinientem ad Proiecti alia parte in flumen agrum super castellum modiales octo confinientern ad Siluionis alia parte ad Evalentis agrum ad ipsam curtem modiales octo confinientem ad Juliani agrum in Vorce modiales sexaginta confinientem in Vuaonis alia parte in via cum aedificio suo cum curte et introitu suo omnia ex integro Item in Selauno curtem meam cum tabulata cum bareca cum torbace cum omni adpertinentia sua I et quidquid ad ipsam curtem pertinet ex integro item agrum ad Feniles modiales octoginta confinientem ad ipsam curtem agrum Ardunae modiales sexdecim confinientem ad Evalentis alia parte in Juuenti agrum in Vieinaues modiales septemdecim confinientem ad Lomelengum alia parte in sancti Martini item pradum ad Sorella onera octo confinientem ad Lidori pradum Anives in curtino onera duodecim confinientem ad abatissae pradum in Esce onera viginti confinientern ad Bevani pradum in Colimne onera quinque pradum ad Renum onera viginti confinientem ad Vieturucionis altera parte ad Juliani pradum in Ruane onera decem confinientern ad sancti Martini pradum in Valle Cava onera quatuor confinientern in via pradum Macene onera vigintiquinque confinientem in via alia parte Crespionis Item coloni de ipsa curte Tauronto Laurentius et Lopus hos duos cum omni sondro suo ex integro De Selauno Lidorius Maurus Befanius Sicharius isti omnes cum uxoribus et filiis suis et cum omni sondro suo ex integro Item Specius de Andeste Amantius Montanarius Exoberius Frictellinus Johannes isti omnes cum uxoribus et filiis suis cum omni sondro suo ex integro Item de ipsa curte Maurelius Dominicus Donadus isti omnes cum uxoribus et filiis suis agrum pradum vel quidquid circa ipsas casas adpertinet omnia ex integro Leo persona sola Fescianus cum uxore et filiis suis agri prada et cum omni sondro suo ex integro Isti omnes revertantur post obitum nostrum ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item in Maile agri prada sola orti cum pomiferis quantum ad me legitime pertinet praeter terram ecclesiis portionem meam ex integro et praeter coloniam quae concessi iuniori meo Senatori pro servitio suo in ipso Maile Item in Canpellos agros prada sola ortos cum pomiferis suis et quidquid ad me legitime pertinet omnia ex integro Similiter et Silva plana super Maile quantum ad me legitime pertinet sit datum et concessum ad ipsum monasterium sanctae Mariae seu sancti Martini seu sancti Petri Item silvas scales fructiferas quas damus ad ipsum monasteriums quod superius nominavimus super Iliande quantum ad me pertinet ex integro Item in Rucene curtem meam cum sala cum cellario cum caminata cum solario cum torbace cum stabulo cum bareca cum tabulata cum orto et quidquid circa ipsam curtem adpertinet cum introitu suo et exitu cum aquis cum pascuis in silvis omnia ex integro Item roboredum subter Rucene ex integro Item alpes quas damus ad ipsum monasterium quod superius nominavimus Naulo media Mendane cum secivo suo ex integro in Fadohine portionemf meam ex integro in Ceipene 10 portionem P meam ex integro Item definimus de fidelibus nostris quibus quantum concessimus nobis viventibus et post obitum nostrum donamus Imprimis Lidorius tenet specium quem colit Vidales ipse revertatur post obitum nostrum ad ipsum monasterium cum omni adpertinentia sua similiter et terra quam ipse Lidorius possidet donamus ei agros prada modiales septuaginta nam omnia quae super hunc numerun habere videtur revertantur ad supradictum monasterium Item et Alecus tenet in ipso Iliande agrum modiales quadraginta et ipse revertatur post obitum nostrum ad ipsum monasterium Item Gaudentius tenet agrum modiales quindecim et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Crescentianus tenet specium in Rucene et quatuor modiales in Renio et ipsum revertatur sicut superius Item Leontius camerarius tenet modiales quinque de Helanengo item presbiter Vigilius tenet modiales tres de Helarinengo et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Goncio tenet in Vorce agrum modiales octoginta et ipsum revertatur post obitum nostrum ad ipsum monasterium Item Vadardus tenet agrum modiales quinquaginta ipsum revertatur post obitum nostrum ad ipsum monasterium Item Ianuarius tenet in Tauronto duas colonias preter homines et ipsae revertantur ad ipsum monasterium post obitum nostrum Item quam coloniam tenet presbiter Silvanus agri prada sola orti aedificia cum omni adpertinentia et cum ipso servo nostro nomine Viventio qui in ipsa n casa habitat revertantur haec omnia post obitum nostrum ad ipsum monasterium Item colonias quas tenet presbiter Lepus in Falarie una cum homine alia sine homine pradum onera quindecim agrum in Roncalina modiales viginti revertantur haec omnia post obitum nostrum tam servi quam terra ad ipsum monasterium Item colonia in ipso Falarie quam colit Iactatus ipsam donamus iuniori nostro Senatori tam nos viventes quam post obitum nostrum ad possidendum Item coloniam quam tenet Amicho ipsa revertatur post obitum nostrum ad ipsam ecclesiam Item colonia quam tenet Laveso in Fleme quam colit Orsianus ipsa revertatur post obitum nostrum ad ipsum monasterium Item in Valendano Maiorinus tenet agrum modiales viginti quinque ipse revertatur post obitum nostrum ad ipsum monasterium Similiter et in Amede coloniam quam ipse possidet habeat commendatione ipse Maiorinus cum ipsa n colonia ad ipsum monasterium cum uxore et filiis suis nutrimentum quos si semetipsum ab ipso loco abstraxerit ipsa possessio in ipso monasterio stabilis sit permanere nec liceat alicui ab hoc abstrahere Item terram quam tenet Drucio in Castrice ipsa revertatur post obitum nostrum ad supradictum monasterium et ipsum Drucionem statuemus ad ipsum locum sacrum esse commendatum Hoc stabilimentum proponimus et quidquid immemores fuimus aut in hac donatione sanctorum non conscripsimus preter quartam quam reliquimus curti nostrae Flumini de omnibus rebus nostris absolucionem uti conscripta est permanere Et dum mihi omnipotens deus in hoc saeculo a vitam concesserit omnia in mea permaneant potestate et donatio haec post obitum meum firma permaneat tam agris quam pradis solis ortis aedificiis farinariis alpibus silvis aquis pascuis accessionibus vineis pomiferis peculiis maiore minore aeramentis ferraturis loramentis vasis utensilibus mobile et immobile omne quidquid ad vitam hominis pertinet sit datum atque concessum ad ipsum monasterium sanctae Mariae seu sancti Martini sive sancti Petri quod nuncupatur Desertina Si quis quod futurum esse non credimus quod ego ut absit aut ullus de haeredibus vel proheredibus meis tam virilis sexus quam foeminei genere ortus seu de certis vel incertis aut praetextatisa cognationibus nati tam propinqui generi meo quam ex longinquo mihi proximi vel quaelibet extranea persona minima vel maxima iudicia agens cura aut regalis potestas vel aliquis per regalium potestatem concessam aut dogalium presentiam commotam aut per muneris dona vel potestate propria inepte superba crediterit aut ausus fuerit ab h is eccleai is abstrahere et contra hoc factum nostrum aut genitoris mei quod ipse praecepit ut ita fieret mandatum ut haec conscriptio proprietatis facultatum nostrarum fieret tam de compactione quam de proprietate de qualicunque tractu vel conquisito ad nos nosse pervenisse Hoc stabilimentum redemptionis peccatorum nostrorum statuimus habere et consortio sanctorum obfirmari quod ego indignus sana mente et sospite corde me vivente patris mei praecepta mea desideria curavi adimplere ut pro me et pro omnibus parentum meorum qui superius conscripti sunt ab altissimo iudice mereamurs veniam de peccatis promereri Propter hoc mundi creatorem posui intermedium iudicari ut infestus fiat contra eum qui contra factum istud ausus fuerit inrumpere aut temptare vel quolibet ingenio calumniam contra ipsas ecclesias praesumpserit a generare Inprimis iram domini nostri Iesu Christi incurrat et a sancta trinitate id est patris et filii et spiritus sancti anathema fiat parique modo in die iudicii ad sinistram cum impiis in profundum inferni descendat sicut Dathan et Abiron et Core qui contra Moisen rebelles steterant sic ille sicut illi semetipsum hiato terrae demergat et sicut Iudas traditor domini semetipsum in laqueo suspendat corpus et animam poenalium gehenna sine fine obtineat Et quantum de peccatis nostris et parentum nostrorum et fidelium nostrorum divina pietas pro his clementer iusserit indulgere horum omnium peccata tota super ipsum veniant et cum diabolo et ministris eius damnationem accipiat et cunctorum catholicorum fidelium consortio extraneus appareat Insuper et in resurrectione humani generis septem damnationes mortis in stagno ignis super ipsum incumbant prima damnatio a sanctis separatio secunda a facie domini repulsio tertia in inferno demersio quarta operis eius retributio quinta sine poenitentia quia nulla erit remissio sexta sine fine cruciatio septima omnium poenarum non erit finiti o et ab ipso consortio qui illic diu noctuque deserviunt Et super haec omnia insuper sit culpabilis ad actores saepedict is ecclesi is auri libras viginti et argenti pondus quadraginta et quod repetit in nullo petitio sua obtineat affectum sed fiat ut decet confusus de omnibus Et cessio mea quam ego prompta voluntate et devota mente rogavi fieri inconvulsa omni tempore usque in perpetuum obtineat firmitatem stipulatione subnexa Anno XV sub regno domini nostri Pipini regis quod est XVIII kaI ianuarias facta charta donationis sanctorum acta Curia in civitate publica sub praesentia virorum bonorum plurimorum testium + Signum manus domini Tellonis episcopi Iargitoris qui haec fieri iussi et manu mea propria firmavi + Signum presbyteri Silvani a testis + Signum manus Iustiniani iudicis testis + Signum Prestantis a curialis testis + Signum Lobucionis de Amede curialis testis + Signum Constanti de Senegaune curialis testis + Signum Lobucionis de Maile militis testis + Signum Pauli de Tremine militis testis + Signum Claudi de Curia curialis testis + Signum Vrseceni de Scanauico curialis testis + Signum Victoris filii Praestantis militis testis + Signum Iustiniani de vico Moldene militis testis + Signum Foscionis de Pogio militis testis Et ego Foscio presbyter iussus a domino me Tellone episcopo hanc donationem scripsi et manu mea propria subscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Chur",
+          "specific_date": [
+            {
+              "year": 765,
+              "month": 12,
+              "day": 15
+            }
+          ],
+          "all_dates": [
+            "0765-12-15"
+          ],
+          "min_date": "0765-12-15",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0017.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem Hunc nostrum negociatorem Italiae mercimonia ferentem his litteris tuae paternitatis commendo protectioni ut per vias vestrae patriae tutus eat et redeat et in montium claustris a vestris non teneatus tolneariis constrictus sed per latitudinem caritatis latam habeat eundi et redeundi semitam Iubeas obsecro orare pro anima Ioseppi discipuli mei Floreas et proficias de virtute in virtutem donec videas laetus et gaudens deum tuum in Sion Memorque mei sis sanctissime pater obsecro",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 21",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+          "date_string": "790-796",
+          "comp_ort": " ",
+          "autocomplete": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem Hunc nostrum negociatorem Italiae mercimonia ferentem his litteris tuae paternitatis commendo protectioni ut per vias vestrae patriae tutus eat et redeat et in montium claustris a vestris non teneatus tolneariis constrictus sed per latitudinem caritatis latam habeat eundi et redeundi semitam Iubeas obsecro orare pro anima Ioseppi discipuli mei Floreas et proficias de virtute in virtutem donec videas laetus et gaudens deum tuum in Sion Memorque mei sis sanctissime pater obsecro",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0790",
+              "lte": "0797"
+            }
+          ],
+          "all_dates": [
+            "0790",
+            "0797"
+          ],
+          "min_date": "0790"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0021.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem Acceptis caritatis vestrae muneribus multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis sperans me misericordia divina participem esse per vestras sanctissimas orationes Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis ubi deus tantummodo considerat et remunerat Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate ut cum gaudio ante conspectum summi regis venire digni efficiamini et vocem illam audire desiderabilem Euge serve bone et fidelis intra in gaudium domini tui Nunc tempus est laborandi tunc quiescendi nunc promerendi tunc remunerandi Fac ut sis ut tibi veniat quod vis Dilige diligentem te quatenus ad beatissimam illius sessionem pervenire merearis et dicere Sicut audivimus ita et vidimus in civitate dei nostri in qua est tota felicitas et nulla perturbatio summa requies et sempiterna beatitudo Vestram omnipotens deus sanctitatem in omni bono florere faciat venerande pater",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 22",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+          "date_string": "792\u2013796 (?)",
+          "comp_ort": " ",
+          "autocomplete": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem Acceptis caritatis vestrae muneribus multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis sperans me misericordia divina participem esse per vestras sanctissimas orationes Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis ubi deus tantummodo considerat et remunerat Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate ut cum gaudio ante conspectum summi regis venire digni efficiamini et vocem illam audire desiderabilem Euge serve bone et fidelis intra in gaudium domini tui Nunc tempus est laborandi tunc quiescendi nunc promerendi tunc remunerandi Fac ut sis ut tibi veniat quod vis Dilige diligentem te quatenus ad beatissimam illius sessionem pervenire merearis et dicere Sicut audivimus ita et vidimus in civitate dei nostri in qua est tota felicitas et nulla perturbatio summa requies et sempiterna beatitudo Vestram omnipotens deus sanctitatem in omni bono florere faciat venerande pater",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0792",
+              "lte": "0797"
+            }
+          ],
+          "all_dates": [
+            "0792",
+            "0797"
+          ],
+          "min_date": "0792"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0022.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+        "_score": null,
+        "_source": {
+          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+          "date_string": "769\u2013813, [813]",
+          "comp_ort": " ",
+          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 770,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 771,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 772,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 773,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 774,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 775,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 776,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 777,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 778,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 779,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 780,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 781,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 782,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 783,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 784,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 785,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 786,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 787,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 788,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 789,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 790,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 791,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 792,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 793,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 794,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 795,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 796,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 797,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 798,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 799,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 800,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 801,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 802,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 803,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 804,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 805,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 806,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 807,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 808,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 809,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 810,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 811,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 812,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 813,
+              "month": 4,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0769-04-20",
+            "0770-04-20",
+            "0771-04-20",
+            "0772-04-20",
+            "0773-04-20",
+            "0774-04-20",
+            "0775-04-20",
+            "0776-04-20",
+            "0777-04-20",
+            "0778-04-20",
+            "0779-04-20",
+            "0780-04-20",
+            "0781-04-20",
+            "0782-04-20",
+            "0783-04-20",
+            "0784-04-20",
+            "0785-04-20",
+            "0786-04-20",
+            "0787-04-20",
+            "0788-04-20",
+            "0789-04-20",
+            "0790-04-20",
+            "0791-04-20",
+            "0792-04-20",
+            "0793-04-20",
+            "0794-04-20",
+            "0795-04-20",
+            "0796-04-20",
+            "0797-04-20",
+            "0798-04-20",
+            "0799-04-20",
+            "0800-04-20",
+            "0801-04-20",
+            "0802-04-20",
+            "0803-04-20",
+            "0804-04-20",
+            "0805-04-20",
+            "0806-04-20",
+            "0807-04-20",
+            "0808-04-20",
+            "0809-04-20",
+            "0810-04-20",
+            "0811-04-20",
+            "0812-04-20",
+            "0813-04-20"
+          ],
+          "min_date": "0769-04-20",
+          "days": [
+            "Easter",
+            "Friday",
+            "Wednesday",
+            "Thursday",
+            "Tuesday",
+            "Monday",
+            "Lent",
+            "Sunday",
+            "Saturday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "date_string": "769\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0769"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+          "date_string": "769\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0769"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+        "_score": null,
+        "_source": {
+          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+          "date_string": "769\u2013800, [813]",
+          "comp_ort": " ",
+          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 770,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 771,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 772,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 773,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 774,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 775,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 776,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 777,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 778,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 779,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 780,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 781,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 782,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 783,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 784,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 785,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 786,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 787,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 788,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 789,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 790,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 791,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 792,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 793,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 794,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 795,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 796,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 797,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 798,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 799,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 800,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 813,
+              "month": 3,
+              "day": 31
+            }
+          ],
+          "all_dates": [
+            "0769-03-31",
+            "0770-03-31",
+            "0771-03-31",
+            "0772-03-31",
+            "0773-03-31",
+            "0774-03-31",
+            "0775-03-31",
+            "0776-03-31",
+            "0777-03-31",
+            "0778-03-31",
+            "0779-03-31",
+            "0780-03-31",
+            "0781-03-31",
+            "0782-03-31",
+            "0783-03-31",
+            "0784-03-31",
+            "0785-03-31",
+            "0786-03-31",
+            "0787-03-31",
+            "0788-03-31",
+            "0789-03-31",
+            "0790-03-31",
+            "0791-03-31",
+            "0792-03-31",
+            "0793-03-31",
+            "0794-03-31",
+            "0795-03-31",
+            "0796-03-31",
+            "0797-03-31",
+            "0798-03-31",
+            "0799-03-31",
+            "0800-03-31",
+            "0813-03-31"
+          ],
+          "min_date": "0769-03-31",
+          "days": [
+            "Easter",
+            "Friday",
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Monday",
+            "Lent",
+            "Sunday",
+            "Saturday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+          "date_string": "768\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 15
+        },
+        "Freising": {
+          "doc_count": 186
+        },
+        "Luzern": {
+          "doc_count": 6
+        },
+        "Mondsee": {
+          "doc_count": 63
+        },
+        "Passau": {
+          "doc_count": 56
+        },
+        "Regensburg": {
+          "doc_count": 10
+        },
+        "Rheinisch": {
+          "doc_count": 13
+        },
+        "R\u00e4tien": {
+          "doc_count": 10
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 19
+        },
+        "St. Gallen": {
+          "doc_count": 159
+        },
+        "Werden": {
+          "doc_count": 23
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 1
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 2
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 506
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 35
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

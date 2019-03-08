@@ -190,7 +190,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0
+            return [], 0, {}
     else:
         fuzz = fuzziness
     if composition_place:
@@ -315,11 +315,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
+                   "{sort}&{spec_days}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
                                         in_order=in_order, slop=slop, y=year, m=month,  d=day, y_s=year_start,
                                         m_s=month_start, d_s=day_start, y_e=year_end, m_e=month_end, d_e=day_end,
                                         d_p_m=date_plus_minus, e_d_r=exclusive_date_range,
-                                        c_p=composition_place, sort=old_sort)
+                                        c_p=composition_place, sort=old_sort, spec_days='+'.join(special_days))
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

@@ -1,0 +1,945 @@
+{
+  "took": 28,
+  "timed_out": false,
+  "_shards": {
+    "total": 14,
+    "successful": 14,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 9,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v4",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis in christus nomen incipio dictatus hic sum gero annus quartus regnum dominus noster childebertus rex qui facio mensis ille dies tantus cum iuxta consuetudo andecavis civitas curia publicus resedeo in forum ibi vir magnificus ille prosecutor dico rogo tu vir laudabilis ille defensor ille curator magister miles vel reliquus curia publicus utique obtex publicus pateo iubeo qui habeo quis apud ago prosequor debeo defensor principalis simul et omnis curia publicus dico pateo tu codex publicus prosequor qui opto oboedio ille per mandatum suus pagina ego iniungo ut prosecutor exsisto debeo qualiter mandatum qui in dulcis iugalis meus ille facio pro omnis causatio suus tam in pagus quam et in palatium sive quilibet locus accido facio ille portio meus qui ex allodis parens meus is lex obvenio vel obvenio debeo aut iustus is sum reddo is contra parens suus vel quilibet homo accido mallo sive et litigo facio inspecto ille mandatum qui in dulcis iugalis meus ille facio gero municipalis adlego debeo curia vero dico mandatum qui tu habeo dico accipio vir venerabilis ille diaconus et amanvensis prosecutor dico rego dominor meus omnis publicus ut sicut mandatum iste lex cognosco sum facio ut dos qui per manus teneo vos praesens in forum publicus iubeo recito curia vero dico dos qui tu dico per manus reteneo ille diaconus et amanvensis andecavis civitas nos praesens accipio relego quo accipio dico incipio mandatum dominus ego iugalis meus ille rogo atque supplico dulcis gratia vester ut ad vicis meus omnis causatio noster tam in pagus quam et palatium sive quilibet locus accido facio et ille portio noster qui ex allodis parens is ego lex obvenio vel obvenio debeo aut iustus nos sum reddere hic contra parens meus vel quilibet homo accido mallo sive litigo facio et quisquis exinde ad vicis noster ago facio gero etenim ego habeo sum cognosco ratus iuro mandatum andecavis civitas curia publicus incipio cessio dulcis et cum integer amor diligo sponsa meus filia ille nomen ille ego ille et qui propitius dominus iuxta consuetudo unus cum voluntas parens tuus spondeo proinde cedo tu de res paupertas meus tam pro sponsalicius quam largitas tuus hic sum casa cum curtis circumcingo mobilis et immobilis vinea silva pratum pascua aqua aqua vel decursus iungo et subiungo in omnis superus nomino dulcis sponsa meus ad dies felix nuptiae tu per hic cessio delego atque transfundo ut in tuus ius hic recipio debeo cedo tu bracile valeo solidus tantus tunica tantus lectarius ad lectus vestio valeo tantus inauris aureus valeo solidus tantus anulus valeo cedo tu caballus cum sabuta et omnis stratura suus bos tantus vacca sequor tantus ovis solidus tantus hic omnis subscribo res in tuus ius et dominatio hic recipio debeo vel posterus suus inter nos procreo sum derelinquo alius ius sanctus ille qui terra sum video et sum umquam tempus qui contra hic cessio iste qui ego in tu bonus voluntas conscribo rogo aut ipse ullus de heres meus vel propinquus aut quilibet homo vel extraneus emitto persona venio volo ago repeto praesumo ante lis ingredior duplo tu tantus et alius quantus cessio iste contineo aut is tempus melioro volo et repetitio suus non obtineo effectus hic cessio iste atque voluntas noster omnis tempus firmus permaneo post curia aio sui adhuc aliquis habeo ex hic causa aut ago debeo dico tu in praesens ille prosecutor dico gratia ago magnitudo vester qui dos suus scribo qui prosequor gero municipalis ut habeo caritas vester alligo et id facio tu ex mos conscribo ",
+          "orig_comp_ort": " "
+        },
+        "highlight": {
+          "text": [
+            "FORMULA ANDECAVENSIS 1 IN CHRISTI NOMEN INCIPIUNT DICTATI HIC EST IESTA Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto 4 reges quod fecit misisus ille dies tantus cum iuxta consuetudinem Andicauis 6 ciuetate curia puplica resedere in foro ibiquae uir magnificus illi prosecutor dixit \u201eRogo te uir laudabilis illi defensor illi curator 8 illi magister militum 9 uel reliquam curia puplica utique obticis puplici patere iobeatis qua habeo quid apud acta proseuere debiam\u201c Deffensor principalis simul et omnis curia puplica dixerunt \u201ePatent tibi cotecis puplici prosequere que optas\u201c \u201eObodire illa per mandato suo pagina mihi iniuncxit ut prosecutor exsistere deberit qualiter mandatum quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas tam in paco quam et in palacio seu in qualibet loca accidere faciat Illas porciones meas quem ex alote parentum meorum aei legibus obuenit uel obuenire debit aut iustissime aei est reddebetum \u201aae contra parentis suis uel contra cuiuslibet hominem accidere"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v4",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 34",
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio dos annus quartus regnum dominus noster childebertus rex ego in deus nomen ille for ego hic libellus dos scribo debeo qui ita et facio ad dulcis sponsa meus nomen ille pro amor dulcitudo suus emitto tu in chartula libellus dos casa iam dico puella sponsa meus ille habeo teneo possideo facio qui volo et si quis vero aut ego ipse vel quilibet oppono persona qui contra hic voluntas meus facio aut libellus dos iste conscribo aut ago praesumo solidus tantus cogo exsolvo et si quis non obtineo effectus ",
+          "orig_comp_ort": " "
+        },
+        "highlight": {
+          "text": [
+            "FORMULA ANDECAVENSIS 34 INCIPIT DOTIS Annu IIII </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto 2 reges Ego in Dei nomen illi fatuor me hanc libellum dote scribere deberent quod ita et fecerunt ad dulcissema sponsa mea nomen illa Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa Iam dicta puella sponsa mea illa abiat teniat possediat faciat quod uoluerit Et si quis uero aut ego ipsi uel quislibet opposita persona qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit soledus tantus coactus exsoluat et si quis non obteniat effectum"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form034.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+        "_score": null,
+        "_source": {
+          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+          "date_string": "769\u2013813, [813]",
+          "comp_ort": " ",
+          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 770,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 771,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 772,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 773,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 774,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 775,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 776,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 777,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 778,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 779,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 780,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 781,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 782,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 783,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 784,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 785,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 786,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 787,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 788,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 789,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 790,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 791,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 792,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 793,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 794,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 795,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 796,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 797,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 798,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 799,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 800,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 801,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 802,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 803,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 804,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 805,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 806,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 807,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 808,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 809,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 810,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 811,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 812,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 813,
+              "month": 4,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0769-04-20",
+            "0770-04-20",
+            "0771-04-20",
+            "0772-04-20",
+            "0773-04-20",
+            "0774-04-20",
+            "0775-04-20",
+            "0776-04-20",
+            "0777-04-20",
+            "0778-04-20",
+            "0779-04-20",
+            "0780-04-20",
+            "0781-04-20",
+            "0782-04-20",
+            "0783-04-20",
+            "0784-04-20",
+            "0785-04-20",
+            "0786-04-20",
+            "0787-04-20",
+            "0788-04-20",
+            "0789-04-20",
+            "0790-04-20",
+            "0791-04-20",
+            "0792-04-20",
+            "0793-04-20",
+            "0794-04-20",
+            "0795-04-20",
+            "0796-04-20",
+            "0797-04-20",
+            "0798-04-20",
+            "0799-04-20",
+            "0800-04-20",
+            "0801-04-20",
+            "0802-04-20",
+            "0803-04-20",
+            "0804-04-20",
+            "0805-04-20",
+            "0806-04-20",
+            "0807-04-20",
+            "0808-04-20",
+            "0809-04-20",
+            "0810-04-20",
+            "0811-04-20",
+            "0812-04-20",
+            "0813-04-20"
+          ],
+          "min_date": "0769-04-20",
+          "days": [
+            "Easter",
+            "Friday",
+            "Wednesday",
+            "Thursday",
+            "Tuesday",
+            "Monday",
+            "Lent",
+            "Sunday",
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub </small><strong>regnum</strong><small>",
+            "</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+        "_score": null,
+        "_source": {
+          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "lemmas": " ",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+          "date_string": "769\u2013800, [813]",
+          "comp_ort": " ",
+          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 770,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 771,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 772,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 773,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 774,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 775,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 776,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 777,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 778,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 779,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 780,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 781,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 782,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 783,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 784,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 785,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 786,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 787,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 788,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 789,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 790,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 791,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 792,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 793,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 794,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 795,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 796,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 797,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 798,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 799,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 800,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 813,
+              "month": 3,
+              "day": 31
+            }
+          ],
+          "all_dates": [
+            "0769-03-31",
+            "0770-03-31",
+            "0771-03-31",
+            "0772-03-31",
+            "0773-03-31",
+            "0774-03-31",
+            "0775-03-31",
+            "0776-03-31",
+            "0777-03-31",
+            "0778-03-31",
+            "0779-03-31",
+            "0780-03-31",
+            "0781-03-31",
+            "0782-03-31",
+            "0783-03-31",
+            "0784-03-31",
+            "0785-03-31",
+            "0786-03-31",
+            "0787-03-31",
+            "0788-03-31",
+            "0789-03-31",
+            "0790-03-31",
+            "0791-03-31",
+            "0792-03-31",
+            "0793-03-31",
+            "0794-03-31",
+            "0795-03-31",
+            "0796-03-31",
+            "0797-03-31",
+            "0798-03-31",
+            "0799-03-31",
+            "0800-03-31",
+            "0813-03-31"
+          ],
+          "min_date": "0769-03-31",
+          "days": [
+            "Easter",
+            "Friday",
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Monday",
+            "Lent",
+            "Sunday",
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small>",
+            "</small><strong>domni</strong><small> nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 3",
+          "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
+          "date_string": "768\u2013800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "highlight": {
+          "text": [
+            "coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuare voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum ad vivo ego Baselius vel uxor mea Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctuma locum pro remedium anime nostrae sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit postterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub </small><strong>regnum</strong><small>",
+            "</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis sub die quod est XV kalendas madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui hec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Vuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gavuenti testes Ego Orsacius pro misericordia Dei vocatus presbiter ad vice Pettoms presbiteri scripsi et suscripsi"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0003.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
+          "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
+          "date_string": "768\u2013800, [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "highlight": {
+          "text": [
+            "Martini de alia in Lubuciones magistri Alium agrum in Tedo modios III confinat da una parte in Pauli de a lia in Scolchengo Agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa superscripta terrola dum ad vivo usumfructum mihi reservo post obitum vero meum volo ut revertat ad superscripta ecclcsia sancti Helarii pro remedium anime meae seu patris mei Viventi necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis in currat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quocl repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small>",
+            "</small><strong>domni</strong><small> nostri Caroli regis sub die quod est pridie kalendas Aprilis Notavi diem et regnum superscripsi Signum Victorini et Felicitanes uxoris ipsius qui haec fieri rogaverunt testes Signum Viventi maiores testes Signum Vigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltari testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Agustani diaconis scripsi et suscripsi"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0006.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 44",
+          "urn": "urn:cts:formulae:raetien.erhart0044.lat001",
+          "date_string": "858/865 02 12",
+          "comp_ort": "Grabs",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Grabs",
+          "specific_date": [
+            {
+              "year": 858,
+              "month": 2,
+              "day": 12
+            },
+            {
+              "year": 865,
+              "month": 2,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0858-02-12",
+            "0865-02-12"
+          ],
+          "min_date": "0858-02-12",
+          "days": [
+            "Monday",
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "In Christi nomine Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nistri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum que mihi advenit in fundo Quaravedes que ocupatur a vicu confinat in Auderamni et de alia parte in Baseli terra ex anno et de pommifera tercia parte Precium in contra ipsu cortinum selique XX quod precium venditores ap emtore coram testibus de presente acciperunt Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum Et si quis contra hanc cartam recausare voluerit solvat dubblas res que in carta continet et iudici puvlico aurum libras I et strumentus firmus permaneat Aquiliani Argliana lege supnixsa Facta carta in villa Quaravedes"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0044.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v4",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
+          "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
+          "date_string": "762 08 20",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "specific_date": [
+            {
+              "year": 762,
+              "month": 8,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0762-08-20"
+          ],
+          "min_date": "0762-08-20",
+          "days": [
+            "Friday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "pascuis silvis aquis aquarumve decursibus adpendiciis vel iacentiis mobilibus et inmovilibus quicquid dici aut nominare potest totum et integrum ad supradicto monasterio sancti Gallones vel rectores ipsius trado atque transfundo perpetualiter ad possetendum ut quiquid exinte facere voluerent liberam in omnibus habeant potestatem faciendi Siquis vero quod fieri non credo si ego ipse aut aliquis de heredibus meis aut ulla opposita persona que contra hanc donationem quam ego pro salute anime meae bona voluntate fieri rogavi venire aut eam infrangere voluerit inprimis si se ementare noluerit iram Dei omnium sanctorum incurrat et penas inferni experire pertimiscat et ab omni eclesia excommunes abpareat et insuper sociante fisco auri liberas quinque argenti pondo dece coactus exsolvat et quod repetit nihil valeat vinticare et haec donatio a me facta omni tempore firma permaneat stipulatione subnixa Actum in ipso monastirio sancti Gallones sub die quod fecet menses acustus dies XX anno nono </small><strong>regnum</strong><small>",
+            "</small><strong>domni</strong><small> nostri Pippini regis Signum \u2020 Aimonis autores qui hanc donationem fieri rogavit \u2020 sig \u2020 Folgerati test \u2020 sig Vanzones test sig Arnoladi test \u2020 sig Salucho test \u2020 sig Cunzones \u2020 sig Tincolti sig Nangheri sig Rotteri sig Deota \u2020 Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0026.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v4",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
+          "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
+          "date_string": "858, (865) 02 12",
+          "comp_ort": "Grabs",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Grabs",
+          "specific_date": [
+            {
+              "year": 858,
+              "month": 2,
+              "day": 12
+            },
+            {
+              "year": 865,
+              "month": 2,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0858-02-12",
+            "0865-02-12"
+          ],
+          "min_date": "0858-02-12",
+          "days": [
+            "Monday",
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "In Christi nomine Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum que mihi advenit in fundo Quaravedes que ocupatur iuso a vicum Confinit in Auderamni et de alia parte in Baseli terra ex anno et de pomifera tercia parte Precium in contra ipsu cortinum seliquae XX quod precium venditores ap emtore coram testibus de presente acciperunt Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum Et si quis contra hanc cartam recausare voluerit solvat dubblas res que in carta continet et iudici puvlico aurum liberam I et strumentus firmus permaneat Aquiliani Arglia lege supnixsa Facta carta in villa"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0458.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 2
+        },
+        "B\u00fcnden": {
+          "doc_count": 2
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 3
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 2
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 5
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 2
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 2
+    }
+  }
+}
