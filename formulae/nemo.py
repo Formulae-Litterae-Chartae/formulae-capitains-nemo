@@ -30,8 +30,6 @@ class NemoFormulae(Nemo):
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
         ("/lexicon/<objectId>", "r_lexicon", ["GET"]),
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
-        # ("/sub_elements/<coll>/<objectIds>/<reffs>", "r_add_sub_elements", ["GET"]),
-        # ("/sub_elements/<coll>", "r_get_sub_elements", ["GET"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"])
@@ -149,8 +147,6 @@ class NemoFormulae(Nemo):
         """
         blueprint = super(NemoFormulae, self).create_blueprint()
         blueprint.register_error_handler(UnknownCollection, e_unknown_collection_error)
-        # blueprint.register_error_handler(500, self.e_internal_error)
-        # blueprint.register_error_handler(404, self.e_not_found_error)
         return blueprint
 
     def get_locale(self):
@@ -423,7 +419,6 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        # pdf_path = ''
         collection = self.get_collection(objectId)
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
@@ -445,8 +440,6 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
-        # if current_user.project_team is False and str(text.get_creator(lang)) not in self.OPEN_COLLECTIONS:
-        #     pdf_path = self.pdf_folder + objectId.split(':')[-1] + '.pdf'
         return {
             "template": "main::text.html",
             "objectId": objectId,
@@ -499,7 +492,6 @@ class NemoFormulae(Nemo):
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
-        # result_sents = request.args.get('result_sents')
         for i, id in enumerate(ids):
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
@@ -618,22 +610,3 @@ class NemoFormulae(Nemo):
                 xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
-
-    # These were used in a previous version of the app and should be removed.
-    # def r_add_sub_elements(self, coll, objectIds, reffs, lang=None):
-    #     """ A convenience function to return all sub-corpora in all collections
-    #
-    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-    #     """
-    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-    #     texts["template"] = 'main::sub_element_snippet.html'
-    #     return texts
-    #
-    # def r_get_sub_elements(self, coll, objectIds='', reffs='', lang=None):
-    #     """ A convenience function to return all sub-corpora in all collections
-    #
-    #     :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
-    #     """
-    #     texts = self.r_add_text_collection(coll, objectIds, reffs, lang=lang)
-    #     texts["template"] = 'main::sub_element_snippet.html'
-    #     return texts
