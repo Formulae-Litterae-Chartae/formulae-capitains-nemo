@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-11 14:31+0100\n"
+"POT-Creation-Date: 2019-03-11 15:31+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,23 +18,23 @@ msgstr ""
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Please log in to access this page."
 
-#: formulae/nemo.py:80
+#: formulae/nemo.py:78
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:80
+#: formulae/nemo.py:78
 msgid "Deutsch"
 msgstr "German"
 
-#: formulae/nemo.py:80
+#: formulae/nemo.py:78
 msgid "Französisch"
 msgstr "French"
 
-#: formulae/nemo.py:81
+#: formulae/nemo.py:79
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:257 tests/test_routes.py:112 tests/test_routes.py:259
+#: formulae/nemo.py:253 tests/test_routes.py:112 tests/test_routes.py:259
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
@@ -42,7 +42,7 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:259 formulae/nemo.py:319 formulae/nemo.py:372
+#: formulae/nemo.py:255 formulae/nemo.py:315 formulae/nemo.py:368
 #: tests/test_routes.py:114 tests/test_routes.py:133 tests/test_routes.py:136
 #: tests/test_routes.py:147 tests/test_routes.py:149 tests/test_routes.py:261
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
@@ -50,15 +50,15 @@ msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:431
+#: formulae/nemo.py:426
 msgid " wurde nicht gefunden."
 msgstr " was not found."
 
-#: formulae/nemo.py:439
+#: formulae/nemo.py:434
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:518 tests/test_routes.py:156 tests/test_routes.py:158
+#: formulae/nemo.py:510 tests/test_routes.py:156 tests/test_routes.py:158
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -206,14 +206,14 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:193 tests/test_routes.py:1266
+#: formulae/search/Search.py:177 tests/test_routes.py:1266
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr "Wildcard characters (\"*\" and \"?\") are not allowed in lemma searches."
 
 #: formulae/search/forms.py:29 formulae/search/forms.py:45
-#: formulae/search/forms.py:108 formulae/search/routes.py:110
+#: formulae/search/forms.py:108 formulae/search/routes.py:109
 msgid "Suche"
 msgstr "Search"
 
@@ -415,11 +415,11 @@ msgstr ""
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:19 tests/test_routes.py:1402
+#: formulae/search/routes.py:18 tests/test_routes.py:1402
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:136 tests/test_routes.py:507
+#: formulae/search/routes.py:135 tests/test_routes.py:507
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
@@ -1032,8 +1032,8 @@ msgid "Bis"
 msgstr "To"
 
 #: templates/search/advanced_search.html:143
-msgid "Feiertage"
-msgstr "Holidays"
+msgid "Kirchenfeste"
+msgstr "Church Holidays"
 
 #: templates/search/advanced_search.html:158
 msgid "Wochentage"
@@ -2806,4 +2806,7 @@ msgstr ""
 
 #~ msgid "Besondere Suche"
 #~ msgstr ""
+
+#~ msgid "Feiertage"
+#~ msgstr "Holidays"
 
