@@ -1427,7 +1427,6 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = ['ill',
-                    '',
                     'illa curiensis esset distructa et ',
                     'illa qui possit nobis prestare solatium ',
                     'illa testimonia qui de ipso pago ',
@@ -1436,7 +1435,8 @@ class TestES(Formulae_Testing):
                     'illam divisionem vel ordinationem ',
                     'illam indictionem ducatum tibi cedimus ',
                     'ille sicut illi semetipsum hiato terrae ',
-                    'illi et mihi econtra donaretur et ']
+                    'illi et mihi econtra donaretur et ',
+                    'illi licui set habere']
         mock_search.return_value = resp
         test_args.pop('q')
         results = suggest_word_search('ill', **test_args)

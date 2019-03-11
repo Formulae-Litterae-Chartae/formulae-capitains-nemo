@@ -139,7 +139,8 @@ def suggest_word_search(term, **kwargs):
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(term) + 30) + 1, len(r))]).lower())
+            end_index = r.find(' ', len(term) + 30)
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
             """ind = 0
             while w in r[ind:]:
                 i = r.find(w, ind)
