@@ -1,5 +1,5 @@
 {
-  "took": 28,
+  "took": 7,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v6",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -29,7 +29,7 @@
         },
         "highlight": {
           "text": [
-            "FORMULA ANDECAVENSIS 1 IN CHRISTI NOMEN INCIPIUNT DICTATI HIC EST IESTA Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto 4 reges quod fecit misisus ille dies tantus cum iuxta consuetudinem Andicauis 6 ciuetate curia puplica resedere in foro ibiquae uir magnificus illi prosecutor dixit \u201eRogo te uir laudabilis illi defensor illi curator 8 illi magister militum 9 uel reliquam curia puplica utique obticis puplici patere iobeatis qua habeo quid apud acta proseuere debiam\u201c Deffensor principalis simul et omnis curia puplica dixerunt \u201ePatent tibi cotecis puplici prosequere que optas\u201c \u201eObodire illa per mandato suo pagina mihi iniuncxit ut prosecutor exsistere deberit qualiter mandatum quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas tam in paco quam et in palacio seu in qualibet loca accidere faciat Illas porciones meas quem ex alote parentum meorum aei legibus obuenit uel obuenire debit aut iustissime aei est reddebetum \u201aae contra parentis suis uel contra cuiuslibet hominem accidere"
+            "Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto4 4 reges, quod fecit misisus ille, dies tantus, cum iuxta consuetudinem Andicauis6 6 ciuetate curia puplica resedere in foro, ibiquae uir magnificus illi prosecutor dixit: \u201eRogo te, uir laudabilis illi defensor, illi curator8 8, illi magister militum9 9 uel reliquam curia puplica, utique obticis puplici patere iobeatis, qua habeo, quid apud acta proseuere debiam\u201c. Deffensor, principalis simul et omnis curia puplica dixerunt: \u201ePatent tibi cotecis puplici; prosequere que optas\u201c. \u201eObodire illa per mandato suo pagina mihi iniuncxit, ut prosecutor exsistere deberit; qualiter mandatum, quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas, tam in paco quam et in palacio seu in qualibet loca, accidere faciat."
           ]
         },
         "sort": [
@@ -37,7 +37,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v6",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -54,7 +54,7 @@
         },
         "highlight": {
           "text": [
-            "FORMULA ANDECAVENSIS 34 INCIPIT DOTIS Annu IIII </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto 2 reges Ego in Dei nomen illi fatuor me hanc libellum dote scribere deberent quod ita et fecerunt ad dulcissema sponsa mea nomen illa Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa Iam dicta puella sponsa mea illa abiat teniat possediat faciat quod uoluerit Et si quis uero aut ego ipsi uel quislibet opposita persona qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit soledus tantus coactus exsoluat et si quis non obteniat effectum"
+            "FORMULA ANDECAVENSIS 34 INCIPIT DOTIS Annu IIII </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto2 2 reges. Ego in Dei nomen illi fatuor, me hanc libellum dote scribere deberent, quod ita et fecerunt, ad dulcissema sponsa mea nomen illa. Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa. Iam dicta puella, sponsa mea illa, abiat, teniat, possediat, faciat quod uoluerit. Et si quis uero, aut ego ipsi uel quislibet opposita persona, qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit, soledus tantus coactus exsoluat et si quis, non obteniat effectum."
           ]
         },
         "sort": [
@@ -62,18 +62,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
-          "date_string": "769\u2013813, [813]",
+          "date_string": "(769\u2013813 [813]) 04 20",
           "comp_ort": " ",
-          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII confinat da supra in Uia mediana da subtus medium in sancti Iohannis et medium in ipsius Baseli alium agrum super Salubrium modios VIII confinat da subtus in ipsa Uia mediana da supra in Aurelii coloni et da una parte in sancti Martini da alia in sancti Iohannis Et sic statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub regnum domni nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "specific_date": [
@@ -352,21 +352,20 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Easter",
+            "Sunday",
+            "Tuesday",
+            "Thursday",
             "Friday",
             "Wednesday",
-            "Thursday",
-            "Tuesday",
-            "Monday",
+            "Saturday",
             "Lent",
-            "Sunday",
-            "Saturday"
+            "Easter",
+            "Monday"
           ]
         },
         "highlight": {
           "text": [
-            "statuit coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuere voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum advivo ego Baselius vel uxor me Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit posterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub </small><strong>regnum</strong><small>",
-            "</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis sub die quod est XV kl madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui haec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Uuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gauuenti testes Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi"
+            "Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -374,18 +373,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
-          "date_string": "769\u2013800, [813]",
+          "date_string": "(769\u2013800 [813]) 03 31",
           "comp_ort": " ",
-          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta item pratum in Lasine honera VI confinat de supra in Theudoranes dabtus in sancti Petri alium pratum a Sanguinetum honus I confinat da una parte in Canilias da alia in via agrum a Tonbeclo modios II confinat in Scolchengus da alia in sancti Petri alium agrum modios a Tomba maiore confinat da una parte in Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub regnum domni nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi",
+          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "specific_date": [
@@ -592,21 +591,20 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Easter",
+            "Sunday",
+            "Tuesday",
+            "Monday",
             "Friday",
             "Wednesday",
-            "Tuesday",
-            "Thursday",
-            "Monday",
+            "Saturday",
             "Lent",
-            "Sunday",
-            "Saturday"
+            "Easter",
+            "Thursday"
           ]
         },
         "highlight": {
           "text": [
-            "Martini de alia in Lubuciones magistri alium agrum in Tedo modios III confinat da una parte in Pauli de alia in Scolchengo agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa super scripta terrola dum advivo usum fructum mihi reservo post obitum vero meum volo ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae seu patris mei Uiuenti necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small>",
-            "</small><strong>domni</strong><small> nostri Caroli regis Sub die quod est pridie kl aprilis Notavi diem et regnum superscripsi Signum Uictorini et Felicianes uxoris ipsius qui haec fieri rogaverunt testes Signum Uiuenti maiores testes Signum Uigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltarii testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi"
+            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -614,7 +612,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v6",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -648,8 +646,7 @@
         },
         "highlight": {
           "text": [
-            "coram testibus ut ab omni homine defensatum sit et si aliquis exinde minuare voluerit si ipsa terrola defendere non potuerit de suo proprio illi restituat qui eum conpellet ea tamen condicione ut dum ad vivo ego Baselius vel uxor mea Laurencia actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano post obitum vero nostrum quod superius intuli ad prefatum sanctuma locum pro remedium anime nostrae sit in perpetuo Et si quod absit aliter reiudicare voluero inanis sit postterior factus meus sed cartula ista maneat inconvulsa Et si quis quod fieri non credimus si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit sit scumunicatus ab ipsa loca sancta et solvat iudici qui eo tempore fuerit dubla pecunia et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa qui omnium cartarum adcommodat firmitatem Facta cartula in civitate Curia sub </small><strong>regnum</strong><small>",
-            "</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis sub die quod est XV kalendas madii sub presenciarum bonorum virorum testium qui ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum superscripsi Signum Baselii et filii sui Rofini qui hec fieri rogaverunt testes Signum Seffonis filii Prestanti testes Signum Lobicini presbiteri testes Signum Seffonis fratris Remedii testes Signum Vuiliarentis testes Signum Crespionis testes Signum Donati testes Signum Gavuenti testes Ego Orsacius pro misericordia Dei vocatus presbiter ad vice Pettoms presbiteri scripsi et suscripsi"
+            "Facta cartula in civitate Curia sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die quod est XV kalendas madii sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt. Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui hec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Vuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gavuenti testes. Ego Orsacius pro misericordia Dei vocatus presbiter ad vice Pettoms presbiteri scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -657,7 +654,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v6",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -666,7 +663,7 @@
           "lemmas": "text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
           "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
-          "date_string": "768\u2013800, [814]",
+          "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -691,8 +688,7 @@
         },
         "highlight": {
           "text": [
-            "Martini de alia in Lubuciones magistri Alium agrum in Tedo modios III confinat da una parte in Pauli de a lia in Scolchengo Agrum in Cercene modios II confinat da una parte in Bannentes da alia in Santuli et de ipsa superscripta terrola dum ad vivo usumfructum mihi reservo post obitum vero meum volo ut revertat ad superscripta ecclcsia sancti Helarii pro remedium anime meae seu patris mei Viventi necnon et matris mei Alpinanis et volo ut in perpetuo ibi permaniat Et si quis quod fieri non credimus ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis in currat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quocl repetit nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa qui omnium cartarum accomodat firmitate Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small>",
-            "</small><strong>domni</strong><small> nostri Caroli regis sub die quod est pridie kalendas Aprilis Notavi diem et regnum superscripsi Signum Victorini et Felicitanes uxoris ipsius qui haec fieri rogaverunt testes Signum Viventi maiores testes Signum Vigili scavenzii testes Signum Massones testes Signum Orsacii testes Signum Paulini saltari testes Signum Exuberii testes Ego Orsacius licet indignus presbiter a vice Agustani diaconis scripsi et suscripsi"
+            "Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis sub die quod est pridie kalendas Aprilis. Notavi diem et regnum superscripsi. Signum Victorini et Felicitanes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Viventi maiores testes. Signum Vigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltari testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Agustani diaconis scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -700,7 +696,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v6",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -732,13 +728,13 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
           "text": [
-            "In Christi nomine Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nistri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum que mihi advenit in fundo Quaravedes que ocupatur a vicu confinat in Auderamni et de alia parte in Baseli terra ex anno et de pommifera tercia parte Precium in contra ipsu cortinum selique XX quod precium venditores ap emtore coram testibus de presente acciperunt Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum Et si quis contra hanc cartam recausare voluerit solvat dubblas res que in carta continet et iudici puvlico aurum libras I et strumentus firmus permaneat Aquiliani Argliana lege supnixsa Facta carta in villa Quaravedes"
+            "Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nistri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium, qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes. Constat eum vendere et vendiderunt sup legitimum iure strumentorum: vendo ego Petrus tibi Auderamno cortinum, que mihi advenit in fundo Quaravedes, que ocupatur ... ... a vicu, confinat in Auderamni et de alia parte in Baseli terra ex anno et de pommifera tercia parte. Precium in contra ipsu cortinum selique XX, quod precium venditores ap emtore coram testibus de presente acciperunt. Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum. Et si quis contra hanc cartam recausare voluerit, solvat dubblas res, que in carta continet et iudici puvlico aurum libras I et strumentus firmus permaneat Aquiliani Argliana lege supnixsa."
           ]
         },
         "sort": [
@@ -746,7 +742,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v6",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -777,8 +773,7 @@
         },
         "highlight": {
           "text": [
-            "pascuis silvis aquis aquarumve decursibus adpendiciis vel iacentiis mobilibus et inmovilibus quicquid dici aut nominare potest totum et integrum ad supradicto monasterio sancti Gallones vel rectores ipsius trado atque transfundo perpetualiter ad possetendum ut quiquid exinte facere voluerent liberam in omnibus habeant potestatem faciendi Siquis vero quod fieri non credo si ego ipse aut aliquis de heredibus meis aut ulla opposita persona que contra hanc donationem quam ego pro salute anime meae bona voluntate fieri rogavi venire aut eam infrangere voluerit inprimis si se ementare noluerit iram Dei omnium sanctorum incurrat et penas inferni experire pertimiscat et ab omni eclesia excommunes abpareat et insuper sociante fisco auri liberas quinque argenti pondo dece coactus exsolvat et quod repetit nihil valeat vinticare et haec donatio a me facta omni tempore firma permaneat stipulatione subnixa Actum in ipso monastirio sancti Gallones sub die quod fecet menses acustus dies XX anno nono </small><strong>regnum</strong><small>",
-            "</small><strong>domni</strong><small> nostri Pippini regis Signum \u2020 Aimonis autores qui hanc donationem fieri rogavit \u2020 sig \u2020 Folgerati test \u2020 sig Vanzones test sig Arnoladi test \u2020 sig Salucho test \u2020 sig Cunzones \u2020 sig Tincolti sig Nangheri sig Rotteri sig Deota \u2020 Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi"
+            "Actum in ipso monastirio sancti Gallones, sub die quod fecet menses acustus dies XX, anno nono </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Pippini regis. Signum \u2020 Aimonis autores, qui hanc donationem fieri rogavit. \u2020 sig. \u2020 Folgerati test. \u2020 sig. Vanzones test. sig. Arnoladi test. \u2020 sig. Salucho test. \u2020 sig. Cunzones. \u2020 sig. Tincolti. sig. Nangheri. sig. Rotteri. sig. Deota \u2020 Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi."
           ]
         },
         "sort": [
@@ -786,7 +781,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v6",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -795,7 +790,7 @@
           "lemmas": "text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
           "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
-          "date_string": "858, (865) 02 12",
+          "date_string": "858 (865) 02 12",
           "comp_ort": "Grabs",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -818,13 +813,13 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
           "text": [
-            "In Christi nomine Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum que mihi advenit in fundo Quaravedes que ocupatur iuso a vicum Confinit in Auderamni et de alia parte in Baseli terra ex anno et de pomifera tercia parte Precium in contra ipsu cortinum seliquae XX quod precium venditores ap emtore coram testibus de presente acciperunt Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum Et si quis contra hanc cartam recausare voluerit solvat dubblas res que in carta continet et iudici puvlico aurum liberam I et strumentus firmus permaneat Aquiliani Arglia lege supnixsa Facta carta in villa"
+            "Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium, qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum, ipsos presente mihique dictante et manus suas proprias subter firmantes. Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum, que mihi advenit in fundo Quaravedes, que ocupatur iuso a vicum. Confinit in Auderamni et de alia parte in Baseli terra ex anno et de pomifera tercia parte. Precium in contra ipsu cortinum seliquae XX, quod precium venditores ap emtore coram testibus de presente acciperunt. Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum. Et si quis contra hanc cartam recausare voluerit, solvat dubblas res, que in carta continet et iudici puvlico aurum liberam I, et strumentus firmus permaneat Aquiliani Arglia lege supnixsa."
           ]
         },
         "sort": [

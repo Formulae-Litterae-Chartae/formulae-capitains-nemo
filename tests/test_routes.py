@@ -1201,15 +1201,15 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['omnium cartarum adcommodat firmitatem Facta cartula in civitate '
-                            'Curia sub regnum domni nostri Charoli gloriosissimi regis sub '
-                            'die quod est',
-                            'ab eo rogiti venerunt vel signa fecerunt Notavi diem et regnum '
-                            'superscripsi Signum Baselii et filii sui Rofini qui haec']},
-                 {'sents': ['Facta donacio in loco Fortunes sub presencia virorum testium sub '
-                            'regnum domni nostri Caroli regis Sub die quod est pridie',
-                            'Sub die quod est pridie kl aprilis Notavi diem et regnum '
-                            'superscripsi Signum Uictorini et Felicianes uxoris ipsius qui '
+        sents = [{'sents': ['omnium cartarum adcommodat firmitatem. Facta cartula in civitate '
+                            'Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub '
+                            'die, quod est',
+                            'ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum '
+                            'superscripsi. Signum Baselii et filii sui Rofini, qui haec']},
+                 {'sents': ['Facta donacio in loco Fortunes, sub presencia virorum testium sub '
+                            'regnum domni nostri Caroli regis, Sub die, quod est pridie',
+                            'Sub die, quod est pridie kl. aprilis. Notavi diem et regnum '
+                            'superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui '
                             'haec']}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -1236,13 +1236,13 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['Archaciani legis stipulacionis subnixa qui omnium cartarum '
-                            'adcommodat firmitatem Facta cartula in civitate Curia sub '
-                            'regnum domni nostri Charoli gloriosissimi regis sub die quod '
-                            'est XV kl madii sub presenciarum']},
-                 {'sents': ['qui omnium cartarum accomodat firmitate Facta donacio in loco '
-                            'Fortunes sub presencia virorum testium sub regnum domni nostri '
-                            'Caroli regis Sub die quod est pridie kl aprilis Notavi diem '
+        sents = [{'sents': ['Archaciani legis stipulacionis subnixa, qui omnium cartarum '
+                            'adcommodat firmitatem. Facta cartula in civitate Curia, sub '
+                            'regnum domni nostri Charoli gloriosissimi regis, sub die, quod '
+                            'est XV kl. madii, sub presenciarum']},
+                 {'sents': ['qui omnium cartarum accomodat firmitate. Facta donacio in loco '
+                            'Fortunes, sub presencia virorum testium sub regnum domni nostri '
+                            'Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem '
                             'et']}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -1429,14 +1429,14 @@ class TestES(Formulae_Testing):
         expected = ['ill',
                     '',
                     'illa curiensis esset distructa et ',
-                    'illa testimonia qui de ipso pago erant ',
-                    'illam audire desiderabilem euge serve ',
-                    'illam beatissimam visionem domini ',
+                    'illa qui possit nobis prestare solatium ',
+                    'illa testimonia qui de ipso pago ',
+                    'illam audire desiderabilem „ euge ',
+                    'illam divisionem quam bonae memoriae ',
                     'illam divisionem vel ordinationem ',
-                    'illi et mihi econtra donaretur et ',
-                    'illi semetipsum hiato terrae demergat ',
-                    'illius aram si vero eveniat episcopii ',
-                    'illius quanta ac qualia ibidem latent ']
+                    'illam indictionem ducatum tibi cedimus ',
+                    'ille sicut illi semetipsum hiato terrae ',
+                    'illi et mihi econtra donaretur et ']
         mock_search.return_value = resp
         test_args.pop('q')
         results = suggest_word_search('ill', **test_args)

@@ -1,5 +1,5 @@
 {
-  "took": 18,
+  "took": 7,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,14 +12,14 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 24",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 24",
           "urn": "urn:cts:formulae:freising.bitterauf0024.lat001",
           "date_string": "a) 765 11 05b) 765-767c) 767 10 01",
           "comp_ort": " ",
@@ -61,14 +61,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 50",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 50",
           "urn": "urn:cts:formulae:freising.bitterauf0050.lat001",
           "date_string": "772 10 07",
           "comp_ort": "Isen",
@@ -95,14 +95,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 85",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 85",
           "urn": "urn:cts:formulae:freising.bitterauf0085.lat001",
           "date_string": "777 10 05",
           "comp_ort": " ",
@@ -129,14 +129,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 120",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 120",
           "urn": "urn:cts:formulae:freising.bitterauf0120.lat001",
           "date_string": "788 10 01",
           "comp_ort": "Freising",
@@ -163,14 +163,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 177",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 177",
           "urn": "urn:cts:formulae:freising.bitterauf0177.lat001",
           "date_string": "799 10 28",
           "comp_ort": " ",
@@ -197,7 +197,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v4",
+        "_index": "schaeftlarn_v6",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -206,7 +206,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "date_string": "(ca. 790 \u2013 ca. 800) 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -283,13 +283,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Wednesday",
-            "Friday",
-            "Thursday",
+            "Sunday",
             "Tuesday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v4",
+        "_index": "schaeftlarn_v6",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -383,13 +383,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Wednesday",
-            "Friday",
-            "Thursday",
+            "Sunday",
             "Tuesday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v4",
+        "_index": "schaeftlarn_v6",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -483,13 +483,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Wednesday",
-            "Friday",
-            "Thursday",
+            "Sunday",
             "Tuesday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v6",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -531,7 +531,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v6",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,

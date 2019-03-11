@@ -1,5 +1,5 @@
 {
-  "took": 9,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,18 +12,18 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "text": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
-          "date_string": "769\u2013800, [814]",
+          "date_string": "769\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -49,18 +49,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "text": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
-          "date_string": "769\u2013800, [814]",
+          "date_string": "769\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "autocomplete": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -86,18 +86,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "text": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
-          "date_string": "768\u2013800, [814]",
+          "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "autocomplete": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -123,18 +123,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat de subtus in \u2013\u2013",
+          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
-          "date_string": "768\u2013800, [814]",
+          "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat de subtus in \u2013\u2013",
+          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -160,18 +160,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices que EdaIecus et UigeIius iurarent debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia +Signum Teudones iudices testes +Signum Uieli iudices testes +Signum Aureliani scultaizi testes +Signum AmaIones testes +Signum Solvani testes +Signum Immones testes +Signum Costanti qui anc iudicatum fieri rogavit testes Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi",
+          "text": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
           "date_string": "ca. 791\u2013806",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices que EdaIecus et UigeIius iurarent debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia +Signum Teudones iudices testes +Signum Uieli iudices testes +Signum Aureliani scultaizi testes +Signum AmaIones testes +Signum Solvani testes +Signum Immones testes +Signum Costanti qui anc iudicatum fieri rogavit testes Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi",
+          "autocomplete": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -191,14 +191,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 109",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
           "date_string": "a) 783-788b) nach 792",
           "comp_ort": " ",
@@ -228,14 +228,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 117",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 117",
           "urn": "urn:cts:formulae:freising.bitterauf0117.lat001",
           "date_string": "783-802",
           "comp_ort": " ",
@@ -259,14 +259,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0135.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 135",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 135",
           "urn": "urn:cts:formulae:freising.bitterauf0135.lat001",
           "date_string": "790-803 07 20",
           "comp_ort": "Isen",
@@ -290,14 +290,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0136.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 136",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 136",
           "urn": "urn:cts:formulae:freising.bitterauf0136.lat001",
           "date_string": "790-807",
           "comp_ort": " ",
@@ -321,14 +321,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0137.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 137",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 137",
           "urn": "urn:cts:formulae:freising.bitterauf0137.lat001",
           "date_string": "790-807",
           "comp_ort": " ",

@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,18 +12,18 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
         "_source": {
-          "text": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem Hunc nostrum negociatorem Italiae mercimonia ferentem his litteris tuae paternitatis commendo protectioni ut per vias vestrae patriae tutus eat et redeat et in montium claustris a vestris non teneatus tolneariis constrictus sed per latitudinem caritatis latam habeat eundi et redeundi semitam Iubeas obsecro orare pro anima Ioseppi discipuli mei Floreas et proficias de virtute in virtutem donec videas laetus et gaudens deum tuum in Sion Memorque mei sis sanctissime pater obsecro",
+          "text": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem. Hunc nostrum negociatorem Italiae mercimonia ferentem, his litteris tuae paternitatis commendo protectioni, ut per vias vestrae patriae tutus eat et redeat; et in montium claustris a vestris non teneatus tolneariis constrictus, sed per latitudinem caritatis latam habeat eundi et redeundi semitam. Iubeas, obsecro, orare pro anima Ioseppi discipuli mei. \u201e Floreas et proficias de virtute in virtutem, donec videas laetus et gaudens deum tuum in Sion\u201c. Memorque mei sis, sanctissime pater, obsecro.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 21",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
           "date_string": "790-796",
           "comp_ort": " ",
-          "autocomplete": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem Hunc nostrum negociatorem Italiae mercimonia ferentem his litteris tuae paternitatis commendo protectioni ut per vias vestrae patriae tutus eat et redeat et in montium claustris a vestris non teneatus tolneariis constrictus sed per latitudinem caritatis latam habeat eundi et redeundi semitam Iubeas obsecro orare pro anima Ioseppi discipuli mei Floreas et proficias de virtute in virtutem donec videas laetus et gaudens deum tuum in Sion Memorque mei sis sanctissime pater obsecro",
+          "autocomplete": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem. Hunc nostrum negociatorem Italiae mercimonia ferentem, his litteris tuae paternitatis commendo protectioni, ut per vias vestrae patriae tutus eat et redeat; et in montium claustris a vestris non teneatus tolneariis constrictus, sed per latitudinem caritatis latam habeat eundi et redeundi semitam. Iubeas, obsecro, orare pro anima Ioseppi discipuli mei. \u201e Floreas et proficias de virtute in virtutem, donec videas laetus et gaudens deum tuum in Sion\u201c. Memorque mei sis, sanctissime pater, obsecro.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -43,18 +43,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
         "_source": {
-          "text": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem Acceptis caritatis vestrae muneribus multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis sperans me misericordia divina participem esse per vestras sanctissimas orationes Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis ubi deus tantummodo considerat et remunerat Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate ut cum gaudio ante conspectum summi regis venire digni efficiamini et vocem illam audire desiderabilem Euge serve bone et fidelis intra in gaudium domini tui Nunc tempus est laborandi tunc quiescendi nunc promerendi tunc remunerandi Fac ut sis ut tibi veniat quod vis Dilige diligentem te quatenus ad beatissimam illius sessionem pervenire merearis et dicere Sicut audivimus ita et vidimus in civitate dei nostri in qua est tota felicitas et nulla perturbatio summa requies et sempiterna beatitudo Vestram omnipotens deus sanctitatem in omni bono florere faciat venerande pater",
+          "text": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis caritatis vestrae muneribus, multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis; sperans me misericordia divina participem esse per vestras sanctissimas orationes. Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis, ubi deus tantummodo considerat et remunerat. Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate, ut cum gaudio ante conspectum summi regis venire digni efficiamini, et vocem illam audire desiderabilem: \u201e Euge, serve bone et fidelis, intra in gaudium domini tui\u201c. Nunc tempus est laborandi, tunc quiescendi; nunc promerendi, tunc remunerandi. Fac ut sis, ut tibi veniat quod vis. Dilige diligentem te, quatenus ad beatissimam illius sessionem pervenire merearis et dicere: \u201e Sicut audivimus, ita et vidimus in civitate dei nostri\u201c, in qua est tota felicitas et nulla perturbatio, summa requies et sempiterna beatitudo. Vestram omnipotens deus sanctitatem in omni bono florere faciat, venerande pater.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 22",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
           "date_string": "792\u2013796 (?)",
           "comp_ort": " ",
-          "autocomplete": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem Acceptis caritatis vestrae muneribus multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis sperans me misericordia divina participem esse per vestras sanctissimas orationes Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis ubi deus tantummodo considerat et remunerat Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate ut cum gaudio ante conspectum summi regis venire digni efficiamini et vocem illam audire desiderabilem Euge serve bone et fidelis intra in gaudium domini tui Nunc tempus est laborandi tunc quiescendi nunc promerendi tunc remunerandi Fac ut sis ut tibi veniat quod vis Dilige diligentem te quatenus ad beatissimam illius sessionem pervenire merearis et dicere Sicut audivimus ita et vidimus in civitate dei nostri in qua est tota felicitas et nulla perturbatio summa requies et sempiterna beatitudo Vestram omnipotens deus sanctitatem in omni bono florere faciat venerande pater",
+          "autocomplete": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis caritatis vestrae muneribus, multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis; sperans me misericordia divina participem esse per vestras sanctissimas orationes. Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis, ubi deus tantummodo considerat et remunerat. Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate, ut cum gaudio ante conspectum summi regis venire digni efficiamini, et vocem illam audire desiderabilem: \u201e Euge, serve bone et fidelis, intra in gaudium domini tui\u201c. Nunc tempus est laborandi, tunc quiescendi; nunc promerendi, tunc remunerandi. Fac ut sis, ut tibi veniat quod vis. Dilige diligentem te, quatenus ad beatissimam illius sessionem pervenire merearis et dicere: \u201e Sicut audivimus, ita et vidimus in civitate dei nostri\u201c, in qua est tota felicitas et nulla perturbatio, summa requies et sempiterna beatitudo. Vestram omnipotens deus sanctitatem in omni bono florere faciat, venerande pater.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -74,18 +74,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "text": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
-          "date_string": "769\u2013800, [814]",
+          "date_string": "769\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae hoc est vinea cui vocabulum est ad Oraturium ex integra confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori Et si quis eam exinde alienare voluerit anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum sed cartula ista maneat inconvulsa Signum Ouilionis et coniuge sue Theoderia qui hanc cartula fieri rogaverunt testes Signum Pauliniani testes Signum Iuliani de Tremune testes Signum Claudiani clerici de vico Uaze testes Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi",
+          "autocomplete": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -111,18 +111,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "text": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
-          "date_string": "769\u2013800, [814]",
+          "date_string": "769\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare",
+          "autocomplete": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -148,18 +148,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "text": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
-          "date_string": "768\u2013800, [814]",
+          "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione confinat da una parte Uigilii da alia in Uictoriani coloni da supra in Massanesco Signum Daumerii a iudicis qui hanc cartam ob mercedis sue augmentum fieri petiit Signum Urseceni nepotis Daumerii testes Signum Agarici iudices testes Signum Uigelii de vico Tremune testes Signum Gisonis testes Signum Prestancii testes Signum Ingenni testes Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi",
+          "autocomplete": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -185,18 +185,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat de subtus in \u2013\u2013",
+          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
-          "date_string": "768\u2013800, [814]",
+          "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat de subtus in \u2013\u2013",
+          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -222,18 +222,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
         "_source": {
-          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem Memor dilectionis vestrae et foederatae olim amicitiae inter nos has tuae reverentiae optime frater litterulas dirigere curavi ob recordationem prioris pacti quod inter nos pepigimus obsecrans per summi regna tonantis uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris etiam a servis dei intercessiones pro me fieri iubeatis qui nunc in monasteriis per vestrae diocesis latitudinem Nam ego plurimis huius saeculi iaculis vulneratus diem trepido animo expecto quo duci ad iudicium vocer ignorans quid habeam respondere iudici meo Iesu Christo qui mihi tanta tribuit in hoc saeculo bona et ego quasi his omnibus ingratus plurima feci quae non debui Tu vero sanctissime pater secundum caritatem quam habes in membra Christi et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris ut misericordem inveniam dominum deum meum Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis Dominus Iesus qui ait Per me si quis intraverit salvabitur ingredietur et egredietur custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum sanctissime pater",
+          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201e Per me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
           "date_string": "801-803",
           "comp_ort": " ",
-          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem Memor dilectionis vestrae et foederatae olim amicitiae inter nos has tuae reverentiae optime frater litterulas dirigere curavi ob recordationem prioris pacti quod inter nos pepigimus obsecrans per summi regna tonantis uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris etiam a servis dei intercessiones pro me fieri iubeatis qui nunc in monasteriis per vestrae diocesis latitudinem Nam ego plurimis huius saeculi iaculis vulneratus diem trepido animo expecto quo duci ad iudicium vocer ignorans quid habeam respondere iudici meo Iesu Christo qui mihi tanta tribuit in hoc saeculo bona et ego quasi his omnibus ingratus plurima feci quae non debui Tu vero sanctissime pater secundum caritatem quam habes in membra Christi et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris ut misericordem inveniam dominum deum meum Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis Dominus Iesus qui ait Per me si quis intraverit salvabitur ingredietur et egredietur custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum sanctissime pater",
+          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201e Per me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -253,18 +253,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
         "_source": {
-          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem Acceptis amabiliter venerandae dilectionis vestrae litteris quae me multo gaudio laetificaverunt de prosperitate dignitatis vestrae seu de recordatione nominis nostri Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae et quanto me plus peccatorem agnosco tanto magis me indigere sanctas orationes vestras novi Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor nam et promissionem verissimam ipsius veritatis habemus quae ait Ubi sunt duo vel tres congregati in nomine meo ibi sum in medio eorum Congregatio nostra est in spiritu caritatis non in corporis praesentia et cui omnia praesto sunt non latet eum caritatis nostrae puritas sine qua nil placet deo nec munus ad aram Hanc ergo sequamur intimo cordis affectu ut ad illum pervenire mereamur qui est vera caritas et indeficiens beatitudo et beata aeternitas ut labor non sit inanis sed ad perfectae retributionis perveniat gloriam Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur ubi est lumen aeternum et quies perpetuae pacis laetissima Ad huius beatitudinis pacem omnes ad te venientes vel etiam pertinentes exemplis optimae vitae trahere non desistas nec admonitionibus dulcissimis corda arentia inrigare segnis esto ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei Sint verba tua sale sapientiae condita ut te verissime dicatur Ecce sacerdos magnus qui in diebus suis placuit deo qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur et audire vocem desiderabilem Euge serve bone et fidelis intra in gaudium domini dei tui Properat enim dies ultimus et tacito pede fessa senectus ingreditur cubile nostrum stat ostium qui pulsat si leto animo adventum ipsius suscipiamus Dies sunt pauci laboris nostri sed bene laborantem sequitur merces sine numero dierum eius ordinatione qui ordinat diem aeternum secundum merita singulorum in cuius domo mansiones multae sunt sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae ubi sancti post huius vitae sudorem aeterna pace fruuntur qui nostrum de supernis sedibus expectant agonem desiderantes ex nobis augeri numerum suum quo tu properans beatissime pater meque precibus tecum rapere secundum fidelissimas promissiones tuas satage ut corona gloriae tuae mihi proficiat Christo donante in perpetuam miserationis dei salutem Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat dilectissime et sanctissime pater",
+          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201e Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201e Ecce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201e Euge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
           "date_string": "801-804",
           "comp_ort": " ",
-          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem Acceptis amabiliter venerandae dilectionis vestrae litteris quae me multo gaudio laetificaverunt de prosperitate dignitatis vestrae seu de recordatione nominis nostri Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae et quanto me plus peccatorem agnosco tanto magis me indigere sanctas orationes vestras novi Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor nam et promissionem verissimam ipsius veritatis habemus quae ait Ubi sunt duo vel tres congregati in nomine meo ibi sum in medio eorum Congregatio nostra est in spiritu caritatis non in corporis praesentia et cui omnia praesto sunt non latet eum caritatis nostrae puritas sine qua nil placet deo nec munus ad aram Hanc ergo sequamur intimo cordis affectu ut ad illum pervenire mereamur qui est vera caritas et indeficiens beatitudo et beata aeternitas ut labor non sit inanis sed ad perfectae retributionis perveniat gloriam Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur ubi est lumen aeternum et quies perpetuae pacis laetissima Ad huius beatitudinis pacem omnes ad te venientes vel etiam pertinentes exemplis optimae vitae trahere non desistas nec admonitionibus dulcissimis corda arentia inrigare segnis esto ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei Sint verba tua sale sapientiae condita ut te verissime dicatur Ecce sacerdos magnus qui in diebus suis placuit deo qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur et audire vocem desiderabilem Euge serve bone et fidelis intra in gaudium domini dei tui Properat enim dies ultimus et tacito pede fessa senectus ingreditur cubile nostrum stat ostium qui pulsat si leto animo adventum ipsius suscipiamus Dies sunt pauci laboris nostri sed bene laborantem sequitur merces sine numero dierum eius ordinatione qui ordinat diem aeternum secundum merita singulorum in cuius domo mansiones multae sunt sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae ubi sancti post huius vitae sudorem aeterna pace fruuntur qui nostrum de supernis sedibus expectant agonem desiderantes ex nobis augeri numerum suum quo tu properans beatissime pater meque precibus tecum rapere secundum fidelissimas promissiones tuas satage ut corona gloriae tuae mihi proficiat Christo donante in perpetuam miserationis dei salutem Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat dilectissime et sanctissime pater",
+          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201e Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201e Ecce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201e Euge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -284,18 +284,18 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v6",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices que EdaIecus et UigeIius iurarent debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia +Signum Teudones iudices testes +Signum Uieli iudices testes +Signum Aureliani scultaizi testes +Signum AmaIones testes +Signum Solvani testes +Signum Immones testes +Signum Costanti qui anc iudicatum fieri rogavit testes Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi",
+          "text": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
           "date_string": "ca. 791\u2013806",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices que EdaIecus et UigeIius iurarent debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia +Signum Teudones iudices testes +Signum Uieli iudices testes +Signum Aureliani scultaizi testes +Signum AmaIones testes +Signum Solvani testes +Signum Immones testes +Signum Costanti qui anc iudicatum fieri rogavit testes Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi",
+          "autocomplete": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -315,14 +315,14 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "Nr. 109",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
           "date_string": "a) 783-788b) nach 792",
           "comp_ort": " ",

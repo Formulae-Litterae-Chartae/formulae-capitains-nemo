@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -21,7 +21,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
           "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -52,7 +52,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
           "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -83,7 +83,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
           "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -105,7 +105,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -114,7 +114,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
           "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -136,7 +136,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -145,7 +145,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 46",
           "urn": "urn:cts:formulae:mondsee.rath0046.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -167,7 +167,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -176,7 +176,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
           "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -198,7 +198,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -207,7 +207,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 51",
           "urn": "urn:cts:formulae:mondsee.rath0051.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -238,7 +238,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
           "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
@@ -260,7 +260,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -291,7 +291,7 @@
         ]
       },
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v6",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -300,7 +300,7 @@
           "lemmas": "text",
           "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 81",
           "urn": "urn:cts:formulae:mondsee.rath0081.lat001",
-          "date_string": "748-829?",
+          "date_string": "(748-829?)",
           "comp_ort": "Niederfraunleiten",
           "autocomplete": "text",
           "autocomplete_lemmas": " ",
