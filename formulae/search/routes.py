@@ -1,6 +1,5 @@
 from flask import redirect, request, url_for, g, flash, current_app, session
 from flask_babel import _
-from flask_login import login_required
 from math import ceil
 from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
 from .forms import AdvancedSearchForm

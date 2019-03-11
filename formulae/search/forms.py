@@ -95,14 +95,14 @@ class AdvancedSearchForm(SearchForm):
                                    default=0)
     exclusive_date_range = BooleanField(_l('Exklusiv'))
     composition_place = StringField(_l('Ausstellungsort'))
-    special_days = SelectMultipleField(_l('Besondere Suche'), choices=[('Easter', _l('Ostern')),
-                                                                        ('Lent', _l('Fastenzeit')),
-                                                                        ('Pentecost', _l('Pfingsten')),
-                                                                        ('Sunday', _l('So')),
-                                                                        ('Monday', _l('Mo')),
-                                                                        ('Tuesday', _l('Di')),
-                                                                        ('Wednesday', _l('Mi')),
-                                                                        ('Thursday', _l('Do')),
-                                                                        ('Friday', _l('Fr')),
-                                                                        ('Saturday', _l('Sa'))])
+    special_days = SelectMultipleField(_l('Nach bestimmten Tagen suchen'), choices=[('Easter', _l('Ostern')),
+                                                                                    ('Lent', _l('Fastenzeit')),
+                                                                                    ('Pentecost', _l('Pfingsten')),
+                                                                                    ('Sunday', _l('So')),
+                                                                                    ('Monday', _l('Mo')),
+                                                                                    ('Tuesday', _l('Di')),
+                                                                                    ('Wednesday', _l('Mi')),
+                                                                                    ('Thursday', _l('Do')),
+                                                                                    ('Friday', _l('Fr')),
+                                                                                    ('Saturday', _l('Sa'))])
     submit = SubmitField(_l('Suche'))
