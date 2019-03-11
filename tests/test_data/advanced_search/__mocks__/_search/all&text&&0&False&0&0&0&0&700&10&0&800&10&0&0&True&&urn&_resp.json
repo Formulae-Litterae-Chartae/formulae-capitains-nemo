@@ -1,0 +1,678 @@
+{
+  "took": 7,
+  "timed_out": false,
+  "_shards": {
+    "total": 14,
+    "successful": 14,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 20,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 24",
+          "urn": "urn:cts:formulae:freising.bitterauf0024.lat001",
+          "date_string": "a) 765 11 05b) 765-767c) 767 10 01",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0765",
+              "lte": "0768"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 765,
+              "month": 11,
+              "day": 5
+            },
+            {
+              "year": 767,
+              "month": 10,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0765",
+            "0768",
+            "0765-11-05",
+            "0767-10-01"
+          ],
+          "min_date": "0765",
+          "days": [
+            "Tuesday",
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0024.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 50",
+          "urn": "urn:cts:formulae:freising.bitterauf0050.lat001",
+          "date_string": "772 10 07",
+          "comp_ort": "Isen",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Isen",
+          "specific_date": [
+            {
+              "year": 772,
+              "month": 10,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0772-10-07"
+          ],
+          "min_date": "0772-10-07",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0050.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 85",
+          "urn": "urn:cts:formulae:freising.bitterauf0085.lat001",
+          "date_string": "777 10 05",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 777,
+              "month": 10,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0777-10-05"
+          ],
+          "min_date": "0777-10-05",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0085.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 120",
+          "urn": "urn:cts:formulae:freising.bitterauf0120.lat001",
+          "date_string": "788 10 01",
+          "comp_ort": "Freising",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Freising",
+          "specific_date": [
+            {
+              "year": 788,
+              "month": 10,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0788-10-01"
+          ],
+          "min_date": "0788-10-01",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0120.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 177",
+          "urn": "urn:cts:formulae:freising.bitterauf0177.lat001",
+          "date_string": "799 10 28",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 799,
+              "month": 10,
+              "day": 28
+            }
+          ],
+          "all_dates": [
+            "0799-10-28"
+          ],
+          "min_date": "0799-10-28",
+          "days": [
+            "Monday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0177.lat001"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v6",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
+          "date_string": "(ca. 790 \u2013 ca. 800) 10 09",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "all_dates": [
+            "0790-10-09",
+            "0791-10-09",
+            "0792-10-09",
+            "0793-10-09",
+            "0794-10-09",
+            "0795-10-09",
+            "0796-10-09",
+            "0797-10-09",
+            "0798-10-09",
+            "0799-10-09",
+            "0800-10-09"
+          ],
+          "min_date": "0790-10-09",
+          "days": [
+            "Sunday",
+            "Tuesday",
+            "Monday",
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v6",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "all_dates": [
+            "0790-10-09",
+            "0791-10-09",
+            "0792-10-09",
+            "0793-10-09",
+            "0794-10-09",
+            "0795-10-09",
+            "0796-10-09",
+            "0797-10-09",
+            "0798-10-09",
+            "0799-10-09",
+            "0800-10-09"
+          ],
+          "min_date": "0790-10-09",
+          "days": [
+            "Sunday",
+            "Tuesday",
+            "Monday",
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v6",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
+          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": " ",
+          "specific_date": [
+            {
+              "year": 790,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 791,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 792,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 793,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 794,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 795,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 796,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 797,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 798,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 799,
+              "month": 10,
+              "day": 9
+            },
+            {
+              "year": 800,
+              "month": 10,
+              "day": 9
+            }
+          ],
+          "all_dates": [
+            "0790-10-09",
+            "0791-10-09",
+            "0792-10-09",
+            "0793-10-09",
+            "0794-10-09",
+            "0795-10-09",
+            "0796-10-09",
+            "0797-10-09",
+            "0798-10-09",
+            "0799-10-09",
+            "0800-10-09"
+          ],
+          "min_date": "0790-10-09",
+          "days": [
+            "Sunday",
+            "Tuesday",
+            "Monday",
+            "Friday",
+            "Wednesday",
+            "Saturday",
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003"
+        ]
+      },
+      {
+        "_index": "stgallen_v6",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 19",
+          "urn": "urn:cts:formulae:stgallen.wartmann0019.lat001",
+          "date_string": "754 10 27",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "specific_date": [
+            {
+              "year": 754,
+              "month": 10,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0754-10-27"
+          ],
+          "min_date": "0754-10-27",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0019.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v6",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 23",
+          "urn": "urn:cts:formulae:stgallen.wartmann0023.lat001",
+          "date_string": "758 10 27",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "text",
+          "autocomplete_lemmas": " ",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "specific_date": [
+            {
+              "year": 758,
+              "month": 10,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0758-10-27"
+          ],
+          "min_date": "0758-10-27",
+          "days": [
+            "Friday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0023.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 5
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 3
+        },
+        "St. Gallen": {
+          "doc_count": 9
+        },
+        "Werden": {
+          "doc_count": 3
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 17
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

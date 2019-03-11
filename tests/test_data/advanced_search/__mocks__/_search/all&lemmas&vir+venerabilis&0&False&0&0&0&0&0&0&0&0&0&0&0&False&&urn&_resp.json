@@ -1,0 +1,225 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 14,
+    "successful": 14,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 5,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis in christus nomen incipio dictatus hic sum gero annus quartus regnum dominus noster childebertus rex qui facio mensis ille dies tantus cum iuxta consuetudo andecavis civitas curia publicus resedeo in forum ibi vir magnificus ille prosecutor dico rogo tu vir laudabilis ille defensor ille curator magister miles vel reliquus curia publicus utique obtex publicus pateo iubeo qui habeo quis apud ago prosequor debeo defensor principalis simul et omnis curia publicus dico pateo tu codex publicus prosequor qui opto oboedio ille per mandatum suus pagina ego iniungo ut prosecutor exsisto debeo qualiter mandatum qui in dulcis iugalis meus ille facio pro omnis causatio suus tam in pagus quam et in palatium sive quilibet locus accido facio ille portio meus qui ex allodis parens meus is lex obvenio vel obvenio debeo aut iustus is sum reddo is contra parens suus vel quilibet homo accido mallo sive et litigo facio inspecto ille mandatum qui in dulcis iugalis meus ille facio gero municipalis adlego debeo curia vero dico mandatum qui tu habeo dico accipio vir venerabilis ille diaconus et amanvensis prosecutor dico rego dominor meus omnis publicus ut sicut mandatum iste lex cognosco sum facio ut dos qui per manus teneo vos praesens in forum publicus iubeo recito curia vero dico dos qui tu dico per manus reteneo ille diaconus et amanvensis andecavis civitas nos praesens accipio relego quo accipio dico incipio mandatum dominus ego iugalis meus ille rogo atque supplico dulcis gratia vester ut ad vicis meus omnis causatio noster tam in pagus quam et palatium sive quilibet locus accido facio et ille portio noster qui ex allodis parens is ego lex obvenio vel obvenio debeo aut iustus nos sum reddere hic contra parens meus vel quilibet homo accido mallo sive litigo facio et quisquis exinde ad vicis noster ago facio gero etenim ego habeo sum cognosco ratus iuro mandatum andecavis civitas curia publicus incipio cessio dulcis et cum integer amor diligo sponsa meus filia ille nomen ille ego ille et qui propitius dominus iuxta consuetudo unus cum voluntas parens tuus spondeo proinde cedo tu de res paupertas meus tam pro sponsalicius quam largitas tuus hic sum casa cum curtis circumcingo mobilis et immobilis vinea silva pratum pascua aqua aqua vel decursus iungo et subiungo in omnis superus nomino dulcis sponsa meus ad dies felix nuptiae tu per hic cessio delego atque transfundo ut in tuus ius hic recipio debeo cedo tu bracile valeo solidus tantus tunica tantus lectarius ad lectus vestio valeo tantus inauris aureus valeo solidus tantus anulus valeo cedo tu caballus cum sabuta et omnis stratura suus bos tantus vacca sequor tantus ovis solidus tantus hic omnis subscribo res in tuus ius et dominatio hic recipio debeo vel posterus suus inter nos procreo sum derelinquo alius ius sanctus ille qui terra sum video et sum umquam tempus qui contra hic cessio iste qui ego in tu bonus voluntas conscribo rogo aut ipse ullus de heres meus vel propinquus aut quilibet homo vel extraneus emitto persona venio volo ago repeto praesumo ante lis ingredior duplo tu tantus et alius quantus cessio iste contineo aut is tempus melioro volo et repetitio suus non obtineo effectus hic cessio iste atque voluntas noster omnis tempus firmus permaneo post curia aio sui adhuc aliquis habeo ex hic causa aut ago debeo dico tu in praesens ille prosecutor dico gratia ago magnitudo vester qui dos suus scribo qui prosequor gero municipalis ut habeo caritas vester alligo et id facio tu ex mos conscribo ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form010.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Formula Andecauensis 10",
+          "urn": "urn:cts:formulae:andecavensis.form010.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio iudicium venio homo nomen ille ante venerabilis vir ille abbas vel reliquus vir venerabilis atque magnificus qui nomen subter teneo insero interpello aliquis homo nomen ille quasi servitium is reddo et ille taliter de praesens adsum et hic fortiter denego quod servitium numquam reddo interrogo sum ipse ille de suus agnatio alius homo in suus servitium habeo an et ipse ille taliter loquor sum ut hic non reddo nam ipse ille servitium is non reddo at de agnatio aut de comparo ut hic inter sui intendo ut cum ipse ille alius homo de suus agnatio non reddo sic video sum ipse abbas vel qui meus adsum ut ipse homo apud homo xii manus suus xiii in basilica dominus ille in nox tantus coniuro debeo quod de annus xxx sive amplus servitium is numquam reddo se hic facio possum ipse ille de hic causa contra ipse ille compesco debeo sin non possum hic emendo studeo incipio notitia ad supradictus iudicium notitia sacramentum qualiter vel qui praesens ingredior sum ille apud homo tantus ingenuus super altar sanctus ille andecavis civitas pro is quod homo nomen ille ipse pro servitium interpello ad vicis genitor suus sive et genetrix suus iuratus dico iuxta qui iudicium ex hic loquor per hic locus sanctus et divinus omnis qui hic ago de annus xxx sive amplus sub ingenuitas nomen resideo nam et ipse super nomino servitium non reddo neque redebeo per reverentia locus is sum qui praesentia ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form010.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form029.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAUENSIS 29",
+          "urn": "urn:cts:formulae:andecavensis.form029.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio iudicium venio homo nomen ille apud femina nomen ille qui sum coniux ille quondam germanus ille ante venerabilis vir ille abbas interpello homo nomen ille quasi servitium qui sum ipse ille quondam post se habeo commendo hic sum ille res qui ille ad praesens adsum et hic totus fortiter denego interrogo ipse ille se habeo homo qui de praesens sum ut video quando ipse rauba ipse ille commendo taliter video sum a ipse abbas vel qui cum is adsum ut in nox tantus do homo tantus bene fides habeo vicinus circa maneo qui de praesens sum et video ut superscribo ille quondam ipse rauba ipse ille commendo ut hic in basilica dominus ille coniuro debeo si hic facio possum ipse ille per lex emendo studeo sin autem non possum de hic causa ipse ille omnis tempus duco quieto atque securus valeo resedeo ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form029.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form046.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAUENSIS 46",
+          "urn": "urn:cts:formulae:andecavensis.form046.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio epistula qui de heres aliquis ad ecclesia delego lex romanus et antiquus consuetudo exposco ut unusquis homo dum in suus contineo arbitrium de res suus proprius aliquis pro anima suus compendium do decerno licentia habeo et ille qui ad locus sanctus ad congregatio monachus confero numquam pereo sed ad memoria aeternus et iustitia potior igitur ego enim in deus nomen illuster vir ille necnon et coniux meus illuster matrona ille convenio nos unanimiter petracto ut aliquis de res noster in monasterium noster qui communiter aedifico qui sum in honor sanctus ille infra murus andecavis construo ubi ille abbatissa custos praesum video concido debeo qui ad dies praesens video summus facio hic sum locellus nuncupo ille in pagus ille is sum in pagus ille res proprietas noster qui de parens noster venerabilis vir ille abbas proprius pecunia comparo vel dies praesens noster sum possessio hic cum terra domus aedificium mancipium accola vinea silva pratum pascua aqua aqua decursus mobilis et immobilis iungo appendo adiaceo in se habeo ad pertineo cum superpono pro omnis mereo suus ut dico ad praedico basilica vel congregatio ipse is vel rector res ipse volo sum transfero atque indulgeo ita ut quisquis exinde a hic dies ius proprius atque firmus congregatio ipse utilitas monasterium eligo facio liber habeo in omnis potestas quia malo tu sacrosanctus ecclesia in honor sanctus ille in ipse monasterium aedificio quam reliquus heres noster quod si sum aliquis de heres noster qui contra hic epistula cessio qui bonus voluntas pro noster expio peccatum devoveo venio praesumo aut contrarius a communiter vel pulsator exsisto prius a communiter ecclesia catholica sum pulso et aeternus damnatio subicio et insuper aurum libra tantus argentum pondus decem socio fiscus qui pulso compono nihilominus epistula atque definitio noster omnis tempus firmus et stabilis perduro ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form046.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form047.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAUENSIS 47",
+          "urn": "urn:cts:formulae:andecavensis.form047.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio notitia qui homo in causa suus repello notitia qualiter venio ille andecavis civitas ante venerabilis vir ille abbas vel reliquus complures bonus homo qui cum ipse adsum qui nomen vel scriptio atque signaculum subter teneo insero interpello aliquis homo hic nomen ille et dum dico quasi vinea suus in locus nuncupo ille malus ordo pervado quia ipse ille et taliter in responsio do quod auctor habeo legitimus nomen ille magnus quia ipse vinea ad is do sic a ipse vir ille sum denuntio ut dies ille andecavis civitas ipse ille in auctoritio praesento debeo se hic non facio cum lex beneficium ipse ille de ipse vinea revestio debeo ago ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form047.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 5
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 0
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 5
+    }
+  }
+}

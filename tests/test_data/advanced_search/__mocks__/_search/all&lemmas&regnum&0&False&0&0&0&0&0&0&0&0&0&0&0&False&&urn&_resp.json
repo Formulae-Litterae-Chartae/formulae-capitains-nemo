@@ -1,0 +1,165 @@
+{
+  "took": 4,
+  "timed_out": false,
+  "_shards": {
+    "total": 14,
+    "successful": 14,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis in christus nomen incipio dictatus hic sum gero annus quartus regnum dominus noster childebertus rex qui facio mensis ille dies tantus cum iuxta consuetudo andecavis civitas curia publicus resedeo in forum ibi vir magnificus ille prosecutor dico rogo tu vir laudabilis ille defensor ille curator magister miles vel reliquus curia publicus utique obtex publicus pateo iubeo qui habeo quis apud ago prosequor debeo defensor principalis simul et omnis curia publicus dico pateo tu codex publicus prosequor qui opto oboedio ille per mandatum suus pagina ego iniungo ut prosecutor exsisto debeo qualiter mandatum qui in dulcis iugalis meus ille facio pro omnis causatio suus tam in pagus quam et in palatium sive quilibet locus accido facio ille portio meus qui ex allodis parens meus is lex obvenio vel obvenio debeo aut iustus is sum reddo is contra parens suus vel quilibet homo accido mallo sive et litigo facio inspecto ille mandatum qui in dulcis iugalis meus ille facio gero municipalis adlego debeo curia vero dico mandatum qui tu habeo dico accipio vir venerabilis ille diaconus et amanvensis prosecutor dico rego dominor meus omnis publicus ut sicut mandatum iste lex cognosco sum facio ut dos qui per manus teneo vos praesens in forum publicus iubeo recito curia vero dico dos qui tu dico per manus reteneo ille diaconus et amanvensis andecavis civitas nos praesens accipio relego quo accipio dico incipio mandatum dominus ego iugalis meus ille rogo atque supplico dulcis gratia vester ut ad vicis meus omnis causatio noster tam in pagus quam et palatium sive quilibet locus accido facio et ille portio noster qui ex allodis parens is ego lex obvenio vel obvenio debeo aut iustus nos sum reddere hic contra parens meus vel quilibet homo accido mallo sive litigo facio et quisquis exinde ad vicis noster ago facio gero etenim ego habeo sum cognosco ratus iuro mandatum andecavis civitas curia publicus incipio cessio dulcis et cum integer amor diligo sponsa meus filia ille nomen ille ego ille et qui propitius dominus iuxta consuetudo unus cum voluntas parens tuus spondeo proinde cedo tu de res paupertas meus tam pro sponsalicius quam largitas tuus hic sum casa cum curtis circumcingo mobilis et immobilis vinea silva pratum pascua aqua aqua vel decursus iungo et subiungo in omnis superus nomino dulcis sponsa meus ad dies felix nuptiae tu per hic cessio delego atque transfundo ut in tuus ius hic recipio debeo cedo tu bracile valeo solidus tantus tunica tantus lectarius ad lectus vestio valeo tantus inauris aureus valeo solidus tantus anulus valeo cedo tu caballus cum sabuta et omnis stratura suus bos tantus vacca sequor tantus ovis solidus tantus hic omnis subscribo res in tuus ius et dominatio hic recipio debeo vel posterus suus inter nos procreo sum derelinquo alius ius sanctus ille qui terra sum video et sum umquam tempus qui contra hic cessio iste qui ego in tu bonus voluntas conscribo rogo aut ipse ullus de heres meus vel propinquus aut quilibet homo vel extraneus emitto persona venio volo ago repeto praesumo ante lis ingredior duplo tu tantus et alius quantus cessio iste contineo aut is tempus melioro volo et repetitio suus non obtineo effectus hic cessio iste atque voluntas noster omnis tempus firmus permaneo post curia aio sui adhuc aliquis habeo ex hic causa aut ago debeo dico tu in praesens ille prosecutor dico gratia ago magnitudo vester qui dos suus scribo qui prosequor gero municipalis ut habeo caritas vester alligo et id facio tu ex mos conscribo ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v6",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "FORMULA ANDECAVENSIS 34",
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "formula andecavensis incipio dos annus quartus regnum dominus noster childebertus rex ego in deus nomen ille for ego hic libellus dos scribo debeo qui ita et facio ad dulcis sponsa meus nomen ille pro amor dulcitudo suus emitto tu in chartula libellus dos casa iam dico puella sponsa meus ille habeo teneo possideo facio qui volo et si quis vero aut ego ipse vel quilibet oppono persona qui contra hic voluntas meus facio aut libellus dos iste conscribo aut ago praesumo solidus tantus cogo exsolvo et si quis non obtineo effectus ",
+          "orig_comp_ort": " "
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form034.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 2
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 0
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 2
+    }
+  }
+}

@@ -139,7 +139,8 @@ def suggest_word_search(term, **kwargs):
         for sent in post['sents']:
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:min(r.find(' ', len(term) + 30) + 1, len(r))]).lower())
+            end_index = r.find(' ', len(term) + 30)
+            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
             """ind = 0
             while w in r[ind:]:
                 i = r.find(w, ind)
@@ -175,7 +176,7 @@ def highlight_segment(orig_str):
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         composition_place='', sort='urn', **kwargs):
+                         composition_place='', sort='urn', special_days=[], **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     old_sort = sort
     sort = build_sort_list(sort)
@@ -190,7 +191,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0
+            return [], 0, {}
     else:
         fuzz = fuzziness
     if composition_place:
@@ -270,6 +271,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         else:
             body_template["query"]["bool"]["must"].append(build_date_range_template(year_start, month_start, day_start,
                                                                                     year_end, month_end, day_end))
+    if any(special_days):
+        s_d_template = {'bool': {'should': []}}
+        for s_d in special_days:
+            s_d_template['bool']['should'].append({'match': {'days': s_d}})
+        body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     set_session_token(corpus, body_template, field, q if field == 'text' else '')
     if q:
@@ -310,11 +316,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
+                   "{sort}&{spec_days}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
                                         in_order=in_order, slop=slop, y=year, m=month,  d=day, y_s=year_start,
                                         m_s=month_start, d_s=day_start, y_e=year_end, m_e=month_end, d_e=day_end,
                                         d_p_m=date_plus_minus, e_d_r=exclusive_date_range,
-                                        c_p=composition_place, sort=old_sort)
+                                        c_p=composition_place, sort=old_sort, spec_days='+'.join(special_days))
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

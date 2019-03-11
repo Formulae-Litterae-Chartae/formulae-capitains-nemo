@@ -29,6 +29,7 @@ def r_simple_search():
 def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
+    special_days = request.args.get('special_days', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -47,24 +48,25 @@ def r_results():
                        'sort': request.args.get('sort', 'urn')}
     else:
         posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                            q=request.args.get('q'),
-                                            fuzziness=request.args.get("fuzziness", "0"), page=page,
-                                            in_order=request.args.get('in_order', 'False'),
-                                            slop=request.args.get('slop', '0'),
-                                            year=request.args.get('year', 0, type=int),
-                                            month=request.args.get('month', 0, type=int),
-                                            day=request.args.get('day', 0, type=int),
-                                            year_start=request.args.get('year_start', 0, type=int),
-                                            month_start=request.args.get('month_start', 0, type=int),
-                                            day_start=request.args.get('day_start', 0, type=int),
-                                            year_end=request.args.get('year_end', 0, type=int),
-                                            month_end=request.args.get('month_end', 0, type=int),
-                                            day_end=request.args.get('day_end', 0, type=int),
-                                            date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=corpus or ['all'],
-                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                            composition_place=request.args.get('composition_place', ''),
-                                            sort=request.args.get('sort', 'urn'))
+                                                  q=request.args.get('q'),
+                                                  fuzziness=request.args.get("fuzziness", "0"), page=page,
+                                                  in_order=request.args.get('in_order', 'False'),
+                                                  slop=request.args.get('slop', '0'),
+                                                  year=request.args.get('year', 0, type=int),
+                                                  month=request.args.get('month', 0, type=int),
+                                                  day=request.args.get('day', 0, type=int),
+                                                  year_start=request.args.get('year_start', 0, type=int),
+                                                  month_start=request.args.get('month_start', 0, type=int),
+                                                  day_start=request.args.get('day_start', 0, type=int),
+                                                  year_end=request.args.get('year_end', 0, type=int),
+                                                  month_end=request.args.get('month_end', 0, type=int),
+                                                  day_end=request.args.get('day_end', 0, type=int),
+                                                  date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                                  corpus=corpus or ['all'],
+                                                  exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                                  composition_place=request.args.get('composition_place', ''),
+                                                  sort=request.args.get('sort', 'urn'),
+                                                  special_days=special_days)
         search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
@@ -119,7 +121,7 @@ def r_advanced_search():
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
@@ -127,15 +129,15 @@ def r_advanced_search():
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
-            corpus = '+'.join(data.pop("corpus")) or 'all'
+            data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
-            data['corpus'] = corpus
+            data['special_days'] = '+'.join(data.pop('special_days')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
-                       composition_places=suggest_composition_places(), url=dict())
+                                                 composition_places=suggest_composition_places(), url=dict())
 
 
 @bp.route("/doc", methods=["GET"])
