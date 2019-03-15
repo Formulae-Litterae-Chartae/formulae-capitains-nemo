@@ -1,5 +1,5 @@
 {
-  "took": 17,
+  "took": 81,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -24,7 +24,7 @@
           "date_string": "814 11 12",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -58,7 +58,7 @@
           "date_string": "814 11 17 ",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -92,7 +92,7 @@
           "date_string": "Vor 822 09 05",
           "comp_ort": "Erdweg",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Erdweg",
           "dating": [
             {
@@ -111,7 +111,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -142,7 +142,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -154,7 +154,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -173,7 +173,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -185,7 +185,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -204,7 +204,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -216,7 +216,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -235,7 +235,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -247,7 +247,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -266,7 +266,7 @@
         ]
       },
       {
-        "_index": "luzern_v6",
+        "_index": "luzern_v1",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
         "_score": null,
@@ -278,7 +278,7 @@
           "date_string": "Vor 840",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -309,7 +309,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {

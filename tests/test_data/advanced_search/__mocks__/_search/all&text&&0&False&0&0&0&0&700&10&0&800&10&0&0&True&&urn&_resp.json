@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -24,7 +24,7 @@
           "date_string": "a) 765 11 05b) 765-767c) 767 10 01",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -52,8 +52,8 @@
           ],
           "min_date": "0765",
           "days": [
-            "Tuesday",
-            "Thursday"
+            "Thursday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -73,7 +73,7 @@
           "date_string": "772 10 07",
           "comp_ort": "Isen",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Isen",
           "specific_date": [
             {
@@ -95,7 +95,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -107,7 +107,7 @@
           "date_string": "777 10 05",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
           "date_string": "788 10 01",
           "comp_ort": "Freising",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Freising",
           "specific_date": [
             {
@@ -163,7 +163,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -175,7 +175,7 @@
           "date_string": "799 10 28",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -197,7 +197,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v6",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -209,7 +209,7 @@
           "date_string": "(ca. 790 \u2013 ca. 800) 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -284,12 +284,12 @@
           "min_date": "0790-10-09",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
             "Friday",
+            "Thursday",
             "Wednesday",
-            "Saturday",
-            "Thursday"
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v6",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -309,7 +309,7 @@
           "date_string": "ca. 790 \u2013 ca. 800 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -384,12 +384,12 @@
           "min_date": "0790-10-09",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
             "Friday",
+            "Thursday",
             "Wednesday",
-            "Saturday",
-            "Thursday"
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v6",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -409,7 +409,7 @@
           "date_string": "ca. 790 \u2013 ca. 800 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -484,12 +484,12 @@
           "min_date": "0790-10-09",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
             "Friday",
+            "Thursday",
             "Wednesday",
-            "Saturday",
-            "Thursday"
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "_index": "stgallen_v6",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -509,7 +509,7 @@
           "date_string": "754 10 27",
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
@@ -531,7 +531,7 @@
         ]
       },
       {
-        "_index": "stgallen_v6",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
@@ -543,7 +543,7 @@
           "date_string": "758 10 27",
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {

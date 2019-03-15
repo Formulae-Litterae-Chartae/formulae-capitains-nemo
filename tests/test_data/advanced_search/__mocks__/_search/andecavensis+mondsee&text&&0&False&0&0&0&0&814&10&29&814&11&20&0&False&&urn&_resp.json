@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -24,7 +24,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -105,7 +105,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -117,7 +117,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -136,7 +136,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -148,7 +148,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -167,7 +167,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -179,7 +179,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -198,7 +198,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -210,7 +210,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -241,7 +241,7 @@
           "date_string": "(748-829?)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -260,7 +260,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -272,7 +272,7 @@
           "date_string": "748-829?",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {
@@ -291,7 +291,7 @@
         ]
       },
       {
-        "_index": "mondsee_v6",
+        "_index": "mondsee_v1",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -303,7 +303,7 @@
           "date_string": "(748-829?)",
           "comp_ort": "Niederfraunleiten",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Niederfraunleiten",
           "dating": [
             {

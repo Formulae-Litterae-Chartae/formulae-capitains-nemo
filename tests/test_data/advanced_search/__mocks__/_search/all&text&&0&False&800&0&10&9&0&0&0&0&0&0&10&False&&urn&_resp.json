@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -111,7 +111,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -148,7 +148,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -185,7 +185,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -222,7 +222,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -284,7 +284,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -315,7 +315,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
           "date_string": "a) 783-788b) nach 792",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "dating": [
             {

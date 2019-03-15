@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -337,14 +337,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Monday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -352,7 +352,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -571,14 +571,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Thursday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -586,7 +586,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0001.lat001",
         "_score": null,
@@ -598,7 +598,7 @@
           "date_string": "744 09 12",
           "comp_ort": "Freising",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Freising",
           "specific_date": [
             {
@@ -620,7 +620,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0002.lat001",
         "_score": null,
@@ -632,7 +632,7 @@
           "date_string": "748 02 12",
           "comp_ort": "Ampermoching",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Ampermoching",
           "specific_date": [
             {
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0005.lat001",
         "_score": null,
@@ -666,7 +666,7 @@
           "date_string": "750 07 03",
           "comp_ort": "Ober-(Nieder-)ding",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Ober-(Nieder-)ding",
           "specific_date": [
             {
@@ -688,7 +688,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0006.lat001",
         "_score": null,
@@ -700,7 +700,7 @@
           "date_string": "752 08 08",
           "comp_ort": "Isen",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Isen",
           "specific_date": [
             {
@@ -722,7 +722,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0007.lat001",
         "_score": null,
@@ -734,7 +734,7 @@
           "date_string": "754 06 24",
           "comp_ort": "Thulbach",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Thulbach",
           "specific_date": [
             {
@@ -756,7 +756,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0008.lat001",
         "_score": null,
@@ -768,7 +768,7 @@
           "date_string": "755 07 23",
           "comp_ort": "Altfalterbach",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Altfalterbach",
           "specific_date": [
             {
@@ -790,7 +790,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0009.lat001",
         "_score": null,
@@ -802,7 +802,7 @@
           "date_string": "a) 757 03 14b) 757 03 14",
           "comp_ort": "a) Forach",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "a) Forach",
           "specific_date": [
             {
@@ -816,8 +816,8 @@
           ],
           "min_date": "0757-03-14",
           "days": [
-            "Lent",
-            "Monday"
+            "Monday",
+            "Lent"
           ]
         },
         "sort": [
