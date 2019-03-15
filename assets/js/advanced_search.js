@@ -6,6 +6,7 @@ var wordSearchInput = document.getElementById('word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 var firstLetter = document.getElementById('firstLetter');
+var specialDays = document.querySelectorAll('input[name="special_days"]')
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -85,7 +86,8 @@ function buildUrl() {
         day_end:'0',
         date_plus_minus:'0',
         exclusive_date_range:'False',
-        composition_place:''
+        composition_place:'',
+        special_days:[]
     };
     if (searchLemmas.checked) {
         params.field = 'autocomplete_lemmas';
@@ -100,6 +102,11 @@ function buildUrl() {
     chartaeChecks.forEach(function(charter) {
         if (charter.checked) {
             params.corpus.push(charter.value);
+        }
+    });
+    specialDays.forEach(function(day) {
+        if (day.checked) {
+            params.special_days.push(day.value);
         }
     });
     if (document.getElementById('in_order').checked) {
@@ -119,7 +126,7 @@ function buildUrl() {
     params.year_end = document.getElementById('year_end').value;
     params.month_end = document.getElementById('month_end').value;
     params.day_end = document.getElementById('day_end').value;
-    var urlExt = "?corpus=" + params.corpus.join('+') + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place;
+    var urlExt = "?corpus=" + params.corpus.join('+') + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+');
     return urlExt;
 }
 

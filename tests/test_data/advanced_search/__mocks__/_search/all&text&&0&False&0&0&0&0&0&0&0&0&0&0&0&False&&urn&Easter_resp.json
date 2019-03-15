@@ -1,5 +1,5 @@
 {
-  "took": 12,
+  "took": 7,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -303,14 +303,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Monday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -318,7 +318,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -537,14 +537,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Thursday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -552,7 +552,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -564,7 +564,7 @@
           "date_string": "822 04 13",
           "comp_ort": "(Freising)",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "(Freising)",
           "specific_date": [
             {
@@ -578,8 +578,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -587,7 +587,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -599,7 +599,7 @@
           "date_string": "(- 927 Ostern -)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -613,8 +613,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -622,7 +622,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -634,7 +634,7 @@
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -648,8 +648,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -657,7 +657,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -669,7 +669,7 @@
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -683,8 +683,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -692,7 +692,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -704,7 +704,7 @@
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -718,8 +718,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -727,7 +727,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -739,7 +739,7 @@
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -753,8 +753,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -762,7 +762,7 @@
         ]
       },
       {
-        "_index": "salzburg_v6",
+        "_index": "salzburg_v1",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -774,7 +774,7 @@
           "date_string": "(930 Ostern c.)",
           "comp_ort": " ",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -788,8 +788,8 @@
           ],
           "min_date": "0930-04-18",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -797,7 +797,7 @@
         ]
       },
       {
-        "_index": "stgallen_v6",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
         "_score": null,
@@ -809,7 +809,7 @@
           "date_string": "855 04 07",
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": "text",
           "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
@@ -823,8 +823,8 @@
           ],
           "min_date": "0855-04-07",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [

@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
         "_score": null,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -108,7 +108,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
@@ -139,7 +139,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -461,14 +461,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Monday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -476,7 +476,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -513,7 +513,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -550,7 +550,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -769,14 +769,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Sunday",
-            "Tuesday",
-            "Monday",
-            "Friday",
-            "Wednesday",
-            "Saturday",
-            "Lent",
             "Easter",
-            "Thursday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -784,7 +784,7 @@
         ]
       },
       {
-        "_index": "buenden_v6",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
