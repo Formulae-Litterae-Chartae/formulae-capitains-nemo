@@ -392,7 +392,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         :rtype: {str: Any}
         """
-        initial = self.r_corpus(objectId)
+        initial = self.r_corpus(objectId, lang=lang)
         initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
         return initial
 

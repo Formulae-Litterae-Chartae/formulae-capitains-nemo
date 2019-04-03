@@ -59,7 +59,7 @@
                 <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
                 <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
-            <xsl:if test="parent::t:seg[@type='font-style:underline;']">
+            <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
             </xsl:if>
@@ -211,8 +211,15 @@
             <xsl:apply-templates select="@urn" /></h3>
     </xsl:template>
     
-    <xsl:template match="t:emph">
-        <span class="h3"><xsl:apply-templates/></span>
+    <xsl:template match="t:title">
+        <xsl:choose>
+            <xsl:when test="@type='caption'">
+                <span class="h4" id="forms-intro"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="h4" id="doc-num"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="@urn">
