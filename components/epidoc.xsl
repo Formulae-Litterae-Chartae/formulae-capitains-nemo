@@ -263,8 +263,11 @@
                 <xsl:when test="current()[@type='n1']">
                     <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
                 </xsl:when>
-                <xsl:otherwise>
+                <xsl:when test="current()[@type='a1']">
                     <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:number value="count(preceding::t:note) + 1" format="1"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
