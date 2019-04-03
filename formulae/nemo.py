@@ -302,10 +302,10 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
                 else:
-                    r[par] = {"short_regest": str(m.get_description()).split(':')[0] if 'andecavensis' in m.id else '',
+                    r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
+                              "regest": [str(m.get_description())] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
