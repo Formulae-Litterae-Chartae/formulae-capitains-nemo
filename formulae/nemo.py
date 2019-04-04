@@ -298,6 +298,8 @@ class NemoFormulae(Nemo):
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
                     par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                    if par.lstrip('0') == '':
+                        par = _('(Titel)')
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
