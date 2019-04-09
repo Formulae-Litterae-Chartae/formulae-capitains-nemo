@@ -314,7 +314,10 @@ class NemoFormulae(Nemo):
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            if "andecavensis" in objectId:
+                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            else:
+                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
