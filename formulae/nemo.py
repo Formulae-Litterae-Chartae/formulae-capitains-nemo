@@ -68,7 +68,7 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
@@ -298,21 +298,26 @@ class NemoFormulae(Nemo):
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
                     par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                    if par.lstrip('0') == '':
+                        par = _('(Titel)')
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
                 else:
-                    r[par] = {"short_regest": str(m.get_description()).split(':')[0] if 'andecavensis' in m.id else '',
+                    r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
+                              "regest": [str(m.get_description())] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            if "andecavensis" in objectId:
+                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            else:
+                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
@@ -392,7 +397,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         :rtype: {str: Any}
         """
-        initial = self.r_corpus(objectId)
+        initial = self.r_corpus(objectId, lang=lang)
         initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
         return initial
 

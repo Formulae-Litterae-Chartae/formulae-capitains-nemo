@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-11 15:31+0100\n"
+"POT-Creation-Date: 2019-04-05 11:49+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -42,7 +42,7 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:255 formulae/nemo.py:315 formulae/nemo.py:368
+#: formulae/nemo.py:255 formulae/nemo.py:317 formulae/nemo.py:370
 #: tests/test_routes.py:114 tests/test_routes.py:133 tests/test_routes.py:136
 #: tests/test_routes.py:147 tests/test_routes.py:149 tests/test_routes.py:261
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
@@ -50,15 +50,19 @@ msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:426
+#: formulae/nemo.py:302 templates/main/sub_collection.html:36
+msgid "(Titel)"
+msgstr "(Title)"
+
+#: formulae/nemo.py:428
 msgid " wurde nicht gefunden."
 msgstr " was not found."
 
-#: formulae/nemo.py:434
+#: formulae/nemo.py:436
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:510 tests/test_routes.py:156 tests/test_routes.py:158
+#: formulae/nemo.py:512 tests/test_routes.py:156 tests/test_routes.py:158
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
@@ -1032,8 +1036,8 @@ msgid "Bis"
 msgstr "To"
 
 #: templates/search/advanced_search.html:143
-msgid "Kirchenfeste"
-msgstr "Church Holidays"
+msgid "Bewegliche Kirchenfeste"
+msgstr "Movable Church Holidays"
 
 #: templates/search/advanced_search.html:158
 msgid "Wochentage"
@@ -1345,6 +1349,10 @@ msgstr "Only show results from:"
 msgid "Zeig Alle Resultate"
 msgstr "Show all Results"
 
+#: templates/search/search.html:59
+msgid "Los!"
+msgstr "Go!"
+
 #: templates/search/search.html:69
 msgid "Sortieren nach"
 msgstr "Sort by"
@@ -1385,7 +1393,7 @@ msgstr "Search In:"
 
 #: tests/test_routes.py:640
 msgid "'' ist kein gültige Auswahl für dieses Feld."
-msgstr ""
+msgstr "'' is not valid input for this field."
 
 #~ msgid ""
 #~ "This collection is under copyright and"
@@ -2809,4 +2817,7 @@ msgstr ""
 
 #~ msgid "Feiertage"
 #~ msgstr "Holidays"
+
+#~ msgid "Kirchenfeste"
+#~ msgstr "Church Holidays"
 
