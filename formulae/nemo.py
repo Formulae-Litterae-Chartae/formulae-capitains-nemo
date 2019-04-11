@@ -70,8 +70,8 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                             'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
+                             'urn:cts:formulae:salzburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
 
     OPEN_NOTES = []
 
