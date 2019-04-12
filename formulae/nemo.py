@@ -445,7 +445,6 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
-        print(metadata.metadata.__export__())
         return {
             "template": "main::text.html",
             "objectId": objectId,
