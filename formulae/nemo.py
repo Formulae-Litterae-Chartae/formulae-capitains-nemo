@@ -445,6 +445,7 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
+        print(metadata.metadata.__export__())
         return {
             "template": "main::text.html",
             "objectId": objectId,
@@ -460,10 +461,11 @@ class NemoFormulae(Nemo):
                     "description": text.get_description(lang),
                     "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
-                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
-                    "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
-                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None)),
-                    'lang': collection.lang
+                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
+                    "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
+                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
+                    'lang': collection.lang,
+                    'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang))
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },
