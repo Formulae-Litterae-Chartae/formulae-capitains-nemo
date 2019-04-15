@@ -218,9 +218,8 @@ class NemoFormulae(Nemo):
             session.pop('previous_search', None)
 
     def after_request(self, response):
-        """ Currently used only for the Cache-Control header
-            max_age calculates days, hours, minutes and seconds and adds them together.
-            First number after '+' is the respective number for each value.
+        """ Currently used only for the Cache-Control header.
+
         """
         max_age = self.app.config['CACHE_MAX_AGE']
         if re.search('/(lang|auth)/', request.url):

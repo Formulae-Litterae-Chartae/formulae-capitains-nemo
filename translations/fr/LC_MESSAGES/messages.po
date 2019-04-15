@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-04-05 11:49+0200\n"
+"POT-Creation-Date: 2019-04-15 13:42+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -38,7 +38,8 @@ msgstr "Français"
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:253 tests/test_routes.py:112 tests/test_routes.py:259
+#: formulae/nemo.py:252 formulae/nemo.py:317 tests/test_routes.py:114
+#: tests/test_routes.py:263
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
@@ -46,33 +47,34 @@ msgstr ""
 "Formulae Andecavensis est en cours de finalisation et sera disponible "
 "rapidement"
 
-#: formulae/nemo.py:255 formulae/nemo.py:317 formulae/nemo.py:370
-#: tests/test_routes.py:114 tests/test_routes.py:133 tests/test_routes.py:136
-#: tests/test_routes.py:147 tests/test_routes.py:149 tests/test_routes.py:261
+#: formulae/nemo.py:254 formulae/nemo.py:319 formulae/nemo.py:372
+#: tests/test_routes.py:112 tests/test_routes.py:116 tests/test_routes.py:135
+#: tests/test_routes.py:138 tests/test_routes.py:149 tests/test_routes.py:151
+#: tests/test_routes.py:261 tests/test_routes.py:265
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "La collection est sous Copyright et nous n'avons pas la permission de "
 "l'éditeur de diffuser ces textes"
 
-#: formulae/nemo.py:302 templates/main/sub_collection.html:36
+#: formulae/nemo.py:301 templates/main/sub_collection.html:36
 msgid "(Titel)"
 msgstr ""
 
-#: formulae/nemo.py:428
+#: formulae/nemo.py:430
 msgid " wurde nicht gefunden."
 msgstr " n'a pas été trouvé"
 
-#: formulae/nemo.py:436
+#: formulae/nemo.py:438
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " n'a pas été trouvé. Tout le texte est ici."
 
-#: formulae/nemo.py:512 tests/test_routes.py:156 tests/test_routes.py:158
+#: formulae/nemo.py:515 tests/test_routes.py:158 tests/test_routes.py:160
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "Le ou les textes que vous essayez d'afficher n'est pas disponible en ce "
 "moment."
 
-#: formulae/auth/email.py:8 tests/test_routes.py:743
+#: formulae/auth/email.py:8 tests/test_routes.py:747
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Réinitialiser votre mot de passe"
 
@@ -144,19 +146,19 @@ msgstr "Langue par défaut"
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:676
+#: formulae/auth/forms.py:53 tests/test_routes.py:680
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Veuillez utiliser un nom d'utilisateur différent."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:678
+#: formulae/auth/forms.py:58 tests/test_routes.py:682
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Veuillez utiliser une autre adresse email."
 
-#: formulae/auth/routes.py:25 tests/test_routes.py:704
+#: formulae/auth/routes.py:25 tests/test_routes.py:708
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:57 tests/test_routes.py:821
+#: formulae/auth/routes.py:57 tests/test_routes.py:825
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
@@ -172,7 +174,7 @@ msgstr "Vous avez réussi à changer voter langue par défaut."
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
-#: formulae/auth/routes.py:89 tests/test_routes.py:749 tests/test_routes.py:758
+#: formulae/auth/routes.py:89 tests/test_routes.py:753 tests/test_routes.py:762
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -180,7 +182,7 @@ msgstr ""
 "La procédure a suivre pour réinitialiser votre mot de passe vous a été "
 "envoyée par email."
 
-#: formulae/auth/routes.py:102 tests/test_routes.py:781
+#: formulae/auth/routes.py:102 tests/test_routes.py:785
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "Vous êtes déjà connecté. Vous pouvez changer votre mot de passe."
 
@@ -188,11 +190,11 @@ msgstr "Vous êtes déjà connecté. Vous pouvez changer votre mot de passe."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Votre mot de passe a été réinitialisé."
 
-#: formulae/auth/routes.py:123 tests/test_routes.py:255
+#: formulae/auth/routes.py:123 tests/test_routes.py:257
 msgid "Sie sind schon eingeloggt."
 msgstr "Vous êtes déjà connecté."
 
-#: formulae/auth/routes.py:133 tests/test_routes.py:730
+#: formulae/auth/routes.py:133 tests/test_routes.py:734
 msgid "Sie sind nun registriert."
 msgstr "Vous êtes enregistrés."
 
@@ -201,12 +203,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL que vous cherchez est impossible à trouver"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1511
+#: tests/test_routes.py:1515
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur innnatendue s'est produite"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1512
+#: tests/test_routes.py:1516
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -216,7 +218,7 @@ msgstr "L'administrateur a été prévenu. Excusez nous pour cette inconvénient
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page d'accueil"
 
-#: formulae/search/Search.py:177 tests/test_routes.py:1266
+#: formulae/search/Search.py:177 tests/test_routes.py:1270
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -243,8 +245,8 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:33 tests/test_routes.py:639
-#: tests/test_routes.py:1401
+#: formulae/search/forms.py:33 tests/test_routes.py:643
+#: tests/test_routes.py:1405
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -287,7 +289,7 @@ msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:58 formulae/search/forms.py:69
-#: formulae/search/forms.py:82 tests/test_routes.py:504
+#: formulae/search/forms.py:82 tests/test_routes.py:508
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit être comprise entre 500 et 1000"
 
@@ -427,11 +429,11 @@ msgstr "Ve"
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:18 tests/test_routes.py:1402
+#: formulae/search/routes.py:18 tests/test_routes.py:1406
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Résultats de \"Formulaire\" et \"Chartes\" sont présentés ici."
 
-#: formulae/search/routes.py:135 tests/test_routes.py:507
+#: formulae/search/routes.py:135 tests/test_routes.py:511
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins au moins un champs"
 
@@ -451,7 +453,7 @@ msgstr "Nouvelle utilisateur?"
 msgid "Klicken Sie hier"
 msgstr "Cliquez-ici pour vous inscrire"
 
-#: templates/email/reset_password.html:1 tests/test_routes.py:745
+#: templates/email/reset_password.html:1 tests/test_routes.py:749
 msgid "Sehr geehrte(r)"
 msgstr "Madame, Monsieur"
 
@@ -913,22 +915,34 @@ msgstr "Recherche de mot"
 
 #: templates/search/advanced_search.html:32
 msgid ""
-"Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein "
-"einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide "
+"Die Wortsuche sucht nur nach ganzen Wörter. Das bedeutet, wenn man nach "
+"'christ' sucht, findet man nur das Wort 'christ' und nicht bzw. "
+"'christus' oder 'christi'. Um so eine Suche zu machen, sollte man "
+"Wildcard-Zeichen benutzen. Ein Fragezeichen ('?') ersetzt ein einzelnes "
+"Zeichen, ein Stern ('*') ein oder mehr Zeichen. Wenn man nach 'christ*' "
+"sucht, findet man 'christus' oder auch 'christi'. Beide Wildcard-Zeichen "
 "funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage 'christ* "
 "nom*' wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei"
 " der das erste Wort mit 'christ' und das zweite mit 'nom' beginnt. "
-"Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
+"Möchten Sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
 " stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
-"Les caractères spéciaux sont autorisés. Un point d'interrogation (,?') "
-"Remplace un seul caractère, tandis qu'un astérisque (,*') remplace un ou "
-"plusieurs caractères. Les deux fonctionnent seulement à l’intérieur d’un "
-"mot. Cela signifie que la recherche \"christ* nom*\" trouvera chaque "
-"série de deux mots consécutifs où le premier mot commence par \"christ-\""
-" et le second par \"nom-\". Si vous souhaitez trouver ces deux mots, "
-"contenant potentiellement d'autres mots entre eux, définissez un «rayon "
-"de recherche» supérieur à 0."
+"...."
+"Les caractères spéciaux sont autorisés. "
+"Un point d'interrogation (,?') Remplace "
+"un seul caractère, tandis qu'un "
+"astérisque (,*') remplace un ou "
+"plusieurs caractères. Les deux fonctionnent"
+" seulement à l’intérieur d’un mot. "
+"Cela signifie que la recherche \"christ*"
+" nom*\" trouvera chaque série de deux"
+" mots consécutifs où le premier mot"
+" commence par \"christ-\" et le "
+"second par \"nom-\". Si vous souhaitez"
+" trouver ces deux mots, contenant "
+"potentiellement d'autres mots entre eux, "
+"définissez un «rayon de recherche» "
+"supérieur à 0."
 
 #: templates/search/advanced_search.html:38
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
@@ -1415,7 +1429,7 @@ msgstr "Le texte n'est pas disponible. Consulter l'édition imprimée."
 msgid "Suchen in:"
 msgstr "Chercher dans"
 
-#: tests/test_routes.py:640
+#: tests/test_routes.py:644
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
@@ -2247,4 +2261,76 @@ msgstr ""
 
 #~ msgid "Kirchenfeste"
 #~ msgstr "Vacances de Noël"
+
+#~ msgid ""
+#~ "Wildcard-Zeichen sind erlaubt. Ein "
+#~ "Fragezeichen ('?') ersetzt ein einzelnes "
+#~ "Zeichen, ein Stern ('*') ein oder "
+#~ "mehr Zeichen. Beide funktionieren nur "
+#~ "innnerhalb eines Wortes. Bei der "
+#~ "Suchanfrage 'christ* nom*' wird jede "
+#~ "Reihe von zwei aufeinander folgenden "
+#~ "Worten gefunden, bei der das erste "
+#~ "Wort mit 'christ' und das zweite "
+#~ "mit 'nom' beginnt. Möchten sie im "
+#~ "Suchergebnis Worte zwischen beiden "
+#~ "Suchbegriffen zulassen, stellen Sie bitte "
+#~ "einen entsprechenden 'Suchradius' größer als"
+#~ " 0 ein."
+#~ msgstr ""
+#~ "Les caractères spéciaux sont autorisés. "
+#~ "Un point d'interrogation (,?') Remplace "
+#~ "un seul caractère, tandis qu'un "
+#~ "astérisque (,*') remplace un ou "
+#~ "plusieurs caractères. Les deux fonctionnent"
+#~ " seulement à l’intérieur d’un mot. "
+#~ "Cela signifie que la recherche \"christ*"
+#~ " nom*\" trouvera chaque série de deux"
+#~ " mots consécutifs où le premier mot"
+#~ " commence par \"christ-\" et le "
+#~ "second par \"nom-\". Si vous souhaitez"
+#~ " trouver ces deux mots, contenant "
+#~ "potentiellement d'autres mots entre eux, "
+#~ "définissez un «rayon de recherche» "
+#~ "supérieur à 0."
+
+#~ msgid ""
+#~ "Die Wortsuche sucht nur nach ganzen "
+#~ "Wörter. Das bedeutet, wenn man nach "
+#~ "'christ' sucht, findet man nur das "
+#~ "Wort 'christ' und nicht bzw. 'christus'"
+#~ " oder 'christi'. Um so eine Suche "
+#~ "zu machen, sollte man Wildcard-Zeichen"
+#~ " benutzen. Ein Fragezeichen ('?') ersetzt"
+#~ " ein einzelnes Zeichen, ein Stern "
+#~ "('*') ein oder mehr Zeichen. Wenn "
+#~ "man nach 'christ*' sucht, findet man "
+#~ "'christus' oder auch 'christi'. Beide "
+#~ "funktionieren nur innnerhalb eines Wortes. "
+#~ "Bei der Suchanfrage 'christ* nom*' wird"
+#~ " jede Reihe von zwei aufeinander "
+#~ "folgenden Worten gefunden, bei der das"
+#~ " erste Wort mit 'christ' und das "
+#~ "zweite mit 'nom' beginnt. Möchten Sie"
+#~ " im Suchergebnis Worte zwischen beiden "
+#~ "Suchbegriffen zulassen, stellen Sie bitte "
+#~ "einen entsprechenden 'Suchradius' größer als"
+#~ " 0 ein."
+#~ msgstr ""
+#~ ".....Cette recherche accepte les caractères"
+#~ " spéciaux. Un point d'interrogation ('?')"
+#~ " remplace un seul caractère quand un"
+#~ " astérisque ('*') remplace un ou "
+#~ "plusieurs caractères. Les deux ne "
+#~ "fonctionnent que pour un seul mot. "
+#~ "Cela signifie qu'une recherche pour "
+#~ "'christ* nom*' va retourner toutes les"
+#~ " séquences de deux dont le premier"
+#~ " est 'christ' et le second contient"
+#~ " 'nom'. Si vous souhaitez obtenir "
+#~ "plus de proposition de document ou "
+#~ "d'autres mots peuvent apparaître entre "
+#~ "ces deux termes, modifier 'l'étendue de"
+#~ " la recherche' pour que ce soit "
+#~ "supérieur à 0."
 
