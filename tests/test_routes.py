@@ -549,6 +549,16 @@ class TestFunctions(Formulae_Testing):
         test_list = self.nemo.f_replace_indexed_item(old_list, 3, 4)
         self.assertEqual(test_list, new_list)
 
+    def test_NemoFormulae_get_locale(self):
+        """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
+        with self.client as c:
+            c.post('/lang/de', follow_redirects=True)
+            self.assertEqual(self.nemo.get_locale(), 'ger')
+            c.post('/lang/fr', follow_redirects=True)
+            self.assertEqual(self.nemo.get_locale(), 'fre')
+            c.post('/lang/en', follow_redirects=True)
+            self.assertEqual(self.nemo.get_locale(), 'eng')
+
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
