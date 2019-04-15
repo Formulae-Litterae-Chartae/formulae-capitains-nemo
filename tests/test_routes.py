@@ -552,11 +552,11 @@ class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_locale(self):
         """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
         with self.client as c:
-            c.post('/lang/de', follow_redirects=True)
+            c.post('/lang/de')
             self.assertEqual(self.nemo.get_locale(), 'ger')
-            c.post('/lang/fr', follow_redirects=True)
+            c.post('/lang/fr')
             self.assertEqual(self.nemo.get_locale(), 'fre')
-            c.post('/lang/en', follow_redirects=True)
+            c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
 
 
