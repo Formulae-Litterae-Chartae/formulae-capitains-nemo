@@ -108,7 +108,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::register.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -183,10 +185,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/other_collection', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -255,7 +257,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -544,6 +548,16 @@ class TestFunctions(Formulae_Testing):
         new_list = [1, 2, 3, 4, 5, 6, 7]
         test_list = self.nemo.f_replace_indexed_item(old_list, 3, 4)
         self.assertEqual(test_list, new_list)
+
+    def test_NemoFormulae_get_locale(self):
+        """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
+        with self.client as c:
+            c.post('/lang/de')
+            self.assertEqual(self.nemo.get_locale(), 'ger')
+            c.post('/lang/fr')
+            self.assertEqual(self.nemo.get_locale(), 'fre')
+            c.post('/lang/en')
+            self.assertEqual(self.nemo.get_locale(), 'eng')
 
 
 class TestForms(Formulae_Testing):

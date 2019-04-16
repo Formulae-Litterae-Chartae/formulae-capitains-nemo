@@ -50,16 +50,16 @@
         </xsl:if> -->       
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@type='font-style:italic;']"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="parent::t:seg[@rend='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
                 <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
-                <xsl:if test="parent::t:seg[@type='font-style:bold;']"><xsl:text> platzhalter</xsl:text></xsl:if>
+                <xsl:if test="parent::t:seg[@type='platzhalter']"><xsl:text> platzhalter</xsl:text></xsl:if>
                 </xsl:attribute>
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
                 <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
                 <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
-            <xsl:if test="parent::t:seg[@type='font-style:underline;']">
+            <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
             </xsl:if>
@@ -211,6 +211,17 @@
             <xsl:apply-templates select="@urn" /></h3>
     </xsl:template>
     
+    <xsl:template match="t:title">
+        <xsl:choose>
+            <xsl:when test="@type='caption'">
+                <span class="h4" id="forms-intro"><xsl:apply-templates/></span>
+            </xsl:when>
+            <xsl:otherwise>
+                <span class="h4" id="doc-num"><xsl:apply-templates/></span>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
     <xsl:template match="@urn">
         <xsl:attribute name="data-urn"><xsl:value-of select="."/>/></xsl:attribute>
     </xsl:template>
@@ -249,11 +260,14 @@
         <xsl:param name="note_num">
             <!-- I will need to change this to testing if there is an @n attribute. If so, use the value there. If not, find count(preceding::t:note[@type="a1"]) + 1 -->
             <xsl:choose>
-                <xsl:when test="/t:TEI/t:text/t:body/t:div[1]/@xml:lang = 'deu'">
-                    <xsl:number value="count(preceding::t:note) + 1" format="1"/>
+                <xsl:when test="current()[@type='n1']">
+                    <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
+                </xsl:when>
+                <xsl:when test="current()[@type='a1']">
+                    <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:number value="count(preceding::t:note) + 1" format="a"/>
+                    <xsl:number value="count(preceding::t:note) + 1" format="1"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
@@ -351,7 +365,7 @@
     
     <xsl:template match="t:seg" mode="noteSegs">
         <xsl:choose>
-            <xsl:when test="./@type='font-style:italic;'">
+            <xsl:when test="./@rend='italic'">
                 <span class="font-italic"><xsl:apply-templates/></span>
             </xsl:when>
             <xsl:when test="./@type='book_title'">
