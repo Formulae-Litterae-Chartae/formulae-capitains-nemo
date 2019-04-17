@@ -1414,7 +1414,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        test_args['index'] = ''
+        test_args['index'] = ['formulae', 'chartae']
+        test_args['query'] = ''
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
@@ -1423,6 +1424,9 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
+            self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
+                                      _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
