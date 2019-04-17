@@ -644,13 +644,22 @@ class TestForms(Formulae_Testing):
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
-    def test_invalid_data_simple_search_form(self):
+    def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
         form = SearchForm(corpus=[''], q='regnum')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
                       [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
+                       _("'' ist kein gültige Auswahl für dieses Feld.")])
+
+    def test_invalid_query_simple_search_form(self):
+        """ Ensure that the simple search form returns a ValidationError with no corpus"""
+        form = SearchForm(corpus=['formulae'], q=None)
+        self.assertFalse(form.validate(), 'Search with no query term specified should not validate')
+        # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
+        self.assertIn(str(form.q.errors[0]),
+                      [_('Dieses Feld wird benötigt.'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_validate_invalid_advanced_search_form(self):
@@ -1405,7 +1414,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        test_args['index'] = ''
+        test_args['index'] = ['formulae', 'chartae']
+        test_args['query'] = ''
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
@@ -1414,6 +1424,9 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
+            self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
+                                      _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
