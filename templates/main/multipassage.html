@@ -2,7 +2,7 @@
 
 {% macro header_passage(object) %}
 <header>
-    <h3 class="entry-title text-center">{{object.collections.current.title}}<a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-html="true" data-content="{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
+    <h3 class="entry-title text-center">{{object.collections.current.title}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
     {% if 'elexicon' not in object.objectId %}
         {% if object.open_regest or current_user.project_team %}
