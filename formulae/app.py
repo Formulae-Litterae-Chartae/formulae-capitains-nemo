@@ -30,4 +30,4 @@ nemo = NemoFormulae(
     pdf_folder="pdf_folder/"
 )
 
-
+flask_app.config['nemo_app'] = nemo

@@ -52,11 +52,11 @@
                     <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
                     {% for corp in g.corpora %}
-                        {% if session['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                        {% if 'corpus' in session['previous_aggregations'] and session['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
                         <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}"> {{ corp[1] }}</input></span>
                         {% endif %}
                     {% endfor %}
-                    <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">Los!</a></span>
+                    <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
                 </div>
             </div>
         </div>

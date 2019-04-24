@@ -46,6 +46,7 @@ class FakeElasticsearch(object):
                 resp['hits']['hits'][i]['_source']['text'] = 'text'
                 resp['hits']['hits'][i]['_source']['lemmas'] = 'text'
                 resp['hits']['hits'][i]['_source']['autocomplete'] = 'text'
+                resp['hits']['hits'][i]['_source']['autocomplete_lemmas'] = 'text'
         with open(fileName, 'w') as f:
             return json.dump(resp, f, indent=2)
 
