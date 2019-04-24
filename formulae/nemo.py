@@ -224,6 +224,8 @@ class NemoFormulae(Nemo):
         max_age = self.app.config['CACHE_MAX_AGE']
         if re.search('/(lang|auth)/', request.url):
             max_age = 0
+        elif re.search('/assets/', request.url):
+            max_age = 60 * 60 * 24
         response.cache_control.max_age = max_age
         response.cache_control.public = True
         return response

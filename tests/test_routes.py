@@ -533,6 +533,14 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertRegex(response.get_data(as_text=True), expected)
 
+    def test_cache_max_age_header_set(self):
+        """ Make sure that the cache max age header is set correctly with each request"""
+        with self.client as c:
+            response = c.get('/assets/nemo/css/theme.min.css')
+            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/')
+            self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
+
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
