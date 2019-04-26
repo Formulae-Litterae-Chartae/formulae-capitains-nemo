@@ -184,7 +184,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
