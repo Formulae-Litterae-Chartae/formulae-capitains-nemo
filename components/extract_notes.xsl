@@ -7,9 +7,35 @@
     <xsl:output omit-xml-declaration="yes" indent="yes"/>
     
     <xsl:template match="/">
-        <xsl:for-each select="//a[@class='note']">
-            <xsl:call-template name="build_note"/>
-        </xsl:for-each>
+        <xsl:choose>
+            <xsl:when test="count(//a[@class='note' and @type='a1']) > 0 or count(//a[@class='note' and @type='n1']) > 0">
+                <xsl:if test="count(//a[@class='note' and @type='a1']) > 0">
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">card bg-hhgray text-white px-0</xsl:attribute>
+                        <xsl:attribute name="style">font-size: small;</xsl:attribute>
+                        <xsl:element name="span">Apparatus</xsl:element>
+                    </xsl:element>
+                    <xsl:for-each select="//a[@class='note' and @type='a1']">
+                        <xsl:call-template name="build_note"/>
+                    </xsl:for-each>
+                </xsl:if>
+                <xsl:if test="count(//a[@class='note' and @type='n1']) > 0">
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">card bg-hhgray text-white px-0</xsl:attribute>
+                        <xsl:attribute name="style">font-size: small;</xsl:attribute>
+                        <xsl:element name="span">Kommentare</xsl:element>
+                    </xsl:element>
+                    <xsl:for-each select="//a[@class='note' and @type='n1']">
+                        <xsl:call-template name="build_note"/>
+                    </xsl:for-each>
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="count(//a[@class='note']) > 0">
+                <xsl:for-each select="//a[@class='note']">
+                    <xsl:call-template name="build_note"/>
+                </xsl:for-each>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template name="build_note" match="a">

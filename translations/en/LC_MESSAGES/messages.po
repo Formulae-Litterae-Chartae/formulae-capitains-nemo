@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-11 15:31+0100\n"
+"POT-Creation-Date: 2019-04-15 13:42+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -34,7 +34,8 @@ msgstr "French"
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:253 tests/test_routes.py:112 tests/test_routes.py:259
+#: formulae/nemo.py:252 formulae/nemo.py:317 tests/test_routes.py:114
+#: tests/test_routes.py:263
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
@@ -42,29 +43,34 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:255 formulae/nemo.py:315 formulae/nemo.py:368
-#: tests/test_routes.py:114 tests/test_routes.py:133 tests/test_routes.py:136
-#: tests/test_routes.py:147 tests/test_routes.py:149 tests/test_routes.py:261
+#: formulae/nemo.py:254 formulae/nemo.py:319 formulae/nemo.py:372
+#: tests/test_routes.py:112 tests/test_routes.py:116 tests/test_routes.py:135
+#: tests/test_routes.py:138 tests/test_routes.py:149 tests/test_routes.py:151
+#: tests/test_routes.py:261 tests/test_routes.py:265
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:426
+#: formulae/nemo.py:301 templates/main/sub_collection.html:36
+msgid "(Titel)"
+msgstr "(Title)"
+
+#: formulae/nemo.py:430
 msgid " wurde nicht gefunden."
 msgstr " was not found."
 
-#: formulae/nemo.py:434
+#: formulae/nemo.py:438
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:510 tests/test_routes.py:156 tests/test_routes.py:158
+#: formulae/nemo.py:515 tests/test_routes.py:158 tests/test_routes.py:160
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/auth/email.py:8 tests/test_routes.py:743
+#: formulae/auth/email.py:8 tests/test_routes.py:747
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Reset Your Password"
 
@@ -136,19 +142,19 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:676
+#: formulae/auth/forms.py:53 tests/test_routes.py:680
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:678
+#: formulae/auth/forms.py:58 tests/test_routes.py:682
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
-#: formulae/auth/routes.py:25 tests/test_routes.py:704
+#: formulae/auth/routes.py:25 tests/test_routes.py:708
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
-#: formulae/auth/routes.py:57 tests/test_routes.py:821
+#: formulae/auth/routes.py:57 tests/test_routes.py:825
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "This is not your existing password."
 
@@ -164,13 +170,13 @@ msgstr "You have successfully changed your default language."
 msgid "Benutzerprofil ändern"
 msgstr "Edit Profile"
 
-#: formulae/auth/routes.py:89 tests/test_routes.py:749 tests/test_routes.py:758
+#: formulae/auth/routes.py:89 tests/test_routes.py:753 tests/test_routes.py:762
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr "Instructions for resetting your password have been emailed to you."
 
-#: formulae/auth/routes.py:102 tests/test_routes.py:781
+#: formulae/auth/routes.py:102 tests/test_routes.py:785
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "You are already logged in. You can change your password here."
 
@@ -178,11 +184,11 @@ msgstr "You are already logged in. You can change your password here."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:123 tests/test_routes.py:255
+#: formulae/auth/routes.py:123 tests/test_routes.py:257
 msgid "Sie sind schon eingeloggt."
 msgstr "You are already logged in."
 
-#: formulae/auth/routes.py:133 tests/test_routes.py:730
+#: formulae/auth/routes.py:133 tests/test_routes.py:734
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -191,12 +197,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1511
+#: tests/test_routes.py:1515
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1512
+#: tests/test_routes.py:1516
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -206,7 +212,7 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:177 tests/test_routes.py:1266
+#: formulae/search/Search.py:177 tests/test_routes.py:1270
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -231,8 +237,8 @@ msgstr "Formulae"
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:33 tests/test_routes.py:639
-#: tests/test_routes.py:1401
+#: formulae/search/forms.py:33 tests/test_routes.py:643
+#: tests/test_routes.py:1405
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -275,7 +281,7 @@ msgid "Jahr"
 msgstr "Year"
 
 #: formulae/search/forms.py:58 formulae/search/forms.py:69
-#: formulae/search/forms.py:82 tests/test_routes.py:504
+#: formulae/search/forms.py:82 tests/test_routes.py:508
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "The year must be between 500 and 1000"
 
@@ -415,11 +421,11 @@ msgstr ""
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:18 tests/test_routes.py:1402
+#: formulae/search/routes.py:18 tests/test_routes.py:1406
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:135 tests/test_routes.py:507
+#: formulae/search/routes.py:135 tests/test_routes.py:511
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
@@ -439,7 +445,7 @@ msgstr "New User?"
 msgid "Klicken Sie hier"
 msgstr "Click to Register"
 
-#: templates/email/reset_password.html:1 tests/test_routes.py:745
+#: templates/email/reset_password.html:1 tests/test_routes.py:749
 msgid "Sehr geehrte(r)"
 msgstr "Dear"
 
@@ -897,21 +903,24 @@ msgstr "Word Search"
 
 #: templates/search/advanced_search.html:32
 msgid ""
-"Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein "
-"einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide "
+"Die Wortsuche sucht nur nach ganzen Wörter. Das bedeutet, wenn man nach "
+"'christ' sucht, findet man nur das Wort 'christ' und nicht bzw. "
+"'christus' oder 'christi'. Um so eine Suche zu machen, sollte man "
+"Wildcard-Zeichen benutzen. Ein Fragezeichen ('?') ersetzt ein einzelnes "
+"Zeichen, ein Stern ('*') ein oder mehr Zeichen. Wenn man nach 'christ*' "
+"sucht, findet man 'christus' oder auch 'christi'. Beide Wildcard-Zeichen "
 "funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage 'christ* "
 "nom*' wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei"
 " der das erste Wort mit 'christ' und das zweite mit 'nom' beginnt. "
-"Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
+"Möchten Sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
 " stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
-"Accepts wildcard characters. A question mark ('?') replaces a single "
-"character while an asterisk ('*') replaces one or more characters. Both "
-"only work within a single word. That means that searching for 'christ* "
-"nom*' will return every sequence of two consecutive words where the first"
-" word starts with 'christ' and the second with 'nom'. If you wish to find"
-" these two words where other words can occur between them, set the "
-"'Search Radius' to be greater than 0."
+"The word search only searches for complete words. This means that a search for 'christ' will only find the word 'christ' and not 'christus' or 'christi'. If you wish such a search to find these two words, then you should use wildcard characters. A question mark ('?') replaces a single character while an asterisk ('*') replaces one or more"
+" characters. So a search for 'christ*' will find both 'christus' and 'christi'. Both of these wildcard characters only work within a single word. That means that "
+"searching for 'christ* nom*' will return every sequence of two "
+"consecutive words where one word starts with 'christ' and the other with "
+"'nom'. If you wish to also return documents where other words can occur "
+"between these two terms, set the 'Search Radius' to be greater than 0."
 
 #: templates/search/advanced_search.html:38
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
@@ -1032,8 +1041,8 @@ msgid "Bis"
 msgstr "To"
 
 #: templates/search/advanced_search.html:143
-msgid "Kirchenfeste"
-msgstr "Church Holidays"
+msgid "Bewegliche Kirchenfeste"
+msgstr "Movable Church Holidays"
 
 #: templates/search/advanced_search.html:158
 msgid "Wochentage"
@@ -1345,6 +1354,10 @@ msgstr "Only show results from:"
 msgid "Zeig Alle Resultate"
 msgstr "Show all Results"
 
+#: templates/search/search.html:59
+msgid "Los!"
+msgstr "Go!"
+
 #: templates/search/search.html:69
 msgid "Sortieren nach"
 msgstr "Sort by"
@@ -1383,9 +1396,9 @@ msgstr "This text is not available. Consult the printed edition for the text."
 msgid "Suchen in:"
 msgstr "Search In:"
 
-#: tests/test_routes.py:640
+#: tests/test_routes.py:644
 msgid "'' ist kein gültige Auswahl für dieses Feld."
-msgstr ""
+msgstr "'' is not valid input for this field."
 
 #~ msgid ""
 #~ "This collection is under copyright and"
@@ -2809,4 +2822,54 @@ msgstr ""
 
 #~ msgid "Feiertage"
 #~ msgstr "Holidays"
+
+#~ msgid "Kirchenfeste"
+#~ msgstr "Church Holidays"
+
+#~ msgid ""
+#~ "Die Wortsuche sucht nur nach ganzen "
+#~ "Wörter. Das bedeutet, wenn man nach "
+#~ "'christ' sucht, findet man nur das "
+#~ "Wort 'christ' und nicht bzw. 'christus'"
+#~ " oder 'christi'. Um so eine Suche "
+#~ "zu machen, sollte man Wildcard-Zeichen"
+#~ " benutzen. Ein Fragezeichen ('?') ersetzt"
+#~ " ein einzelnes Zeichen, ein Stern "
+#~ "('*') ein oder mehr Zeichen. Wenn "
+#~ "man nach 'christ*' sucht, findet man "
+#~ "'christus' oder auch 'christi'. Beide "
+#~ "funktionieren nur innnerhalb eines Wortes. "
+#~ "Bei der Suchanfrage 'christ* nom*' wird"
+#~ " jede Reihe von zwei aufeinander "
+#~ "folgenden Worten gefunden, bei der das"
+#~ " erste Wort mit 'christ' und das "
+#~ "zweite mit 'nom' beginnt. Möchten Sie"
+#~ " im Suchergebnis Worte zwischen beiden "
+#~ "Suchbegriffen zulassen, stellen Sie bitte "
+#~ "einen entsprechenden 'Suchradius' größer als"
+#~ " 0 ein."
+#~ msgstr ""
+#~ "The word search only searches for "
+#~ "complete words. This means that a "
+#~ "search for 'christ' will only find "
+#~ "the word 'christ' and not 'christus' "
+#~ "or 'christi'. If you wish such a"
+#~ " search to find these two words, "
+#~ "then you should use wildcard characters."
+#~ " A question mark ('?') replaces a "
+#~ "single character while an asterisk ('*')"
+#~ " replaces one or more characters. So"
+#~ " a search for 'christ*' will find "
+#~ "both 'christus' and 'christi'. Both of"
+#~ " these characters only work within a"
+#~ " single word. That means that "
+#~ "searching for 'christ* nom*' will return"
+#~ " every sequence of two consecutive "
+#~ "words where one word starts with "
+#~ "'christ' and the other with 'nom'. "
+#~ "If you wish to also return "
+#~ "documents where other words can occur"
+#~ " between these two terms, set the "
+#~ "'Search Radius' to be greater than "
+#~ "0."
 

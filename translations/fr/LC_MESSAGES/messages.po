@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-11 15:31+0100\n"
+"POT-Creation-Date: 2019-04-15 13:42+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -38,33 +38,45 @@ msgstr "Français"
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:253 tests/test_routes.py:112 tests/test_routes.py:259
+#: formulae/nemo.py:252 formulae/nemo.py:317 tests/test_routes.py:114
+#: tests/test_routes.py:263
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
 "Verfügung stehen."
 msgstr ""
+"Formulae Andecavensis est en cours de finalisation et sera disponible "
+"rapidement"
 
-#: formulae/nemo.py:255 formulae/nemo.py:315 formulae/nemo.py:368
-#: tests/test_routes.py:114 tests/test_routes.py:133 tests/test_routes.py:136
-#: tests/test_routes.py:147 tests/test_routes.py:149 tests/test_routes.py:261
+#: formulae/nemo.py:254 formulae/nemo.py:319 formulae/nemo.py:372
+#: tests/test_routes.py:112 tests/test_routes.py:116 tests/test_routes.py:135
+#: tests/test_routes.py:138 tests/test_routes.py:149 tests/test_routes.py:151
+#: tests/test_routes.py:261 tests/test_routes.py:265
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
+"La collection est sous Copyright et nous n'avons pas la permission de "
+"l'éditeur de diffuser ces textes"
 
-#: formulae/nemo.py:426
+#: formulae/nemo.py:301 templates/main/sub_collection.html:36
+msgid "(Titel)"
+msgstr ""
+
+#: formulae/nemo.py:430
 msgid " wurde nicht gefunden."
-msgstr ""
+msgstr " n'a pas été trouvé"
 
-#: formulae/nemo.py:434
+#: formulae/nemo.py:438
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
-msgstr ""
+msgstr " n'a pas été trouvé. Tout le texte est ici."
 
-#: formulae/nemo.py:510 tests/test_routes.py:156 tests/test_routes.py:158
+#: formulae/nemo.py:515 tests/test_routes.py:158 tests/test_routes.py:160
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
+"Le ou les textes que vous essayez d'afficher n'est pas disponible en ce "
+"moment."
 
-#: formulae/auth/email.py:8 tests/test_routes.py:743
+#: formulae/auth/email.py:8 tests/test_routes.py:747
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
-msgstr ""
+msgstr "[Formulae - Litterae - Chartae] Réinitialiser votre mot de passe"
 
 #: formulae/auth/forms.py:9 formulae/auth/forms.py:42
 msgid "Benutzername"
@@ -106,47 +118,47 @@ msgstr "Changer la langue"
 
 #: formulae/auth/forms.py:31 formulae/auth/forms.py:43
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: formulae/auth/forms.py:32
 msgid "Email zum Zurücksetzen Ihres Passworts anfordern"
-msgstr ""
+msgstr "Demande de réinitialisation de votre mot de passe"
 
 #: formulae/auth/forms.py:36
 msgid "Neues Passwort"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: formulae/auth/forms.py:37
 msgid "Neues Passwort wiederholen"
-msgstr ""
+msgstr "Répéter le nouveau mot de passe"
 
 #: formulae/auth/forms.py:38 formulae/auth/routes.py:91
 #: formulae/auth/routes.py:113
 msgid "Passwort zurücksetzen"
-msgstr ""
+msgstr "Réinitialiser votre mot de passe"
 
 #: formulae/auth/forms.py:46
 msgid "Benutzersprache"
-msgstr ""
+msgstr "Langue par défaut"
 
 #: formulae/auth/forms.py:48 formulae/auth/routes.py:135
 #: templates/auth/register.html:5
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:676
+#: formulae/auth/forms.py:53 tests/test_routes.py:680
 msgid "Bitte wählen Sie einen anderen Benutzername."
-msgstr ""
+msgstr "Veuillez utiliser un nom d'utilisateur différent."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:678
+#: formulae/auth/forms.py:58 tests/test_routes.py:682
 msgid "Bitte wählen Sie eine andere Emailaddresse."
-msgstr ""
+msgstr "Veuillez utiliser une autre adresse email."
 
-#: formulae/auth/routes.py:25 tests/test_routes.py:704
+#: formulae/auth/routes.py:25 tests/test_routes.py:708
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:57 tests/test_routes.py:821
+#: formulae/auth/routes.py:57 tests/test_routes.py:825
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
@@ -156,59 +168,63 @@ msgstr "Vous avez réussi à changer votre mot de passe."
 
 #: formulae/auth/routes.py:69
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
-msgstr ""
+msgstr "Vous avez réussi à changer voter langue par défaut."
 
 #: formulae/auth/routes.py:73 templates/main/navbar.html:21
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
-#: formulae/auth/routes.py:89 tests/test_routes.py:749 tests/test_routes.py:758
+#: formulae/auth/routes.py:89 tests/test_routes.py:753 tests/test_routes.py:762
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr ""
+"La procédure a suivre pour réinitialiser votre mot de passe vous a été "
+"envoyée par email."
 
-#: formulae/auth/routes.py:102 tests/test_routes.py:781
+#: formulae/auth/routes.py:102 tests/test_routes.py:785
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
-msgstr ""
+msgstr "Vous êtes déjà connecté. Vous pouvez changer votre mot de passe."
 
 #: formulae/auth/routes.py:111
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
-msgstr ""
+msgstr "Votre mot de passe a été réinitialisé."
 
-#: formulae/auth/routes.py:123 tests/test_routes.py:255
+#: formulae/auth/routes.py:123 tests/test_routes.py:257
 msgid "Sie sind schon eingeloggt."
-msgstr ""
+msgstr "Vous êtes déjà connecté."
 
-#: formulae/auth/routes.py:133 tests/test_routes.py:730
+#: formulae/auth/routes.py:133 tests/test_routes.py:734
 msgid "Sie sind nun registriert."
-msgstr ""
+msgstr "Vous êtes enregistrés."
 
 #: formulae/errors/handlers.py:6
 msgid "Die gesuchte URL wurde nicht gefunden"
-msgstr ""
+msgstr "L'URL que vous cherchez est impossible à trouver"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1511
+#: tests/test_routes.py:1515
 msgid "Ein unerwarteter Fehler ist aufgetreten"
-msgstr ""
+msgstr "Une erreur innnatendue s'est produite"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1512
+#: tests/test_routes.py:1516
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
-msgstr ""
+msgstr "L'administrateur a été prévenu. Excusez nous pour cette inconvénient."
 
 #: formulae/errors/handlers.py:34
 msgid "Zurück zur Startseite"
-msgstr ""
+msgstr "Retour à la page d'accueil"
 
-#: formulae/search/Search.py:177 tests/test_routes.py:1266
+#: formulae/search/Search.py:177 tests/test_routes.py:1270
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr ""
+"Les caractères génériques (\"*\" et \"?\") ne sont pas permis dans la "
+"recherche de lemme."
 
 #: formulae/search/forms.py:29 formulae/search/forms.py:45
 #: formulae/search/forms.py:108 formulae/search/routes.py:109
@@ -229,12 +245,14 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:33 tests/test_routes.py:639
-#: tests/test_routes.py:1401
+#: formulae/search/forms.py:33 tests/test_routes.py:643
+#: tests/test_routes.py:1405
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
 msgstr ""
+"Vous devez séléctionner au moins une collection pour lancer une recherche"
+" (\"Formulaire\" et/ou \"Chartes\")"
 
 #: formulae/search/forms.py:46 templates/main/lexicon.html:5
 #: templates/main/lexicon.html:9 templates/search/documentation.html:17
@@ -247,7 +265,7 @@ msgstr "Niveau de flou"
 
 #: formulae/search/forms.py:48
 msgid "AUTO"
-msgstr ""
+msgstr "AUTO"
 
 #: formulae/search/forms.py:50 templates/search/documentation.html:24
 msgid "Suchradius"
@@ -255,7 +273,7 @@ msgstr "Étendue de la recherche"
 
 #: formulae/search/forms.py:52 templates/search/advanced_search.html:201
 msgid "Der Suchradius muss zwischen 0 und 100 liegen"
-msgstr ""
+msgstr "L'étendue de la recherche doit être entre 0 et 100"
 
 #: formulae/search/forms.py:54
 msgid "Wortreihenfolge beachten?"
@@ -271,9 +289,9 @@ msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:58 formulae/search/forms.py:69
-#: formulae/search/forms.py:82 tests/test_routes.py:504
+#: formulae/search/forms.py:82 tests/test_routes.py:508
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
-msgstr ""
+msgstr "L'année doit être comprise entre 500 et 1000"
 
 #: formulae/search/forms.py:60 formulae/search/forms.py:71
 #: formulae/search/forms.py:84
@@ -288,17 +306,17 @@ msgstr ""
 #: formulae/search/forms.py:60 formulae/search/forms.py:71
 #: formulae/search/forms.py:84
 msgid "Feb"
-msgstr ""
+msgstr "Fév"
 
 #: formulae/search/forms.py:60 formulae/search/forms.py:71
 #: formulae/search/forms.py:84
 msgid "Mär"
-msgstr ""
+msgstr "Mar"
 
 #: formulae/search/forms.py:61 formulae/search/forms.py:72
 #: formulae/search/forms.py:85
 msgid "Apr"
-msgstr ""
+msgstr "Avr"
 
 #: formulae/search/forms.py:61 formulae/search/forms.py:72
 #: formulae/search/forms.py:85
@@ -318,7 +336,7 @@ msgstr ""
 #: formulae/search/forms.py:62 formulae/search/forms.py:73
 #: formulae/search/forms.py:86
 msgid "Aug"
-msgstr ""
+msgstr "Aoû"
 
 #: formulae/search/forms.py:62 formulae/search/forms.py:73
 #: formulae/search/forms.py:86
@@ -328,7 +346,7 @@ msgstr ""
 #: formulae/search/forms.py:63 formulae/search/forms.py:74
 #: formulae/search/forms.py:87
 msgid "Okt"
-msgstr ""
+msgstr "Oct"
 
 #: formulae/search/forms.py:63 formulae/search/forms.py:74
 #: formulae/search/forms.py:87
@@ -338,7 +356,7 @@ msgstr ""
 #: formulae/search/forms.py:63 formulae/search/forms.py:74
 #: formulae/search/forms.py:87
 msgid "Dez"
-msgstr ""
+msgstr "Déc"
 
 #: formulae/search/forms.py:65 formulae/search/forms.py:76
 #: formulae/search/forms.py:89
@@ -348,7 +366,7 @@ msgstr "Jour"
 #: formulae/search/forms.py:66 formulae/search/forms.py:78
 #: formulae/search/forms.py:90
 msgid "Das Datum muss zwischen 1 und 31 liegen"
-msgstr ""
+msgstr "Le jour doit être compris entre 1 et 31"
 
 #: formulae/search/forms.py:92 templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
@@ -356,7 +374,7 @@ msgstr "Date à plus-ou-moins "
 
 #: formulae/search/forms.py:94 templates/search/advanced_search.html:200
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
-msgstr ""
+msgstr "Date à plus-ou-moins doit être compris entre entre 0 et 100 ans"
 
 #: formulae/search/forms.py:96 templates/search/documentation.html:36
 msgid "Exklusiv"
@@ -365,136 +383,140 @@ msgstr "Exclusif"
 #: formulae/search/forms.py:97 templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Ausstellungsort"
-msgstr ""
+msgstr "Emis par"
 
 #: formulae/search/forms.py:98
 msgid "Nach bestimmten Tagen suchen"
-msgstr ""
+msgstr "Rechercher un jour précis"
 
 #: formulae/search/forms.py:98 templates/search/advanced_search.html:146
 msgid "Ostern"
-msgstr ""
+msgstr "Pâques"
 
 #: formulae/search/forms.py:99 templates/search/advanced_search.html:154
 msgid "Fastenzeit"
-msgstr ""
+msgstr "Carême"
 
 #: formulae/search/forms.py:100 templates/search/advanced_search.html:150
 msgid "Pfingsten"
-msgstr ""
+msgstr "Pentecôte"
 
 #: formulae/search/forms.py:101 templates/search/advanced_search.html:185
 msgid "So"
-msgstr ""
+msgstr "Di"
 
 #: formulae/search/forms.py:102 templates/search/advanced_search.html:161
 msgid "Mo"
-msgstr ""
+msgstr "Lu"
 
 #: formulae/search/forms.py:103 templates/search/advanced_search.html:165
 msgid "Di"
-msgstr ""
+msgstr "Ma"
 
 #: formulae/search/forms.py:104 templates/search/advanced_search.html:169
 msgid "Mi"
-msgstr ""
+msgstr "Me"
 
 #: formulae/search/forms.py:105 templates/search/advanced_search.html:173
 msgid "Do"
-msgstr ""
+msgstr "Je"
 
 #: formulae/search/forms.py:106 templates/search/advanced_search.html:177
 msgid "Fr"
-msgstr ""
+msgstr "Ve"
 
 #: formulae/search/forms.py:107 templates/search/advanced_search.html:181
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:18 tests/test_routes.py:1402
+#: formulae/search/routes.py:18 tests/test_routes.py:1406
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
-msgstr ""
+msgstr "Résultats de \"Formulaire\" et \"Chartes\" sont présentés ici."
 
-#: formulae/search/routes.py:135 tests/test_routes.py:507
+#: formulae/search/routes.py:135 tests/test_routes.py:511
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
-msgstr ""
+msgstr "Veuillez remplir au moins au moins un champs"
 
 #: templates/auth/login.html:15
 msgid "Passwort Vergessen?"
-msgstr ""
+msgstr "Mot de passe oublié ?"
 
 #: templates/auth/login.html:16
 msgid "Klicken Sie hier, um ihr Passwort zurückzusetzen"
-msgstr ""
+msgstr "Cliquer-ici pour le réinitialiser"
 
 #: templates/auth/login.html:18
 msgid "Noch kein Benutzerkonto?"
-msgstr ""
+msgstr "Nouvelle utilisateur?"
 
 #: templates/auth/login.html:18
 msgid "Klicken Sie hier"
-msgstr ""
+msgstr "Cliquez-ici pour vous inscrire"
 
-#: templates/email/reset_password.html:1 tests/test_routes.py:745
+#: templates/email/reset_password.html:1 tests/test_routes.py:749
 msgid "Sehr geehrte(r)"
-msgstr ""
+msgstr "Madame, Monsieur"
 
 #: templates/email/reset_password.html:3
 msgid "Um Ihr Passwort zurückzusetzen,"
-msgstr ""
+msgstr "Pour réinitialiser votre mot de passe"
 
 #: templates/email/reset_password.html:5
 msgid "klicken Sie bitte hier"
-msgstr ""
+msgstr "Cliquez-ici pour vous inscrire"
 
 #: templates/email/reset_password.html:8
 msgid ""
 "Alternativ können Sie den folgenden Link in die Adressleiste Ihres "
 "Browsers eingeben:"
 msgstr ""
+"Vous pouvez aussi copier le lien suivant dans la barre d'adresse de votre"
+" navigateur"
 
 #: templates/email/reset_password.html:10
 msgid ""
 "Wenn Sie ihr Passwort nicht zurücksetzen möchten, ignorieren Sie diese "
 "Nachricht bitte."
 msgstr ""
+"Si vous n'avez pas demander de nouveau mot de passe, veuillez ignorer ce "
+"message"
 
 #: templates/email/reset_password.html:11
 msgid "Mit freundlichen Grüßen,"
-msgstr ""
+msgstr "Cordialement, "
 
 #: templates/email/reset_password.html:12
 msgid "Ihr Formulae - Litterae - Chartae Team"
-msgstr ""
+msgstr "l'équipe Formulae - Litterae - Chartae"
 
 #: templates/errors/unknown_collection.html:5
 msgid "Unbekannte Sammlung"
-msgstr ""
+msgstr "Collection inconnue"
 
 #: templates/errors/unknown_collection.html:6
 #: templates/errors/unknown_reference.html:6
 msgid "wurde nicht gefunden"
-msgstr ""
+msgstr "n'a pas été trouvé"
 
 #: templates/errors/unknown_collection.html:7
 msgid "Andere Texte in dieser Sammlung durchsuchen."
-msgstr ""
+msgstr "Rechercher d'autres textes dans la collection"
 
 #: templates/errors/unknown_reference.html:5
 msgid "Unbekannte Referenz"
-msgstr ""
+msgstr "Référence inconnue"
 
 #: templates/errors/unknown_reference.html:7
 msgid "Den ganzen Text lesen."
-msgstr ""
+msgstr "Lire le texte en entier"
 
 #: templates/main/404.html:4
 msgid "Datei nicht gefunden"
-msgstr ""
+msgstr "Fichier introuvable"
 
 #: templates/main/404.html:5 templates/main/500.html:6
 msgid "Zurück"
-msgstr ""
+msgstr "Retour"
 
 #: templates/main/add_text.html:13 templates/main/collection.html:10
 msgid "Textsammlungen"
@@ -510,11 +532,11 @@ msgstr "Parcourir"
 
 #: templates/main/add_text_menu.html:11
 msgid "Ergebnisse der letzten Suche"
-msgstr ""
+msgstr "Résultats de la dernière recherche"
 
 #: templates/main/bibliography.html:6 templates/main/navbar.html:34
 msgid "Bibliographie"
-msgstr ""
+msgstr "Bibliographie"
 
 #: templates/main/collection_member_menu.html:11
 msgid "Bitte wählen Sie eine Sammlung aus, um die enthaltenen Texte zu sehen"
@@ -532,11 +554,11 @@ msgstr "Sauvegarder les changements"
 
 #: templates/main/contact.html:6 templates/main/navbar.html:15
 msgid "Kontakt"
-msgstr ""
+msgstr "Contact"
 
 #: templates/main/contact.html:10
 msgid "Anmerkungen/Verbesserungsvorschläge"
-msgstr ""
+msgstr "Observations/Suggestions"
 
 #: templates/main/contact.html:11
 msgid ""
@@ -549,6 +571,14 @@ msgid ""
 "Textes und eine genaue Beschreibung des Problems und des Vorschlags, das "
 "Problem zu beheben."
 msgstr ""
+"Si vous avez une observation ou une suggestion pour l'amélioration de "
+"Formulae - Litterae - Chartae Werkstatt, veuillez-nous envoyer un "
+"<ahref=\"mailto:formulae.geschichte@uni-hamburg.de\">email</a>. Si ce "
+"mail contient des suggestions pour une page spécifique dans le Werkstatt,"
+" veuillez inclure l'URL complète dans le corps de l'email. Si vous voulez"
+" proposer une correction d'un texte spécifique, veuillez aussi inclure "
+"l'URL complète, le titre complet du texte et une description détaillée du"
+" problème que vous avez rencontré avec votre suggestion pour le résoudre."
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
@@ -556,11 +586,11 @@ msgstr "Aller à une lettre"
 
 #: templates/main/elex_modal_footer.html:3 templates/main/passage_footer.html:3
 msgid "Empfohlene Zitierweise"
-msgstr ""
+msgstr "Proposition"
 
 #: templates/main/elex_modal_footer.html:4 templates/main/passage_footer.html:4
 msgid "letzter Aufruf:"
-msgstr ""
+msgstr "Consulté sur:"
 
 #: templates/main/impressum.html:6 templates/main/navbar.html:12
 msgid "Impressum"
@@ -626,7 +656,7 @@ msgstr ""
 
 #: templates/main/index.html:6
 msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr ""
+msgstr "Bienvenue sur<br>Formulae-Litterae-Chartae Werkstatt!"
 
 #: templates/main/index.html:9
 msgid ""
@@ -639,6 +669,15 @@ msgid ""
 " Datum erlauben es, ähnliche Formeln oder Urkunden schnell zu "
 "identifizieren."
 msgstr ""
+"Formulae - Litterae - Chartae Werkstatt rassemble des centaines d'exemple"
+" de l'ecrit du formulaire au début du Moyen-age, a travers principalement"
+" des formulaires, des chartes et des lettres, pour permettre aux "
+"chercheurs d'examiner ces sources entre elles et dans leur contexte. Dans"
+" le Werkstatt, l'utilisateur peut lire des textes, les uns à côté des "
+"autres pour comparer leur contenu, leur style, leur langue, etc. Il est "
+"aussi possible de faire une recherche pour trouver un formulaire et/ou "
+"une charte qui sont reliés par le vocabulaire, la phraséologie ou la "
+"date."
 
 #: templates/main/index.html:10
 msgid ""
@@ -663,6 +702,24 @@ msgid ""
 "Formulae - Litterae - Chartae als Quelle der digitalen Texte stehen diese"
 " Texte unter CC-BY Lizenz zur freien Verfügung."
 msgstr ""
+"Ces textes viennent de deux sources principales. Les premiers viennent "
+"d'une nouvelle édition critique des formulaires faites pour le projet "
+"avec leur traduction en allemand. Actuellement, 60 formulaires des "
+"Formulae Andecavensis sont prêtes et d'autres le seront bientot. La "
+"seconde source provient d'édition de chartes antérieur digitalisée. Ces "
+"chartes restent prochent des formulaires et sont essentielles pour "
+"comprendre les formulaires, La majorité de ces anciennes éditions sont "
+"libre de droit et peuvent être utilisées ici. Certaines sont récentes et "
+"sont encores partiellement sous juridiction des droits d'auteur. Les "
+"utilisateurs peuvent chercher ces textes mais ils devront consulter les "
+"éditions papiers pour les textes actuels. Tous les textes qui ne sont pas"
+" sous droit d'auteur sont sous licence Creative Commons. Les formulaires "
+"sont disponibles sous une licence Creative Commons plus restrictives "
+"Creative Commons Attribution Non-Commercial No Derivatives (CC-BY NC ND),"
+" depuis qu'ils ont été publiés dans le MGH. Les chartes, publiés autre "
+"part, sont sous une simple licence Creative Commons (CC-BY). Ce qui veut "
+"dire que même si une note provient d'un texte que nous avons digitalisé, "
+"l'utilisateur doit juste nous citer."
 
 #: templates/main/index.html:11
 msgid ""
@@ -671,24 +728,34 @@ msgid ""
 "linguistischen Quellen zu fördern und zu vereinfachen. Sollten Sie "
 "Verbesserungsvorschläge haben, zögern Sie nicht, uns zu kontaktieren."
 msgstr ""
+"A la fin, Formulae - Litterae - Chartae Werkstatt doit servir à "
+"promouvoir et simplifier la recherche sur les sources du début du Moyen-"
+"age. Ils servent à l'histoire culturelle, sociale et juridique du début "
+"de la période médiévale ainsi que de source linguistiques pour le latin "
+"du début du Moyen-age. Si vous avez des suggestions pour améliorer la "
+"plateforme et en faire une meilleur place pour la recherche, n'hésiter "
+"pas à nous contacter. "
 
 #: templates/main/index.html:12
 msgid ""
 "Unser Umgang mit personenbezogenen Daten entspricht der "
 "Datenschutzerklärung der Universität Hamburg. Für weitere Informationen: "
 msgstr ""
+"Aucune données personnelles collectées n'est manipulée en accord avec la "
+"politique de confidentialité de l'université d'Hambur. Pour plus "
+"d'information : "
 
 #: templates/main/index.html:12
 msgid "https://www.uni-hamburg.de/datenschutz.html"
-msgstr ""
+msgstr "https://www.uni-hamburg.de/en/datenschutz.html"
 
 #: templates/main/index.html:12
 msgid "Datenschutzerklärung der Universität Hamburg"
-msgstr ""
+msgstr "Politique de confidentialité de l'université d'Hambourg"
 
 #: templates/main/index.html:12
 msgid "Sollten Sie Fragen haben, kontaktieren Sie uns bitte."
-msgstr ""
+msgstr "Si vous avez une question, n'hésitez pas à nous contacter"
 
 #: templates/main/lexicon.html:2
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
@@ -696,7 +763,7 @@ msgstr "Survolez un mot avec la souris pour voir son lemme."
 
 #: templates/main/lexicon_modal.html:12
 msgid "Dieser Beitrag parallel lesen"
-msgstr ""
+msgstr "Lire cette entrée dans la vue paralléle"
 
 #: templates/main/menu.html:2
 msgid "Texte"
@@ -717,15 +784,15 @@ msgstr ""
 
 #: templates/main/multipassage.html:30
 msgid "Quelle oder Beitrag hinzufügen"
-msgstr ""
+msgstr "Ajouter un autre texte"
 
 #: templates/main/multipassage.html:34
 msgid "andere Version(en) dieser Text"
-msgstr ""
+msgstr "autres Version(s) de ce texte"
 
 #: templates/main/multipassage.html:40
 msgid "anderen Texte"
-msgstr ""
+msgstr "autres textes"
 
 #: templates/main/multipassage.html:42 templates/main/navbar.html:28
 msgid "Lexikon"
@@ -737,27 +804,27 @@ msgstr "Autres textes"
 
 #: templates/main/multipassage.html:51
 msgid "Vorherige Seite"
-msgstr ""
+msgstr "Page précédente"
 
 #: templates/main/multipassage.html:56
 msgid "Nächste Seite"
-msgstr ""
+msgstr "Page suivante"
 
 #: templates/main/multipassage.html:68
 msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
-msgstr ""
+msgstr "Pas d'entrée dans le lexique trouvé"
 
 #: templates/main/multipassage.html:96
 msgid "Diesen Text ausblenden"
-msgstr ""
+msgstr "Supprimer ce texte"
 
 #: templates/main/multipassage.html:134
 msgid "Mehr zeigen"
-msgstr ""
+msgstr "Lire la suite"
 
 #: templates/main/multipassage.html:135
 msgid "Weniger zeigen"
-msgstr ""
+msgstr "Remonter le texte"
 
 #: templates/main/navbar.html:9
 msgid "Über das Projekt"
@@ -777,7 +844,7 @@ msgstr ""
 
 #: templates/main/notes.html:17
 msgid "Anmerkungen"
-msgstr ""
+msgstr "Notes"
 
 #: templates/main/notes.html:24
 msgid ""
@@ -788,6 +855,12 @@ msgid ""
 "verbergen. Wird auf der linken Seite kein Text angezeigt, sind keine "
 "Anmerkungen vorhanden."
 msgstr ""
+"Cliquer sur le nombre ou sur la lettre d'un des textes pour faire "
+"apparaitre le texte correspond en-dessous. Vous pouvez aussi cliquer sur "
+"le petit &#8853; pour montrer toutes les notes du texte ou sur le petit "
+"&#8853; pour cacher toutes les notes du texte. Si il ne se trouve pas de "
+"texte sur la gauche alors cela signifie qu'il n'y a pas de notes pour ce "
+"texte."
 
 #: templates/main/notes.html:35
 msgid "Alle Anmerkungen für diesen Text ausblenden"
@@ -800,12 +873,12 @@ msgstr "Afficher toutes les notes de ce texte"
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Datum"
-msgstr ""
+msgstr "Date"
 
 #: templates/main/salzburg_collection.html:27
 #: templates/main/sub_collection.html:26
 msgid "Gehe zu (Text):"
-msgstr ""
+msgstr "Aller au texte:"
 
 #: templates/main/salzburg_collection.html:53
 #: templates/main/sub_collection.html:37
@@ -833,7 +906,7 @@ msgstr "Comparer avec une autre version"
 
 #: templates/search/advanced_search.html:7
 msgid "Zur ausführlichen Dokumentation der erweiterten Suche"
-msgstr ""
+msgstr "Recherche avancée"
 
 #: templates/search/advanced_search.html:32
 #: templates/search/documentation.html:12
@@ -842,22 +915,34 @@ msgstr "Recherche de mot"
 
 #: templates/search/advanced_search.html:32
 msgid ""
-"Wildcard-Zeichen sind erlaubt. Ein Fragezeichen ('?') ersetzt ein "
-"einzelnes Zeichen, ein Stern ('*') ein oder mehr Zeichen. Beide "
+"Die Wortsuche sucht nur nach ganzen Wörter. Das bedeutet, wenn man nach "
+"'christ' sucht, findet man nur das Wort 'christ' und nicht bzw. "
+"'christus' oder 'christi'. Um so eine Suche zu machen, sollte man "
+"Wildcard-Zeichen benutzen. Ein Fragezeichen ('?') ersetzt ein einzelnes "
+"Zeichen, ein Stern ('*') ein oder mehr Zeichen. Wenn man nach 'christ*' "
+"sucht, findet man 'christus' oder auch 'christi'. Beide Wildcard-Zeichen "
 "funktionieren nur innnerhalb eines Wortes. Bei der Suchanfrage 'christ* "
 "nom*' wird jede Reihe von zwei aufeinander folgenden Worten gefunden, bei"
 " der das erste Wort mit 'christ' und das zweite mit 'nom' beginnt. "
-"Möchten sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
+"Möchten Sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
 " stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
-"Les caractères spéciaux sont autorisés. Un point d'interrogation (,?') "
-"Remplace un seul caractère, tandis qu'un astérisque (,*') remplace un ou "
-"plusieurs caractères. Les deux fonctionnent seulement à l’intérieur d’un "
-"mot. Cela signifie que la recherche \"christ* nom*\" trouvera chaque "
-"série de deux mots consécutifs où le premier mot commence par \"christ-\""
-" et le second par \"nom-\". Si vous souhaitez trouver ces deux mots, "
-"contenant potentiellement d'autres mots entre eux, définissez un «rayon "
-"de recherche» supérieur à 0."
+"...."
+"Les caractères spéciaux sont autorisés. "
+"Un point d'interrogation (,?') Remplace "
+"un seul caractère, tandis qu'un "
+"astérisque (,*') remplace un ou "
+"plusieurs caractères. Les deux fonctionnent"
+" seulement à l’intérieur d’un mot. "
+"Cela signifie que la recherche \"christ*"
+" nom*\" trouvera chaque série de deux"
+" mots consécutifs où le premier mot"
+" commence par \"christ-\" et le "
+"second par \"nom-\". Si vous souhaitez"
+" trouver ces deux mots, contenant "
+"potentiellement d'autres mots entre eux, "
+"définissez un «rayon de recherche» "
+"supérieur à 0."
 
 #: templates/search/advanced_search.html:38
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
@@ -867,7 +952,7 @@ msgstr ""
 
 #: templates/search/advanced_search.html:38
 msgid "Die Reihenfolge der Wörter beibehalten"
-msgstr ""
+msgstr "Garder l'ordre des mots"
 
 #: templates/search/advanced_search.html:40
 msgid ""
@@ -912,28 +997,32 @@ msgstr ""
 #: templates/search/advanced_search.html:46
 #: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
-msgstr ""
+msgstr "Lieu d'émission"
 
 #: templates/search/advanced_search.html:50
 msgid "Anfangsbuchstaben"
-msgstr ""
+msgstr "Première lettre"
 
 #: templates/search/advanced_search.html:50
 msgid ""
 "Ob die Buchstaben im Suchfeld am Anfang der Ortsnamensvorschläge "
 "vorkommen müssen."
 msgstr ""
+"Détermine si les lettres dans le champs de recherche doivent survenir au "
+"début de chaque proposition du lieu  d'émission"
 
 #: templates/search/advanced_search.html:54
 #: templates/search/documentation.html:28
 msgid "Datumssuche"
-msgstr ""
+msgstr "Recherche par date"
 
 #: templates/search/advanced_search.html:54
 msgid ""
 "Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
 "Datumssuche keine Formeln angezeigt."
 msgstr ""
+"Si les formulaires n'ont aucune date précise, toutes recherches contenant"
+" une date ne retournera pas de formulaire."
 
 #: templates/search/advanced_search.html:55
 #: templates/search/documentation.html:30
@@ -970,27 +1059,27 @@ msgstr ""
 
 #: templates/search/advanced_search.html:89
 msgid "Von"
-msgstr "A partir de"
+msgstr "Du"
 
 #: templates/search/advanced_search.html:116
 msgid "Bis"
-msgstr "Jusqu’à"
+msgstr "Au"
 
 #: templates/search/advanced_search.html:143
-msgid "Kirchenfeste"
+msgid "Bewegliche Kirchenfeste"
 msgstr ""
 
 #: templates/search/advanced_search.html:158
 msgid "Wochentage"
-msgstr ""
+msgstr "Jour ouvré"
 
 #: templates/search/advanced_search.html:193
 msgid "Zurücksetzen"
-msgstr ""
+msgstr "Réinitialiser le formulaire"
 
 #: templates/search/documentation.html:6
 msgid "Dokumentation der erweiterten Suche"
-msgstr ""
+msgstr "Recherche documentaire avancée"
 
 #: templates/search/documentation.html:10
 msgid ""
@@ -1000,6 +1089,11 @@ msgid ""
 "Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
 "können diese Stellen in der angegebenen Printedition nachschlagen."
 msgstr ""
+"Tous les projets disponibles à la recherche sont dans la liste des "
+"Corpora. Certains sont toujours sujet au droit d'auteur et il est "
+"impossible de faire apparaitre le texte complet. Toutefois, il est "
+"possible de faire une recherche dans ces corpus. Ils font références à "
+"l'édition imprimée de ces textes."
 
 #: templates/search/documentation.html:11
 msgid ""
@@ -1011,6 +1105,14 @@ msgid ""
 "Ausstellungsortsuche funktionieren nur für Urkunden. Siehe <a href"
 "='#date-search'>unten</a> für weitere Information."
 msgstr ""
+"Les différents types de corpus ('Formulae' ou 'Chartae') ont été indéxés "
+"différemment. Sur le premier, on peut rechercher les différentes formes "
+"des mots dans le texte. Cela signifie 'l'ordre des mots', 'le flou', "
+"'l'étendue de la recherche', et les caractères spéciaux sont supportés "
+"pour tous les corpus. La recherche de Lemmes, toutefois, ne fonctionne "
+"que pour les formulaires. La recherche de Date fonctionne seulement pour "
+"les 'Chartes'. Voir <a href='#date-search'>au-dessous</a> pour plus de "
+"détails."
 
 #: templates/search/documentation.html:13
 msgid ""
@@ -1025,10 +1127,20 @@ msgid ""
 "werden, muss der 'Suchradius' entsprechend größer als 0 eingestellt "
 "werden."
 msgstr ""
+"La recherche de mot fonctionne pour les textes latins des 'Formulaires' "
+"et des 'Chartes'. Cette recherche accepte les caractères spéciaux. Un "
+"point d'interrogation ('?') remplace un seul caractère quand un "
+"astérisque ('*') remplace un ou plusieurs caractères. Les deux ne "
+"fonctionnent que pour un seul mot. Cela signifie qu'une recherche pour "
+"'christ* nom*' va retourner toutes les séquences de deux dont le premier "
+"est 'christ' et le second contient 'nom'. Si vous souhaitez obtenir plus "
+"de proposition de document ou d'autres mots peuvent apparaître entre ces "
+"deux termes, modifier 'l'étendue de la recherche' pour que ce soit "
+"supérieur à 0."
 
 #: templates/search/documentation.html:14
 msgid "Vorschlagssuche"
-msgstr ""
+msgstr "Autocomplétion"
 
 #: templates/search/documentation.html:15
 msgid ""
@@ -1041,6 +1153,15 @@ msgid ""
 "Einfluss auf die angezeigten Vorschlägen hat, ist 'Wortreihenfolge'. Nur "
 "Vorschläge, welche die selbe Wortreihenfolge haben, werden angezeigt."
 msgstr ""
+"Les suggestions retournées par l'autocomplétion dans la recherche de mot "
+"sont basées sur les autres entrées de la barre de recherche. Pour "
+"instancem si l'un séléctionne <em><b>Andecavensis</b></em> dans 'Corpus',"
+" l'autocomplétion va limiter les suggestions aux formulaires d'Anger. Les"
+" restrictions appliquées sur les différentes fonctions de la recherche "
+"sont appliquées. E.g., la recherche de Lemme va seulement retourner les "
+"différent lemmes contenus dans le formulaire. Le seul paramètre qui n'a "
+"pas d'effet est 'Ordre des mots'. Cette suggestion va seulement montrer "
+"les résultats qui sont exactement dans le même ordre."
 
 #: templates/search/documentation.html:16
 msgid ""
@@ -1052,6 +1173,13 @@ msgid ""
 "Suchparameter sollten daher definiert werden bevor ein Vorschlag "
 "ausgewählt wird."
 msgstr ""
+"Si quelqu'un choisit une phrase suggérée avant d'avoir séléctionné les "
+"autres paramètres de la recherche cela n'aura pas d'impact sur les "
+"suggestions. Cela peut mener à avoir des entrées sans résultats car la "
+"phrase choisit n'apparait dans aucun document que remplit les autres "
+"paramètres de recherche. Il est donc conseillé de remplir les autres "
+"paramètres de recherche avant de choisir une suggestion de "
+"l'autocomplétion."
 
 #: templates/search/documentation.html:18
 msgid ""
@@ -1063,10 +1191,19 @@ msgid ""
 "Lemmasuche funktioniert nur für die Formeln. Die Lemmatisierungsregeln "
 "sind <a href='#'>hier</a> zu finden."
 msgstr ""
+"La recherche de 'Lemme' passe par le dictionnaire des formes de mot au "
+"lieu des formes des déclinaisons normal. Si une des recherches pour "
+"<em><b>dominus</b></em> avec l'option 'Lemme', les résultats vont "
+"inclures toutes les déclinaisons comme <em><b>domini</b></em> ou "
+"<em><b>Domino</b></em>. Il retournera aussi les autres variations "
+"linguistiques comme <em><b>domni</b></em> ou <em><b>Domeno</b></em>. Une "
+"recherche de 'Lemme' va automatiquement restreindre la recherche aux "
+"formulaires. Une description des règles utilisée pour la lemmatisation "
+"(en allemand) est disponible <a href='#'>ici</a>."
 
 #: templates/search/documentation.html:19
 msgid "Wortreihenfolge"
-msgstr ""
+msgstr "Ordre des mots"
 
 #: templates/search/documentation.html:20
 msgid ""
@@ -1081,6 +1218,15 @@ msgid ""
 " rei puplici uiris</b></em> an, <em><b>uiris uenerabilibus adque "
 "magnificis</b></em> jedoch nicht."
 msgstr ""
+"Séléctionner cette option si l'ordre des mots à une importance. Avec "
+"cette option, la recherche de phrase <em><b>uenerabile uir</b></em> ne "
+"retournera aucun document avec les mots dans l'ordre inverse, i.e., "
+"<em><b>uir uenerabile</b></em>. 'Ordre des mots' fonctionne aussi avec la"
+" 'recherche étendue' au dessus de 0. Par exemple, si vous cherchez "
+"<em><b>magnificis uiris</b></em> avec une 'recherche étendue' de '10' "
+"cela retournera des documents avec <em><b>magnificis rei puplici "
+"uiris</b></em> mais aucun avec <em><b>uiris uenerabilibus adque "
+"magnificis</b></em>."
 
 #: templates/search/documentation.html:22
 msgid ""
@@ -1094,6 +1240,14 @@ msgid ""
 "<em><b>magnum</b></em> ('m' ersetzt 'r' und 'a' ersetzt 'e') und "
 "<em><b>legum</b></em> ('l' ersetzt 'r' und 'n' wird gelöscht) gefunden."
 msgstr ""
+"Le flou est une mesure qui permet de déterminer de combien une recherche "
+"peut dériver et être toujours considérer comme valide. E.g., 2 veut dire "
+"que 2 lettres dans le mot peuvent être remplacées, supprimées, ajoutées "
+"ou transposées. Donc si une recherche pour <em><b>regnum</b></em> avec le"
+" flou au niveau 2, les réponses seront les mots< em><b>regno</b></em> et "
+"<em><b>regni</b></em> mais aussi <em><b>magnum</b></em> ('m' remplace 'r'"
+" et 'a' remplace 'e') et <em><b>legum</b></em> ('l' remplace 'r' et 'n' "
+"est supprimé)."
 
 #: templates/search/documentation.html:23
 msgid ""
@@ -1103,6 +1257,11 @@ msgid ""
 " längeren Wörtern sind 2 Änderungen erlaubt. 'AUTO' ist für die meisten "
 "Suchanfragen geeignet."
 msgstr ""
+"'AUTO' signifie que le nombre de changements alloué au flou dépend de la "
+"longueur du mot entrée: si le mot est long de 1 ou 2 lettres, aucun "
+"changement n'est permis, 3-5 lettres 1 changement est permis et "
+"supérieur, et plus grand 2 changement sont permis. 'AUTO' devrait "
+"fonctionner au mieux pour la majorité des recherches"
 
 #: templates/search/documentation.html:25
 msgid ""
@@ -1112,16 +1271,24 @@ msgid ""
 "<em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em> als "
 "treffer angezeigt."
 msgstr ""
+"La 'recherche étendue' augmente le nombre de mot entre les termes "
+"recherchés Par exemple, si on cherche <em><b>uenerabilibus uiris</b></em>"
+" avec la 'recherche étendue' à 4 alors il retournera la phrase "
+"<em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em>."
 
 #: templates/search/documentation.html:27
 msgid "Die Ausstellungsortsuche funktioniert nur für Urkunden."
 msgstr ""
+"La recherche par 'Lieu d'émission' marche seulement pour seulement les "
+"Chartes"
 
 #: templates/search/documentation.html:29
 msgid ""
 "Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
 "'Datumssuche' keine Formeln angezeigt."
 msgstr ""
+"Si les formulaires n'ont aucune date précise, toutes recherches contenant"
+" une date ne retournera pas de formulaire."
 
 #: templates/search/documentation.html:31
 msgid ""
@@ -1130,6 +1297,11 @@ msgid ""
 " Juni 800') aber auch mit Datumsspannen, die mit dem Jahr 800 überlappen "
 "(z.B. '769-813'), als Treffer angezeigt."
 msgstr ""
+"Renvoyer les résultats en fonction de la date entrée si la date "
+"correspond ou si elle entre dans la plage des dates. Pour une recherche "
+"sur l'année, '800' va retourner tous les documents qui datent de '800' "
+"(e.g., 'Juin 17,800') mais aussi tous les documents qui incluent 800 dans"
+" leur plage (e.g., '769-813')."
 
 #: templates/search/documentation.html:33
 msgid ""
@@ -1139,6 +1311,11 @@ msgid ""
 "Dokumente, die am 17. Juni zwischen den Jahren 751 und 849 ausgestellt "
 "wurden."
 msgstr ""
+"Cela détermine le nombre d'année qu'un document peut différer de la date "
+"donnée et en restant parmis les résultats. Si une recherche est pour le "
+"'17 juin 800' avec 'Date-plus-moins' de 49 ans. Le résultat donnera tous "
+"les documents sont datés du 17 Juin (et seulement le 17 Juin) pour toutes"
+" les années entre 751 et 849."
 
 #: templates/search/documentation.html:35
 msgid ""
@@ -1147,6 +1324,10 @@ msgid ""
 "innerhalb der Daten '750 Juni 17' und '850 Juni 17' findet etwa am 31. "
 "Dezember 777 oder 12. Februar 813 ausgestellte Dokumente."
 msgstr ""
+"La 'recherche étendue' retournera tous les documents dont la date est "
+"comprise entre le 'A partir de' et 'à'. Si quelqu'un fait une recherche "
+"pour '750 June 17' au '850 June 17', la recherche trouvera des documents "
+"datés du 31 Décembre 777 ou du 12 Février 813."
 
 #: templates/search/documentation.html:37
 msgid ""
@@ -1159,6 +1340,12 @@ msgid ""
 "vor dem 17. Juni oder nach dem 22. November (etwa am 5. März 806 oder am "
 "24. Dezember 812) ausgestellt wurden."
 msgstr ""
+"Une 'plage de date exclusive' est une recherche spéciale qui permet de "
+"chercher des dates précises selon une plage d'année. Par exemple, une "
+"recherche par 'plage de date exclusive' entre le 17 Juin et le 22 "
+"Novembre et entre 800 et 813 (e.g., August 8, 807). Cela signifie qu'une "
+"charte datant du 5 Mars 806 ou du 24 décembre 812 ne sera pas considérer "
+"comme un résultat valable"
 
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid "Suchergebnisse"
@@ -1166,11 +1353,11 @@ msgstr "Résultats de la recherche"
 
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid " Treffer"
-msgstr ""
+msgstr "Résultats"
 
 #: templates/search/search.html:9
 msgid "Mehr Statistiken"
-msgstr ""
+msgstr "Plus de Statistiques"
 
 #: templates/search/search.html:14
 msgid "Corpus"
@@ -1178,35 +1365,39 @@ msgstr ""
 
 #: templates/search/search.html:15
 msgid "Datierung"
-msgstr ""
+msgstr "Date"
 
 #: templates/search/search.html:26
 msgid "k.A."
-msgstr ""
+msgstr "NA"
 
 #: templates/search/search.html:42
 msgid "Keine Ergebnisse gefunden für"
-msgstr ""
+msgstr "Pas de résultat pour"
 
 #: templates/search/search.html:45
 msgid "Diese Suche ändern"
-msgstr ""
+msgstr "Modifier la recherche"
 
 #: templates/search/search.html:49
 msgid "Zeig nur Resultate aus:"
-msgstr ""
+msgstr "Des résultats seulement de :"
 
 #: templates/search/search.html:52
 msgid "Zeig Alle Resultate"
+msgstr "Montrer tous les résultats"
+
+#: templates/search/search.html:59
+msgid "Los!"
 msgstr ""
 
 #: templates/search/search.html:69
 msgid "Sortieren nach"
-msgstr ""
+msgstr "Séléctionner"
 
 #: templates/search/search.html:72
 msgid "Korpus"
-msgstr ""
+msgstr "Corpus"
 
 #: templates/search/search.html:73
 msgid "Terminus post quem"
@@ -1218,27 +1409,27 @@ msgstr ""
 
 #: templates/search/search.html:79
 msgid "Alphabetisch"
-msgstr ""
+msgstr "Ordre alphabétique"
 
 #: templates/search/search.html:80 templates/search/search.html:82
 msgid "Aufsteigend"
-msgstr ""
+msgstr "Ascendant"
 
 #: templates/search/search.html:81 templates/search/search.html:83
 msgid "Absteigend"
-msgstr ""
+msgstr "Descendant"
 
 #: templates/search/search.html:101
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
-msgstr ""
+msgstr "Le texte n'est pas disponible. Consulter l'édition imprimée."
 
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
 msgstr "Chercher dans"
 
-#: tests/test_routes.py:640
+#: tests/test_routes.py:644
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
@@ -2067,4 +2258,79 @@ msgstr ""
 
 #~ msgid "Feiertage"
 #~ msgstr ""
+
+#~ msgid "Kirchenfeste"
+#~ msgstr "Vacances de Noël"
+
+#~ msgid ""
+#~ "Wildcard-Zeichen sind erlaubt. Ein "
+#~ "Fragezeichen ('?') ersetzt ein einzelnes "
+#~ "Zeichen, ein Stern ('*') ein oder "
+#~ "mehr Zeichen. Beide funktionieren nur "
+#~ "innnerhalb eines Wortes. Bei der "
+#~ "Suchanfrage 'christ* nom*' wird jede "
+#~ "Reihe von zwei aufeinander folgenden "
+#~ "Worten gefunden, bei der das erste "
+#~ "Wort mit 'christ' und das zweite "
+#~ "mit 'nom' beginnt. Möchten sie im "
+#~ "Suchergebnis Worte zwischen beiden "
+#~ "Suchbegriffen zulassen, stellen Sie bitte "
+#~ "einen entsprechenden 'Suchradius' größer als"
+#~ " 0 ein."
+#~ msgstr ""
+#~ "Les caractères spéciaux sont autorisés. "
+#~ "Un point d'interrogation (,?') Remplace "
+#~ "un seul caractère, tandis qu'un "
+#~ "astérisque (,*') remplace un ou "
+#~ "plusieurs caractères. Les deux fonctionnent"
+#~ " seulement à l’intérieur d’un mot. "
+#~ "Cela signifie que la recherche \"christ*"
+#~ " nom*\" trouvera chaque série de deux"
+#~ " mots consécutifs où le premier mot"
+#~ " commence par \"christ-\" et le "
+#~ "second par \"nom-\". Si vous souhaitez"
+#~ " trouver ces deux mots, contenant "
+#~ "potentiellement d'autres mots entre eux, "
+#~ "définissez un «rayon de recherche» "
+#~ "supérieur à 0."
+
+#~ msgid ""
+#~ "Die Wortsuche sucht nur nach ganzen "
+#~ "Wörter. Das bedeutet, wenn man nach "
+#~ "'christ' sucht, findet man nur das "
+#~ "Wort 'christ' und nicht bzw. 'christus'"
+#~ " oder 'christi'. Um so eine Suche "
+#~ "zu machen, sollte man Wildcard-Zeichen"
+#~ " benutzen. Ein Fragezeichen ('?') ersetzt"
+#~ " ein einzelnes Zeichen, ein Stern "
+#~ "('*') ein oder mehr Zeichen. Wenn "
+#~ "man nach 'christ*' sucht, findet man "
+#~ "'christus' oder auch 'christi'. Beide "
+#~ "funktionieren nur innnerhalb eines Wortes. "
+#~ "Bei der Suchanfrage 'christ* nom*' wird"
+#~ " jede Reihe von zwei aufeinander "
+#~ "folgenden Worten gefunden, bei der das"
+#~ " erste Wort mit 'christ' und das "
+#~ "zweite mit 'nom' beginnt. Möchten Sie"
+#~ " im Suchergebnis Worte zwischen beiden "
+#~ "Suchbegriffen zulassen, stellen Sie bitte "
+#~ "einen entsprechenden 'Suchradius' größer als"
+#~ " 0 ein."
+#~ msgstr ""
+#~ ".....Cette recherche accepte les caractères"
+#~ " spéciaux. Un point d'interrogation ('?')"
+#~ " remplace un seul caractère quand un"
+#~ " astérisque ('*') remplace un ou "
+#~ "plusieurs caractères. Les deux ne "
+#~ "fonctionnent que pour un seul mot. "
+#~ "Cela signifie qu'une recherche pour "
+#~ "'christ* nom*' va retourner toutes les"
+#~ " séquences de deux dont le premier"
+#~ " est 'christ' et le second contient"
+#~ " 'nom'. Si vous souhaitez obtenir "
+#~ "plus de proposition de document ou "
+#~ "d'autres mots peuvent apparaître entre "
+#~ "ces deux termes, modifier 'l'étendue de"
+#~ " la recherche' pour que ce soit "
+#~ "supérieur à 0."
 

@@ -14,6 +14,8 @@ from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_coll
 import re
 from datetime import date
 from string import punctuation
+from urllib.parse import quote
+from json import load
 
 
 class NemoFormulae(Nemo):
@@ -68,10 +70,10 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                             'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
+                             'urn:cts:formulae:salzburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
 
     OPEN_NOTES = []
 
@@ -98,6 +100,7 @@ class NemoFormulae(Nemo):
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
+
 
     def get_all_corpora(self):
         """ A convenience function to return all sub-corpora in all collections
@@ -218,13 +221,14 @@ class NemoFormulae(Nemo):
             session.pop('previous_search', None)
 
     def after_request(self, response):
-        """ Currently used only for the Cache-Control header
-            max_age calculates days, hours, minutes and seconds and adds them together.
-            First number after '+' is the respective number for each value.
+        """ Currently used only for the Cache-Control header.
+
         """
         max_age = self.app.config['CACHE_MAX_AGE']
         if re.search('/(lang|auth)/', request.url):
             max_age = 0
+        elif re.search('/assets/', request.url):
+            max_age = 60 * 60 * 24
         response.cache_control.max_age = max_age
         response.cache_control.public = True
         return response
@@ -298,21 +302,26 @@ class NemoFormulae(Nemo):
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
                     par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                    if par.lstrip('0') == '':
+                        par = _('(Titel)')
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
                 else:
-                    r[par] = {"short_regest": str(m.get_description()).split(':')[0] if 'andecavensis' in m.id else '',
+                    r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": [':'.join(str(m.get_description()).split(':')[1:])] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
+                              "regest": [str(m.get_description())] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            if "andecavensis" in objectId:
+                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            else:
+                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
@@ -392,7 +401,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         :rtype: {str: Any}
         """
-        initial = self.r_corpus(objectId)
+        initial = self.r_corpus(objectId, lang=lang)
         initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
         return initial
 
@@ -455,10 +464,11 @@ class NemoFormulae(Nemo):
                     "description": text.get_description(lang),
                     "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
-                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
-                    "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
-                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None)),
-                    'lang': collection.lang
+                    "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
+                    "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
+                    "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
+                    'lang': collection.lang,
+                    'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang))
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },
@@ -485,6 +495,7 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
         for i in ids:
@@ -564,6 +575,7 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
+
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
