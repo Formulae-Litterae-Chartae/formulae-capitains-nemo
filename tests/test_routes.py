@@ -642,19 +642,18 @@ class TestForms(Formulae_Testing):
 
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
-        # This test does not work with Travis
-        if os.environ.get('TRAVIS'):
-            return
-        form = SearchForm(corpus=['formulae'], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('formulae')
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
-        form = SearchForm(corpus=['formulae'], q='re?num')
+        form.data['q'] = 're?num'
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
     def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=[''], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
