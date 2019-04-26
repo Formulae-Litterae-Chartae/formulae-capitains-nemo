@@ -9,6 +9,7 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
+from formulae.viewer.Viewer import get_lexicon, get_passage
 from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
@@ -45,7 +46,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
-                                            "search": "templates/search"},
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
                                  pdf_folder="pdf_folder/")
 
@@ -164,6 +166,9 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
+            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            self.assertMessageFlashed(_('This corpus is on copyright, please choose another text'))
+            self.assertTemplateUsed('main::index.html')
 
 
     def test_authorized_project_member(self):
@@ -184,7 +189,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
@@ -231,6 +236,14 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('FORMULA ANDECAVENSIS 1', r.get_data(as_text=True))
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::newtabviewer.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -294,6 +307,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
+
 
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):
