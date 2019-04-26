@@ -58,6 +58,8 @@ def query_index(index, field, query, page, per_page, sort='urn'):
         return [], 0, {}
     if index in ['', ['']]:
         return [], 0, {}
+    if not query:
+        return [], 0, {}
     session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []

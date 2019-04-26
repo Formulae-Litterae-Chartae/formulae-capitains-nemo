@@ -110,7 +110,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::register.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -188,10 +190,15 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
+
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collections.html')
-            c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+
+            c.get('/collections/formulae_collection', follow_redirects=True)
+
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/other_collection', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -268,7 +275,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -543,6 +552,14 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertRegex(response.get_data(as_text=True), expected)
 
+    def test_cache_max_age_header_set(self):
+        """ Make sure that the cache max age header is set correctly with each request"""
+        with self.client as c:
+            response = c.get('/assets/nemo/css/theme.min.css')
+            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/')
+            self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
+
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -558,6 +575,16 @@ class TestFunctions(Formulae_Testing):
         new_list = [1, 2, 3, 4, 5, 6, 7]
         test_list = self.nemo.f_replace_indexed_item(old_list, 3, 4)
         self.assertEqual(test_list, new_list)
+
+    def test_NemoFormulae_get_locale(self):
+        """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
+        with self.client as c:
+            c.post('/lang/de')
+            self.assertEqual(self.nemo.get_locale(), 'ger')
+            c.post('/lang/fr')
+            self.assertEqual(self.nemo.get_locale(), 'fre')
+            c.post('/lang/en')
+            self.assertEqual(self.nemo.get_locale(), 'eng')
 
 
 class TestForms(Formulae_Testing):
@@ -634,23 +661,31 @@ class TestForms(Formulae_Testing):
 
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
-        # This test does not work with Travis
-        if os.environ.get('TRAVIS'):
-            return
-        form = SearchForm(corpus=['formulae'], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('formulae')
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
-        form = SearchForm(corpus=['formulae'], q='re?num')
+        form.data['q'] = 're?num'
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
-    def test_invalid_data_simple_search_form(self):
+    def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=[''], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
                       [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
+                       _("'' ist kein gültige Auswahl für dieses Feld.")])
+
+    def test_invalid_query_simple_search_form(self):
+        """ Ensure that the simple search form returns a ValidationError with no corpus"""
+        form = SearchForm(corpus=['formulae'], q=None)
+        self.assertFalse(form.validate(), 'Search with no query term specified should not validate')
+        # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
+        self.assertIn(str(form.q.errors[0]),
+                      [_('Dieses Feld wird benötigt.'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_validate_invalid_advanced_search_form(self):
@@ -1405,7 +1440,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        test_args['index'] = ''
+        test_args['index'] = ['formulae', 'chartae']
+        test_args['query'] = ''
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
@@ -1414,6 +1450,9 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
+            self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
+                                      _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):

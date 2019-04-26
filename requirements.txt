@@ -1,5 +1,5 @@
 capitains-nautilus>=1.0.2
-elasticsearch>=6.3.0
+elasticsearch>=6.3.0,<7.0.0
 MyCapytain>=2.0.0
 requests_cache>=0.4.9
 Flask>=0.12.0
