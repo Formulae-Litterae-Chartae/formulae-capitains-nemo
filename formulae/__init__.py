@@ -12,6 +12,7 @@ from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from flask_mail import Mail
 from flask_session import Session
+from json import load
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -30,6 +31,14 @@ def create_app(config_class=Config):
     app.elasticsearch = Elasticsearch(app.config['ELASTICSEARCH_URL']) \
         if app.config['ELASTICSEARCH_URL'] else None
 
+    app.IIIFserver = app.config['IIIF_SERVER']\
+        if app.config['IIIF_SERVER'] else None
+
+        #Load iiif maping file like elasticsearch.
+    if app.config['IIIF_MAPPING']:
+        with open('{}/test.json'.format(app.config['IIIF_MAPPING']), "r") as f:
+            app.picture_file=load(f)
+
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
@@ -41,6 +50,9 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp
     app.register_blueprint(search_bp, url_prefix="/search")
+    from .viewer import bp as viewer_bp
+    viewer_bp.static_folder = app.config['IIIF_MAPPING']
+    app.register_blueprint(viewer_bp, url_prefix="/viewer")
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):
