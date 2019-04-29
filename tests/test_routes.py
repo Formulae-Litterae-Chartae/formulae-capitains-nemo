@@ -32,6 +32,7 @@ class TestConfig(Config):
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
+    IIIF_MAPPING = "tests/test_data/formulae/data"
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):

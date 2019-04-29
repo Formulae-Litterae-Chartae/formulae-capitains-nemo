@@ -16,6 +16,6 @@
 
 	}],
 	"urn:cts:formulae:andecavensis.form002.lat001": [{
-		"manifest": "/test_manifest.json",
+		"manifest": "/test_manifest.json"
 	}]
 }
