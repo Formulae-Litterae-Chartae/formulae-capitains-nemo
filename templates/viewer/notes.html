@@ -1,0 +1,50 @@
+<!-- THE NOTE CARDS -->
+
+<div class="card border-light">
+
+    <!-- Hover text containing the whole card header so that it doesn't concern only the text. -->
+    <div data-toggle="tooltip"
+        data-placement="bottom"
+        title="Click to display/hide instructions">
+
+        <!-- Card header controlling the "collapse" instruction text. -->
+        <div class="card-header"
+            id="instrNoteHead"
+            data-toggle="collapse"
+            data-target="#instructionsNotes"
+            aria-expanded="true"
+            aria-controls="instructionsNotes">
+            {{ _('Anmerkungen') }}</div>
+
+    </div>
+    <div class="card-body p-2" style="min-height: 2em;">
+
+        <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
+        <div id="instructionsNotes" class="collapse" aria-labelledby="instrNoteHead">
+            <p style="font-size: small;">{{ _('Bitte klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten Buchstaben, um den Text der entsprechenden Anmerkung zu sehen. Bitte klicken Sie auf das kleine &#8853;, um alle Notizen für einen Text anzeigen oder das kleine &#8855;, um alle Anmerkungen für diesen Text zu verbergen. Wird auf der linken Seite kein Text angezeigt, sind keine Anmerkungen vorhanden.') }}</p>
+        </div>
+
+        <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
+        {% if passage_data %}
+
+            {% if passage_data.notes %}
+                <div class="card bg-hhblue px-0"
+                    style="font-size: small; text-decoration: none;">
+                    <div>
+
+                        <span class="align-middle">{{ passage_data.collections.current.label }} ({{ passage_data.collections.current.lang }})</span>
+                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ passage_data .objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
+                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ passage_data .objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
+                    </div>
+                </div>
+                <div class="note-card" id="header-{{ passage_data .objectId|replace(':', '-')|replace('.', '-') }}">
+                    {{ passage_data.notes }}
+                </div>
+            {% endif %}
+
+        {% else %}
+            {{ notes }}
+        {% endif %}
+        </div>
+
+    </div>

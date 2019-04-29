@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('InstanceNemo.static', filename='css/theme.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('InstanceNemo.static', filename='css/jquery-ui.min.css')}}">
+</head>
+<body>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+      <div class="container-fluid fill-height">
+          {% if messages %}
+          <div class="row">
+              <div class="col">
+                {% for category, message in messages %}
+                  <div class="alert alert-{{category}}" role="alert">{{ message }}</div>
+                {% endfor %}
+              </div>
+          </div>
+          {% endif %}
+        {% endwith %}
+
+<div class="container-fluid fill-height">
+<div class="row">
+
+    <div class="col-2 ">
+        <a href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view-1)}}" class="previous">&laquo; Previous</a>
+    </div>
+    <div class="col-8">
+    {% for x in range(total_views) %}
+    <a href="{{url_for('viewer.new_tab', objectId=objectId, view=x)}}">{{x+1}} </a>
+    {% endfor %}
+</div>
+    <div class="col-2">
+        <a href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view+1)}}" class="previous" class="next">Next &raquo;</a>
+    </div>
+</div>
+    <div class="row fill-height">
+        <div class="col-2 "></div>
+        <div class="col-8">
+        {% block viewer %}
+            {% include "viewer::openseadragon.html" %}
+        {% endblock %}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+</body>
+</html>
