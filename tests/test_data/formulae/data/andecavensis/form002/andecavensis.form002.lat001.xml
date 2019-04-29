@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-stylesheet type="text/css" href="format.css"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>FORMULA ANDECAUENSIS 2</title>
+            <author/>
+            <editor>fhnv267</editor>
+         </titleStmt>
+         <editionStmt>
+            <edition>2017-04-28</edition>
+         </editionStmt>
+         <publicationStmt>
+            <publisher/>
+            <distributor/>
+            <date/>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/">
+                                Distributed under a Creative Commons Attribution 4.0 International License.
+                            </licence>
+            </availability>
+         </publicationStmt>
+         <seriesStmt>
+            <title level="s"/>
+            <biblScope unit="vol"/>
+         </seriesStmt>
+         <sourceDesc>
+            <p/>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <refsDecl n="CTS">
+            <cRefPattern n="formula" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p>This pattern extracts the whole formula</p>
+            </cRefPattern>
+         </refsDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:lang="lat" n="urn:cts:formulae:andecavensis.form002.lat001">
+            <div type="textpart" subtype="formula" n="1">
+               <p xml:space="preserve"><w lemma="formula">FORMULA</w> <w lemma="andecavensis">ANDECAUENSIS</w> <w>2</w> <note target="range(#,)" type="a1" place="foot" xml:id="ftn1" n="1" anchored="true"><p xml:space="preserve"> Fol. 139r-139v.</p></note></p>
+               <p xml:space="preserve"/>
+               <p xml:space="preserve"><w lemma="hic">HIC</w> <w lemma="sum">EST</w> <seg type="font-style:underline;"><w lemmaRef="venditio" lemma="venditio">UENDICIO</w></seg> <w lemma="qui">QUI</w> <w lemma="se ">SE</w> <w lemma="ipse">IPSUM</w> <w lemma="vendo">UINDIT</w></p>
+               <p xml:space="preserve"><seg type="font-style:underline;"><w lemmaRef="dominus" lemma="dominus">Domno</w></seg> <w lemma="ego">mihi</w> <seg type="font-style:bold;"><w lemma="ille">illo</w></seg> <w lemma="necnon">necnon</w> <w lemma="et">et</w> <w lemma="coniux">coniux</w> <w lemma="suus">sua</w> <seg type="font-style:bold;"><w lemma="ille">illa</w></seg> <w lemma="ego">ego</w> <seg type="font-style:bold;"><w lemma="ille">illi</w></seg>. <w lemma="quia">Quia</w> <w lemma="coniungo">coniuncxerunt</w> <w lemma="ego">mihi</w> <seg type="font-style:underline;"><w lemmaRef="neglegentia" lemma="neglegentia">necligencias</w></seg>, <w lemma="quod">quod</w> <w lemma="res">res</w> <w lemma="vester">uestras</w> <seg type="font-style:underline;"><w lemmaRef="furor" lemma="furor">furaui</w></seg>, <w lemma="et">et</w> <w lemma="in">in</w> <w lemma="aliter">aliter</w> <w lemma="transigo">transagere</w> <w lemma="non">non</w> <w lemma="possum">possum</w>, <w lemma="nisi">nisi</w> <w lemma="ut">ut</w> <seg type="font-style:underline;"><w lemmaRef="integer" lemma="integer">integrum</w> <w lemmaRef="status" lemma="status">stratum</w></seg> <note target="range(#,)" type="a1" place="foot" xml:id="ftn2" n="2" anchored="true"><p xml:space="preserve"> statum <seg type="font-style:italic;">z</seg>.</p></note> <w lemma="meus">meum</w> <w lemma="in">in</w> <w lemma="vester">uestrum</w> <w lemma="debeo">debiam</w> <w lemma="implico">inplecare</w> <seg type="font-style:underline;"><w lemmaRef="servitium" lemma="servitium">seruicium</w></seg>, <w lemma="ergo">ergo</w> <w lemma="consto">constat</w>, <w lemma="ego">me</w> <w lemma="nullus">nullo</w> <w lemma="cogo">cogente</w> <seg type="font-style:underline;"><w lemmaRef="imperium" lemma="imperium">imperium</w></seg>, <w lemma="sed">set</w> <w lemma="plenus">plenissimam</w> <w lemma="voluntas">uoluntatem</w> <w lemma="is">ea</w> <note target="range(#,)" type="a1" place="foot" xml:id="ftn3" n="3" anchored="true"><p xml:space="preserve"> uoluntate mea <seg type="font-style:italic;">z</seg>.</p></note> <w lemma="et">et</w> <w lemma="si">si</w> <w lemma="de">de</w> <w lemma="hic">hac</w> <w lemma="causa">causa</w> <w lemma="reprobus">reprobus</w> <w lemma="appareo">aparuerit</w>, <w lemma="pro">pro</w> <w lemma="ipse">ipsa</w> <seg type="font-style:underline;"><w lemmaRef="neglegentia" lemma="neglegentia">necligencia</w> <w lemmaRef="integer" lemma="integer">integrum</w> <w lemmaRef="status" lemma="status">statum</w></seg> <w lemma="meus">meum</w> <w lemma="in">in</w> <w lemma="vester">uestrum</w> <seg type="font-style:underline;"><w lemmaRef="servitium" lemma="servitium">seruicium</w></seg> <w lemma="obligo">oblegare</w>. <w lemma="debeo">Debiam</w> <w lemma="accido">accidere</w> <note target="range(#,)" type="a1" place="foot" xml:id="ftn4" n="4" anchored="true"><p xml:space="preserve"> accipere <seg type="font-style:italic;">z</seg>.</p></note> <w lemma="a">a</w> <w lemma="vos">uobis</w> <w lemma="pretium">precium</w>, <w lemma="in">in</w> <w lemma="qui">quod</w> <w lemma="ego">mihi</w> <w lemma="complaceo">conplacuit</w>, <seg type="font-style:underline;"><w lemmaRef="solidus" lemma="solidus">soledus</w></seg> <seg type="font-style:bold;"><w lemma="tantus">tantus</w></seg>, <w lemma="ut">ut</w> <w lemma="quisquis">quicquid</w> <w lemma="a">ab</w> <w lemma="hodiernus">odierno</w> <w lemma="dies">diae</w> <w lemma="de">de</w> <w lemma="ego">memetipso</w> <w lemma="facio">facere</w> <w lemma="voleo">uolueritis</w>, <w lemma="sicut">sicut</w> <w lemma="et">et</w> <w lemma="de">de</w> <w lemma="reliquus">reliqua</w> <seg type="font-style:underline;"><w lemmaRef="mancipium" lemma="mancipium">mancipia</w></seg> <w lemma="vester">uestra</w> <w lemma="obnoxius">obnoxia</w>, <w lemma="in">in</w> <w lemma="omnis">omnibus</w>, <w lemma="deus">Deo</w> <w lemma="praesul">presole</w>, <w lemma="habeo">abeatis</w> <seg type="font-style:underline;"><w lemmaRef="potestas" lemma="potestas">potestatem</w></seg> <w lemma="facio">faciendi</w>, <w lemma="qui">quod</w> <w lemma="voleo">uolueritis</w>. <w lemma="si">Si</w> <w lemma="sum">fuerit</w> <w lemma="ego">ego</w> <w lemma="ipse">ipsi</w> <w lemma="aut">aut</w> <w lemma="aliquis">aliquis</w> <w lemma="de">de</w> <seg type="font-style:underline;"><w lemmaRef="propinquus" lemma="propinquus">propinquis</w></seg> <w lemma="meus">meis</w> <w lemma="vel">uel</w> <w lemma="quilibet">qualibet</w> <w lemma="extraneus">extranea</w> <w lemma="persona">persona</w>, <w lemma="qui">qui</w> <w lemma="contra">contra</w> <w lemma="hic">hanc</w> <seg type="font-style:underline;"><w lemmaRef="venditio" lemma="venditio">uindicione</w></seg>, <w lemma="qui">quem</w> <w lemma="ego">ego</w> <w lemma="bonus">bona</w> <w lemma="voluntas">uolumtate</w> <w lemma="fio">fieri</w> <w lemma="rogo">rogaui</w>, <w lemma="ago">agere</w> <w lemma="conor">conauerit</w>, <w lemma="infero">inferit</w> <w lemma="inter">inter</w> <w lemma="tu">tibi</w> <w lemma="et">et</w> <seg type="font-style:underline;"><w lemmaRef="fiscus" lemma="fiscus">fisco</w> <w lemmaRef="solidus" lemma="solidus">soledus</w></seg> <seg type="font-style:bold;"><w lemma="tantus">tantus</w></seg>, <w lemma="vos">uobis</w> <w lemma="compono">conponat</w>, <w lemma="et">et</w> <w lemma="qui">quod</w> <w lemma="repeto">repetit</w> <w lemma="vindico">uindecare</w> <w lemma="non">non</w> <w lemma="valeo">ualeat</w>, <w lemma="et">et</w> <w lemma="hic">hec</w> <seg type="font-style:underline;"><w lemmaRef="venditio" lemma="venditio">uindicio</w></seg> <w lemma="atque">atque</w> <w lemma="voluntas">uolomtas</w> <w lemma="meus">mea</w> <w lemma="firmus">firma</w> <w lemma="permaneo">permaneat</w>.</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
