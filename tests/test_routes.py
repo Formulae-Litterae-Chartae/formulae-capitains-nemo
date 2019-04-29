@@ -21,6 +21,7 @@ from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 from math import ceil
+from formulae.dispatcher_builder import organizer
 
 
 class TestConfig(Config):
@@ -36,7 +37,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'])
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -45,7 +46,10 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search"},
-                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/")
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -63,10 +67,20 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.add(u)
         db.session.commit()
 
-
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+
+class TestNemoSetup(Formulae_Testing):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
 
 class TestIndividualRoutes(Formulae_Testing):
@@ -94,7 +108,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::register.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -112,7 +128,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/add_collection/default/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
@@ -169,10 +185,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/other_collection', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -241,7 +257,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -354,7 +372,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                            day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn")
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=[''])
             # Check g.corpora
             self.assertIn(('andecavensis', 'Angers'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
@@ -422,7 +441,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -458,12 +478,14 @@ class TestIndividualRoutes(Formulae_Testing):
         previous_args = {'source': 'advanced', 'corpus': 'all', 'q': 'regnum', 'fuzziness': '0', 'slop': '0',
                          'in_order': 'False', 'year': '', 'month': '0', 'day': '', 'year_start': '', 'month_start': '0',
                          'day_start': '', 'year_end': '', 'month_end': '0', 'day_end': '', 'date_plus_minus': '0',
-                         'exclusive_date_range': 'False', 'composition_place': '', 'submit': 'True', 'sort': 'urn'}
+                         'exclusive_date_range': 'False', 'composition_place': '', 'submit': 'True', 'sort': 'urn',
+                         'special_days': ''}
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
@@ -511,6 +533,14 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertRegex(response.get_data(as_text=True), expected)
 
+    def test_cache_max_age_header_set(self):
+        """ Make sure that the cache max age header is set correctly with each request"""
+        with self.client as c:
+            response = c.get('/assets/nemo/css/theme.min.css')
+            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/')
+            self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
+
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -526,6 +556,16 @@ class TestFunctions(Formulae_Testing):
         new_list = [1, 2, 3, 4, 5, 6, 7]
         test_list = self.nemo.f_replace_indexed_item(old_list, 3, 4)
         self.assertEqual(test_list, new_list)
+
+    def test_NemoFormulae_get_locale(self):
+        """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
+        with self.client as c:
+            c.post('/lang/de')
+            self.assertEqual(self.nemo.get_locale(), 'ger')
+            c.post('/lang/fr')
+            self.assertEqual(self.nemo.get_locale(), 'fre')
+            c.post('/lang/en')
+            self.assertEqual(self.nemo.get_locale(), 'eng')
 
 
 class TestForms(Formulae_Testing):
@@ -602,23 +642,31 @@ class TestForms(Formulae_Testing):
 
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
-        # This test does not work with Travis
-        if os.environ.get('TRAVIS'):
-            return
-        form = SearchForm(corpus=['formulae'], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('formulae')
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
-        form = SearchForm(corpus=['formulae'], q='re?num')
+        form.data['q'] = 're?num'
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
-    def test_invalid_data_simple_search_form(self):
+    def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=[''], q='regnum')
+        form = SearchForm(corpus=[], q='regnum')
+        form.data['corpus'].append('')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
                       [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
+                       _("'' ist kein gültige Auswahl für dieses Feld.")])
+
+    def test_invalid_query_simple_search_form(self):
+        """ Ensure that the simple search form returns a ValidationError with no corpus"""
+        form = SearchForm(corpus=['formulae'], q=None)
+        self.assertFalse(form.validate(), 'Search with no query term specified should not validate')
+        # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
+        self.assertIn(str(form.q.errors[0]),
+                      [_('Dieses Feld wird benötigt.'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_validate_invalid_advanced_search_form(self):
@@ -832,7 +880,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
                                  ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
                                  ("day_end", 20), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -849,7 +897,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 10), ("year_end", 800), ("month_end", 10),
                                  ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -866,7 +914,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 10), ("year_end", 801), ("month_end", 10),
                                  ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -883,7 +931,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 810), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -900,7 +948,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 800), ("month_end", 11),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -917,7 +965,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 801), ("month_end", 11),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -934,7 +982,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -958,7 +1006,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -975,7 +1023,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -992,7 +1040,7 @@ class TestES(Formulae_Testing):
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1009,7 +1057,7 @@ class TestES(Formulae_Testing):
                                  ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1026,7 +1074,7 @@ class TestES(Formulae_Testing):
                                  ("year", 800), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1043,7 +1091,7 @@ class TestES(Formulae_Testing):
                                  ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn')])
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1060,7 +1108,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1077,7 +1126,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1094,7 +1144,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', 0), ("month", 0), ("day", 0),
                                  ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
                                  ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1111,7 +1162,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1129,7 +1181,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1146,7 +1199,8 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1165,12 +1219,14 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -1198,12 +1254,14 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum+domni'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -1228,10 +1286,11 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn')])
-        mock_search.return_value = [], 0
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
+        mock_search.return_value = [], 0, {}
         with self.client:
-            ids, hits = advanced_query_index(**test_args)
+            ids, hits, agg = advanced_query_index(**test_args)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
             self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
@@ -1243,7 +1302,7 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
-                                 ('sort', 'urn')])
+                                 ('sort', 'urn'), ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1362,7 +1421,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        test_args['index'] = ''
+        test_args['index'] = ['formulae', 'chartae']
+        test_args['query'] = ''
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
@@ -1371,6 +1431,9 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
+            self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
+                                      _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
@@ -1378,10 +1441,11 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'St. Gallen', "Stetten", 'Wila']
+        expected = [' ', 'Freising', 'Isen', 'St. Gallen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -1392,14 +1456,21 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn')])
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['ill', '', 'illa curiensis esset distructa et ', 'illa qui possit nobis prestare solatium ',
-                    'illa testimonia qui de ipso pago ', 'illam audire desiderabilem „ euge ',
-                    'illam divisionem quam bonae memoriae ', 'illam divisionem vel ordinationem ',
-                    'illam indictionem ducatum tibi cedimus ', 'ille sicut illi semetipsum hiato terrae ',
-                    'illi et mihi econtra donaretur et ']
+        expected = ['ill',
+                    'illa curiensis esset distructa et ',
+                    'illa qui possit nobis prestare solatium ',
+                    'illa testimonia qui de ipso pago ',
+                    'illam audire desiderabilem „ euge ',
+                    'illam divisionem quam bonae memoriae ',
+                    'illam divisionem vel ordinationem ',
+                    'illam indictionem ducatum tibi cedimus ',
+                    'ille sicut illi semetipsum hiato terrae ',
+                    'illi et mihi econtra donaretur et ',
+                    'illi licui set habere']
         mock_search.return_value = resp
         test_args.pop('q')
         results = suggest_word_search('ill', **test_args)
@@ -1421,7 +1492,7 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
-                                 ('sort', 'urn')])
+                                 ('sort', 'urn'), ('special_days', '')])
         file_name_base = self.build_file_name(test_args)
         fake = FakeElasticsearch(file_name_base, 'advanced_search')
         body = fake.load_request()
@@ -1436,6 +1507,25 @@ class TestES(Formulae_Testing):
                 mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2)
                 mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2)
                 mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2)
+
+    @patch.object(Elasticsearch, "search")
+    def test_specific_day_advanced_search(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['special_days'] = [test_args['special_days']]
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
 
 class TestErrors(Formulae_Testing):

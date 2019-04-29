@@ -11,6 +11,16 @@ $(function () {
   )
 })
 
+$(function () {
+  $('[data-toggle="charter-bibl-popover"]').popover(
+      {placement: 'right', 
+          boundary: 'window',
+          template: '<div class="popover charter-bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+          html: true
+    }
+  )
+})
+
 // These are the popups in the elexicon modal notes.
 // This is required to initialize popovers that are not part of the DOM when the document is loaded.
 // https://github.com/twbs/bootstrap/issues/4215

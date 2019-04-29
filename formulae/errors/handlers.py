@@ -1,4 +1,5 @@
 from flask_babel import _
+from flask import current_app
 
 
 def e_not_found_error(error):
@@ -30,14 +31,13 @@ def r_display_error(error_code, error_message):
     :param error_message: the message from the error
     :return:
     """
-    from formulae.app import nemo
     index_anchor = '<a href="/">{}</a>'.format(_('Zurück zur Startseite'))
     if error_code in ["UnknownCollection", "UnknownReference"]:
         if error_code == "UnknownReference":
-            return nemo.render(**{"template": 'errors::unknown_reference.html', 'message': error_message,
+            return current_app.config['nemo_app'].render(**{"template": 'errors::unknown_reference.html', 'message': error_message,
                                   'parent': ':'.join(error_message.split(':')[:-1]), 'url': dict()}), 404
         else:
-            return nemo.render(**{"template": 'errors::unknown_collection.html', 'message': error_message,
+            return current_app.config['nemo_app'].render(**{"template": 'errors::unknown_collection.html', 'message': error_message,
                                   'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()}), 404
     if error_code in (500, 404):
         return "{}<p>{}</p>".format(error_message, index_anchor), error_code

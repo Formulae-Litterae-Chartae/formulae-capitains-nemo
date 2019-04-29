@@ -1,6 +1,5 @@
 from flask import redirect, request, url_for, g, flash, current_app, session
 from flask_babel import _
-from flask_login import login_required
 from math import ceil
 from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
 from .forms import AdvancedSearchForm
@@ -16,7 +15,10 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 def r_simple_search():
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
-            flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            if k == 'corpus':
+                flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            elif k == 'q':
+                flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
         return redirect(url_for('.r_results', source='simple', corpus=['formulae', 'chartae'], q=g.search_form.data['q']))
     data = g.search_form.data
     data['q'] = data['q'].lower()
@@ -27,9 +29,9 @@ def r_simple_search():
 @bp.route("/results", methods=["GET"])
 # @login_required
 def r_results():
-    from formulae.app import nemo
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
+    special_days = request.args.get('special_days', '').split('+')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -48,24 +50,25 @@ def r_results():
                        'sort': request.args.get('sort', 'urn')}
     else:
         posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                            q=request.args.get('q'),
-                                            fuzziness=request.args.get("fuzziness", "0"), page=page,
-                                            in_order=request.args.get('in_order', 'False'),
-                                            slop=request.args.get('slop', '0'),
-                                            year=request.args.get('year', 0, type=int),
-                                            month=request.args.get('month', 0, type=int),
-                                            day=request.args.get('day', 0, type=int),
-                                            year_start=request.args.get('year_start', 0, type=int),
-                                            month_start=request.args.get('month_start', 0, type=int),
-                                            day_start=request.args.get('day_start', 0, type=int),
-                                            year_end=request.args.get('year_end', 0, type=int),
-                                            month_end=request.args.get('month_end', 0, type=int),
-                                            day_end=request.args.get('day_end', 0, type=int),
-                                            date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                            corpus=corpus or ['all'],
-                                            exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                            composition_place=request.args.get('composition_place', ''),
-                                            sort=request.args.get('sort', 'urn'))
+                                                  q=request.args.get('q'),
+                                                  fuzziness=request.args.get("fuzziness", "0"), page=page,
+                                                  in_order=request.args.get('in_order', 'False'),
+                                                  slop=request.args.get('slop', '0'),
+                                                  year=request.args.get('year', 0, type=int),
+                                                  month=request.args.get('month', 0, type=int),
+                                                  day=request.args.get('day', 0, type=int),
+                                                  year_start=request.args.get('year_start', 0, type=int),
+                                                  month_start=request.args.get('month_start', 0, type=int),
+                                                  day_start=request.args.get('day_start', 0, type=int),
+                                                  year_end=request.args.get('year_end', 0, type=int),
+                                                  month_end=request.args.get('month_end', 0, type=int),
+                                                  day_end=request.args.get('day_end', 0, type=int),
+                                                  date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                                  corpus=corpus or ['all'],
+                                                  exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                                  composition_place=request.args.get('composition_place', ''),
+                                                  sort=request.args.get('sort', 'urn'),
+                                                  special_days=special_days)
         search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
@@ -96,32 +99,31 @@ def r_results():
         session['previous_search_args'] = search_args
         session['previous_aggregations'] = aggs
         if session['previous_search_args']['corpus'] in ['all', 'formulae+chartae']:
-            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)
         elif session['previous_search_args']['corpus'] == 'formulae':
-            corps = [x['id'].split(':')[-1] for x in nemo.sub_colls['formulae_collection']]
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
             session['previous_search_args']['corpus'] = '+'.join(corps)
         elif session['previous_search_args']['corpus'] == 'chartae':
-            corps = sorted([x['id'].split(':')[-1] for x in nemo.sub_colls['other_collection']])
+            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             session['previous_search_args']['corpus'] = '+'.join(corps)
     if 'previous_search_args' in session:
         g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
-    return nemo.render(template='search::search.html', title=_('Suche'), posts=posts,
+    return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
                        next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                        first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=nemo.open_texts,
+                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
                        sort_urls=sort_urls, total_results=total, aggs=aggs)
 
 
 @bp.route("/advanced_search", methods=["GET"])
 # @login_required
 def r_advanced_search():
-    from formulae.app import nemo
     form = AdvancedSearchForm()
-    colls = nemo.sub_colls
+    colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order')
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
@@ -129,22 +131,21 @@ def r_advanced_search():
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
-            corpus = '+'.join(data.pop("corpus")) or 'all'
+            data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
-            data['corpus'] = corpus
+            data['special_days'] = '+'.join(data.pop('special_days')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
-    return nemo.render(template='search::advanced_search.html', form=form, categories=coll_cats,
-                       composition_places=suggest_composition_places(), url=dict())
+    return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
+                                                 composition_places=suggest_composition_places(), url=dict())
 
 
 @bp.route("/doc", methods=["GET"])
 def r_search_docs():
     """ Route to the documentation page for the advanced search"""
-    from formulae.app import nemo
-    return nemo.render(template="search::documentation.html", url=dict())
+    return current_app.config['nemo_app'].render(template="search::documentation.html", url=dict())
 
 
 @bp.route("/suggest/<word>", methods=["GET"])
@@ -165,6 +166,7 @@ def word_search_suggester(word):
                                 date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
                                 corpus=request.args.get('corpus', '').split() or ['all'],
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                composition_place=request.args.get('composition_place', ''))
+                                composition_place=request.args.get('composition_place', ''),
+                                special_days=request.args.get('special_days', '').split())
     return dumps(words)
 

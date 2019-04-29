@@ -2,8 +2,8 @@
 
 {% macro make_dates(values) %}
 
-{% if values['dating'] %}
-<p class="mb-0 temp-place">{{ _('Datum') }}: {{ values['dating'] }}{% if values['ausstellungsort'] %}<br>{{ _('Ausstellungsort') }}: {{ values['ausstellungsort'] }}{% endif %}</p>
+{% if values['dating'] not in ['None', ''] %}
+<p class="mb-0 temp-place">{{ _('Datum') }}: {{ values['dating'] }}{% if values['ausstellungsort'] not in ['None', ''] %}<br>{{ _('Ausstellungsort') }}: {{ values['ausstellungsort'] }}{% endif %}</p>
 {% endif %}
 
 {% endmacro %}
@@ -33,7 +33,7 @@
         {% for number, values in collections.readable|dictsort %}
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5>{{ _('Nummer') }} {{values['name']}}: </h5>
+                    <h5>{% if values['name'] != _('(Titel)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
                     <p>{{ _("Lesen: ") }}{% if 'andecavensis' in collections.current.id %}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{lang}}]</a>{% endfor %}{% else %}{% for urn, lang in values['versions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>{% endfor %}{% endif %}</p>
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
