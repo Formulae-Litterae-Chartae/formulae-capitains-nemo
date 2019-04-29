@@ -5,6 +5,9 @@ from formulae.viewer.Viewer import get_passage, get_lexicon
 import re
 from json import load
 from urllib import request
+from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
+from MyCapytain.errors import UnknownCollection
+from flask_babel import lazy_gettext as _l
 
 @bp.route("/<objectId>/<view>", methods=["GET"])
 def new_tab(objectId, view):
@@ -75,6 +78,12 @@ def addviewer(objectId, view):
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
 
         #information need for loris or
+        collection = current_app.config['nemo_app'].get_collection(objectId)
+        if isinstance(collection, CtsWorkMetadata):
+            editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+            if len(editions) == 0:
+                raise UnknownCollection('{}'.format(collection.get_label()) + _l(' wurde nicht gefunden.'))
+            objectId = str(editions[0].id)
         formulae = current_app.picture_file[objectId]
         passage_data = get_passage(objectId, '1')
 
@@ -128,7 +137,7 @@ def addviewer(objectId, view):
 
                 current_folios = folios[view]
                 link_picture = current_app.IIIFserver + str(images[view])
-
+                print(link_picture)
 
 
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,

@@ -20,12 +20,6 @@ def get_passage(objectId, subreference, lang=None):
     :rtype: {str: Any}
     """
     collection = current_app.config['nemo_app'].get_collection(objectId)
-    if isinstance(collection, CtsWorkMetadata):
-        editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
-        if len(editions) == 0:
-            raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
-        objectId = str(editions[0].id)
-        collection = current_app.config['nemo_app'].get_collection(objectId)
     try:
         text = current_app.config['nemo_app'].get_passage(objectId=objectId, subreference=subreference)
     except IndexError:

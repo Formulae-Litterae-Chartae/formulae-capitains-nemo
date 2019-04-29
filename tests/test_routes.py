@@ -172,6 +172,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
             self.assertMessageFlashed(_('This corpus is on copyright, please choose another text'))
             self.assertTemplateUsed('main::index.html')
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            self.assertMessageFlashed(_('This corpus is on copyright, please choose another text'))
+            self.assertTemplateUsed('main::index.html')
 
 
     def test_authorized_project_member(self):
@@ -268,6 +271,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/-1', follow_redirects=True)
             self.assertMessageFlashed('There are not 0 images for this formula. Showing the first page image instead.')
             self.assertTemplateUsed('viewer::newtabviewer.html')
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
