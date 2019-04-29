@@ -23,7 +23,7 @@ from json import dumps
 import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
-
+from json import load
 
 class TestConfig(Config):
     TESTING = True
@@ -32,7 +32,6 @@ class TestConfig(Config):
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
-
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
@@ -190,16 +189,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
-
-            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
-
-
             c.get('/collections/formulae_collection', follow_redirects=True)
-
-
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/other_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
@@ -255,6 +248,24 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('viewer::newtabviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/abz', follow_redirects=True)
+            self.assertMessageFlashed('There is not an images for this formula. Showing the first page.')
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/6', follow_redirects=True)
+            self.assertMessageFlashed('There are not 6 images for this formula. Showing the last page image instead.')
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/-1', follow_redirects=True)
+            self.assertMessageFlashed('There are not 0 images for this formula. Showing the first page image instead.')
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/abz', follow_redirects=True)
+            self.assertMessageFlashed('There is not an images for this formula. Showing the first page.')
+            self.assertTemplateUsed('viewer::newtabviewer.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/6', follow_redirects=True)
+            self.assertMessageFlashed('There are not 6 images for this formula. Showing the last page image instead.')
+            self.assertTemplateUsed('viewer::newtabviewer.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/-1', follow_redirects=True)
+            self.assertMessageFlashed('There are not 0 images for this formula. Showing the first page image instead.')
+            self.assertTemplateUsed('viewer::newtabviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -320,6 +331,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
+            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            self.assertMessageFlashed(_('This corpus is on copyright, please choose another text'))
+            self.assertTemplateUsed('main::index.html')
 
 
     @patch("formulae.search.routes.advanced_query_index")
@@ -1570,3 +1584,6 @@ class TestErrors(Formulae_Testing):
             response = c.get('/500', follow_redirects=True)
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
+
+
+
