@@ -33,6 +33,7 @@ class TestConfig(Config):
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/data"
+    IIIF_SERVER="http://127.0.0.1:5004"
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
