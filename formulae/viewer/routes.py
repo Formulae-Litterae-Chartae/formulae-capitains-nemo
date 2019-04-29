@@ -1,7 +1,7 @@
 from flask import flash, url_for, request, redirect, current_app, render_template
 from formulae.viewer import bp
 from flask_babel import _
-from formulae.viewer.Viewer import get_passage, get_lexicon
+from formulae.viewer.Viewer import get_passage
 import re
 from json import load
 from urllib import request
@@ -146,25 +146,4 @@ def addviewer(objectId, view):
     else:
         flash( _('This corpus is on copyright, please choose another text'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
-
-
-@bp.route("/lexicon/<objectId>")
-def r_lexicon( objectId, lang=None):
-    """ Retrieve the eLexicon entry for a word
-
-    :param objectId: Collection identifiers separated by '+'
-    :type objectId: str
-    :param lang: Lang in which to express main data
-    :type lang: str
-    :return: Template, collections metadata and Markup object representing the text
-    :rtype: {str: Any}
-    """
-
-    m = re.search('/embedded/([^/]+)/([^/]+)', request.referrer)
-    subreference = "1"
-    d = get_passage(objectId, subreference,lang=lang)
-    d['template'] = 'main::lexicon_modal.html'
-    d['prev_texts'] = m.group(1)
-    d['prev_reffs'] = m.group(2)
-    return current_app.config['nemo_app'].render(**d, url=dict())
 
