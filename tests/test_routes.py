@@ -33,7 +33,7 @@ class TestConfig(Config):
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/data"
-    IIIF_SERVER="http://127.0.0.1:5004"
+    IIIF_SERVER = "http://127.0.0.1:5004"
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
@@ -177,7 +177,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
 
 
-    def test_authorized_project_member(self):
+    def test_authorized_project_AWBmember(self):
         """ Make sure that all routes are open to project members"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),

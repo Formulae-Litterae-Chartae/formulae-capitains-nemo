@@ -26,7 +26,7 @@ def new_tab(objectId, view):
 
             if "manifest" in picture:
 
-                manifest = url_for('viewer.static', filename='test_manifest.json')
+                manifest = url_for('viewer.static', filename=picture["manifest"])
 
                 return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', objectId=objectId,
                                                              manifest=manifest, url=dict())
@@ -92,7 +92,7 @@ def addviewer(objectId, view):
 
             if "manifest" in picture:
 
-                manifest = url_for('viewer.static', filename='test_manifest.json')
+                manifest = url_for('viewer.static', filename=picture["manifest"])
                 return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
                                                              ,objectId=objectId ,passage_data=passage_data ,url=dict())
 
@@ -117,7 +117,7 @@ def addviewer(objectId, view):
                 codex = picture['codex']
 
 
-                print(len(images))
+
 
                 if view > len(images)-1:
 
@@ -137,7 +137,6 @@ def addviewer(objectId, view):
 
                 current_folios = folios[view]
                 link_picture = current_app.IIIFserver + str(images[view])
-                print(link_picture)
 
 
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
