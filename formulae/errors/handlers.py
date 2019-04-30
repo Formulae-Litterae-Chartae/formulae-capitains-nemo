@@ -21,11 +21,12 @@ def e_unknown_collection_error(error):
     #    code = "UnknownReference"
     #else:
     code = "UnknownCollection"
-    response = error.args[0].strip("\"'").split()[0]
-    return r_display_error(error_code=code, error_message=response)
+    response = error.args[0].strip("\"'")
+    return r_display_error(error_code=code, error_message=response,
+                           objectId=error.args[1] if len(error.args) == 2 else '')
 
 
-def r_display_error(error_code, error_message):
+def r_display_error(error_code, error_message, **kwargs):
     """ Error display form
 
     :param error_code: the error type
@@ -40,6 +41,6 @@ def r_display_error(error_code, error_message):
         #                          'parent': ':'.join(error_message.split(':')[:-1]), 'url': dict()}), 404
         #else:
         return current_app.config['nemo_app'].render(**{"template": 'errors::unknown_collection.html', 'message': error_message,
-                                  'parent': '.'.join(error_message.split('.')[:-1]), 'url': dict()}), 404
+                                  'parent': kwargs['objectId'], 'url': dict()}), 404
     if error_code in (500, 404):
         return "{}<p>{}</p>".format(error_message, index_anchor), error_code

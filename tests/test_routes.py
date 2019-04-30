@@ -179,7 +179,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('This corpus is on copyright, please choose another text'))
             self.assertTemplateUsed('main::index.html')
 
-
     def test_authorized_project_member(self):
         """ Make sure that all routes are open to project members"""
         with self.client as c:
@@ -248,6 +247,10 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('FORMULA ANDECAVENSIS 1', r.get_data(as_text=True))
+            # Make sure that a text that has no edition will throw an error
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
             c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewer.html')
             c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
@@ -587,6 +590,32 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
             response = c.get('/')
             self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
+
+    def test_rendering_from_texts_without_notes_transformation(self):
+        """ Make sure that the multipassage template is rendered correctly without a transformation of the notes"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for elex.')
+        del self.app.config['nemo_app']._transform['notes']
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for elex.')
 
 
 class TestFunctions(Formulae_Testing):
