@@ -82,7 +82,7 @@ def addviewer(objectId, view):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection('{}'.format(collection.get_label()) + _l(' wurde nicht gefunden.'))
+                raise UnknownCollection('{}'.format(collection.get_label()) + _l(' hat keine Edition.'))
             objectId = str(editions[0].id)
         formulae = current_app.picture_file[objectId]
         passage_data = get_passage(objectId, '1')

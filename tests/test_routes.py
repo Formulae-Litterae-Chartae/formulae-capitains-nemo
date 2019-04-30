@@ -279,6 +279,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('viewer::newtabviewer.html')
             c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001/0', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewer.html')
+            r = c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form003/0', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -604,6 +607,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
+            r = c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form001-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
         del self.app.config['nemo_app']._transform['notes']
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -616,6 +623,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
+            r = c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001/0', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewer.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form001-lat001">',
+                          r.get_data(as_text=True), 'Note card should not be rendered for a formula in IIIF Viewer.')
 
 
 class TestFunctions(Formulae_Testing):
