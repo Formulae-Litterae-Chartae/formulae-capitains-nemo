@@ -645,8 +645,8 @@ class TestFunctions(Formulae_Testing):
 
     def test_Search_highlight_segment(self):
         """ Make sure that a highlight segment that ends at the end of the string is correctly returned"""
-        orig_str = ' nostri Charoli gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>'
-        expected = " gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>"
+        orig_str = ' nostri Charoli gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+        expected = " gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
         self.assertEqual(highlight_segment(orig_str), expected)
 
 
