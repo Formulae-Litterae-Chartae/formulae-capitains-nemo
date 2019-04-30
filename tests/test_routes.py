@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token, suggest_word_search
+    set_session_token, suggest_word_search, highlight_segment
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -113,6 +113,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -610,6 +613,12 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(self.nemo.get_locale(), 'fre')
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
+
+    def test_Search_highlight_segment(self):
+        """ Make sure that a highlight segment that ends at the end of the string is correctly returned"""
+        orig_str = ' nostri Charoli gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>'
+        expected = " gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>"
+        self.assertEqual(highlight_segment(orig_str), expected)
 
 
 class TestForms(Formulae_Testing):
