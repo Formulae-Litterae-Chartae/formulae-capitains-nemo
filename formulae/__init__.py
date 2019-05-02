@@ -36,7 +36,7 @@ def create_app(config_class=Config):
 
         #Load iiif maping file like elasticsearch.
     if app.config['IIIF_MAPPING']:
-        with open('{}/test.json'.format(app.config['IIIF_MAPPING']), "r") as f:
+        with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
             app.picture_file=load(f)
 
     db.init_app(app)
