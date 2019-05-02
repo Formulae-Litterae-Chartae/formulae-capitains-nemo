@@ -18,12 +18,12 @@ def new_tab(objectId, view):
     :type view: int
     :return:
     """
-
+    #test if the user have the access to the text or not
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
 
         images=current_app.picture_file[objectId]
         for picture in images:
-
+            #this viewer work when the library or archiv give an IIIF API for the external user and we d
             if "manifest" in picture:
 
                 manifest = url_for('viewer.static', filename=picture["manifest"])
@@ -42,6 +42,9 @@ def new_tab(objectId, view):
                     return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                              current_view=view, total_views=len(images), url=dict())
                 images = picture['images']
+                folios = picture['folios']
+                town = picture['town']
+                codex = picture['codex']
 
                 if view > len(images)-1:
 
@@ -50,7 +53,7 @@ def new_tab(objectId, view):
                     view = len(images)-1
                     link_picture=current_app.IIIFserver+ str(images[view])
                     return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images) ,url=dict())
+                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
                 elif view<0:
 
 
@@ -58,14 +61,14 @@ def new_tab(objectId, view):
                     flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
                     link_picture=current_app.IIIFserver +str(images[view])
                     return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images) ,url=dict())
+                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
 
 
 
                 link_picture=current_app.IIIFserver +str(images[view])
 
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images) ,url=dict())
+                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
 
     else:
         flash( _('This corpus is on copyright, please choose another text'))
@@ -126,14 +129,15 @@ def addviewer(objectId, view):
                     link_picture=current_app.IIIFserver+ str(images[view])
                     return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                              current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex)
+                                                             url=dict(), town=town, codex=codex, folios=folios)
                 elif view<0:
                     view=0
                     flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
                     link_picture=current_app.IIIFserver +str(images[view])
-                    return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex)
+                    return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture,
+                                                                 objectId=objectId, current_view=view, total_views=len(images),
+                                                                 passage_data=passage_data,url=dict(), town=town,
+                                                                 codex=codex, folios=folios)
 
                 current_folios = folios[view]
                 link_picture = current_app.IIIFserver + str(images[view])
@@ -141,7 +145,7 @@ def addviewer(objectId, view):
 
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                              current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex, current_folios=current_folios)
+                                                             url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)
     else:
         flash( _('This corpus is on copyright, please choose another text'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())

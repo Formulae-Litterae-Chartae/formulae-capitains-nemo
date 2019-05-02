@@ -23,20 +23,46 @@
         {% endwith %}
 
 <div class="container-fluid fill-height">
-<div class="row">
+    <div class="row">
+        <div class="col-sm ">
+            <p class="text-center">{{codex}}</p>
+        </div>
+    </div>
 
-    <div class="col-2 ">
-        <a href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view-1)}}" class="previous">&laquo; Previous</a>
-    </div>
-    <div class="col-8">
-    {% for x in range(total_views) %}
-    <a href="{{url_for('viewer.new_tab', objectId=objectId, view=x)}}">{{x+1}} </a>
-    {% endfor %}
-</div>
-    <div class="col-2">
-        <a href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view+1)}}" class="previous" class="next">Next &raquo;</a>
-    </div>
-</div>
+        <nav>
+        <ul class="pagination pagination-sm justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="{{url_for('viewer.new_tab', objectId=objectId, view=0)}}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view-1)}}">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+            {% for x in range(total_views) %}
+
+            <li class="page-item{{ ' active' if x == current_view }}">
+                <a class="page-link" href="{{url_for('viewer.new_tab', objectId=objectId, view=x)}}">
+                   {{folios[x]}}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="page-item">
+                <a class="page-link" href="{{url_for('viewer.new_tab', objectId=objectId, view=current_view+1)}}">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="{{url_for('viewer.new_tab', objectId=objectId, view=total_views-1)}}">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
     <div class="row fill-height">
         <div class="col-2 "></div>
         <div class="col-8">
