@@ -36,11 +36,12 @@ def new_tab(objectId, view):
                     view = int(view)
                 except:
                     images = picture['images']
+                    folios = picture['folios']
                     view=0
                     flash( _('There is not an images for this formula. Showing the first page.'))
                     link_picture=current_app.IIIFserver +str(images[view])
                     return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), url=dict())
+                                                             current_view=view, total_views=len(images), url=dict(),folios=folios)
                 images = picture['images']
                 folios = picture['folios']
                 town = picture['town']
@@ -113,7 +114,7 @@ def addviewer(objectId, view):
                     link_picture=current_app.IIIFserver +str(images[view])
                     return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                              current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex, current_folios=current_folios)
+                                                             url=dict(), town=town, codex=codex, current_folios=current_folios,folios=folios)
                 images = picture['images']
                 folios = picture['folios']
                 town = picture['town']
