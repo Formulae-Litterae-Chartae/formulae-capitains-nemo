@@ -39,7 +39,10 @@ def new_tab(objectId, view):
                 folios = formulae['folios']
                 view=0
                 flash( _('There is not an images for this formula. Showing the first page.'))
-                link_picture=current_app.IIIFserver +str(images[view])
+                if "/images/formulae-1" in str(images[view]):
+                    link_picture=current_app.IIIFserver +str(images[view])
+                else:
+                    link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), url=dict(),folios=folios)
             images = formulae['images']
@@ -52,7 +55,10 @@ def new_tab(objectId, view):
 
                 flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
                 view = len(images)-1
-                link_picture=current_app.IIIFserver+ str(images[view])
+                if "/images/formulae-1" in str(images[view]):
+                    link_picture=current_app.IIIFserver +str(images[view])
+                else:
+                    link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
             elif view<0:
@@ -60,11 +66,17 @@ def new_tab(objectId, view):
 
                 view=0
                 flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
-                link_picture=current_app.IIIFserver +str(images[view])
+                if "/images/formulae-1" in str(images[view]):
+                    link_picture=current_app.IIIFserver +str(images[view])
+                else:
+                    link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
 
-            link_picture=current_app.IIIFserver +str(images[view])
+            if "/images/formulae-1" in str(images[view]):
+                link_picture=current_app.IIIFserver +str(images[view])
+            else:
+                link_picture=str(images[view])
 
             return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
@@ -121,22 +133,30 @@ def addviewer(objectId, view):
 
                 flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
                 view = len(images)-1
-                link_picture=current_app.IIIFserver+ str(images[view])
+                if "/images/formulae-1" in str(images[view]):
+                    link_picture=current_app.IIIFserver +str(images[view])
+                else:
+                    link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), passage_data=passage_data,
                                                          url=dict(), town=town, codex=codex, folios=folios)
             elif view<0:
                 view=0
                 flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
-                link_picture=current_app.IIIFserver +str(images[view])
+                if "/images/formulae-1" in str(images[view]):
+                    link_picture=current_app.IIIFserver +str(images[view])
+                else:
+                    link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture,
                                                              objectId=objectId, current_view=view, total_views=len(images),
                                                              passage_data=passage_data,url=dict(), town=town,
                                                              codex=codex, folios=folios)
 
             current_folios = folios[view]
-            link_picture = current_app.IIIFserver + str(images[view])
-
+            if "/images/formulae-1" in str(images[view]):
+                link_picture=current_app.IIIFserver +str(images[view])
+            else:
+                link_picture=str(images[view])
 
             return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), passage_data=passage_data,
