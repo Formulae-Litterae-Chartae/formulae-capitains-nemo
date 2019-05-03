@@ -1,0 +1,17 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         groupUrn="urn:cts:formulae:andecavensis"
+         xml:lang="lat"
+         urn="urn:cts:formulae:andecavensis.form004">
+   <ti:title xml:lang="lat">FORMULA ANDECAUENSIS 4</ti:title>
+   <ti:edition urn="urn:cts:formulae:andecavensis.form004.lat001"
+               workUrn="urn:cts:formulae:andecavensis.form004">
+      <ti:label xml:lang="lat">FORMULA ANDECAUENSIS 4</ti:label>
+      <ti:description xml:lang="deu">Grundstücksverkauf: Eine Person verkauft einem Geistlichen einen Weinberg.</ti:description>
+   </ti:edition>
+   <ti:translation xml:lang="deu"
+                   urn="urn:cts:formulae:andecavensis.form004.deu001"
+                   workUrn="urn:cts:formulae:andecavensis.form004">
+      <ti:label xml:lang="deu">Formel von Angers 4</ti:label>
+      <ti:description xml:lang="deu">Grundstücksverkauf: Eine Person verkauft einem Geistlichen einen Weinberg.Filename: file:/home/matt/results/formulae/data/andecavensis/form004/andecavensis.form004.deu001.xml</ti:description>
+   </ti:translation>
+</ti:work>
