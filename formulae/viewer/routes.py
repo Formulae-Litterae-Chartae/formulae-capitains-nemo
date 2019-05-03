@@ -21,55 +21,53 @@ def new_tab(objectId, view):
     #test if the user have the access to the text or not
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
 
-        images=current_app.picture_file[objectId]
-        for picture in images:
-            #this viewer work when the library or archiv give an IIIF API for the external user and we d
-            if "manifest" in picture:
+        formulae=current_app.picture_file[objectId]
 
-                manifest = url_for('viewer.static', filename=picture["manifest"])
+        #this viewer work when the library or archiv give an IIIF API for the external user and we d
+        if "manifest" in formulae:
 
-                return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', objectId=objectId,
-                                                             manifest=manifest, url=dict())
+            manifest = url_for('viewer.static', filename=formulae["manifest"])
 
-            else:
-                try:
-                    view = int(view)
-                except:
-                    images = picture['images']
-                    folios = picture['folios']
-                    view=0
-                    flash( _('There is not an images for this formula. Showing the first page.'))
-                    link_picture=current_app.IIIFserver +str(images[view])
-                    return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), url=dict(),folios=folios)
-                images = picture['images']
-                folios = picture['folios']
-                town = picture['town']
-                codex = picture['codex']
+            return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', objectId=objectId,
+                                                         manifest=manifest, url=dict())
 
-                if view > len(images)-1:
-
-
-                    flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
-                    view = len(images)-1
-                    link_picture=current_app.IIIFserver+ str(images[view])
-                    return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
-                elif view<0:
-
-
-                    view=0
-                    flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
-                    link_picture=current_app.IIIFserver +str(images[view])
-                    return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
-
-
-
+        else:
+            try:
+                view = int(view)
+            except:
+                images = formulae['images']
+                folios = formulae['folios']
+                view=0
+                flash( _('There is not an images for this formula. Showing the first page.'))
                 link_picture=current_app.IIIFserver +str(images[view])
-
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
+                                                         current_view=view, total_views=len(images), url=dict(),folios=folios)
+            images = formulae['images']
+            folios = formulae['folios']
+            town = formulae['town']
+            codex = formulae['codex']
+
+            if view > len(images)-1:
+
+
+                flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
+                view = len(images)-1
+                link_picture=current_app.IIIFserver+ str(images[view])
+                return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
+                                                         current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
+            elif view<0:
+
+
+                view=0
+                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
+                link_picture=current_app.IIIFserver +str(images[view])
+                return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
+                                                         current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
+
+            link_picture=current_app.IIIFserver +str(images[view])
+
+            return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
+                                                         current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
 
     else:
         flash( _('This corpus is on copyright, please choose another text'))
@@ -92,61 +90,57 @@ def addviewer(objectId, view):
         passage_data = get_passage(objectId, '1')
 
 
-        for picture in formulae:
 
-            if "manifest" in picture:
+        if "manifest" in formulae:
 
-                manifest = url_for('viewer.static', filename=picture["manifest"])
-                return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
-                                                             ,objectId=objectId ,passage_data=passage_data ,url=dict())
+            manifest = url_for('viewer.static', filename=formulae["manifest"])
+            return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
+                                                         ,objectId=objectId ,passage_data=passage_data ,url=dict())
+        else:
+            try:
+                view = int(view)
+            except:
+                view=0
 
-            else:
-                try:
-                    view = int(view)
-                except:
-                    view=0
-                    images = picture['images']
-                    folios = picture['folios']
-                    town = picture['town']
-                    codex = picture['codex']
-                    current_folios = folios[view]
-                    flash( _('There is not an images for this formula. Showing the first page.'))
-                    link_picture=current_app.IIIFserver +str(images[view])
-                    return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex, current_folios=current_folios,folios=folios)
-                images = picture['images']
-                folios = picture['folios']
-                town = picture['town']
-                codex = picture['codex']
-
-
-
-
-                if view > len(images)-1:
-
-                    flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
-                    view = len(images)-1
-                    link_picture=current_app.IIIFserver+ str(images[view])
-                    return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex, folios=folios)
-                elif view<0:
-                    view=0
-                    flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
-                    link_picture=current_app.IIIFserver +str(images[view])
-                    return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture,
-                                                                 objectId=objectId, current_view=view, total_views=len(images),
-                                                                 passage_data=passage_data,url=dict(), town=town,
-                                                                 codex=codex, folios=folios)
-
+                images = formulae["images"]
+                folios = formulae["folios"]
+                town = formulae['town']
+                codex = formulae['codex']
                 current_folios = folios[view]
-                link_picture = current_app.IIIFserver + str(images[view])
-
-
+                flash( _('There is not an images for this formula. Showing the first page.'))
+                link_picture=current_app.IIIFserver +str(images[view])
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
-                                                             current_view=view, total_views=len(images), passage_data=passage_data,
-                                                             url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)
+                                                         current_view=view, total_views=len(images), passage_data=passage_data,
+                                                         url=dict(), town=town, codex=codex, current_folios=current_folios,folios=folios)
+            images = formulae['images']
+            folios = formulae['folios']
+            town = formulae['town']
+            codex = formulae['codex']
+
+            if view > len(images)-1:
+
+                flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
+                view = len(images)-1
+                link_picture=current_app.IIIFserver+ str(images[view])
+                return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
+                                                         current_view=view, total_views=len(images), passage_data=passage_data,
+                                                         url=dict(), town=town, codex=codex, folios=folios)
+            elif view<0:
+                view=0
+                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
+                link_picture=current_app.IIIFserver +str(images[view])
+                return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture,
+                                                             objectId=objectId, current_view=view, total_views=len(images),
+                                                             passage_data=passage_data,url=dict(), town=town,
+                                                             codex=codex, folios=folios)
+
+            current_folios = folios[view]
+            link_picture = current_app.IIIFserver + str(images[view])
+
+
+            return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
+                                                         current_view=view, total_views=len(images), passage_data=passage_data,
+                                                         url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)
     else:
         flash( _('This corpus is on copyright, please choose another text'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())

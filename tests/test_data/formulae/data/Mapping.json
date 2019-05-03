@@ -1,5 +1,5 @@
 {
-	"urn:cts:formulae:andecavensis.form001.lat001": [{
+	"urn:cts:formulae:andecavensis.form001.lat001": {
 		"codex": "Codex andecavensis",
 		"town": "Angers",
 		"folios": [
@@ -14,8 +14,8 @@
 		]
 
 
-	}],
-	"urn:cts:formulae:andecavensis.form002.lat001": [{
+	},
+	"urn:cts:formulae:andecavensis.form002.lat001": {
 		"manifest": "/urn:cts:formulae:andecavensis.form002.lat001.json"
-	}]
+	}
 }
