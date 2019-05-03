@@ -18,5 +18,17 @@
 	},
 	"urn:cts:formulae:andecavensis.form002.lat001": {
 		"manifest": "/urn:cts:formulae:andecavensis.form002.lat001.json"
+	},
+	"urn:cts:formulae:andecavensis.form004.lat001": {
+        "codex": "Codex andecavensis",
+		"town": "Angers",
+		"folios": [
+			"f139v", "f140r"
+		],
+		"images": [
+			"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000284.tif/info.json",
+			"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000285.tif/info.json"
+		]
+
 	}
 }
