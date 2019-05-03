@@ -24,8 +24,7 @@
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
     {% if 'elexicon' not in object.objectId %}
         {% if object.open_regest or current_user.project_team %}
-        <p class="entry-summary text-center"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{ object.objectId|replace(':', '')|replace('.', '') }}-modal">{{ _('Regest') }}</button></p>
-        {% include "main::regest_modal.html" %}
+        {% include "main::regest_collapse.html" %}
         {% else %}
         <br>
         {% endif %}
