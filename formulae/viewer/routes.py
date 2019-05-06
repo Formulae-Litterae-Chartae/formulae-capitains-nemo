@@ -53,7 +53,7 @@ def new_tab(objectId, view):
             if view > len(images)-1:
 
 
-                flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
+                flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view+1)))
                 view = len(images)-1
                 if "/images/formulae-1" in str(images[view]):
                     link_picture=current_app.IIIFserver +str(images[view])
@@ -65,7 +65,7 @@ def new_tab(objectId, view):
 
 
                 view=0
-                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
+                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)+1))
                 if "/images/formulae-1" in str(images[view]):
                     link_picture=current_app.IIIFserver +str(images[view])
                 else:
