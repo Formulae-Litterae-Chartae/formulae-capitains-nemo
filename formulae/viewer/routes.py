@@ -23,7 +23,7 @@ def new_tab(objectId, view):
 
         formulae=current_app.picture_file[objectId]
 
-        #this viewer work when the library or archiv give an IIIF API for the external user and we d
+        #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         if "manifest" in formulae:
 
             manifest = url_for('viewer.static', filename=formulae["manifest"])
@@ -35,6 +35,7 @@ def new_tab(objectId, view):
             try:
                 view = int(view)
             except:
+                #exception when in the url view contains another character than number
                 images = formulae['images']
                 folios = formulae['folios']
                 view=0
@@ -50,6 +51,7 @@ def new_tab(objectId, view):
             town = formulae['town']
             codex = formulae['codex']
 
+            #avoid error when the number of view is over the maximum
             if view > len(images)-1:
 
 
@@ -61,6 +63,8 @@ def new_tab(objectId, view):
                     link_picture=str(images[view])
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
+
+            #avoid error when the number of view is under the mainimum
             elif view<0:
 
 
@@ -73,6 +77,7 @@ def new_tab(objectId, view):
                 return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
 
+            #create the link if it's an image in local server or take the complet link
             if "/images/formulae-1" in str(images[view]):
                 link_picture=current_app.IIIFserver +str(images[view])
             else:
@@ -102,7 +107,7 @@ def addviewer(objectId, view):
         passage_data = get_passage(objectId, '1')
 
 
-
+        #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         if "manifest" in formulae:
 
             manifest = url_for('viewer.static', filename=formulae["manifest"])
@@ -112,8 +117,8 @@ def addviewer(objectId, view):
             try:
                 view = int(view)
             except:
+                #exception when in the url view contains another character than number
                 view=0
-
                 images = formulae["images"]
                 folios = formulae["folios"]
                 town = formulae['town']
@@ -129,6 +134,7 @@ def addviewer(objectId, view):
             town = formulae['town']
             codex = formulae['codex']
 
+            #avoid error when the number of view is over the maximum
             if view > len(images)-1:
 
                 flash( _('There are not {} images for this formula. Showing the last page image instead.'.format(view)))
@@ -140,6 +146,8 @@ def addviewer(objectId, view):
                 return current_app.config['nemo_app'].render(template='viewer::multiviewer.html', picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), passage_data=passage_data,
                                                          url=dict(), town=town, codex=codex, folios=folios)
+
+            #avoid error when the number of view is under the mainimum
             elif view<0:
                 view=0
                 flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
@@ -153,6 +161,8 @@ def addviewer(objectId, view):
                                                              codex=codex, folios=folios)
 
             current_folios = folios[view]
+
+            #create the link if it's an image in local server or take the complet link
             if "/images/formulae-1" in str(images[view]):
                 link_picture=current_app.IIIFserver +str(images[view])
             else:
