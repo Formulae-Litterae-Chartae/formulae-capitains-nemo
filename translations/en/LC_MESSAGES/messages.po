@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-03 13:15+0200\n"
+"POT-Creation-Date: 2019-05-06 13:12+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -755,7 +755,7 @@ msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Mouse over a word to see its lemma."
 
 #: templates/main/lexicon_modal.html:12
-msgid "Dieser Beitrag parallel lesen"
+msgid "Diesen Beitrag parallel lesen"
 msgstr "Read this entry in the parallel view"
 
 #: templates/main/menu.html:2
@@ -2889,4 +2889,7 @@ msgstr ""
 #~ " between these two terms, set the "
 #~ "'Search Radius' to be greater than "
 #~ "0."
+
+#~ msgid "Dieser Beitrag parallel lesen"
+#~ msgstr "Read this entry in the parallel view"
 
