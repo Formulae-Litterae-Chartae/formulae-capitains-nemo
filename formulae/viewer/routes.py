@@ -69,7 +69,7 @@ def new_tab(objectId, view):
 
 
                 view=0
-                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)+1))
+                flash( _('There are not {} images for this formula. Showing the first page image instead.'.format(view)))
                 if "/images/formulae-1" in str(images[view]):
                     link_picture=current_app.IIIFserver +str(images[view])
                 else:

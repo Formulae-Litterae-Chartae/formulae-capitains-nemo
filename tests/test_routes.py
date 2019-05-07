@@ -273,7 +273,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('There is not an images for this formula. Showing the first page.')
             self.assertTemplateUsed('viewer::newtabviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/5', follow_redirects=True)
-            self.assertMessageFlashed('There are not 5 images for this formula. Showing the last page image instead.')
+            self.assertMessageFlashed('There are not 6 images for this formula. Showing the last page image instead.')
             self.assertTemplateUsed('viewer::newtabviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/-1', follow_redirects=True)
             self.assertMessageFlashed('There are not 0 images for this formula. Showing the first page image instead.')
@@ -284,7 +284,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
             c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/7', follow_redirects=True)
-            self.assertMessageFlashed('There are not 7 images for this formula. Showing the last page image instead.')
+            self.assertMessageFlashed('There are not 8 images for this formula. Showing the last page image instead.')
             self.assertTemplateUsed('viewer::newtabviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/-1', follow_redirects=True)
             self.assertMessageFlashed('There are not 0 images for this formula. Showing the first page image instead.')
@@ -1660,6 +1660,5 @@ class TestErrors(Formulae_Testing):
             response = c.get('/500', follow_redirects=True)
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
-
 
 
