@@ -37,7 +37,18 @@ def create_app(config_class=Config):
         #Load iiif maping file like elasticsearch.
     if app.config['IIIF_MAPPING']:
         with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
-            app.picture_file=load(f)
+            app.picture_file = load(f)
+            for key, value in app.picture_file.items():
+                if 'manifest' in value.keys() or list(value.keys())== ['codex','town','folios','images']:
+                    app.IIIFviewer = True
+                    continue
+
+                else:
+                    app.IIIFviewer = False
+                    key_error=key
+                    app.picture_file = ""
+                    break
+
 
     db.init_app(app)
     migrate.init_app(app, db)
@@ -50,9 +61,14 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp
     app.register_blueprint(search_bp, url_prefix="/search")
-    from .viewer import bp as viewer_bp
-    viewer_bp.static_folder = app.config['IIIF_MAPPING']
-    app.register_blueprint(viewer_bp, url_prefix="/viewer")
+    #Load iiif maping file like elasticsearch.
+    if app.IIIFviewer == False:
+        print("Json file is not correct for the urn "+key_error)
+        print("Impossible to launch viewer")
+    else:
+        from .viewer import bp as viewer_bp
+        viewer_bp.static_folder = app.config['IIIF_MAPPING']
+        app.register_blueprint(viewer_bp, url_prefix="/viewer")
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):

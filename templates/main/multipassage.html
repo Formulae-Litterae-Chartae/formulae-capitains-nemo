@@ -6,19 +6,20 @@
 
     <div class="panel-footer text-center">
         <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
+            {% if object.IIIFviewer == true %}
+                <div class="dropdown">
+                    <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ _('Viewer') }}
+                    </button>
 
-        {% if ".lat" in object.objectId %}
-            <div class="dropdown">
-                <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ _('Viewer') }}
-                </button>
-
-                <div class="dropdown-menu version-dropdown">
-                    <a class="dropdown-item" href="{{url_for('viewer.new_tab', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
-                    <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}}" onclick="hide()"class="pull-right">{{ _('Next to text')}}</a>
+                    <div class="dropdown-menu version-dropdown">
+                        <a class="dropdown-item" href="{{url_for('viewer.new_tab', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
+                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}}" onclick="hide()"class="pull-right">{{ _('Next to text')}}</a>
+                    </div>
                 </div>
-            </div>
-        {% endif %}
+            {% endif %}
+
+
     </div>
     
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
