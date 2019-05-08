@@ -45,11 +45,11 @@ def create_app(config_class=Config):
 
                 else:
                     app.IIIFviewer = False
-                    key_error=key
                     app.picture_file = ""
                     break
     else:
         app.IIIFviewer = False
+
 
 
     db.init_app(app)
@@ -65,7 +65,6 @@ def create_app(config_class=Config):
     app.register_blueprint(search_bp, url_prefix="/search")
     #Load iiif maping file like elasticsearch.
     if app.IIIFviewer == False:
-        print("Json file is not correct for the urn "+key_error)
         print("Impossible to launch viewer")
     else:
         from .viewer import bp as viewer_bp
