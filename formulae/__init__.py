@@ -48,6 +48,8 @@ def create_app(config_class=Config):
                     key_error=key
                     app.picture_file = ""
                     break
+    else:
+        app.IIIFviewer = False
 
 
     db.init_app(app)
