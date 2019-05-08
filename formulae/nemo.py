@@ -217,7 +217,7 @@ class NemoFormulae(Nemo):
         g.search_form = SearchForm()
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
-        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url:
+        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url and 'favicon' not in request.url:
             session.pop('previous_search', None)
 
     def after_request(self, response):

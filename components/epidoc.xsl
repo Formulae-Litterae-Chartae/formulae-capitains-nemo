@@ -51,6 +51,7 @@
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="parent::t:seg[@rend='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="parent::t:seg[@type='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
                 <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
                 <xsl:if test="parent::t:seg[@type='platzhalter']"><xsl:text> platzhalter</xsl:text></xsl:if>
                 </xsl:attribute>
@@ -368,12 +369,16 @@
             <xsl:when test="./@rend='italic'">
                 <span class="font-italic"><xsl:apply-templates/></span>
             </xsl:when>
+            <xsl:when test="./@type='italic'">
+                <span class="font-italic"><xsl:apply-templates/></span>
+            </xsl:when>
             <xsl:when test="./@type='book_title'">
                 <xsl:element name="bibl">
                     <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:when>
+            <xsl:otherwise><xsl:apply-templates></xsl:apply-templates></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
@@ -383,6 +388,10 @@
             <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@type='italic']">
+        <span class="font-italic"><xsl:apply-templates/></span>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='lex-title']">
