@@ -35,6 +35,8 @@ class TestConfig(Config):
     IIIF_MAPPING = "tests/test_data/formulae/data"
     IIIF_SERVER = "http://127.0.0.1:5004"
 
+
+
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
@@ -60,6 +62,7 @@ class Formulae_Testing(flask_testing.TestCase):
 
         return app
 
+
     def setUp(self):
         db.create_all()
         u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
@@ -73,6 +76,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
 
 
 class TestNemoSetup(Formulae_Testing):
@@ -1661,4 +1665,62 @@ class TestErrors(Formulae_Testing):
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
 
+class TestConfig_error(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    CORPUS_FOLDERS = ["tests/test_data/formulae"]
+    WTF_CSRF_ENABLED = False
+    SESSION_TYPE = 'filesystem'
+    SAVE_REQUESTS = False
+    IIIF_MAPPING = "tests/test_data/formulae/data/mapping_error"
+    IIIF_SERVER = "http://127.0.0.1:5004"
 
+class Formulae_Testing_error(flask_testing.TestCase):
+
+    def create_app(self):
+
+        app = create_app(TestConfig_error)
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                 templates={"main": "templates/main",
+                                            "errors": "templates/errors",
+                                            "auth": "templates/auth",
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
+
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
+
+        return app
+
+    def setUp(self):
+        db.create_all()
+        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
+        u.set_password('some_password')
+        db.session.add(u)
+        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
+        u.set_password('some_other_password')
+        db.session.add(u)
+        db.session.commit()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+
+class TestNemoSetup_withoutviewer(Formulae_Testing_error):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
