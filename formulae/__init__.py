@@ -36,7 +36,7 @@ def create_app(config_class=Config):
 
 #Load iiif maping file like elasticsearch.
     if app.config['IIIF_MAPPING']:
-
+        app.IIIFmapping=app.config['IIIF_MAPPING']
         with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
             app.picture_file = load(f)
 
@@ -46,7 +46,7 @@ def create_app(config_class=Config):
                     app.IIIFviewer = True
                     continue
                 elif set(value.keys())<= set({'codex','folios','images','town'}):
-                    
+
                     app.IIIFviewer = True
                     continue
 

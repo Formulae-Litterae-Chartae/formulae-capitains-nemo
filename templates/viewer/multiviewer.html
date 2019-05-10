@@ -6,15 +6,6 @@
     <div class="panel-footer text-center">
         <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
 
-            <div class="dropdown">
-                <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ _('Viewer') }}
-                </button>
-                <div class="dropdown-menu version-dropdown">
-                    <a class="dropdown-item" href="{{url_for('viewer.new_tab', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
-
-                </div>
-            </div>
     </div>
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
     {% if 'elexicon' not in object.objectId %}
@@ -94,6 +85,10 @@
                     <footer>{% include "viewer::passage_footer.html" %}</footer>
                 </section>
                 <section class="col-sm">
+                    <header>
+                        <h3 class="entry-title text-center">{{codex}}</h3>
+                        <div class="text-center"><a href="{{url_for('viewer.new_tab', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in a New window') }}</a></div>
+                    </header>
                     {% block viewer %}
                 {% include "viewer::integradedviewer.html" %}
             {% endblock %}

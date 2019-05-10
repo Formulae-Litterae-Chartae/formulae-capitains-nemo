@@ -513,11 +513,7 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-
-                if id in self.app.picture_file:
-                    d["IIIFviewer"] = True
-                else:
-                    d["IIIFviewer"] = False
+                d["IIIFviewer"] = id in self.app.picture_file
                 if 'previous_search' in session:
                     result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                     if result_sents:

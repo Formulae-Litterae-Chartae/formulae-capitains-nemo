@@ -25,11 +25,18 @@ def new_tab(objectId, view):
 
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         if "manifest" in formulae:
-
-            manifest = url_for('viewer.static', filename=formulae["manifest"])
-
-            return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', objectId=objectId,
+            if "codex" in formulae:
+                codex=formulae["codex"]
+                manifest = url_for('viewer.static', filename=formulae["manifest"])
+                return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', codex=codex, objectId=objectId,
                                                          manifest=manifest, url=dict())
+            else:
+                manifest = url_for('viewer.static', filename=formulae["manifest"])
+                with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+                    title = load(f)
+                codex=title["label"]
+                return current_app.config['nemo_app'].render(template='viewer::miradorviewer.html', manifest=manifest
+                                                             ,objectId=objectId, codex=codex, url=dict())
 
         else:
             try:
@@ -109,10 +116,18 @@ def addviewer(objectId, view):
 
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         if "manifest" in formulae:
-
-            manifest = url_for('viewer.static', filename=formulae["manifest"])
-            return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
-                                                         ,objectId=objectId ,passage_data=passage_data ,url=dict())
+            if "codex" in formulae:
+                codex=formulae["codex"]
+                manifest = url_for('viewer.static', filename=formulae["manifest"])
+                return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
+                                                             ,objectId=objectId, codex=codex, passage_data=passage_data, url=dict())
+            else:
+                manifest = url_for('viewer.static', filename=formulae["manifest"])
+                with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+                    title = load(f)
+                codex=title["label"]
+                return current_app.config['nemo_app'].render(template='viewer::multiviewermirador.html', manifest=manifest
+                                                             ,objectId=objectId, codex=codex, passage_data=passage_data, url=dict())
         else:
             try:
                 view = int(view)
