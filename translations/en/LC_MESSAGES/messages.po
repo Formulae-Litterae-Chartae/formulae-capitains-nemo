@@ -427,7 +427,7 @@ msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
 #: formulae/search/routes.py:21 tests/test_routes.py:1436
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
-msgstr ""
+msgstr " The simple search requires a search term."
 
 #: formulae/search/routes.py:138 tests/test_routes.py:511
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
@@ -773,7 +773,7 @@ msgstr "Collections"
 
 #: templates/main/multipassage.html:29
 msgid "Weitere Texte anzeigen"
-msgstr ""
+msgstr "Add another text"
 
 #: templates/main/multipassage.html:33
 msgid "andere Version(en) dieser Text"
