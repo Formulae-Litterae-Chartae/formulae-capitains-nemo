@@ -45,7 +45,8 @@ def create_app(config_class=Config):
 
                     app.IIIFviewer = True
                     continue
-                elif sorted(list(value.keys()))== ['codex','folios','images','town']:
+                elif set(value.keys())<= set({'codex','folios','images','town'}):
+                    
                     app.IIIFviewer = True
                     continue
 
@@ -56,6 +57,7 @@ def create_app(config_class=Config):
                     break
     else:
         app.IIIFviewer = False
+        app.picture_file = ""
 
 
 
