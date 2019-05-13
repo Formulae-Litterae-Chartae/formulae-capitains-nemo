@@ -53,7 +53,6 @@ def create_app(config_class=Config):
                 else:
                     app.IIIFviewer = False
                     app.picture_file = ""
-
                     break
     else:
         app.IIIFviewer = False

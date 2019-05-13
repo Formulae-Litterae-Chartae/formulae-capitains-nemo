@@ -190,3 +190,16 @@ def addviewer(objectId, view):
         flash( _('This corpus is on copyright, please choose another text'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
 
+@bp.route("abz/<objectId>/<view>", methods=["GET"])
+def test_3viewer(objectId, view):
+    passage_data = get_passage(objectId, '1')
+    passage_data2 = get_passage(objectId, '1')
+    formulae = current_app.picture_file[objectId]
+    print(formulae)
+    manifest = url_for('viewer.static', filename=formulae["manifest"])
+    with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+        title = load(f)
+    codex=title["label"]
+    return current_app.config['nemo_app'].render(template='viewer::multiviewer3.html', manifest=manifest
+                                                             ,objectId=objectId, codex=codex,
+                                                            passage_data2=passage_data2, passage_data=passage_data, url=dict())

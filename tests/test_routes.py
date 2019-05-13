@@ -1669,21 +1669,11 @@ class TestErrors(Formulae_Testing):
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
 
-class TestConfig_error(Config):
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
-    CORPUS_FOLDERS = ["tests/test_data/formulae"]
-    WTF_CSRF_ENABLED = False
-    SESSION_TYPE = 'filesystem'
-    SAVE_REQUESTS = False
-    IIIF_MAPPING = "tests/test_data/formulae/data/mapping_error"
-    IIIF_SERVER = "http://127.0.0.1:5004"
-
-class Formulae_Testing_error(flask_testing.TestCase):
+class Formulae_Testing_error_mapping(flask_testing.TestCase):
 
     def create_app(self):
-
-        app = create_app(TestConfig_error)
+        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
+        app = create_app(TestConfig)
         resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
@@ -1705,21 +1695,8 @@ class Formulae_Testing_error(flask_testing.TestCase):
 
         return app
 
-    def setUp(self):
-        db.create_all()
-        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
-        u.set_password('some_password')
-        db.session.add(u)
-        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
-        u.set_password('some_other_password')
-        db.session.add(u)
-        db.session.commit()
 
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-
-class TestNemoSetup_withoutviewer(Formulae_Testing_error):
+class TestNemoSetup_withoutviewer(Formulae_Testing_error_mapping):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
         if os.environ.get('TRAVIS'):
