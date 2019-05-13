@@ -95,7 +95,8 @@ class AdvancedSearchForm(SearchForm):
                                    default=0)
     exclusive_date_range = BooleanField(_l('Exklusiv'))
     composition_place = StringField(_l('Ausstellungsort'))
-    special_days = SelectMultipleField(_l('Nach bestimmten Tagen suchen'), choices=[('Easter', _l('Ostern')),
+    special_days = SelectMultipleField(_l('Nach bestimmten Tagen suchen'), choices=[('', ''),
+                                                                                    ('Easter', _l('Ostern')),
                                                                                     ('Lent', _l('Fastenzeit')),
                                                                                     ('Pentecost', _l('Pfingsten')),
                                                                                     ('Sunday', _l('So')),
