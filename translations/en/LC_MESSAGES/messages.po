@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-06 13:12+0200\n"
+"POT-Creation-Date: 2019-05-08 14:06+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -427,7 +427,7 @@ msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
 #: formulae/search/routes.py:21 tests/test_routes.py:1436
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
-msgstr ""
+msgstr " The simple search requires a search term."
 
 #: formulae/search/routes.py:138 tests/test_routes.py:511
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
@@ -772,7 +772,7 @@ msgid "Sammlungen"
 msgstr "Collections"
 
 #: templates/main/multipassage.html:29
-msgid "Quelle oder Beitrag hinzufügen"
+msgid "Weitere Texte anzeigen"
 msgstr "Add another text"
 
 #: templates/main/multipassage.html:33
@@ -2829,7 +2829,7 @@ msgstr ""
 #~ msgstr "another text from:"
 
 #~ msgid "Quelle oder Beitrag hinzufügen"
-#~ msgstr "Add Another Texts"
+#~ msgstr "Add another text"
 
 #~ msgid "Weitere Quellen und Beiträge"
 #~ msgstr ""
