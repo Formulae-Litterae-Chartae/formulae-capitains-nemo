@@ -505,3 +505,7 @@ img[id$="-flag-navbar"] {
 #doc-num {
     padding-right: 2rem;
 }
+
+.formulae-label {
+    text-transform: uppercase;
+}
