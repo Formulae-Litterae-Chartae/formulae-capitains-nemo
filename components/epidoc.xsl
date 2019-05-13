@@ -54,6 +54,7 @@
                 <xsl:if test="parent::t:seg[@type='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
                 <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
                 <xsl:if test="parent::t:seg[@type='platzhalter']"><xsl:text> platzhalter</xsl:text></xsl:if>
+                <xsl:if test="parent::t:label"> formulae-label</xsl:if>
                 </xsl:attribute>
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
