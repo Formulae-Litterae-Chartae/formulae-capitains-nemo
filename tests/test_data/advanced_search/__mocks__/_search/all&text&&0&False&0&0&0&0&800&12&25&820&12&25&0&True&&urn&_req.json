@@ -14,8 +14,8 @@
                         {
                           "range": {
                             "specific_date.year": {
-                              "gte": 700,
-                              "lte": 800
+                              "gte": 800,
+                              "lte": 820
                             }
                           }
                         },
@@ -27,14 +27,14 @@
                                   "must": [
                                     {
                                       "match": {
-                                        "specific_date.month": 10
+                                        "specific_date.month": 12
                                       }
                                     },
                                     {
                                       "range": {
                                         "specific_date.day": {
-                                          "lte": 31,
-                                          "gte": 1
+                                          "lte": 25,
+                                          "gte": 25
                                         }
                                       }
                                     }
