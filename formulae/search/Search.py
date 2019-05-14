@@ -343,12 +343,17 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
     date_template.append({'range': {'specific_date.year':
                                                  {"gte": spec_year_start, 'lte': spec_year_end}
                                              }})
-    day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_start}},
+    if spec_month_start != spec_month_end:
+        day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_start}},
                                                            {"range": {"specific_date.day": {'gte': spec_day_start}}}]}},
-                                        {"range": {"specific_date.month": {"gt": spec_month_start,
-                                                                           "lt": spec_month_end}}},
-                                        {'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
-                                                           {"range": {"specific_date.day": {'lte': spec_day_end}}}]}}]}}
+                                            {"range": {"specific_date.month": {"gt": spec_month_start,
+                                                                               "lt": spec_month_end}}},
+                                            {'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
+                                                               {"range": {"specific_date.day": {'lte': spec_day_end}}}]}}]}}
+    else:
+        day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
+                                                               {"range": {"specific_date.day": {'lte': spec_day_end,
+                                                                                                'gte': spec_day_start}}}]}}]}}
     date_template.append(day_template)
     should_clause.append({"bool": {"must": date_template}})
     date_template = [{"nested":

@@ -1,5 +1,5 @@
 {
-  "took": 9,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -95,7 +95,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -163,7 +163,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -197,7 +197,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v3",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -283,13 +283,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Sunday",
-            "Friday",
-            "Thursday",
-            "Wednesday",
-            "Monday",
+            "Saturday",
             "Tuesday",
-            "Saturday"
+            "Thursday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v3",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -383,13 +383,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Sunday",
-            "Friday",
-            "Thursday",
-            "Wednesday",
-            "Monday",
+            "Saturday",
             "Tuesday",
-            "Saturday"
+            "Thursday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v1",
+        "_index": "schaeftlarn_v3",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -483,13 +483,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Sunday",
-            "Friday",
-            "Thursday",
-            "Wednesday",
-            "Monday",
+            "Saturday",
             "Tuesday",
-            "Saturday"
+            "Thursday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v3",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -531,7 +531,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v3",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
