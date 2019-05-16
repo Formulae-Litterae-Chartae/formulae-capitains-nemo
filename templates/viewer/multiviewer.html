@@ -5,7 +5,6 @@
 
     <div class="panel-footer text-center">
         <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
-
     </div>
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
     {% if 'elexicon' not in object.objectId %}
@@ -59,7 +58,7 @@
 {% endmacro %}
 
 {% macro default_footer() %}
-    {% include "viewer::passage_footer.html" %}
+    {% include "main::passage_footer.html" %}
 {% endmacro %}
 
 {% macro show_passage(objects, navigation) %}
@@ -79,15 +78,15 @@
                 <section class="col-sm with-border"">
 
 
-                    {{ header_passage(passage_data) }}
+                    {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
-                        {{ passage_data.text_passage }}
+                        {{ text.text_passage }}
                     <footer>{% include "viewer::passage_footer.html" %}</footer>
                 </section>
                 <section class="col-sm">
                     <header>
                         <h3 class="entry-title text-center">{{codex}}</h3>
-                        <div class="text-center"><a href="{{url_for('viewer.new_tab', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in a New window') }}</a></div>
+                        <div class="text-center"><a href="{{url_for('viewer.addviewer', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in a New window') }}</a></div>
                     </header>
                     {% block viewer %}
                 {% include "viewer::integradedviewer.html" %}
@@ -102,7 +101,7 @@
 
 {% block texts %}
 
-{{ show_passage(passage_data) }}
+{{ show_passage(text) }}
 
 {% endblock %}
 
@@ -124,7 +123,8 @@
 {% endblock %}
 
 {% block additionalscript %}
-<script src="{{url_for('InstanceNemo.static', filename='js/viewer.js')}}"></script>
+<script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
+
 <script>
      var expMess="{{ _('Mehr zeigen') }}";
      var conMess="{{ _('Weniger zeigen') }}";

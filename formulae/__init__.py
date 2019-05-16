@@ -39,17 +39,13 @@ def create_app(config_class=Config):
         app.IIIFmapping=app.config['IIIF_MAPPING']
         with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
             app.picture_file = load(f)
-
             for key, value in app.picture_file.items():
                 if 'manifest' in value.keys():
-
                     app.IIIFviewer = True
                     continue
                 elif set(value.keys())<= set({'codex','folios','images','town'}):
-
                     app.IIIFviewer = True
                     continue
-
                 else:
                     app.IIIFviewer = False
                     app.picture_file = ""
@@ -73,7 +69,7 @@ def create_app(config_class=Config):
     app.register_blueprint(search_bp, url_prefix="/search")
     #Load iiif maping file like elasticsearch.
     if app.IIIFviewer == False:
-        print("Impossible to launch viewer")
+        print(_l('Der Viewer konnte nicht gestarted werden.'))
     else:
         from .viewer import bp as viewer_bp
         viewer_bp.static_folder = app.config['IIIF_MAPPING']

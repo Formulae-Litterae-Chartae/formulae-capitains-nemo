@@ -2,8 +2,6 @@
 
 {% macro header_passage(object) %}
 <header>
-
-
     <div class="panel-footer text-center">
         <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
             {% if object.IIIFviewer == true %}
@@ -11,17 +9,13 @@
                     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ _('Viewer') }}
                     </button>
-
                     <div class="dropdown-menu version-dropdown">
-                        <a class="dropdown-item" href="{{url_for('viewer.new_tab', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
-                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}}" onclick="hide()"class="pull-right">{{ _('Next to text')}}</a>
+                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
+                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0', embedded=True)}}" onclick="hide()"class="pull-right">{{ _('Next to text')}}</a>
                     </div>
                 </div>
             {% endif %}
-
-
     </div>
-    
     <span class="text-center">{{ version_menu(object.objectId) }}</span>
     {% if 'elexicon' not in object.objectId %}
         {% if object.open_regest or current_user.project_team %}
@@ -32,11 +26,8 @@
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
 
-
-
 </header>
 {% endmacro %}
-
 {% macro version_menu(objId) %}
 {% if objects %}
     {% set prev_texts = objects|join('+', attribute='objectId') %}
@@ -94,13 +85,7 @@
             </nav> -->
 
             <div class="row">
-                <section class="col-sm with-border" id="viewer" style="display:none;">
-
-
-
-
-
-                </section>
+                <section class="col-sm with-border" id="viewer" style="display:none;"></section>
             {% for text in objects %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
             {%set all_reffs = objects|map(attribute='subreference')|list %}
@@ -159,7 +144,6 @@
 {% endblock %}
 
 {% block additionalscript %}
-<script src="{{url_for('InstanceNemo.static', filename='js/viewer.js')}}"></script>
 <script>
      var expMess="{{ _('Mehr zeigen') }}";
      var conMess="{{ _('Weniger zeigen') }}";

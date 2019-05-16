@@ -1,9 +1,9 @@
 {% extends "main::container.html" %}
 
 {% block article %}
-{% if passage_data %}
-    {% set prev_texts = passage_data |join('+', attribute='objectId') %}
-    {% set prev_reffs = passage_data |join('+', attribute='subreference') %}
+{% if text %}
+    {% set prev_texts = text |join('+', attribute='objectId') %}
+    {% set prev_reffs = text |join('+', attribute='subreference') %}
 {% else %}
     {% set prev_texts = objectId %}
     {% set prev_reffs = subreference %}

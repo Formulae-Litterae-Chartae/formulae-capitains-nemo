@@ -2,30 +2,30 @@
     <nav>
         <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=0)}}">
+                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=0, embedded=True)}}">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=current_view-1)}}">
+                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=current_view-1, embedded=True)}}">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
             {% for x in range(total_views) %}
 
             <li class="page-item{{ ' active' if x == current_view }}">
-                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=x)}}">
+                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=x, embedded=True)}}">
                    {{folios[x]}}
                 </a>
             </li>
             {% endfor %}
             <li class="page-item">
-                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=current_view+1)}}">
+                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=current_view+1, embedded=True)}}">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=total_views-1)}}">
+                <a class="page-link" href="{{url_for('viewer.addviewer', objectId=objectId, view=total_views-1, embedded=True)}}">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

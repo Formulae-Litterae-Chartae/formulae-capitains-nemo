@@ -101,7 +101,6 @@ class NemoFormulae(Nemo):
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
 
-
     def get_all_corpora(self):
         """ A convenience function to return all sub-corpora in all collections
 
@@ -577,13 +576,12 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
-
+        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer) if "texts" in request.referrer else re.search('/viewer/([^/]+)', request.referrer)
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
         d['prev_texts'] = m.group(1)
-        d['prev_reffs'] = m.group(2)
+        d['prev_reffs'] = m.group(2) if "texts" in request.referrer else "all"
         return d
 
     def r_impressum(self):
