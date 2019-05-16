@@ -1,5 +1,5 @@
 {
-  "took": 12,
+  "took": 19,
   "timed_out": false,
   "_shards": {
     "total": 14,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 305,
+    "total": 322,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -336,15 +336,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
-            "Thursday",
-            "Wednesday",
-            "Lent",
-            "Monday",
+            "Saturday",
             "Tuesday",
-            "Saturday"
+            "Lent",
+            "Easter",
+            "Thursday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -352,7 +352,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -570,15 +570,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
+            "Saturday",
+            "Tuesday",
+            "Lent",
             "Easter",
             "Friday",
             "Thursday",
-            "Wednesday",
-            "Lent",
             "Monday",
-            "Tuesday",
-            "Saturday"
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -586,7 +586,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0001.lat001",
         "_score": null,
@@ -620,7 +620,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0002.lat001",
         "_score": null,
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0005.lat001",
         "_score": null,
@@ -688,7 +688,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0006.lat001",
         "_score": null,
@@ -722,7 +722,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0007.lat001",
         "_score": null,
@@ -756,7 +756,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0008.lat001",
         "_score": null,
@@ -790,7 +790,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0009.lat001",
         "_score": null,
@@ -816,8 +816,8 @@
           ],
           "min_date": "0757-03-14",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ]
         },
         "sort": [
@@ -836,7 +836,7 @@
           "doc_count": 3
         },
         "Freising": {
-          "doc_count": 87
+          "doc_count": 104
         },
         "Luzern": {
           "doc_count": 0
@@ -905,7 +905,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 287
+          "doc_count": 301
         },
         {
           "key": "800-899",
