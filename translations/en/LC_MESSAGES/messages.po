@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-08 14:06+0200\n"
+"POT-Creation-Date: 2019-05-17 10:16+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -197,12 +197,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1545
+#: tests/test_routes.py:1563
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1546
+#: tests/test_routes.py:1564
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -212,14 +212,14 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:179 tests/test_routes.py:1296
+#: formulae/search/Search.py:179 tests/test_routes.py:1314
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr "Wildcard characters (\"*\" and \"?\") are not allowed in lemma searches."
 
 #: formulae/search/forms.py:29 formulae/search/forms.py:45
-#: formulae/search/forms.py:108 formulae/search/routes.py:112
+#: formulae/search/forms.py:109 formulae/search/routes.py:112
 msgid "Suche"
 msgstr "Search"
 
@@ -238,7 +238,7 @@ msgid "Urkunden"
 msgstr "Charters"
 
 #: formulae/search/forms.py:33 tests/test_routes.py:660
-#: tests/test_routes.py:1432
+#: tests/test_routes.py:1450
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -381,51 +381,51 @@ msgstr "Issued At"
 msgid "Nach bestimmten Tagen suchen"
 msgstr "Search for Specific Days"
 
-#: formulae/search/forms.py:98 templates/search/advanced_search.html:146
+#: formulae/search/forms.py:99 templates/search/advanced_search.html:146
 msgid "Ostern"
 msgstr "Easter"
 
-#: formulae/search/forms.py:99 templates/search/advanced_search.html:154
+#: formulae/search/forms.py:100 templates/search/advanced_search.html:154
 msgid "Fastenzeit"
 msgstr "Lent"
 
-#: formulae/search/forms.py:100 templates/search/advanced_search.html:150
+#: formulae/search/forms.py:101 templates/search/advanced_search.html:150
 msgid "Pfingsten"
 msgstr "Pentecost"
 
-#: formulae/search/forms.py:101 templates/search/advanced_search.html:185
+#: formulae/search/forms.py:102 templates/search/advanced_search.html:185
 msgid "So"
 msgstr "Su"
 
-#: formulae/search/forms.py:102 templates/search/advanced_search.html:161
+#: formulae/search/forms.py:103 templates/search/advanced_search.html:161
 msgid "Mo"
 msgstr ""
 
-#: formulae/search/forms.py:103 templates/search/advanced_search.html:165
+#: formulae/search/forms.py:104 templates/search/advanced_search.html:165
 msgid "Di"
 msgstr "Tu"
 
-#: formulae/search/forms.py:104 templates/search/advanced_search.html:169
+#: formulae/search/forms.py:105 templates/search/advanced_search.html:169
 msgid "Mi"
 msgstr "We"
 
-#: formulae/search/forms.py:105 templates/search/advanced_search.html:173
+#: formulae/search/forms.py:106 templates/search/advanced_search.html:173
 msgid "Do"
 msgstr "Th"
 
-#: formulae/search/forms.py:106 templates/search/advanced_search.html:177
+#: formulae/search/forms.py:107 templates/search/advanced_search.html:177
 msgid "Fr"
 msgstr ""
 
-#: formulae/search/forms.py:107 templates/search/advanced_search.html:181
+#: formulae/search/forms.py:108 templates/search/advanced_search.html:181
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:19 tests/test_routes.py:1433
+#: formulae/search/routes.py:19 tests/test_routes.py:1451
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:21 tests/test_routes.py:1436
+#: formulae/search/routes.py:21 tests/test_routes.py:1454
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr " The simple search requires a search term."
 
@@ -650,8 +650,8 @@ msgid ""
 msgstr ""
 
 #: templates/main/index.html:6
-msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
+msgid "Willkommen in der<br>Formulae - Litterae - Chartae Werkstatt!"
+msgstr "Welcome to the<br>Formulae - Litterae - Chartae Werkstatt!"
 
 #: templates/main/index.html:9
 msgid ""
@@ -858,11 +858,7 @@ msgstr "Hide all notes for this text"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Show all notes for this text"
 
-#: templates/main/regest_collapse.html:4
-msgid "Vollregest"
-msgstr "Full Regest"
-
-#: templates/main/regest_collapse.html:7
+#: templates/main/regest_collapse.html:4 templates/main/regest_collapse.html:7
 msgid "Regest"
 msgstr ""
 
@@ -1413,7 +1409,7 @@ msgstr "Search In:"
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' is not valid input for this field."
 
-#: tests/test_routes.py:669 tests/test_routes.py:1435
+#: tests/test_routes.py:669 tests/test_routes.py:1453
 msgid "Dieses Feld wird benötigt."
 msgstr ""
 
@@ -2892,4 +2888,10 @@ msgstr ""
 
 #~ msgid "Dieser Beitrag parallel lesen"
 #~ msgstr "Read this entry in the parallel view"
+
+#~ msgid "Willkommen in der<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Welcome to the<br>Formulae-Litterae-Chartae Werkstatt!"
+
+#~ msgid "Vollregest"
+#~ msgstr "Full Regest"
 
