@@ -401,4 +401,11 @@
         </li>
     </xsl:template>
     
+    <xsl:template match="t:locus">
+        <xsl:element name="span">
+            <xsl:attribute name="class">locus</xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
 </xsl:stylesheet>
