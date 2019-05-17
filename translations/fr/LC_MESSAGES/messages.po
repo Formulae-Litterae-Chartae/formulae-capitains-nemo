@@ -1,12 +1,9 @@
-# Copyright (C) 2018 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-08 14:06+0200\n"
+"POT-Creation-Date: 2019-05-17 10:16+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -200,12 +197,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1545
+#: tests/test_routes.py:1563
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1546
+#: tests/test_routes.py:1564
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -217,7 +214,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page principale"
 
-#: formulae/search/Search.py:179 tests/test_routes.py:1296
+#: formulae/search/Search.py:179 tests/test_routes.py:1314
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -226,7 +223,7 @@ msgstr ""
 "la recherche de lemmes."
 
 #: formulae/search/forms.py:29 formulae/search/forms.py:45
-#: formulae/search/forms.py:108 formulae/search/routes.py:112
+#: formulae/search/forms.py:109 formulae/search/routes.py:112
 msgid "Suche"
 msgstr "Recherche"
 
@@ -245,7 +242,7 @@ msgid "Urkunden"
 msgstr "Chartes"
 
 #: formulae/search/forms.py:33 tests/test_routes.py:660
-#: tests/test_routes.py:1432
+#: tests/test_routes.py:1450
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -369,7 +366,7 @@ msgstr "La date doit se situer entre 1 et 31."
 
 #: formulae/search/forms.py:92 templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
-msgstr "Date à plus-ou-moins"
+msgstr "Date à plus-ou-moins "
 
 #: formulae/search/forms.py:94 templates/search/advanced_search.html:200
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
@@ -388,51 +385,51 @@ msgstr "Lieu d'exposition"
 msgid "Nach bestimmten Tagen suchen"
 msgstr "chercher des jours spécifiques"
 
-#: formulae/search/forms.py:98 templates/search/advanced_search.html:146
+#: formulae/search/forms.py:99 templates/search/advanced_search.html:146
 msgid "Ostern"
 msgstr "Pâques"
 
-#: formulae/search/forms.py:99 templates/search/advanced_search.html:154
+#: formulae/search/forms.py:100 templates/search/advanced_search.html:154
 msgid "Fastenzeit"
 msgstr "Carême"
 
-#: formulae/search/forms.py:100 templates/search/advanced_search.html:150
+#: formulae/search/forms.py:101 templates/search/advanced_search.html:150
 msgid "Pfingsten"
 msgstr "Pentecôte"
 
-#: formulae/search/forms.py:101 templates/search/advanced_search.html:185
+#: formulae/search/forms.py:102 templates/search/advanced_search.html:185
 msgid "So"
 msgstr "Dim"
 
-#: formulae/search/forms.py:102 templates/search/advanced_search.html:161
+#: formulae/search/forms.py:103 templates/search/advanced_search.html:161
 msgid "Mo"
 msgstr "Lun"
 
-#: formulae/search/forms.py:103 templates/search/advanced_search.html:165
+#: formulae/search/forms.py:104 templates/search/advanced_search.html:165
 msgid "Di"
 msgstr "Mar"
 
-#: formulae/search/forms.py:104 templates/search/advanced_search.html:169
+#: formulae/search/forms.py:105 templates/search/advanced_search.html:169
 msgid "Mi"
 msgstr "Mer"
 
-#: formulae/search/forms.py:105 templates/search/advanced_search.html:173
+#: formulae/search/forms.py:106 templates/search/advanced_search.html:173
 msgid "Do"
 msgstr "Jeu"
 
-#: formulae/search/forms.py:106 templates/search/advanced_search.html:177
+#: formulae/search/forms.py:107 templates/search/advanced_search.html:177
 msgid "Fr"
 msgstr "Ven"
 
-#: formulae/search/forms.py:107 templates/search/advanced_search.html:181
+#: formulae/search/forms.py:108 templates/search/advanced_search.html:181
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/routes.py:19 tests/test_routes.py:1433
+#: formulae/search/routes.py:19 tests/test_routes.py:1451
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:21 tests/test_routes.py:1436
+#: formulae/search/routes.py:21 tests/test_routes.py:1454
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
@@ -575,12 +572,12 @@ msgid ""
 "Problem zu beheben."
 msgstr ""
 "Si vous avez des remarques ou des propositions pour le projet Formulae - "
-"Litterae - Chartae, envoyez nous un <a href=\"mailto:formulae.geschichte"
-"@uni-hamburg.de\">e-mail</a>. Si cela concerne une page particulière, "
-"veuillez copier l'URL complète dan votre e-mail. Si cela concerne un "
-"texte particulier, veuillez copier l'URL complète et préciser le titre "
-"complet du texte, ainsi qu'une description précise du problème et de la "
-"solution que vous proposez."
+"Litterae - Chartae,envoyez nous un <a href=\"mailto:formulae.geschichte"
+"@uni-hamburg.de\">e-mail</a>.Si cela concerne une page particulière, "
+"veuillez copier l'URL complète dan votre e-mail.Si cela concerne un texte"
+" particulier, veuillez copier l'URL complète et préciser le titre complet"
+" du texte,ainsi qu'une description précise du problème et de la solution "
+"que vous proposez."
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
@@ -657,8 +654,8 @@ msgid ""
 msgstr ""
 
 #: templates/main/index.html:6
-msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr "Bienvenue au projet Formulae - Litterae - Chartae"
+msgid "Willkommen in der<br>Formulae - Litterae - Chartae Werkstatt!"
+msgstr "Bienvenue à<br>Formulae - Litterae - Chartae Werkstatt!"
 
 #: templates/main/index.html:9
 msgid ""
@@ -671,12 +668,12 @@ msgid ""
 " Datum erlauben es, ähnliche Formeln oder Urkunden schnell zu "
 "identifizieren."
 msgstr ""
-"Le projet Formulae - Litterae - Chartae comprend des exemples d'écritures"
-" formulaires du Haut Moyen-Âge sous forme de formules, de chartes et de "
-"lettres. Il offre ainsi aux spécialistes de nouvelles opportunités de "
-"recherche sur les liens entre différents textes. Plusieurs textes sont "
+"Le projet Formulae - Litterae - Chartae comprend des exemplesd'écritures "
+"formulaires du Haut Moyen-Âge sous forme de formules, de chartes et de "
+"lettres.Il offre ainsi aux spécialistes de nouvelles opportunités de "
+"recherche sur les liens entre différents textes.Plusieurs textes sont "
 "comparables sur le contenu, le style et la langue. La recherche appuyée "
-"permet d'identifier des formules ou des chartes similaires grâce au "
+"permet d'identifierdes formules ou des chartes similaires grâce au "
 "vocabulaire, à l'impression ou à la date."
 
 #: templates/main/index.html:10
@@ -702,18 +699,6 @@ msgid ""
 "Formulae - Litterae - Chartae als Quelle der digitalen Texte stehen diese"
 " Texte unter CC-BY Lizenz zur freien Verfügung."
 msgstr ""
-"Les textes sont d'origines différentes. Les formules sont issues de nouvelles éditions "
-"critiques des collections de formules médiévales, et sont créées avec une traduction allemande pendant le projet. "
-"Les soixante formules de la collection d'Angers (Formulae Andecavensis) sont actuellement disponibles. "
-"D'autres formules sont en cours d'étude. Les chartes sont issues de collections rétro-numériques. "
-"Les chartes sont étroitement liées aux formules et sont donc indispensables pour l'étude des formules et des collections. "
-"La plupart des éditions rétro-numériques ne sont plus protégées par le droit d'auteur et sont donc libre d'accès sur le site. "
-"Les textes protégés par le droit d'auteur sont recherchables, mais ne peuvent être intégralement affichés et doivent "
-"donc être consultés au format papier. Tous les textes numériques non protégés par le droit d'auteur sont publiés ici sous une "
-"licence Creative Commons. Puisque les formules ne sont pas encore publiées dans la MGH elles sont soumises à une licence "
-"'Attribution. Pas d'utilisation commerciale. Pas de modification' (CC-BY-NC-ND). Les chartes sont elles soumises à une licence "
-"'Attribution' (CC-BY). Le projet Formulae - Litterae - Chartae étant référencé comme source des textes numériques, "
-"les textes sont librement disponibles." 
 
 #: templates/main/index.html:11
 msgid ""
@@ -723,9 +708,9 @@ msgid ""
 "Verbesserungsvorschläge haben, zögern Sie nicht, uns zu kontaktieren."
 msgstr ""
 "Le but du projet Formulae - Litterae - Chartae est de favoriser et de "
-"simplifier l'étude de ces importantes sources culturelles, sociales, "
-"juridiques et linguistiques. Si vous avez des propositions qui pourraient"
-" nous aider à nous améliorer, n'hésitez pas à nous contacter."
+"simplifier l'étudede ces importantes sources culturelles, sociales, "
+"juridiques et linguistiques. Si vous avez des propositionsqui pourraient "
+"nous aider à nous améliorer, n'hésitez pas à nous contacter."
 
 #: templates/main/index.html:12
 msgid ""
@@ -733,7 +718,7 @@ msgid ""
 "Datenschutzerklärung der Universität Hamburg. Für weitere Informationen: "
 msgstr ""
 "Notre traitement des données personnelles est conforme à la déclaration "
-"de protection des données de l'Université de Hambourg. Pour plus "
+"de protection des donnéesde l'Université de Hambourg. Pour plus "
 "d'informations:"
 
 #: templates/main/index.html:12
@@ -843,8 +828,8 @@ msgid ""
 "Anmerkungen vorhanden."
 msgstr ""
 "Veuillez cliquer sur le numéro ou la lettre en exposant pour voir la "
-"remarque correspondante. Veuillez cliquer sur le petit &#8853; pour "
-"afficher toutes les notes d'un texte ou sur le petit &#8855; pour cacher "
+"remarque correspondante.Veuillez cliquer sur le petit &#8853; pour "
+"afficher toutes les notes d'un texte ou sur le petit &#8855;pour cacher "
 "toutes les remarques. Lorsqu'il n'y a pas de remarques, le côté gauche de"
 " la page n'affiche aucun texte."
 
@@ -856,11 +841,7 @@ msgstr "Cacher toutes les notes de ce texte"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
 
-#: templates/main/regest_collapse.html:4
-msgid "Vollregest"
-msgstr "Regeste complet"
-
-#: templates/main/regest_collapse.html:7
+#: templates/main/regest_collapse.html:4 templates/main/regest_collapse.html:7
 msgid "Regest"
 msgstr "Regeste"
 
@@ -921,6 +902,17 @@ msgid ""
 "Möchten Sie im Suchergebnis Worte zwischen beiden Suchbegriffen zulassen,"
 " stellen Sie bitte einen entsprechenden 'Suchradius' größer als 0 ein."
 msgstr ""
+"La recherche de mot ne se fait qu'avec des mots complets. Par exemple,si "
+"vous cherchez 'christ', vous ne trouverez que le mot 'christ', et non "
+"'christusou 'christi'. Pour ce genre de recherche, il faut utiliser des "
+"caractères spéciaux.Un point d'interrogation ('?') remplace un seul "
+"caractère, une étoile ('*') peut en remplacerplusieur. Si vous cherchez "
+"'christ*', vous trouverez 'christus' ou 'christi'.Les deux caractères "
+"fonctionnent seulement à l'intérieur d'un mot. Pour la recherche'christ* "
+"nom*' chaque ligne trouvée affichera les deux mots suivis: 'christ' "
+"commepremier mot et 'nom' comme deuxième mot. Si vous souhaitez autoriser"
+" des mots entreles deux termes de recherche, veuillez définir un 'rayon "
+"de recherche' supérieur à 0."
 
 #: templates/search/advanced_search.html:38
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
@@ -930,7 +922,7 @@ msgstr ""
 
 #: templates/search/advanced_search.html:38
 msgid "Die Reihenfolge der Wörter beibehalten"
-msgstr ""
+msgstr "Conserver l'ordre"
 
 #: templates/search/advanced_search.html:40
 msgid ""
@@ -975,28 +967,32 @@ msgstr ""
 #: templates/search/advanced_search.html:46
 #: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
-msgstr ""
+msgstr "Recherche du lieu d'exposition"
 
 #: templates/search/advanced_search.html:50
 msgid "Anfangsbuchstaben"
-msgstr ""
+msgstr "Première lettre"
 
 #: templates/search/advanced_search.html:50
 msgid ""
 "Ob die Buchstaben im Suchfeld am Anfang der Ortsnamensvorschläge "
 "vorkommen müssen."
 msgstr ""
+"Si les lettres doivent apparaître dans le champ de rechercheau début des "
+"noms de lieux suggérés:"
 
 #: templates/search/advanced_search.html:54
 #: templates/search/documentation.html:28
 msgid "Datumssuche"
-msgstr ""
+msgstr "Recherche par date"
 
 #: templates/search/advanced_search.html:54
 msgid ""
 "Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
 "Datumssuche keine Formeln angezeigt."
 msgstr ""
+"Comme les formules n'ont pas de dates exactes, aucune formulene sera "
+"affichée pour une recherche par date:"
 
 #: templates/search/advanced_search.html:55
 #: templates/search/documentation.html:30
@@ -1041,19 +1037,19 @@ msgstr "Jusqu’à"
 
 #: templates/search/advanced_search.html:143
 msgid "Bewegliche Kirchenfeste"
-msgstr ""
+msgstr "Fêtes lithurgiques mobiles"
 
 #: templates/search/advanced_search.html:158
 msgid "Wochentage"
-msgstr ""
+msgstr "Jours ouvrables"
 
 #: templates/search/advanced_search.html:193
 msgid "Zurücksetzen"
-msgstr ""
+msgstr "Réinitialiser"
 
 #: templates/search/documentation.html:6
 msgid "Dokumentation der erweiterten Suche"
-msgstr ""
+msgstr "Documentation de la recherche avancée"
 
 #: templates/search/documentation.html:10
 msgid ""
@@ -1063,6 +1059,12 @@ msgid ""
 "Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
 "können diese Stellen in der angegebenen Printedition nachschlagen."
 msgstr ""
+"La liste contient tous les corpus consultables du projet:Certains corpus "
+"sont protégés par le droit d'auteur et ne peuvent doncpas être "
+"intégralement affichés. Tous les corpus sont consultables et "
+"lesoccurrences dans les documents protégés par le droit d'auteur sont "
+"égalementaffichés. Vous pouvez référer les emplacements dans l'édition "
+"d'impression indiquée."
 
 #: templates/search/documentation.html:11
 msgid ""
@@ -1074,6 +1076,13 @@ msgid ""
 "Ausstellungsortsuche funktionieren nur für Urkunden. Siehe <a href"
 "='#date-search'>unten</a> für weitere Information."
 msgstr ""
+"Les différentes catégories ('Formules' ou 'Chartes') sontindépendamment "
+"indexées. Une recherche par forme de mots infléchie esttout à fait "
+"possible. Les caractères spéciaux, l'ordre des mots, le degréde flou et "
+"le rayon de recherche fonctionnent pour tous les documentsLa recherche de"
+" lemmes ne fonctionne que pour les formules. Les recherches par dateset "
+"par lieux d'exposition ne fonctionnent que pour les chartes.Voir <a href"
+"='#date-search'>ici</a> pour plus d'informations."
 
 #: templates/search/documentation.html:13
 msgid ""
@@ -1309,7 +1318,7 @@ msgstr "Chercher dans"
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
-#: tests/test_routes.py:669 tests/test_routes.py:1435
+#: tests/test_routes.py:669 tests/test_routes.py:1453
 msgid "Dieses Feld wird benötigt."
 msgstr ""
 
@@ -2211,38 +2220,46 @@ msgstr ""
 #~ msgstr ""
 #~ "Les textes sont d'origines différentes. "
 #~ "Les formules sont issues de nouvelles"
-#~ " éditions critiques des collections de "
+#~ " éditionscritiques des collections de "
 #~ "formules médiévales, et sont créées avec"
 #~ " une traduction allemande pendant le "
-#~ "projet. Les soixante formules de la "
+#~ "projet.Les soixante formules de la "
 #~ "collection d'Angers (Formulae Andecavensis) "
-#~ "sont actuellement disponibles. D'autres "
-#~ "formules sont en cours d'étude. Les "
-#~ "chartes sont issues de collections "
-#~ "rétro-numériques. Les chartes sont "
-#~ "étroitement liées aux formules et sont"
-#~ " donc indispensables pour l'étude des "
-#~ "formules et des collections. La plupart"
-#~ " des éditions rétro-numériques ne "
-#~ "sont plus protégées par le droit "
-#~ "d'auteur et sont donc libre d'accès "
-#~ "sur le site. Les textes protégés "
-#~ "par le droit d'auteur sont "
-#~ "recherchables, mais ne peuvent être "
-#~ "intégralement affichés et doivent donc "
-#~ "être consultés au format papier. Tous"
-#~ " les textes numériques non protégés "
-#~ "par le droit d'auteur sont publiés "
-#~ "ici sous une licence Creative Commons."
-#~ " Puisque les formules ne sont pas "
-#~ "encore publiées dans la MGH elles "
-#~ "sont soumises à une licence "
-#~ "'Attribution. Pas d'utilisation commerciale. "
-#~ "Pas de modification' (CC-BY-NC-"
+#~ "sont actuellement disponibles.D'autres formules "
+#~ "sont en cours d'étude. Les chartes "
+#~ "sont issues de collections rétro-"
+#~ "numériques.Les chartes sont étroitement liées"
+#~ " aux formules et sont donc "
+#~ "indispensables pour l'étude des formules "
+#~ "et des collections.La plupart des "
+#~ "éditions rétro-numériques ne sont plus"
+#~ " protégées par le droit d'auteur et"
+#~ " sont donc libre d'accès sur le "
+#~ "site.Les textes protégés par le droit"
+#~ " d'auteur sont recherchables, mais ne "
+#~ "peuvent être intégralement affichés et "
+#~ "doiventdonc être consultés au format "
+#~ "papier. Tous les textes numériques non"
+#~ " protégés par le droit d'auteur sont"
+#~ " publiés ici sous unelicence Creative "
+#~ "Commons. Puisque les formules ne sont"
+#~ " pas encore publiées dans la MGH "
+#~ "elles sont soumises à une "
+#~ "licence'Attribution. Pas d'utilisation commerciale."
+#~ " Pas de modification' (CC-BY-NC-"
 #~ "ND). Les chartes sont elles soumises "
-#~ "à une licence 'Attribution' (CC-BY). "
-#~ "Le projet Formulae - Litterae - "
-#~ "Chartae étant référencé comme source des"
-#~ " textes numériques, les textes sont "
-#~ "librement disponibles."
+#~ "à une licence'Attribution' (CC-BY). Le"
+#~ " projet Formulae - Litterae - Chartae"
+#~ " étant référencé comme source des "
+#~ "textes numériques,les textes sont librement"
+#~ " disponibles."
+
+#~ msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Bienvenue au<br>Formulae - Litterae - Chartae Werkstatt!"
+
+#~ msgid "Willkommen in der<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Bienvenue au<br>Formulae - Litterae - Chartae Werkstatt!"
+
+#~ msgid "Vollregest"
+#~ msgstr "Regeste complet"
 
