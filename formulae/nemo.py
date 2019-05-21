@@ -70,7 +70,8 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising',
+                        'urn:cts:formulae:luzern'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:salzburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
@@ -257,7 +258,7 @@ class NemoFormulae(Nemo):
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         elif len(data['collections']['members']) == 1:
-            return redirect(url_for('.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
+            return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
         return data
 
@@ -370,7 +371,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 1:
-            return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'],
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         elif len(members) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))

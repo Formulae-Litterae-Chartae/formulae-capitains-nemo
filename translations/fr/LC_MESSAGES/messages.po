@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-08 14:06+0200\n"
+"POT-Creation-Date: 2019-05-17 10:16+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -197,12 +197,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:1545
+#: tests/test_routes.py:1563
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:1546
+#: tests/test_routes.py:1564
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page principale"
 
-#: formulae/search/Search.py:179 tests/test_routes.py:1296
+#: formulae/search/Search.py:179 tests/test_routes.py:1314
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -223,7 +223,7 @@ msgstr ""
 "la recherche de lemmes."
 
 #: formulae/search/forms.py:29 formulae/search/forms.py:45
-#: formulae/search/forms.py:108 formulae/search/routes.py:112
+#: formulae/search/forms.py:109 formulae/search/routes.py:112
 msgid "Suche"
 msgstr "Recherche"
 
@@ -242,7 +242,7 @@ msgid "Urkunden"
 msgstr "Chartes"
 
 #: formulae/search/forms.py:33 tests/test_routes.py:660
-#: tests/test_routes.py:1432
+#: tests/test_routes.py:1450
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -385,51 +385,51 @@ msgstr "Lieu d'exposition"
 msgid "Nach bestimmten Tagen suchen"
 msgstr "chercher des jours spécifiques"
 
-#: formulae/search/forms.py:98 templates/search/advanced_search.html:146
+#: formulae/search/forms.py:99 templates/search/advanced_search.html:146
 msgid "Ostern"
 msgstr "Pâques"
 
-#: formulae/search/forms.py:99 templates/search/advanced_search.html:154
+#: formulae/search/forms.py:100 templates/search/advanced_search.html:154
 msgid "Fastenzeit"
 msgstr "Carême"
 
-#: formulae/search/forms.py:100 templates/search/advanced_search.html:150
+#: formulae/search/forms.py:101 templates/search/advanced_search.html:150
 msgid "Pfingsten"
 msgstr "Pentecôte"
 
-#: formulae/search/forms.py:101 templates/search/advanced_search.html:185
+#: formulae/search/forms.py:102 templates/search/advanced_search.html:185
 msgid "So"
 msgstr "Dim"
 
-#: formulae/search/forms.py:102 templates/search/advanced_search.html:161
+#: formulae/search/forms.py:103 templates/search/advanced_search.html:161
 msgid "Mo"
 msgstr "Lun"
 
-#: formulae/search/forms.py:103 templates/search/advanced_search.html:165
+#: formulae/search/forms.py:104 templates/search/advanced_search.html:165
 msgid "Di"
 msgstr "Mar"
 
-#: formulae/search/forms.py:104 templates/search/advanced_search.html:169
+#: formulae/search/forms.py:105 templates/search/advanced_search.html:169
 msgid "Mi"
 msgstr "Mer"
 
-#: formulae/search/forms.py:105 templates/search/advanced_search.html:173
+#: formulae/search/forms.py:106 templates/search/advanced_search.html:173
 msgid "Do"
 msgstr "Jeu"
 
-#: formulae/search/forms.py:106 templates/search/advanced_search.html:177
+#: formulae/search/forms.py:107 templates/search/advanced_search.html:177
 msgid "Fr"
 msgstr "Ven"
 
-#: formulae/search/forms.py:107 templates/search/advanced_search.html:181
+#: formulae/search/forms.py:108 templates/search/advanced_search.html:181
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/routes.py:19 tests/test_routes.py:1433
+#: formulae/search/routes.py:19 tests/test_routes.py:1451
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:21 tests/test_routes.py:1436
+#: formulae/search/routes.py:21 tests/test_routes.py:1454
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
@@ -654,8 +654,8 @@ msgid ""
 msgstr ""
 
 #: templates/main/index.html:6
-msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
-msgstr "Bienvenue au projet Formulae - Litterae - Chartae"
+msgid "Willkommen in der<br>Formulae - Litterae - Chartae Werkstatt!"
+msgstr "Bienvenue à<br>Formulae - Litterae - Chartae Werkstatt!"
 
 #: templates/main/index.html:9
 msgid ""
@@ -699,6 +699,41 @@ msgid ""
 "Formulae - Litterae - Chartae als Quelle der digitalen Texte stehen diese"
 " Texte unter CC-BY Lizenz zur freien Verfügung."
 msgstr ""
+"Les textes sont d'origines différentes. "
+"Les formules sont issues de nouvelles"
+" éditionscritiques des collections de "
+"formules médiévales, et sont créées avec"
+" une traduction allemande pendant le "
+"projet.Les soixante formules de la "
+"collection d'Angers (Formulae Andecavensis) "
+"sont actuellement disponibles.D'autres formules "
+"sont en cours d'étude. Les chartes "
+"sont issues de collections rétro-"
+"numériques.Les chartes sont étroitement liées"
+" aux formules et sont donc "
+"indispensables pour l'étude des formules "
+"et des collections.La plupart des "
+"éditions rétro-numériques ne sont plus"
+" protégées par le droit d'auteur et"
+" sont donc libre d'accès sur le "
+"site.Les textes protégés par le droit"
+" d'auteur sont recherchables, mais ne "
+"peuvent être intégralement affichés et "
+"doiventdonc être consultés au format "
+"papier. Tous les textes numériques non"
+" protégés par le droit d'auteur sont"
+" publiés ici sous unelicence Creative "
+"Commons. Puisque les formules ne sont"
+" pas encore publiées dans la MGH "
+"elles sont soumises à une "
+"licence'Attribution. Pas d'utilisation commerciale."
+" Pas de modification' (CC-BY-NC-"
+"ND). Les chartes sont elles soumises "
+"à une licence'Attribution' (CC-BY). Le"
+" projet Formulae - Litterae - Chartae"
+" étant référencé comme source des "
+"textes numériques,les textes sont librement"
+" disponibles."
 
 #: templates/main/index.html:11
 msgid ""
@@ -841,11 +876,7 @@ msgstr "Cacher toutes les notes de ce texte"
 msgid "Alle Anmerkungen für diesen Text einblenden"
 msgstr "Afficher toutes les notes de ce texte"
 
-#: templates/main/regest_collapse.html:4
-msgid "Vollregest"
-msgstr "Regeste complet"
-
-#: templates/main/regest_collapse.html:7
+#: templates/main/regest_collapse.html:4 templates/main/regest_collapse.html:7
 msgid "Regest"
 msgstr "Regeste"
 
@@ -1322,7 +1353,7 @@ msgstr "Chercher dans"
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr ""
 
-#: tests/test_routes.py:669 tests/test_routes.py:1435
+#: tests/test_routes.py:669 tests/test_routes.py:1453
 msgid "Dieses Feld wird benötigt."
 msgstr ""
 
@@ -2257,4 +2288,13 @@ msgstr ""
 #~ " étant référencé comme source des "
 #~ "textes numériques,les textes sont librement"
 #~ " disponibles."
+
+#~ msgid "Willkommen in<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Bienvenue au<br>Formulae - Litterae - Chartae Werkstatt!"
+
+#~ msgid "Willkommen in der<br>Formulae-Litterae-Chartae Werkstatt!"
+#~ msgstr "Bienvenue au<br>Formulae - Litterae - Chartae Werkstatt!"
+
+#~ msgid "Vollregest"
+#~ msgstr "Regeste complet"
 
