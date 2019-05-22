@@ -34,16 +34,15 @@ def create_app(config_class=Config):
     app.IIIFserver = app.config['IIIF_SERVER']\
         if app.config['IIIF_SERVER'] else None
 
-#Load iiif maping file like elasticsearch.
     if app.config['IIIF_MAPPING']:
-        app.IIIFmapping=app.config['IIIF_MAPPING']
+        app.IIIFmapping = app.config['IIIF_MAPPING']
         with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
             app.picture_file = load(f)
             for key, value in app.picture_file.items():
                 if 'manifest' in value.keys():
                     app.IIIFviewer = True
                     continue
-                elif set(value.keys())<= set({'codex','folios','images','town'}):
+                elif set(value.keys()) <= {'codex', 'folios', 'images', 'town'}:
                     app.IIIFviewer = True
                     continue
                 else:
@@ -53,8 +52,6 @@ def create_app(config_class=Config):
     else:
         app.IIIFviewer = False
         app.picture_file = ""
-
-
 
     db.init_app(app)
     migrate.init_app(app, db)
@@ -67,8 +64,7 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp
     app.register_blueprint(search_bp, url_prefix="/search")
-    #Load iiif maping file like elasticsearch.
-    if app.IIIFviewer == False:
+    if app.IIIFviewer is False:
         print(_l('Der Viewer konnte nicht gestarted werden.'))
     else:
         from .viewer import bp as viewer_bp
@@ -96,5 +92,5 @@ def get_locale():
         return session['locale']
     return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
-from formulae import models
 
+from formulae import models
