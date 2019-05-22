@@ -155,8 +155,8 @@ $(function() {
 
 // Expands and contracts the note when the expand arrow is clicked
 $('.expand').click(function() {
-    $('#' + $(this).attr('toExpand')).toggleClass('expanded fade-out');
-    if ($('#' + $(this).attr('toExpand')).hasClass('fade-out')) {
+    $('#' + $(this).attr('toexpand')).toggleClass('expanded fade-out');
+    if ($('#' + $(this).attr('toexpand')).hasClass('fade-out')) {
         $(this).attr('title', expMess);
     } else {
         $(this).attr('title', conMess);
@@ -165,4 +165,14 @@ $('.expand').click(function() {
 
 $('.expand').each(function() {
     $(this).attr('title', expMess);
+});
+
+$('.note').click(function() {
+    var linkTarget = $(this).attr('href');
+    $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
+    $( linkTarget ).addClass( 'flash-yellow' );
+    if ($(linkTarget).hasClass('fade-out')) {
+        $(linkTarget).toggleClass('expanded fade-out');
+        $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
+    }
 });
