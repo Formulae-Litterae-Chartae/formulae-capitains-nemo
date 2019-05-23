@@ -1,4 +1,11 @@
 var lexModal = document.getElementById('lexicon-modal');
+$('.apparatus-title').append(appHeading);
+$('.commentary-title').append(comHeading);
+$('[id$="a1-hide-button"]').attr('title', appCloseButton)
+$('[id$="a1-show-button"]').attr('title', appOpenButton)
+$('[id$="n1-hide-button"]').attr('title', comCloseButton)
+$('[id$="n1-show-button"]').attr('title', comOpenButton)
+
 
 // These are the popovers for the notes in the right column of the normal text view.
 $(function () {
@@ -81,16 +88,46 @@ $(document).ready(function () {
 });
 
 function hideNotes(c) {
-    var nodeclass = c + ' show'
+    var nodeclass = c + ' show';
     var matches = document.getElementsByClassName(nodeclass);
     while (matches.length > 0) {
         matches.item(0).setAttribute('aria-expanded', 'false');
         matches.item(0).classList.remove('show');
     }
-    var elements = document.getElementById('header-' + c).querySelectorAll("[aria-describedby]");
-    for (let element of elements) {
-        element.click();
-    }
+    document.getElementById(c.replace(' ', '-') + '-hide-button').classList.add('hidden-button');
+    document.getElementById(c.replace(' ', '-') + '-show-button').classList.remove('hidden-button');
+    var urn = c.replace(/ [an]1/, '');
+    var appHide = document.getElementById(urn + '-a1' + '-hide-button');
+    var comHide = document.getElementById(urn + '-n1' + '-hide-button');
+    var appShow = document.getElementById(urn + '-a1'  + '-show-button');
+    var comShow = document.getElementById(urn + '-n1'  + '-show-button');
+    // If we are hiding all notes for a text, then the buttons for the apparatus and commentary should also be hidden and revealed.
+    if (c.search(/ [an]1/) == -1) {
+        if (appHide != null) {
+            appHide.classList.add('hidden-button');
+        };
+        if (comHide != null) {
+            comHide.classList.add('hidden-button');
+        };
+        if (appShow != null) {
+            appShow.classList.remove('hidden-button');
+        };
+        if (comShow != null) {
+            comShow.classList.remove('hidden-button');
+        };
+    } else {
+        if (appHide != null && Boolean(appHide.classList.contains('hidden-button')) == false) {
+            var allHidden = false;
+        } else if (comHide != null && Boolean(comHide.classList.contains('hidden-button')) == false) {
+            var allHidden = false;
+        } else {
+            var allHidden = true;
+        };
+        if ( allHidden == true ) {
+            document.getElementById(urn + '-show-button').classList.remove('hidden-button');
+            document.getElementById(urn + '-hide-button').classList.add('hidden-button');
+        }
+    };
 }
 
 function showNotes(c) {
@@ -99,6 +136,40 @@ function showNotes(c) {
         matches[i].classList.add('show');
         matches[i].setAttribute('aria-expanded', 'true');
     }
+    document.getElementById(c.replace(' ', '-') + '-show-button').classList.add('hidden-button');
+    document.getElementById(c.replace(' ', '-') + '-hide-button').classList.remove('hidden-button');
+    // If we are opening all notes for a text, then the buttons for the apparatus and commentary should also be hidden and revealed.
+    var urn = c.replace(/ [an]1/, '');
+    var appHide = document.getElementById(urn + '-a1' + '-hide-button');
+    var comHide = document.getElementById(urn + '-n1' + '-hide-button');
+    var appShow = document.getElementById(urn + '-a1'  + '-show-button');
+    var comShow = document.getElementById(urn + '-n1'  + '-show-button');
+    if (c.search(/ [an]1/) == -1) {
+        if (appHide != null) {
+            appHide.classList.remove('hidden-button');
+        };
+        if (comHide != null) {
+            comHide.classList.remove('hidden-button');
+        };
+        if (appShow != null) {
+            appShow.classList.add('hidden-button');
+        };
+        if (comShow != null) {
+            comShow.classList.add('hidden-button');
+        };
+    } else {
+        if (appShow != null && Boolean(appShow.classList.contains('hidden-button')) == false) {
+            var allShown = false;
+        } else if (comShow != null && Boolean(comShow.classList.contains('hidden-button')) == false) {
+            var allShown = false;
+        } else {
+            var allShown = true;
+        };
+        if ( allShown == true ) {
+            document.getElementById(urn + '-show-button').classList.add('hidden-button');
+            document.getElementById(urn + '-hide-button').classList.remove('hidden-button');
+        }
+    };
 }
 
 function showLexEntry(word) {
