@@ -7,6 +7,20 @@
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    {% if isReferencedBy %}
+    <div class="dropdown">
+    <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ _('Formeln mit diesem Lemma') }}
+    </button>
+    <div class="dropdown-menu version-dropdown">
+            {% for r in isReferencedBy %}
+            {% if r.id not in prev_texts %}
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r.id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r.get_label()|string + ' (' + r.lang + ')' }}</span></a>
+            {% endif %}
+            {% endfor %}
+    </div>
+    </div>
+    {% endif %}
     <div class="modal-body">
     {{ text_passage }}
     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, objectId]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Diesen Beitrag parallel lesen') }}</a>
