@@ -571,6 +571,7 @@ class TestFunctions(Formulae_Testing):
         """ Make sure the correct values are returned by r_passage"""
         data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
         self.assertEqual(data['isReferencedBy'][0].id, 'urn:cts:formulae:andecavensis.form001.lat001')
+        self.assertEqual(data['isReferencedBy'][1], 'urn:cts:formulae:andecavensis.form007.lat001')
 
 
 class TestForms(Formulae_Testing):
