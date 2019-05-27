@@ -450,7 +450,10 @@ class NemoFormulae(Nemo):
         inRefs = []
         for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
             if str(inRef) not in request.url:
-                inRefs.append(self.resolver.getMetadata(str(inRef)))
+                try:
+                    inRefs.append(self.resolver.getMetadata(str(inRef)))
+                except UnknownCollection:
+                    inRefs.append(str(inRef))
         return {
             "template": "main::text.html",
             "objectId": objectId,
