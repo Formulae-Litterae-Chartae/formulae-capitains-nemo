@@ -40,7 +40,7 @@
             <span class="dropdown-item-text">{{ _('Formeln mit diesem Lemma') }}</span>
             {% for r in inRefs %}
             {% if r is string %}
-            <a class="dropdown-item">- <span class="text-primary">{{ r }}</span></a>
+            <a class="dropdown-item">- <span>{{ r }}</span></a>
             {% else %}
             <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, r.id]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r.get_label()|string + ' (' + r.lang + ')' }}</span></a>
             {% endif %}
