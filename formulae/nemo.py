@@ -70,7 +70,8 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising',
+                        'urn:cts:formulae:luzern'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:salzburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
@@ -257,7 +258,7 @@ class NemoFormulae(Nemo):
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         elif len(data['collections']['members']) == 1:
-            return redirect(url_for('.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
+            return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
         return data
 
@@ -370,7 +371,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 1:
-            return redirect(url_for('.r_add_text_corpus', objectId=members[0]['id'],
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'],
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         elif len(members) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
@@ -449,6 +450,13 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
+        inRefs = []
+        for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
+            if str(inRef) not in request.url:
+                try:
+                    inRefs.append(self.resolver.getMetadata(str(inRef)))
+                except UnknownCollection:
+                    inRefs.append(str(inRef))
         return {
             "template": "main::text.html",
             "objectId": objectId,
@@ -462,7 +470,6 @@ class NemoFormulae(Nemo):
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
-                    "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -479,7 +486,8 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
+            "isReferencedBy": inRefs
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):

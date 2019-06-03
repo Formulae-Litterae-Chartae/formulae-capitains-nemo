@@ -682,11 +682,12 @@ class TestFunctions(Formulae_Testing):
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
 
-    def test_Search_highlight_segment(self):
-        """ Make sure that a highlight segment that ends at the end of the string is correctly returned"""
-        orig_str = ' nostri Charoli gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-        expected = " gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        self.assertEqual(highlight_segment(orig_str), expected)
+    def test_r_passage_return_values(self):
+        """ Make sure the correct values are returned by r_passage"""
+        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
+        self.assertEqual(data['isReferencedBy'][0].id, 'urn:cts:formulae:andecavensis.form001.lat001')
+        self.assertEqual(data['isReferencedBy'][1], 'urn:cts:formulae:andecavensis.form007.lat001')
+
 
 
 class TestForms(Formulae_Testing):
