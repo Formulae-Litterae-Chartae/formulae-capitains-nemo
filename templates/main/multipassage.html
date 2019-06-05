@@ -3,7 +3,7 @@
 {% macro header_passage(object) %}
 <header>
     <div class="panel-footer text-center">
-        <h3 class="entry-title text-center">{{object.collections.current.title}}</h3>
+           <h3 class="entry-title text-center">{{object.collections.current.title}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
             {% if object.IIIFviewer == true %}
                 <div class="dropdown">
                     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,7 +17,6 @@
             {% endif %}
     </div>
 
-    <h3 class="entry-title text-center">{{object.collections.current.title}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
 
     <span class="text-center">{{ version_menu(object.objectId, object.isReferencedBy) }}</span>
 
