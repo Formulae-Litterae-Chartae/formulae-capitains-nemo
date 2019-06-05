@@ -1641,7 +1641,7 @@ class TestErrors(Formulae_Testing):
 class Formulae_Testing_error_mapping(flask_testing.TestCase):
 
     def create_app(self):
-        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
+        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_errorfew"
         app = create_app(TestConfig)
         resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
@@ -1657,7 +1657,7 @@ class Formulae_Testing_error_mapping(flask_testing.TestCase):
                                  pdf_folder="pdf_folder/")
 
         app.config['nemo_app'] = self.nemo
-
+        print("test")
         @app.route('/500', methods=['GET'])
         def r_500():
             abort(500)
@@ -1669,4 +1669,7 @@ class TestNemoSetup_withoutviewer(Formulae_Testing_error_mapping):
     def TestNemoSetup_withoutviewer(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
             # This should only be tested on Travis since I don't want it to run locally
-        self.assertFalse('viewer' in self.app.blueprints)
+        from formulae.app import nemo
+        self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+        self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+        self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)

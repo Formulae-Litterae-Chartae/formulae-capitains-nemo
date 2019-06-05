@@ -1,33 +1,5 @@
 {
 	"urn:cts:formulae:andecavensis.form001.lat001": {
-		"cod": "Codex andecavensis",
-		"town": "Angers",
-		"folios": [
-			"f136r", "f136v", "f137r", "f137v","f138r"
-		],
-		"images": [
-			"/images/formulae-1/00000273.tif/info.json",
-			"/images/formulae-1/00000274.tif/info.json",
-			"/images/formulae-1/00000275.tif/info.json",
-			"/images/formulae-1/00000276.tif/info.json",
-			"/images/formulae-1/00000277.tif/info.json"
-		]
-
-
-	},
-	"urn:cts:formulae:andecavensis.form002.lat001": {
 		"ma": "/urn:cts:formulae:andecavensis.form002.lat001.json"
-	},
-	"urn:cts:formulae:andecavensis.form004.lat001": {
-        "codex": "Codex andecavensis",
-		"town": "Angers",
-		"folios": [
-			"f139v", "f140r"
-		],
-		"images": [
-			"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000284.tif/info.json",
-			"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000285.tif/info.json"
-		]
-
 	}
 }

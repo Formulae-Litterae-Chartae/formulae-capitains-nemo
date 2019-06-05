@@ -20,13 +20,7 @@ def get_passage(objectId, subreference, lang=None):
     :rtype: {str: Any}
     """
     collection = current_app.config['nemo_app'].get_collection(objectId)
-    try:
-        text = current_app.config['nemo_app'].get_passage(objectId=objectId, subreference=subreference)
-    except IndexError:
-        new_subref = current_app.config['nemo_app'].get_reffs(objectId)[0][0]
-        text = current_app.config['nemo_app'].get_passage(objectId=objectId, subreference=new_subref)
-        flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
-        subreference = new_subref
+    text = current_app.config['nemo_app'].get_passage(objectId=objectId, subreference=subreference)
     passage = current_app.config['nemo_app'].transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
     metadata = current_app.config['nemo_app'].resolver.getMetadata(objectId=objectId)
     if 'notes' in current_app.config['nemo_app']._transform:
