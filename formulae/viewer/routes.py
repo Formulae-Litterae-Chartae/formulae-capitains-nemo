@@ -87,8 +87,8 @@ def new_tab(objectId, view):
 '''
 
 
-@bp.route("embedded/<objectId>/<view>", methods=["GET"])
-@bp.route("/<objectId>/<view>", methods=["GET"])
+
+@bp.route("/<objectId>", methods=["GET"])
 def addviewer(objectId):
     collection = current_app.config['nemo_app'].get_collection(objectId)
     if isinstance(collection, CtsWorkMetadata):

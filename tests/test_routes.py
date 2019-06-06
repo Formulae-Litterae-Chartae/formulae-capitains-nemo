@@ -171,10 +171,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
-            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
 
@@ -251,18 +251,18 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0?embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003/0?embedded=True', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003?embedded=True', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001/0', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001/0?embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005/1?embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
 
     def test_authorized_normal_user(self):
@@ -329,7 +329,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
-            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
 
@@ -589,7 +589,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005/1?embedded=True', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
@@ -606,7 +606,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005/1?embedded=True', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
