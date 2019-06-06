@@ -91,26 +91,21 @@ def new_tab(objectId, view):
 @bp.route("/<objectId>/<view>", methods=["GET"])
 def addviewer(objectId, view):
     collection = current_app.config['nemo_app'].get_collection(objectId)
-    print(objectId)
     if isinstance(collection, CtsWorkMetadata):
         editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
-        print(len(editions))
         if len(editions) == 0:
             raise UnknownCollection('{}'.format(collection.get_label()) + _l(' hat keine Edition.'))
         objectId = str(editions[0].id)
-        print(objectId)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html', 'local': "viewer::newtabviewer.html"}
         formulae = current_app.picture_file[objectId]
         passage_data = ''
         if request.args.get('embedded', False):
             template = {'manifest': "viewer::multiviewermirador.html", 'local': 'viewer::multiviewer.html'}
-            print("test")
             passage_data = get_passage(objectId, '1')
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         if "manifest" in formulae:
             manifest = url_for('viewer.static', filename=formulae["manifest"])
-            print("test")
             if "codex" in formulae:
                 codex = formulae["codex"]
                 return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
