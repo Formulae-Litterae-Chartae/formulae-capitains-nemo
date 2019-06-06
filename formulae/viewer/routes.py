@@ -104,19 +104,19 @@ def addviewer(objectId, view):
             template = {'manifest': "viewer::multiviewermirador.html", 'local': 'viewer::multiviewer.html'}
             passage_data = get_passage(objectId, '1')
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
-        if "manifest" in formulae:
-            manifest = url_for('viewer.static', filename=formulae["manifest"])
-            if "codex" in formulae:
-                codex = formulae["codex"]
-                return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
-                                                             ,objectId=objectId, codex=codex, text=passage_data, url=dict())
-            else:
-                with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
-                    title = load(f)
-                codex = title["label"]
-                return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
-                                                             ,objectId=objectId, codex=codex, text=passage_data, url=dict())
-            '''
+
+        manifest = url_for('viewer.static', filename=formulae["manifest"])
+
+        with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+            title = load(f)
+        codex = title["label"]
+        return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
+                                                     ,objectId=objectId, codex=codex, text=passage_data, url=dict())
+    else:
+
+        flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+        return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
+'''
         else:
             try:
                 view = int(view)
@@ -171,11 +171,12 @@ def addviewer(objectId, view):
                 link_picture=str(images[view])
             return current_app.config['nemo_app'].render(template=template['local'], picture=link_picture, objectId=objectId,
                                                          current_view=view, total_views=len(images), text=passage_data,
-                                                         url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)'''
+                                                         url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)
     else:
 
         flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
+'''
 
 @bp.route("abz/<objectId>/<view>", methods=["GET"])
 def test_3viewer(objectId, view):
