@@ -225,8 +225,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
+                          r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
             self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')

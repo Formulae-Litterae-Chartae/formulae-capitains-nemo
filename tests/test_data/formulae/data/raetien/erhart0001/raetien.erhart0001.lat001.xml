@@ -78,7 +78,7 @@
               xml:lang="lat"
               n="urn:cts:formulae:raetien.erhart0001.lat001">
                   <div type="textpart" subtype="charta" n="1">
-                     <p>Text</p>
+                     <p>Text <choice><abbr>o.t.</abbr> <expan>other text</expan></choice></p>
                   </div>
                </div>
             </body>

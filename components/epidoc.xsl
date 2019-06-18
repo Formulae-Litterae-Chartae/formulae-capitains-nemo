@@ -354,10 +354,8 @@
     
     <xsl:template match="t:choice">
         <span class="choice">
-            <xsl:attribute name="title">
-                <xsl:value-of select="reg" />
-            </xsl:attribute>
-            <xsl:value-of select="orig" /><xsl:text> </xsl:text>
+            <span class="abbr"><xsl:value-of select="t:abbr"/></span>
+            <span class="expan"><xsl:value-of select="t:expan"/></span>
         </span>
     </xsl:template>
     
