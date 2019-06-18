@@ -7,13 +7,30 @@
     <xsl:output omit-xml-declaration="yes" indent="yes"/>
     
     <xsl:template match="/">
+        <xsl:variable name="text-urn" select="//a[@class='note'][1]/@text-urn"/>
         <xsl:choose>
             <xsl:when test="count(//a[@class='note' and @type='a1']) > 0 or count(//a[@class='note' and @type='n1']) > 0">
                 <xsl:if test="count(//a[@class='note' and @type='a1']) > 0">
                     <xsl:element name="div">
-                        <xsl:attribute name="class">card bg-hhgray text-white px-0</xsl:attribute>
+                        <xsl:attribute name="class">card bg-hhgray px-0 text-white</xsl:attribute>
                         <xsl:attribute name="style">font-size: small;</xsl:attribute>
-                        <xsl:element name="span">Apparatus</xsl:element>
+                        <xsl:element name="span">
+                            <xsl:attribute name="class">apparatus-title text-white align-middle</xsl:attribute>
+                            <xsl:element name="button">
+                                <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-a1-hide-button</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0</xsl:attribute>
+                                <xsl:attribute name="onclick">hideNotes('<xsl:value-of select="$text-urn"/> a1')</xsl:attribute>
+                                <xsl:attribute name="title"></xsl:attribute>
+                                <xsl:text>⊗</xsl:text>
+                            </xsl:element>
+                            <xsl:element name="button">
+                                <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-a1-show-button</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0 hidden-button</xsl:attribute>
+                                <xsl:attribute name="onclick">showNotes('<xsl:value-of select="$text-urn"/> a1')</xsl:attribute>
+                                <xsl:attribute name="title"></xsl:attribute>
+                                <xsl:text>⊕</xsl:text>
+                            </xsl:element>
+                        </xsl:element>
                     </xsl:element>
                     <xsl:for-each select="//a[@class='note' and @type='a1']">
                         <xsl:call-template name="build_note"/>
@@ -21,9 +38,25 @@
                 </xsl:if>
                 <xsl:if test="count(//a[@class='note' and @type='n1']) > 0">
                     <xsl:element name="div">
-                        <xsl:attribute name="class">card bg-hhgray text-white px-0</xsl:attribute>
+                        <xsl:attribute name="class">card bg-hhgray px-0</xsl:attribute>
                         <xsl:attribute name="style">font-size: small;</xsl:attribute>
-                        <xsl:element name="span">Kommentare</xsl:element>
+                        <xsl:element name="span">
+                            <xsl:attribute name="class">commentary-title text-white</xsl:attribute>
+                            <xsl:element name="button">
+                                <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-n1-hide-button</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0</xsl:attribute>
+                                <xsl:attribute name="onclick">hideNotes('<xsl:value-of select="$text-urn"/> n1')</xsl:attribute>
+                                <xsl:attribute name="title"></xsl:attribute>
+                                <xsl:text>⊗</xsl:text>
+                            </xsl:element>
+                            <xsl:element name="button">
+                                <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-n1-show-button</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0 hidden-button</xsl:attribute>
+                                <xsl:attribute name="onclick">showNotes('<xsl:value-of select="$text-urn"/> n1')</xsl:attribute>
+                                <xsl:attribute name="title"></xsl:attribute>
+                                <xsl:text>⊕</xsl:text>
+                            </xsl:element>
+                        </xsl:element>
                     </xsl:element>
                     <xsl:for-each select="//a[@class='note' and @type='n1']">
                         <xsl:call-template name="build_note"/>
@@ -41,7 +74,7 @@
     <xsl:template name="build_note" match="a">
         <xsl:param name="ident" select="translate(@href, '#', '')"/>
         <xsl:element name="div">
-            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/> show two-line fade-out</xsl:attribute>
+            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/><xsl:text> </xsl:text><xsl:value-of select="@type"/> show two-line fade-out</xsl:attribute>
             <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
             <xsl:attribute name="aria-expanded">false</xsl:attribute>
             <!--<xsl:attribute name="role">button</xsl:attribute>-->
@@ -54,18 +87,6 @@
                 <xsl:attribute name="class">card</xsl:attribute>
                 <xsl:attribute name="style">font-size: small; color: black; text-decoration: none;</xsl:attribute>
                 <xsl:element name="span">
-                    <xsl:element name="button">
-                        <xsl:attribute name="type">button</xsl:attribute>
-                        <xsl:attribute name="class">close</xsl:attribute>
-                        <!--<xsl:attribute name="data-target"><xsl:value-of select="concat('#', $ident)"/></xsl:attribute>
-                        <xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
-                        <xsl:attribute name="onclick">closeNote('<xsl:value-of select="$ident"/>')</xsl:attribute>
-                        <xsl:attribute name="aria-label">Close</xsl:attribute>
-                        <xsl:element name="span">
-                            <xsl:attribute name="aria-hidden">true</xsl:attribute>
-                            <xsl:text>☒</xsl:text>
-                        </xsl:element>
-                    </xsl:element>
                     <xsl:element name="button">
                         <xsl:attribute name="type">button</xsl:attribute>
                         <xsl:attribute name="class">close expand</xsl:attribute>

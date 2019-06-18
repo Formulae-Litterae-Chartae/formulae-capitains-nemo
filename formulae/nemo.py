@@ -450,6 +450,13 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
+        inRefs = []
+        for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
+            if str(inRef) not in request.url:
+                try:
+                    inRefs.append(self.resolver.getMetadata(str(inRef)))
+                except UnknownCollection:
+                    inRefs.append(str(inRef))
         return {
             "template": "main::text.html",
             "objectId": objectId,
@@ -463,7 +470,6 @@ class NemoFormulae(Nemo):
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
-                    "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -480,7 +486,8 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
+            "isReferencedBy": inRefs
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):

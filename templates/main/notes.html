@@ -18,13 +18,7 @@
         
     </div>
     <div class="card-body p-2" style="min-height: 2em;">
-        
-        <!-- Instuctions ("collapse"), triggered by a click on the card-header. -->
-        <div id="instructionsNotes" class="collapse" aria-labelledby="instrNoteHead">
-            <p style="font-size: small;">{{ _('Bitte klicken Sie auf eine hochgestellte Zahl bzw. einen hochgestellten Buchstaben, um den Text der entsprechenden Anmerkung zu sehen. Bitte klicken Sie auf das kleine &#8853;, um alle Notizen für einen Text anzeigen oder das kleine &#8855;, um alle Anmerkungen für diesen Text zu verbergen. Wird auf der linken Seite kein Text angezeigt, sind keine Anmerkungen vorhanden.') }}</p>
-        </div>
-        
-        <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
+                
         {% if objects %}
             {% for text in objects %}
             {% if text.notes %}
@@ -32,8 +26,8 @@
                     style="font-size: small; text-decoration: none;">
                     <div>
                         <span class="align-middle">{{ text.collections.current.label }} ({{ text.collections.current.lang }})</span>
-                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
-                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
+                        <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-hide-button" class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
+                        <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>
                 </div>
                 <div class="note-card" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
@@ -41,6 +35,22 @@
                 </div>
             {% endif %}
             {% endfor %}
+        {% elif text %}
+            {% if text.notes %}
+                <div class="card bg-hhblue px-0"
+                    style="font-size: small; text-decoration: none;">
+                    <div>
+
+                        <span class="align-middle">{{ text.collections.current.label }} ({{ text.collections.current.lang }})</span>
+                        <button class="btn btn-link float-right btn-sm text-body m-0 p-0" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
+                        <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
+                    </div>
+                </div>
+                <div class="note-card" id="header-{{ text .objectId|replace(':', '-')|replace('.', '-') }}">
+                    {{ text.notes }}
+                </div>
+            {% endif %}
+
         {% else %}
             {{ notes }}
         {% endif %}

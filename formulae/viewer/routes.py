@@ -79,7 +79,7 @@ def new_tab(objectId, view):
                 link_picture = str(images[view])
 
             return current_app.config['nemo_app'].render(template="viewer::newtabviewer.html", picture=link_picture, objectId=objectId,
-                                                         current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict())
+                                                         current_view=view, total_views=len(images), codex=codex, folios=folios, url=dict()
 
     else:
         flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
@@ -87,9 +87,9 @@ def new_tab(objectId, view):
 '''
 
 
-@bp.route("embedded/<objectId>/<view>", methods=["GET"])
-@bp.route("/<objectId>/<view>", methods=["GET"])
-def addviewer(objectId, view):
+
+@bp.route("/<objectId>", methods=["GET"])
+def addviewer(objectId):
     collection = current_app.config['nemo_app'].get_collection(objectId)
     if isinstance(collection, CtsWorkMetadata):
         editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
@@ -97,25 +97,23 @@ def addviewer(objectId, view):
             raise UnknownCollection('{}'.format(collection.get_label()) + _l(' hat keine Edition.'))
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
-        template = {'manifest': 'viewer::miradorviewer.html', 'local': "viewer::newtabviewer.html"}
+        template = {'manifest': 'viewer::miradorviewer.html'}
         formulae = current_app.picture_file[objectId]
         passage_data = ''
         if request.args.get('embedded', False):
-            template = {'manifest': "viewer::multiviewermirador.html", 'local': 'viewer::multiviewer.html'}
+            template = {'manifest': "viewer::multiviewermirador.html"}
             passage_data = get_passage(objectId, '1')
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
-        if "manifest" in formulae:
-            manifest = url_for('viewer.static', filename=formulae["manifest"])
-            if "codex" in formulae:
-                codex = formulae["codex"]
-                return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
-                                                             ,objectId=objectId, codex=codex, text=passage_data, url=dict())
-            else:
-                with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
-                    title = load(f)
-                codex = title["label"]
-                return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
-                                                             ,objectId=objectId, codex=codex, text=passage_data, url=dict())
+        manifest = url_for('viewer.static', filename=formulae["manifest"])
+        with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+            title = load(f)
+        codex = title["label"]
+        return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
+                                                     ,objectId=objectId, codex=codex, text=passage_data, url=dict())
+    else:
+        flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+        return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
+'''
         else:
             try:
                 view = int(view)
@@ -172,8 +170,10 @@ def addviewer(objectId, view):
                                                          current_view=view, total_views=len(images), text=passage_data,
                                                          url=dict(), town=town, codex=codex, current_folios=current_folios, folios=folios)
     else:
+
         flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
+'''
 
 @bp.route("abz/<objectId>/<view>", methods=["GET"])
 def test_3viewer(objectId, view):

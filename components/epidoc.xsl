@@ -276,7 +276,7 @@
         <xsl:element name="sup">
             <xsl:element name="a">
                 <xsl:attribute name="class">note</xsl:attribute>
-                <xsl:attribute name="data-toggle">collapse</xsl:attribute>
+                <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
                 <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>

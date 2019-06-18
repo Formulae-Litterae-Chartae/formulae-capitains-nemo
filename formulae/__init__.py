@@ -42,9 +42,6 @@ def create_app(config_class=Config):
                 if 'manifest' in value.keys():
                     app.IIIFviewer = True
                     continue
-                elif set(value.keys()) <= {'codex', 'folios', 'images', 'town'}:
-                    app.IIIFviewer = True
-                    continue
                 else:
                     app.IIIFviewer = False
                     app.picture_file = ""

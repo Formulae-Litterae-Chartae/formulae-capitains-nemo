@@ -35,8 +35,6 @@ class TestConfig(Config):
     IIIF_MAPPING = "tests/test_data/formulae/data"
     IIIF_SERVER = "http://127.0.0.1:5004"
 
-
-
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
@@ -77,8 +75,6 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.remove()
         db.drop_all()
 
-
-
 class TestNemoSetup(Formulae_Testing):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
@@ -88,7 +84,6 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
-
 
 class TestIndividualRoutes(Formulae_Testing):
     def test_anonymous_user(self):
@@ -176,10 +171,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
-            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
 
@@ -256,59 +251,18 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/0?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0?embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001/0', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/abz?embedded=True', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt kein Bild abz für diese Formel. Das erste Bild wird gezeigt.'))
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/6?embedded=True', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt nur 5 Bilder für diese Formel. Das letzte Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/-1?embedded=True', follow_redirects=True)
-            self.assertMessageFlashed(_('Die Zählung der Bilder fängt immer mit 0. Das erste Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/abz', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt kein Bild abz für diese Formel. Das erste Bild wird gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/5', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt nur 5 Bilder für diese Formel. Das letzte Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001/-1', follow_redirects=True)
-            self.assertMessageFlashed(_('Die Zählung der Bilder fängt immer mit 0. Das erste Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001/0?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003/0?embedded=True', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003?embedded=True', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/7', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt nur 2 Bilder für diese Formel. Das letzte Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/-1', follow_redirects=True)
-            self.assertMessageFlashed(_('Die Zählung der Bilder fängt immer mit 0. Das erste Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/0', follow_redirects=True)
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/abz', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt kein Bild abz für diese Formel. Das erste Bild wird gezeigt.'))
-            self.assertTemplateUsed('viewer::newtabviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/7?embedded=True', follow_redirects=True)
-            self.assertMessageFlashed(_('Es gibt nur 2 Bilder für diese Formel. Das letzte Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/-1?embedded=True', follow_redirects=True)
-            self.assertMessageFlashed(_('Die Zählung der Bilder fängt immer mit 0. Das erste Bild wird hier gezeigt.'))
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form004.lat001/0?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001/0', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001/0?embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
 
     def test_authorized_normal_user(self):
@@ -375,7 +329,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
-            c.get('viewer/embedded/urn:cts:formulae:andecavensis.form001.lat001/0', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
 
@@ -635,10 +589,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001/0?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form001-lat001">',
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
+
         del self.app.config['nemo_app']._transform['notes']
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -651,11 +606,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            r = c.get('/viewer/embedded/urn:cts:formulae:andecavensis.form001/0?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewer.html')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form001-lat001">',
-                          r.get_data(as_text=True), 'Note card should not be rendered for a formula in IIIF Viewer.')
-
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -682,11 +636,12 @@ class TestFunctions(Formulae_Testing):
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
 
-    def test_Search_highlight_segment(self):
-        """ Make sure that a highlight segment that ends at the end of the string is correctly returned"""
-        orig_str = ' nostri Charoli gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-        expected = " gloriosissimi regis, sub  die, </small><strong>quod est</strong><small>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        self.assertEqual(highlight_segment(orig_str), expected)
+    def test_r_passage_return_values(self):
+        """ Make sure the correct values are returned by r_passage"""
+        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
+        self.assertEqual(data['isReferencedBy'][0].id, 'urn:cts:formulae:andecavensis.form001.lat001')
+        self.assertEqual(data['isReferencedBy'][1], 'urn:cts:formulae:andecavensis.form007.lat001')
+
 
 
 class TestForms(Formulae_Testing):
@@ -1687,8 +1642,8 @@ class TestErrors(Formulae_Testing):
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
 
-class Formulae_Testing_error_mapping(flask_testing.TestCase):
 
+class Formulae_Testing_error_mapping(flask_testing.TestCase):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
@@ -1706,16 +1661,33 @@ class Formulae_Testing_error_mapping(flask_testing.TestCase):
                                  pdf_folder="pdf_folder/")
 
         app.config['nemo_app'] = self.nemo
-
+        print("test")
         @app.route('/500', methods=['GET'])
         def r_500():
             abort(500)
-
         return app
 
 
+    def setUp(self):
+        db.create_all()
+        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
+        u.set_password('some_password')
+        db.session.add(u)
+        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
+        u.set_password('some_other_password')
+        db.session.add(u)
+        db.session.commit()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+
 class TestNemoSetup_withoutviewer(Formulae_Testing_error_mapping):
-    def TestNemoSetup_withoutviewer(self):
+    def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
             # This should only be tested on Travis since I don't want it to run locally
-        self.assertFalse('viewer' in self.app.blueprints)
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
