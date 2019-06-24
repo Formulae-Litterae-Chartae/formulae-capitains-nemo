@@ -572,8 +572,11 @@ class TestFunctions(Formulae_Testing):
     def test_r_passage_return_values(self):
         """ Make sure the correct values are returned by r_passage"""
         data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
-        self.assertEqual(data['isReferencedBy'][0].id, 'urn:cts:formulae:andecavensis.form001.lat001')
-        self.assertEqual(data['isReferencedBy'][1], 'urn:cts:formulae:andecavensis.form007.lat001')
+        self.assertEqual(data['isReferencedBy'][0], 'urn:cts:formulae:andecavensis.form007.lat001',
+                         "texts that aren't in the corpus should return a simple string with the URN identifier")
+        self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
+                                                        "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
+                         "KWIC strings for the inrefs should be correctly split and marked-up")
 
 
 class TestForms(Formulae_Testing):

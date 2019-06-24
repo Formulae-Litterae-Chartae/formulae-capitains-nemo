@@ -65,14 +65,15 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:passau', 'urn:cts:formulae:schaeftlarn',
-                        'urn:cts:formulae:stgallen','urn:cts:formulae:zuerich', 'urn:cts:formulae:elexicon',
-                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:freising',
-                        'urn:cts:formulae:luzern'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
+                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau',
+                        'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg',
+                        'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg',
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
-                             'urn:cts:formulae:salzburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:rheinisch']
+                             'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg',
+                             'urn:cts:formulae:werden']
 
     OPEN_NOTES = []
 
@@ -449,11 +450,15 @@ class NemoFormulae(Nemo):
         prev, next = self.get_siblings(objectId, subreference, text)
         inRefs = []
         for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
-            if str(inRef) not in request.url:
+            ref = str(inRef).split('%')
+            cits = ref[1:]
+            for i, cit in enumerate(cits):
+                cits[i] = Markup(Markup(cit))
+            if ref[0] not in request.url:
                 try:
-                    inRefs.append(self.resolver.getMetadata(str(inRef)))
+                    inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
-                    inRefs.append(str(inRef))
+                    inRefs.append(ref[0])
         return {
             "template": "main::text.html",
             "objectId": objectId,

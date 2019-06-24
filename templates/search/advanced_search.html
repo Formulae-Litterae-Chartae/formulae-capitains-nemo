@@ -7,7 +7,7 @@
             <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a tabindex="0" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
-                <div class="col-2">
+                <div class="col-auto">
                     <div class="text-center"><strong>{{ form.corpus.label }}</strong></div>
                     <ul class="corpus-ul">
                         <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('Alle') }}</li>
