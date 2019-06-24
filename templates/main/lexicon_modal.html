@@ -15,10 +15,13 @@
     <div class="dropdown-menu version-dropdown">
             {% for r in isReferencedBy %}
             {% if r is string %}
-            <a class="dropdown-item">- <span class="text-primary">{{ r }}</span></a>
+            <a class="dropdown-item">- <span>{{ r }}</span></a>
             {% else %}
-            {% if r.id not in prev_texts %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r.id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r.get_label()|string + ' (' + r.lang + ')' }}</span></a>
+            {% if r[0].id not in prev_texts %}
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r[0].id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string + ' (' + r[0].lang + ')' }}</span></a>
+            {% for c in r[1] %}
+            <span class="dropdown-item ml-2">- {{ c }}</span>
+            {% endfor %}
             {% endif %}
             {% endif %}
             {% endfor %}
