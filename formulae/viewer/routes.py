@@ -187,7 +187,7 @@ def test_3viewer(objectId, view):
     codex=title["label"]
     return current_app.config['nemo_app'].render(template='viewer::multiviewer3.html', manifest=manifest
                                                              ,objectId=objectId, codex=codex,
-                                                      passage_data2=passage_data2, passage_data=passage_data, url=dict())
+                                                      passage_data2=passage_data2, text=passage_data, url=dict())
 '''
 If you want to use that for the futur
 @bp.route("/lexicon/<objectId>")

@@ -11,7 +11,7 @@
                 {{ _('Viewer') }}
                 </button>
                 <div class="dropdown-menu version-dropdown">
-                    <a class="dropdown-item" href="{{url_for('viewer.new_tab', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
+                    <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId)}} " target="_blank" class="pull-right">{{ _('New window') }}</a>
 
                 </div>
             </div>
@@ -88,9 +88,9 @@
                 <section class="col-sm with-border"">
 
 
-                    {{ header_passage(passage_data) }}
+                    {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
-                        {{ passage_data.text_passage }}
+                        {{ text.text_passage }}
                     <footer>{% include "viewer::passage_footer.html" %}</footer>
                 </section>
                 <section class="col-sm with-border">
@@ -102,7 +102,7 @@
                 <section class="col-sm">
                     <header>
                         <h3 class="entry-title text-center">{{codex}}</h3>
-                        <div class="text-center"><a href="{{url_for('viewer.new_tab', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in a New window') }}</a></div>
+                        <div class="text-center"><a href="{{url_for('viewer.addviewer', objectId=objectId)}}" target="_blank">{{ _('Open in a New window') }}</a></div>
                     </header>
                     {% block viewer %}
                 {% include "viewer::embededmirador.html" %}
@@ -117,7 +117,7 @@
 
 {% block texts %}
 
-{{ show_passage(passage_data) }}
+{{ show_passage(text) }}
 
 {% endblock %}
 
