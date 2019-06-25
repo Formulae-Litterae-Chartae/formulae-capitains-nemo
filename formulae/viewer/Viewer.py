@@ -41,7 +41,7 @@ def get_passage(objectId, subreference, lang=None):
                 "title": text.get_title(lang),
                 "description": text.get_description(lang),
                 "citation": collection.citation,
-                # "coins": current_app.config['nemo_app'].make_coins(collection, text, subreference, lang=lang),
+                "coins": current_app.config['nemo_app'].make_coins(collection, text, subreference, lang=lang),
                 "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=None)),
                 "publang": str(metadata.metadata.get_single(DC.language, lang=None)),
                 "publisher": str(metadata.metadata.get_single(DC.publisher, lang=None)),

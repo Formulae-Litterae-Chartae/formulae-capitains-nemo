@@ -1666,7 +1666,6 @@ class Formulae_Testing_error_mapping(flask_testing.TestCase):
                                  pdf_folder="pdf_folder/")
 
         app.config['nemo_app'] = self.nemo
-        print("test")
         @app.route('/500', methods=['GET'])
         def r_500():
             abort(500)
