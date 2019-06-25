@@ -239,8 +239,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
+                          r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
             self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
@@ -639,8 +641,11 @@ class TestFunctions(Formulae_Testing):
     def test_r_passage_return_values(self):
         """ Make sure the correct values are returned by r_passage"""
         data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
-        self.assertEqual(data['isReferencedBy'][0].id, 'urn:cts:formulae:andecavensis.form001.lat001')
-        self.assertEqual(data['isReferencedBy'][1], 'urn:cts:formulae:andecavensis.form007.lat001')
+        self.assertEqual(data['isReferencedBy'][0], 'urn:cts:formulae:andecavensis.form007.lat001',
+                         "texts that aren't in the corpus should return a simple string with the URN identifier")
+        self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
+                                                        "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
+                         "KWIC strings for the inrefs should be correctly split and marked-up")
 
 
 

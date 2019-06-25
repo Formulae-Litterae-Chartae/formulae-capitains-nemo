@@ -528,3 +528,12 @@ img[id$="-flag-navbar"] {
     z-index: 1030;
     position: relative;
 }
+
+.elex-word {
+    font-weight: bold;
+}
+
+.dropdown-item-text {
+    font-weight: bold;
+    text-decoration: underline;
+}

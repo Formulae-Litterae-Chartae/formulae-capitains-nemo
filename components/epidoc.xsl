@@ -189,10 +189,12 @@
     </xsl:template>
     
     <xsl:template match="t:abbr">
-        <span class="abbr">
-            <xsl:text></xsl:text><xsl:value-of select="." /><xsl:text></xsl:text>
-        </span>
+        <span class="abbr"><xsl:apply-templates/></span>
     </xsl:template>  
+    
+    <xsl:template match="t:expan">
+        <span class="expan"><xsl:apply-templates/></span>
+    </xsl:template> 
     
     <xsl:template match="t:gap">
         <span class="gap">
@@ -354,10 +356,7 @@
     
     <xsl:template match="t:choice">
         <span class="choice">
-            <xsl:attribute name="title">
-                <xsl:value-of select="reg" />
-            </xsl:attribute>
-            <xsl:value-of select="orig" /><xsl:text> </xsl:text>
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     
