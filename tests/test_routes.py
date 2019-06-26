@@ -9,7 +9,6 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from formulae.viewer.Viewer import get_passage
 from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch

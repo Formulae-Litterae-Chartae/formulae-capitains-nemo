@@ -1,8 +1,6 @@
 from flask import flash, url_for, request, redirect, current_app
 from formulae.viewer import bp
 from flask_babel import _
-from formulae.viewer.Viewer import get_passage
-import re
 from json import load
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
@@ -102,7 +100,7 @@ def addviewer(objectId):
         passage_data = ''
         if request.args.get('embedded', False):
             template = {'manifest': "viewer::multiviewermirador.html"}
-            passage_data = get_passage(objectId, '1')
+            passage_data = current_app.config['nemo_app'].r_passage(objectId, '1')
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         manifest = url_for('viewer.static', filename=formulae["manifest"])
         with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
@@ -177,8 +175,8 @@ def addviewer(objectId):
 
 @bp.route("abz/<objectId>/<view>", methods=["GET"])
 def test_3viewer(objectId, view):
-    passage_data = get_passage(objectId, '1')
-    passage_data2 = get_passage(objectId, '1')
+    passage_data = current_app.config['nemo_app'].r_passage(objectId, '1')
+    passage_data2 = current_app.config['nemo_app'].r_passage(objectId, '1')
     formulae = current_app.picture_file[objectId]
     print(formulae)
     manifest = url_for('viewer.static', filename=formulae["manifest"])
