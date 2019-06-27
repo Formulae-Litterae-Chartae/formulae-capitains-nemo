@@ -10,8 +10,8 @@
                     {{ _('Viewer') }}
                     </button>
                     <div class="dropdown-menu version-dropdown">
-                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}} " target="_blank" class="pull-right">{{ _('Open in full screen') }}</a>
-                        <a class="dropdown-item" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0', embedded=True)}}" onclick="hide()"class="pull-right">{{ _('Next to text')}}</a>
+                        <a class="dropdown-item pull-right" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}} " target="_blank">{{ _('Open in full screen') }}</a>
+                        <a class="dropdown-item pull-right" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0', embedded=True)}}" onclick="hide()" target="_blank">{{ _('Next to text')}}</a>
                     </div>
                 </div>
             {% endif %}
