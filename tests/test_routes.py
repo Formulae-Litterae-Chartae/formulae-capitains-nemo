@@ -31,7 +31,7 @@ class TestConfig(Config):
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
-    IIIF_MAPPING = "tests/test_data/formulae/data"
+    IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
 
 class Formulae_Testing(flask_testing.TestCase):

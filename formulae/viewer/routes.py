@@ -5,7 +5,7 @@ from json import load
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from flask_babel import lazy_gettext as _l
-
+import os
 '''
 @bp.route("/<objectId>/<view>", methods=["GET"])
 def new_tab(objectId, view):
@@ -103,7 +103,7 @@ def addviewer(objectId):
             passage_data = current_app.config['nemo_app'].r_passage(objectId, '1')
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         manifest = url_for('viewer.static', filename=formulae["manifest"])
-        with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
+        with open(os.path.join(current_app.IIIFmapping,formulae["manifest"]), "r") as f:
             title = load(f)
         codex = title["label"]
         return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest
