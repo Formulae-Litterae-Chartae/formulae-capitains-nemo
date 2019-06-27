@@ -265,6 +265,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('viewer::multiviewermirador.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/abz/urn:cts:formulae:andecavensis.form002.lat001/1')
+            self.assertTemplateUsed('viewer::multiviewer3.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
