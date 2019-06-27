@@ -82,7 +82,9 @@
                 <section class="col-sm">
                     <header>
                         <h3 class="entry-title text-center">{{codex}}</h3>
-                        <div class="text-center"><a href="{{url_for('viewer.addviewer', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in a New window') }}</a></div>
+                        <div class="text-center"><a href="{{url_for('viewer.addviewer', objectId=objectId, view='0')}}" target="_blank">{{ _('Open in full screen') }}</a></div>
+                        <div class="text-center"><a href="{{url_for('viewer.addviewer', objectId=objectId, view='0')}}" target="_blank" onclick="location.href='{{url_for('InstanceNemo.r_multipassage', objectIds=objectId, subreferences='all')}}'" >{{ _('Open in full screen in new tab') }}</a></div>
+                        <div class="text-center"><a href="{{url_for('InstanceNemo.r_multipassage', objectIds=objectId, subreferences='all')}}" onclick="window.open(location.href='{{url_for('viewer.addviewer', objectId=objectId, view='0')}}','newwindow','height=10000,width=10000')" >{{ _('Open in full screen in new window') }}</a></div>
                     </header>
                     {% block viewer %}
                 {% include "viewer::embededmirador.html" %}
