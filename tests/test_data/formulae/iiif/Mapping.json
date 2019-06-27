@@ -1,0 +1,14 @@
+{
+	"urn:cts:formulae:andecavensis.form001.lat001": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json"
+	},
+	"urn:cts:formulae:andecavensis.form002.lat001": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json"
+	},
+	"urn:cts:formulae:andecavensis.form004.lat001": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json"
+	},
+	"urn:cts:formulae:andecavensis.form005.lat001": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json"
+	}
+}

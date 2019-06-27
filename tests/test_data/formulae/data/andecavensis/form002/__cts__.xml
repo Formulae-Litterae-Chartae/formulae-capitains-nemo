@@ -1,0 +1,17 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         groupUrn="urn:cts:formulae:andecavensis"
+         xml:lang="lat"
+         urn="urn:cts:formulae:andecavensis.form002">
+   <ti:title xml:lang="lat">FORMULA ANDECAUENSIS 2</ti:title>
+   <ti:edition urn="urn:cts:formulae:andecavensis.form002.lat001"
+               workUrn="urn:cts:formulae:andecavensis.form002">
+      <ti:label xml:lang="lat">FORMULA ANDECAUENSIS 2</ti:label>
+      <ti:description xml:lang="deu">Selbstverkauf: Eine Person verkauft sich nach einem Diebstahl an ihrem Herrn und dessen Ehefrau gegen eine Geldzahlung an dieselben.</ti:description>
+   </ti:edition>
+   <ti:translation xml:lang="deu"
+                   urn="urn:cts:formulae:andecavensis.form002.deu001"
+                   workUrn="urn:cts:formulae:andecavensis.form002">
+      <ti:label xml:lang="deu">Formel von Angers 2</ti:label>
+      <ti:description xml:lang="deu">Selbstverkauf: Eine Person verkauft sich nach einem Diebstahl an ihrem Herrn und dessen Ehefrau gegen eine Geldzahlung an dieselben.Filename: file:/home/matt/results/formulae/data/andecavensis/form002/andecavensis.form002.deu001.xml</ti:description>
+   </ti:translation>
+</ti:work>
