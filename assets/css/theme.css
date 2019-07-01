@@ -509,3 +509,31 @@ img[id$="-flag-navbar"] {
 .formulae-label {
     text-transform: uppercase;
 }
+
+@keyframes note-focus {
+    from {background-color: yellow;}
+    to {background-color: initial;}
+}
+
+.flash-yellow span {
+    animation-name: note-focus;
+    animation-duration: 4s;
+}
+
+.hidden-button {
+    display: none;
+}
+
+.version-dropdown {
+    z-index: 1030;
+    position: relative;
+}
+
+.elex-word {
+    font-weight: bold;
+}
+
+.dropdown-item-text {
+    font-weight: bold;
+    text-decoration: underline;
+}

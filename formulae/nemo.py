@@ -14,6 +14,8 @@ from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_coll
 import re
 from datetime import date
 from string import punctuation
+from urllib.parse import quote
+from json import load
 
 
 class NemoFormulae(Nemo):
@@ -247,6 +249,33 @@ class NemoFormulae(Nemo):
             route = login_required(route)
         return route
 
+    def make_coins(self, collection, text, subreference="", lang=None):
+        """ Creates a CoINS Title string from information
+
+        :param collection: Collection to create coins from
+        :param text: Text/Passage object
+        :param subreference: Subreference
+        :param lang: Locale information
+        :return: Coins HTML title value
+        """
+        if lang is None:
+            lang = self.__default_lang__
+        return "url_ver=Z39.88-2004"\
+                 "&ctx_ver=Z39.88-2004"\
+                 "&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook"\
+                 "&rft_id={cid}"\
+                 "&rft.genre=bookitem"\
+                 "&rft.btitle={title}"\
+                 "&rft.edition={edition}"\
+                 "&rft.au={author}"\
+                 "&rft.atitle={pages}"\
+                 "&rft.language={language}"\
+                 "&rft.pages={pages}".format(
+                    title=quote(str(text.get_title(lang))), author=quote(str(text.get_creator(lang))),
+                    cid=url_for("InstanceNemo.r_collection", objectId=collection.id, _external=True),
+                    language=collection.lang, pages=quote(subreference), edition=quote(str(text.get_description(lang)))
+                 )
+
     def r_collection(self, objectId, lang=None):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
@@ -431,7 +460,8 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
+                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
+                                        objectId)
             objectId = str(editions[0].id)
             collection = self.get_collection(objectId)
         try:
@@ -448,6 +478,17 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
+        inRefs = []
+        for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
+            ref = str(inRef).split('%')
+            cits = ref[1:]
+            for i, cit in enumerate(cits):
+                cits[i] = Markup(Markup(cit))
+            if ref[0] not in request.url:
+                try:
+                    inRefs.append([self.resolver.getMetadata(ref[0]), cits])
+                except UnknownCollection:
+                    inRefs.append(ref[0])
         return {
             "template": "main::text.html",
             "objectId": objectId,
@@ -461,7 +502,6 @@ class NemoFormulae(Nemo):
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
-                    "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -478,7 +518,8 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
+            "isReferencedBy": inRefs
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -495,6 +536,7 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
         for i in ids:
@@ -510,6 +552,7 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
+                d["IIIFviewer"] = id in self.app.picture_file
                 if 'previous_search' in session:
                     result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                     if result_sents:
@@ -573,12 +616,12 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
+        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer) if "texts" in request.referrer else re.search('/viewer/([^/]+)', request.referrer)
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
         d['prev_texts'] = m.group(1)
-        d['prev_reffs'] = m.group(2)
+        d['prev_reffs'] = m.group(2) if "texts" in request.referrer else "all"
         return d
 
     def r_impressum(self):

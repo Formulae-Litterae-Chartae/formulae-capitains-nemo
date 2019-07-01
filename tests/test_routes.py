@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token, suggest_word_search
+    set_session_token, suggest_word_search, highlight_segment
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -22,7 +22,7 @@ from json import dumps
 import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
-
+from json import load
 
 class TestConfig(Config):
     TESTING = True
@@ -31,7 +31,8 @@ class TestConfig(Config):
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
-
+    IIIF_MAPPING = "tests/test_data/formulae/iiif"
+    IIIF_SERVER = "http://127.0.0.1:5004"
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
@@ -45,7 +46,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
-                                            "search": "templates/search"},
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
                                  pdf_folder="pdf_folder/")
 
@@ -56,6 +58,7 @@ class Formulae_Testing(flask_testing.TestCase):
             abort(500)
 
         return app
+
 
     def setUp(self):
         db.create_all()
@@ -71,7 +74,6 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.remove()
         db.drop_all()
 
-
 class TestNemoSetup(Formulae_Testing):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
@@ -81,7 +83,6 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
-
 
 class TestIndividualRoutes(Formulae_Testing):
     def test_anonymous_user(self):
@@ -110,6 +111,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -166,9 +170,15 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
 
     def test_authorized_project_member(self):
+
         """ Make sure that all routes are open to project members"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -185,6 +195,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
+            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/other_collection', follow_redirects=True)
@@ -225,14 +238,35 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
+                          r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
             self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('FORMULA ANDECAVENSIS 1', r.get_data(as_text=True))
+            # Make sure that a text that has no edition will throw an error
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            c.get('/viewer/abz/urn:cts:formulae:andecavensis.form002.lat001/1')
+            self.assertTemplateUsed('viewer::multiviewer3.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -298,6 +332,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
+
 
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):
@@ -541,6 +579,40 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/')
             self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
 
+    def test_rendering_from_texts_without_notes_transformation(self):
+        """ Make sure that the multipassage template is rendered correctly without a transformation of the notes"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for elex.')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
+
+        del self.app.config['nemo_app']._transform['notes']
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for elex.')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::multiviewermirador.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -566,6 +638,16 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(self.nemo.get_locale(), 'fre')
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
+
+    def test_r_passage_return_values(self):
+        """ Make sure the correct values are returned by r_passage"""
+        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
+        self.assertEqual(data['isReferencedBy'][0], 'urn:cts:formulae:andecavensis.form007.lat001',
+                         "texts that aren't in the corpus should return a simple string with the URN identifier")
+        self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
+                                                        "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
+                         "KWIC strings for the inrefs should be correctly split and marked-up")
+
 
 
 class TestForms(Formulae_Testing):
@@ -1565,3 +1647,52 @@ class TestErrors(Formulae_Testing):
             response = c.get('/500', follow_redirects=True)
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
+
+
+class Formulae_Testing_error_mapping(flask_testing.TestCase):
+    def create_app(self):
+        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
+        app = create_app(TestConfig)
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                 templates={"main": "templates/main",
+                                            "errors": "templates/errors",
+                                            "auth": "templates/auth",
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
+        return app
+
+
+    def setUp(self):
+        db.create_all()
+        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
+        u.set_password('some_password')
+        db.session.add(u)
+        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
+        u.set_password('some_other_password')
+        db.session.add(u)
+        db.session.commit()
+
+    def tearDown(self):
+        db.session.remove()
+        db.drop_all()
+
+class TestNemoSetup_withoutviewer(Formulae_Testing_error_mapping):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)

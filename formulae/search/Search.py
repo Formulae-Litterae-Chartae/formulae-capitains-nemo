@@ -36,7 +36,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                    'Werden': {'match': {'_type': 'werden'}},
                                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
                 'no_date': {'missing': {'field': 'min_date'}}}
-HITS_TO_READER = 200
+HITS_TO_READER = 10000
 
 
 def build_sort_list(sort_str):

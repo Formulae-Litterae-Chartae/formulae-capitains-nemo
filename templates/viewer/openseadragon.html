@@ -1,0 +1,13 @@
+<div id="openseadragon1" style="width: 100%; height: 100%;"></div>
+<script src="{{url_for('InstanceNemo.static', filename='openseadragon/scripts/openseadragon.min.js')}}"></script>
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        preserveViewport: true,
+        visibilityRatio: 1,
+        minZoomLevel: 1,
+        defaultZoomLevel: 1,
+        prefixUrl: "{{url_for('InstanceNemo.static', filename='openseadragon/images/')}}",
+        tileSources: "{{picture}}"
+    });
+</script>

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-17 10:16+0200\n"
+"POT-Creation-Date: 2019-05-22 17:48+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,23 +18,23 @@ msgstr ""
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Please log in to access this page."
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Deutsch"
 msgstr "German"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Französisch"
 msgstr "French"
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:254 formulae/nemo.py:319 tests/test_routes.py:114
+#: formulae/nemo.py:255 formulae/nemo.py:320 tests/test_routes.py:114
 #: tests/test_routes.py:263
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
@@ -43,7 +43,7 @@ msgstr ""
 "The Formulae Andecavensis collection is undergoing its final edits and "
 "will be available soon"
 
-#: formulae/nemo.py:256 formulae/nemo.py:321 formulae/nemo.py:374
+#: formulae/nemo.py:257 formulae/nemo.py:322 formulae/nemo.py:375
 #: tests/test_routes.py:112 tests/test_routes.py:116 tests/test_routes.py:135
 #: tests/test_routes.py:138 tests/test_routes.py:149 tests/test_routes.py:151
 #: tests/test_routes.py:261 tests/test_routes.py:265
@@ -52,19 +52,19 @@ msgstr ""
 "This collection is under copyright and we do not have permission from the"
 " publisher to include its texts"
 
-#: formulae/nemo.py:303 templates/main/sub_collection.html:36
+#: formulae/nemo.py:304 templates/main/sub_collection.html:36
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:432
+#: formulae/nemo.py:433
 msgid " wurde nicht gefunden."
 msgstr " was not found."
 
-#: formulae/nemo.py:440
+#: formulae/nemo.py:441
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:518 tests/test_routes.py:158 tests/test_routes.py:160
+#: formulae/nemo.py:519 tests/test_routes.py:158 tests/test_routes.py:160
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "

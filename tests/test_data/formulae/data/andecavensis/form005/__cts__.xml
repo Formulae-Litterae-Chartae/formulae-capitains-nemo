@@ -1,0 +1,11 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         groupUrn="urn:cts:formulae:andecavensis"
+         xml:lang="lat"
+         urn="urn:cts:formulae:andecavensis.form005">
+   <ti:title xml:lang="lat">FORMULA ANDECAUENSIS 5</ti:title>
+   <ti:edition urn="urn:cts:formulae:andecavensis.form005.lat001"
+               workUrn="urn:cts:formulae:andecavensis.form005">
+      <ti:label xml:lang="lat">FORMULA ANDECAUENSIS 5</ti:label>
+      <ti:description xml:lang="deu">Sicherheit: Ein fälschlich beklagter Mann lässt vor Männern mit gutem Leumund (boni homines) eine Sicherheit gegen weitere Handlungen des Klägers ausstellen.</ti:description>
+   </ti:edition>
+</ti:work>

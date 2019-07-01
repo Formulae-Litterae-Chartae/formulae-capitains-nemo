@@ -12,6 +12,7 @@ from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from flask_mail import Mail
 from flask_session import Session
+from json import load
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -30,6 +31,25 @@ def create_app(config_class=Config):
     app.elasticsearch = Elasticsearch(app.config['ELASTICSEARCH_URL']) \
         if app.config['ELASTICSEARCH_URL'] else None
 
+    app.IIIFserver = app.config['IIIF_SERVER']\
+        if app.config['IIIF_SERVER'] else None
+
+    if app.config['IIIF_MAPPING']:
+        app.IIIFmapping = app.config['IIIF_MAPPING']
+        with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
+            app.picture_file = load(f)
+            for key, value in app.picture_file.items():
+                if 'manifest' in value.keys():
+                    app.IIIFviewer = True
+                    continue
+                else:
+                    app.IIIFviewer = False
+                    app.picture_file = ""
+                    break
+    else:
+        app.IIIFviewer = False
+        app.picture_file = ""
+
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
@@ -41,6 +61,12 @@ def create_app(config_class=Config):
     app.register_blueprint(auth_bp, url_prefix="/auth")
     from .search import bp as search_bp
     app.register_blueprint(search_bp, url_prefix="/search")
+    if app.IIIFviewer is False:
+        print(_l('Der Viewer konnte nicht gestarted werden.'))
+    else:
+        from .viewer import bp as viewer_bp
+        viewer_bp.static_folder = app.config['IIIF_MAPPING']
+        app.register_blueprint(viewer_bp, url_prefix="/viewer")
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):
@@ -63,5 +89,5 @@ def get_locale():
         return session['locale']
     return request.accept_languages.best_match(current_app.config['LANGUAGES'])
 
-from formulae import models
 
+from formulae import models

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-05-17 10:16+0200\n"
+"POT-Creation-Date: 2019-05-22 17:48+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,23 +18,23 @@ msgstr ""
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:78
+#: formulae/nemo.py:79
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:79
+#: formulae/nemo.py:80
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:254 formulae/nemo.py:319 tests/test_routes.py:114
+#: formulae/nemo.py:255 formulae/nemo.py:320 tests/test_routes.py:114
 #: tests/test_routes.py:263
 msgid ""
 "Die Formulae Andecavensis sind in der Endredaktion und werden bald zur "
@@ -43,7 +43,7 @@ msgstr ""
 "Les Formulae Andecavensis sont actuellement en fin de rédaction et seront"
 " bientôt disponibles."
 
-#: formulae/nemo.py:256 formulae/nemo.py:321 formulae/nemo.py:374
+#: formulae/nemo.py:257 formulae/nemo.py:322 formulae/nemo.py:375
 #: tests/test_routes.py:112 tests/test_routes.py:116 tests/test_routes.py:135
 #: tests/test_routes.py:138 tests/test_routes.py:149 tests/test_routes.py:151
 #: tests/test_routes.py:261 tests/test_routes.py:265
@@ -52,19 +52,19 @@ msgstr ""
 "Cette collection est protégée par le droit d'auteur et ne peut être "
 "affichée ici."
 
-#: formulae/nemo.py:303 templates/main/sub_collection.html:36
+#: formulae/nemo.py:304 templates/main/sub_collection.html:36
 msgid "(Titel)"
 msgstr "(Titre)"
 
-#: formulae/nemo.py:432
+#: formulae/nemo.py:433
 msgid " wurde nicht gefunden."
 msgstr "Aucun résultat trouvé"
 
-#: formulae/nemo.py:440
+#: formulae/nemo.py:441
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr "Aucun résultat trouvé. Le texte complet est affiché."
 
-#: formulae/nemo.py:518 tests/test_routes.py:158 tests/test_routes.py:160
+#: formulae/nemo.py:519 tests/test_routes.py:158 tests/test_routes.py:160
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 
@@ -699,41 +699,25 @@ msgid ""
 "Formulae - Litterae - Chartae als Quelle der digitalen Texte stehen diese"
 " Texte unter CC-BY Lizenz zur freien Verfügung."
 msgstr ""
-"Les textes sont d'origines différentes. "
-"Les formules sont issues de nouvelles"
-" éditionscritiques des collections de "
-"formules médiévales, et sont créées avec"
-" une traduction allemande pendant le "
-"projet.Les soixante formules de la "
-"collection d'Angers (Formulae Andecavensis) "
-"sont actuellement disponibles.D'autres formules "
-"sont en cours d'étude. Les chartes "
-"sont issues de collections rétro-"
-"numériques.Les chartes sont étroitement liées"
-" aux formules et sont donc "
-"indispensables pour l'étude des formules "
-"et des collections.La plupart des "
-"éditions rétro-numériques ne sont plus"
-" protégées par le droit d'auteur et"
-" sont donc libre d'accès sur le "
-"site.Les textes protégés par le droit"
-" d'auteur sont recherchables, mais ne "
-"peuvent être intégralement affichés et "
-"doiventdonc être consultés au format "
-"papier. Tous les textes numériques non"
-" protégés par le droit d'auteur sont"
-" publiés ici sous unelicence Creative "
-"Commons. Puisque les formules ne sont"
-" pas encore publiées dans la MGH "
-"elles sont soumises à une "
-"licence'Attribution. Pas d'utilisation commerciale."
-" Pas de modification' (CC-BY-NC-"
-"ND). Les chartes sont elles soumises "
-"à une licence'Attribution' (CC-BY). Le"
-" projet Formulae - Litterae - Chartae"
-" étant référencé comme source des "
-"textes numériques,les textes sont librement"
-" disponibles."
+"Les textes sont d'origines différentes. Les formules sont issues de "
+"nouvelles éditionscritiques des collections de formules médiévales, et "
+"sont créées avec une traduction allemande pendant le projet.Les soixante "
+"formules de la collection d'Angers (Formulae Andecavensis) sont "
+"actuellement disponibles.D'autres formules sont en cours d'étude. Les "
+"chartes sont issues de collections rétro-numériques.Les chartes sont "
+"étroitement liées aux formules et sont donc indispensables pour l'étude "
+"des formules et des collections.La plupart des éditions rétro-numériques "
+"ne sont plus protégées par le droit d'auteur et sont donc libre d'accès "
+"sur le site.Les textes protégés par le droit d'auteur sont recherchables,"
+" mais ne peuvent être intégralement affichés et doiventdonc être "
+"consultés au format papier. Tous les textes numériques non protégés par "
+"le droit d'auteur sont publiés ici sous unelicence Creative Commons. "
+"Puisque les formules ne sont pas encore publiées dans la MGH elles sont "
+"soumises à une licence'Attribution. Pas d'utilisation commerciale. Pas de"
+" modification' (CC-BY-NC-ND). Les chartes sont elles soumises à une "
+"licence'Attribution' (CC-BY). Le projet Formulae - Litterae - Chartae "
+"étant référencé comme source des textes numériques,les textes sont "
+"librement disponibles."
 
 #: templates/main/index.html:11
 msgid ""
@@ -1135,7 +1119,7 @@ msgstr ""
 
 #: templates/search/documentation.html:14
 msgid "Vorschlagssuche"
-msgstr ""
+msgstr "Recherche de propositions"
 
 #: templates/search/documentation.html:15
 msgid ""
@@ -1147,7 +1131,13 @@ msgid ""
 "keine Vorschläge aus den Urkunden. Der einzige Parameter, der keinen "
 "Einfluss auf die angezeigten Vorschlägen hat, ist 'Wortreihenfolge'. Nur "
 "Vorschläge, welche die selbe Wortreihenfolge haben, werden angezeigt."
-msgstr ""
+msgstr "Les propositions affichées pour la recherche d'un mot sont établies "
+"par d'autres paramètres dans le masque de recherche. Si par exemple, "
+"'Andecavensis' est sélectionné comme corpus à rechercherm seules les propositions "
+"des formules d'Angers seront affichées. Les restrictions de recherches évoquées"
+"ci-dessus s'appliquent également ici. La recherche de lemme ne propose "
+"aucune charte. Le seul paramètre qui n'influence pas les propositions est l'ordre des mots "
+"Seules les propositions avec un ordre de mots identique seront affichées."
 
 #: templates/search/documentation.html:16
 msgid ""
@@ -1159,6 +1149,11 @@ msgid ""
 "Suchparameter sollten daher definiert werden bevor ein Vorschlag "
 "ausgewählt wird."
 msgstr ""
+"Si une expression est sélectionnée avant d'autres paramètres de recherche, "
+"alors ces paramètres n'ont aucune imfluence sur les porpositions. Il peut arriver, "
+"qu'aucun résultat se soit affiché, si l'expression n'apparaît dans aucun document "
+"qui correspond aux autres paramètres de recherche. Les paramètres de recherche "
+"doivent être définis avant de saisir une proposition."
 
 #: templates/search/documentation.html:18
 msgid ""
@@ -1170,10 +1165,16 @@ msgid ""
 "Lemmasuche funktioniert nur für die Formeln. Die Lemmatisierungsregeln "
 "sind <a href='#'>hier</a> zu finden."
 msgstr ""
+"La recherche de lemme se fait selon les formes du dictionnaires au lieu"
+"des formes fléchies. La recherche de lemme pour <em><b>dominus</b></em>"
+"affichera toutes les formes déclinées comme <em><b>domini</b></em> ou"
+"<em><b>Domino</b></em>. Les variantes orthographiques comme <em><b>domni</b></em> ou <em><b>Domeno</b></em>"
+"seront affichées. La recherche de lemme ne fonctionne que pour les formules. Voir <a href='#'>ici</a>"
+"les règles de lemmatisation."
 
 #: templates/search/documentation.html:19
 msgid "Wortreihenfolge"
-msgstr ""
+msgstr "Ordre des mots"
 
 #: templates/search/documentation.html:20
 msgid ""
@@ -1187,7 +1188,13 @@ msgid ""
 "uiris</b></em> mit einem Suchradius von 10 Worten zeigt <em><b>magnificis"
 " rei puplici uiris</b></em> an, <em><b>uiris uenerabilibus adque "
 "magnificis</b></em> jedoch nicht."
-msgstr ""
+msgstr "Lors d'une recherche avec plusieurs termes, l'ordre des mots ne sera pas "
+"pris en compte. Si vous souhaitez conserver l'ordre des mots, veuillez activer "
+"'Conserver l'ordre des mots?'. Une recherche pour <em><b>uenerabile uir</b></em> "
+"exclut alors les résultats avec <em><b>uir uenerabile</b></em>. L'ordre des mots est "
+"également pris en compte si le rayon de recherche est supérieur à 0. Une recherche "
+"par exemple pour <em><b>magnificis uiris</b></em> avec un rayon de recherche de 10 mots "
+"affichera <em><b>magnificis rei puplici uiris</b></em>, mais pas <em><b>uiris uenerabilibus adque magnificis</b></em>"
 
 #: templates/search/documentation.html:22
 msgid ""
@@ -1200,7 +1207,13 @@ msgid ""
 "Wörter <em><b>regno</b></em> und <em><b>regni</b></em> aber auch "
 "<em><b>magnum</b></em> ('m' ersetzt 'r' und 'a' ersetzt 'e') und "
 "<em><b>legum</b></em> ('l' ersetzt 'r' und 'n' wird gelöscht) gefunden."
-msgstr ""
+msgstr "Le degré de flou détermine dans quelle mesure un résultat peut d'éloigner de "
+"la recherche tout en étant considéré comme un résultat valide. Les chiffres quantifient "
+"le nombre d'écarts toléré dans le résultat. Un degré de 2 signifie que 2 lettres du mot "
+"peuvent être remplacées, supprimées, ajoutées ou transposées. Pour une recherche "
+"<em><b>regnum</b></em> avec un degré de 2, les mots <em><b>regno</b></em> et <em><b>regni</b></em> "
+" mais également <em><b>magnum</b></em> ('m' remplace 'r' et 'a' remplace 'e') et "
+"<em><b>legum</b></em> ('l' remplace 'r' et 'n' est supprimé) seront trouvés."
 
 #: templates/search/documentation.html:23
 msgid ""
@@ -1209,7 +1222,10 @@ msgid ""
 " Änderungen erlaubt, bei 3-5 Buchstaben ist eine Änderung erlaubt und bei"
 " längeren Wörtern sind 2 Änderungen erlaubt. 'AUTO' ist für die meisten "
 "Suchanfragen geeignet."
-msgstr ""
+msgstr "Le réglage AUTO permet une adaptation du nombre de modifications autorisées "
+"selon la taille du mot: pour 1 ou 2 lettres, il n'y a pas de modifications, pour 3-5 lettres "
+"il y a une modification, pour plus de lettres il y a 2 modifications. AUTO convient à la plupart "
+"des  recherches."
 
 #: templates/search/documentation.html:25
 msgid ""
@@ -1218,17 +1234,21 @@ msgid ""
 "<em><b>uenerabilibus uiris</b></em> gesucht, so wird auch "
 "<em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em> als "
 "treffer angezeigt."
-msgstr ""
+msgstr "Utilisez le rayon de recherche pour définir la distance (en mots) entre deux mots recherchés. "
+"Pour une recherche avec un rayon de 4 pour <em><b>uenerabilibus uiris</b></em>, "
+"<em><b>uenerabilibus atquae magnificis rei puplici uiris</b></em> peut s'afficher comme résultat."
 
 #: templates/search/documentation.html:27
 msgid "Die Ausstellungsortsuche funktioniert nur für Urkunden."
-msgstr ""
+msgstr "Le lieu d'exposition ne fonctionne que pour les chartes."
 
 #: templates/search/documentation.html:29
 msgid ""
 "Da Formeln keine exakte Datumsangabe besitzen, werden bei einer "
 "'Datumssuche' keine Formeln angezeigt."
 msgstr ""
+"Les formules n'ont pas de dates précises. C'est pourquoi aucune formule "
+"n'apparaîtra pour une recherche par date."
 
 #: templates/search/documentation.html:31
 msgid ""
@@ -1236,7 +1256,10 @@ msgid ""
 "Jahr 800 gesucht, werden Dokumente mit Datierungen im Jahr 800 (z.B. '17."
 " Juni 800') aber auch mit Datumsspannen, die mit dem Jahr 800 überlappen "
 "(z.B. '769-813'), als Treffer angezeigt."
-msgstr ""
+msgstr "Tous les résultats de la recherche correspondent à la date. Si la recherche "
+"porte sur l'année 800, les documents suivants sont affichés comme résultats: "
+"ceux dont la date se situe en l'an 800 (ex: 17 Juin 800) et ceux dont les dates chevauchent "
+"l'année 800 (ex: 769-813)."
 
 #: templates/search/documentation.html:33
 msgid ""
@@ -1245,7 +1268,9 @@ msgid ""
 "'800 Juni 17' mit einem Datum Plus-Minus von 49 Jahren findet alle "
 "Dokumente, die am 17. Juni zwischen den Jahren 751 und 849 ausgestellt "
 "wurden."
-msgstr ""
+msgstr "Un écart peut être défini avec la date entrée dans la barre de recherche. "
+"Si vous cherchez des documents datant du 17 Juin 800, avec un Plus-ou-Moins de 49 ans, "
+"vous trouverez tous les documents établis le 17 Juin entre 751 et 849."
 
 #: templates/search/documentation.html:35
 msgid ""
@@ -1253,7 +1278,10 @@ msgid ""
 " den Anfangs- und Enddaten liegen als Treffer angezeigt. Eine Suche "
 "innerhalb der Daten '750 Juni 17' und '850 Juni 17' findet etwa am 31. "
 "Dezember 777 oder 12. Februar 813 ausgestellte Dokumente."
-msgstr ""
+msgstr "Pour une recherche sur une période donnée, tous les documents datant "
+"d'entre les dates de début et de fin seront affichés. Pour une recherche entre "
+"le 17 Juin 750 et le 17 Juin 850, vous pourrez trouver un document datant "
+"du 31 Décembre 777 ou du 12 Février 813."
 
 #: templates/search/documentation.html:37
 msgid ""
@@ -1265,7 +1293,11 @@ msgid ""
 "August 807) ausgestellt wurden, nicht jedoch jene, die in diesen Jahren "
 "vor dem 17. Juni oder nach dem 22. November (etwa am 5. März 806 oder am "
 "24. Dezember 812) ausgestellt wurden."
-msgstr ""
+msgstr "La recherche par période 'exclusive' vous permet de trouver des documents émis "
+"à des moments précis au cours de ladite période. Par exemple, pour une recherche avec comme "
+"paramètres le 17 Juin 800 et le 22 Novembre 813, vous trouverez tous les documents publiés entre "
+"le 17 Juin et le 22 Novembre dans les années 800 à 813 (ex: 8 Août 807) mais pas en dehors "
+"(ex: 5 Mars 806 ou 24 Décembre 812)."
 
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid "Suchergebnisse"
@@ -1273,11 +1305,11 @@ msgstr "Résultats de la recherche"
 
 #: templates/search/search.html:9 templates/search/search.html:38
 msgid " Treffer"
-msgstr ""
+msgstr " Résultat"
 
 #: templates/search/search.html:9
 msgid "Mehr Statistiken"
-msgstr ""
+msgstr "Plus de statistiques"
 
 #: templates/search/search.html:14
 msgid "Corpus"
@@ -1285,65 +1317,66 @@ msgstr ""
 
 #: templates/search/search.html:15
 msgid "Datierung"
-msgstr ""
+msgstr "Datation"
 
 #: templates/search/search.html:26
 msgid "k.A."
-msgstr ""
+msgstr "non spécifié"
 
 #: templates/search/search.html:42
 msgid "Keine Ergebnisse gefunden für"
-msgstr ""
+msgstr "Aucun résultat trouvé pour"
 
 #: templates/search/search.html:45
 msgid "Diese Suche ändern"
-msgstr ""
+msgstr "Modifier la recherche"
 
 #: templates/search/search.html:49
 msgid "Zeig nur Resultate aus:"
-msgstr ""
+msgstr "Afficher uniquement les résultats:"
 
 #: templates/search/search.html:52
 msgid "Zeig Alle Resultate"
-msgstr ""
+msgstr "Afficher tous les résultats"
 
 #: templates/search/search.html:59
 msgid "Los!"
-msgstr ""
+msgstr "Allez!"
 
 #: templates/search/search.html:69
 msgid "Sortieren nach"
-msgstr ""
+msgstr "Trier par"
 
 #: templates/search/search.html:72
 msgid "Korpus"
-msgstr ""
+msgstr "Corpus"
 
 #: templates/search/search.html:73
 msgid "Terminus post quem"
-msgstr ""
+msgstr "Date à partir de laquelle"
 
 #: templates/search/search.html:74
 msgid "Terminus ante quem"
-msgstr ""
+msgstr "Date avant laquelle"
 
 #: templates/search/search.html:79
 msgid "Alphabetisch"
-msgstr ""
+msgstr "Ordre alphabétique"
 
 #: templates/search/search.html:80 templates/search/search.html:82
 msgid "Aufsteigend"
-msgstr ""
+msgstr "Croissant"
 
 #: templates/search/search.html:81 templates/search/search.html:83
 msgid "Absteigend"
-msgstr ""
+msgstr "Décroissant"
 
 #: templates/search/search.html:101
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
-msgstr ""
+msgstr "Ce texte est protégé par le droit d'auteur et n'est donc pas disponible en ligne. "
+"Veuillez le consulter au format imprimé."
 
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
@@ -1351,11 +1384,11 @@ msgstr "Chercher dans"
 
 #: tests/test_routes.py:661 tests/test_routes.py:670
 msgid "'' ist kein gültige Auswahl für dieses Feld."
-msgstr ""
+msgstr "'' n'est pas valable pour ce champ de recherche."
 
 #: tests/test_routes.py:669 tests/test_routes.py:1453
 msgid "Dieses Feld wird benötigt."
-msgstr ""
+msgstr "Ce champ est nécessaire."
 
 #~ msgid ""
 #~ "This collection is under copyright and"
