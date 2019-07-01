@@ -32,6 +32,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                    'Salzburg': {'match': {'_type': 'salzburg'}},
                                                    'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                                    'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                                   'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                                    'Werden': {'match': {'_type': 'werden'}},
                                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
                 'no_date': {'missing': {'field': 'min_date'}}}

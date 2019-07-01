@@ -1462,6 +1462,9 @@ class TestES(Formulae_Testing):
                                                         "St. Gallen": {
                                                           "doc_count": 0
                                                         },
+                                                        "Weißenburg": {
+                                                          "doc_count": 0
+                                                        },
                                                         "Werden": {
                                                           "doc_count": 0
                                                         },
@@ -1503,6 +1506,7 @@ class TestES(Formulae_Testing):
                                         'Salzburg': {'match': {'_type': 'salzburg'}},
                                         'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                         'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                        'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                         'Werden': {'match': {'_type': 'werden'}},
                                         'Zürich': {'match': {'_type': 'zuerich'}}}}},
                          'no_date': {'missing': {'field': 'min_date'}}}}
@@ -1545,7 +1549,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'Freising', 'Isen', 'St. Gallen']
+        expected = [' ', 'Freising', 'Isen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -1564,7 +1568,7 @@ class TestES(Formulae_Testing):
                     'illa curiensis esset distructa et ',
                     'illa qui possit nobis prestare solatium ',
                     'illa testimonia qui de ipso pago ',
-                    'illam audire desiderabilem „ euge ',
+                    'illam audire desiderabilem „euge ',
                     'illam divisionem quam bonae memoriae ',
                     'illam divisionem vel ordinationem ',
                     'illam indictionem ducatum tibi cedimus ',
