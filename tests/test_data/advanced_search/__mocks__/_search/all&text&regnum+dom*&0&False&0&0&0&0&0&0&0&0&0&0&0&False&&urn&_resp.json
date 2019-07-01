@@ -1,9 +1,9 @@
 {
-  "took": 21,
+  "took": 22,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
@@ -19,7 +19,7 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "FORMULA ANDECAVENSIS 1",
+          "title": "Angers 1",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -29,7 +29,7 @@
         },
         "highlight": {
           "text": [
-            "Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto4 4 reges, quod fecit misisus ille, dies tantus, cum iuxta consuetudinem Andicauis6 6 ciuetate curia puplica resedere in foro, ibiquae uir magnificus illi prosecutor dixit: \u201eRogo te, uir laudabilis illi defensor, illi curator8 8, illi magister militum9 9 uel reliquam curia puplica, utique obticis puplici patere iobeatis, qua habeo, quid apud acta proseuere debiam\u201c. Deffensor, principalis simul et omnis curia puplica dixerunt: \u201ePatent tibi cotecis puplici; prosequere que optas\u201c. \u201eObodire illa per mandato suo pagina mihi iniuncxit, ut prosecutor exsistere deberit; qualiter mandatum, quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas, tam in paco quam et in palacio seu in qualibet loca, accidere faciat."
+            "HIC EST IESTA Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto reges, quod fecit misisus ille dies tantus cum iuxta consuetudinem Andicauis ciuetate curia puplica resedere in foro, ibiquae uir magnificus illi prosecutor dixit: \u201eRogo te, uir laudabilis illi defensor, illi curator, illi magister militum uel reliquam curia puplica, utique obticis puplici patere iobeatis, qua habeo, quid apud acta proseuere debiam\u201c. Deffensor, principalis simul et omnis curia puplica dixerunt: \u201ePatent tibi cotecis puplici; prosequere que optas\u201c. Obodire illa per mandato suo pagina mihi iniuncxit, ut prosecutor exsistere deberit, qualiter mandatum, quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas, tam in paco quam et in palacio seu in qualibet loca, accidere faciat."
           ]
         },
         "sort": [
@@ -44,7 +44,7 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "FORMULA ANDECAVENSIS 34",
+          "title": "Angers 34",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -54,7 +54,7 @@
         },
         "highlight": {
           "text": [
-            "FORMULA ANDECAVENSIS 34 INCIPIT DOTIS Annu IIII </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto2 2 reges. Ego in Dei nomen illi fatuor, me hanc libellum dote scribere deberent, quod ita et fecerunt, ad dulcissema sponsa mea nomen illa. Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa. Iam dicta puella, sponsa mea illa, abiat, teniat, possediat, faciat quod uoluerit. Et si quis uero, aut ego ipsi uel quislibet opposita persona, qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit, soledus tantus coactus exsoluat et si quis, non obteniat effectum."
+            "INCIPIT DOTIS Annu iiii </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto reges. Ego in Dei nomen illi fatuor, me hanc libellum dote scribere deberent, quod ita et fecerunt, ad dulcissema sponsa mea nomen illa Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa. Iam dicta puella, sponsa mea illa abiat, teniat, possediat, faciat quod uoluerit. Et si quis uero, aut ego ipsi uel quislibet opposita persona, qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit, soledus tantus coactus exsoluat et si quis, non obteniat effectum."
           ]
         },
         "sort": [
@@ -352,15 +352,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "highlight": {
@@ -591,15 +591,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "highlight": {
@@ -752,10 +752,10 @@
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
           "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "date_string": "762 08 20",
-          "comp_ort": "St. Gallen",
+          "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "orig_comp_ort": "Kloster St. Gallen",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 762,
@@ -866,6 +866,9 @@
         },
         "St. Gallen": {
           "doc_count": 2
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 0
         },
         "Werden": {
           "doc_count": 0

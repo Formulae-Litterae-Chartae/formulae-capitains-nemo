@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -360,6 +360,9 @@
           "doc_count": 0
         },
         "St. Gallen": {
+          "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
           "doc_count": 0
         },
         "Werden": {

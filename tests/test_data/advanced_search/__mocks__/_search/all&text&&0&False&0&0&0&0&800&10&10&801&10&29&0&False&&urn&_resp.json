@@ -1,14 +1,14 @@
 {
-  "took": 27,
+  "took": 17,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 124,
+    "total": 130,
     "max_score": null,
     "hits": [
       {
@@ -302,15 +302,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "sort": [
@@ -471,13 +471,13 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
         "_source": {
-          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201e Per me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201ePer me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
           "date_string": "801-803",
           "comp_ort": " ",
-          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201e Per me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201ePer me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -502,13 +502,13 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
         "_source": {
-          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201e Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201e Ecce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201e Euge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201eUbi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201eEcce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201eEuge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "lemmas": " ",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
           "date_string": "801-804",
           "comp_ort": " ",
-          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201e Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201e Ecce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201e Euge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201eUbi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201eEcce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201eEuge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "autocomplete_lemmas": " ",
           "orig_comp_ort": " ",
           "dating": [
@@ -568,7 +568,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
-          "date_string": "a) 783-788b) nach 792",
+          "date_string": "a) 783-788 b) nach 792",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -667,6 +667,9 @@
         "St. Gallen": {
           "doc_count": 2
         },
+        "Wei\u00dfenburg": {
+          "doc_count": 6
+        },
         "Werden": {
           "doc_count": 5
         },
@@ -707,7 +710,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 94
+          "doc_count": 97
         },
         {
           "key": "800-899",
@@ -715,7 +718,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 27
+          "doc_count": 30
         },
         {
           "key": "900-999",
