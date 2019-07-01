@@ -1,9 +1,9 @@
 {
-  "took": 35,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
@@ -118,6 +118,9 @@
           "doc_count": 0
         },
         "St. Gallen": {
+          "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
           "doc_count": 0
         },
         "Werden": {

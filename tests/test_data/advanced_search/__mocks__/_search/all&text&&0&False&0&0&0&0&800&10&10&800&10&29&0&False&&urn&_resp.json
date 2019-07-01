@@ -1,14 +1,14 @@
 {
-  "took": 19,
+  "took": 18,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 99,
+    "total": 94,
     "max_score": null,
     "hits": [
       {
@@ -200,7 +200,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
-          "date_string": "a) 783-788b) nach 792",
+          "date_string": "a) 783-788 b) nach 792",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -256,37 +256,6 @@
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0117.lat001"
-        ]
-      },
-      {
-        "_index": "freising_v1",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0135.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 135",
-          "urn": "urn:cts:formulae:freising.bitterauf0135.lat001",
-          "date_string": "790-803 07 20",
-          "comp_ort": "Isen",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "orig_comp_ort": "Isen",
-          "dating": [
-            {
-              "gte": "0790",
-              "lte": "0803-07-20"
-            }
-          ],
-          "all_dates": [
-            "0790",
-            "0803-07-20"
-          ],
-          "min_date": "0790"
-        },
-        "sort": [
-          "urn:cts:formulae:freising.bitterauf0135.lat001"
         ]
       },
       {
@@ -350,6 +319,37 @@
         "sort": [
           "urn:cts:formulae:freising.bitterauf0137.lat001"
         ]
+      },
+      {
+        "_index": "freising_v1",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0145.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 145",
+          "urn": "urn:cts:formulae:freising.bitterauf0145.lat001",
+          "date_string": "791-802",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "orig_comp_ort": " ",
+          "dating": [
+            {
+              "gte": "0791",
+              "lte": "0803"
+            }
+          ],
+          "all_dates": [
+            "0791",
+            "0803"
+          ],
+          "min_date": "0791"
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0145.lat001"
+        ]
       }
     ]
   },
@@ -363,7 +363,7 @@
           "doc_count": 5
         },
         "Freising": {
-          "doc_count": 30
+          "doc_count": 21
         },
         "Luzern": {
           "doc_count": 6
@@ -391,6 +391,9 @@
         },
         "St. Gallen": {
           "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 4
         },
         "Werden": {
           "doc_count": 0
@@ -432,7 +435,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 85
+          "doc_count": 82
         },
         {
           "key": "800-899",
@@ -440,7 +443,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 11
+          "doc_count": 12
         },
         {
           "key": "900-999",

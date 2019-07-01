@@ -1,9 +1,9 @@
 {
-  "took": 4,
+  "took": 6,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
@@ -85,6 +85,9 @@
         },
         "St. Gallen": {
           "doc_count": 1
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 0
         },
         "Werden": {
           "doc_count": 0

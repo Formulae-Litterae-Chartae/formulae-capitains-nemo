@@ -1,18 +1,18 @@
 {
-  "took": 12,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 20,
+    "total": 30,
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -95,7 +95,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -163,7 +163,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -197,7 +197,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v3",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -283,13 +283,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Saturday",
-            "Tuesday",
             "Thursday",
-            "Friday",
             "Monday",
+            "Wednesday",
+            "Saturday",
             "Sunday",
-            "Wednesday"
+            "Tuesday",
+            "Friday"
           ]
         },
         "sort": [
@@ -297,7 +297,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v3",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -306,7 +306,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "date_string": "(ca. 790 \u2013 ca. 800) 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -383,13 +383,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Saturday",
-            "Tuesday",
             "Thursday",
-            "Friday",
             "Monday",
+            "Wednesday",
+            "Saturday",
             "Sunday",
-            "Wednesday"
+            "Tuesday",
+            "Friday"
           ]
         },
         "sort": [
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v3",
+        "_index": "schaeftlarn_v1",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -406,7 +406,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Klosters Sch\u00e4ftlarn (Ed. Weissthanner) Nr. 12",
           "urn": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
-          "date_string": "ca. 790 \u2013 ca. 800 10 09",
+          "date_string": "(ca. 790 \u2013 ca. 800) 10 09",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -483,13 +483,13 @@
           ],
           "min_date": "0790-10-09",
           "days": [
-            "Saturday",
-            "Tuesday",
             "Thursday",
-            "Friday",
             "Monday",
+            "Wednesday",
+            "Saturday",
             "Sunday",
-            "Wednesday"
+            "Tuesday",
+            "Friday"
           ]
         },
         "sort": [
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -507,10 +507,10 @@
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 19",
           "urn": "urn:cts:formulae:stgallen.wartmann0019.lat001",
           "date_string": "754 10 27",
-          "comp_ort": "St. Gallen",
+          "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "orig_comp_ort": "Kloster St. Gallen",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 754,
@@ -531,7 +531,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
@@ -541,10 +541,10 @@
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 23",
           "urn": "urn:cts:formulae:stgallen.wartmann0023.lat001",
           "date_string": "758 10 27",
-          "comp_ort": "St. Gallen",
+          "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "orig_comp_ort": "Kloster St. Gallen",
+          "orig_comp_ort": " ",
           "specific_date": [
             {
               "year": 758,
@@ -605,6 +605,9 @@
         "St. Gallen": {
           "doc_count": 9
         },
+        "Wei\u00dfenburg": {
+          "doc_count": 10
+        },
         "Werden": {
           "doc_count": 3
         },
@@ -645,7 +648,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 17
+          "doc_count": 27
         },
         {
           "key": "800-899",

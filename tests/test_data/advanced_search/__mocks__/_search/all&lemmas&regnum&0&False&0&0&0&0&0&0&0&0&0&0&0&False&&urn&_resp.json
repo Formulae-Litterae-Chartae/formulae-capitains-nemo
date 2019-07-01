@@ -1,9 +1,9 @@
 {
-  "took": 4,
+  "took": 5,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
@@ -19,7 +19,7 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "FORMULA ANDECAVENSIS 1",
+          "title": "Angers 1",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -39,7 +39,7 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "title": "FORMULA ANDECAVENSIS 34",
+          "title": "Angers 34",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -90,6 +90,9 @@
           "doc_count": 0
         },
         "St. Gallen": {
+          "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
           "doc_count": 0
         },
         "Werden": {
