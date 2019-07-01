@@ -1,14 +1,14 @@
 {
-  "took": 7,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 11,
+    "total": 12,
     "max_score": null,
     "hits": [
       {
@@ -302,15 +302,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "sort": [
@@ -536,15 +536,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "sort": [
@@ -578,8 +578,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -613,8 +613,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -648,8 +648,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -683,8 +683,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -718,8 +718,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -753,8 +753,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -788,8 +788,8 @@
           ],
           "min_date": "0930-04-18",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -823,8 +823,8 @@
           ],
           "min_date": "0855-04-07",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -872,6 +872,9 @@
         "St. Gallen": {
           "doc_count": 1
         },
+        "Wei\u00dfenburg": {
+          "doc_count": 1
+        },
         "Werden": {
           "doc_count": 0
         },
@@ -912,7 +915,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 2
+          "doc_count": 3
         },
         {
           "key": "800-899",

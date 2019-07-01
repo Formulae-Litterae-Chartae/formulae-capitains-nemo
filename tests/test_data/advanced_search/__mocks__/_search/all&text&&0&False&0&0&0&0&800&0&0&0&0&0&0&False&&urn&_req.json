@@ -155,6 +155,11 @@
               "_type": "stgallen"
             }
           },
+          "Wei\u00dfenburg": {
+            "match": {
+              "_type": "weissenburg"
+            }
+          },
           "Werden": {
             "match": {
               "_type": "werden"

@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -302,15 +302,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "highlight": {
@@ -541,15 +541,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Easter",
-            "Friday",
             "Thursday",
+            "Monday",
+            "Easter",
+            "Saturday",
             "Wednesday",
             "Lent",
-            "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Friday"
           ]
         },
         "highlight": {
@@ -600,6 +600,9 @@
           "doc_count": 0
         },
         "St. Gallen": {
+          "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
           "doc_count": 0
         },
         "Werden": {

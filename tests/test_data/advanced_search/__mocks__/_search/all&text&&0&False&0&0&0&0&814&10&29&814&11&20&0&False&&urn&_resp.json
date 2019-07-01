@@ -1,14 +1,14 @@
 {
-  "took": 81,
+  "took": 50,
   "timed_out": false,
   "_shards": {
-    "total": 14,
-    "successful": 14,
+    "total": 15,
+    "successful": 15,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 41,
+    "total": 42,
     "max_score": null,
     "hits": [
       {
@@ -55,7 +55,7 @@
           "lemmas": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 330",
           "urn": "urn:cts:formulae:freising.bitterauf0330.lat001",
-          "date_string": "814 11 17 ",
+          "date_string": "814 11 17",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -368,6 +368,9 @@
         "St. Gallen": {
           "doc_count": 2
         },
+        "Wei\u00dfenburg": {
+          "doc_count": 1
+        },
         "Werden": {
           "doc_count": 2
         },
@@ -416,7 +419,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 23
+          "doc_count": 24
         },
         {
           "key": "900-999",
