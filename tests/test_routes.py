@@ -256,6 +256,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('texts/manifest:urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form001.lat001/passage/1+1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
