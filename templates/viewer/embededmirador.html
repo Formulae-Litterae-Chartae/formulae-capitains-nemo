@@ -1,11 +1,13 @@
 
-<div id="mirador" style="height: 800px; width: 100%;
-    position: sticky; top:100px"> </div>
-     <script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>
+<div id="{{div_v}}"  style="height: 800px; width: 100%;
+    position: sticky; top:100px">
+
+
     <!--<script>document.write("<script type='{{url_for('InstanceNemo.static', filename='mirador/dist/mirador.min.js')}}?v=" + Date.now() + "'><\/script>");</script>-->
+
     <script type="text/javascript">
-     var miradorInstance = Mirador.viewer({
-       id: 'mirador',
+     Mirador.viewer({
+       id: '{{div_v}}',
        selectedTheme:'light',
        workspaceControlPanel: {
         enabled: false
@@ -24,3 +26,5 @@
        }]
      });
     </script>
+</div>
+

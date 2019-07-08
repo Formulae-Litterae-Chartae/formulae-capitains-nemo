@@ -12,6 +12,7 @@ from formulae.search.forms import SearchForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
+import os
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
@@ -539,12 +540,35 @@ class NemoFormulae(Nemo):
         #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
+        view=1
         for i in ids:
+            if "manifest" in i:
+                i = i[9:]
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
+            if "manifest:"in id:
+                if subrefers[i] in ["all", 'first']:
+                    subref = self.get_reffs(id[9:])[0][0]
+                else:
+                    subref = subrefers[i]
+                formulae = self.app.picture_file[id]
+                v = self.r_passage(id[9:], subref, lang=lang)
+                v["objectId"] = id
+                v["div_v"] = "manifest"+str(view)
+                view = view+1
+                del v['template']
+                del v['text_passage']
+                #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
+                v["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
+                with open(os.path.join(self.app.IIIFmapping,formulae["manifest"]), "r") as f:
+                    title = load(f)
+                v["codex"] = title["label"]
+                passage_data['objects'].append(v)
+                del v
+                continue
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
@@ -552,7 +576,7 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                d["IIIFviewer"] = id in self.app.picture_file
+                d["IIIFviewer"] = "manifest:"+id in self.app.picture_file
                 if 'previous_search' in session:
                     result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                     if result_sents:

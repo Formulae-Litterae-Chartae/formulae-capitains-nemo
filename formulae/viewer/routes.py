@@ -96,7 +96,7 @@ def addviewer(objectId):
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html'}
-        formulae = current_app.picture_file[objectId]
+        formulae = current_app.picture_file['manifest:'+objectId]
         passage_data = ''
         if request.args.get('embedded', False):
             template = {'manifest': "viewer::multiviewermirador.html"}
@@ -173,19 +173,6 @@ def addviewer(objectId):
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
 '''
 
-@bp.route("abz/<objectId>/<view>", methods=["GET"])
-def test_3viewer(objectId, view):
-    passage_data = current_app.config['nemo_app'].r_passage(objectId, '1')
-    passage_data2 = current_app.config['nemo_app'].r_passage(objectId, '1')
-    formulae = current_app.picture_file[objectId]
-    print(formulae)
-    manifest = url_for('viewer.static', filename=formulae["manifest"])
-    with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
-        title = load(f)
-    codex=title["label"]
-    return current_app.config['nemo_app'].render(template='viewer::multiviewer3.html', manifest=manifest
-                                                             ,objectId=objectId, codex=codex,
-                                                      passage_data2=passage_data2, text=passage_data, url=dict())
 '''
 If you want to use that for the futur
 @bp.route("/lexicon/<objectId>")
