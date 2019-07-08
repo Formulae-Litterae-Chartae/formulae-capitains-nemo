@@ -1,9 +1,9 @@
 {
-  "took": 6,
+  "took": 8,
   "timed_out": false,
   "_shards": {
-    "total": 15,
-    "successful": 15,
+    "total": 16,
+    "successful": 16,
     "skipped": 0,
     "failed": 0
   },
@@ -12,19 +12,21 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v3",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Uppert \u00fcbertr\u00e4gt den dritten Theil seines Besitzes zu Firinisvilla und Munzach(thal) an Sanct Gallen.",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 291",
           "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "date_string": "825 05 11",
           "comp_ort": "(Basel-)Augst",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Uppert \u00fcbertr\u00e4gt den dritten Theil seines Besitzes zu Firinisvilla und Munzach(thal) an Sanct Gallen.",
           "orig_comp_ort": "(Basel-)Augst",
           "specific_date": [
             {
@@ -57,6 +59,9 @@
           "doc_count": 0
         },
         "Freising": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
