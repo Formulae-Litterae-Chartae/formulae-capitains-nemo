@@ -1,6 +1,4 @@
 {% extends "main::text_container.html" %}
-
-{% macro header_passage(object) %}
 {% if objects %}
     {% set prev_texts = objects|join('+', attribute='objectId') %}
     {% set prev_reffs = objects|join('+', attribute='subreference') %}
@@ -8,6 +6,7 @@
     {% set prev_texts = objectId %}
     {% set prev_reffs = subreference %}
 {% endif %}
+{% macro header_passage(object) %}
 <header>
     <div class="panel-footer text-center">
             {% if 'manifest' in object.objectId %}
@@ -32,7 +31,7 @@
 
     <span class="text-center">{{ version_menu(object.objectId, object.isReferencedBy) }}</span>
 
-    {% if 'elexicon' not in object.objectId or 'manifest' not in object.objectId %}
+    {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}
         {% if object.open_regest or current_user.project_team %}
         {% include "main::regest_collapse.html" %}
         {% else %}
@@ -126,7 +125,7 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if current_user.project_team == False %}
+            {% if current_user.project_team == False and 'andecavensis' in text.objectId  %}
                 {% if loop.last %}
                 <section class="col-sm no-copy">
                 {% else %}

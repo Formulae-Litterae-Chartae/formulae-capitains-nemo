@@ -460,6 +460,7 @@ class NemoFormulae(Nemo):
         collection = self.get_collection(objectId)
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+            print(editions)
             if len(editions) == 0:
                 raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
                                         objectId)
@@ -543,19 +544,19 @@ class NemoFormulae(Nemo):
         view=1
         for i in ids:
             if "manifest" in i:
-                i = i[9:]
+                i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
-            if "manifest:"in id:
+            if "manifest:" in id:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id[9:])[0][0]
                 else:
                     subref = subrefers[i]
-                formulae = self.app.picture_file[id]
                 v = self.r_passage(id[9:], subref, lang=lang)
+                formulae = self.app.picture_file[id]
                 v["objectId"] = id
                 v["div_v"] = "manifest"+str(view)
                 view = view+1
@@ -564,13 +565,8 @@ class NemoFormulae(Nemo):
                 #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
                 v["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                 v["title"] = formulae["title"]
-                with open(os.path.join(self.app.IIIFmapping,formulae["manifest"]), "r") as f:
-                    title = load(f)
-                v["codex"] = title["label"]
                 passage_data['objects'].append(v)
-                del v
-                continue
-            if self.check_project_team() is True or id in self.open_texts:
+            elif self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
                 else:
