@@ -31,3 +31,4 @@ def fullscreenviewer(objectId):
     else:
         flash(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
         return current_app.config['nemo_app'].render(template='main::index.html', url=dict())
+

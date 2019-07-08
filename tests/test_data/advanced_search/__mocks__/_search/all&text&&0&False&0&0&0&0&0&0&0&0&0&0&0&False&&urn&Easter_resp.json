@@ -1,9 +1,9 @@
 {
-  "took": 10,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 15,
-    "successful": 15,
+    "total": 16,
+    "successful": 16,
     "skipped": 0,
     "failed": 0
   },
@@ -12,19 +12,21 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
           "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-          "lemmas": " ",
+          "lemmas": null,
+          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "date_string": "(769\u2013813 [813]) 04 20",
           "comp_ort": " ",
           "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -302,14 +304,14 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Thursday",
+            "Sunday",
             "Monday",
+            "Lent",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
             "Easter",
             "Saturday",
-            "Wednesday",
-            "Lent",
-            "Sunday",
-            "Tuesday",
             "Friday"
           ]
         },
@@ -318,19 +320,21 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
           "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-          "lemmas": " ",
+          "lemmas": null,
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
           "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "date_string": "(769\u2013800 [813]) 03 31",
           "comp_ort": " ",
           "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-          "autocomplete_lemmas": " ",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -536,14 +540,14 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Thursday",
+            "Sunday",
             "Monday",
+            "Lent",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
             "Easter",
             "Saturday",
-            "Wednesday",
-            "Lent",
-            "Sunday",
-            "Tuesday",
             "Friday"
           ]
         },
@@ -552,19 +556,21 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren fr\u00fchere Schenkung.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 465",
           "urn": "urn:cts:formulae:freising.bitterauf0465.lat001",
           "date_string": "822 04 13",
           "comp_ort": "(Freising)",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren fr\u00fchere Schenkung.",
           "orig_comp_ort": "(Freising)",
           "specific_date": [
             {
@@ -578,8 +584,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -587,19 +593,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Der erzbisch\u00f6fliche Ministeriale Gotabert gibt dem Erzbischofe sein ganzes Eigen zu Herioltinga und empf\u00e4ngt daf\u00fcr zu Eigenthum des bisherigen Lehensbesitz zu Letting (s. Saalfelden) f\u00fcr sich und seine Gemahling P\u00fbpa, auch noch nach ihrem Tode f\u00fcr die Tochter Heilsuind und deren Sohn Rudbert (also f\u00fcr drei Generationen).",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 6",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
           "date_string": "(- 927 Ostern -)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der erzbisch\u00f6fliche Ministeriale Gotabert gibt dem Erzbischofe sein ganzes Eigen zu Herioltinga und empf\u00e4ngt daf\u00fcr zu Eigenthum des bisherigen Lehensbesitz zu Letting (s. Saalfelden) f\u00fcr sich und seine Gemahling P\u00fbpa, auch noch nach ihrem Tode f\u00fcr die Tochter Heilsuind und deren Sohn Rudbert (also f\u00fcr drei Generationen).",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -613,8 +621,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -622,19 +630,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Der Priester Gotesmann \u00fcbergibt dem Erzbischof seinen Besitz im Orte Teisenberg (s. Teisendorf), wogegen der Erzbischof ihm und seiner Tochter Agatha auf Lebensdauer zu Eigen \u00fcberl\u00e4sst, was er bisher im Orte Perach (n. Ainring) zu Lehen hatte.",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 40",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der Priester Gotesmann \u00fcbergibt dem Erzbischof seinen Besitz im Orte Teisenberg (s. Teisendorf), wogegen der Erzbischof ihm und seiner Tochter Agatha auf Lebensdauer zu Eigen \u00fcberl\u00e4sst, was er bisher im Orte Perach (n. Ainring) zu Lehen hatte.",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -648,8 +658,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -657,19 +667,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Die edle Frau Heilrat, Witwe des Edlen Diotrih, \u00fcbergibt dem Erzbischof ihren Besitz zu T\u00fcssling und Mermosen (sw. Alt\u00f6tting), wogegen der Erzbischof ihr anderen Besitz zu Eharting und T\u00fcssling \u00fcberweist, und zwar auf die Dauer ihres Lebens und jenes des Diotmar, Sohnes der Rihnia.",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 45",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Die edle Frau Heilrat, Witwe des Edlen Diotrih, \u00fcbergibt dem Erzbischof ihren Besitz zu T\u00fcssling und Mermosen (sw. Alt\u00f6tting), wogegen der Erzbischof ihr anderen Besitz zu Eharting und T\u00fcssling \u00fcberweist, und zwar auf die Dauer ihres Lebens und jenes des Diotmar, Sohnes der Rihnia.",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -683,8 +695,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -692,19 +704,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Der Edle Kerhoh und seine Gemahlin Alarun \u00fcbergeben dem Erzbischof 6 Ortschaften, n\u00e4mlich Neunling, Achsdorf, P\u00fclling (B\u00fcchling), Humhausen (w. und s. Traunstein), Oiging oder Aiging (n. Traunstein), dann Selberting (s. Otting), endlich 2 Orte arn M\u00fchlbache bei M\u00fchlen (nw. Vachendorf) im Chiemgau, wof\u00fcr sie vorn Erzbischof zu Eigen empfangen Holzhausen (nw. Otting) und Erlst\u00e4tt (w. Traunstein), das Lehen des Heriker.",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 46",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der Edle Kerhoh und seine Gemahlin Alarun \u00fcbergeben dem Erzbischof 6 Ortschaften, n\u00e4mlich Neunling, Achsdorf, P\u00fclling (B\u00fcchling), Humhausen (w. und s. Traunstein), Oiging oder Aiging (n. Traunstein), dann Selberting (s. Otting), endlich 2 Orte arn M\u00fchlbache bei M\u00fchlen (nw. Vachendorf) im Chiemgau, wof\u00fcr sie vorn Erzbischof zu Eigen empfangen Holzhausen (nw. Otting) und Erlst\u00e4tt (w. Traunstein), das Lehen des Heriker.",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -718,8 +732,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -727,19 +741,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Fridapolt, Kerhohs Lehensmann, \u00fcbergibt gleichzeitig dem Erzbischof seinen Besitz zu Moosham (w. Palling) und Gumpertsheim (bei Heiligenkreuz n\u00f6. Trostberg) in der Grafschaft Kerhohs und erh\u00e4lt daf\u00fcr H\u00f6rbstfdorf (n. Traunstein) in der Grafschaft Reginberts.",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 47",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Fridapolt, Kerhohs Lehensmann, \u00fcbergibt gleichzeitig dem Erzbischof seinen Besitz zu Moosham (w. Palling) und Gumpertsheim (bei Heiligenkreuz n\u00f6. Trostberg) in der Grafschaft Kerhohs und erh\u00e4lt daf\u00fcr H\u00f6rbstfdorf (n. Traunstein) in der Grafschaft Reginberts.",
           "orig_comp_ort": "Salzburg",
           "specific_date": [
             {
@@ -753,8 +769,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -762,19 +778,21 @@
         ]
       },
       {
-        "_index": "salzburg_v1",
+        "_index": "salzburg_v3",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Der Freie Erchanker\u00b7\u00fcbergibt dem Erzbischof seinen H\u00e4lftebesitz in Odering (bei Ranoldsberg, nw. Ampfing) f\u00fcr den Fall seines Todes und den seiner Gemahlin.",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 72",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
           "date_string": "(930 Ostern c.)",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der Freie Erchanker\u00b7\u00fcbergibt dem Erzbischof seinen H\u00e4lftebesitz in Odering (bei Ranoldsberg, nw. Ampfing) f\u00fcr den Fall seines Todes und den seiner Gemahlin.",
           "orig_comp_ort": " ",
           "specific_date": [
             {
@@ -788,8 +806,8 @@
           ],
           "min_date": "0930-04-18",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -797,19 +815,21 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v3",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 440",
           "urn": "urn:cts:formulae:stgallen.wartmann0440.lat001",
           "date_string": "855 04 07",
           "comp_ort": "St. Gallen",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
           "orig_comp_ort": "Kloster St. Gallen",
           "specific_date": [
             {
@@ -823,8 +843,8 @@
           ],
           "min_date": "0855-04-07",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -844,6 +864,9 @@
         },
         "Freising": {
           "doc_count": 1
+        },
+        "Hersfeld": {
+          "doc_count": 0
         },
         "Luzern": {
           "doc_count": 0
