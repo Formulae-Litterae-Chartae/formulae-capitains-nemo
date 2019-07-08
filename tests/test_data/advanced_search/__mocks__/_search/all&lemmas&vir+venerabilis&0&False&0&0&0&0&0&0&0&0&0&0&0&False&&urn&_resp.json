@@ -1,9 +1,9 @@
 {
-  "took": 11,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 15,
-    "successful": 15,
+    "total": 16,
+    "successful": 16,
     "skipped": 0,
     "failed": 0
   },
@@ -12,19 +12,21 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Eintrag in die Gesta Municipalia : Ein Sachwalter (prosecutor) erscheint vor der \u00f6ffentlichen Versammlung (curia publica) von Angers und bittet, bevollm\u00e4chtigt durch ein Mandat einer Frau, um die \u00d6ffnung der \u00f6ffentlichen B\u00fccher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgesch\u00e4fte bez\u00fcglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigeng\u00fcter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse G\u00fcter \u00fcbertr\u00e4gt.",
           "title": "Angers 1",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Eintrag in die Gesta Municipalia : Ein Sachwalter (prosecutor) erscheint vor der \u00f6ffentlichen Versammlung (curia publica) von Angers und bittet, bevollm\u00e4chtigt durch ein Mandat einer Frau, um die \u00d6ffnung der \u00f6ffentlichen B\u00fccher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgesch\u00e4fte bez\u00fcglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigeng\u00fcter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse G\u00fcter \u00fcbertr\u00e4gt.",
           "orig_comp_ort": " "
         },
         "sort": [
@@ -32,19 +34,21 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Klage auf Dienstpflicht : Ein Mann klagt vor einer Versammlung unter Vorsitz eines Abtes gegen den Sohn eines in seinen Diensten stehenden Ehepaares, dass dieser ihm ebenfalls dienstpflichtig sei. Nach Befragung urteilt das Gericht, dass sich der Beklagte durch gemeinsam mit zw\u00f6lf Eidhelfern erbrachte Eidesleistung von dieser Klage befreien kann. Es folgt der Wortlaut des Eides.",
           "title": "Angers 10",
           "urn": "urn:cts:formulae:andecavensis.form010.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Klage auf Dienstpflicht : Ein Mann klagt vor einer Versammlung unter Vorsitz eines Abtes gegen den Sohn eines in seinen Diensten stehenden Ehepaares, dass dieser ihm ebenfalls dienstpflichtig sei. Nach Befragung urteilt das Gericht, dass sich der Beklagte durch gemeinsam mit zw\u00f6lf Eidhelfern erbrachte Eidesleistung von dieser Klage befreien kann. Es folgt der Wortlaut des Eides.",
           "orig_comp_ort": " "
         },
         "sort": [
@@ -52,19 +56,21 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Klage wegen unrechtm\u00e4\u00dfiger Eigentumsaneignung : Ein Mann und die Gattin seines verstorbenen Bruders klagen vor einem Abt gegen einen weiteren Mann, dieser habe von dem Verstorbenen G\u00fcter erhalten, welche er als Dienst aufbewahren sollte. Es wird entschieden, dass die Kl\u00e4ger Zeugen f\u00fcr diesen Vorgang bringen m\u00fcssen.",
           "title": "Angers 29",
           "urn": "urn:cts:formulae:andecavensis.form029.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Klage wegen unrechtm\u00e4\u00dfiger Eigentumsaneignung : Ein Mann und die Gattin seines verstorbenen Bruders klagen vor einem Abt gegen einen weiteren Mann, dieser habe von dem Verstorbenen G\u00fcter erhalten, welche er als Dienst aufbewahren sollte. Es wird entschieden, dass die Kl\u00e4ger Zeugen f\u00fcr diesen Vorgang bringen m\u00fcssen.",
           "orig_comp_ort": " "
         },
         "sort": [
@@ -72,19 +78,21 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Schenkung : Ein Ehepaar schenkt einem von ihnen in Angers gegr\u00fcndeten Nonnenkonvent Landbesitz.",
           "title": "Angers 46",
           "urn": "urn:cts:formulae:andecavensis.form046.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Schenkung : Ein Ehepaar schenkt einem von ihnen in Angers gegr\u00fcndeten Nonnenkonvent Landbesitz.",
           "orig_comp_ort": " "
         },
         "sort": [
@@ -92,19 +100,21 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
+          "regest": "Klage wegen Aneignung eines Weinbergs : Eine Person klagt vor einem Abt und M\u00e4nnern mit gutem Leumund (boni homines) zwei M\u00e4nner an, sich unrechtm\u00e4\u00dfig seines Weinberges bem\u00e4chtigt zu haben. Nachdem diese vorbringen, den Weinberg von einem Dritten erhalten zu haben, wird entschieden, dass dieser Dritte vorgeladen werden und in Gew\u00e4hrschaft treten soll.",
           "title": "Angers 47",
           "urn": "urn:cts:formulae:andecavensis.form047.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Klage wegen Aneignung eines Weinbergs : Eine Person klagt vor einem Abt und M\u00e4nnern mit gutem Leumund (boni homines) zwei M\u00e4nner an, sich unrechtm\u00e4\u00dfig seines Weinberges bem\u00e4chtigt zu haben. Nachdem diese vorbringen, den Weinberg von einem Dritten erhalten zu haben, wird entschieden, dass dieser Dritte vorgeladen werden und in Gew\u00e4hrschaft treten soll.",
           "orig_comp_ort": " "
         },
         "sort": [
@@ -123,6 +133,9 @@
           "doc_count": 0
         },
         "Freising": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {

@@ -124,6 +124,11 @@
               "_type": "freising"
             }
           },
+          "Hersfeld": {
+            "match": {
+              "_type": "hersfeld"
+            }
+          },
           "Luzern": {
             "match": {
               "_type": "luzern"

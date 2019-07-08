@@ -9,6 +9,12 @@
     "id": "urn:cts:formulae:freising.bitterauf0470.lat001"
   },
   {
+    "id": "urn:cts:formulae:hersfeld.weirich0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0038.lat001"
+  },
+  {
     "id": "urn:cts:formulae:luzern.schiess0001.lat001"
   },
   {
@@ -22,11 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:luzern.schiess0005.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0006.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:mondsee.rath0003.lat001"
   }
 ]

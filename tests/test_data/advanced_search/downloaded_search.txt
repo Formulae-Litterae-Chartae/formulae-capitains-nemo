@@ -1,0 +1,55 @@
+-------------
+Suchparameter
+-------------
+Suchbegriff: 
+Lemma?: No
+Unschärfegrad: 
+Suchradius: 
+Wortreihenfolge beachten?: False
+Jahr: 
+Monat: 
+Tag: 
+Anfangsjahr: 
+Anfangsmonat: 
+Anfangstag: 
+Endjahr: 
+Endmonat: 
+Endtag: 
+Datum Plus-Minus: 
+Exklusiv: False
+Ausstellungsort: 
+Corpora: Angers - Rätien - Salzburg - St. Gallen
+
+--------------
+Suchergebnisse
+--------------
+
+Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24
+- Text nicht zugänglich.
+
+Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27
+- Text nicht zugänglich.
+
+Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 465
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 6
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 40
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 45
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 46
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 47
+- Text nicht zugänglich.
+
+Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 72
+- Text nicht zugänglich.
+
+Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 440
+- Text nicht zugänglich.
