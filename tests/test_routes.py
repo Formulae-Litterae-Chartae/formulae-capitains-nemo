@@ -258,6 +258,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            r = c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -583,8 +587,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
@@ -600,8 +602,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 

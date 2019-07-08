@@ -563,6 +563,7 @@ class NemoFormulae(Nemo):
                 del v['text_passage']
                 #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
                 v["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
+                v["title"] = formulae["title"]
                 with open(os.path.join(self.app.IIIFmapping,formulae["manifest"]), "r") as f:
                     title = load(f)
                 v["codex"] = title["label"]
