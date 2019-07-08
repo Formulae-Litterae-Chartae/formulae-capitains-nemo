@@ -1435,6 +1435,9 @@ class TestES(Formulae_Testing):
                                                           "Freising": {
                                                               "doc_count": 0
                                                           },
+                                                          "Hersfeld": {
+                                                              "doc_count": 0
+                                                          },
                                                         "Luzern": {
                                                           "doc_count": 0
                                                         },
@@ -1498,6 +1501,7 @@ class TestES(Formulae_Testing):
                                         'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
                                         'Freising': {'match': {'_type': 'freising'}},
+                                        'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
@@ -1549,7 +1553,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'Freising', 'Isen']
+        expected = [' ', '<Rom>', '<Worms>', 'Düren', 'Freising', 'Isen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
