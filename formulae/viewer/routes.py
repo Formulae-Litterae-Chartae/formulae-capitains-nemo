@@ -178,7 +178,6 @@ def test_3viewer(objectId, view):
     passage_data = current_app.config['nemo_app'].r_passage(objectId, '1')
     passage_data2 = current_app.config['nemo_app'].r_passage(objectId, '1')
     formulae = current_app.picture_file[objectId]
-    print(formulae)
     manifest = url_for('viewer.static', filename=formulae["manifest"])
     with open((current_app.IIIFmapping+"/"+formulae["manifest"]), "r") as f:
         title = load(f)

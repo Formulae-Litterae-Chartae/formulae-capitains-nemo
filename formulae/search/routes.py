@@ -1,10 +1,11 @@
-from flask import redirect, request, url_for, g, flash, current_app, session
+from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
 from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
+import re
 
 
 CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -170,3 +171,28 @@ def word_search_suggester(word):
                                 special_days=request.args.get('special_days', '').split())
     return dumps(words)
 
+
+@bp.route('/download', methods=["GET"])
+def download_search_results():
+    if 'previous_search' not in session:
+        flash(_('Keine Suchergebnisse zum Herunterladen.'))
+        return redirect(url_for('InstanceNemo.r_index'))
+    else:
+        resp = ['--------------' + '\n' + _('Suchergebnisse') + '\n' + '--------------']
+        arg_list = ['-------------' + '\n' + _('Suchparameter') + '\n' + '-------------']
+        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')), ('fuzziness', _('Unschärfegrad')),
+                              ('slop', _('Suchradius')), ('in_order', _('Wortreihenfolge beachten?')), ('year', _('Jahr')),
+                              ('month', _('Monat')), ('day', _('Tag')), ('year_start', _('Anfangsjahr')),
+                              ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
+                              ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
+                              ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
+                              ('corpus', _('Corpora'))]
+        for arg, s in search_arg_mapping:
+            value = session['previous_search_args'][arg] if arg in session['previous_search_args'] else 'No'
+            if arg == 'corpus':
+                value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
+            arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
+        for d in session['previous_search']:
+            resp.append('{}\n{}'.format(d['title'], '\n'.join(['- {}'.format(re.sub(r'</?strong>|</?small>', '', str(s))) for s in d['sents']]) or _('- Text nicht zugänglich.')))
+        return Response('\n'.join(arg_list) + '\n\n' + '\n\n'.join(resp), mimetype='text/plain',
+                        headers={'Content-Disposition': 'attachment;filename=download.txt'})

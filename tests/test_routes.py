@@ -1435,6 +1435,9 @@ class TestES(Formulae_Testing):
                                                           "Freising": {
                                                               "doc_count": 0
                                                           },
+                                                          "Hersfeld": {
+                                                              "doc_count": 0
+                                                          },
                                                         "Luzern": {
                                                           "doc_count": 0
                                                         },
@@ -1498,6 +1501,7 @@ class TestES(Formulae_Testing):
                                         'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
                                         'Freising': {'match': {'_type': 'freising'}},
+                                        'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
@@ -1549,7 +1553,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'Freising', 'Isen']
+        expected = [' ', '<Rom>', '<Worms>', 'Düren', 'Freising', 'Isen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -1630,6 +1634,30 @@ class TestES(Formulae_Testing):
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_download_search_results(self, mock_search):
+        with self.client as c:
+            c.get('/search/download', follow_redirects=True)
+            self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
+            self.assertTemplateUsed('main::index.html')
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['special_days'] = [test_args['special_days']]
+        with open('tests/test_data/advanced_search/downloaded_search.txt') as f:
+            expected = f.read()
+        with self.client as c:
+            c.get('/search/results?month=0&year_start=&q=&day_end=&year_end=&date_plus_minus=0&sort=urn&composition_place=&fuzziness=0&exclusive_date_range=False&special_days=Easter&month_start=0&in_order=False&month_end=0&day_start=&submit=True&day=&corpus=all&slop=0&year=&source=advanced')
+            r = c.get('/search/download')
+            self.assertEqual(r.get_data(as_text=True), expected.strip())
 
 
 class TestErrors(Formulae_Testing):
