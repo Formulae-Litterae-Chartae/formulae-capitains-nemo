@@ -562,7 +562,7 @@ class NemoFormulae(Nemo):
                 del d['template']
                 if v == True:
                     formulae = self.app.picture_file["manifest:"+id]
-                    d["objectId"] = "manifest:"+id
+                    d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest"+str(view)
                     view = view + 1
                     del d['text_passage']
@@ -570,7 +570,7 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     d["title"] = formulae["title"]
                 else:
-                    d["IIIFviewer"] = "manifest:"+id in self.app.picture_file
+                    d["IIIFviewer"] = "manifest:" + id in self.app.picture_file
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                         if result_sents:
