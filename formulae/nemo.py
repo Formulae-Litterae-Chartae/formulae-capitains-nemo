@@ -460,7 +460,6 @@ class NemoFormulae(Nemo):
         collection = self.get_collection(objectId)
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
-            print(editions)
             if len(editions) == 0:
                 raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
                                         objectId)
@@ -541,7 +540,7 @@ class NemoFormulae(Nemo):
         #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
-        view=1
+        view = 1
         for i in ids:
             if "manifest" in i:
                 i = re.sub(r'^manifest:', '', i)
@@ -550,11 +549,11 @@ class NemoFormulae(Nemo):
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
+            v = False
+            if "manifest:" in id:
+                id = re.sub(r'^manifest:', '', id)
+                v = True
             if self.check_project_team() is True or id in self.open_texts:
-                v = False
-                if "manifest:" in id:
-                    id = re.sub(r'^manifest:', '', id)
-                    v = True
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
                 else:
@@ -565,7 +564,7 @@ class NemoFormulae(Nemo):
                     formulae = self.app.picture_file["manifest:"+id]
                     d["objectId"] = "manifest:"+id
                     d["div_v"] = "manifest"+str(view)
-                    view = view+1
+                    view = view + 1
                     del d['text_passage']
                     #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])

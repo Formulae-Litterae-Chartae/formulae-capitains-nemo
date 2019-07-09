@@ -43,3 +43,4 @@ cache/
 htmlcov/
 old_translations/
 flask_session/
+formulae/include/python3.6m
