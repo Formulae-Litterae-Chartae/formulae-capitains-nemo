@@ -1677,7 +1677,7 @@ class TestErrors(Formulae_Testing):
             self.assertIn(expected, response.get_data(as_text=True))
 
 
-class Formulae_Testing_error_mapping(flask_testing.TestCase):
+class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
@@ -1700,21 +1700,6 @@ class Formulae_Testing_error_mapping(flask_testing.TestCase):
             abort(500)
         return app
 
-
-    def setUp(self):
-        db.create_all()
-        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
-        u.set_password('some_password')
-        db.session.add(u)
-        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
-        u.set_password('some_other_password')
-        db.session.add(u)
-        db.session.commit()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-
 class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
@@ -1725,7 +1710,7 @@ class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
-class Formulae_Testing_without_mapping(flask_testing.TestCase):
+class Formulae_Testing_without_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING=""
         app = create_app(TestConfig)
@@ -1748,20 +1733,6 @@ class Formulae_Testing_without_mapping(flask_testing.TestCase):
             abort(500)
         return app
 
-
-    def setUp(self):
-        db.create_all()
-        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
-        u.set_password('some_password')
-        db.session.add(u)
-        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
-        u.set_password('some_other_password')
-        db.session.add(u)
-        db.session.commit()
-
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
 
 class TestNemoSetup_withoutviewer(Formulae_Testing_without_mapping):
     def test_setup_global_app(self):
