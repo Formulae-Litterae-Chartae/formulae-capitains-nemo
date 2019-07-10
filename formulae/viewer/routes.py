@@ -20,11 +20,9 @@ def fullscreenviewer(objectId):
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html'}
-        formulae = current_app.picture_file['manifest:' + re.match(r'.*(?=\.)',objectId).group(0)]
-
+        formulae = current_app.picture_file['manifest:' + re.match(r'.*(?=\.)', objectId).group(0)]
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         manifest = url_for('viewer.static', filename=formulae["manifest"])
-
         return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest,
                                                      objectId=objectId, url=dict())
     else:

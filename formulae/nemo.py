@@ -12,7 +12,6 @@ from formulae.search.forms import SearchForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
-import os
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
@@ -550,7 +549,7 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
-            m = re.match(r'.*(?=\.)',id)
+            m = re.match(r'.*(?=\.)', id)
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -561,10 +560,10 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                if v == True:
+                if v :
                     formulae = self.app.picture_file[m.group(0)]
                     d["objectId"] = "manifest:" + id
-                    d["div_v"] = "manifest"+str(view)
+                    d["div_v"] = "manifest" + str(view)
                     view = view + 1
                     del d['text_passage']
                     #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
