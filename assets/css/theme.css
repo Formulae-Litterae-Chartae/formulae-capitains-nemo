@@ -541,3 +541,27 @@ img[id$="-flag-navbar"] {
 .latin-word {
   font-style: italic;
 }
+
+div.transcription p {
+    margin-bottom: 0;
+}
+
+.superscript {
+    vertical-align: super;
+}
+
+.subscript {
+    vertical-align: sub;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+.smaller-text {
+    font-size: smaller;
+}
+
+.line-through {
+    text-decoration: line-through;
+}

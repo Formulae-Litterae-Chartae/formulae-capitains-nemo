@@ -50,11 +50,15 @@
         </xsl:if> -->       
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@rend='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@type='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
-                <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
-                <xsl:if test="parent::t:seg[@type='platzhalter']"><xsl:text> platzhalter</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@type='latin-word']"><xsl:text> latin-word</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text> subscript</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text> smaller-text</xsl:text></xsl:if>
                 <xsl:if test="parent::t:label"> formulae-label</xsl:if>
                 </xsl:attribute>
             <xsl:if test="@lemma">
@@ -104,6 +108,7 @@
             <xsl:attribute name="class">
                 <xsl:text>edition lang_</xsl:text>
                 <xsl:value-of select="@xml:lang"/>
+                <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
             </xsl:attribute>
             <xsl:attribute name="data-lang"><xsl:value-of select="./@xml:lang"/></xsl:attribute>
             <xsl:if test="@xml:lang = 'heb'">

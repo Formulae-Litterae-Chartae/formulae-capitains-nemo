@@ -496,7 +496,7 @@ class NemoFormulae(Nemo):
             "subreference": subreference,
             "collections": {
                 "current": {
-                    "label": collection.get_label(lang),
+                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or collection.get_label(lang),
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
