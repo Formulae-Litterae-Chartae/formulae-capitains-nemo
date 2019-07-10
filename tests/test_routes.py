@@ -243,11 +243,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
                           r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
-            self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
+            self.assertMessageFlashed('Angers 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('FORMULA ANDECAVENSIS 1', r.get_data(as_text=True))
+            self.assertIn('Angers 1', r.get_data(as_text=True))
             # Make sure that a text that has no edition will throw an error
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
@@ -574,9 +574,9 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_cache_max_age_header_set(self):
         """ Make sure that the cache max age header is set correctly with each request"""
         with self.client as c:
-            response = c.get('/assets/nemo/css/theme.min.css')
-            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
-            response = c.get('/')
+            with c.get('/assets/nemo/css/theme.min.css') as response:
+                self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/', follow_redirects=True)
             self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
 
     def test_rendering_from_texts_without_notes_transformation(self):
