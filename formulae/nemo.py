@@ -572,7 +572,6 @@ class NemoFormulae(Nemo):
                     d["title"] = formulae["title"]
                 else:
                     d["IIIFviewer"] = "manifest:" + m.group(0) in self.app.picture_file
-                    print(d["IIIFviewer"])
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                         if result_sents:
