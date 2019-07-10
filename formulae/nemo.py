@@ -550,6 +550,7 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
+            m = re.match(r'.*(?=\.)',id)
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -561,7 +562,7 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
                 if v == True:
-                    formulae = self.app.picture_file["manifest:"+id]
+                    formulae = self.app.picture_file[m.group(0)]
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest"+str(view)
                     view = view + 1
@@ -570,7 +571,8 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     d["title"] = formulae["title"]
                 else:
-                    d["IIIFviewer"] = "manifest:" + id in self.app.picture_file
+                    d["IIIFviewer"] = "manifest:" + m.group(0) in self.app.picture_file
+                    print(d["IIIFviewer"])
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                         if result_sents:
