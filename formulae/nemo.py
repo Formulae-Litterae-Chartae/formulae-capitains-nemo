@@ -539,12 +539,20 @@ class NemoFormulae(Nemo):
         #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
+        view = 1
         for i in ids:
+            if "manifest" in i:
+                i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
+            v = False
+            m = re.match(r'.*(?=\.)', id)
+            if "manifest:" in id:
+                id = re.sub(r'^manifest:', '', id)
+                v = True
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
@@ -552,12 +560,22 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                d["IIIFviewer"] = id in self.app.picture_file
-                if 'previous_search' in session:
-                    result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
-                    if result_sents:
-                        d['text_passage'] = self.highlight_found_sents(d['text_passage'],
-                                                                       self.convert_result_sents(result_sents))
+                if v :
+                    formulae = self.app.picture_file[m.group(0)]
+                    d["objectId"] = "manifest:" + id
+                    d["div_v"] = "manifest" + str(view)
+                    view = view + 1
+                    del d['text_passage']
+                    #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
+                    d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
+                    d["title"] = formulae["title"]
+                else:
+                    d["IIIFviewer"] = "manifest:" + m.group(0) in self.app.picture_file
+                    if 'previous_search' in session:
+                        result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
+                        if result_sents:
+                            d['text_passage'] = self.highlight_found_sents(d['text_passage'],
+                                                                           self.convert_result_sents(result_sents))
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))

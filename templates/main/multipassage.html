@@ -1,27 +1,36 @@
 {% extends "main::text_container.html" %}
-
+{% if objects %}
+    {% set prev_texts = objects|join('+', attribute='objectId') %}
+    {% set prev_reffs = objects|join('+', attribute='subreference') %}
+{% else %}
+    {% set prev_texts = objectId %}
+    {% set prev_reffs = subreference %}
+{% endif %}
 {% macro header_passage(object) %}
 <header>
     <div class="panel-footer text-center">
-           <h3 class="entry-title text-center">{{object.collections.current.label}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
+
+            {% if 'manifest' in object.objectId %}
+            <h3 class="entry-title text-center">{{object.title}}</h3>
+            <a class="entry-title text-center" href="{{url_for('viewer.fullscreenviewer', objectId=object.objectId, view='0', embedded=True)}}" target="_blank" onclick="hide()"class="pull-right">{{ _('Open in new tab')}}</a>
+            {% else %}
+           <h3 class="entry-title text-center">{{object.collections.current.title}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-info-circle"></i></a></h3>
+            {% endif %}
+
             {% if object.IIIFviewer == true %}
                 <div class="dropdown">
                     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ _('Viewer') }}
                     </button>
                     <div class="dropdown-menu version-dropdown">
-                        <a class="dropdown-item pull-right" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0')}} " target="_blank">{{ _('Open in full screen') }}</a>
-                        <a class="dropdown-item pull-right" href="{{url_for('viewer.addviewer', objectId=object.objectId, view='0', embedded=True)}}" onclick="hide()" target="_blank">{{ _('Next to text')}}</a>
+                        <a class="dropdown-item" href="{{url_for('viewer.fullscreenviewer', objectId=object.objectId, view='0', embedded=True)}}" target="_blank" onclick="hide()"class="pull-right">{{ _('Open in new tab')}}</a>
+                        <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts,'manifest:'+object.objectId]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}" target="_blank">{{ _('Open viewer formulae') }}</a>
                     </div>
                 </div>
             {% endif %}
     </div>
-
-
     <span class="text-center">{{ version_menu(object.objectId, object.isReferencedBy) }}</span>
-
-
-    {% if 'elexicon' not in object.objectId %}
+    {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}
         {% if object.open_regest or current_user.project_team %}
         {% include "main::regest_collapse.html" %}
         {% else %}
@@ -32,17 +41,7 @@
 
 </header>
 {% endmacro %}
-
-
 {% macro version_menu(objId, inRefs) %}
-
-{% if objects %}
-    {% set prev_texts = objects|join('+', attribute='objectId') %}
-    {% set prev_reffs = objects|join('+', attribute='subreference') %}
-{% else %}
-    {% set prev_texts = objectId %}
-    {% set prev_reffs = subreference %}
-{% endif %}
 <div class="dropdown">
     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ _('Weitere Texte anzeigen') }}
@@ -52,6 +51,7 @@
             <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
             {% for t in translation[objId] %}
             <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, t.id]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ t.get_label()|string + ' (' + t.lang + ')' }}</span></a>
+
             {% endfor %}
             <div class="dropdown-divider"></div>
         {% endif %}
@@ -114,7 +114,7 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if current_user.project_team == False and 'andecavensis' in text.objectId %}
+            {% if current_user.project_team == False and 'andecavensis' in text.objectId  %}
                 {% if loop.last %}
                 <section class="col-sm no-copy">
                 {% else %}
@@ -130,11 +130,19 @@
                 {% if objects|length > 1 %}
                 <a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}">{{ _('Diesen Text ausblenden') }}</a>
                 {% endif %}
+                {% if  text.text_passage %}
                     {{ header_passage(text) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>
                         {{ text.text_passage }}
                     <footer>{% include "main::passage_footer.html" %}</footer>
                 </section>
+                 {% else %}
+                    {{ header_passage(text) }}
+                    {% with manifest = text.manifest, div_v = text.div_v %}
+                    {% include "viewer::embededmirador.html" %}
+                    {% endwith %}
+                </section>
+                {% endif %}
             {% endfor %}
             </div>
         </article>
@@ -178,4 +186,5 @@
      var comOpenButton="{{ _('Alle Kommentaranmerkungen für diesen Text einblenden') }}";
 </script>
 <script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
+<script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>
 {% endblock %}

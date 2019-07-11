@@ -252,21 +252,17 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
-            self.assertTemplateUsed('viewer::miradorviewer.html')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003?embedded=True', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005.lat001?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
-            c.get('/viewer/abz/urn:cts:formulae:andecavensis.form002.lat001/1')
-            self.assertTemplateUsed('viewer::multiviewer3.html')
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            r = c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -592,8 +588,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
@@ -609,8 +603,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form005?embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::multiviewermirador.html')
             self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
@@ -1681,7 +1673,7 @@ class TestErrors(Formulae_Testing):
             self.assertIn(expected, response.get_data(as_text=True))
 
 
-class Formulae_Testing_error_mapping(flask_testing.TestCase):
+class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
@@ -1704,22 +1696,41 @@ class Formulae_Testing_error_mapping(flask_testing.TestCase):
             abort(500)
         return app
 
+class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
-    def setUp(self):
-        db.create_all()
-        u = User(username="project.member", email="project.member@uni-hamburg.de", project_team=True)
-        u.set_password('some_password')
-        db.session.add(u)
-        u = User(username="not.project", email="not.project@uni-hamburg.de", project_team=False)
-        u.set_password('some_other_password')
-        db.session.add(u)
-        db.session.commit()
+class Formulae_Testing_without_mapping(Formulae_Testing):
+    def create_app(self):
+        TestConfig.IIIF_MAPPING=""
+        app = create_app(TestConfig)
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                 templates={"main": "templates/main",
+                                            "errors": "templates/errors",
+                                            "auth": "templates/auth",
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
 
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
+        app.config['nemo_app'] = self.nemo
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
+        return app
 
-class TestNemoSetup_withoutviewer(Formulae_Testing_error_mapping):
+
+class TestNemoSetup_withoutviewer(Formulae_Testing_without_mapping):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
         if os.environ.get('TRAVIS'):
