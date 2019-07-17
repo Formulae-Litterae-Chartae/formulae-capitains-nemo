@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token, suggest_word_search, highlight_segment
+    set_session_token, suggest_word_search
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -22,7 +22,7 @@ from json import dumps
 import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
-from json import load
+
 
 class TestConfig(Config):
     TESTING = True
@@ -33,6 +33,7 @@ class TestConfig(Config):
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
+
 
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
@@ -47,7 +48,7 @@ class Formulae_Testing(flask_testing.TestCase):
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
                                             "search": "templates/search",
-                                            "viewer":"templates/viewer"},
+                                            "viewer": "templates/viewer"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
                                  pdf_folder="pdf_folder/")
 
@@ -58,7 +59,6 @@ class Formulae_Testing(flask_testing.TestCase):
             abort(500)
 
         return app
-
 
     def setUp(self):
         db.create_all()
@@ -74,6 +74,7 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.remove()
         db.drop_all()
 
+
 class TestNemoSetup(Formulae_Testing):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
@@ -83,6 +84,7 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+
 
 class TestIndividualRoutes(Formulae_Testing):
     def test_anonymous_user(self):
@@ -162,7 +164,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
-            c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('.r_bibliography')})
+            c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
             self.assertTemplateUsed('main::bibliography.html')
             self.assertEqual(session['locale'], 'en')
             response = c.get('/lang/en', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
@@ -235,7 +237,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
+            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Edition\].+\[Deutsche Übersetzung\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)

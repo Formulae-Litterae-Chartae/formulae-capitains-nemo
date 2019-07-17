@@ -15,7 +15,7 @@ import re
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
-from json import load
+from json import load as json_load
 
 
 class NemoFormulae(Nemo):
@@ -98,6 +98,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
+        self.app.jinja_env.filters["insert_in_list"] = self.f_insert_in_list
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -198,6 +199,17 @@ class NemoFormulae(Nemo):
         :return: new list
         """
         l[i] = v
+        return l
+
+    def f_insert_in_list(self, l, i, v):
+        """
+
+        :param l: the list of values
+        :param i: the index at which the item should be inserted
+        :param v: the value that will be inserted
+        :return: new list
+        """
+        l.insert(i, v)
         return l
 
     def r_set_language(self, code):
@@ -536,7 +548,6 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        #ids contient tous les differents objectId
         ids = objectIds.split('+')
         translations = {}
         view = 1
@@ -549,7 +560,6 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
-            m = re.match(r'.*(?=\.)', id)
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -560,17 +570,25 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                if v :
-                    formulae = self.app.picture_file[m.group(0)]
+                if v:
+                    formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
                     del d['text_passage']
-                    #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
+                    # this viewer work when the library or archive give an IIIF API for the external usage of theirs books
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
-                    d["title"] = formulae["title"]
+                    with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
+                        this_manifest = json_load(f)
+                    d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
+                    d["title"] = formulae["title"] + ' {}{}'.format(this_manifest['sequences'][0]['canvases'][0]['label'],
+                                                                    ' - ' +
+                                                                    this_manifest['sequences'][0]['canvases'][-1]['label']
+                                                                    if
+                                                                    len(this_manifest['sequences'][0]['canvases']) > 1
+                                                                    else '')
                 else:
-                    d["IIIFviewer"] = "manifest:" + m.group(0) in self.app.picture_file
+                    d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
                         if result_sents:
