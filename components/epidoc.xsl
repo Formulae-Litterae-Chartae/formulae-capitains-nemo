@@ -372,19 +372,18 @@
     
     <xsl:template match="t:seg" mode="noteSegs">
         <xsl:choose>
-            <xsl:when test="./@rend='italic'">
-                <span class="font-italic"><xsl:apply-templates/></span>
-            </xsl:when>
-            <xsl:when test="./@type='italic'">
-                <span class="font-italic"><xsl:apply-templates/></span>
-            </xsl:when>
             <xsl:when test="./@type='book_title'">
                 <xsl:element name="bibl">
                     <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:when>
-            <xsl:otherwise><xsl:apply-templates></xsl:apply-templates></xsl:otherwise>
+            <xsl:otherwise>
+                <xsl:element name="span">
+                    <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
@@ -396,8 +395,11 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="t:seg[@type='italic']">
-        <span class="font-italic"><xsl:apply-templates/></span>
+    <xsl:template match="t:seg">
+        <xsl:element name="span">
+            <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='lex-title']">

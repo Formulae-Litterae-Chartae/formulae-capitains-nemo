@@ -538,7 +538,7 @@ img[id$="-flag-navbar"] {
     text-decoration: underline;
 }
 
-.latin-word {
+.latin-word,.italic {
   font-style: italic;
 }
 

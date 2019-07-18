@@ -33,11 +33,9 @@
                 </div>
             </div>
         {% endif %}
-        {% if 'manifest' not in object.objectId %}
             <div class="col col-auto">
-                {{ version_menu(object.objectId, object.isReferencedBy) }}
+                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy) }}
             </div>
-        {% endif %}
         </div>
     </div>
     {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}

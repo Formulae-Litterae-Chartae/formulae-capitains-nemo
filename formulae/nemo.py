@@ -586,7 +586,7 @@ class NemoFormulae(Nemo):
                                                                     this_manifest['sequences'][0]['canvases'][-1]['label']
                                                                     if
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
-                                                                    else '')
+                                                                    else '') + ' (' + d['collections']['current']['title'] + ')'
                 else:
                     d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file
                     if 'previous_search' in session:
