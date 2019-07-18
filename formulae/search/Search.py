@@ -126,6 +126,8 @@ def suggest_word_search(term, **kwargs):
 
     :return: sorted set of results
     """
+    if '*' in term or '?' in term:
+        return None
     results = []
     kwargs['fragment_size'] = 1000
     posts, total, aggs = advanced_query_index(q=term, per_page=1000, **kwargs)

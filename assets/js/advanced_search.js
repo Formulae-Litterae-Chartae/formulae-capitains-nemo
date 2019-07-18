@@ -31,7 +31,7 @@ wordSearchInput.onkeyup = function(e) {
         // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
         // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
         var word = wordSearchInput.value;
-        if(word !== ''){
+        if(word !== '' && !(word.match(/[\*\?]/))){
             previous = word;
             var request = new XMLHttpRequest();
             request.onreadystatechange = function(response) {
