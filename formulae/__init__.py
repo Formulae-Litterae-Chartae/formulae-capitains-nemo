@@ -57,16 +57,6 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     babel.init_app(app)
     sess.init_app(app)
-    from .auth import bp as auth_bp
-    app.register_blueprint(auth_bp, url_prefix="/auth")
-    from .search import bp as search_bp
-    app.register_blueprint(search_bp, url_prefix="/search")
-    if app.IIIFviewer is False:
-        print(_l('Der Viewer konnte nicht gestarted werden.'))
-    else:
-        from .viewer import bp as viewer_bp
-        viewer_bp.static_folder = app.config['IIIF_MAPPING']
-        app.register_blueprint(viewer_bp, url_prefix="/viewer")
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):
@@ -77,6 +67,17 @@ def create_app(config_class=Config):
         app.logger.addHandler(file_handler)
         app.logger.setLevel(logging.INFO)
         app.logger.info('Formulae-Nemo startup')
+
+    from .auth import bp as auth_bp
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+    from .search import bp as search_bp
+    app.register_blueprint(search_bp, url_prefix="/search")
+    if app.IIIFviewer is False:
+        app.logger.warning(_l('Der Viewer konnte nicht gestartet werden.'))
+    else:
+        from .viewer import bp as viewer_bp
+        viewer_bp.static_folder = app.config['IIIF_MAPPING']
+        app.register_blueprint(viewer_bp, url_prefix="/viewer")
 
     return app
 

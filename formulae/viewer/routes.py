@@ -1,11 +1,10 @@
-from flask import flash, url_for, request, redirect, current_app
+from flask import flash, url_for, current_app
 from formulae.viewer import bp
 from flask_babel import _
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
 from MyCapytain.errors import UnknownCollection
 from flask_babel import lazy_gettext as _l
 import re
-
 
 
 @bp.route("/<objectId>", methods=["GET"])
@@ -20,7 +19,7 @@ def fullscreenviewer(objectId):
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html'}
-        formulae = current_app.picture_file['manifest:' + re.match(r'.*(?=\.)', objectId).group(0)]
+        formulae = current_app.picture_file['manifest:' + current_app.config['nemo_app'].resolver.getMetadata(objectId).parent.id]
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         manifest = url_for('viewer.static', filename=formulae["manifest"])
         return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest,
