@@ -1577,6 +1577,15 @@ class TestES(Formulae_Testing):
         test_args.pop('q')
         results = suggest_word_search('ill', **test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
+        # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
+        results = suggest_word_search('*', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('?', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('ill*', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('ill?', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
 
     def test_results_sort_option(self):
         self.assertEqual(build_sort_list('urn'), 'urn')
