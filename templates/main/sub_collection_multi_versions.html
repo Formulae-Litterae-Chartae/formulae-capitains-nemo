@@ -1,4 +1,4 @@
-{% extends "main::container.html" %}
+{% extends "main::container_multi.html" %}
 
 {% macro make_dates(values) %}
 
@@ -12,7 +12,7 @@
 {% if not prev_texts %}
 {% set prev_texts = '' %}
 {% set prev_reffs = '' %}
-{% set coll_route = 'InstanceNemo.r_collection' %}
+{% set coll_route = 'InstanceNemo.r_collection_multi' %}
 {% else %}
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
@@ -29,11 +29,15 @@
 {% endfor %}
 <div class="row">
     <div class="{{ 'col-6' if collections.current.open_regesten or current_user.project_team else 'col-3' }}">
-        <ul class="list-group list-group-flush">
         {% for number, values in collections.readable|dictsort %}
+        <ul class="list-group list-group-flush">
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="d-flex w-100 justify-content-between">
                     <h5>{% if values['name'] != _('(Titel)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
+                    {% for coll in collections %}
+                    Version:
+                    {% endfor %}
+
                     <p>{{ _("Lesen: ") }}{% if 'andecavensis' in collections.current.id %}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{% if 'deu' in urn %}{{ _('Deutsche Übersetzung') }}{% elif 'lat' in urn %}{{ _('Edition') }}{% else %}{{ _('Transkription') }}{% endif %}]</a>{% endfor %}{% else %}{% for urn, lang in values['versions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>{% endfor %}{% endif %}</p>
                 </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
@@ -48,8 +52,8 @@
                 <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% endif %}
             </li>
-        {% endfor %}
         </ul>
+        {% endfor %}
     </div>
 {% endif %}
 </div>
