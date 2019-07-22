@@ -17,10 +17,10 @@
             $('#sidebar_r').toggleClass('active');
             var el_r = document.getElementById('sidebarCollapse_l');
 
-            if ($('#sidebar_r').active){
-                el_r.firstChild.data = "<";
-            }else{
+            if (el_r.firstChild.data = "<"){
                 el_r.firstChild.data = ">";
+            }else{
+                el_r.firstChild.data = "<";
             }
         });
     });

@@ -4,73 +4,7 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 <script type="text/javascript" src="{{url_for('InstanceNemo.static', filename='js/text_container.js')}}"></script>
-
-<style type="text/css">
-    @media only screen and (max-width: 600px) {
-
-        #sidebar_l {
-            margin-left: 0%;
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        #sidebar_r {
-            padding-right: 15px;
-            padding-left: 15px;
-            max-width: 16.666667%;
-            margin-left: auto;
-            visibility: visible;
-        }
-
-    }
-
-    @media only screen and (min-width: 600px) {
-        #sidebar_l {
-            margin-left: 0%;
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-
-        #sidebar_l.active {
-            padding-right: 0px;
-            padding-left: 0px;
-            margin-left: -16.666667%;
-        }
-
-        #sidebar_r {
-            padding-right: 15px;
-            padding-left: 15px;
-           max-width: 16.666667%;
-            margin-left: auto;
-            visibility: visible;
-        }
-
-        #sidebar_r.active {
-            padding-right: 0px;
-            padding-left: 0px;
-            max-width: 0;
-            visibility: hidden;
-        }
-    }
-    #sidebarCollapse_r {
-        float: right;
-        height: 30px;
-        width: 30px;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 50%;
-    }
-    #sidebarCollapse_l {
-        float: left;
-        height: 30px;
-        width: 30px;
-        position: -webkit-sticky;
-        position: sticky;
-        top: 50%;
-    }
-</style>
-
-
+<link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/text_container.css')}}">
 
 {% if objects %}
     {% set prev_texts = objects|join('+', attribute='objectId') %}
@@ -108,12 +42,7 @@
     </div>
 </div>
 
-
-
 {% endblock %}
 
 {% block metadata %}
 {% endblock %}
-
-
-
