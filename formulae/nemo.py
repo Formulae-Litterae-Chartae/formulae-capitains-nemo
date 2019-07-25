@@ -24,7 +24,7 @@ class NemoFormulae(Nemo):
         ("/", "r_index", ["GET"]),
         ("/collections", "r_collections", ["GET"]),
         ("/collections/<objectId>", "r_collection", ["GET"]),
-        ("/corpus_m/<objectId>", "r_corpus_m", ["GET"]),
+        ("/corpus_m/<objectId>", "r_corpus_mv", ["GET"]),
         ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
@@ -38,7 +38,7 @@ class NemoFormulae(Nemo):
         ("/contact", "r_contact", ["GET"])
     ]
     SEMANTIC_ROUTES = [
-        "r_collection", "r_references", "r_multipassage"
+        "r_collection", "r_collection_mv", "r_references", "r_multipassage"
     ]
 
     FILTERS = [
@@ -392,7 +392,7 @@ class NemoFormulae(Nemo):
             }
         }
 
-    def r_corpus_m(self, objectId, lang=None):
+    def r_corpus_mv(self, objectId, lang=None):
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
@@ -409,7 +409,7 @@ class NemoFormulae(Nemo):
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
         else:
-            template = "main::sub_collection_m.html"
+            template = "main::sub_collection_mv.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
             if self.check_project_team() is True or m.id in self.open_texts:
                 if "salzburg" in m.id:
