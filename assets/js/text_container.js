@@ -1,5 +1,3 @@
-    var collapse_r = false
-
     $(document).ready(function () {
         $('#sidebarCollapse_l').on('click', function () {
             $('#sidebar_l').toggleClass('active');
