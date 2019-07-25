@@ -20,6 +20,8 @@
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
 
 <style>
 
@@ -51,9 +53,9 @@
 </div>
 {% if collections.readable %}
 <div class="row_mv">
-    <div id="list_of_elements" >
+    <div >
 
-        <ul class="list-group list-group-flush" style="flex-direction: row;">
+        <ul id="list_of_elements" class="list-group list-group-flush" style="flex-direction: row;">
             {% for number, values in collections.readable|dictsort %}
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="d-flex w-100 justify-content-between">
@@ -91,9 +93,9 @@
 
 
 <script>
-    console.log(document.getElementById("list_of_elements"));
-    document.getElementsByClassName("list-group-item flex-column")[0].style.max-height = 100-document.getElementsByClassName("list-group-item flex-column")[0].offsetTop + "%";
-
+    console.log($('#list_of_elements').css("max-height"));
+    $('#list_of_elements').css("max-height") = 100-$('#list_of_elements').css("offsetTop") + "%";
+    console.log($('#list_of_elements').css("max-height"));
 </script>
 
 {% endblock %}
