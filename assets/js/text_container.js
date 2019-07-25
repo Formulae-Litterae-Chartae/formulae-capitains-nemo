@@ -13,7 +13,7 @@
     $(document).ready(function () {
         $('#sidebarCollapse_r').on('click', function () {
             $('#sidebar_r').toggleClass('active');
-            var el_r = document.getElementById('sidebarCollapse_l');
+            var el_r = document.getElementById('sidebarCollapse_r');
 
             if (el_r.firstChild.data = "<"){
                 el_r.firstChild.data = ">";
