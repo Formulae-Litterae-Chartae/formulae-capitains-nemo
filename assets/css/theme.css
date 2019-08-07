@@ -565,3 +565,8 @@ div.transcription p {
 .line-through {
     text-decoration: line-through;
 }
+
+.manuscript-number {
+    vertical-align: sub;
+    font-size: smaller;
+}
