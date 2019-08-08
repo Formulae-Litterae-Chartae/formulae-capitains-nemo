@@ -25,17 +25,35 @@
 
 <style>
 
-    html {
+    .row_mv {
         width: 100%;
-        height: 100%;
-        clip: auto;
-        position: absolute;
-        overflow: hidden;
-
+        overflow: scroll;
+    }.row{
+        padding-left: 50px;
+        padding-right: 50px;
+        display: flex;
+    }.scrollContent{
+    }.title{
+        position: sticky;
+        top: 0;
+        background-color: #263d3d;
+        color: #ffffff;
+        text-align: center
+    }.line{
+	    border-bottom: 1px solid black;
+	    padding-top: 10px;
     }.list-group-item.flex-column{
+        {% if collections.readable|length != 0 %}
+            width: {{100/collections.readable|length}}%;
+        {% else %}
+            width: 100%;
+        {% endif %}
+        min-width: 20%;
+        height: 10px;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
         overflow: scroll;
         float: Left;
-        width: {{100/collections.readable|length}}%;
         scrollbar-width: none; /* to hide The Scrollbar for FireFox
 
     }::-webkit-scrollbar {
@@ -53,49 +71,58 @@
 </div>
 {% if collections.readable %}
 <div class="row_mv">
-    <div >
 
         <ul id="list_of_elements" class="list-group list-group-flush" style="flex-direction: row;">
             {% for number, values in collections.readable|dictsort %}
+
             <li id="N{{number}}" class="list-group-item flex-column">
-                <div class="d-flex w-100 justify-content-between">
+                <div class="title">
                     <h5>{% if values['name'] != _('(Titel)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
-                    <p>{{ _("Lesen: ") }}{% if 'andecavensis' in collections.current.id %}{% for urn, lang in values['versions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{% if 'deu' in urn %}{{ _('Deutsche Übersetzung') }}{% elif 'lat' in urn %}{{ _('Edition') }}{% else %}{{ _('Transkription') }}{% endif %}]</a>{% endfor %}{% else %}{% for urn, lang in values['versions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>{% endfor %}{% endif %}</p>
                 </div>
+                <div class="scrollContent">
+                    {% for urn, lang in values['versions'] %}
+                <div class="frame">
+                    <div class="d-flex w-100 justify-content-between">
+
+                    <p>{{ _("Lesen: ") }}
+                        {% if 'andecavensis' in collections.current.id %}
+                        <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
+                            {% if 'deu' in urn %}{{ _('Deutsche Übersetzung') }}
+                            {% elif 'lat' in urn %}{{ _('Edition') }}
+                            {% else %}{{ _('Transkription') }}
+                            {% endif %}
+                        </a>
+                        {% else %}
+                        <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
+                            {{_('Version') + ' ' + loop.index|string}}
+                        </a>
+                        {% endif %}
+                        </p>
+                    </div>
                 {% if current_user.project_team or collections.current.open_regesten %}
                 {% if values['short_regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
                 {{ make_dates(values) }}
                 {% for p in values['regest'] %}
                 <p><small>{{ p }}</small></p>
                 {% endfor %}
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% else %}
                 {{ make_dates(values) }}
-                <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                 {% endif %}
+                {% if not loop.last %}
+                    <div class="line"></div>
+                {% endif %}
+                </div>
+                {% endfor %}
+            </div>
             </li>
             {% endfor %}
-
         </ul>
-    </div>
 {% endif %}
 </div>
 
 
 <script>
-    console.log($('#list_of_elements').css("max-height"));
-    $('#list_of_elements').css("max-height") = 100-$('#list_of_elements').css("offsetTop") + "%";
-    console.log($('#list_of_elements').css("max-height"));
+    $('.list-group-item.flex-column').css("height", $(document).height()-$('#mainNavbar').height()-$(document).height()/10 + "px");
 </script>
 
 {% endblock %}

@@ -68,7 +68,7 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
+    OPEN_COLLECTIONS = ['urn:cts:formulae:markulf', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
@@ -333,6 +333,8 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
+        elif 'markulf' in objectId:
+            template = "main::sub_collection_mv.html"
         else:
             template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
@@ -408,6 +410,8 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
+        elif 'markulf' in objectId:
+            template = "main::sub_collection_mv.html"
         else:
             template = "main::sub_collection_mv.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
