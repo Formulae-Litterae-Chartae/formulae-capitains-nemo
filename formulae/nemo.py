@@ -532,7 +532,9 @@ class NemoFormulae(Nemo):
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
                     'lang': collection.lang,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
-                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in collection.id else ''
+                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in collection.id else '',
+                    "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
+                    "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or '')
                 },
                 "parents": self.make_parents(collection, lang=lang)
             },

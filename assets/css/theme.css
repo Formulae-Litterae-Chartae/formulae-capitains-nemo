@@ -570,3 +570,7 @@ div.transcription p {
     vertical-align: sub;
     font-size: smaller;
 }
+
+.regest_collapse_heading {
+    font-weight: bold;
+}
