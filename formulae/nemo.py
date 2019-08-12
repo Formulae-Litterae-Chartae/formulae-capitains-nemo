@@ -597,12 +597,16 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
-                    if 'rendering' in this_manifest['sequences'][0]['canvases'][0]:
-                        # This works for resource from https://fuldig.hs-fulda.de/
+                    if 'fuldig.hs-fulda.de' in this_manifest['@id']:
+                        # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
-                    else:
+                    elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
+                    elif 'api.digitale-sammlungen.de' in this_manifest['@id']:
+                        # This works for resources from the Bayerische Staatsbibliothek
+                        # (and perhaps other German digital libraries?)
+                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['@id'] + '/view'
                     d["title"] = formulae["title"] + ' {}{}'.format(this_manifest['sequences'][0]['canvases'][0]['label'],
                                                                     ' - ' +
                                                                     this_manifest['sequences'][0]['canvases'][-1]['label']
