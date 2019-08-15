@@ -569,7 +569,10 @@ class NemoFormulae(Nemo):
             if "manifest" in i:
                 i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [m for m in p.readableDescendants if m.id not in ids]
+            translations[i] = [m for m in p.readableDescendants if m.id not in ids] + \
+                              [self.resolver.getMetadata(str(x)) for x in
+                               self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
+                               if str(x) not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
@@ -599,6 +602,7 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
+                        print(self.app.config['IIIF_SERVER'])
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']

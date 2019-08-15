@@ -1429,12 +1429,21 @@ class TestES(Formulae_Testing):
                                                           "Freising": {
                                                               "doc_count": 0
                                                           },
+                                                          "Fulda (Dronke)": {
+                                                              "doc_count": 0
+                                                          },
+                                                          "Fulda (Stengel)": {
+                                                              "doc_count": 0
+                                                          },
                                                           "Hersfeld": {
                                                               "doc_count": 0
                                                           },
                                                         "Luzern": {
                                                           "doc_count": 0
                                                         },
+                                                          "Markulf": {
+                                                              "doc_count": 0
+                                                          },
                                                         "Mondsee": {
                                                           "doc_count": 0
                                                         },
@@ -1491,14 +1500,17 @@ class TestES(Formulae_Testing):
                          'corpus':
                              {'filters':
                                   {'filters':
-                                       {'Rätien': {'match': {'_type': 'raetien'}},
-                                        'Angers': {'match': {'_type': 'andecavensis'}},
+                                       {'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
                                         'Freising': {'match': {'_type': 'freising'}},
+                                        'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                        'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
+                                        'Markulf': {'match': {'_type': 'markulf'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
+                                        'Rätien': {'match': {'_type': 'raetien'}},
                                         'Regensburg': {'match': {'_type': 'regensburg'}},
                                         'Rheinisch': {'match': {'_type': 'rheinisch'}},
                                         'Salzburg': {'match': {'_type': 'salzburg'}},
@@ -1547,7 +1559,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', '<Rom>', '<Worms>', 'Düren', 'Freising', 'Isen']
+        expected = [' ', 'Freising', 'Isen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')

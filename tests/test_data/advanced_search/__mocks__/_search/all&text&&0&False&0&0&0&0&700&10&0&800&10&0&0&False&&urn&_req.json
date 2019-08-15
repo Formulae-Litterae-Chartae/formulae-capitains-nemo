@@ -3,35 +3,108 @@
     "bool": {
       "must": [
         {
-          "span_near": {
-            "clauses": [
+          "bool": {
+            "should": [
               {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "vir",
-                        "fuzziness": "0"
-                      }
+                "range": {
+                  "dating": {
+                    "gte": "0700-10",
+                    "lte": "0800-10"
+                  }
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
+                    "match": {
+                      "specific_date.year": "0001"
                     }
                   }
                 }
               },
               {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "venerabilis",
-                        "fuzziness": "0"
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 700,
+                              "lte": 700
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 10
+                            }
+                          }
+                        }
                       }
                     }
-                  }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 800,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "lte": 10
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 701,
+                              "lte": 799
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
               }
-            ],
-            "slop": "0",
-            "in_order": false
+            ]
           }
         }
       ]

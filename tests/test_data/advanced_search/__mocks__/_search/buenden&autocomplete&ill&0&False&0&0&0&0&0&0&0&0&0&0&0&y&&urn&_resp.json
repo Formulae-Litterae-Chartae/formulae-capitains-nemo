@@ -1,5 +1,5 @@
 {
-  "took": 14,
+  "took": 17,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Eine Bestallungsformel f\u00fcr den Dukat beider R\u00e4tien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem r\u00f6mischen Volk den Frieden zu wahren.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0400",
@@ -50,7 +51,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -66,6 +67,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Graf Wido von Lomello schenkt dem Kloster Disentis G\u00fcter und Rechte.",
           "orig_comp_ort": "Disentis",
+          "forgery": false,
           "dating": [
             {
               "gte": "0751",
@@ -88,7 +90,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -104,6 +106,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Tello von Chur schenkt dem Kloster Disentis auf Ableben seine G\u00fcter in der Gruob und zu Domat/Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz.",
           "orig_comp_ort": "Chur",
+          "forgery": false,
           "specific_date": [
             {
               "year": 765,
@@ -132,7 +135,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -148,6 +151,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin dankt Bischof Remedius von Chur f\u00fcr seine Geschenke und ermahnt ihn.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0792",
@@ -170,7 +174,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -186,6 +190,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -462,15 +467,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
+            "Lent",
+            "Thursday",
             "Saturday",
-            "Friday"
+            "Monday",
+            "Sunday",
+            "Friday",
+            "Wednesday",
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -483,7 +488,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -499,6 +504,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0801",
@@ -521,7 +527,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -537,6 +543,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin dankt Bischof Remedius f\u00fcr seine Briefe und sein Gebet und ermahnt ihn.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0801",
@@ -559,7 +566,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -575,6 +582,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius \u00fcber ein strittiges Grundst\u00fcck.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0791",
@@ -597,7 +605,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
         "_score": null,
@@ -613,6 +621,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Vor Hunfrid, Graf von R\u00e4tien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundst\u00fcck zur\u00fcck.",
           "orig_comp_ort": "Rankweil",
+          "forgery": false,
           "specific_date": [
             {
               "year": 807,
@@ -639,7 +648,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0046.lat001",
         "_score": null,
@@ -655,6 +664,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Viktor III. von Chur richtet an Kaiser Ludwig den Frommen (in Frankfurt) eine neue Eingabe, beklagt darin den Verfall seiner Di\u00f6zese durch die sofort nach der von Karl dem Gro\u00dfen durchgef\u00fchrten Trennung von Grafschaft und Bistum Chur von Graf Roderich und seinen Genossen Herloin vorgenommenen Obergriffe und bittet um Schutz und Untersuchung der F\u00e4lle durch einen Missus",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 823,
@@ -678,7 +688,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0047.lat001",
         "_score": null,
@@ -694,6 +704,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Viktor III. von Chur erinnert Kaiser Ludwig den Frommen durch eine (von Vikar Verendar nach Aachen \u00fcberbrachte) Eingabe an die beschlossene, jedoch noch nicht durchgef\u00fchrte Untersuchung seiner Klagen.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 823
@@ -714,7 +725,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0049.lat001",
         "_score": null,
@@ -730,6 +741,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Viktor III. von Chur \u00fcberreicht pers\u00f6nlich Kaiser Ludwig dem Frommen zu Corbeny eine Eingabe, worin er diesen an seine fr\u00fcheren Briefe und an die in Frankfurt beschlossene, jedoch noch nicht durchgef\u00fchrte Untersuchung seiner Klagen erinnert.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0824",
@@ -753,7 +765,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
         "_score": null,
@@ -769,6 +781,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Die Kl\u00f6ster St. Gallen und Reichenau schlie\u00dfen im Jahre 800 eine Gebetsbr\u00fcderschaft, 846 werden Bobbio, Disentis und Schienen, 865 Kempten aufgenommen.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 800
@@ -797,7 +810,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -813,6 +826,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Himiltrud \u00fcbertr\u00e4gt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des R\u00fcckkaufes.",
           "orig_comp_ort": "R\u00f6tis",
+          "forgery": false,
           "dating": [
             {
               "gte": "0890-05-20",
@@ -836,7 +850,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -852,6 +866,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten G\u00fcter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubeh\u00f6r gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
           "orig_comp_ort": "Ingelheim",
+          "forgery": false,
           "specific_date": [
             {
               "year": 904,
@@ -877,7 +892,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
         "_score": null,
@@ -893,6 +908,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Salomon, Bischof von Konstanz und Abt von St. Gallen, \u00fcbertr\u00e4gt die Abtei Pf\u00e4fers dem Kloster St. Gallen unter dem Vorbehalt lebensl\u00e4nglicher Nutznie\u00dfung der Abteien und des St. Galler Hofes Bussnang f\u00fcr sich und seinen Neffen Waldo.",
           "orig_comp_ort": "St. Gallen",
+          "forgery": false,
           "specific_date": [
             {
               "year": 909,
@@ -920,7 +936,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
         "_score": null,
@@ -936,6 +952,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Das \u00f6ffentliche Gericht zu Rankweil weist die von den M\u00f6nchen des Klosters St. Gallen auf Herausgabe der Abtei Pf\u00e4fers gegen Bischof Waldo von Chur gef\u00fchrte Klage zur\u00fcck.",
           "orig_comp_ort": "Rankweil",
+          "forgery": false,
           "specific_date": [
             {
               "year": 920,
@@ -948,8 +965,8 @@
           ],
           "min_date": "0920-03-08",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -976,10 +993,19 @@
         "Freising": {
           "doc_count": 0
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
           "doc_count": 0
         },
         "Mondsee": {

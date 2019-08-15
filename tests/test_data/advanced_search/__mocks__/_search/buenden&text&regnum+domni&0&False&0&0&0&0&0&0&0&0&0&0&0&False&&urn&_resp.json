@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -304,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
+            "Lent",
+            "Thursday",
             "Saturday",
-            "Friday"
+            "Monday",
+            "Sunday",
+            "Friday",
+            "Wednesday",
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -325,7 +326,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -341,6 +342,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -545,15 +547,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
+            "Lent",
+            "Thursday",
             "Saturday",
-            "Friday"
+            "Monday",
+            "Sunday",
+            "Friday",
+            "Wednesday",
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -579,10 +581,19 @@
         "Freising": {
           "doc_count": 0
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
           "doc_count": 0
         },
         "Mondsee": {
