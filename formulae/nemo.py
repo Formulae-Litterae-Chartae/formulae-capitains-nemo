@@ -333,8 +333,6 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        elif 'markulf' in objectId:
-            template = "main::sub_collection_mv.html"
         else:
             template = "main::sub_collection.html"
         for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
@@ -406,49 +404,24 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
-        if 'elexicon' in objectId:
-            template = "main::elex_collection.html"
-        elif 'salzburg' in objectId:
-            template = "main::salzburg_collection.html"
-        elif 'markulf' in objectId:
-            template = "main::sub_collection_mv.html"
-        else:
-            template = "main::sub_collection_mv.html"
-        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+        transcripts = {str, list}
+        template = "main::sub_collection_mv.html"
+        list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
+        list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)', r'\1', x.parent.id)))
+        for m in list_of_readable_descendants:
             if self.check_project_team() is True or m.id in self.open_texts:
-                if "salzburg" in m.id:
-                    par = m.parent.id.split('-')[1:]
-                    if len(par) == 2:
-                        full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
-                    else:
-                        p = re.match(r'(\D+)(\d+)', par[0])
-                        if p:
-                            full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
-                        else:
-                            full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
-                    par = '-'.join(par)
-                    if 'n' in par:
-                        par = 'z' + par
-                    par = (par, full_par)
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-                elif "elexicon" in m.id:
-                    par = m.parent.id.split('.')[-1][0].capitalize()
-                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-                else:
-                    par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
-                    if par.lstrip('0') == '':
-                        par = _('(Titel)')
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+
+                par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
+                print(m.parent.id)
+                transcripts[m.metadata.get_single(DC.title)] = transcripts[m.metadata.get_single(DC.title)].append(m.parent.id)
                 if par in r.keys():
                     r[par]["versions"].append(metadata)
                 else:
-                    r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
-                              # short_regest will change to str(m.get_cts_property('short-regest')) and
-                              # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": [str(m.get_description())] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
-                              "dating": str(m.metadata.get_single(DCTERMS.temporal)),
-                              "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                              "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''}
+                    r[par] = {
+                            "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''
+                    }
+                print(list(transcripts))
         for k, v in r.items():
             r[k]['versions'] = sorted(v['versions'], reverse=True)
         if len(r) == 0:
@@ -456,20 +429,22 @@ class NemoFormulae(Nemo):
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        return {
-            "template": template,
-            "collections": {
-                "current": {
-                    "label": str(collection.get_label(lang)),
-                    "id": collection.id,
-                    "model": str(collection.model),
-                    "type": str(collection.type),
-                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
-                },
-                "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
-            }
+        return_value = {
+                "template": template,
+                "collections": {
+                    "current": {
+                        "label": str(collection.get_label(lang)),
+                        "id": collection.id,
+                        "model": str(collection.model),
+                        "type": str(collection.type),
+                        "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                    },
+                    "readable": r,
+                    "parents": self.make_parents(collection, lang=lang)
+                }
         }
+
+        return return_value
 
     def r_add_text_collections(self, objectIds, reffs, lang=None):
         """ Retrieve the top collections of the inventory

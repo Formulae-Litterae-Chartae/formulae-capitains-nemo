@@ -102,9 +102,7 @@
                 {% if current_user.project_team or collections.current.open_regesten %}
                 {% if values['short_regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
                 {{ make_dates(values) }}
-                {% for p in values['regest'] %}
-                <p><small>{{ p }}</small></p>
-                {% endfor %}
+
                 {% else %}
                 {{ make_dates(values) }}
                 {% endif %}
