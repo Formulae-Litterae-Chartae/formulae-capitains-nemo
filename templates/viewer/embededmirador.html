@@ -1,0 +1,30 @@
+
+<div id="{{div_v}}"  style="height: 800px; width: 100%;
+    position: sticky; top:100px">
+
+
+    <!--<script>document.write("<script type='{{url_for('InstanceNemo.static', filename='mirador/dist/mirador.min.js')}}?v=" + Date.now() + "'><\/script>");</script>-->
+
+    <script type="text/javascript">
+     Mirador.viewer({
+       id: '{{div_v}}',
+       selectedTheme:'light',
+       workspaceControlPanel: {
+        enabled: false
+      },
+      window: {
+        allowClose: true, // Configure if windows can be closed or not
+        allowMaximize: true, // Configure if windows can be maximized or not
+        defaultSideBarPanel: 'info', // Configure which sidebar is selected by default. Options: info, rights, canvas, annotations
+        defaultView: 'single',  // Configure which viewing mode (e.g. single, book, gallery) for windows to be opened in
+        hideAnnotationsPanel: false, // Configure to hide the annotations panel in the WindowSideBarButtons
+        sideBarOpenByDefault: false, // Configure if the sidebar (and its content panel) is open by default
+      },
+       windows: [{
+         loadedManifest: '{{manifest}}',
+         thumbnailNavigationPosition: 'off',
+       }]
+     });
+    </script>
+</div>
+

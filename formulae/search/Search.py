@@ -1,5 +1,6 @@
 from flask import current_app, Markup, flash, session
 from flask_babel import _
+from flask_login import current_user
 # This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
@@ -37,7 +38,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                    'Werden': {'match': {'_type': 'werden'}},
                                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
                 'no_date': {'missing': {'field': 'min_date'}}}
-HITS_TO_READER = 200
+HITS_TO_READER = 10000
 
 
 def build_sort_list(sort_str):
@@ -97,7 +98,12 @@ def set_session_token(index, orig_template, field, q):
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     if q:
         session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
-                                       'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in session_search['hits']['hits']]
+                                       'sents': [
+                                           Markup(highlight_segment(x))
+                                           for x in hit['highlight'][field]
+                                           if current_app.config['nemo_app'].check_project_team() is True
+                                              or hit['_id'] in current_app.config['nemo_app'].open_texts
+                                       ]} for hit in session_search['hits']['hits']]
     else:
         session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
                                        'sents': []} for hit in session_search['hits']['hits']]
@@ -120,6 +126,8 @@ def suggest_word_search(term, **kwargs):
 
     :return: sorted set of results
     """
+    if '*' in term or '?' in term:
+        return None
     results = []
     kwargs['fragment_size'] = 1000
     posts, total, aggs = advanced_query_index(q=term, per_page=1000, **kwargs)

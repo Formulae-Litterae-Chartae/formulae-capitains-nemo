@@ -26,7 +26,8 @@ nemo = NemoFormulae(
     templates={"main": "templates/main",
                "errors": "templates/errors",
                "auth": "templates/auth",
-               "search": "templates/search"},
+               "search": "templates/search",
+               "viewer": "templates/viewer"},
     pdf_folder="pdf_folder/"
 )
 

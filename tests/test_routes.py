@@ -31,6 +31,8 @@ class TestConfig(Config):
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
+    IIIF_MAPPING = "tests/test_data/formulae/iiif"
+    IIIF_SERVER = "http://127.0.0.1:5004"
 
 
 class Formulae_Testing(flask_testing.TestCase):
@@ -45,7 +47,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
-                                            "search": "templates/search"},
+                                            "search": "templates/search",
+                                            "viewer": "templates/viewer"},
                                  css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
                                  pdf_folder="pdf_folder/")
 
@@ -110,6 +113,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -158,7 +164,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
-            c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('.r_bibliography')})
+            c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
             self.assertTemplateUsed('main::bibliography.html')
             self.assertEqual(session['locale'], 'en')
             response = c.get('/lang/en', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
@@ -166,9 +172,15 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
 
     def test_authorized_project_member(self):
+
         """ Make sure that all routes are open to project members"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -185,6 +197,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
+            c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/other_collection', follow_redirects=True)
@@ -222,17 +237,34 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Latein\].+\[Deutsch\]')
+            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Edition\].+\[Deutsche Übersetzung\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
+                          r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
-            self.assertMessageFlashed('FORMULA ANDECAVENSIS 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
+            self.assertMessageFlashed('Angers 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('FORMULA ANDECAVENSIS 1', r.get_data(as_text=True))
+            self.assertIn('Angers 1', r.get_data(as_text=True))
+            # Make sure that a text that has no edition will throw an error
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
+            self.assertTemplateUsed("errors::unknown_collection.html")
+            self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            r = c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -298,6 +330,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
+            c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
+            self.assertTemplateUsed('main::index.html')
+
 
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):
@@ -536,11 +572,41 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_cache_max_age_header_set(self):
         """ Make sure that the cache max age header is set correctly with each request"""
         with self.client as c:
-            response = c.get('/assets/nemo/css/theme.min.css')
-            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
-            response = c.get('/')
+            with c.get('/assets/nemo/css/theme.min.css') as response:
+                self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/', follow_redirects=True)
             self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
 
+    def test_rendering_from_texts_without_notes_transformation(self):
+        """ Make sure that the multipassage template is rendered correctly without a transformation of the notes"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for elex.')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
+
+        del self.app.config['nemo_app']._transform['notes']
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for a formula.')
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+                             r.get_data(as_text=True), 'No note card should be rendered for elex.')
+            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
+                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -566,6 +632,16 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(self.nemo.get_locale(), 'fre')
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
+
+    def test_r_passage_return_values(self):
+        """ Make sure the correct values are returned by r_passage"""
+        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
+        self.assertEqual(data['isReferencedBy'][0], 'urn:cts:formulae:andecavensis.form007.lat001',
+                         "texts that aren't in the corpus should return a simple string with the URN identifier")
+        self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
+                                                        "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
+                         "KWIC strings for the inrefs should be correctly split and marked-up")
+
 
 
 class TestForms(Formulae_Testing):
@@ -1501,6 +1577,15 @@ class TestES(Formulae_Testing):
         test_args.pop('q')
         results = suggest_word_search('ill', **test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
+        # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
+        results = suggest_word_search('*', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('?', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('ill*', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        results = suggest_word_search('ill?', **test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
 
     def test_results_sort_option(self):
         self.assertEqual(build_sort_list('urn'), 'urn')
@@ -1553,6 +1638,30 @@ class TestES(Formulae_Testing):
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
+    @patch.object(Elasticsearch, "search")
+    def test_download_search_results(self, mock_search):
+        with self.client as c:
+            c.get('/search/download', follow_redirects=True)
+            self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
+            self.assertTemplateUsed('main::index.html')
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter')])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['special_days'] = [test_args['special_days']]
+        with open('tests/test_data/advanced_search/downloaded_search.txt') as f:
+            expected = f.read()
+        with self.client as c:
+            c.get('/search/results?month=0&year_start=&q=&day_end=&year_end=&date_plus_minus=0&sort=urn&composition_place=&fuzziness=0&exclusive_date_range=False&special_days=Easter&month_start=0&in_order=False&month_end=0&day_start=&submit=True&day=&corpus=all&slop=0&year=&source=advanced')
+            r = c.get('/search/download')
+            self.assertEqual(r.get_data(as_text=True), expected.strip())
+
 
 class TestErrors(Formulae_Testing):
     def test_404(self):
@@ -1573,3 +1682,71 @@ class TestErrors(Formulae_Testing):
             response = c.get('/500', follow_redirects=True)
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
+
+
+class Formulae_Testing_error_mapping(Formulae_Testing):
+    def create_app(self):
+        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
+        app = create_app(TestConfig)
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                 templates={"main": "templates/main",
+                                            "errors": "templates/errors",
+                                            "auth": "templates/auth",
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
+        return app
+
+class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+
+class Formulae_Testing_without_mapping(Formulae_Testing):
+    def create_app(self):
+        TestConfig.IIIF_MAPPING=""
+        app = create_app(TestConfig)
+        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
+                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
+                                                                  "notes": "components/extract_notes.xsl",
+                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                 templates={"main": "templates/main",
+                                            "errors": "templates/errors",
+                                            "auth": "templates/auth",
+                                            "search": "templates/search",
+                                            "viewer":"templates/viewer"},
+                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
+                                 pdf_folder="pdf_folder/")
+
+        app.config['nemo_app'] = self.nemo
+        @app.route('/500', methods=['GET'])
+        def r_500():
+            abort(500)
+        return app
+
+
+class TestNemoSetup_withoutviewer(Formulae_Testing_without_mapping):
+    def test_setup_global_app(self):
+        """ Make sure that the instance of Nemo on the server is created correctly"""
+        if os.environ.get('TRAVIS'):
+            # This should only be tested on Travis since I don't want it to run locally
+            from formulae.app import nemo
+            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
+            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)

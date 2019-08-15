@@ -18,6 +18,8 @@
          <dc:format>application/tei+xml</dc:format>
          <dct:bibliographicCitation>Lößlein, Horst, "Abbas, abbatissa", in: Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg (2019-02-12)</dct:bibliographicCitation>
          <dct:created>2019-02-12</dct:created>
+         <dct:isReferencedBy>urn:cts:formulae:andecavensis.form007.lat001%patri illo &lt;span class='elex-word'&gt;abbati&lt;/span&gt; uel omnis</dct:isReferencedBy>
+         <dct:isReferencedBy>urn:cts:formulae:stgallen.wartmann0001.lat001%uir illo &lt;span class='elex-word'&gt;abbate&lt;/span&gt; uel reliquis%fuit ipsius &lt;span class='elex-word'&gt;abbati&lt;/span&gt; uel quibus</dct:isReferencedBy>
       </cpt:structured-metadata>
    </ti:edition>
 </ti:work>

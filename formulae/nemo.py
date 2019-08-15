@@ -14,6 +14,8 @@ from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_coll
 import re
 from datetime import date
 from string import punctuation
+from urllib.parse import quote
+from json import load as json_load
 
 
 class NemoFormulae(Nemo):
@@ -96,6 +98,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
+        self.app.jinja_env.filters["insert_in_list"] = self.f_insert_in_list
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -198,6 +201,17 @@ class NemoFormulae(Nemo):
         l[i] = v
         return l
 
+    def f_insert_in_list(self, l, i, v):
+        """
+
+        :param l: the list of values
+        :param i: the index at which the item should be inserted
+        :param v: the value that will be inserted
+        :return: new list
+        """
+        l.insert(i, v)
+        return l
+
     def r_set_language(self, code):
         """ Sets the session's language code which will be used for all requests
 
@@ -246,6 +260,33 @@ class NemoFormulae(Nemo):
         if name in self.PROTECTED:
             route = login_required(route)
         return route
+
+    def make_coins(self, collection, text, subreference="", lang=None):
+        """ Creates a CoINS Title string from information
+
+        :param collection: Collection to create coins from
+        :param text: Text/Passage object
+        :param subreference: Subreference
+        :param lang: Locale information
+        :return: Coins HTML title value
+        """
+        if lang is None:
+            lang = self.__default_lang__
+        return "url_ver=Z39.88-2004"\
+                 "&ctx_ver=Z39.88-2004"\
+                 "&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook"\
+                 "&rft_id={cid}"\
+                 "&rft.genre=bookitem"\
+                 "&rft.btitle={title}"\
+                 "&rft.edition={edition}"\
+                 "&rft.au={author}"\
+                 "&rft.atitle={pages}"\
+                 "&rft.language={language}"\
+                 "&rft.pages={pages}".format(
+                    title=quote(str(text.get_title(lang))), author=quote(str(text.get_creator(lang))),
+                    cid=url_for("InstanceNemo.r_collection", objectId=collection.id, _external=True),
+                    language=collection.lang, pages=quote(subreference), edition=quote(str(text.get_description(lang)))
+                 )
 
     def r_collection(self, objectId, lang=None):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
@@ -431,7 +472,8 @@ class NemoFormulae(Nemo):
         if isinstance(collection, CtsWorkMetadata):
             editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
             if len(editions) == 0:
-                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden.'))
+                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
+                                        objectId)
             objectId = str(editions[0].id)
             collection = self.get_collection(objectId)
         try:
@@ -448,20 +490,30 @@ class NemoFormulae(Nemo):
         else:
             notes = ''
         prev, next = self.get_siblings(objectId, subreference, text)
+        inRefs = []
+        for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
+            ref = str(inRef).split('%')
+            cits = ref[1:]
+            for i, cit in enumerate(cits):
+                cits[i] = Markup(Markup(cit))
+            if ref[0] not in request.url:
+                try:
+                    inRefs.append([self.resolver.getMetadata(ref[0]), cits])
+                except UnknownCollection:
+                    inRefs.append(ref[0])
         return {
             "template": "main::text.html",
             "objectId": objectId,
             "subreference": subreference,
             "collections": {
                 "current": {
-                    "label": collection.get_label(lang),
+                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or collection.get_label(lang),
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": text.get_description(lang),
-                    "citation": collection.citation,
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -478,7 +530,8 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "show_notes": objectId in self.OPEN_NOTES,
-            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day)
+            "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
+            "isReferencedBy": inRefs
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -497,12 +550,19 @@ class NemoFormulae(Nemo):
         """
         ids = objectIds.split('+')
         translations = {}
+        view = 1
         for i in ids:
+            if "manifest" in i:
+                i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [m for m in p.readableDescendants if m.id not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
+            v = False
+            if "manifest:" in id:
+                id = re.sub(r'^manifest:', '', id)
+                v = True
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
@@ -510,11 +570,30 @@ class NemoFormulae(Nemo):
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
-                if 'previous_search' in session:
-                    result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
-                    if result_sents:
-                        d['text_passage'] = self.highlight_found_sents(d['text_passage'],
-                                                                       self.convert_result_sents(result_sents))
+                if v:
+                    formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
+                    d["objectId"] = "manifest:" + id
+                    d["div_v"] = "manifest" + str(view)
+                    view = view + 1
+                    del d['text_passage']
+                    # this viewer work when the library or archive give an IIIF API for the external usage of theirs books
+                    d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
+                    with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
+                        this_manifest = json_load(f)
+                    d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
+                    d["title"] = formulae["title"] + ' {}{}'.format(this_manifest['sequences'][0]['canvases'][0]['label'],
+                                                                    ' - ' +
+                                                                    this_manifest['sequences'][0]['canvases'][-1]['label']
+                                                                    if
+                                                                    len(this_manifest['sequences'][0]['canvases']) > 1
+                                                                    else '') + ' (' + d['collections']['current']['title'] + ')'
+                else:
+                    d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file
+                    if 'previous_search' in session:
+                        result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
+                        if result_sents:
+                            d['text_passage'] = self.highlight_found_sents(d['text_passage'],
+                                                                           self.convert_result_sents(result_sents))
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
@@ -573,12 +652,12 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer)
+        m = re.search('/texts/([^/]+)/passage/([^/]+)', request.referrer) if "texts" in request.referrer else re.search('/viewer/([^/]+)', request.referrer)
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
         d['prev_texts'] = m.group(1)
-        d['prev_reffs'] = m.group(2)
+        d['prev_reffs'] = m.group(2) if "texts" in request.referrer else "all"
         return d
 
     def r_impressum(self):

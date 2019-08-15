@@ -50,10 +50,15 @@
         </xsl:if> -->       
         <xsl:element name="span">
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@rend='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
-                <xsl:if test="parent::t:seg[@type='italic']"><xsl:text> font-italic</xsl:text></xsl:if>
-                <!-- The following will need to be changed to @type="platzhalter" once the files are reconverted -->
-                <xsl:if test="parent::t:seg[@type='platzhalter']"><xsl:text> platzhalter</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text> subscript</xsl:text></xsl:if>
+                <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text> smaller-text</xsl:text></xsl:if>
                 <xsl:if test="parent::t:label"> formulae-label</xsl:if>
                 </xsl:attribute>
             <xsl:if test="@lemma">
@@ -103,6 +108,7 @@
             <xsl:attribute name="class">
                 <xsl:text>edition lang_</xsl:text>
                 <xsl:value-of select="@xml:lang"/>
+                <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
             </xsl:attribute>
             <xsl:attribute name="data-lang"><xsl:value-of select="./@xml:lang"/></xsl:attribute>
             <xsl:if test="@xml:lang = 'heb'">
@@ -189,10 +195,12 @@
     </xsl:template>
     
     <xsl:template match="t:abbr">
-        <span class="abbr">
-            <xsl:text></xsl:text><xsl:value-of select="." /><xsl:text></xsl:text>
-        </span>
+        <span class="abbr"><xsl:apply-templates/></span>
     </xsl:template>  
+    
+    <xsl:template match="t:expan">
+        <span class="expan"><xsl:apply-templates/></span>
+    </xsl:template> 
     
     <xsl:template match="t:gap">
         <span class="gap">
@@ -276,7 +284,7 @@
         <xsl:element name="sup">
             <xsl:element name="a">
                 <xsl:attribute name="class">note</xsl:attribute>
-                <xsl:attribute name="data-toggle">collapse</xsl:attribute>
+                <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
                 <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>
@@ -354,10 +362,7 @@
     
     <xsl:template match="t:choice">
         <span class="choice">
-            <xsl:attribute name="title">
-                <xsl:value-of select="reg" />
-            </xsl:attribute>
-            <xsl:value-of select="orig" /><xsl:text> </xsl:text>
+            <xsl:apply-templates/>
         </span>
     </xsl:template>
     
@@ -367,19 +372,18 @@
     
     <xsl:template match="t:seg" mode="noteSegs">
         <xsl:choose>
-            <xsl:when test="./@rend='italic'">
-                <span class="font-italic"><xsl:apply-templates/></span>
-            </xsl:when>
-            <xsl:when test="./@type='italic'">
-                <span class="font-italic"><xsl:apply-templates/></span>
-            </xsl:when>
             <xsl:when test="./@type='book_title'">
                 <xsl:element name="bibl">
                     <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:when>
-            <xsl:otherwise><xsl:apply-templates></xsl:apply-templates></xsl:otherwise>
+            <xsl:otherwise>
+                <xsl:element name="span">
+                    <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
@@ -391,8 +395,11 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="t:seg[@type='italic']">
-        <span class="font-italic"><xsl:apply-templates/></span>
+    <xsl:template match="t:seg">
+        <xsl:element name="span">
+            <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='lex-title']">

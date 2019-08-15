@@ -1,0 +1,20 @@
+{
+	"manifest:urn:cts:formulae:andecavensis.form001": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+		 "title":"Fulda Hessische Landesbibliotheke D1"
+
+	},
+	"manifest:urn:cts:formulae:andecavensis.form002": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+		"title":"Fulda Hessische Landesbibliotheke D1"
+	},
+	"manifest:urn:cts:formulae:andecavensis.form004": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+		"title":"Fulda Hessische Landesbibliotheke D1"
+
+	},
+	"manifest:urn:cts:formulae:andecavensis.form005": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+		"title":"Fulda Hessische Landesbibliotheke D1"
+	}
+}

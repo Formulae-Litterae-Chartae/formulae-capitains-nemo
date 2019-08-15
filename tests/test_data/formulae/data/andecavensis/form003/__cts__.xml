@@ -1,0 +1,27 @@
+<ti:work xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+         groupUrn="urn:cts:formulae:andecavensis"
+         xml:lang="lat"
+         urn="urn:cts:formulae:andecavensis.form003">
+   <ti:title xml:lang="lat">Angers 3</ti:title>
+   <ti:translation xml:lang="deu"
+                   urn="urn:cts:formulae:andecavensis.form003.deu001"
+                   workUrn="urn:cts:formulae:andecavensis.form003">
+      <ti:label xml:lang="deu">Angers 3</ti:label>
+      <ti:description xml:lang="deu">Eine Person verkauft sich an ihren Herrn, nachdem sie von diesem eine bestimmte Summe erhielt, als sie nach einem Diebstahl die Bußzahlungen nicht leisten konnte.</ti:description>
+      <cpt:structured-metadata xmlns:dct="http://purl.org/dc/terms/"
+                               xmlns:cpt="http://purl.org/capitains/ns/1.0#"
+                               xmlns:dc="http://purl.org/dc/elements/1.1/"
+                               xml:lang="deu">
+         <dc:title>Angers 3 (Deutsch)</dc:title>
+         <dct:abstract>Selbstverkauf</dct:abstract>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:editor>Christoph Walther</dc:editor>
+         <dct:created>2019-07-09</dct:created>
+         <dct:bibliographicCitation>Angers 3 (Deutsch), Formulae-Litterae-Chartae Projekt. Hamburg 2019-07-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/all]</dct:bibliographicCitation>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+      </cpt:structured-metadata>
+   </ti:translation>
+</ti:work>

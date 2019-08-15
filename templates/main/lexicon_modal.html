@@ -7,6 +7,27 @@
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    {% if isReferencedBy %}
+    <div class="dropdown">
+    <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ _('Formeln mit diesem Lemma') }}
+    </button>
+    <div class="dropdown-menu version-dropdown">
+            {% for r in isReferencedBy %}
+            {% if r is string %}
+            <a class="dropdown-item">- <span>{{ r }}</span></a>
+            {% else %}
+            {% if r[0].id not in prev_texts %}
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r[0].id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string + ' (' + r[0].lang + ')' }}</span></a>
+            {% for c in r[1] %}
+            <span class="dropdown-item ml-2">- {{ c }}</span>
+            {% endfor %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+    </div>
+    </div>
+    {% endif %}
     <div class="modal-body">
     {{ text_passage }}
     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, objectId]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Diesen Beitrag parallel lesen') }}</a>
