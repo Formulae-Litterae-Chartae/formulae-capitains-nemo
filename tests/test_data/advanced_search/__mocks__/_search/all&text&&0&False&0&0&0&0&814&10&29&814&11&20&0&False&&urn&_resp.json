@@ -1,9 +1,9 @@
 {
-  "took": 37,
+  "took": 63,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 19,
+    "successful": 19,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v3",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Bischof Hitto gibt dem Kleriker Rihpald die Kirche zu Biburg zu Lehen.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 814,
@@ -48,7 +49,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -64,6 +65,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Selipert \u00fcbergibt ein Bethaus zu Nassenhausen (?).",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 814,
@@ -84,7 +86,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -100,6 +102,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der Priester Erchanperht \u00fcbergibt ein Bethaus nebst Eigenbesitz zu Erdweg.",
           "orig_comp_ort": "Erdweg",
+          "forgery": false,
           "dating": [
             {
               "gte": "0810",
@@ -117,7 +120,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v3",
+        "_index": "hersfeld_v2",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -127,12 +130,13 @@
           "regest": "Kaiser Ludwig [der Fromme] verleiht dem Kloster Hersfeld nach dem Vorgange seines Vaters Karl die Immunit\u00e4t.",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 25",
           "urn": "urn:cts:formulae:hersfeld.weirich0025.lat001",
-          "date_string": "[814].",
+          "date_string": "[814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Kaiser Ludwig [der Fromme] verleiht dem Kloster Hersfeld nach dem Vorgange seines Vaters Karl die Immunit\u00e4t.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0814-01-01",
@@ -150,7 +154,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v3",
+        "_index": "hersfeld_v2",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
         "_score": null,
@@ -166,6 +170,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Verzeichnis des zur Zeit des Erzbischofs Lull an das Kloster Hersfeld geschenkten Grundbesitzes.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0799-12-31",
@@ -183,7 +188,7 @@
         ]
       },
       {
-        "_index": "luzern_v3",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -199,6 +204,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Wichard, Priester, und sein Bruder Ruopert, Heerf\u00fchrer K\u00f6nig Ludwigs, teilten mit Erlaubnis und Beistand des K\u00f6nigs, ihres Verwandten, ihren gesamten aus v\u00e4terlicher Erbschaft stammenden Grundbesitz. Darauf \u00fcbergab Ruopert seinen ganzen Teil dem K\u00f6nig, damit er im Castrum Z\u00fcrich an der Limmat eine Kirche und st\u00e4ndigen Gottesdienst aufrichte. Wichard aber, ein Priester, errichtete an einem von altersher Luzern gehei\u00dfenen Ort am Flusse Reu\u00df, der aus dem gro\u00dfen See flie\u00dft, St. Mauricius und seinen Gef\u00e4hrten, dem M\u00e4rtyrer St. Leodegar und allen Heiligen zu Ehren eine kleine Zelle, gab all seinen Besitz, am Berge Albis bei seinem Gut Lunkhofen und dem umliegenden Land beginnend, mit Erlaubnis des K\u00f6nigs an diesen Ort, begab sich selbst dahin zum (Gottes-) Dienst und sammelte so viele M\u00f6nche, als er konnte, daselbst. Daher kam ein Vornehmer Namens Alwic zu ihm, der, zum M\u00f6nch angenommen, die Bewohner der Gegend zur Liebe Gottes entflammte, soda\u00df Wichard ihn zu seinem Nachfolger machte und als Vorsteher zur\u00fccklie\u00df. Geschehen zur Zeit K\u00f6nig Ludwigs, im Jahr (5)03, in der 13. Indiktion.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0800",
@@ -216,7 +222,7 @@
         ]
       },
       {
-        "_index": "luzern_v3",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -232,6 +238,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Atha und ihre Schwester Chriemilt, die ihr ganzes Erbteil an das Kloster Luzern geben wollen und k\u00fcrzlich vernommen haben, da\u00df der Mann Gottes Wichard dahin gekommen sei und das Kloster im \u00c4u\u00dfern und Innern neu aufgerichtet habe, schenken all ihren Besitz in Kriens von der H\u00f6he des Pilatus bis zum See und weiterhin bis zur Mitte der Reu\u00df mit allen Zugeh\u00f6rden im Umkreis an den Ort, den M\u00f6nchen daselbst zu dauerndem Besitz und zum Nutzen der Kirche St. Leodegars. Wer gegen diese Schenkung der T\u00f6chter von Witerada handeln will, soll das Doppelte von dem, was er zur\u00fcckverlangt, an das Kloster und an den k\u00f6niglichen Fiskus 3 Unzen Gold, 12 Pfund Silber bezahlen. Geschehen (5)43 in der Vorhalle der Kirche vor dem Vogt Wilhelm und vielem Volk an einem Sonntag zur Zeit Karls III.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0800",
@@ -249,7 +256,7 @@
         ]
       },
       {
-        "_index": "luzern_v3",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -265,6 +272,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Die Br\u00fcder Henger und Witowo schenken an das Kloster Luzern, dem Wichard vorsteht, ihren ganzen Besitz in der Mark Malters. Wer die Schenkung anfeindet, soll das Vierfache an den Ort geben und dem k\u00f6niglichen Fiskus 4 Unzen Gold, 12 \u03c0 Silber bezahlen. Geschehen (5)45, in der 1. Indiktion, in der Vorhalle der Kirche, vor Vogt Engelger und zahlreichem Volk in den Tagen Kaiser Karls III.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0800",
@@ -282,7 +290,7 @@
         ]
       },
       {
-        "_index": "luzern_v3",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -298,6 +306,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Die Br\u00fcder Kibicho, Odker und Walker geben zu ihrem Seelenheil an das Kloster der Br\u00fcder von Luzern, wo Wichard Abt ist, alles, was ihnen von Schwanden bis zum R\u00fcmligbach geh\u00f6rt. Wer die Schenkung anfeindet, soll das Dreifache Gott und seinen Heiligen an den Ort geben und dem Fiskus 3 Unzen Gold, 9 it Silber bezahlen. Geschehen vor Vogt Engelger im Jahr (5)07, in der 2. Indiktion, unter der Regierung Karls III., K\u00f6nigs der Franken.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0800",
@@ -315,7 +324,7 @@
         ]
       },
       {
-        "_index": "luzern_v3",
+        "_index": "luzern_v2",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -331,6 +340,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Die Br\u00fcder Hartmann und Prunolf schenken an das Kloster von Luzern, das in der Ehre des hl. M\u00e4rtyrers Leodegar erbaut ist, zu ihrem Seelenheil den dortigen M\u00f6nchen all ihr Erworbenes, n\u00e4mlich den ganzen Wald genannt Emmenwald in L\u00e4nge und Breite, der ihnen geh\u00f6rt, bis Langnau. Wer die Schenkung anfeindet, soll verflucht sein und das Doppelte an den Ort erstatten. Geschehen im Jahr (5)10 unter der Regierung K\u00f6nig Ludwigs, unter Abt Recho und vor den Vornehmen des Ortes.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0800",
@@ -361,11 +371,20 @@
         "Freising": {
           "doc_count": 3
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 2
         },
         "Luzern": {
           "doc_count": 6
+        },
+        "Markulf": {
+          "doc_count": 0
         },
         "Mondsee": {
           "doc_count": 17

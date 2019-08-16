@@ -1,18 +1,18 @@
 {
-  "took": 10,
+  "took": 30,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 19,
+    "successful": 19,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 132,
+    "total": 406,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -304,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
+            "Lent",
+            "Thursday",
             "Saturday",
-            "Friday"
+            "Monday",
+            "Sunday",
+            "Friday",
+            "Wednesday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -320,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -336,6 +337,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0769",
@@ -359,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -375,6 +377,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0769",
@@ -398,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -414,6 +417,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Ged\u00e4chtnis seines Namens eine Wiese in Tesquene.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0768",
@@ -437,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -453,6 +457,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0768",
@@ -476,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -492,6 +497,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0801",
@@ -509,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -525,6 +531,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin dankt Bischof Remedius f\u00fcr seine Briefe und sein Gebet und ermahnt ihn.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0801",
@@ -542,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -558,6 +565,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius \u00fcber ein strittiges Grundst\u00fcck.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0791",
@@ -575,7 +583,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
@@ -591,6 +599,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "a) Regino und seine Gattin Oaspirin schenken ihren Besitz zu Hohenkammer. b) Regino und sein Sohn Liuto schenken erkauften Besitz.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0783",
@@ -614,7 +623,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
         "_score": null,
@@ -630,6 +639,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Ellanpiric schenkt eine Kolonie.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0783",
@@ -660,11 +670,20 @@
         "Freising": {
           "doc_count": 31
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 274
+        },
         "Hersfeld": {
           "doc_count": 2
         },
         "Luzern": {
           "doc_count": 6
+        },
+        "Markulf": {
+          "doc_count": 0
         },
         "Mondsee": {
           "doc_count": 26
@@ -733,7 +752,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 98
+          "doc_count": 359
         },
         {
           "key": "800-899",
@@ -741,7 +760,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 30
+          "doc_count": 42
         },
         {
           "key": "900-999",
