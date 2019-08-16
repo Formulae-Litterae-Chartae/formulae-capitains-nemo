@@ -1,6 +1,9 @@
 {% extends "main::container.html" %}
 
 {% block article %}
+
+<link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/text_container.css')}}">
+
 {% if objects %}
     {% set prev_texts = objects|join('+', attribute='objectId') %}
     {% set prev_reffs = objects|join('+', attribute='subreference') %}
@@ -9,28 +12,39 @@
     {% set prev_reffs = subreference %}
 {% endif %}
 <!-- THE LEFT COLUMN -->
-<div class="col-2 d-none d-lg-block">
+<div id="sidebar_l" class="col-2 d-none d-lg-block">
     <div class="d-flex flex-column" id="left-sticky-col">
         {% include "main::add_text_menu.html" %}
     </div>
-</div> 
+</div>
+
+<!-- button to collapse the left sidebar-->
+<button type="button" id="sidebarCollapse_l"><</button>
 
 {% include "main::no_copy_modal.html" %}
-<div class="col-sm hfeed right-columns" id="reading-container">
 
+<div class="col-sm hfeed right-columns" id="reading-container">
 <!-- THE TEXTS -->
 {% block texts %}
 {% endblock %}
 </div>
+<!-- button to collapse the right sidebar-->
+<button type="button" id="sidebarCollapse_r">></button>
+
 <!-- THE RIGHT COLUMN -->
-<div class="col-2 d-none d-lg-block">
+<div id="sidebar_r" class="col-2 d-none d-lg-block">
     <div class="d-flex flex-column" id="right-sticky-col">
         {% include "main::lexicon.html" %}
         <br/>
         {% include "main::notes.html" %}
     </div>
 </div>
+
 {% endblock %}
 
 {% block metadata %}
+{% endblock %}
+
+{% block footer %}
+<script type="text/javascript" src="{{url_for('InstanceNemo.static', filename='js/text_container.js')}}"></script>
 {% endblock %}
