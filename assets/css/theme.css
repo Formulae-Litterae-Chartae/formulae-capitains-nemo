@@ -574,3 +574,22 @@ div.transcription p {
 .regest_collapse_heading {
     font-weight: bold;
 }
+
+.entry-title {
+    font-variant: small-caps;
+    font-size: larger;
+    line-height: 1em;
+}
+
+.kurz-regest {
+    color: gray;
+    font-weight: bold;
+}
+
+.remove-column-link {
+    font-size: .875rem;
+}
+
+.regest-body {
+    font-size: .875rem;
+}

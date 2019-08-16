@@ -1,15 +1,15 @@
 <!-- The Modal Content for the Regest -->
     {% if object.collections.current.short_regest != '' %}
     <div class="regest-header text-center">
-        <h5 class="card-title mb-0" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel">{{object.collections.current.short_regest}}</h5><a data-toggle="collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">{{ _('Regest') }}</a>
+        <div class="card-title mb-0 kurz-regest" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel">{{object.collections.current.short_regest}}</div><a data-toggle="collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">{{ _('Regest') }}</a>
     </div>
     {% else %}
     <div class="text-center"><a data-toggle="collapse" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false">{{ _('Regest') }}</a></div>
     {% endif %}
     <div class="collapse" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">
-        <div class="card card-body bg-light"><p class="mb-0">
-        {% if object.open_regest or current_user.project_team %}{{object.collections.current.description}}<br>{% endif %}
-        {% if object.collections.current.dating %}<span class="regest_collapse_heading">{{ _('Datierung: ') }}</span>{{ object.collections.current.dating }}{% endif %}<br>
-        {% if object.collections.current.issued_at %}<span class="regest_collapse_heading">{{ _('Ausstellungsort:') }}</span> {{ object.collections.current.issued_at }}{% endif %}</p>
+        <div class="card card-body bg-light"><p class="mb-0 regest-body">
+        {% if object.open_regest or current_user.project_team %}{{object.collections.current.description}}{% endif %}
+        {% if object.collections.current.dating %}<br><span class="regest_collapse_heading">{{ _('Datierung: ') }}</span>{{ object.collections.current.dating }}{% endif %}
+        {% if object.collections.current.issued_at %}<br><span class="regest_collapse_heading">{{ _('Ausstellungsort:') }}</span> {{ object.collections.current.issued_at }}{% endif %}</p>
         </div>
     </div>
