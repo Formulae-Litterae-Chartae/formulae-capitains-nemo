@@ -1,5 +1,5 @@
 {
-  "took": 16,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 19,
@@ -8,43 +8,9 @@
     "failed": 0
   },
   "hits": {
-    "total": 1324,
+    "total": 1277,
     "max_score": null,
     "hits": [
-      {
-        "_index": "buenden_v2",
-        "_type": "buenden",
-        "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
-        "_score": null,
-        "_source": {
-          "text": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
-          "lemmas": null,
-          "regest": "Eine Bestallungsformel f\u00fcr den Dukat beider R\u00e4tien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem r\u00f6mischen Volk den Frieden zu wahren.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 3",
-          "urn": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
-          "date_string": "Vor 507",
-          "comp_ort": " ",
-          "autocomplete": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Eine Bestallungsformel f\u00fcr den Dukat beider R\u00e4tien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem r\u00f6mischen Volk den Frieden zu wahren.",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0400",
-              "lte": "0508"
-            }
-          ],
-          "all_dates": [
-            "0400",
-            "0508"
-          ],
-          "min_date": "0400"
-        },
-        "sort": [
-          "urn:cts:formulae:buenden.meyer-marthaler0003.lat001"
-        ]
-      },
       {
         "_index": "buenden_v2",
         "_type": "buenden",
@@ -849,6 +815,46 @@
         "sort": [
           "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
+      },
+      {
+        "_index": "buenden_v2",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
+          "lemmas": null,
+          "regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+          "date_string": "768\u2013800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
+        ]
       }
     ]
   },
@@ -859,16 +865,16 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
-          "doc_count": 15
+          "doc_count": 11
         },
         "Freising": {
-          "doc_count": 186
+          "doc_count": 185
         },
         "Fulda (Dronke)": {
           "doc_count": 0
         },
         "Fulda (Stengel)": {
-          "doc_count": 516
+          "doc_count": 504
         },
         "Hersfeld": {
           "doc_count": 22
@@ -883,13 +889,13 @@
           "doc_count": 63
         },
         "Passau": {
-          "doc_count": 56
+          "doc_count": 55
         },
         "Regensburg": {
           "doc_count": 10
         },
         "Rheinisch": {
-          "doc_count": 13
+          "doc_count": 9
         },
         "R\u00e4tien": {
           "doc_count": 10
@@ -898,16 +904,16 @@
           "doc_count": 0
         },
         "Sch\u00e4ftlarn": {
-          "doc_count": 19
+          "doc_count": 16
         },
         "St. Gallen": {
-          "doc_count": 159
+          "doc_count": 154
         },
         "Wei\u00dfenburg": {
-          "doc_count": 226
+          "doc_count": 214
         },
         "Werden": {
-          "doc_count": 23
+          "doc_count": 18
         },
         "Z\u00fcrich": {
           "doc_count": 0
@@ -922,7 +928,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 1
+          "doc_count": 0
         },
         {
           "key": "500-599",
@@ -938,7 +944,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 10
+          "doc_count": 2
         },
         {
           "key": "700-799",
@@ -946,7 +952,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 1231
+          "doc_count": 1228
         },
         {
           "key": "800-899",
@@ -954,7 +960,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 56
+          "doc_count": 24
         },
         {
           "key": "900-999",

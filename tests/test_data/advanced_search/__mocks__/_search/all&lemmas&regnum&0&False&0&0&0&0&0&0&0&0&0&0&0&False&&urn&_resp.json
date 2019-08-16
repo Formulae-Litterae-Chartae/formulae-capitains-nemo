@@ -1,9 +1,9 @@
 {
-  "took": 4,
+  "took": 5,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 19,
+    "successful": 19,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -27,14 +27,15 @@
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Eintrag in die Gesta Municipalia : Ein Sachwalter (prosecutor) erscheint vor der \u00f6ffentlichen Versammlung (curia publica) von Angers und bittet, bevollm\u00e4chtigt durch ein Mandat einer Frau, um die \u00d6ffnung der \u00f6ffentlichen B\u00fccher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgesch\u00e4fte bez\u00fcglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigeng\u00fcter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse G\u00fcter \u00fcbertr\u00e4gt.",
-          "orig_comp_ort": " "
+          "orig_comp_ort": " ",
+          "forgery": false
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -49,7 +50,8 @@
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Schenkung : Ein Mann schenkt seiner Braut ein Haus.",
-          "orig_comp_ort": " "
+          "orig_comp_ort": " ",
+          "forgery": false
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"
@@ -69,10 +71,19 @@
         "Freising": {
           "doc_count": 0
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
           "doc_count": 0
         },
         "Mondsee": {

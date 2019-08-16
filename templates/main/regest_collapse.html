@@ -7,5 +7,9 @@
     <div class="text-center"><a data-toggle="collapse" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false">{{ _('Regest') }}</a></div>
     {% endif %}
     <div class="collapse" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">
-        <div class="card card-body bg-light">{{object.collections.current.description}}</div>
+        <div class="card card-body bg-light"><p class="mb-0">
+        {% if object.open_regest or current_user.project_team %}{{object.collections.current.description}}<br>{% endif %}
+        {% if object.collections.current.dating %}<span class="regest_collapse_heading">{{ _('Datierung: ') }}</span>{{ object.collections.current.dating }}{% endif %}<br>
+        {% if object.collections.current.issued_at %}<span class="regest_collapse_heading">{{ _('Ausstellungsort:') }}</span> {{ object.collections.current.issued_at }}{% endif %}</p>
+        </div>
     </div>
