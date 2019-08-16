@@ -588,10 +588,10 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 del d['template']
                 if v:
-                    # This is when there is a single manuscript for the transcription, edition, and translation
+                    # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
-                    # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
+                    # This is when there is a single manuscript for the transcription, edition, and translation
                     elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
                     d["objectId"] = "manifest:" + id
@@ -602,7 +602,6 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
-                        print(self.app.config['IIIF_SERVER'])
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
