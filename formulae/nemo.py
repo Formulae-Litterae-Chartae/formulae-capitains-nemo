@@ -16,6 +16,7 @@ from datetime import date
 from string import punctuation
 from urllib.parse import quote
 from json import load as json_load
+from collections import defaultdict
 
 
 class NemoFormulae(Nemo):
@@ -377,7 +378,8 @@ class NemoFormulae(Nemo):
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        return {
+
+        return_value = {
             "template": template,
             "collections": {
                 "current": {
@@ -391,6 +393,7 @@ class NemoFormulae(Nemo):
                 "parents": self.make_parents(collection, lang=lang)
             }
         }
+        return return_value
 
     def r_corpus_mv(self, objectId, lang=None):
         """ Route to browse collections and add another text to the view
@@ -404,31 +407,28 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
-        transcripts = {str, list}
+        translations = {}
+        forms = {}
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
         list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)', r'\1', x.parent.id)))
         for m in list_of_readable_descendants:
             if self.check_project_team() is True or m.id in self.open_texts:
-
-                par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
-                metadata = (m.id, self.LANGUAGE_MAPPING[m.lang])
-                print(m.parent.id)
-                transcripts[m.metadata.get_single(DC.title)] = transcripts[m.metadata.get_single(DC.title)].append(m.parent.id)
-                if par in r.keys():
-                    r[par]["versions"].append(metadata)
+                edition = str(m.id).split(".")[str(m.id).split(".").__len__() - 1]
+                form = str(m.id).split(".")[str(m.id).split(".").__len__() - 2]
+                if edition not in translations.keys():
+                    translations[edition] = [m.id]
+                    forms[edition] = [form]
                 else:
-                    r[par] = {
-                            "versions": [metadata], 'name': par.lstrip('0') if type(par) is str else ''
-                    }
-                print(list(transcripts))
-        for k, v in r.items():
-            r[k]['versions'] = sorted(v['versions'], reverse=True)
-        if len(r) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+                    translations[edition].append(m.id)
+                    forms[edition].append(form)
+        for k, v in translations.items():
+            r[k] = {
+                "name": k,
+                "short_regest" : "",
+                "links": [forms[k], v],
+            }
+
         return_value = {
                 "template": template,
                 "collections": {
@@ -443,7 +443,6 @@ class NemoFormulae(Nemo):
                     "parents": self.make_parents(collection, lang=lang)
                 }
         }
-
         return return_value
 
     def r_add_text_collections(self, objectIds, reffs, lang=None):
