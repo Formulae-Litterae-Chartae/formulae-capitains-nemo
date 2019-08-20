@@ -1,0 +1,27 @@
+<!-- LINKS TO SEARCH RESULTS -->
+<div class="card border-light">
+    
+        <!-- Card header controlling the "collapse" instruction text. -->
+    <div class="card-header" id="prev-search-title">
+        <button class="btn btn-link collapsed p-0" type="button" data-toggle="collapse"
+            data-target="#prevSearchResults"
+            aria-expanded="true"
+            aria-controls="prevSearchResults">
+        {{ _('Ergebnisse der letzten Suche') }}
+        </button>
+    </div>
+    <div id="prevSearchResults" class="collapse">
+        
+        <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
+        <div class="card-body p-2">
+        {% for hit in session['previous_search'] %}
+            {% if hit['id'] not in request.url %}
+            <div class="card search-hit">
+            <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, hit['id']]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}"><span>{{ hit['title'] }}</span></a>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+        
+    </div>
+</div>

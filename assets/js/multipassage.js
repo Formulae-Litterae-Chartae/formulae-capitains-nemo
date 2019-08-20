@@ -204,9 +204,9 @@ window.onclick = function(event) {
 $(function(){
     var noteCards = $('.note-card').length;
     var max = "70vh";
-    if (noteCards == 2) {
+    if (noteCards > 2 && noteCards < 5 ) {
         max = "34vh";
-    } else if (noteCards > 2) {
+    } else if (noteCards > 4) {
         max = "22vh";
     }
     $('.note-card').css('max-height', max);
