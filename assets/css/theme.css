@@ -295,7 +295,7 @@ nav .dropdown:hover .dropdown-menu {
     top: 100px;
 }
 
-.note-card {
+.noteCardLeft,.noteCardRight {
     overflow: auto;
 }
 

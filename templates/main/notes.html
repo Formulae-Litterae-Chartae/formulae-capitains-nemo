@@ -29,7 +29,7 @@
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>
                 </div>
-                <div class="note-card" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
+                <div class="{{ note_class }}" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
                     {{ text.notes }}
                 </div>
             {% endif %}

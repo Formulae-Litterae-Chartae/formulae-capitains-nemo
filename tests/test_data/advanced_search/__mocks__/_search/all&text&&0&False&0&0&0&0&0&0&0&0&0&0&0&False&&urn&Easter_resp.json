@@ -1,18 +1,18 @@
 {
-  "took": 4,
+  "took": 5,
   "timed_out": false,
   "_shards": {
-    "total": 19,
-    "successful": 19,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 12,
+    "total": 13,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Easter",
-            "Lent",
-            "Thursday",
-            "Saturday",
-            "Monday",
             "Sunday",
+            "Monday",
+            "Easter",
             "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
             "Wednesday",
-            "Tuesday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Easter",
-            "Lent",
-            "Thursday",
-            "Saturday",
-            "Monday",
             "Sunday",
+            "Monday",
+            "Easter",
             "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
             "Wednesday",
-            "Tuesday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -587,8 +587,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -596,7 +596,45 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "merowinger2_v2",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "title": "Die Urkunden der Merowinger (Ed. K\u00f6lzer) Nr. 38",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+          "date_string": "(630) 04 08 (Ostern)",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "orig_comp_ort": " ",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 630,
+              "month": 4,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0630-04-08"
+          ],
+          "min_date": "0630-04-08",
+          "days": [
+            "Sunday",
+            "Easter"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:merowinger1.koelzer0038.lat001"
+        ]
+      },
+      {
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -625,8 +663,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -634,7 +672,7 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -663,8 +701,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -672,7 +710,7 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -701,8 +739,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -710,7 +748,7 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -739,8 +777,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -748,7 +786,7 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -777,8 +815,8 @@
           ],
           "min_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -786,7 +824,7 @@
         ]
       },
       {
-        "_index": "salzburg_v2",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -815,50 +853,12 @@
           ],
           "min_date": "0930-04-18",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
           "urn:cts:formulae:salzburg.hauthaler-a0072.lat001"
-        ]
-      },
-      {
-        "_index": "stgallen_v2",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 440",
-          "urn": "urn:cts:formulae:stgallen.wartmann0440.lat001",
-          "date_string": "855 04 07",
-          "comp_ort": "St. Gallen",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
-          "orig_comp_ort": "Kloster St. Gallen",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 855,
-              "month": 4,
-              "day": 7
-            }
-          ],
-          "all_dates": [
-            "0855-04-07"
-          ],
-          "min_date": "0855-04-07",
-          "days": [
-            "Easter",
-            "Sunday"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:stgallen.wartmann0440.lat001"
         ]
       }
     ]
@@ -889,6 +889,9 @@
         },
         "Markulf": {
           "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 1
         },
         "Mondsee": {
           "doc_count": 0
@@ -949,7 +952,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "700-799",

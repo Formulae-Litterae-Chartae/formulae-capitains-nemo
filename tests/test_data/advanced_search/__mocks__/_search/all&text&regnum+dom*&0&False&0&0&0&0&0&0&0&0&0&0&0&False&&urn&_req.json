@@ -123,6 +123,11 @@
               "_type": "markulf"
             }
           },
+          "Merowinger": {
+            "match": {
+              "_type": "merowinger1"
+            }
+          },
           "Mondsee": {
             "match": {
               "_type": "mondsee"

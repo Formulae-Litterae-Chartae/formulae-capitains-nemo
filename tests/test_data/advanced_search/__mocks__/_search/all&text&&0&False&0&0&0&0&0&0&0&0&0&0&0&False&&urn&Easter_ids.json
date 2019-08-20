@@ -9,6 +9,9 @@
     "id": "urn:cts:formulae:freising.bitterauf0465.lat001"
   },
   {
+    "id": "urn:cts:formulae:merowinger1.koelzer0038.lat001"
+  },
+  {
     "id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001"
   },
   {
@@ -25,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0440.lat001"
   }
 ]
