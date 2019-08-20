@@ -8,8 +8,7 @@
         title="Click to display/hide instructions">
         
         <!-- Card header controlling the "collapse" instruction text. -->
-        <div class="card-header"
-            id="instrNoteHead"
+        <div class="card-header instrNoteHead"
             data-toggle="collapse"
             data-target="#instructionsNotes"
             aria-expanded="true"
@@ -19,8 +18,8 @@
     </div>
     <div class="card-body p-2" style="min-height: 2em;">
                 
-        {% if objects %}
-            {% for text in objects %}
+        {% if objs %}
+            {% for text in objs %}
             {% if text.notes %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
@@ -30,7 +29,7 @@
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>
                 </div>
-                <div class="note-card" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
+                <div class="{{ note_class }}" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
                     {{ text.notes }}
                 </div>
             {% endif %}

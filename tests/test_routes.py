@@ -373,6 +373,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Markulf": {
                       "doc_count": 0
                     },
+                    "Merowinger": {
+                      "doc_count": 0
+                    },
                     "Mondsee": {
                       "doc_count": 0
                     },
@@ -603,14 +606,15 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True)
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+            self.assertIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula.')
             r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+            self.assertIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
-                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
+            r = c.get('/texts/manifest:urn:cts:formulae:andecavensis.form005.lat001/passage/1', follow_redirects=True)
+            self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form005-lat001"',
+                             r.get_data(as_text=True), 'Note card should not be rendered for a formula in IIIF Viewer.')
 
         del self.app.config['nemo_app']._transform['notes']
         with self.client as c:
@@ -618,14 +622,12 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True)
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+            self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for a formula.')
             r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+            self.assertNotIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
-                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -1445,24 +1447,27 @@ class TestES(Formulae_Testing):
                                                         "B\u00fcnden": {
                                                           "doc_count": 0
                                                         },
-                                                          "Freising": {
-                                                              "doc_count": 0
-                                                          },
-                                                          "Fulda (Dronke)": {
-                                                              "doc_count": 0
-                                                          },
-                                                          "Fulda (Stengel)": {
-                                                              "doc_count": 0
-                                                          },
-                                                          "Hersfeld": {
-                                                              "doc_count": 0
-                                                          },
-                                                        "Luzern": {
-                                                          "doc_count": 0
+                                                        "Freising": {
+                                                            "doc_count": 0
                                                         },
-                                                          "Markulf": {
-                                                              "doc_count": 0
-                                                          },
+                                                        "Fulda (Dronke)": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Fulda (Stengel)": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Hersfeld": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Luzern": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Markulf": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Merowinger": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Mondsee": {
                                                           "doc_count": 0
                                                         },
@@ -1527,6 +1532,7 @@ class TestES(Formulae_Testing):
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Markulf': {'match': {'_type': 'markulf'}},
+                                        'Merowinger': {'match': {'_type': 'merowinger1'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
                                         'Rätien': {'match': {'_type': 'raetien'}},

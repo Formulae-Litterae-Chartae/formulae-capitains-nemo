@@ -295,7 +295,7 @@ nav .dropdown:hover .dropdown-menu {
     top: 100px;
 }
 
-.note-card {
+.noteCardLeft,.noteCardRight {
     overflow: auto;
 }
 
@@ -431,7 +431,7 @@ button.close {
     font-variant: small-caps;
 }
 
-.search-hit-menu {
+.search-hit-menu,.search-hit-dropdown,#prevSearchResults {
     max-height: 30vh;
     overflow: auto;
 }
@@ -544,6 +544,8 @@ img[id$="-flag-navbar"] {
 
 div.transcription p {
     margin-bottom: 0;
+    text-indent: -1em;
+    padding-left: 1em;
 }
 
 .superscript {

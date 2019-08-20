@@ -202,14 +202,22 @@ window.onclick = function(event) {
 
 // Automatically set the max-height of the note-card for each text depending on the number of texts
 $(function(){
-    var noteCards = $('.note-card').length;
+    var noteCardsLeft = $('.noteCardLeft').length;
     var max = "70vh";
-    if (noteCards == 2) {
+    if (noteCardsLeft == 2 ) {
         max = "34vh";
-    } else if (noteCards > 2) {
+    } else if (noteCardsLeft > 2) {
         max = "22vh";
     }
-    $('.note-card').css('max-height', max);
+    $('.noteCardLeft').css('max-height', max);
+    var noteCardsRight = $('.noteCardRight').length;
+    var max = "70vh";
+    if (noteCardsRight == 2 ) {
+        max = "34vh";
+    } else if (noteCardsRight > 2) {
+        max = "22vh";
+    }
+    $('.noteCardRight').css('max-height', max);
 })
 
 // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/

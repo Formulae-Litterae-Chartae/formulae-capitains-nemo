@@ -1,18 +1,18 @@
 {
-  "took": 16,
+  "took": 21,
   "timed_out": false,
   "_shards": {
-    "total": 19,
-    "successful": 19,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1324,
+    "total": 1519,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -117,7 +117,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
@@ -151,7 +151,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -185,7 +185,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -478,15 +478,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Easter",
-            "Lent",
-            "Thursday",
-            "Saturday",
-            "Monday",
             "Sunday",
+            "Monday",
+            "Easter",
             "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
             "Wednesday",
-            "Tuesday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -494,7 +494,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -534,7 +534,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -574,7 +574,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -795,15 +795,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Easter",
-            "Lent",
-            "Thursday",
-            "Saturday",
-            "Monday",
             "Sunday",
+            "Monday",
+            "Easter",
             "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
             "Wednesday",
-            "Tuesday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -811,7 +811,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -879,6 +879,9 @@
         "Markulf": {
           "doc_count": 0
         },
+        "Merowinger": {
+          "doc_count": 195
+        },
         "Mondsee": {
           "doc_count": 63
         },
@@ -922,7 +925,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 1
+          "doc_count": 4
         },
         {
           "key": "500-599",
@@ -930,7 +933,7 @@
           "from_as_string": "0500",
           "to": -43264540800000.0,
           "to_as_string": "0599",
-          "doc_count": 0
+          "doc_count": 23
         },
         {
           "key": "600-699",
@@ -938,7 +941,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 10
+          "doc_count": 134
         },
         {
           "key": "700-799",
@@ -946,7 +949,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 1231
+          "doc_count": 1276
         },
         {
           "key": "800-899",

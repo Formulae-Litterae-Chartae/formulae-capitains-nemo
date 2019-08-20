@@ -598,6 +598,7 @@ class NemoFormulae(Nemo):
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
                     del d['text_passage']
+                    del d['notes']
                     # this viewer work when the library or archive give an IIIF API for the external usage of theirs books
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:

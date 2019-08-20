@@ -1,18 +1,18 @@
 {
-  "took": 12,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 19,
-    "successful": 19,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 39,
+    "total": 40,
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -64,7 +64,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -101,7 +101,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -138,7 +138,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -175,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v2",
+        "_index": "fulda_stengel_v4",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v2",
+        "_index": "fulda_stengel_v4",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v2",
+        "_index": "fulda_stengel_v4",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
         "_score": null,
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v2",
+        "_index": "fulda_stengel_v4",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v2",
+        "_index": "fulda_stengel_v4",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
         "_score": null,
@@ -424,6 +424,9 @@
         },
         "Markulf": {
           "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 1
         },
         "Mondsee": {
           "doc_count": 0
@@ -492,7 +495,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 36
+          "doc_count": 37
         },
         {
           "key": "800-899",
