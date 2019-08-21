@@ -9,6 +9,7 @@
             aria-controls="prevSearchResults">
         {{ _('Ergebnisse der letzten Suche') }}
         </button>
+         - <a href="{{ url_for('search.download_search_results') }}" id="searchDownloadIcon" title="{{ _('Suchergebnisse herunterladen') }}"><i class="fas fa-file-download"></i></a>
     </div>
     <div id="prevSearchResults" class="collapse">
         
