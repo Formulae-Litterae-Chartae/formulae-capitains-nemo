@@ -24,7 +24,7 @@
 </div>
 
 <!-- button to collapse the left sidebar-->
-<button type="button" id="sidebarCollapse_l"><</button>
+<button type="button" id="sidebarCollapse_l" class="btn btn-link btn-lg px-0" title="{{ _('Linke Spalte zuklappen.') }}">«</button>
 
 {% include "main::no_copy_modal.html" %}
 
@@ -34,7 +34,7 @@
 {% endblock %}
 </div>
 <!-- button to collapse the right sidebar-->
-<button type="button" id="sidebarCollapse_r">></button>
+<button type="button" class="btn btn-link btn-lg px-0" id="sidebarCollapse_r" title="{{ _('Rechte Spalte zuklappen.') }}">»</button>
 
 <!-- THE RIGHT COLUMN -->
 <div id="sidebar_r" class="col-2 d-none d-lg-block">

@@ -595,3 +595,12 @@ div.transcription p {
 .regest-body {
     font-size: .875rem;
 }
+
+#sidebarCollapse_l,#sidebarCollapse_r {
+    font-size: 250%;
+}
+
+.head {
+    font-size: larger;
+    margin-bottom: .25em;
+}
