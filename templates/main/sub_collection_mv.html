@@ -9,48 +9,39 @@
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-
-
 <style>
-
-    .row_mv {
+.row_mv {
+    width: 100%;
+    overflow: scroll;
+}.line{
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+}.list-group-item.flex-column{
+    {% if collections.readable|length != 0 %}
+        width: {{100/collections.readable|length}}%;
+    {% else %}
         width: 100%;
-        overflow: scroll;
-    }.row{
-        padding-left: 50px;
-        padding-right: 50px;
-        display: flex;
-    }.scrollContent{
-    }.title{
-        position: sticky;
-        top: 0;
-        background-color: #263d3d;
-        color: #ffffff;
-        text-align: center
-    }.line{
-	    border-bottom: 1px solid black;
-	    padding-top: 10px;
-    }.list-group-item.flex-column{
-        {% if collections.readable|length != 0 %}
-            width: {{100/collections.readable|length}}%;
-        {% else %}
-            width: 100%;
-        {% endif %}
-        min-width: 20%;
-        height: 10px;
-        border-right: 1px solid black;
-        border-left: 1px solid black;
-        overflow: scroll;
-        float: Left;
-        scrollbar-width: none; /* to hide The Scrollbar for FireFox
+    {% endif %}
 
-    }::-webkit-scrollbar {
-        display: none; /* to hide The Scrollbar for GoogleChrome
-    }
-
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    overflow: scroll;
+    float: Left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-down: 0px;
+}.card-header{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: #263d3d;
+    color: #fff
+}.title{
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
-
 
 <header>
     <h1>
@@ -65,16 +56,16 @@
             {% for number, values in collections.readable|dictsort %}
 
             <li id="N{{number}}" class="list-group-item flex-column">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5>{% if values['name'] != _('(Titel)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
+                <div class="card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
+                    <h5>{{values['edition_name']}}</h5>
                 </div>
-                <div class="scrollContent">
+                <div class="scrollContent"  class="card border-light">
                     {% for name in values['links'][0]%}
-
-                        <div class="frame">
-                            <div class="d-flex w-100 justify-content-between">
-                                <p>{{ _("Lesen: ") }}
-                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{name}}</a>
+                        <div class="card search-hit">
+                            {% if values['titles'][loop.index-1] %}<h5><p>{{ values['titles'][loop.index-1] }}</p></h5>{% endif %}
+                            <div class="card-body p-2 search-hit-menu">
+                                <p>
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _("Lesen") }}</a>
                                 </p>
                             </div>
                         </div>
@@ -86,10 +77,8 @@
         </ul>
 {% endif %}
 </div>
-
-
-<script>
-    $('.list-group-item.flex-column').css("height", $(document).height()-$('#mainNavbar').height()-$(document).height()/10 + "px");
-</script>
-
+<footer>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
+</footer>
 {% endblock %}

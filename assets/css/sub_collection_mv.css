@@ -1,0 +1,31 @@
+.row_mv {
+    width: 100%;
+    overflow: scroll;
+}.line{
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+}.list-group-item.flex-column{
+    {% if collections.readable|length != 0 %}
+        width: {{100/collections.readable|length}}%;
+    {% else %}
+        width: 100%;
+    {% endif %}
+    min-width: 20%;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    overflow: scroll;
+    float: Left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-down: 0px;
+}.card-header{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: #263d3d;
+    color: #fff
+}.title{
+    margin-left: auto;
+    margin-right: auto;
+}

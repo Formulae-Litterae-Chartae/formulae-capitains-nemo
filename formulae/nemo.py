@@ -409,23 +409,36 @@ class NemoFormulae(Nemo):
         r = {}
         translations = {}
         forms = {}
+        titles = {}
+        edition_names = {}
+        full_edition_names = {}
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
         list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)', r'\1', x.parent.id)))
         for m in list_of_readable_descendants:
             if self.check_project_team() is True or m.id in self.open_texts:
                 edition = str(m.id).split(".")[str(m.id).split(".").__len__() - 1]
+                title = " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
                 form = str(m.id).split(".")[str(m.id).split(".").__len__() - 2]
+                edition_name = m.metadata.get_single(DC.title).__str__().split(" ")[-1].replace(")", "").replace("(", "")
+                full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+
                 if edition not in translations.keys():
+                    titles[edition] = [title]
                     translations[edition] = [m.id]
                     forms[edition] = [form]
+                    edition_names[edition] = edition_name
+                    full_edition_names[edition] = full_edition_name
                 else:
+                    titles[edition].append(title)
                     translations[edition].append(m.id)
                     forms[edition].append(form)
         for k, v in translations.items():
             r[k] = {
                 "name": k,
-                "short_regest" : "",
+                "edition_name": edition_names[k],
+                "full_edition_name": full_edition_names[k],
+                "titles" : titles[k],
                 "links": [forms[k], v],
             }
 
