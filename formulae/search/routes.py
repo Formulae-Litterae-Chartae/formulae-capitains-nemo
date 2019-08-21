@@ -193,6 +193,6 @@ def download_search_results():
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
         for d in session['previous_search']:
-            resp.append('{}\n{}'.format(d['title'], '\n'.join(['- {}'.format(re.sub(r'</?strong>|</?small>', '', str(s))) for s in d['sents']]) or _('- Text nicht zugänglich.')))
+            resp.append('{}\n{}'.format(d['title'], '\n'.join(['- {}'.format(re.sub(r'</?strong>|</?small>', '_', str(s))) for s in d['sents']]) or _('- Text nicht zugänglich.')))
         return Response('\n'.join(arg_list) + '\n\n' + '\n\n'.join(resp), mimetype='text/plain',
-                        headers={'Content-Disposition': 'attachment;filename=download.txt'})
+                        headers={'Content-Disposition': 'attachment;filename=Formulae-Litterae-Chartae-Suchergebnisse.txt'})

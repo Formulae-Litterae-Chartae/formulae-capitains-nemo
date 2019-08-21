@@ -525,7 +525,7 @@ class NemoFormulae(Nemo):
                     "type": str(collection.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": text.get_description(lang),
+                    "description": str(text.get_description(lang)) or '',
                     "coins": self.make_coins(collection, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
