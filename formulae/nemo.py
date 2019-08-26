@@ -69,7 +69,7 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:markulf', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
+    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
@@ -364,7 +364,7 @@ class NemoFormulae(Nemo):
                     par = m.parent.id.split('.')[-1][0].capitalize()
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
-                    par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                    par = re.sub(r'.*?(\d+)\Z', r'\1', m.parent.id)
                     if par.lstrip('0') == '':
                         par = _('(Titel)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
