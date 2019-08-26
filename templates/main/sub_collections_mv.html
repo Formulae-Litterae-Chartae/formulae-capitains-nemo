@@ -1,0 +1,31 @@
+{% extends "main::container_mv.html" %}
+
+{% block article %}
+{% if not prev_texts %}
+{% set prev_texts = '' %}
+{% set prev_reffs = '' %}
+{% set coll_route = 'InstanceNemo.r_corpus_m' %}
+{% else %}
+{% set coll_route = 'InstanceNemo.r_add_text_corpus' %}
+{% endif %}
+<header>
+        <h1>
+        {{collections.current.label}}
+        </h1>
+    </h1>
+    </header>
+    </div>
+    <div class="row justify-content-center">
+    {% for coll in collections.members|sort(attribute="id") %}
+        <div class="col-xl-2 col-6">
+            <div class="card">
+                <div class="card-header text-center pb-0">
+                    <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
+                        <h5>{{ coll.label }}</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

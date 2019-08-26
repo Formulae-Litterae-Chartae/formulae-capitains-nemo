@@ -16,6 +16,7 @@ from datetime import date
 from string import punctuation
 from urllib.parse import quote
 from json import load as json_load
+from collections import defaultdict
 
 
 class NemoFormulae(Nemo):
@@ -24,6 +25,7 @@ class NemoFormulae(Nemo):
         ("/", "r_index", ["GET"]),
         ("/collections", "r_collections", ["GET"]),
         ("/collections/<objectId>", "r_collection", ["GET"]),
+        ("/corpus_m/<objectId>", "r_corpus_mv", ["GET"]),
         ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
@@ -37,7 +39,7 @@ class NemoFormulae(Nemo):
         ("/contact", "r_contact", ["GET"])
     ]
     SEMANTIC_ROUTES = [
-        "r_collection", "r_references", "r_multipassage"
+        "r_collection", "r_collection_mv", "r_references", "r_multipassage"
     ]
 
     FILTERS = [
@@ -64,10 +66,10 @@ class NemoFormulae(Nemo):
 
     PROTECTED = [
         # "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
-        # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
+        # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
+    OPEN_COLLECTIONS = ['urn:cts:formulae:markulf', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
@@ -302,6 +304,20 @@ class NemoFormulae(Nemo):
         data['template'] = "main::sub_collections.html"
         return data
 
+    def r_collection_m(self, objectId, lang=None):
+        data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
+        if self.check_project_team() is False:
+            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+        if len(data['collections']['members']) == 0:
+            if "andecavensis" in objectId:
+                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            else:
+                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+        elif len(data['collections']['members']) == 1:
+            return redirect(url_for('InstanceNemo.r_corpus_m', objectId=data['collections']['members'][0]['id'], lang=lang))
+        data['template'] = "main::sub_collections_m.html"
+        return data
+
     def r_corpus(self, objectId, lang=None):
         """ Route to browse collections and add another text to the view
 
@@ -374,7 +390,8 @@ class NemoFormulae(Nemo):
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        return {
+
+        return_value = {
             "template": template,
             "collections": {
                 "current": {
@@ -388,6 +405,70 @@ class NemoFormulae(Nemo):
                 "parents": self.make_parents(collection, lang=lang)
             }
         }
+        return return_value
+
+    def r_corpus_mv(self, objectId, lang=None):
+        """ Route to browse collections and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+        collection = self.resolver.getMetadata(objectId)
+        r = {}
+        translations = {}
+        forms = {}
+        titles = {}
+        edition_names = {}
+        full_edition_names = {}
+        template = "main::sub_collection_mv.html"
+        list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
+        list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)', r'\1', x.parent.id)))
+        for m in list_of_readable_descendants:
+            if self.check_project_team() is True or m.id in self.open_texts:
+                edition = str(m.id).split(".")[str(m.id).split(".").__len__() - 1]
+                title = " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
+                form = str(m.id).split(".")[str(m.id).split(".").__len__() - 2]
+                edition_name = m.metadata.get_single(DC.title).__str__().split(" ")[-1].replace(")", "").replace("(", "")
+                full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+
+                if edition not in translations.keys():
+                    titles[edition] = [title]
+                    translations[edition] = [m.id]
+                    forms[edition] = [form]
+                    edition_names[edition] = edition_name
+                    full_edition_names[edition] = full_edition_name
+                else:
+                    titles[edition].append(title)
+                    translations[edition].append(m.id)
+                    forms[edition].append(form)
+        for k, v in translations.items():
+            r[k] = {
+                "name": k,
+                "edition_name": edition_names[k],
+                "full_edition_name": full_edition_names[k],
+                "titles" : titles[k],
+                "links": [forms[k], v],
+            }
+
+        return_value = {
+                "template": template,
+                "collections": {
+                    "current": {
+                        "label": str(collection.get_label(lang)),
+                        "id": collection.id,
+                        "model": str(collection.model),
+                        "type": str(collection.type),
+                        "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                    },
+                    "readable": r,
+                    "parents": self.make_parents(collection, lang=lang)
+                }
+        }
+        return return_value
 
     def r_add_text_collections(self, objectIds, reffs, lang=None):
         """ Retrieve the top collections of the inventory

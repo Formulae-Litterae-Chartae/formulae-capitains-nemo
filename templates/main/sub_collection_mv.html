@@ -1,0 +1,84 @@
+{% extends "main::container_mv.html" %}
+
+{% block article %}
+{% if not prev_texts %}
+{% set prev_texts = '' %}
+{% set prev_reffs = '' %}
+{% set coll_route = 'InstanceNemo.r_collection_multi' %}
+{% else %}
+{% set coll_route = 'InstanceNemo.r_add_text_collection' %}
+{% endif %}
+
+<style>
+.row_mv {
+    width: 100%;
+    overflow: scroll;
+}.line{
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+}.list-group-item.flex-column{
+    {% if collections.readable|length != 0 %}
+        width: {{100/collections.readable|length}}%;
+    {% else %}
+        width: 100%;
+    {% endif %}
+
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    overflow: scroll;
+    float: Left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-down: 0px;
+}.card-header{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: #263d3d;
+    color: #fff
+}.title{
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
+<header>
+    <h1>
+    {{collections.current.label}}
+    </h1>
+</header>
+</div>
+{% if collections.readable %}
+<div class="row_mv">
+
+        <ul id="list_of_elements" class="list-group list-group-flush" style="flex-direction: row;">
+            {% for number, values in collections.readable|dictsort %}
+
+            <li id="N{{number}}" class="list-group-item flex-column">
+                <div class="card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
+                    <h5>{{values['edition_name']}}</h5>
+                </div>
+                <div class="scrollContent"  class="card border-light">
+                    {% for name in values['links'][0]%}
+                        <div class="card search-hit">
+                            {% if values['titles'][loop.index-1] %}<h5><p>{{ values['titles'][loop.index-1] }}</p></h5>{% endif %}
+                            <div class="card-body p-2 search-hit-menu">
+                                <p>
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _("Lesen") }}</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+{% endif %}
+</div>
+<footer>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
+</footer>
+{% endblock %}
