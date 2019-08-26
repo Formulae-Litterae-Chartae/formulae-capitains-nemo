@@ -1,6 +1,5 @@
 {% extends "main::container_mv.html" %}
 
-{% block article %}
 {% if not prev_texts %}
 {% set prev_texts = '' %}
 {% set prev_reffs = '' %}
@@ -9,6 +8,7 @@
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
 
+{% block article %}
 <style>
 .row_mv {
     width: 100%;
@@ -49,12 +49,25 @@
     </h1>
 </header>
 </div>
+
 {% if collections.readable %}
 <div class="row_mv">
 
         <ul id="list_of_elements" class="list-group list-group-flush" style="flex-direction: row;">
-            {% for number, values in collections.readable|dictsort %}
+            {{ build_column(collections.readable.editions) }}
+            {{ build_column(collections.readable.translations) }}
+            {{ build_column(collections.readable.transcriptions) }}
+        </ul>
+{% endif %}
+</div>
+<footer>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
+</footer>
+{% endblock %}
 
+{% macro build_column(type_dict) %}
+            {% for values in type_dict %}
             <li id="N{{number}}" class="list-group-item flex-column">
                 <div class="card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
                     <h5>{{values['edition_name']}}</h5>
@@ -74,11 +87,4 @@
                 </div>
             </li>
             {% endfor %}
-        </ul>
-{% endif %}
-</div>
-<footer>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
-</footer>
-{% endblock %}
+{% endmacro %}

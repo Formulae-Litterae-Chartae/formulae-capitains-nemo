@@ -69,7 +69,7 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:markulf', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
+    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
@@ -190,6 +190,7 @@ class NemoFormulae(Nemo):
         :param s: the separator
         :return: a string of the values joined by the separator
         """
+
         return s.join(l).strip(s)
 
     def f_replace_indexed_item(self, l, i, v):
@@ -418,7 +419,8 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
-        r = {}
+        ed_trans_mapping = {'lat001': _('Edition'), 'deu001': _('Übersetzung')}
+        r = {'editions': [], 'translations': [], 'transcriptions': []}
         translations = {}
         forms = {}
         titles = {}
@@ -426,13 +428,13 @@ class NemoFormulae(Nemo):
         full_edition_names = {}
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
-        list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)', r'\1', x.parent.id)))
+        list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)\Z', r'\1', x.parent.id)))
         for m in list_of_readable_descendants:
             if self.check_project_team() is True or m.id in self.open_texts:
-                edition = str(m.id).split(".")[str(m.id).split(".").__len__() - 1]
-                title = " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
-                form = str(m.id).split(".")[str(m.id).split(".").__len__() - 2]
-                edition_name = m.metadata.get_single(DC.title).__str__().split(" ")[-1].replace(")", "").replace("(", "")
+                edition = str(m.id).split(".")[-1]
+                title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
+                form = str(m.id).split(".")[-2]
+                edition_name = ed_trans_mapping.get(edition, edition).title()
                 full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
 
                 if edition not in translations.keys():
@@ -446,13 +448,33 @@ class NemoFormulae(Nemo):
                     translations[edition].append(m.id)
                     forms[edition].append(form)
         for k, v in translations.items():
-            r[k] = {
-                "name": k,
-                "edition_name": edition_names[k],
-                "full_edition_name": full_edition_names[k],
-                "titles" : titles[k],
-                "links": [forms[k], v],
-            }
+            if k == 'lat001':
+                r['editions'].append({
+                    "name": k,
+                    "edition_name": edition_names[k],
+                    "full_edition_name": full_edition_names[k],
+                    "titles": titles[k],
+                    "links": [forms[k], v],
+                })
+            elif k == 'deu001':
+                r['translations'].append({
+                    "name": k,
+                    "edition_name": edition_names[k],
+                    "full_edition_name": full_edition_names[k],
+                    "titles": titles[k],
+                    "links": [forms[k], v],
+                })
+            else:
+                r['transcriptions'].append({
+                    "name": k,
+                    "edition_name": edition_names[k],
+                    "full_edition_name": full_edition_names[k],
+                    "titles": titles[k],
+                    "links": [forms[k], v],
+                })
+
+        r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
+                                     key=lambda x: re.search(r'\D+', x['name']).group(0))
 
         return_value = {
                 "template": template,
