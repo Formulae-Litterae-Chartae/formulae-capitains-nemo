@@ -348,7 +348,7 @@ class NemoFormulae(Nemo):
                     par = m.parent.id.split('.')[-1][0].capitalize()
                     metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
                 else:
-                    par = re.sub(r'.*?(\d+)', r'\1', m.parent.id)
+                    par = re.sub(r'.*?(\d+)\Z', r'\1', m.parent.id)
                     if par.lstrip('0') == '':
                         par = _('(Titel)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
