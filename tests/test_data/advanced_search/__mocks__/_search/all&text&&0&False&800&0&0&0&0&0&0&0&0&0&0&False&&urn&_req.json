@@ -97,6 +97,11 @@
               "_type": "andecavensis"
             }
           },
+          "Arnulfinger": {
+            "match": {
+              "_type": "arnulfinger"
+            }
+          },
           "B\u00fcnden": {
             "match": {
               "_type": "buenden"

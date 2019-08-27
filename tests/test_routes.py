@@ -355,12 +355,15 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Angers": {
                       "doc_count": 2
                     },
+                    "Arnulfinger": {
+                      "doc_count": 0
+                    },
                     "B\u00fcnden": {
                       "doc_count": 0
                     },
-                      "Freising": {
-                          "doc_count": 0
-                      },
+                    "Freising": {
+                        "doc_count": 0
+                    },
                     "Fulda (Dronke)": {
                       "doc_count": 0
                     },
@@ -1444,6 +1447,9 @@ class TestES(Formulae_Testing):
                                                         "Angers": {
                                                           "doc_count": 2
                                                         },
+                                                        "Arnulfinger": {
+                                                          "doc_count": 0
+                                                        },
                                                         "B\u00fcnden": {
                                                           "doc_count": 0
                                                         },
@@ -1525,6 +1531,7 @@ class TestES(Formulae_Testing):
                              {'filters':
                                   {'filters':
                                        {'Angers': {'match': {'_type': 'andecavensis'}},
+                                        'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
                                         'Freising': {'match': {'_type': 'freising'}},
                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
@@ -1618,11 +1625,11 @@ class TestES(Formulae_Testing):
         results = suggest_word_search('*', **test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
         results = suggest_word_search('?', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
         results = suggest_word_search('ill*', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
         results = suggest_word_search('ill?', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
 
     def test_results_sort_option(self):
         self.assertEqual(build_sort_list('urn'), 'urn')
