@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -133,6 +133,9 @@
       "buckets": {
         "Angers": {
           "doc_count": 5
+        },
+        "Arnulfinger": {
+          "doc_count": 0
         },
         "B\u00fcnden": {
           "doc_count": 0
