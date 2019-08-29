@@ -42,7 +42,13 @@
                     <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
                         {{ form.slop(min="0", max="100") }} {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die maximale Anzahl unzutreffenden Wörter, die zwischen den Suchbegriffen auftreten können. Bei der Suche nach \'christ* nom\' mit einem Suchradius von 50 werden beispielsweise alle Stellen gefunden, wo beide Begriffe innerhalb von 50 Wörtern auftauchen.') }}"><i class="fas fa-question-circle" ></i></a></div>
                     </div>
-                    <div class="form-group">
+                    <div class="text-center mb-2"><strong>{{ _('Regestensuche') }}</strong><a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="{{ _('Die Regestensuche sucht nur in den Regesten der Formeln und Urkunden. Die Regesten sind hauptsächlich auf Deutsch geschrieben. Die Einstellungen für Unschärfegrad und Suchradius werden bei dieser Suche auch verwendet.') }}"><i class="fas fa-question-circle" ></i></a></div>
+                    <div>
+                        {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off") }}
+                        <datalist id="regest-word-search-datalist">
+                        </datalist>
+                    </div>
+                    <div class="form-group pt-3">
                         <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong></div>
                         <div>
                             {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
