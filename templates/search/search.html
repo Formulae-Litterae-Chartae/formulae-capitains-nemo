@@ -97,12 +97,6 @@
                 {% for sent in post['sents'] %}
                 <p class="card-text m-0"><small>- {{ sent }}</small></p>
                 {% endfor %}
-                {% if post['regest_sents'] != [] %}
-                <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
-                {% endif %}
-                {% for sent in post['regest_sents'] %}
-                <p class="card-text m-0"><small>- {{ sent }}</small></p>
-                {% endfor %}
             </div>
             {% else %}
             <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">
