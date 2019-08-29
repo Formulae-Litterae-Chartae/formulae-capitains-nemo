@@ -16,7 +16,6 @@ from datetime import date
 from string import punctuation
 from urllib.parse import quote
 from json import load as json_load
-from collections import defaultdict
 
 
 class NemoFormulae(Nemo):

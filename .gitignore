@@ -34,6 +34,7 @@ nosetests.xml
 .project
 .pydevproject
 
+adduser.py
 venv
 app.db
 .idea/
