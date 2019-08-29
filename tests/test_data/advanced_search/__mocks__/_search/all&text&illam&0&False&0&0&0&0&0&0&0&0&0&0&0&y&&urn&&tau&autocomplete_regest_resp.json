@@ -1,0 +1,713 @@
+{
+  "took": 5,
+  "timed_out": false,
+  "_shards": {
+    "total": 20,
+    "successful": 20,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 13,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entsch\u00e4digung.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1045",
+          "urn": "urn:cts:formulae:freising.bitterauf1045.lat001",
+          "date_string": "908 09 13",
+          "comp_ort": "Freising",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entsch\u00e4digung.",
+          "orig_comp_ort": "Freising",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 908,
+              "month": 9,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0908-09-13"
+          ],
+          "min_date": "0908-09-13",
+          "days": [
+            "Tuesday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Dracholf </small><strong>tauscht</strong><small> von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entsch\u00e4digung."
+          ],
+          "text": [
+            "Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad </small><strong>illam</strong><small> pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III. Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII. id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf1045.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1152",
+          "urn": "urn:cts:formulae:freising.bitterauf1152.lat001",
+          "date_string": "956-957",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0956",
+              "lte": "0958"
+            }
+          ],
+          "all_dates": [
+            "0956",
+            "0958"
+          ],
+          "min_date": "0956"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Lambert </small><strong>tauscht</strong><small> von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg."
+          ],
+          "text": [
+            "Econtra vero in recompensatione eiusdem commutationis de rebus predictae aecclesiae in loco Hohinpurc nuncupato partem </small><strong>illam</strong><small> urbistatii ad aquilonem positam valloque circumseptam idem iam prescriptus laudabilis episcopus una cum manu sui advocati predicti eidem comiti aevis temporibus in proprietatem tradidit habendum. Isti sunt testes per aures tracti: Eparhart comes. Adalhoh. Isanhart. Kisallot. Irmanheri. Petto. Peranger. Otmar. Vualdman."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf1152.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1214",
+          "urn": "urn:cts:formulae:freising.bitterauf1214.lat001",
+          "date_string": "972-976",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0972",
+              "lte": "0977"
+            }
+          ],
+          "all_dates": [
+            "0972",
+            "0977"
+          ],
+          "min_date": "0972"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Abraham </small><strong>tauscht</strong><small> von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern."
+          ],
+          "text": [
+            "Tradidit itaque prenominatus Isanhardus ad Altinhusun et ad Uettingun curtiferam I in mensura unius iugeris et dimidii et arabilis terrae hobam I servilem et iugera XIIII silvulae iugera III cum omnibus rebus iure ad </small><strong>illam</strong><small> hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero idem prenominatus episcopus una cum manu eiusdem Paponis de rebus predictae dei aecclesiae cum consilio suorum fidelium ad Pacharun aequali mensura eidem Isanhardo totidem tradidit in proprietatem habendum et exinde quicquid ab altero accepit firmiter teneat atque possideat. Unde et has commutationes conscribi fecerunt et his testibus confirmaverunt. Isti sunt testes eiusdem commutationis: Jacob. Dietrih. Adalhoh. Ediram. Kundhart. Uuillihart. Ellinrih. Meginrat. Chuniperht. Et ex familia: Hunperht. Reginhelm. Reginhart. Isangrim. Alpolt. Lvitpreht."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf1214.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1219",
+          "urn": "urn:cts:formulae:freising.bitterauf1219.lat001",
+          "date_string": "972-976",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0972",
+              "lte": "0977"
+            }
+          ],
+          "all_dates": [
+            "0972",
+            "0977"
+          ],
+          "min_date": "0972"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Abraham </small><strong>tauscht</strong><small> von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach."
+          ],
+          "text": [
+            "Tradidit itaque idem prenominatus Aron ad Smidahusun curtiferam I in mensura iugeri et dimidii et arabilis terre hobam I servilem pratorum iugera II et sillvulae quicquid ibi habuit cum omnibus rebus iuste legitimeque ad </small><strong>illam</strong><small> hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero prenominatus episcopus et advocatus eius cum consilio suorum fidelium in eadem recompensatione tradiderunt eidem prescripto Aroni ad Rinchpah in omnibus aequali mensura eo scilicet tenore, ut uterque quod ab altero accepit firmiter teneat atque possideat. Isti sunt testes eiusdem commutationis: Anno. Kotascalh. Dietrih. Jacob. Papo. Adalhoh. Kundhart. Ediram."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf1219.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu S\u00fcnzhausen und Hemhausen gegen andere zu Herrschenhof en; b) Best\u00e4tigung.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1325",
+          "urn": "urn:cts:formulae:freising.bitterauf1325.lat001",
+          "date_string": "944-1005",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu S\u00fcnzhausen und Hemhausen gegen andere zu Herrschenhof en; b) Best\u00e4tigung.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0994",
+              "lte": "1006"
+            }
+          ],
+          "all_dates": [
+            "0994",
+            "1006"
+          ],
+          "min_date": "0994"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "a) Bischof Gottschalk </small><strong>tauscht</strong><small> von dem Unfreien der Kirche Aripo Liegenschaften zu S\u00fcnzhausen und Hemhausen gegen andere zu Herrschenhof en; b) Best\u00e4tigung."
+          ],
+          "text": [
+            "Perachtolt. b) Sed ut haec ista commutatio f\u00ecrmior esset, idem ille advocatus veniens ad eundem locum Horchinhoua nominatum eandem </small><strong>illam</strong><small> proprietatem cum testibus iterum presentavit. Testes IIII nobiles viri: Erchanker. Dietrich. Aripo. Iterum Dietrich. Lantfrit. Ratkis. De familia: Wolfhart. Machtuni. Wolfheri. Rihmunt. Rihker. Eparmunt."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf1325.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v4",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "K\u00f6nig Heinrich [I.] gibt dem Kloster Hersfeld die Orte Barchfeld und Breitungen gegen anderen Besitz zu Tausch und umschreibt den Sprengel der Pfarrei Breitungen.",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 46",
+          "urn": "urn:cts:formulae:hersfeld.weirich0046.lat001",
+          "date_string": "933 06 01",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "K\u00f6nig Heinrich [I.] gibt dem Kloster Hersfeld die Orte Barchfeld und Breitungen gegen anderen Besitz zu Tausch und umschreibt den Sprengel der Pfarrei Breitungen.",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 933,
+              "month": 6,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0933-06-01"
+          ],
+          "min_date": "0933-06-01",
+          "days": [
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "K\u00f6nig Heinrich [I.] gibt dem Kloster Hersfeld die Orte Barchfeld und Breitungen gegen anderen Besitz zu </small><strong>Tausch</strong><small> und umschreibt den Sprengel der Pfarrei Breitungen."
+          ],
+          "text": [
+            "Insuper et eodem venerabili abbate rogante iussimus totam marcham </small><strong>illam</strong><small> ad matricem aecclesiam in Breitinga spectantem, sicut per fideles viros cum iurisiurandi affirmatione circumducta est, per singula loca nominatim litteris signiri et huic carte inscribi: cuius principium est ubi Sueinaha cadit in Vuisaraha et sic sursum per eiusdem fluminis alveum tendit ad orientales eius fontes ubi oritur atque inde perveniet in locum qui dicitur Gerwenestein, sicque pertendit in fluviolum Drusandam que nominatur candida et ex ea im aliam Drusandam quae dicitur nigra, inde in Aldaha et ex ea in directum ultra Vuisaraham et per ripam Rosaha sursum progreditur usque in Fisbach, deinde in Marcbach sicque pertenditur in thia Hugesbovchun et sic transit in Ruodelahesbrunnen et per montem qui dicitur Blesse in Arahenbach et per </small><strong>illam</strong><small> deorsum in Vuisaraha sursumque per </small><strong>illam</strong><small> usque ubi Sueinaha fluit in eam."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:hersfeld.weirich0046.lat001"
+        ]
+      },
+      {
+        "_index": "passau_v4",
+        "_type": "passau",
+        "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "LUDWIG DER DEUTSCHE GESTATTET BISCHOF HARTWICH UND SEINEN NACHFOLGERN, MIT EDELLEUTEN BESITZ ZU TAUSCHEN.",
+          "title": "Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 82",
+          "urn": "urn:cts:formulae:passau.heuwieser0082.lat001",
+          "date_string": "852 Februar 7.",
+          "comp_ort": "Regensburg",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "LUDWIG DER DEUTSCHE GESTATTET BISCHOF HARTWICH UND SEINEN NACHFOLGERN, MIT EDELLEUTEN BESITZ ZU TAUSCHEN.",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 852,
+              "month": 2,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0852-02-07"
+          ],
+          "min_date": "0852-02-07",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "LUDWIG DER DEUTSCHE GESTATTET BISCHOF HARTWICH UND SEINEN NACHFOLGERN, MIT EDELLEUTEN BESITZ ZU </small><strong>TAUSCHEN</strong><small>."
+          ],
+          "text": [
+            "racionabilia petentium agere volumus peticioni eius aurem serenitatis nostrae acommodavimus ac per hoc hanc auctoritatem nostram prefato Harduuigo episcopo seu successoribus suis fieri decrevimus per quam volumus atque iubemus, ut ubicumque ipsi et advocati eorum tales res inveniant quae aecclesiae illorum apcius et utilius atque convenientius coniacere videantur, liberam potestatem habeant, commutare et ad opus sedis suae subicere et hoc illorum et advocatum eorum provisioni consistat ut cum summa cautela et diligentia consideretur ne peius atque deterius vel minus in nullo negotio isto parti et potestate iam nominati sedis et monasterii ex illa commutatione proveniat statuentesque ut deinceps quicquid pro utilitate sepedictae aeclesiae et monasteriis prefatus episcopus successoresque illius et advocati eorum commutaverint in mancipiis ceterisque rebus silvis vel eciam territoriis per hanc nostrae benivolentiae concessionem firmum et inconvulsum perpetuo permaneant et ut nulli liceat </small><strong>illam</strong><small>"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:passau.heuwieser0082.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v4",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Bischof Erchanfrid tauscht mit dem edlen Eparhoh G\u00fcter zu Daching und Atting",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 34",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
+          "date_string": "847\u2013863",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Bischof Erchanfrid tauscht mit dem edlen Eparhoh G\u00fcter zu Daching und Atting",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0847",
+              "lte": "0864"
+            }
+          ],
+          "all_dates": [
+            "0847",
+            "0864"
+          ],
+          "min_date": "0847"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Erchanfrid </small><strong>tauscht</strong><small> mit dem edlen Eparhoh G\u00fcter zu Daching und Atting"
+          ],
+          "text": [
+            "Tradidit Umcrammus advocatus episcopi cum iussione et licentia domini Hludouuici regis praedicto lacio </small><strong>illam</strong><small> traditionem quam fecit Pernger clericus ad sanctum Emmerammum martyrem Christi in loco qui dicitur Tahhinga. Econtra vero tradidit prefatus Eparhoh talem hereditatem, ut in Atingun habuit, ex integro, nihil extra dimittens, sed omnia lege firmissima transfundens. Isti ergo testes sunt per aures tracti: Unolz, Erchanpreht, Otpreht, Ratolf, Herigoz, Uuicram, Alo, Sumdker, Odalger, Rodker, Freso, Vulfilo, Ratolt Vulfrih Rihho, Richolf, Sigo, Deotpato. Et ut firmius hec commutatio permaneret et posteri certius scirent, conplacuit duas kartas uno tenore conscribi, quatinus uterque unam haberet et sine ulla contradictione perpetua maneret."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:regensburg.wiedemann0034.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v4",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Der Priester Otkis tauscht mit S. Peter und S. Emmeram Besitz zu Illkofen",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 122",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
+          "date_string": "c. 883-887",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Der Priester Otkis tauscht mit S. Peter und S. Emmeram Besitz zu Illkofen",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0883",
+              "lte": "0888"
+            }
+          ],
+          "all_dates": [
+            "0883",
+            "0888"
+          ],
+          "min_date": "0883"
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Der Priester Otkis </small><strong>tauscht</strong><small> mit S. Peter und S. Emmeram Besitz zu Illkofen"
+          ],
+          "text": [
+            "Econtra vero Ambricho praefatus episcopus atque suus advocatus Strupo tradiderunt de rebus praedictorum sanctorum in eodem loco </small><strong>illam</strong><small> casam in australi parte consistentem (id est Herimarinchoua) cum terris, pratis et nemore et cum omnibus illuc pertinentibus Otgiso presbytero in proprium usque ad obitum suum, postea vero redigantur ad pristinum locum. Et isti sunt testes: Gozpold, Herrant, Heripold, Gundpreht, Alprih, Rupo, Vuitker, Ascrih."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:regensburg.wiedemann0122.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v4",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Hiltilind \u00fcbertr\u00e4gt eine vom Kloster Sanct Gallen durch Tausch erhaltene Hufe zu Ratzenhofe n an Sanct Gallen.",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 308",
+          "urn": "urn:cts:formulae:stgallen.wartmann0308.lat001",
+          "date_string": "827 09 08",
+          "comp_ort": "Wasserburg",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Hiltilind \u00fcbertr\u00e4gt eine vom Kloster Sanct Gallen durch Tausch erhaltene Hufe zu Ratzenhofe n an Sanct Gallen.",
+          "orig_comp_ort": "Wasserburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 827,
+              "month": 9,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0827-09-08"
+          ],
+          "min_date": "0827-09-08",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Hiltilind \u00fcbertr\u00e4gt eine vom Kloster Sanct Gallen durch </small><strong>Tausch</strong><small> erhaltene Hufe zu Ratzenhofe n an Sanct Gallen."
+          ],
+          "text": [
+            "Ego Hiltilind una cum voluntate filiorum meorum Witberti et Cotaberti trado ad monasterium sancti Galli </small><strong>illam</strong><small> hobam, quam accepi ab eisdem monachis in cambionem, sitam in Ratineshowa, et ipsi a me aliam acceperunt in Chlufturnun iacentem. Ideoque ego et filii mei tradimus </small><strong>illam</strong><small> hobam atque transfundimus pro remedio animarum nostrarum et aeterna retributione cum omnibus, quicquid ad eam hobam pertinet, cum domo et ceteris edificiis, campis, pratis, pascuis, silvis, viis, aquis aquarumque decursibus, cultis et incultis; ea videlicet ratione, ut </small><strong>illam</strong><small> hobam in Ratineshovun iacentem ad me recipiam et annis singulis in censum persolvam tempus vitae meae IIII denarios vel octo modios in grano et duos pullos. Post meum vero obitum habeant ipsam predictam hobam Witpret et Cotabret et eundem censum persolvant, hoc est IIII denarios vel VIII modios et II pullos. Similiter et cuncta eorum procreatio ab eis genita faciet."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0308.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v4",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Patacho und Sigebret tauschen die von ihrem Oheim Patacho an Sanct Gallen \u00fcbertragenen 10 Hufen zu Bettenweiler gegen ebenso viele Hufen zu Apflau, Laimnau und Oberdorf ein; dazu schenken sie noch 13 Juchart Ackerland zu Langenargen und \u00fcbertragen sie 12 Fuder Wiesen zu Apflau und einen zu den Hufen geh\u00f6rigen Wald an Sanct Gallen.",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 381",
+          "urn": "urn:cts:formulae:stgallen.wartmann0381.lat001",
+          "date_string": "839 10 22",
+          "comp_ort": "Bettenweiler",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Patacho und Sigebret tauschen die von ihrem Oheim Patacho an Sanct Gallen \u00fcbertragenen 10 Hufen zu Bettenweiler gegen ebenso viele Hufen zu Apflau, Laimnau und Oberdorf ein; dazu schenken sie noch 13 Juchart Ackerland zu Langenargen und \u00fcbertragen sie 12 Fuder Wiesen zu Apflau und einen zu den Hufen geh\u00f6rigen Wald an Sanct Gallen.",
+          "orig_comp_ort": "Bettenweiler",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 839,
+              "month": 10,
+              "day": 22
+            }
+          ],
+          "all_dates": [
+            "0839-10-22"
+          ],
+          "min_date": "0839-10-22",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Patacho und Sigebret </small><strong>tauschen</strong><small> die von ihrem Oheim Patacho an Sanct Gallen \u00fcbertragenen 10 Hufen zu Bettenweiler gegen ebenso viele Hufen zu Apflau, Laimnau und Oberdorf ein; dazu schenken sie noch 13 Juchart Ackerland zu Langenargen und \u00fcbertragen sie 12 Fuder Wiesen zu Apflau und einen zu den Hufen geh\u00f6rigen Wald an Sanct Gallen."
+          ],
+          "text": [
+            "Modo fiunt in summa, quod nos ad monasterium donamus in concambium, sicut probatissimi et fidelissimi viri nostris et vestris partibus estimaverunt, inter arabili terra et silvis incultis hobe decem aequaliter, sicut a vobis accepimus; ea scilicet ratione, ut quicquid ad Apfulhouva vobis donavimus et contra Diodoldum et Ruadcozzum </small><strong>illam</strong><small> silvam nepus noster Albericus presbiter cum eodem censu sicut de predicto Patechinwilare fecit, quam nos adquisivimus per concambium, cum duobus solidis proserviat, in qualecumque pretio potuerit, tempus vitae suae. Et post eius discessum res predicte ad monasterium revertantur perpetualiter possidendum. Insuper etiam ad honorem domni abbatis et reverentia fratrum superdonamus vobis extra concambio ad Argunam iurnales XIII et de pratis ad Apfulhouvo ad XII carradas et silvam pertinentem ad eisdem hobis, et tamen Albericus presbiter eandem pratam et silvam sub eodem predicto censo proserviat. Cetera omnia in vestra potestate permaneant in perpetuum."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0381.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v4",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "K\u00f6nig Arnolf best\u00e4tigt einen Tausch zwischen Abt Salomon und Anno, von Klosterbesitz zu Sch\u00f6neb\u00fcrg gegen die Kirche und sieben Hufen zu (Kaiser-)Augst.",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 694",
+          "urn": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+          "date_string": "894 08 26",
+          "comp_ort": "Regensburg",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "K\u00f6nig Arnolf best\u00e4tigt einen Tausch zwischen Abt Salomon und Anno, von Klosterbesitz zu Sch\u00f6neb\u00fcrg gegen die Kirche und sieben Hufen zu (Kaiser-)Augst.",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 894,
+              "month": 8,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0894-08-26"
+          ],
+          "min_date": "0894-08-26",
+          "days": [
+            "Monday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "K\u00f6nig Arnolf best\u00e4tigt einen </small><strong>Tausch</strong><small> zwischen Abt Salomon und Anno, von Klosterbesitz zu Sch\u00f6neb\u00fcrg gegen die Kirche und sieben Hufen zu (Kaiser-)Augst."
+          ],
+          "text": [
+            "Tradidit itaque memoratus Salomon cum consensu totius familiae de rebus sancti Galli per manus sui advocati nomine Wichere cuidam viro nomine Anno tales causas, sicut habere visus est in pago Rammekeuve in comitatu Arnulfi in loco et in villa nominata Sconenpirch, cum omnibus appenditiis suis in ius perpetuae proprietatis; econtra vero in reconpensationem praefatus Anno tradidit iam dicto praesuli Salomoni suoque advocato in manus proprias id est tales causas, sicut nos ei per nostrum praeceptum in proprium concessimus, hoc est in pago Aragouve in comitatu Chadaloh in villa Augusta aecclesiam I et hobas VII cum aedificiis et curtilibus mancipiisque omnibus utriusque sexus, terris, agris, campis, cultis vel incultis, pratis, pascuis, silvis, aquis aquarumque decursibus, viis et inviis, exitibus et regressibus et cum omnibus iure legitimeque ad </small><strong>illam</strong><small> aecclesiam et ad ipsas VII hobas pertinentibus."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:stgallen.wartmann0694.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v4",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Nachdem Graf Hugo (v. Tours ) und Abt Bernhari, Bischof von Worms, im Einvernehmen mit den Br\u00fcdern einen Tausch verabredet und Kaiser Ludwig Genehmigung und Besiegelung des Tauschvertrags verf\u00fcgt hatte, \u00fcbergibt der Graf zu ( Nieder-) Bronn sein gesamtes Eigentum - ausgenommen die Kirche und den Bifang -, seinen Anteil an der Waldmark, n\u00e4mlich drei Viertel, und alles, was er in Dorf und Gemarkung hatte, au\u00dfer den H\u00f6rigen; ebenso in Preuschdorf (\u00f6 W\u00f6rth) eine Hofstatt, 23 Tagwerk, Wiesen zu 5 Fuder und allen Besitz in der Mark; auch alles in Walf (w Erstein), n\u00e4mlich 3 Huben und 24 Tagwerk, die Waldmark und den Gesamtbesitz in der Gemarkung; in Barr (wsw Erstein) und Froscheim (w\u00fcst bei Barr) seine Weing\u00e4rten. Daf\u00fcr erh\u00e4lt er den gesamten Klosterbesitz in Dettweiler (\u00f6 Zabern), n\u00e4mlich 13 Huben mit Zubeh\u00f6r, aber ohne die H\u00f6rigen, - Auf die Handzeichen der Verhandlungszeugen zu Quierzy-s.-Oise folgen Listen der Investitur-Zz zu Niederbronn, Walf, Barr, Froscheim.",
+          "title": "Traditiones Wizenburgenses (Ed. Gl\u00f6ckner) Nr. 69",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+          "date_string": "820 09 02",
+          "comp_ort": "Quierzy-s.-Oise",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Nachdem Graf Hugo (v. Tours ) und Abt Bernhari, Bischof von Worms, im Einvernehmen mit den Br\u00fcdern einen Tausch verabredet und Kaiser Ludwig Genehmigung und Besiegelung des Tauschvertrags verf\u00fcgt hatte, \u00fcbergibt der Graf zu ( Nieder-) Bronn sein gesamtes Eigentum - ausgenommen die Kirche und den Bifang -, seinen Anteil an der Waldmark, n\u00e4mlich drei Viertel, und alles, was er in Dorf und Gemarkung hatte, au\u00dfer den H\u00f6rigen; ebenso in Preuschdorf (\u00f6 W\u00f6rth) eine Hofstatt, 23 Tagwerk, Wiesen zu 5 Fuder und allen Besitz in der Mark; auch alles in Walf (w Erstein), n\u00e4mlich 3 Huben und 24 Tagwerk, die Waldmark und den Gesamtbesitz in der Gemarkung; in Barr (wsw Erstein) und Froscheim (w\u00fcst bei Barr) seine Weing\u00e4rten. Daf\u00fcr erh\u00e4lt er den gesamten Klosterbesitz in Dettweiler (\u00f6 Zabern), n\u00e4mlich 13 Huben mit Zubeh\u00f6r, aber ohne die H\u00f6rigen, - Auf die Handzeichen der Verhandlungszeugen zu Quierzy-s.-Oise folgen Listen der Investitur-Zz zu Niederbronn, Walf, Barr, Froscheim.",
+          "orig_comp_ort": "Quierzy-s.-Oise",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 9,
+              "day": 2
+            }
+          ],
+          "all_dates": [
+            "0820-09-02"
+          ],
+          "min_date": "0820-09-02",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Tours ) und Abt Bernhari, Bischof von Worms, im Einvernehmen mit den Br\u00fcdern einen </small><strong>Tausch</strong><small> verabredet und Kaiser Ludwig Genehmigung und Besiegelung des </small><strong>Tauschvertrags</strong><small> verf\u00fcgt hatte, \u00fcbergibt der Graf zu ( Nieder-) Bronn sein gesamtes Eigentum - ausgenommen die Kirche und den Bifang -, seinen Anteil an der Waldmark, n\u00e4mlich drei Viertel, und alles, was er in Dorf und Gemarkung hatte, au\u00dfer den H\u00f6rigen; ebenso in Preuschdorf (\u00f6 W\u00f6rth) eine Hofstatt, 23 Tagwerk, Wiesen zu 5 Fuder und allen Besitz in der Mark; auch alles in Walf (w Erstein), n\u00e4mlich 3 Huben und 24 Tagwerk, die Waldmark und den Gesamtbesitz in der Gemarkung; in Barr (wsw Erstein) und Froscheim (w\u00fcst bei Barr) seine Weing\u00e4rten. Daf\u00fcr erh\u00e4lt er den gesamten Klosterbesitz in Dettweiler (\u00f6 Zabern), n\u00e4mlich 13 Huben mit Zubeh\u00f6r, aber ohne die H\u00f6rigen, - Auf die Handzeichen der Verhandlungszeugen zu Quierzy-s.-Oise folgen Listen der Investitur-Zz zu Niederbronn, Walf, Barr, Froscheim."
+          ],
+          "text": [
+            "Sed et in Ualabu quicquid ibi habere dinoscitur idest hobas III et iurnales XXIIII, et </small><strong>illam</strong><small> marcam silvaticam vel quicquid in eadem marca habere uisus est. Ad Barram vero et ad Froscheim illas vineas quas ibi habere videtur. Haec quoque quae supra inserta sunt sepe nominatus comes ad supradictum monasterium tradidit Wizunburg tradiditque in perpetuum esse decrevit. Quocontra accepit de rebus eiusdem monasterii in pago Alsacinse in villa noncupante Dettunwilari super fluvium qui dicitur Sorna quicquid ibidem rectores ipsius monasterii habere videbantur, idest hobas XIII vel quicquid ad eas pertinere videtur, exceptis mancipiis. Reliquum autem, id est tam domibus quamque et cetera, aedificiis terris silvis pratis pascuis aquis aquarumque decursibus cultis et incultis quaeque sint, ut de iure monasterii in ius et dominatum redeat ipsius."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:weissenburg.gloeckner0069.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 5
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 1
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 1
+        },
+        "Regensburg": {
+          "doc_count": 2
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 3
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 1
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 0
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 7
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 6
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

@@ -55,6 +55,7 @@ def r_results():
                                                   fuzziness=request.args.get("fuzziness", "0"), page=page,
                                                   in_order=request.args.get('in_order', 'False'),
                                                   slop=request.args.get('slop', '0'),
+                                                  regest_q=request.args.get('regest_q'),
                                                   year=request.args.get('year', 0, type=int),
                                                   month=request.args.get('month', 0, type=int),
                                                   day=request.args.get('day', 0, type=int),
@@ -151,7 +152,9 @@ def r_search_docs():
 
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
-    words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
+    qSource = request.args.get('qSource', 'text')
+    words = suggest_word_search(q=word if qSource == 'text' else request.args.get('q', ''),
+                                field=request.args.get('field', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
                                 in_order=request.args.get('in_order', 'False'),
                                 slop=request.args.get('slop', '0'),
@@ -168,7 +171,10 @@ def word_search_suggester(word):
                                 corpus=request.args.get('corpus', '').split() or ['all'],
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                 composition_place=request.args.get('composition_place', ''),
-                                special_days=request.args.get('special_days', '').split())
+                                special_days=request.args.get('special_days', '').split(),
+                                regest_q=word if qSource == 'regest' else request.args.get('regest_q', ''),
+                                regest_field=request.args.get('regest_field', 'regest'),
+                                qSource=request.args.get('qSource', 'text'))
     return dumps(words)
 
 
