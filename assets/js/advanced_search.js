@@ -3,6 +3,8 @@ var formulaeChecks = document.querySelectorAll('input.under-formulae');
 var chartaeChecks = document.querySelectorAll('input.under-chartae');
 var wordSearchData = document.getElementById('word-search-datalist');
 var wordSearchInput = document.getElementById('word-search-box');
+var regestSearchData = document.getElementById('regest-word-search-datalist');
+var regestSearchInput = document.getElementById('regest-word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 var firstLetter = document.getElementById('firstLetter');
@@ -24,13 +26,21 @@ function checkSubCorpora(tag, category) {
 // - a listener for when the field changes
 // see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas
 wordSearchInput.onkeyup = function(e) {
+    sendAutocompleteRequest(wordSearchInput, wordSearchData, "text");
+}
+
+regestSearchInput.onkeyup = function(e) {
+    sendAutocompleteRequest(regestSearchInput, regestSearchData, "regest");
+}
+
+function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
     // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
     // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
     clearTimeout(textSearchTimeout);
     textSearchTimeout = setTimeout(function () {
         // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
         // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
-        var word = wordSearchInput.value;
+        var word = sourceElement.value;
         if(word !== '' && !(word.match(/[\*\?]/))){
             previous = word;
             var request = new XMLHttpRequest();
@@ -44,20 +54,20 @@ wordSearchInput.onkeyup = function(e) {
                             option.value = item;
                             docFrag.appendChild(option);
                         });
-                        wordSearchData.innerHTML = '';
-                        wordSearchData.appendChild(docFrag);
-                        wordSearchInput.placeholder = wordSearchInput.getAttribute('default');
+                        targetElement.innerHTML = '';
+                        targetElement.appendChild(docFrag);
+                        sourceElement.placeholder = sourceElement.getAttribute('default');
                     } else {
                         // An error occured
-                        wordSearchInput.placeholder = "Couldn't load suggestions.";
+                        sourceElement.placeholder = "Couldn't load suggestions.";
                     }
                 }
             };
             
-            wordSearchInput.placeholder = "Loading options...";
+            sourceElement.placeholder = "Loading options...";
             
             // Set up and make the request.
-            request.open('GET', '/search/suggest/' + word + buildUrl(), true);
+            request.open('GET', '/search/suggest/' + word + buildUrl(qSource), true);
             request.send();
         }
     }, 500);
@@ -68,7 +78,7 @@ wordSearchInput.onkeyup = function(e) {
 // *******************************************************************
 
 // build the tail end of the url to submit via AJAX
-function buildUrl() {
+function buildUrl(qSource) {
     var params = {
         corpus:[],
         field:'autocomplete',
@@ -87,12 +97,26 @@ function buildUrl() {
         date_plus_minus:'0',
         exclusive_date_range:'False',
         composition_place:'',
-        special_days:[]
+        special_days:[],
+        regest_field:'regest'
     };
-    if (searchLemmas.checked) {
-        params.field = 'autocomplete_lemmas';
-    } else {
-        params.field = 'autocomplete';
+    if (qSource == "text") {
+        params.extra_q = document.getElementById('regest-word-search-box').value;
+        var extraField = 'regest_q';
+        if (searchLemmas.checked) {
+            params.field = 'autocomplete_lemmas';
+        } else {
+            params.field = 'autocomplete';
+        }
+    } else if (qSource == "regest") {
+        params.extra_q = document.getElementById('word-search-box').value;
+        params.regest_field = 'autocomplete_regest';
+        var extraField = 'q';
+        if (searchLemmas.checked) {
+            params.field = 'lemmas';
+        } else {
+            params.field = 'text';
+        }
     }
     formulaeChecks.forEach(function(formula) {
         if (formula.checked) {
@@ -126,7 +150,8 @@ function buildUrl() {
     params.year_end = document.getElementById('year_end').value;
     params.month_end = document.getElementById('month_end').value;
     params.day_end = document.getElementById('day_end').value;
-    var urlExt = "?corpus=" + params.corpus.join('+') + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+');
+    params.day_end = document.getElementById('day_end').value;
+    var urlExt = "?corpus=" + params.corpus.join('+') + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+') + "&" + extraField + "=" + params.extra_q + "&regest_field=" + params.regest_field + "&qSource=" + qSource;
     return urlExt;
 }
 
