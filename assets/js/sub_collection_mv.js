@@ -1,4 +1,6 @@
 $('.list-group-item.flex-column').css('max-height', '80vh');
+$('.list-group-item.flex-column').css('width', '15%');
+
 
 $(function() {
     $('.card.search-hit').click(function() {
@@ -10,9 +12,7 @@ $(function() {
             var list_of_list = list.children[i].children[1].children
             for(j = 0; j < list_of_list.length; j++){
                 if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
-                    console.log(list_of_list[j].style.backgroundColor);
-                    console.log(list_of_list[j].offsetTop);
-                    document.getElementById(list_of_list[j].parentNode.parentNode.attributes[0].nodeValue).scrollTop = list_of_list[j].offsetTop - 60;
+                    document.getElementById(list_of_list[j].parentNode.parentNode.attributes[0].nodeValue).scrollTop = list_of_list[j].offsetTop;
                     list_of_list[j].style.backgroundColor = "#DDDD22"
                 }else{
                     list_of_list[j].style.backgroundColor = "#FFF"

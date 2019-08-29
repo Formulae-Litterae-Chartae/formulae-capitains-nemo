@@ -155,6 +155,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
             p = re.compile('<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>.+<h5>Notitia Arnonis Notitia Arnonis: </h5>',
@@ -212,6 +214,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection_mv.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -309,6 +313,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -1705,6 +1711,13 @@ class TestErrors(Formulae_Testing):
         with self.client as c:
             response = c.get('/trying.php', follow_redirects=True)
             self.assert404(response, 'A URL that does not exist on the server should return a 404.')
+
+    def test_UnknownCollection_error_mv(self):
+        with self.client as c:
+            response = c.get('/corpus_m/urn:cts:formulae:buendner', follow_redirects=True)
+            self.assert404(response, 'An Unknown Collection Error should also return 404.')
+            self.assertTemplateUsed("errors::unknown_collection.html")
+
 
     def test_UnknownCollection_error(self):
         with self.client as c:

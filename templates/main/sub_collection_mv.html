@@ -1,4 +1,4 @@
-{% extends "main::container_mv.html" %}
+{% extends "main::container.html" %}
 
 {% if not prev_texts %}
 {% set prev_texts = '' %}
@@ -9,39 +9,8 @@
 {% endif %}
 
 {% block article %}
-<style>
-.row_mv {
-    width: 100%;
-    overflow: scroll;
-}.line{
-    border-bottom: 1px solid black;
-    padding-top: 10px;
-}.list-group-item.flex-column{
-    {% if collections.readable|length != 0 %}
-        width: {{100/collections.readable|length}}%;
-    {% else %}
-        width: 100%;
-    {% endif %}
 
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    overflow: scroll;
-    float: Left;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-down: 0px;
-}.card-header{
-    position: sticky;
-    top: 0px;
-    z-index: 10;
-    background-color: #263d3d;
-    color: #fff
-}.title{
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
+<link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/sub_collection_mv.css')}}">
 
 <header>
     <h1>
@@ -50,14 +19,15 @@
 </header>
 </div>
 
+
 {% if collections.readable %}
 <div class="row_mv">
 
-        <ul id="list_of_elements" class="list-group list-group-flush" style="flex-direction: row;">
-            {{ build_column(collections.readable.editions) }}
-            {{ build_column(collections.readable.translations) }}
-            {{ build_column(collections.readable.transcriptions) }}
-        </ul>
+    <ul class="list-group list-group-flush" style="flex-direction: row;">
+        {{ build_column(collections.readable.editions) }}
+        {{ build_column(collections.readable.translations) }}
+        {{ build_column(collections.readable.transcriptions) }}
+    </ul>
 {% endif %}
 </div>
 <footer>
@@ -67,24 +37,24 @@
 {% endblock %}
 
 {% macro build_column(type_dict) %}
-            {% for values in type_dict %}
-            <li id="N{{number}}" class="list-group-item flex-column">
-                <div class="card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
-                    <h5>{{values['edition_name']}}</h5>
+    {% for values in type_dict %}
+    <li id="{{values['edition_name']}}" class="list-group-item flex-column mv-rows">
+        <div class="card-header mv-card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
+            <h5>{{values['edition_name']}}</h5>
+        </div>
+        <div class="card border-light">
+            {% for name in values['links'][0]%}
+                <div class="card search-hit">
+                    {% if values['titles'][loop.index-1] %}<h5><p>{{ values['titles'][loop.index-1] }}</p></h5>{% endif %}
+                    <div class="card-body p-2 search-hit-menu">
+                        <p>
+                            <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _("Lesen") }}</a>
+                        </p>
+                    </div>
                 </div>
-                <div class="scrollContent"  class="card border-light">
-                    {% for name in values['links'][0]%}
-                        <div class="card search-hit">
-                            {% if values['titles'][loop.index-1] %}<h5><p>{{ values['titles'][loop.index-1] }}</p></h5>{% endif %}
-                            <div class="card-body p-2 search-hit-menu">
-                                <p>
-                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _("Lesen") }}</a>
-                                </p>
-                            </div>
-                        </div>
 
-                    {% endfor %}
-                </div>
-            </li>
             {% endfor %}
+        </div>
+    </li>
+    {% endfor %}
 {% endmacro %}

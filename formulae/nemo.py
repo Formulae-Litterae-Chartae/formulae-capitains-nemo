@@ -305,20 +305,6 @@ class NemoFormulae(Nemo):
         data['template'] = "main::sub_collections.html"
         return data
 
-    def r_collection_m(self, objectId, lang=None):
-        data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        if self.check_project_team() is False:
-            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if len(data['collections']['members']) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        elif len(data['collections']['members']) == 1:
-            return redirect(url_for('InstanceNemo.r_corpus_m', objectId=data['collections']['members'][0]['id'], lang=lang))
-        data['template'] = "main::sub_collections_m.html"
-        return data
-
     def r_corpus(self, objectId, lang=None):
         """ Route to browse collections and add another text to the view
 
