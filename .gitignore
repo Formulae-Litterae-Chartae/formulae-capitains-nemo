@@ -37,6 +37,7 @@ nosetests.xml
 venv
 app.db
 .env
+.idea/
 logs/
 cache/
 .rngs/

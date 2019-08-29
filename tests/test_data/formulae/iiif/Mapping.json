@@ -16,5 +16,13 @@
 	"manifest:urn:cts:formulae:andecavensis.form005": {
 		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
 		"title":"Fulda Hessische Landesbibliotheke D1"
+	},
+	"manifest:urn:cts:formulae:markulf.form003.m4": {
+		"manifest": "urn:cts:formulae:markulf.form003.m4.json",
+		"title":"Fulda Hessische Landesbibliotheke D1"
+	},
+	"manifest:urn:cts:formulae:markulf.form003.p12": {
+		"manifest": "urn:cts:formulae:markulf.form003.p12.json",
+		"title":"Fulda Hessische Landesbibliotheke D1"
 	}
 }

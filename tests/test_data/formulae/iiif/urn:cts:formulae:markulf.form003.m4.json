@@ -1,0 +1,397 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@type": "sc:Manifest",
+	"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/manifest",
+	"label": "Formulae Salzburgenses - BSB Clm 4650",
+	"metadata": [
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Titel"
+				},
+				{
+					"@language": "zh",
+					"@value": "書名"
+				},
+				{
+					"@language": "en",
+					"@value": "Title"
+				}
+			],
+			"value": "Formulae Salzburgenses - BSB Clm 4650"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Entstehung"
+				},
+				{
+					"@language": "zh",
+					"@value": "生成"
+				},
+				{
+					"@language": "en",
+					"@value": "Creation"
+				}
+			],
+			"value": "[S.l.] wohl Raum Salzburg, 851"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Umfang"
+				},
+				{
+					"@language": "zh",
+					"@value": "範疇"
+				},
+				{
+					"@language": "en",
+					"@value": "Extent"
+				}
+			],
+			"value": "I + 85 Bl. - Pergament"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Sprache"
+				},
+				{
+					"@language": "zh",
+					"@value": "語言"
+				},
+				{
+					"@language": "en",
+					"@value": "Language"
+				}
+			],
+			"value": [
+				{
+					"@language": "de",
+					"@value": "Latein"
+				},
+				{
+					"@language": "zh",
+					"@value": "拉丁语"
+				},
+				{
+					"@language": "en",
+					"@value": "Latin"
+				}
+			]
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Standort"
+				},
+				{
+					"@language": "zh",
+					"@value": "位置"
+				},
+				{
+					"@language": "en",
+					"@value": "Location"
+				}
+			],
+			"value": "München, Bayerische Staatsbibliothek -- Clm 4650"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Objektkategorie"
+				},
+				{
+					"@language": "zh",
+					"@value": "物件類別"
+				},
+				{
+					"@language": "en",
+					"@value": "Object Type"
+				}
+			],
+			"value": "Buch"
+		},
+		{
+			"label": [
+				{
+					"@language": "en",
+					"@value": "Identifier"
+				},
+				{
+					"@language": "de",
+					"@value": "Identifikator"
+				}
+			],
+			"value": "BSB-Hss Clm 4650"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Anmerkung"
+				},
+				{
+					"@language": "zh",
+					"@value": "說明"
+				},
+				{
+					"@language": "en",
+					"@value": "Note"
+				}
+			],
+			"value": "BSB-Provenienz: Benediktbeuern, Benediktiner"
+		}
+	],
+	"license": "http://rightsstatements.org/vocab/InC/1.0/",
+	"attribution": "Bayerische Staatsbibliothek",
+	"seeAlso": [
+		{
+			"@id": "https://opacplus.bsb-muenchen.de/title/BV037449955",
+			"label": "OPAC",
+			"format": "text/html"
+		},
+		{
+			"@id": "https://opacplus.bsb-muenchen.de/title/BV037449955?format=marc",
+			"label": "MARCXML",
+			"format": "application/marcxml+xml",
+			"profile": "http://www.loc.gov/standards/marcxml/"
+		},
+		{
+			"@id": "https://opacplus.bsb-muenchen.de/title/BV037449955?format=rdf",
+			"label": "RDF",
+			"format": "application/rdf+xml",
+			"profile": "https://lod.b3kat.de/doc"
+		}
+	],
+	"sequences": [
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/sequences/normal",
+			"@type": "sc:Sequence",
+			"canvases": [
+				{
+					"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/124",
+					"@type": "sc:Canvas",
+					"label": "60v",
+					"service": {
+						"@context": "http://iiif.io/api/annex/services/physdim/1/context.json",
+						"physicalScale": 0.004320022753128556,
+						"physicalUnits": "cm",
+						"profile": "http://iiif.io/api/annex/services/physdim"
+					},
+					"images": [
+						{
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00124/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00124",
+									"profile": "http://iiif.io/api/image/2/level2.json",
+									"protocol": "http://iiif.io/api/image"
+								},
+								"format": "image/jpeg",
+								"width": 2637,
+								"height": 3415
+							},
+							"on": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/124"
+						}
+					],
+					"width": 2637,
+					"height": 3415
+				},
+				{
+					"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/125",
+					"@type": "sc:Canvas",
+					"label": "61r",
+					"service": {
+						"@context": "http://iiif.io/api/annex/services/physdim/1/context.json",
+						"physicalScale": 0.0043397714285714276,
+						"physicalUnits": "cm",
+						"profile": "http://iiif.io/api/annex/services/physdim"
+					},
+					"images": [
+						{
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00125/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00125",
+									"profile": "http://iiif.io/api/image/2/level2.json",
+									"protocol": "http://iiif.io/api/image"
+								},
+								"format": "image/jpeg",
+								"width": 2625,
+								"height": 3362
+							},
+							"on": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/125"
+						}
+					],
+					"width": 2625,
+					"height": 3362
+				},
+				{
+					"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/126",
+					"@type": "sc:Canvas",
+					"label": "61v",
+					"service": {
+						"@context": "http://iiif.io/api/annex/services/physdim/1/context.json",
+						"physicalScale": 0.0043216616084977245,
+						"physicalUnits": "cm",
+						"profile": "http://iiif.io/api/annex/services/physdim"
+					},
+					"images": [
+						{
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00126/full/full/0/default.jpg",
+								"@type": "dctypes:Image",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00126",
+									"profile": "http://iiif.io/api/image/2/level2.json",
+									"protocol": "http://iiif.io/api/image"
+								},
+								"format": "image/jpeg",
+								"width": 2636,
+								"height": 3417
+							},
+							"on": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/126"
+						}
+					],
+					"width": 2636,
+					"height": 3417
+				}
+			]
+		}
+	],
+	"structures": [
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/0",
+			"@type": "sc:Range",
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Inhaltsverzeichnis"
+				},
+				{
+					"@language": "en",
+					"@value": "Table of Contents"
+				}
+			],
+			"ranges": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/1",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/2",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/3",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/4",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/5",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/6",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/7",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/8",
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/9"
+			],
+			"viewingHint": "top"
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/1",
+			"@type": "sc:Range",
+			"label": "Vorderdeckel",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/1"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/2",
+			"@type": "sc:Range",
+			"label": "Vorderer Spiegel",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/2"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/3",
+			"@type": "sc:Range",
+			"label": "Textbeginn",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/5"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/4",
+			"@type": "sc:Range",
+			"label": "Rückwärtiger Spiegel",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/177"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/5",
+			"@type": "sc:Range",
+			"label": "Rückdeckel",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/178"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/6",
+			"@type": "sc:Range",
+			"label": "Buchrücken",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/179"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/7",
+			"@type": "sc:Range",
+			"label": "Kopfschnitt",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/180"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/8",
+			"@type": "sc:Range",
+			"label": "Vorderschnitt",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/181"
+			]
+		},
+		{
+			"@id": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/range/9",
+			"@type": "sc:Range",
+			"label": "Fußschnitt",
+			"canvases": [
+				"https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/182"
+			]
+		}
+	],
+	"viewingDirection": "left-to-right",
+	"thumbnail": {
+		"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00003/full/280,/0/default.jpg",
+		"service": {
+			"@context": "http://iiif.io/api/image/2/context.json",
+			"@id": "https://api.digitale-sammlungen.de/iiif/image/v2/bsb00071101_00003",
+			"profile": "http://iiif.io/api/image/2/level2.json",
+			"protocol": "http://iiif.io/api/image"
+		},
+		"format": "image/jpeg"
+	},
+	"logo": {
+		"@id": "https://api.digitale-sammlungen.de/iiif/images/bsb_logo.png",
+		"format": "image/png"
+	},
+	"viewingHint": "paged"
+}

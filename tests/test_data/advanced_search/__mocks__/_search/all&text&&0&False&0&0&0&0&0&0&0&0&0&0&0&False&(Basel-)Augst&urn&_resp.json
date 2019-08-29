@@ -1,9 +1,9 @@
 {
-  "took": 8,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v4",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Uppert \u00fcbertr\u00e4gt den dritten Theil seines Besitzes zu Firinisvilla und Munzach(thal) an Sanct Gallen.",
           "orig_comp_ort": "(Basel-)Augst",
+          "forgery": false,
           "specific_date": [
             {
               "year": 825,
@@ -55,16 +56,31 @@
         "Angers": {
           "doc_count": 0
         },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
         "B\u00fcnden": {
           "doc_count": 0
         },
         "Freising": {
           "doc_count": 0
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
           "doc_count": 0
         },
         "Mondsee": {

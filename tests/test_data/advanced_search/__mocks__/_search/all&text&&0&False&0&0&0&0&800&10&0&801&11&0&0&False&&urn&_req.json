@@ -159,14 +159,14 @@
     "corpus": {
       "filters": {
         "filters": {
-          "R\u00e4tien": {
-            "match": {
-              "_type": "raetien"
-            }
-          },
           "Angers": {
             "match": {
               "_type": "andecavensis"
+            }
+          },
+          "Arnulfinger": {
+            "match": {
+              "_type": "arnulfinger"
             }
           },
           "B\u00fcnden": {
@@ -179,6 +179,16 @@
               "_type": "freising"
             }
           },
+          "Fulda (Dronke)": {
+            "match": {
+              "_type": "fulda_dronke"
+            }
+          },
+          "Fulda (Stengel)": {
+            "match": {
+              "_type": "fulda_stengel"
+            }
+          },
           "Hersfeld": {
             "match": {
               "_type": "hersfeld"
@@ -189,6 +199,16 @@
               "_type": "luzern"
             }
           },
+          "Markulf": {
+            "match": {
+              "_type": "markulf"
+            }
+          },
+          "Merowinger": {
+            "match": {
+              "_type": "merowinger1"
+            }
+          },
           "Mondsee": {
             "match": {
               "_type": "mondsee"
@@ -197,6 +217,11 @@
           "Passau": {
             "match": {
               "_type": "passau"
+            }
+          },
+          "R\u00e4tien": {
+            "match": {
+              "_type": "raetien"
             }
           },
           "Regensburg": {
