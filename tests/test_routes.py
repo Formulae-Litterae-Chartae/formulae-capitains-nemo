@@ -157,6 +157,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
             p = re.compile('<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>.+<h5>Notitia Arnonis Notitia Arnonis: </h5>',
@@ -215,6 +217,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection_mv.html')
+            c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -314,6 +318,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -416,6 +422,7 @@ class TestIndividualRoutes(Formulae_Testing):
                 }}
         mock_search.return_value = [[], 0, aggs]
         with self.client as c:
+
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
@@ -669,7 +676,27 @@ class TestFunctions(Formulae_Testing):
                                                         "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
                          "KWIC strings for the inrefs should be correctly split and marked-up")
 
-
+    def test_corpus_mv(self):
+        """ Make sure the correct values are returned by r_corpus_mv"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:markulf')
+            self.assertEqual(data['collections']['readable'], {
+            'editions':
+                [
+                    {'name': 'lat001', 'edition_name': 'Edition', 'full_edition_name': '', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.lat001']]}
+                ],
+            'translations': [],
+            'transcriptions': [
+                    {'name': 'ko2', 'edition_name': 'Ko2', 'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, Fabr. 84 (Ko2)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.ko2']]},
+                    {'name': 'le1', 'edition_name': 'Le1', 'full_edition_name': 'Leiden BPL 114 (Le1)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.le1']]},
+                    {'name': 'm4', 'edition_name': 'M4', 'full_edition_name': 'München BSB clm 4650 (M4)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.m4']]},
+                    {'name': 'p3', 'edition_name': 'P3', 'full_edition_name': 'Paris BNF 2123 (P3)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p3']]},
+                    {'name': 'p12', 'edition_name': 'P12', 'full_edition_name': 'Paris BNF 4627 (P12)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p12']]},
+                    {'name': 'p16', 'edition_name': 'P16', 'full_edition_name': 'Paris BNF 10756 (P16)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p16']]}
+                ]
+            })
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):

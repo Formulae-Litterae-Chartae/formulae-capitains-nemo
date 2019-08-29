@@ -404,6 +404,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         :rtype: {str: Any}
         """
+
         collection = self.resolver.getMetadata(objectId)
         ed_trans_mapping = {'lat001': _('Edition'), 'deu001': _('Übersetzung')}
         r = {'editions': [], 'translations': [], 'transcriptions': []}
@@ -415,66 +416,74 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
         list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)\Z', r'\1', x.parent.id)))
-        for m in list_of_readable_descendants:
-            if self.check_project_team() is True or m.id in self.open_texts:
-                edition = str(m.id).split(".")[-1]
-                title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
-                form = str(m.id).split(".")[-2]
-                edition_name = ed_trans_mapping.get(edition, edition).title()
-                full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
 
-                if edition not in translations.keys():
-                    titles[edition] = [title]
-                    translations[edition] = [m.id]
-                    forms[edition] = [form]
-                    edition_names[edition] = edition_name
-                    full_edition_names[edition] = full_edition_name
+        if (('markulf' in objectId) or ('andecavensis' in objectId)):
+            for m in list_of_readable_descendants:
+                if self.check_project_team() is True or m.id in self.open_texts:
+                    edition = str(m.id).split(".")[-1]
+                    title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
+                    form = str(m.id).split(".")[-2]
+                    edition_name = ed_trans_mapping.get(edition, edition).title()
+                    full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+
+                    if edition not in translations.keys():
+                        titles[edition] = [title]
+                        translations[edition] = [m.id]
+                        forms[edition] = [form]
+                        edition_names[edition] = edition_name
+                        full_edition_names[edition] = full_edition_name
+                    else:
+                        titles[edition].append(title)
+                        translations[edition].append(m.id)
+                        forms[edition].append(form)
+            for k, v in translations.items():
+                if k == 'lat001':
+                    r['editions'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                    })
+                elif k == 'deu001':
+                    r['translations'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                    })
                 else:
-                    titles[edition].append(title)
-                    translations[edition].append(m.id)
-                    forms[edition].append(form)
-        for k, v in translations.items():
-            if k == 'lat001':
-                r['editions'].append({
-                    "name": k,
-                    "edition_name": edition_names[k],
-                    "full_edition_name": full_edition_names[k],
-                    "titles": titles[k],
-                    "links": [forms[k], v],
-                })
-            elif k == 'deu001':
-                r['translations'].append({
-                    "name": k,
-                    "edition_name": edition_names[k],
-                    "full_edition_name": full_edition_names[k],
-                    "titles": titles[k],
-                    "links": [forms[k], v],
-                })
-            else:
-                r['transcriptions'].append({
-                    "name": k,
-                    "edition_name": edition_names[k],
-                    "full_edition_name": full_edition_names[k],
-                    "titles": titles[k],
-                    "links": [forms[k], v],
-                })
+                    r['transcriptions'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                    })
 
-        r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
-                                     key=lambda x: re.search(r'\D+', x['name']).group(0))
+            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
+                                         key=lambda x: re.search(r'\D+', x['name']).group(0))
+
+
+        else:
+
+            r = {'editions': [], 'translations': [], 'transcriptions': []}
+            flash(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
 
         return_value = {
-                "template": template,
-                "collections": {
-                    "current": {
-                        "label": str(collection.get_label(lang)),
-                        "id": collection.id,
-                        "model": str(collection.model),
-                        "type": str(collection.type),
-                        "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
-                    },
-                    "readable": r,
-                    "parents": self.make_parents(collection, lang=lang)
-                }
+            "template": template,
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                },
+                "readable": r,
+                "parents": self.make_parents(collection, lang=lang)
+            }
         }
         return return_value
 
