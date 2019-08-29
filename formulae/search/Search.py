@@ -235,9 +235,9 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             ordered_terms = False
         for term in regest_q.split():
             if '*' in term or '?' in term:
-                clauses.append({'span_multi': {'match': {'wildcard': {'regest': term}}}})
+                clauses.append({'span_multi': {'match': {'wildcard': {regest_field: term}}}})
             else:
-                clauses.append({'span_multi': {'match': {'fuzzy': {'regest': {"value": term, "fuzziness": fuzz}}}}})
+                clauses.append({'span_multi': {'match': {'fuzzy': {regest_field: {"value": term, "fuzziness": fuzz}}}}})
         body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
                                                                      'in_order': ordered_terms}})
 
@@ -303,8 +303,6 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    print(search)
-    print(body_template)
     set_session_token(corpus, body_template, field, q if field == 'text' else '')
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
@@ -333,13 +331,13 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                         sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
                 ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences,
                             'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                            if 'highlight' in hit and 'regest' in hit['highlight'] else []})
+                            if 'highlight' in hit and regest_field in hit['highlight'] else []})
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
                     'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                    if 'highlight' in hit and 'regest' in hit['highlight'] else []}
+                    if 'highlight' in hit and regest_field in hit['highlight'] else []}
                    for hit in search['hits']['hits']]
     elif regest_q:
         ids = [{'id': hit['_id'],
@@ -351,7 +349,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field:
+    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
@@ -366,7 +364,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                                                                          e_d_r=exclusive_date_range,
                                                                          c_p=composition_place, sort=old_sort,
                                                                          spec_days='+'.join(special_days),
-                                                                         regest_q=regest_q, regest_field=regest_field)
+                                                                         regest_q=regest_q.replace(' ', '+'),
+                                                                         regest_field=regest_field)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

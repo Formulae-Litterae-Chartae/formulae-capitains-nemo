@@ -1665,17 +1665,61 @@ class TestES(Formulae_Testing):
                     'illi et mihi econtra donaretur et ',
                     'illi licui set habere']
         mock_search.return_value = resp
-        test_args.pop('q')
-        results = suggest_word_search('ill', **test_args)
+        test_args['qSource'] = 'text'
+        results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
         # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
-        results = suggest_word_search('*', **test_args)
+        test_args['q'] = '*'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
-        results = suggest_word_search('?', **test_args)
+        test_args['q'] = '?'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
-        results = suggest_word_search('ill*', **test_args)
+        test_args['q'] = 'ill*'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
-        results = suggest_word_search('ill?', **test_args)
+        test_args['q'] = 'ill?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_regest_word_search_completion(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'illam'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tau'),
+                                 ("regest_field", "autocomplete_regest")])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = ['tau',
+                    'tausch erhaltene hufe zu ratzenhofe ',
+                    'tausch und umschreibt den sprengel ',
+                    'tausch verabredet und kaiser ludwig ',
+                    'tausch zwischen abt salomon und anno',
+                    'tauschen',
+                    'tauschen die von ihrem oheim patacho ',
+                    'tauscht mit dem edlen eparhoh güter ',
+                    'tauscht mit s peter und s emmeram ',
+                    'tauscht von dem chorbischof couuo ',
+                    'tauscht von dem freien aron liegenschaften']
+        mock_search.return_value = resp
+        test_args['qSource'] = 'regest'
+        results = suggest_word_search(**test_args)
+        self.assertEqual(results, expected, 'The true results should match the expected results.')
+        # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
+        test_args['regest_q'] = '*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        test_args['regest_q'] = '?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
+        test_args['regest_q'] = 'tau*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
+        test_args['regest_q'] = 'tau?'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
 
     def test_results_sort_option(self):
