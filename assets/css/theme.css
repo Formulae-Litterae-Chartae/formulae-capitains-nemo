@@ -295,7 +295,7 @@ nav .dropdown:hover .dropdown-menu {
     top: 100px;
 }
 
-.note-card {
+.noteCardLeft,.noteCardRight {
     overflow: auto;
 }
 
@@ -431,7 +431,7 @@ button.close {
     font-variant: small-caps;
 }
 
-.search-hit-menu {
+.search-hit-menu,.search-hit-dropdown,#prevSearchResults {
     max-height: 30vh;
     overflow: auto;
 }
@@ -544,6 +544,8 @@ img[id$="-flag-navbar"] {
 
 div.transcription p {
     margin-bottom: 0;
+    text-indent: -1em;
+    padding-left: 1em;
 }
 
 .superscript {
@@ -564,4 +566,41 @@ div.transcription p {
 
 .line-through {
     text-decoration: line-through;
+}
+
+.manuscript-number {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.regest_collapse_heading {
+    font-weight: bold;
+}
+
+.entry-title {
+    font-variant: small-caps;
+    font-size: larger;
+    line-height: 1em;
+}
+
+.kurz-regest {
+    color: gray;
+    font-weight: bold;
+}
+
+.remove-column-link {
+    font-size: .875rem;
+}
+
+.regest-body {
+    font-size: .875rem;
+}
+
+#sidebarCollapse_l,#sidebarCollapse_r {
+    font-size: 250%;
+}
+
+.head {
+    font-size: larger;
+    margin-bottom: .25em;
 }

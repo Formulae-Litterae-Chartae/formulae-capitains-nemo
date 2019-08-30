@@ -162,6 +162,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), p)
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
@@ -201,7 +203,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/other_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
@@ -240,6 +242,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Edition\].+\[Deutsche Übersetzung\]')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
@@ -257,13 +261,17 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            r = c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            r = c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            r = c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
 
     def test_authorized_normal_user(self):
@@ -328,6 +336,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
@@ -345,13 +355,28 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Angers": {
                       "doc_count": 2
                     },
+                    "Arnulfinger": {
+                      "doc_count": 0
+                    },
                     "B\u00fcnden": {
                       "doc_count": 0
                     },
-                      "Freising": {
-                          "doc_count": 0
-                      },
+                    "Freising": {
+                        "doc_count": 0
+                    },
+                    "Fulda (Dronke)": {
+                      "doc_count": 0
+                    },
+                    "Fulda (Stengel)": {
+                      "doc_count": 0
+                    },
                     "Luzern": {
+                      "doc_count": 0
+                    },
+                    "Markulf": {
+                      "doc_count": 0
+                    },
+                    "Merowinger": {
                       "doc_count": 0
                     },
                     "Mondsee": {
@@ -584,14 +609,15 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True)
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+            self.assertIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula.')
             r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+            self.assertIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
-                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
+            r = c.get('/texts/manifest:urn:cts:formulae:andecavensis.form005.lat001/passage/1', follow_redirects=True)
+            self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form005-lat001"',
+                             r.get_data(as_text=True), 'Note card should not be rendered for a formula in IIIF Viewer.')
 
         del self.app.config['nemo_app']._transform['notes']
         with self.client as c:
@@ -599,14 +625,12 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True)
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form003-deu001">',
+            self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for a formula.')
             r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001">',
+            self.assertNotIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
-            self.assertNotIn('<div class="note-card" id="header-urn-cts-formulae-andecavensis-form005-lat001">',
-                          r.get_data(as_text=True), 'Note card should be rendered for a formula in IIIF Viewer.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
@@ -1423,17 +1447,32 @@ class TestES(Formulae_Testing):
                                                         "Angers": {
                                                           "doc_count": 2
                                                         },
+                                                        "Arnulfinger": {
+                                                          "doc_count": 0
+                                                        },
                                                         "B\u00fcnden": {
                                                           "doc_count": 0
                                                         },
-                                                          "Freising": {
-                                                              "doc_count": 0
-                                                          },
-                                                          "Hersfeld": {
-                                                              "doc_count": 0
-                                                          },
+                                                        "Freising": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Fulda (Dronke)": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Fulda (Stengel)": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Hersfeld": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Luzern": {
-                                                          "doc_count": 0
+                                                            "doc_count": 0
+                                                        },
+                                                        "Markulf": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Merowinger": {
+                                                            "doc_count": 0
                                                         },
                                                         "Mondsee": {
                                                           "doc_count": 0
@@ -1491,14 +1530,19 @@ class TestES(Formulae_Testing):
                          'corpus':
                              {'filters':
                                   {'filters':
-                                       {'Rätien': {'match': {'_type': 'raetien'}},
-                                        'Angers': {'match': {'_type': 'andecavensis'}},
+                                       {'Angers': {'match': {'_type': 'andecavensis'}},
+                                        'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
                                         'Freising': {'match': {'_type': 'freising'}},
+                                        'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                        'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
+                                        'Markulf': {'match': {'_type': 'markulf'}},
+                                        'Merowinger': {'match': {'_type': 'merowinger1'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
+                                        'Rätien': {'match': {'_type': 'raetien'}},
                                         'Regensburg': {'match': {'_type': 'regensburg'}},
                                         'Rheinisch': {'match': {'_type': 'rheinisch'}},
                                         'Salzburg': {'match': {'_type': 'salzburg'}},
@@ -1547,7 +1591,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', '')])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', '<Rom>', '<Worms>', 'Düren', 'Freising', 'Isen']
+        expected = [' ', 'Freising', 'Isen']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -1581,11 +1625,11 @@ class TestES(Formulae_Testing):
         results = suggest_word_search('*', **test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
         results = suggest_word_search('?', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
         results = suggest_word_search('ill*', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
         results = suggest_word_search('ill?', **test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
 
     def test_results_sort_option(self):
         self.assertEqual(build_sort_list('urn'), 'urn')

@@ -1,18 +1,18 @@
 {
-  "took": 2,
+  "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 12,
+    "total": 13,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -306,13 +307,13 @@
           "days": [
             "Sunday",
             "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Friday"
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
+            "Wednesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -320,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -336,6 +337,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -542,13 +544,13 @@
           "days": [
             "Sunday",
             "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Friday"
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
+            "Wednesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -556,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -572,6 +574,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren fr\u00fchere Schenkung.",
           "orig_comp_ort": "(Freising)",
+          "forgery": false,
           "specific_date": [
             {
               "year": 822,
@@ -593,7 +596,45 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "merowinger2_v2",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "title": "Die Urkunden der Merowinger (Ed. K\u00f6lzer) Nr. 38",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+          "date_string": "(630) 04 08 (Ostern)",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "orig_comp_ort": " ",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 630,
+              "month": 4,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0630-04-08"
+          ],
+          "min_date": "0630-04-08",
+          "days": [
+            "Sunday",
+            "Easter"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:merowinger1.koelzer0038.lat001"
+        ]
+      },
+      {
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -609,6 +650,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der erzbisch\u00f6fliche Ministeriale Gotabert gibt dem Erzbischofe sein ganzes Eigen zu Herioltinga und empf\u00e4ngt daf\u00fcr zu Eigenthum des bisherigen Lehensbesitz zu Letting (s. Saalfelden) f\u00fcr sich und seine Gemahling P\u00fbpa, auch noch nach ihrem Tode f\u00fcr die Tochter Heilsuind und deren Sohn Rudbert (also f\u00fcr drei Generationen).",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 927,
@@ -630,7 +672,7 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -646,6 +688,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der Priester Gotesmann \u00fcbergibt dem Erzbischof seinen Besitz im Orte Teisenberg (s. Teisendorf), wogegen der Erzbischof ihm und seiner Tochter Agatha auf Lebensdauer zu Eigen \u00fcberl\u00e4sst, was er bisher im Orte Perach (n. Ainring) zu Lehen hatte.",
           "orig_comp_ort": "Salzburg",
+          "forgery": false,
           "specific_date": [
             {
               "year": 927,
@@ -667,7 +710,7 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -683,6 +726,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Die edle Frau Heilrat, Witwe des Edlen Diotrih, \u00fcbergibt dem Erzbischof ihren Besitz zu T\u00fcssling und Mermosen (sw. Alt\u00f6tting), wogegen der Erzbischof ihr anderen Besitz zu Eharting und T\u00fcssling \u00fcberweist, und zwar auf die Dauer ihres Lebens und jenes des Diotmar, Sohnes der Rihnia.",
           "orig_comp_ort": "Salzburg",
+          "forgery": false,
           "specific_date": [
             {
               "year": 927,
@@ -704,7 +748,7 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -720,6 +764,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der Edle Kerhoh und seine Gemahlin Alarun \u00fcbergeben dem Erzbischof 6 Ortschaften, n\u00e4mlich Neunling, Achsdorf, P\u00fclling (B\u00fcchling), Humhausen (w. und s. Traunstein), Oiging oder Aiging (n. Traunstein), dann Selberting (s. Otting), endlich 2 Orte arn M\u00fchlbache bei M\u00fchlen (nw. Vachendorf) im Chiemgau, wof\u00fcr sie vorn Erzbischof zu Eigen empfangen Holzhausen (nw. Otting) und Erlst\u00e4tt (w. Traunstein), das Lehen des Heriker.",
           "orig_comp_ort": "Salzburg",
+          "forgery": false,
           "specific_date": [
             {
               "year": 927,
@@ -741,7 +786,7 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -757,6 +802,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Fridapolt, Kerhohs Lehensmann, \u00fcbergibt gleichzeitig dem Erzbischof seinen Besitz zu Moosham (w. Palling) und Gumpertsheim (bei Heiligenkreuz n\u00f6. Trostberg) in der Grafschaft Kerhohs und erh\u00e4lt daf\u00fcr H\u00f6rbstfdorf (n. Traunstein) in der Grafschaft Reginberts.",
           "orig_comp_ort": "Salzburg",
+          "forgery": false,
           "specific_date": [
             {
               "year": 927,
@@ -778,7 +824,7 @@
         ]
       },
       {
-        "_index": "salzburg_v3",
+        "_index": "salzburg_v4",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -794,6 +840,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Der Freie Erchanker\u00b7\u00fcbergibt dem Erzbischof seinen H\u00e4lftebesitz in Odering (bei Ranoldsberg, nw. Ampfing) f\u00fcr den Fall seines Todes und den seiner Gemahlin.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 930,
@@ -813,43 +860,6 @@
         "sort": [
           "urn:cts:formulae:salzburg.hauthaler-a0072.lat001"
         ]
-      },
-      {
-        "_index": "stgallen_v3",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 440",
-          "urn": "urn:cts:formulae:stgallen.wartmann0440.lat001",
-          "date_string": "855 04 07",
-          "comp_ort": "St. Gallen",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Abt Grimald verleiht an Purchard drei Hufen in. der Mark Wengen gegen Zins.",
-          "orig_comp_ort": "Kloster St. Gallen",
-          "specific_date": [
-            {
-              "year": 855,
-              "month": 4,
-              "day": 7
-            }
-          ],
-          "all_dates": [
-            "0855-04-07"
-          ],
-          "min_date": "0855-04-07",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:stgallen.wartmann0440.lat001"
-        ]
       }
     ]
   },
@@ -859,17 +869,32 @@
         "Angers": {
           "doc_count": 0
         },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
         "B\u00fcnden": {
           "doc_count": 2
         },
         "Freising": {
           "doc_count": 1
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
           "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 1
         },
         "Mondsee": {
           "doc_count": 0
@@ -930,7 +955,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "700-799",

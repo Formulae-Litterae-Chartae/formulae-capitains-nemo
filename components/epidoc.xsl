@@ -217,8 +217,8 @@
     </xsl:template>
     
     <xsl:template match="t:head">
-        <h3 class="head"><xsl:apply-templates />
-            <xsl:apply-templates select="@urn" /></h3>
+        <div class="head"><xsl:apply-templates />
+            <xsl:apply-templates select="@urn" /></div>
     </xsl:template>
     
     <xsl:template match="t:title">

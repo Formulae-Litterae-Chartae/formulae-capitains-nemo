@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Engilscalh schenkt das von seinem Vater Reginhelm und von Deothelm ererbte Gut, f\u00fcnf H\u00f6rige in Steindorf, zu jenem Recht, in dem er sie innegehabt hatte.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -45,7 +46,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -61,6 +62,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Megilo schenkt fiir seinen und seiner Frau Todesfall Erbgut, drei Ans\u00e4ssige mit ihren Frauen und Kindern in Marlupp. Sollte einer der Ehepartner den anderen \u00fcberleben, hat er noch auf Lebenszeit oder bis zum Eintritt ins Kloster das Verf\u00fcgungsrecht \u00fcber das Gut.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -78,7 +80,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -94,6 +96,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Poso schenkt f\u00fcr den Todesfall Erbgut, drei Ans\u00e4ssige mit deren Frauen und Kindern, in Pohhe.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -111,7 +114,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -127,6 +130,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Cundpald schenkt f\u00fcr den Todesfall Erbgut, zwei Ans\u00e4ssige mit deren Frauen und Kindern, in Pohhe.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -144,7 +148,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -160,6 +164,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Thabricho schenkt vier Manzipien, zwei Ochsen und eine Kuh ... [in Neusling?]...",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -177,7 +182,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -193,6 +198,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Huno \u00fcbergibt sich selbst und jenen Teil v\u00e4terlichen Erbgutes un K\u00f6stendorf, welcher ihm gegen\u00fcber seinen S\u00f6hnen verblieben war",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -210,7 +216,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -226,6 +232,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Aostarpald schenkt jenen Teil v\u00e4terlichen Erbgutes in Pfongau, welcher ihm gegen\u00fcber seinen Br\u00fcdern zugefallen war, mit Ausnahme einen H\u00f6rigen(gutes)",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -243,7 +250,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -259,6 +266,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Reginhelm \u00fcbergibt sich selbst und sein v\u00e4terliches Erbgut in Pfongau, um einen (Begr\u00e4bnis)platz im Kloster zu haben",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -276,7 +284,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -292,6 +300,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Gunduuin schenkt eine Kirche, einen Hof mit allem Zubeh\u00f6r, Wald eine M\u00fchle, eine Hube und 14 Manzipien in Weng",
           "orig_comp_ort": " ",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -309,7 +318,7 @@
         ]
       },
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -325,6 +334,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Rodbrandus schenkt Land im \u00f6stlichen Teil von Niederfraunleiten mit 14 Manzipien.",
           "orig_comp_ort": "Niederfraunleiten",
+          "forgery": false,
           "dating": [
             {
               "gte": "0748",
@@ -349,16 +359,31 @@
         "Angers": {
           "doc_count": 0
         },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
         "B\u00fcnden": {
           "doc_count": 0
         },
         "Freising": {
           "doc_count": 0
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
           "doc_count": 0
         },
         "Mondsee": {

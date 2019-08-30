@@ -1,9 +1,9 @@
 {
-  "took": 3,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Perahart \u00fcbergibt sich und seinen Besitz zu Marzling.",
           "orig_comp_ort": "Freising",
+          "forgery": false,
           "specific_date": [
             {
               "year": 818,
@@ -48,7 +49,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
@@ -64,6 +65,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Die Br\u00fcder Erchanhart und und Cartfrid \u00fcbergeben Land am Freisinger Berg.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 819,
@@ -91,16 +93,31 @@
         "Angers": {
           "doc_count": 0
         },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
         "B\u00fcnden": {
           "doc_count": 0
         },
         "Freising": {
           "doc_count": 2
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
         "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
           "doc_count": 0
         },
         "Mondsee": {

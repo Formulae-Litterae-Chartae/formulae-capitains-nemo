@@ -1,4 +1,3 @@
-from werkzeug.contrib.cache import FileSystemCache
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
 from . import create_app

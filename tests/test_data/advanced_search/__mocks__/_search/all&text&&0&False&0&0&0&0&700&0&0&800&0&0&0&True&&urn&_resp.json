@@ -1,18 +1,18 @@
 {
-  "took": 4,
+  "took": 8,
   "timed_out": false,
   "_shards": {
-    "total": 16,
-    "successful": 16,
+    "total": 20,
+    "successful": 20,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 523,
+    "total": 701,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -28,6 +28,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Tello von Chur schenkt dem Kloster Disentis auf Ableben seine G\u00fcter in der Gruob und zu Domat/Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz.",
           "orig_comp_ort": "Chur",
+          "forgery": false,
           "specific_date": [
             {
               "year": 765,
@@ -48,7 +49,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -64,6 +65,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -342,13 +344,13 @@
           "days": [
             "Sunday",
             "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Friday"
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
+            "Wednesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -356,7 +358,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -372,6 +374,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
           "orig_comp_ort": " ",
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -578,13 +581,13 @@
           "days": [
             "Sunday",
             "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Friday"
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
+            "Wednesday",
+            "Saturday"
           ]
         },
         "sort": [
@@ -592,7 +595,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0001.lat001",
         "_score": null,
@@ -608,6 +611,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Moatbert schenkt sein v\u00e4terliches Erbgut zu Zolling nebst Zubeh\u00f6r.",
           "orig_comp_ort": "Freising",
+          "forgery": false,
           "specific_date": [
             {
               "year": 744,
@@ -628,7 +632,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0002.lat001",
         "_score": null,
@@ -644,6 +648,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Amilo schenkt seinen Besitz zu Wolfertshausen.",
           "orig_comp_ort": "Ampermoching",
+          "forgery": false,
           "specific_date": [
             {
               "year": 748,
@@ -664,7 +669,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0005.lat001",
         "_score": null,
@@ -680,6 +685,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Herzog Tassilo schenkt G\u00fcterbesitz zu F\u00f6hring; ebenso Alfrid mit seinen Br\u00fcdern von dem Besitz der Fagana.",
           "orig_comp_ort": "Ober-(Nieder-)ding",
+          "forgery": false,
           "specific_date": [
             {
               "year": 750,
@@ -700,7 +706,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0006.lat001",
         "_score": null,
@@ -716,6 +722,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Chuniberht schenkt zehn Mansen samt Gesinde zu Pang an die Kirche zu Isen",
           "orig_comp_ort": "Isen",
+          "forgery": false,
           "specific_date": [
             {
               "year": 752,
@@ -736,7 +743,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0007.lat001",
         "_score": null,
@@ -752,6 +759,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Timo schenkt zur Ausstattung der von ihm gegr\u00fcndeten Kirche zu Thulbach Besitz ebenda an die Kirche zu Freising.",
           "orig_comp_ort": "Thulbach",
+          "forgery": false,
           "specific_date": [
             {
               "year": 754,
@@ -772,7 +780,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0008.lat001",
         "_score": null,
@@ -788,6 +796,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "Starcholf schenkt seinen v\u00e4terlichen Besitz zu Altfalterbach.",
           "orig_comp_ort": "Altfalterbach",
+          "forgery": false,
           "specific_date": [
             {
               "year": 755,
@@ -808,7 +817,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0009.lat001",
         "_score": null,
@@ -824,6 +833,7 @@
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "a) Der Priester Eparheri schenkt seinen Anteil am v\u00e4terlichen Besitz und best\u00e4tigt eine fr\u00fchere Schenkung seiner Mutter. b) Adalfrid schenkt seinen Besitz.",
           "orig_comp_ort": "a) Forach",
+          "forgery": false,
           "specific_date": [
             {
               "year": 757,
@@ -852,17 +862,32 @@
         "Angers": {
           "doc_count": 0
         },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
         "B\u00fcnden": {
           "doc_count": 3
         },
         "Freising": {
           "doc_count": 104
         },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 143
+        },
         "Hersfeld": {
           "doc_count": 18
         },
         "Luzern": {
           "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 35
         },
         "Mondsee": {
           "doc_count": 24
@@ -931,7 +956,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 500
+          "doc_count": 668
         },
         {
           "key": "800-899",
@@ -939,7 +964,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 8
+          "doc_count": 14
         },
         {
           "key": "900-999",
