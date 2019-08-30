@@ -68,14 +68,15 @@ class NemoFormulae(Nemo):
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
-                        'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
+                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
-                             'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg',
-                             'urn:cts:formulae:werden']
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:mondsee',
+                             'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg',
+                             'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
 
     OPEN_NOTES = []
 
