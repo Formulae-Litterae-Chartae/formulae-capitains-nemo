@@ -37,6 +37,10 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
     // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
     // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
     clearTimeout(textSearchTimeout);
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = 'dev/'
+    }
     textSearchTimeout = setTimeout(function () {
         // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
         // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
@@ -67,7 +71,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
             sourceElement.placeholder = "Loading options...";
             
             // Set up and make the request.
-            request.open('GET', '/search/suggest/' + word + buildUrl(qSource), true);
+            request.open('GET', subdomain + '/search/suggest/' + word + buildUrl(qSource), true);
             request.send();
         }
     }, 500);
