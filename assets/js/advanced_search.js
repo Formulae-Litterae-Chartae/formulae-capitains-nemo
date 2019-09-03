@@ -39,7 +39,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
     clearTimeout(textSearchTimeout);
     var subdomain = '';
     if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-        subdomain = 'dev/'
+        subdomain = '/dev/'
     }
     textSearchTimeout = setTimeout(function () {
         // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
