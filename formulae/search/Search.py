@@ -96,22 +96,26 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template, field, q):
+def set_session_token(index, orig_template, field, q, regest_q):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
-    if q:
-        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
-                                       'sents': [
-                                           Markup(highlight_segment(x))
-                                           for x in hit['highlight'][field]
-                                           if current_app.config['nemo_app'].check_project_team() is True
-                                              or hit['_id'] in current_app.config['nemo_app'].open_texts
-                                       ]} for hit in session_search['hits']['hits']]
-    else:
-        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
-                                       'sents': []} for hit in session_search['hits']['hits']]
+    search_hits = list()
+    for hit in session_search['hits']['hits']:
+        d = {'id': hit['_id'], 'title': hit['_source']['title']}
+        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+        if q:
+            d['sents'] = [_('Text nicht zugänglich.')]
+            if current_app.config['nemo_app'].check_project_team() is True or open_text:
+                d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
+        if regest_q:
+            d['regest_sents'] = [_('Regest nicht zugänglich.')]
+            if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
+                d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
+        search_hits.append(d)
+    session['previous_search'] = search_hits
 
 
 def suggest_composition_places():
@@ -303,7 +307,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    set_session_token(corpus, body_template, field, q if field == 'text' else '')
+    set_session_token(corpus, body_template, field, q if field == 'text' else '',
+                      regest_q if regest_field == 'regest' else '')
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't

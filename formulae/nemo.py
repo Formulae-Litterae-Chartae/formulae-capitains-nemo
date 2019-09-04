@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash, request
+from flask import url_for, Markup, g, session, flash, request, Response
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -15,7 +15,11 @@ import re
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
-from json import load as json_load
+from json import load as json_load, loads as json_loads
+from io import BytesIO
+from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate
+from reportlab.lib.pdfencrypt import EncryptionFlowable
+from reportlab.lib.styles import getSampleStyleSheet
 
 
 class NemoFormulae(Nemo):
@@ -34,7 +38,8 @@ class NemoFormulae(Nemo):
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
-        ("/contact", "r_contact", ["GET"])
+        ("/contact", "r_contact", ["GET"]),
+        ("/pdf/<objectId>", "r_pdf", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -734,3 +739,51 @@ class NemoFormulae(Nemo):
                 xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
+
+    def r_pdf(self, objectId):
+        """Produces a PDF from the objectId for download and then delivers it
+
+        :param objectId: the URN of the text to transform
+        :return:
+        """
+        new_subref = self.get_reffs(objectId)[0][0]
+        text = self.get_passage(objectId=objectId, subreference=new_subref)
+        metadata = self.resolver.getMetadata(objectId=objectId)
+        with open(self._transform['pdf']) as f:
+            xslt = etree.XSLT(etree.parse(f))
+        d = json_loads(str(xslt(text.export(Mimetypes.PYTHON.ETREE))))
+        pdf_buffer = BytesIO()
+        my_doc = SimpleDocTemplate(pdf_buffer)
+        sample_style_sheet = getSampleStyleSheet()
+        custom_style = sample_style_sheet['BodyText']
+        custom_style.name = 'Notes'
+        custom_style.fontSize = 8
+        custom_style.spaceBefore = 0
+        encryption = EncryptionFlowable(userPassword='',
+                                        ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
+                                        canPrint=1,
+                                        canAnnotate=0,
+                                        canCopy=0,
+                                        canModify=0)
+        flowables = list()
+        flowables.append(Paragraph(str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)),
+                         sample_style_sheet['Normal']))
+        flowables.append(Paragraph(text.get_title(), sample_style_sheet['Heading1']))
+        for p in d['paragraphs']:
+            flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
+        flowables.append(Spacer(1, 5))
+        flowables.append(HRFlowable())
+        flowables.append(Spacer(1, 5))
+        for n in d['app']:
+            flowables.append(Paragraph(n, custom_style))
+        flowables.append(Spacer(1, 5))
+        flowables.append(HRFlowable())
+        flowables.append(Spacer(1, 5))
+        for n in d['hist_notes']:
+            flowables.append(Paragraph(n, custom_style))
+        flowables.append(encryption)
+        my_doc.build(flowables)
+        pdf_value = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return Response(pdf_value, mimetype='application/pdf',
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(text.get_title())})

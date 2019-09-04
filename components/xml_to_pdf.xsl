@@ -5,71 +5,124 @@
     exclude-result-prefixes="xs t"
     version="1.0">
     
-    <xsl:output method="html" omit-xml-declaration="yes" indent="yes"/>
+    <xsl:output method="html" omit-xml-declaration="yes" indent="no"/>
     
     <xsl:template match="/">
-        <xsl:element name="html">
-            <xsl:element name="head"/>
-            <xsl:element name="body">
-                <xsl:element name="div">
-                    <xsl:attribute name="id">header_content</xsl:attribute>
-                    <xsl:value-of select="/t:TEI/t:teiHeader/t:fileDesc/t:titleStmt/t:title"/>
-                </xsl:element>
-                <h1><xsl:value-of select="/t:TEI/t:teiHeader/t:fileDesc/t:titleStmt/t:title"/></h1>
-                <xsl:for-each select="/t:TEI/t:text/t:body/t:div/t:div/t:p">
-                    <xsl:element name="p">
+        <xsl:text>{</xsl:text>
+        <xsl:text>"citation": "</xsl:text><xsl:value-of select="/t:TEI/t:teiHeader/t:fileDesc/t:titleStmt/t:title"/><xsl:text>",</xsl:text>
+        <xsl:text>"header": "</xsl:text><xsl:value-of select="/t:TEI/t:teiHeader/t:fileDesc/t:titleStmt/t:title"/><xsl:text>",</xsl:text>
+        <xsl:text>"paragraphs": [</xsl:text>
+        <xsl:for-each select="/t:TEI/t:text/t:body/t:div/t:div/t:p">
+            <xsl:text>"</xsl:text>
+            <xsl:for-each select="child::node()">
+                <xsl:choose>
+                    <xsl:when test="self::t:w">
+                        <xsl:value-of select="./text()"/>
+                    </xsl:when>
+                    <xsl:when test="child::t:w">
                         <xsl:for-each select="child::node()">
                             <xsl:choose>
                                 <xsl:when test="self::t:w">
                                     <xsl:call-template name="forWords"/>
                                 </xsl:when>
-                                <xsl:when test=".//t:w">
+                                <xsl:when test="self::text()">
+                                    <xsl:value-of select="."/>
+                                </xsl:when>
+                            </xsl:choose>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:when test="child::*/child::t:w">
+                        <xsl:for-each select="child::*/child::node()">
+                            <xsl:choose>
+                                <xsl:when test="self::t:w">
                                     <xsl:call-template name="forWords"/>
                                 </xsl:when>
                                 <xsl:when test="self::text()">
                                     <xsl:value-of select="."/>
                                 </xsl:when>
-                                <xsl:when test="self::t:note">
-                                    <sup>
-                                        <xsl:choose>
-                                            <xsl:when test="current()[@type='n1']">
-                                                <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
-                                            </xsl:when>
-                                            <xsl:when test="current()[@type='a1']">
-                                                <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:number value="count(preceding::t:note) + 1" format="1"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                        <xsl:if test="following-sibling::node()[1][self::t:note]"><xsl:text>/</xsl:text></xsl:if>
-                                    </sup>
+                            </xsl:choose>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:when test="child::*/child::*/child::t:w">
+                        <xsl:for-each select="child::*/child::*/child::node()">
+                            <xsl:choose>
+                                <xsl:when test="self::t:w">
+                                    <xsl:call-template name="forWords"/>
+                                </xsl:when>
+                                <xsl:when test="self::text()">
+                                    <xsl:value-of select="."/>
                                 </xsl:when>
                             </xsl:choose>
                         </xsl:for-each>
-                    </xsl:element>
-                </xsl:for-each>
-                <xsl:element name="hr"/>
-                <xsl:for-each select="//t:note">
-                    <sup>
-                        <xsl:choose>
-                            <xsl:when test="current()[@type='n1']">
-                                <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
-                            </xsl:when>
-                            <xsl:when test="current()[@type='a1']">
-                                <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:number value="count(preceding::t:note) + 1" format="1"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </sup>
-                    <xsl:text> </xsl:text>
-                    <xsl:apply-templates mode="noteSegs"/>
-                    <xsl:element name="br"></xsl:element>
-                </xsl:for-each>
-               </xsl:element>
-        </xsl:element>
+                    </xsl:when>
+                    <xsl:when test="self::text()">
+                        <xsl:value-of select="."/>
+                    </xsl:when>
+                    <xsl:when test="self::t:note">
+                        <sup>
+                            <xsl:choose>
+                                <xsl:when test="current()[@type='n1']">
+                                    <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
+                                </xsl:when>
+                                <xsl:when test="current()[@type='a1']">
+                                    <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:number value="count(preceding::t:note) + 1" format="1"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                            <xsl:if test="following-sibling::node()[1][self::t:note]"><xsl:text>/</xsl:text></xsl:if>
+                        </sup>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:for-each>
+            <xsl:text>"</xsl:text><xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
+        </xsl:for-each>
+        <xsl:text>],</xsl:text>
+        <xsl:text>"app": [</xsl:text>
+        <xsl:for-each select="//t:note[@type='a1']">
+            <xsl:text>"</xsl:text>
+                <sup>
+                    <xsl:choose>
+                        <xsl:when test="current()[@type='n1']">
+                            <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
+                        </xsl:when>
+                        <xsl:when test="current()[@type='a1']">
+                            <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:number value="count(preceding::t:note) + 1" format="1"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </sup>
+                <xsl:text> </xsl:text>
+                <xsl:apply-templates mode="noteSegs"/>
+            <xsl:text>"</xsl:text><xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
+        </xsl:for-each>
+        <xsl:text>], </xsl:text>
+        <xsl:text>"hist_notes": [</xsl:text>
+        <xsl:for-each select="//t:note[@type='n1']">
+            <xsl:text>"</xsl:text>
+            <sup>
+                <xsl:choose>
+                    <xsl:when test="current()[@type='n1']">
+                        <xsl:number value="count(preceding::t:note[@type='n1']) + 1" format="1"/>
+                    </xsl:when>
+                    <xsl:when test="current()[@type='a1']">
+                        <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:number value="count(preceding::t:note) + 1" format="1"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </sup>
+            <xsl:text> </xsl:text>
+            <xsl:apply-templates mode="noteSegs"/>
+            <xsl:text>"</xsl:text><xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
+        </xsl:for-each>
+        <xsl:text>]}</xsl:text>
+               
+        
     </xsl:template>
     
     <xsl:template match="t:w" name="forWords">
@@ -77,7 +130,25 @@
         <!--<xsl:if test="not(preceding-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
         </xsl:if> -->
-        <xsl:element name="span">
+        <xsl:param name="tags">
+            <xsl:if test="contains(parent::t:seg/@rend, 'italic') or contains(parent::t:seg/@type, 'italic') or contains(parent::t:seg/@type, 'latin-word')">
+                <xsl:text>italic </xsl:text>
+            </xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text>bold </xsl:text></xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text>strike </xsl:text></xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text>super </xsl:text></xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text>sub </xsl:text></xsl:if>
+        </xsl:param>
+        <xsl:choose>
+            <xsl:when test="not($tags = '')">
+                <xsl:call-template name="buildTags">
+                <xsl:with-param name="theText"><xsl:value-of select="."/></xsl:with-param>
+                <xsl:with-param name="theTags" select="$tags"></xsl:with-param>
+            </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise><xsl:value-of select="."/></xsl:otherwise>
+        </xsl:choose>
+        <!--<xsl:element name="span">
             <xsl:attribute name="style">
                 <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text>font-style: italic;</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text>font-style: italic;</xsl:text></xsl:if>
@@ -90,8 +161,9 @@
                 <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text>font-size: smaller;</xsl:text></xsl:if>
                 <xsl:if test="parent::t:label">text-transform: uppercase;</xsl:if>
             </xsl:attribute>
-            <xsl:apply-templates/>
-        </xsl:element>
+            <!-\-<xsl:apply-templates/>-\->
+            <xsl:value-of select="."/>
+        </xsl:element>-->
         <!--<xsl:if test="not(following-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
         </xsl:if>-->
@@ -102,12 +174,29 @@
         <xsl:choose>
             <xsl:when test="./@type='book_title'">
                 <xsl:element name="bibl">
-                    <xsl:attribute name="n"><xsl:value-of select="./@n"/></xsl:attribute>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:element name="span">
+                <xsl:variable name="tags">
+                    <xsl:if test="contains(./@rend, 'italic') or contains(./@type, 'italic') or contains(./@type, 'latin-word')">
+                        <xsl:text>italic </xsl:text>
+                    </xsl:if>
+                    <xsl:if test="contains(./@type, 'platzhalter')"><xsl:text>bold </xsl:text></xsl:if>
+                    <xsl:if test="contains(./@type, 'line-through')"><xsl:text>strike </xsl:text></xsl:if>
+                    <xsl:if test="contains(./@type, 'superscript')"><xsl:text>super </xsl:text></xsl:if>
+                    <xsl:if test="contains(./@type, 'subscript')"><xsl:text>sub </xsl:text></xsl:if>
+                </xsl:variable>
+                <xsl:choose>
+                    <xsl:when test="not($tags = '')">
+                        <xsl:call-template name="buildTags">
+                            <xsl:with-param name="theText"><xsl:value-of select="."/></xsl:with-param>
+                            <xsl:with-param name="theTags" select="$tags"></xsl:with-param>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise><xsl:value-of select="."/><xsl:text> </xsl:text></xsl:otherwise>
+                </xsl:choose>
+                <!--<xsl:element name="span">
                     <xsl:attribute name="style">
                         <xsl:if test="contains(./@rend, 'italic')"><xsl:text>font-style: italic;</xsl:text></xsl:if>
                         <xsl:if test="contains(./@type, 'italic')"><xsl:text>font-style: italic;</xsl:text></xsl:if>
@@ -126,8 +215,22 @@
                             <xsl:apply-templates/>
                         </xsl:otherwise>
                     </xsl:choose>
-                </xsl:element>
+                </xsl:element>-->
             </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="buildTags">
+        <xsl:param name="theTags"/>
+        <xsl:param name="theText"/>
+        <xsl:choose>
+            <xsl:when test="not($theTags = '')">
+                <xsl:call-template name="buildTags">
+                    <xsl:with-param name="theText"><xsl:element name="{substring-before($theTags, ' ')}"><xsl:copy-of select="$theText"/></xsl:element></xsl:with-param>
+                    <xsl:with-param name="theTags" select="substring-after($theTags, ' ')"></xsl:with-param>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise><xsl:copy-of select="$theText"/></xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     

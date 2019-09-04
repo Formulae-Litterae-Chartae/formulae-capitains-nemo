@@ -395,12 +395,12 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="t:seg">
+    <!--<xsl:template match="t:seg">
         <xsl:element name="span">
             <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
-    </xsl:template>
+    </xsl:template>-->
     
     <xsl:template match="t:seg[@type='lex-title']">
         <strong><xsl:apply-templates/></strong>
