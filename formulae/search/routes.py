@@ -7,8 +7,9 @@ from formulae.search import bp
 from json import dumps
 import re
 from io import BytesIO
-from reportlab.platypus import Paragraph, Spacer, SimpleDocTemplate
+from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
+from datetime import date
 
 
 CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -214,7 +215,8 @@ def download_search_results():
                                       for s in d['regest_sents']]
             resp.append(r)
         pdf_buffer = BytesIO()
-        my_doc = SimpleDocTemplate(pdf_buffer)
+        description = 'Formulae-Litterae-Chartae Suchergebnisse ({})'.format(date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         flowables = list([Paragraph(_('Suchparameter'), sample_style_sheet['Heading3'])])
         for a in arg_list:
@@ -230,4 +232,4 @@ def download_search_results():
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename=Formulae-Litterae-Chartae-Suchergebnisse.pdf'})
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
