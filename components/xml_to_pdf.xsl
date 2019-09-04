@@ -132,9 +132,9 @@
         </xsl:if> -->
         <xsl:param name="tags">
             <xsl:if test="contains(parent::t:seg/@rend, 'italic') or contains(parent::t:seg/@type, 'italic') or contains(parent::t:seg/@type, 'latin-word')">
-                <xsl:text>italic </xsl:text>
+                <xsl:text>i </xsl:text>
             </xsl:if>
-            <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text>bold </xsl:text></xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text>b </xsl:text></xsl:if>
             <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text>strike </xsl:text></xsl:if>
             <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text>super </xsl:text></xsl:if>
             <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text>sub </xsl:text></xsl:if>
@@ -180,9 +180,9 @@
             <xsl:otherwise>
                 <xsl:variable name="tags">
                     <xsl:if test="contains(./@rend, 'italic') or contains(./@type, 'italic') or contains(./@type, 'latin-word')">
-                        <xsl:text>italic </xsl:text>
+                        <xsl:text>i </xsl:text>
                     </xsl:if>
-                    <xsl:if test="contains(./@type, 'platzhalter')"><xsl:text>bold </xsl:text></xsl:if>
+                    <xsl:if test="contains(./@type, 'platzhalter')"><xsl:text>b </xsl:text></xsl:if>
                     <xsl:if test="contains(./@type, 'line-through')"><xsl:text>strike </xsl:text></xsl:if>
                     <xsl:if test="contains(./@type, 'superscript')"><xsl:text>super </xsl:text></xsl:if>
                     <xsl:if test="contains(./@type, 'subscript')"><xsl:text>sub </xsl:text></xsl:if>

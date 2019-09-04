@@ -17,9 +17,11 @@ from string import punctuation
 from urllib.parse import quote
 from json import load as json_load, loads as json_loads
 from io import BytesIO
-from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate
+from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate, Frame
 from reportlab.lib.pdfencrypt import EncryptionFlowable
 from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+from copy import copy
 
 
 class NemoFormulae(Nemo):
@@ -746,19 +748,37 @@ class NemoFormulae(Nemo):
         :param objectId: the URN of the text to transform
         :return:
         """
+        if self.check_project_team() is False and objectId not in self.open_texts:
+            flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            return redirect(url_for('InstanceNemo.r_index'))
+
+        def add_citation_info(canvas, doc):
+            cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
+            cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
+            f = Frame(doc.leftMargin, doc.pagesize[1] - inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
+            canvas.saveState()
+            f.addFromList(cit_flowables, canvas)
+            canvas.setFont('Times-Roman', 8)
+            canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
+            canvas.restoreState()
         new_subref = self.get_reffs(objectId)[0][0]
         text = self.get_passage(objectId=objectId, subreference=new_subref)
         metadata = self.resolver.getMetadata(objectId=objectId)
         with open(self._transform['pdf']) as f:
             xslt = etree.XSLT(etree.parse(f))
-        d = json_loads(str(xslt(text.export(Mimetypes.PYTHON.ETREE))))
+        d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
         pdf_buffer = BytesIO()
-        my_doc = SimpleDocTemplate(pdf_buffer)
+        description = '{} ({})'.format(str(metadata.metadata.get_single(DC.title, lang=None)), date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
-        custom_style = sample_style_sheet['BodyText']
+        custom_style = copy(sample_style_sheet['Normal'])
         custom_style.name = 'Notes'
         custom_style.fontSize = 8
-        custom_style.spaceBefore = 0
+        cit_style = copy(sample_style_sheet['Normal'])
+        cit_style.name = 'DocCitation'
+        cit_style.fontSize = 8
+        cit_style.alignment = 1
         encryption = EncryptionFlowable(userPassword='',
                                         ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
                                         canPrint=1,
@@ -766,24 +786,24 @@ class NemoFormulae(Nemo):
                                         canCopy=0,
                                         canModify=0)
         flowables = list()
-        flowables.append(Paragraph(str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)),
-                         sample_style_sheet['Normal']))
-        flowables.append(Paragraph(text.get_title(), sample_style_sheet['Heading1']))
+        flowables.append(Paragraph(str(metadata.metadata.get_single(DC.title, lang=None)), sample_style_sheet['Heading1']))
         for p in d['paragraphs']:
             flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
-        flowables.append(Spacer(1, 5))
-        flowables.append(HRFlowable())
-        flowables.append(Spacer(1, 5))
-        for n in d['app']:
-            flowables.append(Paragraph(n, custom_style))
-        flowables.append(Spacer(1, 5))
-        flowables.append(HRFlowable())
-        flowables.append(Spacer(1, 5))
-        for n in d['hist_notes']:
-            flowables.append(Paragraph(n, custom_style))
+        if d['app']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['app']:
+                flowables.append(Paragraph(n, custom_style))
+        if d['hist_notes']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['hist_notes']:
+                flowables.append(Paragraph(n, custom_style))
         flowables.append(encryption)
-        my_doc.build(flowables)
+        my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(text.get_title())})
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
