@@ -1,0 +1,783 @@
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 20,
+    "successful": 20,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 37,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v4",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Schenkung : Ein Mann schenkt seiner Braut ein Haus.",
+          "title": "Angers 34",
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Schenkung : Ein Mann schenkt seiner Braut ein Haus.",
+          "orig_comp_ort": " ",
+          "forgery": false
+        },
+        "highlight": {
+          "regest": [
+            "Schenkung : Ein Mann </small><strong>schenkt</strong><small> seiner Braut ein Haus."
+          ],
+          "text": [
+            "INCIPIT DOTIS Annu iiii </small><strong>regnum</strong><small> domni nostri Childeberto reges. Ego in Dei nomen illi fatuor, me hanc libellum dote scribere deberent, quod ita et fecerunt, ad dulcissema sponsa mea nomen illa Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa. Iam dicta puella, sponsa mea illa abiat, teniat, possediat, faciat quod uoluerit. Et si quis uero, aut ego ipsi uel quislibet opposita persona, qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit, soledus tantus coactus exsoluat et si quis, non obteniat effectum."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form034.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v4",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+        "_score": null,
+        "_source": {
+          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+          "date_string": "(769\u2013800 [813]) 03 31",
+          "comp_ort": " ",
+          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 770,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 771,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 772,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 773,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 774,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 775,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 776,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 777,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 778,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 779,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 780,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 781,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 782,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 783,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 784,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 785,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 786,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 787,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 788,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 789,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 790,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 791,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 792,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 793,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 794,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 795,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 796,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 797,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 798,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 799,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 800,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 813,
+              "month": 3,
+              "day": 31
+            }
+          ],
+          "all_dates": [
+            "0769-03-31",
+            "0770-03-31",
+            "0771-03-31",
+            "0772-03-31",
+            "0773-03-31",
+            "0774-03-31",
+            "0775-03-31",
+            "0776-03-31",
+            "0777-03-31",
+            "0778-03-31",
+            "0779-03-31",
+            "0780-03-31",
+            "0781-03-31",
+            "0782-03-31",
+            "0783-03-31",
+            "0784-03-31",
+            "0785-03-31",
+            "0786-03-31",
+            "0787-03-31",
+            "0788-03-31",
+            "0789-03-31",
+            "0790-03-31",
+            "0791-03-31",
+            "0792-03-31",
+            "0793-03-31",
+            "0794-03-31",
+            "0795-03-31",
+            "0796-03-31",
+            "0797-03-31",
+            "0798-03-31",
+            "0799-03-31",
+            "0800-03-31",
+            "0813-03-31"
+          ],
+          "min_date": "0769-03-31",
+          "days": [
+            "Sunday",
+            "Monday",
+            "Easter",
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Lent",
+            "Wednesday",
+            "Saturday"
+          ]
+        },
+        "highlight": {
+          "regest": [
+            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur."
+          ],
+          "text": [
+            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Rihperht schenkt Grundst\u00fccke zu Eggersdorf und Winh\u00f6ring.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 355",
+          "urn": "urn:cts:formulae:freising.bitterauf0355.lat001",
+          "date_string": "816 02 13",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Rihperht schenkt Grundst\u00fccke zu Eggersdorf und Winh\u00f6ring.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 816,
+              "month": 2,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0816-02-13"
+          ],
+          "min_date": "0816-02-13",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "regest": [
+            "Rihperht </small><strong>schenkt</strong><small> Grundst\u00fccke zu Eggersdorf und Winh\u00f6ring."
+          ],
+          "text": [
+            "Hludouuici augusti imperii </small><strong>regnum</strong><small> gubernantem."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0355.lat001"
+        ]
+      },
+      {
+        "_index": "fulda_stengel_v4",
+        "_type": "fulda_stengel",
+        "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "K\u00f6nig Pippin schenkt das Hofgut [die Villa] Deiningen.",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 34",
+          "urn": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
+          "date_string": "760 06 [Anfang]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "K\u00f6nig Pippin schenkt das Hofgut [die Villa] Deiningen.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0760-06-01",
+              "lte": "0760-06-15"
+            }
+          ],
+          "all_dates": [
+            "0760-06-01",
+            "0760-06-15"
+          ],
+          "min_date": "0760-06-01"
+        },
+        "highlight": {
+          "regest": [
+            "K\u00f6nig Pippin </small><strong>schenkt</strong><small> das Hofgut [die Villa] Deiningen."
+          ],
+          "text": [
+            "Data in mense iunio anno nono </small><strong>regnum</strong><small> nostri; actum Atiniago palatio publico."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:fulda_stengel.stengel0034.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v4",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "K\u00f6nig Karl schenkt der Fritzlarer Kirche den ihm von Erzbischof Lullus von Mainz \u00fcbergebenen Besitz.",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 16",
+          "urn": "urn:cts:formulae:hersfeld.weirich0016.lat001",
+          "date_string": "782 07 04",
+          "comp_ort": "D\u00fcren",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "K\u00f6nig Karl schenkt der Fritzlarer Kirche den ihm von Erzbischof Lullus von Mainz \u00fcbergebenen Besitz.",
+          "orig_comp_ort": "D\u00fcren",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 782,
+              "month": 7,
+              "day": 4
+            }
+          ],
+          "all_dates": [
+            "0782-07-04"
+          ],
+          "min_date": "0782-07-04",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "highlight": {
+          "regest": [
+            "K\u00f6nig Karl </small><strong>schenkt</strong><small> der Fritzlarer Kirche den ihm von Erzbischof Lullus von Mainz \u00fcbergebenen Besitz."
+          ],
+          "text": [
+            "Notum sit igitur omnibus episcopis, abbatibus, ducibus, comitibus, domesticis vel reliquis fidelibus nostris praesentibus atque futuris, quia venerabilis Lullus Mogontiacensis urbis archiepiscopus res aliquas infra </small><strong>regnum</strong><small> Austrasiorum legitime ordine visus fuit conquisisse in ministerio Rabanone et Swigario vel Agilgaudo et ipsas res nobis non coactus, sed spontanea voluntate per cartulam donationis curtibus nostris visus est delegasse atque in omnibus tradidisse."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:hersfeld.weirich0016.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger2_v2",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Chlodwig I. nimmt das Kloster Reomaus (Moutiers-St-Jean) in seinen Schutz, schenkt ihm Land und verleiht die Immunit\u00e4t.",
+          "title": "Die Urkunden der Merowinger (Ed. K\u00f6lzer) Nr. 3",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
+          "date_string": "(498) 12 29",
+          "comp_ort": "Reims",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Chlodwig I. nimmt das Kloster Reomaus (Moutiers-St-Jean) in seinen Schutz, schenkt ihm Land und verleiht die Immunit\u00e4t.",
+          "orig_comp_ort": "Reims",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 498,
+              "month": 12,
+              "day": 29
+            }
+          ],
+          "all_dates": [
+            "0498-12-29"
+          ],
+          "min_date": "0498-12-29"
+        },
+        "highlight": {
+          "regest": [
+            "Chlodwig I. nimmt das Kloster Reomaus (Moutiers-St-Jean) in seinen Schutz, </small><strong>schenkt</strong><small> ihm Land und verleiht die Immunit\u00e4t."
+          ],
+          "text": [
+            "Quapropter notum sit omnibus episcopis, abbatibus et inlustribus viris, magnificis ducibus, comitibus, domesticis, vicariis, graphionibus, centenariis et omnibus curam sanctae Dei aecclesiae gerentibus per nostrum </small><strong>regnum</strong><small> discurrentibus, tam presentibus quam et futuris, quia domnus Iohannes, clarus virtutibus, locellum suum in pago Tornotrinse sub regula beati Macharii ad habitationem monachorum constructum, quod Riomaus vocatur, primo nostrae susceptae christianitatis atque subiugationis Gallorum anno nostrae celsitudini tradidit et commendavit, ut sub nostra immunitate et mundiburdio nostrorumque regum successorum semper maneat."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:merowinger1.koelzer0003.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger2_v2",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Dagobert (I.?) schenkt der Kirche von Stra\u00dfburg drei H\u00f6fe zu Bischofsheim, Rufach und Spiez und bestimmt f\u00fcr diese ein Hofrecht.",
+          "title": "Die Urkunden der Merowinger (Ed. K\u00f6lzer) Nr. 69",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
+          "date_string": "<662> 04 02",
+          "comp_ort": "Isenburg",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Dagobert (I.?) schenkt der Kirche von Stra\u00dfburg drei H\u00f6fe zu Bischofsheim, Rufach und Spiez und bestimmt f\u00fcr diese ein Hofrecht.",
+          "orig_comp_ort": "Isenburg",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 662,
+              "month": 4,
+              "day": 2
+            }
+          ],
+          "all_dates": [
+            "0662-04-02"
+          ],
+          "min_date": "0662-04-02",
+          "days": [
+            "Saturday",
+            "Lent"
+          ]
+        },
+        "highlight": {
+          "regest": [
+            "</small><strong>schenkt</strong><small> der Kirche von Stra\u00dfburg drei H\u00f6fe zu Bischofsheim, Rufach und Spiez und bestimmt f\u00fcr diese ein Hofrecht."
+          ],
+          "text": [
+            "Si autem quisquam ex eisdem non habens beneficia exigatur in famulatum ipsius loci defensoris, trium ebdomadarum spatio pergat in servicio ad defendendum </small><strong>regnum</strong><small>, quarta intrante, si ei nolit beneficia dare, fiat in presencia eius cuiuscunque velit miles. Acta sunt hec in Isenburg. Et ut hec a nobis facta credantur et a posteris nostris non infrangantur, manu propria roboravimus et sigillari iussimus. Signum domini Tageberti regis pii. Ego Turandus cancellarius regis ipso iubente rescripsi. Acta sunt hec IIII Nonas Aprilis, luna VII, anno ab incarnacione Domini DCLXII, indictione V, regnante Tageberto rege, anno XXXII regni sui."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:merowinger1.koelzer0069.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Gauzoinus schenkt Abt Audemarus von St. Gallen seinen Besitz f\u00fcr sein Seelenheil und lebenslangen Unterhalt",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 2",
+          "urn": "urn:cts:formulae:raetien.erhart0002.lat001",
+          "date_string": "745 08 30",
+          "comp_ort": "Gebhardswil",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Gauzoinus schenkt Abt Audemarus von St. Gallen seinen Besitz f\u00fcr sein Seelenheil und lebenslangen Unterhalt",
+          "orig_comp_ort": "[Gebhardwil]",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 745,
+              "month": 8,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0745-08-30"
+          ],
+          "min_date": "0745-08-30",
+          "days": [
+            "Monday"
+          ]
+        },
+        "highlight": {
+          "regest": [
+            "Gauzoinus </small><strong>schenkt</strong><small> Abt Audemarus von St. Gallen seinen Besitz f\u00fcr sein Seelenheil und lebenslangen Unterhalt"
+          ],
+          "text": [
+            "Nodavi die et </small><strong>regnum</strong><small> et testis, qui suscrivere conrocaverunt. Signum Gauzoini, qui hunc cartola fieri rocavit, signu Baldoaldi testis, signum Ascari testis, signum Quolpoaldi testis, signum Lantcotti testis, signum Landonis testis, signu Trudolfi testis, signum Frittonis testis. Ego Audo clericus roietus ad Cauzoinu hunc cartola escripsi et in testetnonio suscripsi. Ego Quolfuinus fui intir ubi hanc cartola facta est in testemonio suscripsi. Cartola donacnis Audemari\u00b7apatis fruniscat con gracia Dei et sancti Petri."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0002.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Baselius schenkt der Kirche St. Hilarius zu seinem Seelenheil \u00c4cker bei Chur unter der Bedingung, dass der Verwalter (actor) der Kirche ihm und seiner Frau Laurencia an jedem Monatsersten ein Modius Korn auf Lebenszeit geben solle.",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 3",
+          "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
+          "date_string": "768\u2013800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Baselius schenkt der Kirche St. Hilarius zu seinem Seelenheil \u00c4cker bei Chur unter der Bedingung, dass der Verwalter (actor) der Kirche ihm und seiner Frau Laurencia an jedem Monatsersten ein Modius Korn auf Lebenszeit geben solle.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "highlight": {
+          "regest": [
+            "Baselius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil \u00c4cker bei Chur unter der Bedingung, dass der Verwalter (actor) der Kirche ihm und seiner Frau Laurencia an jedem Monatsersten ein Modius Korn auf Lebenszeit geben solle."
+          ],
+          "text": [
+            "Facta cartula in civitate Curia sub </small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, sub die quod est XV kalendas madii sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui Rofini, qui hec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Vuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gavuenti testes. Ego Orsacius pro misericordia Dei vocatus presbiter ad vice Pettoms presbiteri scripsi et suscripsi."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0003.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "Victorinus schenkt der Kirche St. Hilarius zu seinem und seiner Eltern Seelenheil G\u00fcter bei Chur, darunter eine Wiese in der Gr\u00f6\u00dfe von 6 honero in Lasine, eine weitere in der Gr\u00f6\u00dfe von einem honus a Sanguinietum, einen Acker in der Gr\u00f6\u00dfe von 2 Modien a Tonbeclo, einen a Tomba Maiore, einen in der Gr\u00f6\u00dfe von 3 Modien in Tedo und einen in der Gr\u00f6\u00dfe von 2 Modien in Cercene. F\u00fcr alle diese G\u00fcter beh\u00e4lt er sich Nutzungsrechte auf Lebenszeit vor.",
+          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
+          "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
+          "date_string": "768\u2013800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "Victorinus schenkt der Kirche St. Hilarius zu seinem und seiner Eltern Seelenheil G\u00fcter bei Chur, darunter eine Wiese in der Gr\u00f6\u00dfe von 6 honero in Lasine, eine weitere in der Gr\u00f6\u00dfe von einem honus a Sanguinietum, einen Acker in der Gr\u00f6\u00dfe von 2 Modien a Tonbeclo, einen a Tomba Maiore, einen in der Gr\u00f6\u00dfe von 3 Modien in Tedo und einen in der Gr\u00f6\u00dfe von 2 Modien in Cercene. F\u00fcr alle diese G\u00fcter beh\u00e4lt er sich Nutzungsrechte auf Lebenszeit vor.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0801"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0801",
+            "0814"
+          ],
+          "min_date": "0768"
+        },
+        "highlight": {
+          "regest": [
+            "Victorinus </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem und seiner Eltern Seelenheil G\u00fcter bei Chur, darunter eine Wiese in der Gr\u00f6\u00dfe von 6 honero in Lasine, eine weitere in der Gr\u00f6\u00dfe von einem honus a Sanguinietum, einen Acker in der Gr\u00f6\u00dfe von 2 Modien a Tonbeclo, einen a Tomba Maiore, einen in der Gr\u00f6\u00dfe von 3 Modien in Tedo und einen in der Gr\u00f6\u00dfe von 2 Modien in Cercene. F\u00fcr alle diese G\u00fcter beh\u00e4lt er sich Nutzungsrechte auf Lebenszeit vor."
+          ],
+          "text": [
+            "Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis sub die quod est pridie kalendas Aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Victorini et Felicitanes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Viventi maiores testes. Signum Vigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltari testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Agustani diaconis scripsi et suscripsi."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:raetien.erhart0006.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 1
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 1
+        },
+        "Freising": {
+          "doc_count": 1
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 1
+        },
+        "Hersfeld": {
+          "doc_count": 1
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 2
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 14
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 15
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 1
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 1
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 1
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 10
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 23
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 1
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 1
+    }
+  }
+}

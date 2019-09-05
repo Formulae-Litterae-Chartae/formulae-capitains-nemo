@@ -748,7 +748,7 @@ class NemoFormulae(Nemo):
         :param objectId: the URN of the text to transform
         :return:
         """
-        if self.check_project_team() is False and objectId not in self.open_texts:
+        if (self.check_project_team() is False and objectId not in self.open_texts) or not re.search(r'andecavensis|markulf', objectId):
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
 
@@ -801,7 +801,8 @@ class NemoFormulae(Nemo):
             flowables.append(Spacer(1, 5))
             for n in d['hist_notes']:
                 flowables.append(Paragraph(n, custom_style))
-        flowables.append(encryption)
+        if self.check_project_team() is False:
+            flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()

@@ -96,7 +96,7 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template, field, q, regest_q):
+def set_session_token(index, orig_template, field, q, regest_q=None):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})

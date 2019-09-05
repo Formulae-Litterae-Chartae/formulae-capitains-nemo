@@ -22,6 +22,7 @@ from json import dumps
 import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
+from datetime import date
 
 
 class TestConfig(Config):
@@ -43,7 +44,8 @@ class Formulae_Testing(flask_testing.TestCase):
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
-                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                                                  "elex_notes": "components/extract_elex_notes.xsl",
+                                                                  "pdf": "components/xml_to_pdf.xsl"},
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
@@ -180,6 +182,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
 
     def test_authorized_project_member(self):
 
@@ -273,6 +279,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('viewer::miradorviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertIn('Angers 2 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -343,6 +354,14 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:andecavensis.form001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            # Check encryption for non-project members
+            self.nemo.open_texts.append('urn:cts:formulae:markulf.form003.lat001')
+            r = c.get('/pdf/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
+            self.assertIn(b'Encrypt 8 0 R', r.get_data())
 
 
     @patch("formulae.search.routes.advanced_query_index")
@@ -509,7 +528,7 @@ class TestIndividualRoutes(Formulae_Testing):
         resp = fake.load_response()
         mock_search.return_value = resp
         set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
-        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title'], 'sents': []} for hit in resp['hits']['hits']])
+        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -1350,6 +1369,25 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
+    def test_regest_and_word_advanced_search(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'schenkt'),
+                                 ("regest_field", "regest")])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     def test_regest_advanced_search_with_wildcard(self, mock_search):
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -1813,24 +1851,27 @@ class TestES(Formulae_Testing):
             c.get('/search/download', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
             self.assertTemplateUsed('main::index.html')
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', 'Easter'), ("regest_q", ''),
+                                 ('special_days', ''), ("regest_q", 'schenkt'),
                                  ("regest_field", "regest")])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
-        with open('tests/test_data/advanced_search/downloaded_search.txt') as f:
+        with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
             expected = f.read()
         with self.client as c:
-            c.get('/search/results?month=0&year_start=&q=&day_end=&year_end=&date_plus_minus=0&sort=urn&composition_place=&fuzziness=0&exclusive_date_range=False&special_days=Easter&month_start=0&in_order=False&month_end=0&day_start=&submit=True&day=&corpus=all&slop=0&year=&source=advanced')
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenkt&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
-            self.assertEqual(r.get_data(as_text=True), expected.strip())
+            with open('/home/matt/search_results_test.pdf', mode="wb") as f:
+                f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
 
 class TestErrors(Formulae_Testing):
