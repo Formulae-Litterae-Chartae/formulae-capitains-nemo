@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -349,14 +349,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "a) Regino und seine Gattin Oaspirin schenken ihren Besitz zu Hohenkammer. b) Regino und sein Sohn Liuto schenken erkauften Besitz.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
           "date_string": "a) 783-788 b) nach 792",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "a) Regino und seine Gattin Oaspirin schenken ihren Besitz zu Hohenkammer. b) Regino und sein Sohn Liuto schenken erkauften Besitz.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [

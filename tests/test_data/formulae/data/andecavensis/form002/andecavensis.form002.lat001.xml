@@ -39,7 +39,7 @@
       <body>
          <div type="edition" xml:lang="lat" n="urn:cts:formulae:andecavensis.form002.lat001">
             <div type="textpart" subtype="formula" n="1">
-               <p xml:space="preserve"><w>Some</w> <w>Text</w></p></div>
+               <p xml:space="preserve"><w>Some</w><note target="#w37" type="a1">Apparatus Text</note> <w>Text</w><note target="#w37" type="n1">Historical Note Text</note></p></div>
          </div>
       </body>
    </text>

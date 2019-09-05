@@ -28,11 +28,8 @@
               {
                 "span_multi": {
                   "match": {
-                    "fuzzy": {
-                      "regest": {
-                        "value": "schenkt",
-                        "fuzziness": "0"
-                      }
+                    "wildcard": {
+                      "regest": "schenk*"
                     }
                   }
                 }

@@ -971,6 +971,7 @@ class TestAuth(Formulae_Testing):
 
 
 class TestES(Formulae_Testing):
+
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
 
@@ -1375,7 +1376,7 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'schenkt'),
+                                 ('special_days', ''), ("regest_q", 'schenk*'),
                                  ("regest_field", "regest")])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -1741,26 +1742,23 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_regest_word_search_completion(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'illam'), ("fuzziness", "0"),
+        test_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'tau'),
+                                 ('special_days', ''), ("regest_q", 'sche'),
                                  ("regest_field", "autocomplete_regest")])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['tau',
-                    'tausch erhaltene hufe zu ratzenhofe ',
-                    'tausch und umschreibt den sprengel ',
-                    'tausch verabredet und kaiser ludwig ',
-                    'tausch zwischen abt salomon und anno',
-                    'tauschen',
-                    'tauschen die von ihrem oheim patacho ',
-                    'tauscht mit dem edlen eparhoh güter ',
-                    'tauscht mit s peter und s emmeram ',
-                    'tauscht von dem chorbischof couuo ',
-                    'tauscht von dem freien aron liegenschaften']
+        expected = ['sche',
+                    'schenkt dem kloster disentis auf ableben',
+                    'schenkt dem kloster disentis güter ',
+                    'schenkt der kirche st hilarius zu ',
+                    'schenkt seinem neffen priectus seinen',
+                    'schenkt zu seinem und seiner eltern ',
+                    'schenkt zu seinem und seiner gattin ',
+                    'schenkt zum seelenheil seines bruders']
         mock_search.return_value = resp
         test_args['qSource'] = 'regest'
         results = suggest_word_search(**test_args)
@@ -1856,13 +1854,14 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'schenkt'),
+                                 ('special_days', ''), ("regest_q", 'schenk*'),
                                  ("regest_field", "regest")])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
+        self.nemo.open_texts.append('urn:cts:formulae:buenden.meyer-marthaler0027.lat001')
         with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
             expected = f.read()
         with self.client as c:

@@ -1,5 +1,5 @@
 {
-  "took": 17,
+  "took": 18,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -19,21 +19,24 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Eintrag in die Gesta Municipalia : Ein Sachwalter (prosecutor) erscheint vor der \u00f6ffentlichen Versammlung (curia publica) von Angers und bittet, bevollm\u00e4chtigt durch ein Mandat einer Frau, um die \u00d6ffnung der \u00f6ffentlichen B\u00fccher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgesch\u00e4fte bez\u00fcglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigeng\u00fcter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse G\u00fcter \u00fcbertr\u00e4gt.",
+          "regest": "text",
           "title": "Angers 1",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Eintrag in die Gesta Municipalia : Ein Sachwalter (prosecutor) erscheint vor der \u00f6ffentlichen Versammlung (curia publica) von Angers und bittet, bevollm\u00e4chtigt durch ein Mandat einer Frau, um die \u00d6ffnung der \u00f6ffentlichen B\u00fccher. Es folgt das Mandat, mit welchem der Ehemann der Frau beauftragt wird, ihre Rechtsgesch\u00e4fte bez\u00fcglich der ihr aus dem Besitz seiner Eltern zugefallenen Eigeng\u00fcter zu erledigen. Es folgt das Schenkungsschreiben (cessio), in welchem der Ehemann seiner Braut zur Hochzeit diverse G\u00fcter \u00fcbertr\u00e4gt.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "text": [
-            "HIC EST IESTA Annum quarto </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto reges, quod fecit misisus ille dies tantus cum iuxta consuetudinem Andicauis ciuetate curia puplica resedere in foro, ibiquae uir magnificus illi prosecutor dixit: \u201eRogo te, uir laudabilis illi defensor, illi curator, illi magister militum uel reliquam curia puplica, utique obticis puplici patere iobeatis, qua habeo, quid apud acta proseuere debiam\u201c. Deffensor, principalis simul et omnis curia puplica dixerunt: \u201ePatent tibi cotecis puplici; prosequere que optas\u201c. Obodire illa per mandato suo pagina mihi iniuncxit, ut prosecutor exsistere deberit, qualiter mandatum, quam \u201ain dulcissimo iocali meo illo fici\u2018 pro omnis causacionis suas, tam in paco quam et in palacio seu in qualibet loca, accidere faciat."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
@@ -47,21 +50,24 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Schenkung : Ein Mann schenkt seiner Braut ein Haus.",
+          "regest": "text",
           "title": "Angers 34",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Schenkung : Ein Mann schenkt seiner Braut ein Haus.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "text": [
-            "INCIPIT DOTIS Annu iiii </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Childeberto reges. Ego in Dei nomen illi fatuor, me hanc libellum dote scribere deberent, quod ita et fecerunt, ad dulcissema sponsa mea nomen illa Pro amore dulcitudinem suam aemitto tibi in cartole libelli dotes casa. Iam dicta puella, sponsa mea illa abiat, teniat, possediat, faciat quod uoluerit. Et si quis uero, aut ego ipsi uel quislibet opposita persona, qui contra hanc uolumtate mea facta aut libellum dote ista conscripta aut agere presumpserit, soledus tantus coactus exsoluat et si quis, non obteniat effectum."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"
@@ -631,14 +637,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Baselius schenkt der Kirche St. Hilarius zu seinem Seelenheil \u00c4cker bei Chur unter der Bedingung, dass der Verwalter (actor) der Kirche ihm und seiner Frau Laurencia an jedem Monatsersten ein Modius Korn auf Lebenszeit geben solle.",
+          "regest": "text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 3",
           "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
           "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Baselius schenkt der Kirche St. Hilarius zu seinem Seelenheil \u00c4cker bei Chur unter der Bedingung, dass der Verwalter (actor) der Kirche ihm und seiner Frau Laurencia an jedem Monatsersten ein Modius Korn auf Lebenszeit geben solle.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -660,9 +666,12 @@
           "min_date": "0768"
         },
         "highlight": {
-          "text": [
-            "Facta cartula in civitate Curia sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die quod est XV kalendas madii sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt. Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui hec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Vuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gavuenti testes. Ego Orsacius pro misericordia Dei vocatus presbiter ad vice Pettoms presbiteri scripsi et suscripsi."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0003.lat001"
@@ -676,14 +685,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Victorinus schenkt der Kirche St. Hilarius zu seinem und seiner Eltern Seelenheil G\u00fcter bei Chur, darunter eine Wiese in der Gr\u00f6\u00dfe von 6 honero in Lasine, eine weitere in der Gr\u00f6\u00dfe von einem honus a Sanguinietum, einen Acker in der Gr\u00f6\u00dfe von 2 Modien a Tonbeclo, einen a Tomba Maiore, einen in der Gr\u00f6\u00dfe von 3 Modien in Tedo und einen in der Gr\u00f6\u00dfe von 2 Modien in Cercene. F\u00fcr alle diese G\u00fcter beh\u00e4lt er sich Nutzungsrechte auf Lebenszeit vor.",
+          "regest": "text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
           "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
           "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Victorinus schenkt der Kirche St. Hilarius zu seinem und seiner Eltern Seelenheil G\u00fcter bei Chur, darunter eine Wiese in der Gr\u00f6\u00dfe von 6 honero in Lasine, eine weitere in der Gr\u00f6\u00dfe von einem honus a Sanguinietum, einen Acker in der Gr\u00f6\u00dfe von 2 Modien a Tonbeclo, einen a Tomba Maiore, einen in der Gr\u00f6\u00dfe von 3 Modien in Tedo und einen in der Gr\u00f6\u00dfe von 2 Modien in Cercene. F\u00fcr alle diese G\u00fcter beh\u00e4lt er sich Nutzungsrechte auf Lebenszeit vor.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -705,9 +714,12 @@
           "min_date": "0768"
         },
         "highlight": {
-          "text": [
-            "Facta donacio in loco Fortunes sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis sub die quod est pridie kalendas Aprilis. Notavi diem et regnum superscripsi. Signum Victorini et Felicitanes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Viventi maiores testes. Signum Vigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltari testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Agustani diaconis scripsi et suscripsi."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0006.lat001"
@@ -721,14 +733,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Petrus und seine Kinder Valerius und Silvana verkaufen an Aderamnus einen Hof (cortinum) in Grabs zum Preis von 20 selique.",
+          "regest": "text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 44",
           "urn": "urn:cts:formulae:raetien.erhart0044.lat001",
           "date_string": "858/865 02 12",
           "comp_ort": "Grabs",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Petrus und seine Kinder Valerius und Silvana verkaufen an Aderamnus einen Hof (cortinum) in Grabs zum Preis von 20 selique.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Grabs",
           "forgery": false,
           "specific_date": [
@@ -754,9 +766,12 @@
           ]
         },
         "highlight": {
-          "text": [
-            "Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nistri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium, qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum ipsos presente mihique dictante et manus suas proprias subter firmantes. Constat eum vendere et vendiderunt sup legitimum iure strumentorum: vendo ego Petrus tibi Auderamno cortinum, que mihi advenit in fundo Quaravedes, que ocupatur ... ... a vicu, confinat in Auderamni et de alia parte in Baseli terra ex anno et de pommifera tercia parte. Precium in contra ipsu cortinum selique XX, quod precium venditores ap emtore coram testibus de presente acciperunt. Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum. Et si quis contra hanc cartam recausare voluerit, solvat dubblas res, que in carta continet et iudici puvlico aurum libras I et strumentus firmus permaneat Aquiliani Argliana lege supnixsa."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0044.lat001"
@@ -770,14 +785,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Aimo schenkt seinen Besitz in Elgg an Sanct Gallen.",
+          "regest": "text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
           "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "date_string": "762 08 20",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Aimo schenkt seinen Besitz in Elgg an Sanct Gallen.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -796,9 +811,12 @@
           ]
         },
         "highlight": {
-          "text": [
-            "Actum in ipso monastirio sancti Gallones, sub die quod fecet menses acustus dies XX, anno nono </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Pippini regis. Signum \u2020 Aimonis autores, qui hanc donationem fieri rogavit. \u2020 sig. \u2020 Folgerati test. \u2020 sig. Vanzones test. sig. Arnoladi test. \u2020 sig. Salucho test. \u2020 sig. Cunzones. \u2020 sig. Tincolti. sig. Nangheri. sig. Rotteri. sig. Deota \u2020 Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0026.lat001"
@@ -812,14 +830,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Petrus verkauft an Auderam einen Hof zu Grabs.",
+          "regest": "text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
           "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "date_string": "858 (865) 02 12",
           "comp_ort": "Grabs",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Petrus verkauft an Auderam einen Hof zu Grabs.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Grabs",
           "forgery": false,
           "specific_date": [
@@ -845,9 +863,12 @@
           ]
         },
         "highlight": {
-          "text": [
-            "Anno XXV pos </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Lodoici regis in Bavaria scripsi ego Cianus rogitus a Basilium, qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum, ipsos presente mihique dictante et manus suas proprias subter firmantes. Constat eum vendere et vendiderunt sup legitimum iure strumentorum vendo ego Petrus tibi Auderamno cortinum, que mihi advenit in fundo Quaravedes, que ocupatur iuso a vicum. Confinit in Auderamni et de alia parte in Baseli terra ex anno et de pomifera tercia parte. Precium in contra ipsu cortinum seliquae XX, quod precium venditores ap emtore coram testibus de presente acciperunt. Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum. Et si quis contra hanc cartam recausare voluerit, solvat dubblas res, que in carta continet et iudici puvlico aurum liberam I, et strumentus firmus permaneat Aquiliani Arglia lege supnixsa."
-          ]
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0458.lat001"

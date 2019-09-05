@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -213,14 +213,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "a) Regino und seine Gattin Oaspirin schenken ihren Besitz zu Hohenkammer. b) Regino und sein Sohn Liuto schenken erkauften Besitz.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
           "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
           "date_string": "a) 783-788 b) nach 792",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "a) Regino und seine Gattin Oaspirin schenken ihren Besitz zu Hohenkammer. b) Regino und sein Sohn Liuto schenken erkauften Besitz.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -253,14 +253,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Ellanpiric schenkt eine Kolonie.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 117",
           "urn": "urn:cts:formulae:freising.bitterauf0117.lat001",
           "date_string": "783-802",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Ellanpiric schenkt eine Kolonie.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -287,14 +287,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Albkis schenkt erkauften Besitz zu Frauenvils.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 136",
           "urn": "urn:cts:formulae:freising.bitterauf0136.lat001",
           "date_string": "790-807",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Albkis schenkt erkauften Besitz zu Frauenvils.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -321,14 +321,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Fastpurc schenkt ihren Besitz zu Zolling.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 137",
           "urn": "urn:cts:formulae:freising.bitterauf0137.lat001",
           "date_string": "790-807",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Fastpurc schenkt ihren Besitz zu Zolling.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -355,14 +355,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Irminheri und seine Angeh\u00f6rigen begeben sich ihrer Anspr\u00fcche auf die Kirche zu Farchant.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 145",
           "urn": "urn:cts:formulae:freising.bitterauf0145.lat001",
           "date_string": "791-802",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Irminheri und seine Angeh\u00f6rigen begeben sich ihrer Anspr\u00fcche auf die Kirche zu Farchant.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
