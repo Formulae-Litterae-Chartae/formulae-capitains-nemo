@@ -1868,8 +1868,6 @@ class TestES(Formulae_Testing):
         with self.client as c:
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenkt&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
-            with open('/home/matt/search_results_test.pdf', mode="wb") as f:
-                f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
