@@ -1429,8 +1429,11 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_single_word_highlighting(self, mock_search):
-        """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        test_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'pettonis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -1439,8 +1442,8 @@ class TestES(Formulae_Testing):
                                  ("regest_field", "regest")])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup(' cartula in civitate Curia, sub </small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Baselii et')]},
-                 {'sents': [Markup(' presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini')]}]
+        sents = [{'sents': [Markup(' dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup(' licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
