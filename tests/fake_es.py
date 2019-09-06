@@ -47,6 +47,15 @@ class FakeElasticsearch(object):
                 resp['hits']['hits'][i]['_source']['lemmas'] = 'text'
                 resp['hits']['hits'][i]['_source']['autocomplete'] = 'text'
                 resp['hits']['hits'][i]['_source']['autocomplete_lemmas'] = 'text'
+                resp['hits']['hits'][i]['_source']['regest'] = 'text'
+                resp['hits']['hits'][i]['_source']['autocomplete_regest'] = 'text'
+                if 'highlight' in resp['hits']['hits'][i]:
+                    resp['hits']['hits'][i]['highlight']['text'] = 'text'
+                    resp['hits']['hits'][i]['highlight']['lemmas'] = 'text'
+                    resp['hits']['hits'][i]['highlight']['autocomplete'] = 'text'
+                    resp['hits']['hits'][i]['highlight']['autocomplete_lemmas'] = 'text'
+                    resp['hits']['hits'][i]['highlight']['regest'] = 'text'
+                    resp['hits']['hits'][i]['highlight']['autocomplete_regest'] = 'text'
         with open(fileName, 'w') as f:
             return json.dump(resp, f, indent=2)
 

@@ -14,8 +14,9 @@ Flask-Session>=0.3.1
 Flask-SQLAlchemy==2.3.2
 Flask-Testing>=0.7.1
 Flask-WTF==0.14.2
+gunicorn>=19.9.0
 PyJWT>=1.6.4
 python-slugify==1.2.1
 python-dotenv>=0.8.2
+reportlab>=3.5.23
 SQLAlchemy>=1.2.7
-gunicorn>=19.9.0

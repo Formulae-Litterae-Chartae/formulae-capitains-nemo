@@ -425,4 +425,6 @@
         </xsl:element>
     </xsl:template>
     
+    <xsl:template match="t:teiHeader"/>
+    
 </xsl:stylesheet>

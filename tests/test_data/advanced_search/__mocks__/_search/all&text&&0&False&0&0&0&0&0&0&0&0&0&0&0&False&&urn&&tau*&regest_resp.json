@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -19,21 +19,24 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Grundst\u00fcckstausch : Zwei Personen tauschen Felder, \u00fcber welche eine geistliche Einrichtung bestimmte Vorrechte besitzt.",
+          "regest": "text",
           "title": "Angers 8",
           "urn": "urn:cts:formulae:andecavensis.form008.lat001",
           "date_string": " ",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Grundst\u00fcckstausch : Zwei Personen tauschen Felder, \u00fcber welche eine geistliche Einrichtung bestimmte Vorrechte besitzt.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "regest": [
-            "Grundst\u00fcckstausch : Zwei Personen </small><strong>tauschen</strong><small> Felder, \u00fcber welche eine geistliche Einrichtung bestimmte Vorrechte besitzt."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form008.lat001"
@@ -89,14 +92,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Atto tauscht von Hungis Land zu Lern gegen eben solches zu Thulbach.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 116",
           "urn": "urn:cts:formulae:freising.bitterauf0116.lat001",
           "date_string": "783-793",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Atto tauscht von Hungis Land zu Lern gegen eben solches zu Thulbach.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -112,9 +115,12 @@
           "min_date": "0783"
         },
         "highlight": {
-          "regest": [
-            "Bischof Atto </small><strong>tauscht</strong><small> von Hungis Land zu Lern gegen eben solches zu Thulbach."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0116.lat001"
@@ -128,14 +134,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Atto und Abt Reginperht von Moosburg tauschen Besitz zu Bergen und Buchenau",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 267",
           "urn": "urn:cts:formulae:freising.bitterauf0267.lat001",
           "date_string": "807-808",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Atto und Abt Reginperht von Moosburg tauschen Besitz zu Bergen und Buchenau",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -151,9 +157,12 @@
           "min_date": "0807"
         },
         "highlight": {
-          "regest": [
-            "Bischof Atto und Abt Reginperht von Moosburg </small><strong>tauschen</strong><small> Besitz zu Bergen und Buchenau"
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0267.lat001"
@@ -167,14 +176,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Atto und Uualtant tauschen Land zu Reichersdorf.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 283",
           "urn": "urn:cts:formulae:freising.bitterauf0283.lat001",
           "date_string": "808 10 20",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Atto und Uualtant tauschen Land zu Reichersdorf.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -193,9 +202,12 @@
           ]
         },
         "highlight": {
-          "regest": [
-            "Bischof Atto und Uualtant </small><strong>tauschen</strong><small> Land zu Reichersdorf."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0283.lat001"
@@ -209,14 +221,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Atto und der Edle Rifuin tauschen Besitz zu Kirch(Breit)\u00f6tting, Burgrain und Buch am Buachrain",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 298",
           "urn": "urn:cts:formulae:freising.bitterauf0298.lat001",
           "date_string": "811 05 24",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Atto und der Edle Rifuin tauschen Besitz zu Kirch(Breit)\u00f6tting, Burgrain und Buch am Buachrain",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -235,9 +247,12 @@
           ]
         },
         "highlight": {
-          "regest": [
-            "Bischof Atto und der Edle Rifuin </small><strong>tauschen</strong><small> Besitz zu Kirch(Breit)\u00f6tting, Burgrain und Buch am Buachrain"
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0298.lat001"
@@ -251,14 +266,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der Edle Hitto tauscht Liegenschaften zu Paunzhausen gegen solche zu G\u00fcnzenhausen ein.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 671",
           "urn": "urn:cts:formulae:freising.bitterauf0671.lat001",
           "date_string": "845 04 09",
           "comp_ort": "Freising",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der Edle Hitto tauscht Liegenschaften zu Paunzhausen gegen solche zu G\u00fcnzenhausen ein.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -277,9 +292,12 @@
           ]
         },
         "highlight": {
-          "regest": [
-            "Der Edle Hitto </small><strong>tauscht</strong><small> Liegenschaften zu Paunzhausen gegen solche zu G\u00fcnzenhausen ein."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0671.lat001"
@@ -293,14 +311,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Erchanbert tauscht von dem Edlen Uuolfolt gegen Besitz zu Arget solchen zu N\u00f6rting und \u201e\u00dbotilineigan\u201c ein.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 726",
           "urn": "urn:cts:formulae:freising.bitterauf0726.lat001",
           "date_string": "851 04 28",
           "comp_ort": "Freising",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Erchanbert tauscht von dem Edlen Uuolfolt gegen Besitz zu Arget solchen zu N\u00f6rting und \u201e\u00dbotilineigan\u201c ein.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -319,9 +337,12 @@
           ]
         },
         "highlight": {
-          "regest": [
-            "Bischof Erchanbert </small><strong>tauscht</strong><small> von dem Edlen Uuolfolt gegen Besitz zu Arget solchen zu N\u00f6rting und \u201e\u00dbotilineigan\u201c ein."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0726.lat001"
@@ -335,14 +356,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Erchanbert tauscht von Leobert gegen Besitz zu Kirchasch und Ober(Unter)geiselbach solchen zu Lern ein.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 727",
           "urn": "urn:cts:formulae:freising.bitterauf0727.lat001",
           "date_string": "851 05 01",
           "comp_ort": "Freising",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Erchanbert tauscht von Leobert gegen Besitz zu Kirchasch und Ober(Unter)geiselbach solchen zu Lern ein.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -361,9 +382,12 @@
           ]
         },
         "highlight": {
-          "regest": [
-            "Bischof Erchanbert </small><strong>tauscht</strong><small> von Leobert gegen Besitz zu Kirchasch und Ober(Unter)geiselbach solchen zu Lern ein."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0727.lat001"
@@ -377,14 +401,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Bischof Erchanbert tauscht von dem Laien Antarmar gegen Liegenschaften zu Arnbach ebensolche zu Altfalterbach ein.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 729",
           "urn": "urn:cts:formulae:freising.bitterauf0729.lat001",
           "date_string": "Ca. 851",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Bischof Erchanbert tauscht von dem Laien Antarmar gegen Liegenschaften zu Arnbach ebensolche zu Altfalterbach ein.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -398,9 +422,12 @@
           "min_date": "0851"
         },
         "highlight": {
-          "regest": [
-            "Bischof Erchanbert </small><strong>tauscht</strong><small> von dem Laien Antarmar gegen Liegenschaften zu Arnbach ebensolche zu Altfalterbach ein."
-          ]
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0729.lat001"

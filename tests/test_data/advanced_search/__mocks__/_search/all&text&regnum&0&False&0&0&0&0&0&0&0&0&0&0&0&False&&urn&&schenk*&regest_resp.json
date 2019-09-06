@@ -1,5 +1,5 @@
 {
-  "took": 18,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -8,7 +8,7 @@
     "failed": 0
   },
   "hits": {
-    "total": 9,
+    "total": 59,
     "max_score": null,
     "hits": [
       {
@@ -31,11 +31,11 @@
           "forgery": false
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
@@ -62,329 +62,15 @@
           "forgery": false
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"
-        ]
-      },
-      {
-        "_index": "buenden_v4",
-        "_type": "buenden",
-        "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
-        "_score": null,
-        "_source": {
-          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-          "lemmas": null,
-          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
-          "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
-          "date_string": "(769\u2013813 [813]) 04 20",
-          "comp_ort": " ",
-          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 769,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 770,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 771,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 772,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 773,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 774,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 775,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 776,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 777,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 778,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 779,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 780,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 781,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 782,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 783,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 784,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 785,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 786,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 787,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 788,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 789,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 790,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 791,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 792,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 793,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 794,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 795,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 796,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 797,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 798,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 799,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 800,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 801,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 802,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 803,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 804,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 805,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 806,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 807,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 808,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 809,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 810,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 811,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 812,
-              "month": 4,
-              "day": 20
-            },
-            {
-              "year": 813,
-              "month": 4,
-              "day": 20
-            }
-          ],
-          "all_dates": [
-            "0769-04-20",
-            "0770-04-20",
-            "0771-04-20",
-            "0772-04-20",
-            "0773-04-20",
-            "0774-04-20",
-            "0775-04-20",
-            "0776-04-20",
-            "0777-04-20",
-            "0778-04-20",
-            "0779-04-20",
-            "0780-04-20",
-            "0781-04-20",
-            "0782-04-20",
-            "0783-04-20",
-            "0784-04-20",
-            "0785-04-20",
-            "0786-04-20",
-            "0787-04-20",
-            "0788-04-20",
-            "0789-04-20",
-            "0790-04-20",
-            "0791-04-20",
-            "0792-04-20",
-            "0793-04-20",
-            "0794-04-20",
-            "0795-04-20",
-            "0796-04-20",
-            "0797-04-20",
-            "0798-04-20",
-            "0799-04-20",
-            "0800-04-20",
-            "0801-04-20",
-            "0802-04-20",
-            "0803-04-20",
-            "0804-04-20",
-            "0805-04-20",
-            "0806-04-20",
-            "0807-04-20",
-            "0808-04-20",
-            "0809-04-20",
-            "0810-04-20",
-            "0811-04-20",
-            "0812-04-20",
-            "0813-04-20"
-          ],
-          "min_date": "0769-04-20",
-          "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
-            "Friday",
-            "Thursday",
-            "Tuesday",
-            "Lent",
-            "Wednesday",
-            "Saturday"
-          ]
-        },
-        "highlight": {
-          "text": [
-            "Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi."
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
         ]
       },
       {
@@ -621,8 +307,11 @@
           ]
         },
         "highlight": {
+          "regest": [
+            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur."
+          ],
           "text": [
-            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
+            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -630,165 +319,142 @@
         ]
       },
       {
-        "_index": "raetien_v4",
-        "_type": "raetien",
-        "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 3",
-          "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
-          "date_string": "768\u2013800 [814]",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 35",
+          "urn": "urn:cts:formulae:freising.bitterauf0035.lat001",
+          "date_string": "Ca. 769",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
-          "dating": [
-            {
-              "gte": "0768",
-              "lte": "0801"
-            }
-          ],
           "specific_date": [
             {
-              "year": 814
+              "year": 769
             }
           ],
           "all_dates": [
-            "0768",
-            "0801",
-            "0814"
+            "0769"
           ],
-          "min_date": "0768"
+          "min_date": "0769"
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
-          "urn:cts:formulae:raetien.erhart0003.lat001"
+          "urn:cts:formulae:freising.bitterauf0035.lat001"
         ]
       },
       {
-        "_index": "raetien_v4",
-        "_type": "raetien",
-        "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
-          "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
-          "date_string": "768\u2013800 [814]",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 106",
+          "urn": "urn:cts:formulae:freising.bitterauf0106.lat001",
+          "date_string": "782",
+          "comp_ort": "Neuching",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Neuching",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 782
+            }
+          ],
+          "all_dates": [
+            "0782"
+          ],
+          "min_date": "0782"
+        },
+        "highlight": {
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0106.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 344",
+          "urn": "urn:cts:formulae:freising.bitterauf0344.lat001",
+          "date_string": "815 08 06",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
-          "dating": [
-            {
-              "gte": "0768",
-              "lte": "0801"
-            }
-          ],
           "specific_date": [
             {
-              "year": 814
+              "year": 815,
+              "month": 8,
+              "day": 6
             }
           ],
           "all_dates": [
-            "0768",
-            "0801",
-            "0814"
+            "0815-08-06"
           ],
-          "min_date": "0768"
-        },
-        "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:raetien.erhart0006.lat001"
-        ]
-      },
-      {
-        "_index": "raetien_v4",
-        "_type": "raetien",
-        "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 44",
-          "urn": "urn:cts:formulae:raetien.erhart0044.lat001",
-          "date_string": "858/865 02 12",
-          "comp_ort": "Grabs",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": "Grabs",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 858,
-              "month": 2,
-              "day": 12
-            },
-            {
-              "year": 865,
-              "month": 2,
-              "day": 12
-            }
-          ],
-          "all_dates": [
-            "0858-02-12",
-            "0865-02-12"
-          ],
-          "min_date": "0858-02-12",
+          "min_date": "0815-08-06",
           "days": [
-            "Monday",
-            "Saturday"
+            "Monday"
           ]
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
-          "urn:cts:formulae:raetien.erhart0044.lat001"
+          "urn:cts:formulae:freising.bitterauf0344.lat001"
         ]
       },
       {
-        "_index": "stgallen_v4",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
-          "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
-          "date_string": "762 08 20",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 355",
+          "urn": "urn:cts:formulae:freising.bitterauf0355.lat001",
+          "date_string": "816 02 13",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -797,81 +463,176 @@
           "forgery": false,
           "specific_date": [
             {
-              "year": 762,
-              "month": 8,
-              "day": 20
+              "year": 816,
+              "month": 2,
+              "day": 13
             }
           ],
           "all_dates": [
-            "0762-08-20"
+            "0816-02-13"
           ],
-          "min_date": "0762-08-20",
+          "min_date": "0816-02-13",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0355.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 400",
+          "urn": "urn:cts:formulae:freising.bitterauf0400.lat001",
+          "date_string": "a) 818 08b) 819 02 04c) 08 12",
+          "comp_ort": "a) Vicenza",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "a) Vicenza",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 818,
+              "month": 8
+            },
+            {
+              "year": 819,
+              "month": 2,
+              "day": 4
+            },
+            {
+              "year": 819,
+              "month": 8,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0818-08",
+            "0819-02-04",
+            "0819-08-12"
+          ],
+          "min_date": "0818-08",
           "days": [
             "Friday"
           ]
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
-          "urn:cts:formulae:stgallen.wartmann0026.lat001"
+          "urn:cts:formulae:freising.bitterauf0400.lat001"
         ]
       },
       {
-        "_index": "stgallen_v4",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
-          "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
-          "date_string": "858 (865) 02 12",
-          "comp_ort": "Grabs",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 409",
+          "urn": "urn:cts:formulae:freising.bitterauf0409.lat001",
+          "date_string": "819 04 14",
+          "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
           "autocomplete_regest": "text",
-          "orig_comp_ort": "Grabs",
+          "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
             {
-              "year": 858,
-              "month": 2,
-              "day": 12
-            },
-            {
-              "year": 865,
-              "month": 2,
-              "day": 12
+              "year": 819,
+              "month": 4,
+              "day": 14
             }
           ],
           "all_dates": [
-            "0858-02-12",
-            "0865-02-12"
+            "0819-04-14"
           ],
-          "min_date": "0858-02-12",
+          "min_date": "0819-04-14",
           "days": [
-            "Monday",
-            "Saturday"
+            "Thursday",
+            "Lent"
           ]
         },
         "highlight": {
+          "regest": "text",
           "text": "text",
           "lemmas": "text",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "regest": "text",
           "autocomplete_regest": "text"
         },
         "sort": [
-          "urn:cts:formulae:stgallen.wartmann0458.lat001"
+          "urn:cts:formulae:freising.bitterauf0409.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v4",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 412",
+          "urn": "urn:cts:formulae:freising.bitterauf0412.lat001",
+          "date_string": "819 05 06",
+          "comp_ort": "(Freising)",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "(Freising)",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 819,
+              "month": 5,
+              "day": 6
+            }
+          ],
+          "all_dates": [
+            "0819-05-06"
+          ],
+          "min_date": "0819-05-06",
+          "days": [
+            "Friday"
+          ]
+        },
+        "highlight": {
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0412.lat001"
         ]
       }
     ]
@@ -886,19 +647,19 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
-          "doc_count": 2
+          "doc_count": 1
         },
         "Freising": {
-          "doc_count": 0
+          "doc_count": 9
         },
         "Fulda (Dronke)": {
           "doc_count": 0
         },
         "Fulda (Stengel)": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Hersfeld": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Luzern": {
           "doc_count": 0
@@ -907,7 +668,7 @@
           "doc_count": 0
         },
         "Merowinger": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Mondsee": {
           "doc_count": 0
@@ -916,25 +677,25 @@
           "doc_count": 0
         },
         "Regensburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Rheinisch": {
           "doc_count": 0
         },
         "R\u00e4tien": {
-          "doc_count": 3
+          "doc_count": 20
         },
         "Salzburg": {
           "doc_count": 0
         },
         "Sch\u00e4ftlarn": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "St. Gallen": {
-          "doc_count": 2
+          "doc_count": 20
         },
         "Wei\u00dfenburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Werden": {
           "doc_count": 0
@@ -952,7 +713,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "500-599",
@@ -968,7 +729,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "700-799",
@@ -976,7 +737,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 5
+          "doc_count": 13
         },
         {
           "key": "800-899",
@@ -984,7 +745,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2
+          "doc_count": 41
         },
         {
           "key": "900-999",
@@ -992,7 +753,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": ">1000",

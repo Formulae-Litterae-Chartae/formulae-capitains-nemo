@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 0,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -318,7 +318,7 @@
         },
         "highlight": {
           "text": [
-            "Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi."
+            "Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi."
           ]
         },
         "sort": [
@@ -328,243 +328,46 @@
       {
         "_index": "buenden_v4",
         "_type": "buenden",
-        "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "text": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
-          "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
-          "date_string": "(769\u2013800 [813]) 03 31",
+          "regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "date_string": "769\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "autocomplete_regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
           "orig_comp_ort": " ",
           "forgery": false,
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0801"
+            }
+          ],
           "specific_date": [
             {
-              "year": 769,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 770,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 771,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 772,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 773,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 774,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 775,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 776,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 777,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 778,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 779,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 780,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 781,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 782,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 783,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 784,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 785,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 786,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 787,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 788,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 789,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 790,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 791,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 792,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 793,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 794,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 795,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 796,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 797,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 798,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 799,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 800,
-              "month": 3,
-              "day": 31
-            },
-            {
-              "year": 813,
-              "month": 3,
-              "day": 31
+              "year": 814
             }
           ],
           "all_dates": [
-            "0769-03-31",
-            "0770-03-31",
-            "0771-03-31",
-            "0772-03-31",
-            "0773-03-31",
-            "0774-03-31",
-            "0775-03-31",
-            "0776-03-31",
-            "0777-03-31",
-            "0778-03-31",
-            "0779-03-31",
-            "0780-03-31",
-            "0781-03-31",
-            "0782-03-31",
-            "0783-03-31",
-            "0784-03-31",
-            "0785-03-31",
-            "0786-03-31",
-            "0787-03-31",
-            "0788-03-31",
-            "0789-03-31",
-            "0790-03-31",
-            "0791-03-31",
-            "0792-03-31",
-            "0793-03-31",
-            "0794-03-31",
-            "0795-03-31",
-            "0796-03-31",
-            "0797-03-31",
-            "0798-03-31",
-            "0799-03-31",
-            "0800-03-31",
-            "0813-03-31"
+            "0769",
+            "0801",
+            "0814"
           ],
-          "min_date": "0769-03-31",
-          "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
-            "Friday",
-            "Thursday",
-            "Tuesday",
-            "Lent",
-            "Wednesday",
-            "Saturday"
-          ]
+          "min_date": "0769"
         },
         "highlight": {
           "text": [
-            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
+            "Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi."
           ]
         },
         "sort": [
-          "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+          "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       }
     ]

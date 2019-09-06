@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -19,14 +19,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Perahart \u00fcbergibt sich und seinen Besitz zu Marzling.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 404",
           "urn": "urn:cts:formulae:freising.bitterauf0404.lat001",
           "date_string": "818 12 25",
           "comp_ort": "Freising",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Perahart \u00fcbergibt sich und seinen Besitz zu Marzling.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -56,14 +56,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Die Br\u00fcder Erchanhart und und Cartfrid \u00fcbergeben Land am Freisinger Berg.",
+          "regest": "text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 430",
           "urn": "urn:cts:formulae:freising.bitterauf0430.lat001",
           "date_string": "819 12 25",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Die Br\u00fcder Erchanhart und und Cartfrid \u00fcbergeben Land am Freisinger Berg.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [

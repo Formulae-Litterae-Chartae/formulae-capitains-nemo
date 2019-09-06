@@ -6,6 +6,10 @@ from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
 import re
+from io import BytesIO
+from reportlab.platypus import Paragraph, SimpleDocTemplate
+from reportlab.lib.styles import getSampleStyleSheet
+from datetime import date
 
 
 CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -184,9 +188,10 @@ def download_search_results():
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
     else:
-        resp = ['--------------' + '\n' + _('Suchergebnisse') + '\n' + '--------------']
-        arg_list = ['-------------' + '\n' + _('Suchparameter') + '\n' + '-------------']
-        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')), ('fuzziness', _('Unschärfegrad')),
+        resp = list()
+        arg_list = list()
+        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
+                              ('regest_q', _('Regesten Suchbegriff')), ('fuzziness', _('Unschärfegrad')),
                               ('slop', _('Suchradius')), ('in_order', _('Wortreihenfolge beachten?')), ('year', _('Jahr')),
                               ('month', _('Monat')), ('day', _('Tag')), ('year_start', _('Anfangsjahr')),
                               ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
@@ -199,6 +204,32 @@ def download_search_results():
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
         for d in session['previous_search']:
-            resp.append('{}\n{}'.format(d['title'], '\n'.join(['- {}'.format(re.sub(r'</?strong>|</?small>', '_', str(s))) for s in d['sents']]) or _('- Text nicht zugänglich.')))
-        return Response('\n'.join(arg_list) + '\n\n' + '\n\n'.join(resp), mimetype='text/plain',
-                        headers={'Content-Disposition': 'attachment;filename=Formulae-Litterae-Chartae-Suchergebnisse.txt'})
+            r = {'title': d['title'], 'sents': [], 'regest_sents': []}
+            if 'sents' in d:
+                r['sents'] = ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>', str(s)))
+                              for s in d['sents']]
+            if 'regest_sents' in d:
+                r['regest_sents'] = ['<u>' + _('Aus dem Regest') + '</u>']
+                r['regest_sents'] += ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>',
+                                                           str(s)))
+                                      for s in d['regest_sents']]
+            resp.append(r)
+        pdf_buffer = BytesIO()
+        description = 'Formulae-Litterae-Chartae Suchergebnisse ({})'.format(date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
+        sample_style_sheet = getSampleStyleSheet()
+        flowables = list([Paragraph(_('Suchparameter'), sample_style_sheet['Heading3'])])
+        for a in arg_list:
+            flowables.append(Paragraph(a, sample_style_sheet['Normal']))
+        flowables.append(Paragraph(_('Suchergebnisse'), sample_style_sheet['Heading3']))
+        for p in resp:
+            flowables.append(Paragraph(p['title'], sample_style_sheet['Heading4']))
+            for sentence in p['sents']:
+                flowables.append(Paragraph(sentence, sample_style_sheet['Normal']))
+            for r_sentence in p['regest_sents']:
+                flowables.append(Paragraph(r_sentence, sample_style_sheet['Normal']))
+        my_doc.build(flowables)
+        pdf_value = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return Response(pdf_value, mimetype='application/pdf',
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})

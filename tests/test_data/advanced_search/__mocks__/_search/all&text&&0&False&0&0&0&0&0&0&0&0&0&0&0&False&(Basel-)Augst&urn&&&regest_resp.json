@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 20,
@@ -19,14 +19,14 @@
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Uppert \u00fcbertr\u00e4gt den dritten Theil seines Besitzes zu Firinisvilla und Munzach(thal) an Sanct Gallen.",
+          "regest": "text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 291",
           "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "date_string": "825 05 11",
           "comp_ort": "(Basel-)Augst",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Uppert \u00fcbertr\u00e4gt den dritten Theil seines Besitzes zu Firinisvilla und Munzach(thal) an Sanct Gallen.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "(Basel-)Augst",
           "forgery": false,
           "specific_date": [

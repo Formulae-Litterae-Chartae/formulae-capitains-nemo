@@ -10,27 +10,31 @@
                   "match": {
                     "fuzzy": {
                       "text": {
-                        "value": "illam",
+                        "value": "scripsi",
                         "fuzziness": "0"
                       }
                     }
                   }
                 }
-              }
-            ],
-            "slop": "0",
-            "in_order": false
-          }
-        },
-        {
-          "span_near": {
-            "clauses": [
+              },
               {
                 "span_multi": {
                   "match": {
                     "fuzzy": {
-                      "autocomplete_regest": {
-                        "value": "tau",
+                      "text": {
+                        "value": "et",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "text": {
+                        "value": "suscripsi",
                         "fuzziness": "0"
                       }
                     }
@@ -47,7 +51,7 @@
   },
   "sort": "urn",
   "from": 0,
-  "size": 1000,
+  "size": 10,
   "aggs": {
     "range": {
       "date_range": {
@@ -213,7 +217,7 @@
       "text": {
         "fragment_size": 1000
       },
-      "autocomplete_regest": {
+      "regest": {
         "fragment_size": 1000
       }
     },
