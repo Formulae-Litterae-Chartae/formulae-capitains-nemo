@@ -47,10 +47,7 @@ class AdvancedSearchForm(SearchForm):
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
-    slop = IntegerField(_l("Suchradius"),
-                        validators=[validate_optional_number_range(min=0, max=100,
-                                                                   message=_l('Der Suchradius muss zwischen 0 und 100 liegen'))],
-                        default=0)
+    slop = IntegerField(_l("Suchradius"), default=0)
     in_order = BooleanField(_l('Wortreihenfolge beachten?'))
     regest_q = StringField(_l('Regestensuche'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
