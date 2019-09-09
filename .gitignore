@@ -38,6 +38,7 @@ venv
 app.db
 .idea/
 .env
+.idea/
 logs/
 cache/
 .rngs/

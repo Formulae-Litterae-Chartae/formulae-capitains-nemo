@@ -217,8 +217,8 @@
     </xsl:template>
     
     <xsl:template match="t:head">
-        <h3 class="head"><xsl:apply-templates />
-            <xsl:apply-templates select="@urn" /></h3>
+        <div class="head"><xsl:apply-templates />
+            <xsl:apply-templates select="@urn" /></div>
     </xsl:template>
     
     <xsl:template match="t:title">
@@ -395,12 +395,12 @@
         </xsl:element>
     </xsl:template>
     
-    <xsl:template match="t:seg">
+    <!--<xsl:template match="t:seg">
         <xsl:element name="span">
             <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
-    </xsl:template>
+    </xsl:template>-->
     
     <xsl:template match="t:seg[@type='lex-title']">
         <strong><xsl:apply-templates/></strong>
@@ -424,5 +424,7 @@
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
+    
+    <xsl:template match="t:teiHeader"/>
     
 </xsl:stylesheet>

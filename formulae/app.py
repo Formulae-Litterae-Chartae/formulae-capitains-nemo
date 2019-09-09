@@ -1,4 +1,3 @@
-from werkzeug.contrib.cache import FileSystemCache
 from capitains_nautilus.cts.resolver import NautilusCTSResolver
 from capitains_nautilus.flask_ext import FlaskNautilus
 from . import create_app
@@ -22,7 +21,8 @@ nemo = NemoFormulae(
     static_folder="./assets/",
     transform={"default": "components/epidoc.xsl",
                "notes": "components/extract_notes.xsl",
-               "elex_notes": "components/extract_elex_notes.xsl"},
+               "elex_notes": "components/extract_elex_notes.xsl",
+               "pdf": "components/xml_to_pdf.xsl"},
     templates={"main": "templates/main",
                "errors": "templates/errors",
                "auth": "templates/auth",
