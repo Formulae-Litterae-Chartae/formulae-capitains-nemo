@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash, request
+from flask import url_for, Markup, g, session, flash, request, Response
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -15,7 +15,13 @@ import re
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
-from json import load as json_load
+from json import load as json_load, loads as json_loads
+from io import BytesIO
+from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate, Frame
+from reportlab.lib.pdfencrypt import EncryptionFlowable
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+from copy import copy
 
 
 class NemoFormulae(Nemo):
@@ -35,7 +41,8 @@ class NemoFormulae(Nemo):
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
-        ("/contact", "r_contact", ["GET"])
+        ("/contact", "r_contact", ["GET"]),
+        ("/pdf/<objectId>", "r_pdf", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_collection_mv", "r_references", "r_multipassage"
@@ -69,14 +76,15 @@ class NemoFormulae(Nemo):
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
-                        'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
+                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
-                             'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg',
-                             'urn:cts:formulae:werden']
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:mondsee',
+                             'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg',
+                             'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
 
     OPEN_NOTES = []
 
@@ -830,3 +838,70 @@ class NemoFormulae(Nemo):
                 xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
+
+    def r_pdf(self, objectId):
+        """Produces a PDF from the objectId for download and then delivers it
+
+        :param objectId: the URN of the text to transform
+        :return:
+        """
+        if (self.check_project_team() is False and objectId not in self.open_texts) or not re.search(r'andecavensis|markulf', objectId):
+            flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            return redirect(url_for('InstanceNemo.r_index'))
+
+        def add_citation_info(canvas, doc):
+            cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
+            cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
+            f = Frame(doc.leftMargin, doc.pagesize[1] - inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
+            canvas.saveState()
+            f.addFromList(cit_flowables, canvas)
+            canvas.setFont('Times-Roman', 8)
+            canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
+            canvas.restoreState()
+        new_subref = self.get_reffs(objectId)[0][0]
+        text = self.get_passage(objectId=objectId, subreference=new_subref)
+        metadata = self.resolver.getMetadata(objectId=objectId)
+        with open(self._transform['pdf']) as f:
+            xslt = etree.XSLT(etree.parse(f))
+        d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
+        pdf_buffer = BytesIO()
+        description = '{} ({})'.format(str(metadata.metadata.get_single(DC.title, lang=None)), date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
+        sample_style_sheet = getSampleStyleSheet()
+        custom_style = copy(sample_style_sheet['Normal'])
+        custom_style.name = 'Notes'
+        custom_style.fontSize = 8
+        cit_style = copy(sample_style_sheet['Normal'])
+        cit_style.name = 'DocCitation'
+        cit_style.fontSize = 8
+        cit_style.alignment = 1
+        encryption = EncryptionFlowable(userPassword='',
+                                        ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
+                                        canPrint=1,
+                                        canAnnotate=0,
+                                        canCopy=0,
+                                        canModify=0)
+        flowables = list()
+        flowables.append(Paragraph(str(metadata.metadata.get_single(DC.title, lang=None)), sample_style_sheet['Heading1']))
+        for p in d['paragraphs']:
+            flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
+        if d['app']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['app']:
+                flowables.append(Paragraph(n, custom_style))
+        if d['hist_notes']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['hist_notes']:
+                flowables.append(Paragraph(n, custom_style))
+        if self.check_project_team() is False:
+            flowables.append(encryption)
+        my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
+        pdf_value = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return Response(pdf_value, mimetype='application/pdf',
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})

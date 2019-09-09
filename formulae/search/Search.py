@@ -22,6 +22,7 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                     {'key': '900-999', 'from': '0900', 'to': '0999'},
                                                     {'key': '>1000', 'from': '1000'}]}},
                 'corpus': {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
+                                                   'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                                    'Bünden': {'match': {'_type': 'buenden'}},
                                                    'Freising': {'match': {'_type': 'freising'}},
                                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
@@ -95,22 +96,26 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template, field, q):
+def set_session_token(index, orig_template, field, q, regest_q=None):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
-    if q:
-        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
-                                       'sents': [
-                                           Markup(highlight_segment(x))
-                                           for x in hit['highlight'][field]
-                                           if current_app.config['nemo_app'].check_project_team() is True
-                                              or hit['_id'] in current_app.config['nemo_app'].open_texts
-                                       ]} for hit in session_search['hits']['hits']]
-    else:
-        session['previous_search'] = [{'id': hit['_id'], 'title': hit['_source']['title'],
-                                       'sents': []} for hit in session_search['hits']['hits']]
+    search_hits = list()
+    for hit in session_search['hits']['hits']:
+        d = {'id': hit['_id'], 'title': hit['_source']['title']}
+        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+        if q:
+            d['sents'] = [_('Text nicht zugänglich.')]
+            if current_app.config['nemo_app'].check_project_team() is True or open_text:
+                d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
+        if regest_q:
+            d['regest_sents'] = [_('Regest nicht zugänglich.')]
+            if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
+                d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
+        search_hits.append(d)
+    session['previous_search'] = search_hits
 
 
 def suggest_composition_places():
@@ -125,18 +130,29 @@ def suggest_composition_places():
     return sorted(list(set(results)))
 
 
-def suggest_word_search(term, **kwargs):
+def suggest_word_search(**kwargs):
     """ To enable search-as-you-type for the text search
 
     :return: sorted set of results
     """
-    if '*' in term or '?' in term:
-        return None
     results = []
     kwargs['fragment_size'] = 1000
-    posts, total, aggs = advanced_query_index(q=term, per_page=1000, **kwargs)
+    if kwargs['qSource'] == 'text':
+        term = kwargs.get('q', '')
+        if '*' in term or '?' in term:
+            return None
+        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
+        highlight = 'sents'
+    elif kwargs['qSource'] == 'regest':
+        term = kwargs.get('regest_q', '')
+        if '*' in term or '?' in term:
+            return None
+        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
+        highlight = 'regest_sents'
+    else:
+        return None
     for post in posts:
-        for sent in post['sents']:
+        for sent in post[highlight]:
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
             end_index = r.find(' ', len(term) + 30)
@@ -176,7 +192,8 @@ def highlight_segment(orig_str):
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         composition_place='', sort='urn', special_days=[], **kwargs):
+                         composition_place='', sort='urn', special_days=[], regest_q='', regest_field='regest',
+                         **kwargs):
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     old_sort = sort
     sort = build_sort_list(sort)
@@ -185,6 +202,12 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                      'from': (page - 1) * per_page, 'size': per_page,
                      'aggs': AGGREGATIONS
                      }
+    body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
+                                             regest_field: {"fragment_size": 1000}},
+                                  'pre_tags': [PRE_TAGS],
+                                  'post_tags': [POST_TAGS],
+                                  'encoder': 'html'
+                                  }
     if not current_app.elasticsearch:
         return [], 0, {}
     if field == 'lemmas':
@@ -197,13 +220,6 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
-        if field != 'lemmas':
-            # Highlighting for lemma searches is transferred to the "text" field.
-            body_template['highlight'] = {'fields': {field: {"fragment_size": 1000}},
-                                          'pre_tags': [PRE_TAGS],
-                                          'post_tags': [POST_TAGS],
-                                          'encoder': 'html'
-                                          }
         clauses = []
         ordered_terms = True
         if in_order == 'False':
@@ -215,6 +231,20 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                 clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
         body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
                                                                      'in_order': ordered_terms}})
+
+    if regest_q:
+        clauses = []
+        ordered_terms = True
+        if in_order == 'False':
+            ordered_terms = False
+        for term in regest_q.split():
+            if '*' in term or '?' in term:
+                clauses.append({'span_multi': {'match': {'wildcard': {regest_field: term}}}})
+            else:
+                clauses.append({'span_multi': {'match': {'fuzzy': {regest_field: {"value": term, "fuzziness": fuzz}}}}})
+        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
+                                                                     'in_order': ordered_terms}})
+
     if year or month or day:
         date_template = {"bool": {"must": []}}
         if not date_plus_minus:
@@ -277,7 +307,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    set_session_token(corpus, body_template, field, q if field == 'text' else '')
+    set_session_token(corpus, body_template, field, q if field == 'text' else '',
+                      regest_q if regest_field == 'regest' else '')
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
@@ -303,24 +334,43 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                         start = i + 1
                         rounded = round(i * ratio)
                         sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
-                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences})
+                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences,
+                            'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                            if 'highlight' in hit and regest_field in hit['highlight'] else []})
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]],
+                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                    if 'highlight' in hit and regest_field in hit['highlight'] else []}
+                   for hit in search['hits']['hits']]
+    elif regest_q:
+        ids = [{'id': hit['_id'],
+                'info': hit['_source'],
+                'sents': [],
+                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]}
+               for hit in search['hits']['hits']]
     else:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': []} for hit in search['hits']['hits']]
+        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
+               for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field:
+    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}&{spec_days}".format(corpus='+'.join(corpus), field=field, q=q.replace(' ', '+'), fuzz=fuzziness,
-                                        in_order=in_order, slop=slop, y=year, m=month,  d=day, y_s=year_start,
-                                        m_s=month_start, d_s=day_start, y_e=year_end, m_e=month_end, d_e=day_end,
-                                        d_p_m=date_plus_minus, e_d_r=exclusive_date_range,
-                                        c_p=composition_place, sort=old_sort, spec_days='+'.join(special_days))
+                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=field,
+                                                                         q=q.replace(' ', '+'), fuzz=fuzziness,
+                                                                         in_order=in_order, slop=slop, y=year, m=month,
+                                                                         d=day, y_s=year_start,
+                                                                         m_s=month_start, d_s=day_start, y_e=year_end,
+                                                                         m_e=month_end, d_e=day_end,
+                                                                         d_p_m=date_plus_minus,
+                                                                         e_d_r=exclusive_date_range,
+                                                                         c_p=composition_place, sort=old_sort,
+                                                                         spec_days='+'.join(special_days),
+                                                                         regest_q=regest_q.replace(' ', '+'),
+                                                                         regest_field=regest_field)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

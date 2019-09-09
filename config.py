@@ -26,3 +26,4 @@ class Config(object):
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
     CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0 # Only need cache on the server, where this should be set in env
+    PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')

@@ -613,3 +613,8 @@ div.transcription p {
     font-size: larger;
     margin-bottom: .25em;
 }
+
+.regest-sents-heading {
+    font-size: smaller;
+    text-decoration: underline;
+}
