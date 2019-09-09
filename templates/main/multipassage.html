@@ -112,7 +112,7 @@
     <div class="">
         <div class="row py-0 justify-content-center">
             <div class="col-auto">
-                <a href="#" title="{{ _('Texte unabhängig von einander scrollen.') }}"><i class="fas fa-arrows-alt-v h4" onclick="changeViewMode()"></i></a>
+                <a href="#"><i class="fas fa-arrows-alt-v h4"  title="{{ _('Texte unabhängig von einander scrollen.') }}" onclick="changeViewMode(this)"></i></a>
             </div>
         </div>
     <!-- The Modal container for the eLexicon entries. -->
@@ -198,6 +198,8 @@
      var appOpenButton="{{ _('Alle Apparatusanmerkungen für diesen Text einblenden') }}";
      var comCloseButton="{{ _('Alle Kommentaranmerkungen für diesen Text ausblenden') }}";
      var comOpenButton="{{ _('Alle Kommentaranmerkungen für diesen Text einblenden') }}";
+     var toScrollingTexts="{{ _('Texte unabhängig von einander scrollen.') }}";
+     var fromScrollingTexts="{{ _('Texte zusammen scrollen.') }}";
 </script>
 <script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
 <script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>

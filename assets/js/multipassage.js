@@ -256,7 +256,12 @@ $('.note').click(function() {
     }
 });
 
-function changeViewMode() {
+function changeViewMode(el) {
+    if (el.getAttribute('title') == toScrollingTexts) {
+        el.setAttribute('title', fromScrollingTexts);
+    } else {
+        el.setAttribute('title', toScrollingTexts);
+    };
     var textSections = document.querySelectorAll('.text-section');
     for (let section of textSections) {
         section.classList.toggle('scrolling');
