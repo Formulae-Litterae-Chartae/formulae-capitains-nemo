@@ -255,3 +255,10 @@ $('.note').click(function() {
         $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
     }
 });
+
+function changeViewMode() {
+    var textSections = document.querySelectorAll('.text-section');
+    for (let section of textSections) {
+        section.classList.toggle('scrolling');
+    }
+};

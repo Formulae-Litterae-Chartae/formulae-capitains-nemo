@@ -110,6 +110,11 @@
 
 {% macro show_passage(objects, navigation) %}
     <div class="">
+        <div class="row py-0 justify-content-center">
+            <div class="col-auto">
+                <a href="#" title="{{ _('Texte unabhängig von einander scrollen.') }}"><i class="fas fa-arrows-alt-v h4" onclick="changeViewMode()"></i></a>
+            </div>
+        </div>
     <!-- The Modal container for the eLexicon entries. -->
     <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
 
@@ -128,15 +133,15 @@
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
             {% if current_user.project_team == False and 'andecavensis' in text.objectId  %}
                 {% if loop.last %}
-                <section class="col-sm no-copy">
+                <section class="col-sm no-copy text-section">
                 {% else %}
-                <section class="col-sm with-border no-copy">
+                <section class="col-sm with-border no-copy text-section">
                 {% endif %}
             {% else %}
                 {% if loop.last %}
-                <section class="col-sm">
+                <section class="col-sm text-section">
                 {% else %}
-                <section class="col-sm with-border">
+                <section class="col-sm with-border text-section">
                 {% endif %}
             {% endif %}
                 {% if  text.text_passage %}
