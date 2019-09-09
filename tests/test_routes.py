@@ -805,6 +805,10 @@ class TestForms(Formulae_Testing):
         form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
                                   day_start=12, year_end=700, month_end="01", day_end=12)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+        form = AdvancedSearchForm(q="regnum", slop=500)
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+        form = AdvancedSearchForm(date_plus_minus=100)
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
 
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
@@ -858,6 +862,8 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), "Invalid month_end choice should not validate")
         form = AdvancedSearchForm(day_end=32)
         self.assertFalse(form.validate(), "Invalid day_end choice should not validate")
+        form = AdvancedSearchForm(date_plus_minus=200)
+        self.assertFalse(form.validate(), "Invalid date_plus_minus choice should not validate")
 
     def test_validate_valid_registration_form(self):
         """ Ensure that correct data for new user registration validates"""
