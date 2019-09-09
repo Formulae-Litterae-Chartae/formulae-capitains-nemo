@@ -618,3 +618,8 @@ div.transcription p {
     font-size: smaller;
     text-decoration: underline;
 }
+
+.text-section.scrolling {
+    max-height: 65vh;
+    overflow-y: auto;
+}
