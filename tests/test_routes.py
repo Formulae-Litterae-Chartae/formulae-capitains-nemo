@@ -220,6 +220,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
+            c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -696,6 +698,18 @@ class TestFunctions(Formulae_Testing):
                     {'name': 'p12', 'edition_name': 'P12', 'full_edition_name': 'Paris BNF 4627 (P12)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p12']]},
                     {'name': 'p16', 'edition_name': 'P16', 'full_edition_name': 'Paris BNF 10756 (P16)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p16']]}
                 ]
+            })
+
+    def test_corpus_mv_passau(self):
+        """ Make sure the correct values are returned by r_corpus_mv"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:stgallen')
+            self.assertEqual(data['collections']['readable'], {
+            'editions':[],
+            'translations': [],
+            'transcriptions': []
             })
 
 class TestForms(Formulae_Testing):
