@@ -176,6 +176,10 @@ function showLexEntry(word) {
         var lemma = word.getAttribute('data-lexicon');
         var request = new XMLHttpRequest();
         var message = lexModal.getAttribute('message');
+        var subdomain = '';
+        if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+            subdomain = '/dev'
+        }
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
@@ -186,7 +190,7 @@ function showLexEntry(word) {
                 }
             }
         };
-        request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
+        request.open('GET', subdomain + '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
         request.send()
     }
     
