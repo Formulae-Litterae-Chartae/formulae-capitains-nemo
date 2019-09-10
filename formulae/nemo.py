@@ -795,8 +795,8 @@ class NemoFormulae(Nemo):
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
-        d['prev_texts'] = m.group(1)
-        d['prev_reffs'] = m.group(2) if "texts" in request.referrer else "all"
+        d['prev_texts'] = m.group(1).replace('%2B', '+')
+        d['prev_reffs'] = m.group(2).replace('%2B', '+') if "texts" in request.referrer else "all"
         return d
 
     def r_impressum(self):
