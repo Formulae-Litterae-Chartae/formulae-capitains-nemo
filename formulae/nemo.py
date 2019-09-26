@@ -733,7 +733,7 @@ class NemoFormulae(Nemo):
                     if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
                         manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
                         if type(manifests) == dict:
-                            d["IIIFviewer"] = ["manifest:" + d['collections']['current']['id']]
+                            d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
                         elif type(manifests) == list:
                             d["IIIFviewer"] = manifests
 
