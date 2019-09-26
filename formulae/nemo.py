@@ -725,8 +725,13 @@ class NemoFormulae(Nemo):
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
                                                                     else '') + ' (' + d['collections']['current']['title'] + ')'
                 else:
-                    d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file \
-                                      or "manifest:" + d['collections']['current']['id'] in self.app.picture_file
+                    d["IIIFviewer"] = []
+                    if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
+                        manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
+                        if type(manifests) == dict:
+                            d["IIIFviewer"] = ["manifest:" + d['collections']['current']['id']]
+                        elif type(manifests) == list:
+                            d["IIIFviewer"] = manifests
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]

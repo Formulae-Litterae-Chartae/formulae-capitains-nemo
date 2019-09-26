@@ -38,7 +38,8 @@ def create_app(config_class=Config):
         app.IIIFmapping = app.config['IIIF_MAPPING']
         with open('{}/Mapping.json'.format(app.config['IIIF_MAPPING']), "r") as f:
             app.picture_file = load(f)
-            for key, value in app.picture_file.items():
+        for key, value in app.picture_file.items():
+            if type(value) == dict:
                 if 'manifest' in value.keys():
                     app.IIIFviewer = True
                     continue

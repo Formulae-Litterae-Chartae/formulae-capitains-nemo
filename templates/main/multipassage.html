@@ -17,19 +17,22 @@
                 <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(object.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(object.subreference)|join_list_values('+')) }}">{{ _('Spalte ausblenden') }}</a>
                 {% endif %}
             </div>
-        {% if object.IIIFviewer == true and 'manifest:'+object.collections.parents[0]['id'] not in request.path %}
-            <div class="col col-auto">
-                <div class="dropdown">
-                    <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ _('Manuskriptbilder') }}
-                    </button>
-                    <div class="dropdown-menu version-dropdown">
-                        <a class="dropdown-item pull-right" href="{{url_for('viewer.fullscreenviewer', objectId=object.objectId, view='0', embedded=True)}}" target="_blank" onclick="hide()">{{ _('Im neuen Tab')}}</a>
-                        <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index,'manifest:'+object.objectId)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ _('Neben diesem Text') }}</a>
+            {% for manifest in object.IIIFviewer if manifest not in request.path %}
+                {% if loop.first %}
+                <div class="col col-auto">
+                    <div class="dropdown">
+                        <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ _('Manuskriptbilder') }}
+                        </button>
+                        <div class="dropdown-menu version-dropdown">
+                {% endif %}
+                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest }}</a>
+                {% if loop.last %}
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endif %}
+                {% endif %}
+            {% endfor %}
             <div class="col col-auto">
                 {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy) }}
             </div>
@@ -110,11 +113,13 @@
 
 {% macro show_passage(objects, navigation) %}
     <div class="">
+        {% if objects|length > 1 %}
         <div class="row py-0 justify-content-center">
             <div class="col-auto">
                 <a href="#"><i class="fas fa-arrows-alt-v h4"  title="{{ _('Texte unabhängig von einander scrollen.') }}" onclick="changeViewMode(this)"></i></a>
             </div>
         </div>
+        {% endif %}
     <!-- The Modal container for the eLexicon entries. -->
     <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
 
