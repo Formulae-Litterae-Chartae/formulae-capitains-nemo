@@ -19,7 +19,10 @@ def fullscreenviewer(objectId):
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html'}
-        formulae = current_app.picture_file['manifest:' + current_app.config['nemo_app'].resolver.getMetadata(objectId).parent.id]
+        formulae = current_app.picture_file['manifest:' + objectId]
+        if type(formulae) == list:
+            formulae = current_app.picture_file[formulae[0]]
+            flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
         #this viewer work when the library or archiv give an IIIF API for the external usage of theirs books
         manifest = url_for('viewer.static', filename=formulae["manifest"])
         return current_app.config['nemo_app'].render(template=template['manifest'], manifest=manifest,
