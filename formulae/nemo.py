@@ -653,7 +653,7 @@ class NemoFormulae(Nemo):
             "isReferencedBy": inRefs
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None):
+    def r_multipassage(self, objectIds, subreferences, lang=None, reading_format='columns'):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -664,9 +664,14 @@ class NemoFormulae(Nemo):
         :type subreferences: str
         :param result_sents: The list of sentences from elasticsearch results
         :type result_sents: str
+        :param reading_format: The format to display multiple texts on the reading page: 'columns' or 'rows'
+        :type reading_format: str
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        templates = {'columns': 'main::multipassage.html', 'rows': 'main::multipassage_rows.html'}
+        reading_format = request.args.get('reading_format', 'columns')
+        print(reading_format)
         ids = objectIds.split('+')
         translations = {}
         view = 1
@@ -678,7 +683,8 @@ class NemoFormulae(Nemo):
                               [self.resolver.getMetadata(str(x)) for x in
                                self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
-        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
+        passage_data = {'template': templates.get(reading_format, 'main::multipassage.html'),
+                        'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False

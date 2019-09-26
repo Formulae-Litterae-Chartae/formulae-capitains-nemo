@@ -9,7 +9,7 @@
 {% endif %}
 
 {% macro header_passage(object, index, all_texts, all_reffs) %}
-<header class="col-12 justify-content-center px-0">
+<header class="col-12 justify-content-center">
     <div class="panel-footer text-center">
         <div class="row justify-content-center pt-0 pb-0">
             <div class="col col-auto">
@@ -124,30 +124,22 @@
     <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
 
     </div>
+        {% for text in objects %}
         <article class="hentry entry white col-sm-12">
             <!-- <nav>
                 {{ navigation }}
             </nav> -->
 
-            <div class="row">
-                <section class="col-sm with-border" id="viewer" style="display:none;"></section>
-            {% for text in objects %}
+            
+            
             {%set all_texts = objects|map(attribute='objectId')|list %}
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
             {% if current_user.project_team == False and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
-                {% if loop.last %}
-                <section class="col-sm no-copy text-section">
-                {% else %}
-                <section class="col-sm with-border no-copy text-section">
-                {% endif %}
+                <section class="row no-copy text-section text-row">
             {% else %}
-                {% if loop.last %}
-                <section class="col-sm text-section">
-                {% else %}
-                <section class="col-sm with-border text-section">
-                {% endif %}
+                <section class="row text-section text-row">
             {% endif %}
                 {% if  text.text_passage %}
                     {{ header_passage(text, loop.index, all_texts, all_reffs) }}
@@ -162,9 +154,8 @@
                     {% endwith %}
                 </section>
                 {% endif %}
-            {% endfor %}
-            </div>
         </article>
+        {% endfor %}
     </div>
 
 
