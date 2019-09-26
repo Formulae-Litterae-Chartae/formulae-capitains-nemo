@@ -17,7 +17,7 @@
                 <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(object.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(object.subreference)|join_list_values('+')) }}">{{ _('Spalte ausblenden') }}</a>
                 {% endif %}
             </div>
-            {% for manifest in object.IIIFviewer if manifest not in request.path %}
+            {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
                 {% if loop.first %}
                 <div class="col col-auto">
                     <div class="dropdown">
@@ -26,7 +26,7 @@
                         </button>
                         <div class="dropdown-menu version-dropdown">
                 {% endif %}
-                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest }}</a>
+                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest[1] }}</a>
                 {% if loop.last %}
                         </div>
                     </div>
