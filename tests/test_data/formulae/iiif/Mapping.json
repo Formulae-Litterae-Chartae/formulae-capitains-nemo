@@ -1,22 +1,29 @@
 {
-	"manifest:urn:cts:formulae:andecavensis.form001": {
-		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
-		 "title":"Fulda Hessische Landesbibliotheke D1"
-
+	"manifest:urn:cts:formulae:andecavensis.form001.fu2": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.fu2.json",
+        "title":"Fulda Hessische Landesbibliotheke D1"
 	},
-	"manifest:urn:cts:formulae:andecavensis.form002": {
-		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+    "manifest:urn:cts:formulae:andecavensis.form002.fu2": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.fu2.json",
+        "title":"Fulda Hessische Landesbibliotheke D1"
+	},
+	"manifest:urn:cts:formulae:andecavensis.form002.lat001": [
+		"manifest:urn:cts:formulae:andecavensis.form002.fu2"
+	],
+	"manifest:urn:cts:formulae:andecavensis.form001.lat001": [
+		"manifest:urn:cts:formulae:andecavensis.form001.fu2"
+	],
+	"manifest:urn:cts:formulae:andecavensis.form004.fu2": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.fu2.json",
 		"title":"Fulda Hessische Landesbibliotheke D1"
 	},
-	"manifest:urn:cts:formulae:andecavensis.form004": {
-		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
-		"title":"Fulda Hessische Landesbibliotheke D1"
-
-	},
-	"manifest:urn:cts:formulae:andecavensis.form005": {
-		"manifest": "urn:cts:formulae:andecavensis.form002.lat001.json",
+	"manifest:urn:cts:formulae:andecavensis.form005.fu2": {
+		"manifest": "urn:cts:formulae:andecavensis.form002.fu2.json",
 		"title":"Fulda Hessische Landesbibliotheke D1"
 	},
+	"manifest:urn:cts:formulae:andecavensis.form005.lat001": [
+		"manifest:urn:cts:formulae:andecavensis.form005.fu2"
+	],
 	"manifest:urn:cts:formulae:markulf.form003.m4": {
 		"manifest": "urn:cts:formulae:markulf.form003.m4.json",
 		"title":"Fulda Hessische Landesbibliotheke D1"

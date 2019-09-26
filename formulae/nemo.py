@@ -696,9 +696,13 @@ class NemoFormulae(Nemo):
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
+                    if type(formulae) == list:
+                        formulae = self.app.picture_file[formulae[0]]
+                        flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+                    # This should no longer be necessary since all manifests should be linked to a specific version id
                     # This is when there is a single manuscript for the transcription, edition, and translation
-                    elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
-                        formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
+                    # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
+                    #    formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
@@ -725,8 +729,13 @@ class NemoFormulae(Nemo):
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
                                                                     else '') + ' (' + d['collections']['current']['title'] + ')'
                 else:
-                    d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file \
-                                      or "manifest:" + d['collections']['current']['id'] in self.app.picture_file
+                    d["IIIFviewer"] = []
+                    if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
+                        manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
+                        if type(manifests) == dict:
+                            d["IIIFviewer"] = ["manifest:" + d['collections']['current']['id']]
+                        elif type(manifests) == list:
+                            d["IIIFviewer"] = manifests
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
