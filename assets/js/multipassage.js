@@ -260,14 +260,39 @@ $('.note').click(function() {
     }
 });
 
-function changeViewMode(el) {
+function changeScrollMode(el) {
     if (el.getAttribute('title') == toScrollingTexts) {
         el.setAttribute('title', fromScrollingTexts);
+        el.setAttribute('src', scrollTogetherSrc);
     } else {
         el.setAttribute('title', toScrollingTexts);
+        el.setAttribute('src', scrollIndependentSrc);
     };
     var textSections = document.querySelectorAll('.text-section');
     for (let section of textSections) {
         section.classList.toggle('scrolling');
     }
 };
+
+// AJAX request to change reading format and then refresh the page
+$('.reading-format-setter').bind('click', function(event) {
+    event.preventDefault();
+    e = this;
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change reading direction')
+            }
+        }
+    };
+    request.open('GET', subdomain + '/reading_format/' + e.getAttribute('value'), true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+})

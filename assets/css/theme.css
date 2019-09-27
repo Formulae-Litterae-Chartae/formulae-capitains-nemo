@@ -213,6 +213,10 @@ a.lex:active {
     border-right: 1px solid;
 }
 
+#reading-container article section.bottom-border {
+    border-bottom: 1px solid;
+}
+
 nav .dropdown-menu {
     display: none;
 }
@@ -622,4 +626,13 @@ div.transcription p {
 .text-section.scrolling {
     max-height: 65vh;
     overflow-y: auto;
+}
+
+.text-row {
+    padding-bottom: 0;
+    padding-top: 1em;
+}
+
+.reading-format-image {
+    width: 40px;
 }

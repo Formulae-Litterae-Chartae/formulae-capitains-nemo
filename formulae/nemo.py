@@ -42,7 +42,8 @@ class NemoFormulae(Nemo):
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"]),
-        ("/pdf/<objectId>", "r_pdf", ["GET"])
+        ("/pdf/<objectId>", "r_pdf", ["GET"]),
+        ("/reading_format/<direction>", "r_reading_format", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_collection_mv", "r_references", "r_multipassage"
@@ -229,6 +230,20 @@ class NemoFormulae(Nemo):
         :type code: str
         """
         session['locale'] = code
+        refresh()
+        if request.headers.get('X-Requested-With') == "XMLHttpRequest":
+            return 'OK'
+        else:
+            flash('Language Changed. You may need to refresh the page in your browser.')
+            return redirect(request.referrer)
+
+    def r_reading_format(self, direction):
+        """ Sets the session's language code which will be used for all requests
+
+        :param code: The 2-letter language code
+        :type code: str
+        """
+        session['reading_format'] = direction
         refresh()
         if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
@@ -664,9 +679,12 @@ class NemoFormulae(Nemo):
         :type subreferences: str
         :param result_sents: The list of sentences from elasticsearch results
         :type result_sents: str
+        :param reading_format: The format to display multiple texts on the reading page: 'columns' or 'rows'
+        :type reading_format: str
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+
         ids = objectIds.split('+')
         translations = {}
         view = 1
