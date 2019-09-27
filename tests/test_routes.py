@@ -172,6 +172,13 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/reading_format/rows', follow_redirects=True,
+                  headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertEqual(session['reading_format'], 'rows')
+            response = c.get('/reading_format/columns', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
+            self.assertEqual(response.get_data(as_text=True), 'OK')
+            self.assertEqual(session['reading_format'], 'columns')
             c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
             self.assertTemplateUsed('main::bibliography.html')
             self.assertEqual(session['locale'], 'en')

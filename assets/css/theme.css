@@ -632,3 +632,7 @@ div.transcription p {
     padding-bottom: 0;
     padding-top: 1em;
 }
+
+.reading-format-image {
+    width: 40px;
+}

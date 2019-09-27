@@ -42,7 +42,8 @@ class NemoFormulae(Nemo):
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"]),
-        ("/pdf/<objectId>", "r_pdf", ["GET"])
+        ("/pdf/<objectId>", "r_pdf", ["GET"]),
+        ("/reading_format/<direction>", "r_reading_format", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_collection_mv", "r_references", "r_multipassage"
@@ -229,6 +230,20 @@ class NemoFormulae(Nemo):
         :type code: str
         """
         session['locale'] = code
+        refresh()
+        if request.headers.get('X-Requested-With') == "XMLHttpRequest":
+            return 'OK'
+        else:
+            flash('Language Changed. You may need to refresh the page in your browser.')
+            return redirect(request.referrer)
+
+    def r_reading_format(self, direction):
+        """ Sets the session's language code which will be used for all requests
+
+        :param code: The 2-letter language code
+        :type code: str
+        """
+        session['reading_format'] = direction
         refresh()
         if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
@@ -653,7 +668,7 @@ class NemoFormulae(Nemo):
             "isReferencedBy": inRefs
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None, reading_format='columns'):
+    def r_multipassage(self, objectIds, subreferences, lang=None):
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -669,9 +684,7 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        templates = {'columns': 'main::multipassage.html', 'rows': 'main::multipassage_rows.html'}
-        reading_format = request.args.get('reading_format', 'columns')
-        print(reading_format)
+
         ids = objectIds.split('+')
         translations = {}
         view = 1
@@ -683,8 +696,7 @@ class NemoFormulae(Nemo):
                               [self.resolver.getMetadata(str(x)) for x in
                                self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
-        passage_data = {'template': templates.get(reading_format, 'main::multipassage.html'),
-                        'objects': [], "translation": translations}
+        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False

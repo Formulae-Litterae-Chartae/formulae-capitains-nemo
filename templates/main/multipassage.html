@@ -113,17 +113,56 @@
 
 {% macro show_passage(objects, navigation) %}
     <div class="">
+    <!-- The Modal container for the eLexicon entries. -->
+    <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    </div>
         {% if objects|length > 1 %}
         <div class="row py-0 justify-content-center">
-            <div class="col-auto">
-                <a href="#"><i class="fas fa-arrows-alt-v h4"  title="{{ _('Texte unabhängig von einander scrollen.') }}" onclick="changeViewMode(this)"></i></a>
+            <div class="col-auto text-center">
+                <a href="#" class="reading-format-setter" title="{{ _('Texte nebeneinander zeigen.') }}" value="columns" {% if session['reading_format'] != 'columns' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_columns.png')}}" alt="{{ _('übereinander') }}"></a>
+                <a href="#" class="reading-format-setter" title="{{ _('Texte übereinander zeigen.') }}" value="rows" {% if session['reading_format'] != 'rows' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_rows.png')}}" alt="{{ _('übereinander') }}"></a>
+                {% if session['reading_format'] == 'columns' %}
+                <a href="#" value="rows"><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}" onclick="changeScrollMode(this)" title="{{ _('Texte unabhängig von einander scrollen.') }}"></a>
+                {% endif %}
             </div>
         </div>
         {% endif %}
-    <!-- The Modal container for the eLexicon entries. -->
-    <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
+    {% if session['reading_format'] == 'rows' %}
 
-    </div>
+        {% for text in objects %}
+        <article class="hentry entry white col-sm-12">
+            <!-- <nav>
+                {{ navigation }}
+            </nav> -->
+
+            
+            
+            {%set all_texts = objects|map(attribute='objectId')|list %}
+            {%set all_reffs = objects|map(attribute='subreference')|list %}
+            {%set new_reffs = objects|map(attribute='subreference')|list %}
+            {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
+            {% if current_user.project_team == False and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
+                <section class="row no-copy text-section text-row">
+            {% else %}
+                <section class="row text-section text-row">
+            {% endif %}
+                {% if  text.text_passage %}
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                    <div class="d-flex flex-row">{{ navigation }}</div>
+                        {{ text.text_passage }}
+                    <footer>{% include "main::passage_footer.html" %}</footer>
+                </section>
+                 {% else %}
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                    {% with manifest = text.manifest, div_v = text.div_v %}
+                    {% include "viewer::embededmirador.html" %}
+                    {% endwith %}
+                </section>
+                {% endif %}
+        </article>
+        {% endfor %}
+        
+    {% else %}
         <article class="hentry entry white col-sm-12">
             <!-- <nav>
                 {{ navigation }}
@@ -165,6 +204,7 @@
             {% endfor %}
             </div>
         </article>
+    {% endif %}
     </div>
 
 
@@ -204,7 +244,9 @@
      var comCloseButton="{{ _('Alle Kommentaranmerkungen für diesen Text ausblenden') }}";
      var comOpenButton="{{ _('Alle Kommentaranmerkungen für diesen Text einblenden') }}";
      var toScrollingTexts="{{ _('Texte unabhängig von einander scrollen.') }}";
+     var scrollIndependentSrc="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}"
      var fromScrollingTexts="{{ _('Texte zusammen scrollen.') }}";
+     var scrollTogetherSrc="{{url_for('InstanceNemo.static', filename='images/scroll_together.png')}}";
 </script>
 <script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
 <script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>
