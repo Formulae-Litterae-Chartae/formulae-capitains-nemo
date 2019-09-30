@@ -684,7 +684,8 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-
+        if 'reading_format' not in session:
+            session['reading_format'] = 'columns'
         ids = objectIds.split('+')
         translations = {}
         view = 1
