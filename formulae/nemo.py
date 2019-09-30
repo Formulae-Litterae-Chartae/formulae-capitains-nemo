@@ -103,8 +103,8 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
-        self.open_texts, self.half_open_texts = self.get_open_texts()
         self.sub_colls = self.get_all_corpora()
+        self.all_texts, self.open_texts, self.half_open_texts = self.get_open_texts()
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
@@ -128,25 +128,61 @@ class NemoFormulae(Nemo):
             colls[member['id']] = members
         return colls
 
+    def ordered_corpora(self, m):
+        """ Sets up the readable descendants in each corpus to be correctly ordered
+
+        :param m: the metadata for the descendant
+        :return: a tuple that will be put in the correct place in the ordered list when sorted
+        """
+        version = m.id.split('.')[-1]
+        if "salzburg" in m.id:
+            par = m.parent.id.split('-')[1:]
+            if len(par) == 2:
+                full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
+            else:
+                p = re.match(r'(\D+)(\d+)', par[0])
+                if p:
+                    full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
+                else:
+                    full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
+            par = '-'.join(par)
+            if 'n' in par:
+                par = 'z' + par
+            par = (par, full_par)
+            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+        elif "elexicon" in m.id:
+            par = m.parent.id.split('.')[-1][0].capitalize()
+            metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+        else:
+            par = re.sub(r'.*?(\d+)\Z', r'\1', m.parent.id)
+            if par.lstrip('0') == '':
+                par = _('(Titel)')
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
+        return par, metadata, m
+
     def get_open_texts(self):
         """ Creates the lists of open and half-open texts to be used later. I have moved this to a function to try to
             cache it.
 
-        :return: list of open texts and half-open texts
+        :return: dictionary of all texts {collection: [readableDescendants]}, list of open texts, and half-open texts
         """
         open_texts = []
         half_open_texts = []
-        for c in self.OPEN_COLLECTIONS: # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
-            try:
-                open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
-        for c in self.HALF_OPEN_COLLECTIONS:
-            try:
-                half_open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
-        return open_texts, half_open_texts
+        all_texts = {m['id']: sorted([self.ordered_corpora(r) for r in self.resolver.getMetadata(m['id']).readableDescendants])
+                     for l in self.sub_colls.values() for m in l}
+        for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
+            if c in self.OPEN_COLLECTIONS:
+                try:
+                    open_texts += [x[1][0] for x in all_texts[c]]
+                except UnknownCollection:
+                    continue
+            if c in self.HALF_OPEN_COLLECTIONS:
+                try:
+                    half_open_texts += [x[1][0] for x in all_texts[c]]
+                except UnknownCollection:
+                    continue
+        return all_texts, open_texts, half_open_texts
 
     def check_project_team(self):
         """ A convenience function that checks if the current user is a part of the project team"""
@@ -345,7 +381,7 @@ class NemoFormulae(Nemo):
             template = "main::salzburg_collection.html"
         else:
             template = "main::sub_collection.html"
-        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+        for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 version = m.id.split('.')[-1]
                 if 'lat' in version:
@@ -354,30 +390,6 @@ class NemoFormulae(Nemo):
                     key = 'translations'
                 else:
                     key = 'transcriptions'
-                if "salzburg" in m.id:
-                    par = m.parent.id.split('-')[1:]
-                    if len(par) == 2:
-                        full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
-                    else:
-                        p = re.match(r'(\D+)(\d+)', par[0])
-                        if p:
-                            full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
-                        else:
-                            full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
-                    par = '-'.join(par)
-                    if 'n' in par:
-                        par = 'z' + par
-                    par = (par, full_par)
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
-                elif "elexicon" in m.id:
-                    par = m.parent.id.split('.')[-1][0].capitalize()
-                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-                else:
-                    par = re.sub(r'.*?(\d+)\Z', r'\1', m.parent.id)
-                    if par.lstrip('0') == '':
-                        par = _('(Titel)')
-                    manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
@@ -588,6 +600,18 @@ class NemoFormulae(Nemo):
         first, _ = reffs[0]
         return str(first)
 
+    def get_prev_next_texts(self, objId, collection):
+        """ Get the previous and next texts in a collection
+
+        :param objId: the ID of the current object
+        :param collection: the grandparent of the current object (should be the collection, e.g., Freising or Markulf)
+        :return: the IDs of the previous and next text in the same collection
+        """
+        sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
+        orig_index = sibling_texts.index(objId)
+        return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
+               sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
+
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage
 
@@ -710,6 +734,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
+                d['prev_version'], d['next_version'] = self.get_prev_next_texts(id, d['collections']['parents'][1])
                 del d['template']
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
