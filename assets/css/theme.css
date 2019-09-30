@@ -634,5 +634,12 @@ div.transcription p {
 }
 
 .reading-format-image {
-    width: 40px;
+    width: auto;
+    height: 30px;
+}
+
+#scroll-control-image {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
 }
