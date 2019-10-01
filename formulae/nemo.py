@@ -85,7 +85,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:mondsee',
-                             'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg',
+                             'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
 
     OPEN_NOTES = []
@@ -604,7 +604,12 @@ class NemoFormulae(Nemo):
         :param collection: the grandparent of the current object (should be the collection, e.g., Freising or Markulf)
         :return: the IDs of the previous and next text in the same collection
         """
-        sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
+        if re.search(r'lat\d\d\d', objId.split('.')[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
+        elif re.search(r'deu\d\d\d', objId.split('.')[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
+        else:
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
         orig_index = sibling_texts.index(objId)
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
