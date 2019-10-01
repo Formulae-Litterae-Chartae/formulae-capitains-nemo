@@ -12,28 +12,35 @@
 <header class="col-12 justify-content-center px-0">
     <div class="panel-footer text-center">
         <div class="row pt-0 pb-0">
-            {% set obj_type %}
             {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
-            {{ _('Formel') }}
+            {% set prev_obj = _('Vorherige Formel') %}
+            {% set next_obj = _('Nächste Formel') %}
             {% elif object.collections.parents[-1]['id'] == 'lexicon_entries' %}
-            {{ _('Eintrag') }}
+            {% set prev_obj = _('Vorheriger Eintrag') %}
+            {% set next_obj = _('Nächster Eintrag') %}
             {% else %}
-            {{ _('Urkunde') }}
+            {% set prev_obj = _('Vorherige Urkunde') %}
+            {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
-            {% endset %}
             {% if object.prev_version %}
             {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
             <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">«<small>{{ _('Vorheriger') }} {{ obj_type}}</small></a>
+                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">«<small>{{ prev_obj }}</small></a>
             </div>
             {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+            {% else %}
+            <div class="col">
+            </div>
             {% endif %}
             {% if object.next_version %}
             {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
             <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}"><small>{{ _('Nächster') }} {{ obj_type}}</small>»</a>
+                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}"><small>{{ next_obj }}</small>»</a>
             </div>
             {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+            {% else %}
+            <div class="col">
+            </div>
             {% endif %}
         </div>
         <div class="row justify-content-center pt-0 pb-0">
