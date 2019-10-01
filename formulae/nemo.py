@@ -6,7 +6,8 @@ from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
-from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
+from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata, CtsTextInventoryMetadata
+from MyCapytain.resources.collections.cts import XmlCtsTextgroupMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
@@ -353,6 +354,8 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+        if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
+            return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 0:
             if "andecavensis" in objectId:
                 flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
@@ -551,10 +554,13 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
+        if type(collection) == XmlCtsTextgroupMetadata:
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
+                                    objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
         if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
-        if len(members) == 1:
+        if len(members) == 1 and type(collection) == CtsTextInventoryMetadata:
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'],
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         elif len(members) == 0:
@@ -734,7 +740,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
-                d['prev_version'], d['next_version'] = self.get_prev_next_texts(id, d['collections']['parents'][1])
+                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'], d['collections']['parents'][1])
                 del d['template']
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
