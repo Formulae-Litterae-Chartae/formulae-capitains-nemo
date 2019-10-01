@@ -9,7 +9,7 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
@@ -41,6 +41,7 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -101,7 +102,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
             c.get('/contact', follow_redirects=True)
-            self.assertTemplateUsed('main::contact.html')
+            self.assertTemplateUsed('auth::login.html')
             c.get('/search/doc', follow_redirects=True)
             self.assertTemplateUsed('search::documentation.html')
             c.get('/auth/user/project.member', follow_redirects=True)
