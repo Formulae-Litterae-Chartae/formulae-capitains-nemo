@@ -333,6 +333,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            c.get('/collections/lexicon_entries', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)

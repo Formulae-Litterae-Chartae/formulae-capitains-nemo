@@ -351,10 +351,7 @@ class NemoFormulae(Nemo):
         if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 0:
-            if objectId == "formulae_collection":
-                flash(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            flash(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
         elif len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
