@@ -174,15 +174,9 @@ class NemoFormulae(Nemo):
                      for l in self.sub_colls.values() for m in l}
         for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
             if c in self.OPEN_COLLECTIONS:
-                try:
-                    open_texts += [x[1][0] for x in all_texts[c]]
-                except UnknownCollection:
-                    continue
+                open_texts += [x[1][0] for x in all_texts[c]]
             if c in self.HALF_OPEN_COLLECTIONS:
-                try:
-                    half_open_texts += [x[1][0] for x in all_texts[c]]
-                except UnknownCollection:
-                    continue
+                half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
 
     def check_project_team(self):
@@ -357,8 +351,8 @@ class NemoFormulae(Nemo):
         if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            if objectId == "formulae_collection":
+                flash(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             else:
                 flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         elif len(data['collections']['members']) == 1:
