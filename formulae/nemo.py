@@ -551,10 +551,7 @@ class NemoFormulae(Nemo):
         members = self.make_members(collection, lang=lang)
         if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
-        if len(members) == 1 and type(collection) == CtsTextInventoryMetadata:
-            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'],
-                                    objectIds=objectIds, reffs=reffs, lang=lang))
-        elif len(members) == 0:
+        if len(members) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": "main::sub_collections.html",
