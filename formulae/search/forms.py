@@ -14,13 +14,11 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
         Optional() validator. I think this must have seen this as an empty field and thus erased all previous validation
         results since it correctly invalidates invalid data when the Optional() validator is not included.
     """
-    if not message:
-        message = "Field value must between between %i and %i." % (min, max)
 
     def _length(form, field):
         if field.data:
             if int(field.data) < min or max != -1 and int(field.data) > max:
-                raise ValidationError(message)
+                raise ValidationError(message or "Field value must between between %i and %i." % (min, max))
 
     return _length
 

@@ -11,12 +11,39 @@
 {% macro header_passage(object, index, all_texts, all_reffs) %}
 <header class="col-12 justify-content-center px-0">
     <div class="panel-footer text-center">
-        <div class="row justify-content-center pt-0 pb-0">
-            <div class="col col-auto">
-                {% if objects|length > 1 %}
-                <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(object.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(object.subreference)|join_list_values('+')) }}">{{ _('Spalte ausblenden') }}</a>
-                {% endif %}
+        <div class="row pt-0 pb-0">
+            {% set obj_type %}
+            {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
+            {{ _('Formel') }}
+            {% elif object.collections.parents[-1]['id'] == 'lexicon_entries' %}
+            {{ _('Eintrag') }}
+            {% else %}
+            {{ _('Urkunde') }}
+            {% endif %}
+            {% endset %}
+            {% if object.prev_version %}
+            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
+            <div class="col">
+                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">«<small>{{ _('Vorheriger') }} {{ obj_type}}</small></a>
             </div>
+            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+            {% endif %}
+            {% if object.next_version %}
+            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
+            <div class="col">
+                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}"><small>{{ _('Nächster') }} {{ obj_type}}</small>»</a>
+            </div>
+            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+            {% endif %}
+        </div>
+        <div class="row justify-content-center pt-0 pb-0">
+            {% if objects|length > 1 %}
+            <div class="col col-auto">
+                <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(object.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(object.subreference)|join_list_values('+')) }}">{{ _('Spalte ausblenden') }}</a>
+            </div>
+            {% set all_texts = all_texts|insert_in_list(index - 1, object.objectId) %}
+            {% set all_reffs = all_reffs|insert_in_list(index - 1, object.subreference) %}
+            {% endif %}
             {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
                 {% if loop.first %}
                 <div class="col col-auto">
@@ -37,7 +64,6 @@
                 {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy) }}
             </div>
         </div>
-
         {% if 'manifest' in object.objectId %}
             <div class="entry-title text-center">{{object.title}}</div>
             <span></span>

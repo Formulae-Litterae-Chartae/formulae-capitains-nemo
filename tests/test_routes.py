@@ -9,7 +9,7 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
@@ -41,6 +41,7 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -101,7 +102,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
             c.get('/contact', follow_redirects=True)
-            self.assertTemplateUsed('main::contact.html')
+            self.assertTemplateUsed('auth::login.html')
             c.get('/search/doc', follow_redirects=True)
             self.assertTemplateUsed('search::documentation.html')
             c.get('/auth/user/project.member', follow_redirects=True)
@@ -114,10 +115,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            self.assertMessageFlashed(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            self.assertTemplateUsed('main::sub_collections.html')
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -138,8 +139,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
-            c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            c.get('/add_collection/formulae_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
@@ -217,8 +221,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collections.html')
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/other_collection', follow_redirects=True)
@@ -331,7 +336,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            self.assertMessageFlashed(_('Die Formulae sind in der Endredaktion und werden bald zur Verfügung stehen.'))
+            c.get('/collections/lexicon_entries', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -343,8 +350,6 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-            c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -745,6 +750,20 @@ class TestFunctions(Formulae_Testing):
             'translations': [],
             'transcriptions': []
             })
+
+    def test_get_prev_next_text(self):
+        """ Make sure that the previous text and next text in a corpus are correctly returned"""
+        with self.client as c:
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-a0001.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-na.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], None)
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-na.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], None)
+
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
