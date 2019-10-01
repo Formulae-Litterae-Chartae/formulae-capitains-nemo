@@ -553,6 +553,9 @@ class NemoFormulae(Nemo):
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+        elif len(members) == 1:
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'], objectIds=objectIds,
+                                    reffs=reffs, lang=lang))
         return {
             "template": "main::sub_collections.html",
             "collections": {
