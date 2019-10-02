@@ -79,7 +79,7 @@ class NemoFormulae(Nemo):
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
@@ -153,7 +153,7 @@ class NemoFormulae(Nemo):
             par = m.parent.id.split('.')[-1][0].capitalize()
             metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
         else:
-            par = re.sub(r'.*?(\d+)\Z', r'\1', m.parent.id)
+            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
             if par.lstrip('0') == '':
                 par = _('(Titel)')
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
