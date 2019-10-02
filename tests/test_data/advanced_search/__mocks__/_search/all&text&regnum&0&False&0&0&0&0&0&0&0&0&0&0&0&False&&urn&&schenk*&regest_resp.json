@@ -1,9 +1,9 @@
 {
-  "took": 9,
+  "took": 24,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -295,15 +295,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -319,7 +319,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -359,7 +359,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -399,7 +399,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -444,7 +444,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -489,7 +489,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -545,7 +545,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -574,8 +574,8 @@
           ],
           "min_date": "0819-04-14",
           "days": [
-            "Thursday",
-            "Lent"
+            "Lent",
+            "Thursday"
           ]
         },
         "highlight": {
@@ -591,7 +591,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
         "_score": null,
@@ -669,6 +669,9 @@
         },
         "Merowinger": {
           "doc_count": 2
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
         },
         "Mondsee": {
           "doc_count": 0
