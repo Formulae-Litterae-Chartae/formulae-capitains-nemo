@@ -1,18 +1,18 @@
 {
-  "took": 4,
+  "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 657,
+    "total": 666,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -43,7 +43,52 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "arnulfinger_v1",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 3",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
+          "date_string": "701 01 20",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 701,
+              "month": 1,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0701-01-20"
+          ],
+          "min_date": "0701-01-20",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "highlight": {
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -85,7 +130,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0116.lat001",
         "_score": null,
@@ -127,7 +172,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0267.lat001",
         "_score": null,
@@ -169,7 +214,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0283.lat001",
         "_score": null,
@@ -214,7 +259,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0298.lat001",
         "_score": null,
@@ -259,7 +304,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0671.lat001",
         "_score": null,
@@ -304,7 +349,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0726.lat001",
         "_score": null,
@@ -349,7 +394,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0727.lat001",
         "_score": null,
@@ -392,46 +437,6 @@
         "sort": [
           "urn:cts:formulae:freising.bitterauf0727.lat001"
         ]
-      },
-      {
-        "_index": "freising_v4",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0729.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 729",
-          "urn": "urn:cts:formulae:freising.bitterauf0729.lat001",
-          "date_string": "Ca. 851",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 851
-            }
-          ],
-          "all_dates": [
-            "0851"
-          ],
-          "min_date": "0851"
-        },
-        "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:freising.bitterauf0729.lat001"
-        ]
       }
     ]
   },
@@ -442,7 +447,7 @@
           "doc_count": 1
         },
         "Arnulfinger": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "B\u00fcnden": {
           "doc_count": 1
@@ -467,6 +472,9 @@
         },
         "Merowinger": {
           "doc_count": 1
+        },
+        "Mittelrheinisch": {
+          "doc_count": 8
         },
         "Mondsee": {
           "doc_count": 0
@@ -535,7 +543,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 7
+          "doc_count": 8
         },
         {
           "key": "800-899",
@@ -543,7 +551,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 335
+          "doc_count": 340
         },
         {
           "key": "900-999",
@@ -551,7 +559,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 302
+          "doc_count": 305
         },
         {
           "key": ">1000",

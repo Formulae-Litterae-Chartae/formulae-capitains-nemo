@@ -1,18 +1,18 @@
 {
-  "took": 23,
+  "took": 27,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 406,
+    "total": 409,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
@@ -623,7 +623,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
         "_score": null,
@@ -691,6 +691,9 @@
         "Merowinger": {
           "doc_count": 0
         },
+        "Mittelrheinisch": {
+          "doc_count": 3
+        },
         "Mondsee": {
           "doc_count": 26
         },
@@ -734,7 +737,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "500-599",
@@ -758,7 +761,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 359
+          "doc_count": 360
         },
         {
           "key": "800-899",
@@ -766,7 +769,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 42
+          "doc_count": 43
         },
         {
           "key": "900-999",
