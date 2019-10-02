@@ -1,9 +1,9 @@
 {
-  "took": 12,
+  "took": 7,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -596,15 +596,15 @@
         ]
       },
       {
-        "_index": "merowinger2_v2",
+        "_index": "merowinger3_v3",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "text",
-          "title": "Die Urkunden der Merowinger (Ed. K\u00f6lzer) Nr. 38",
+          "regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "title": "Die Urkunden der Merowinger (Eds. K\u00f6lzer/Br\u00fchl) Nr. 38",
           "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "date_string": "(630) 04 08 (Ostern)",
           "comp_ort": " ",
@@ -634,7 +634,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -672,7 +672,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -710,7 +710,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -748,7 +748,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -786,7 +786,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -824,7 +824,7 @@
         ]
       },
       {
-        "_index": "salzburg_v4",
+        "_index": "salzburg_v5",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -895,6 +895,9 @@
         },
         "Merowinger": {
           "doc_count": 1
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
         },
         "Mondsee": {
           "doc_count": 0

@@ -1,9 +1,9 @@
 {
-  "took": 7,
+  "took": 9,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -55,8 +55,8 @@
           ],
           "min_date": "0765",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -64,7 +64,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -101,7 +101,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -138,7 +138,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -175,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v4",
+        "_index": "fulda_stengel_v5",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v4",
+        "_index": "fulda_stengel_v5",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v4",
+        "_index": "fulda_stengel_v5",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
         "_score": null,
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v4",
+        "_index": "fulda_stengel_v5",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v4",
+        "_index": "fulda_stengel_v5",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
         "_score": null,
@@ -430,6 +430,9 @@
         },
         "Merowinger": {
           "doc_count": 1
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
         },
         "Mondsee": {
           "doc_count": 0

@@ -79,7 +79,7 @@ class NemoFormulae(Nemo):
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
                         'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch', 'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
@@ -384,6 +384,30 @@ class NemoFormulae(Nemo):
                     key = 'translations'
                 else:
                     key = 'transcriptions'
+                if "salzburg" in m.id:
+                    par = m.parent.id.split('-')[1:]
+                    if len(par) == 2:
+                        full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
+                    else:
+                        p = re.match(r'(\D+)(\d+)', par[0])
+                        if p:
+                            full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
+                        else:
+                            full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
+                    par = '-'.join(par)
+                    if 'n' in par:
+                        par = 'z' + par
+                    par = (par, full_par)
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+                elif "elexicon" in m.id:
+                    par = m.parent.id.split('.')[-1][0].capitalize()
+                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+                else:
+                    par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
+                    if par.lstrip('0') == '':
+                        par = _('(Titel)')
+                    manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
