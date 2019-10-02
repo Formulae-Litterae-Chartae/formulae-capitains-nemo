@@ -17,13 +17,13 @@
                             <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae</li>
                                 <ul class="corpus-ul">
                                 {% for choice in categories['formulae_collection']|sort %}
-                                    <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in request.args.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
+                                    <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
                                 {% endfor %}
                                 </ul>
                             <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> Chartae</li>
                                 <ul class="corpus-ul">
                                 {% for choice in categories['other_collection']|sort %}
-                                    <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in request.args.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
+                                    <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
                                 {% endfor %}
                                 </ul>
                         </ul>
@@ -152,46 +152,46 @@
                     <div class="form-row align-items-center justify-content-center" id="holiday-row">
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Easter">{{ _('Ostern') }}</label>
-                            <input class="form-check-input" id="Easter" name="special_days" type="checkbox" value="Easter"{% if "Easter" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Easter" name="special_days" type="checkbox" value="Easter"{% if "Easter" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Pentecost">{{ _('Pfingsten') }}</label>
-                            <input class="form-check-input" id="Pentecost" name="special_days" type="checkbox" value="Pentecost"{% if "Pentecost" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Pentecost" name="special_days" type="checkbox" value="Pentecost"{% if "Pentecost" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Lent">{{ _('Fastenzeit') }}</label>
-                            <input class="form-check-input" id="Lent" name="special_days" type="checkbox" value="Lent"{% if "Lent" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Lent" name="special_days" type="checkbox" value="Lent"{% if "Lent" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                     </div>
                     <div class="text-center"><em>{{ _('Wochentage') }}</em></div>
                     <div class="form-row align-items-center justify-content-center" id="weekday-row">
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Monday">{{ _('Mo') }}</label>
-                            <input class="form-check-input" id="Monday" name="special_days" type="checkbox" value="Monday"{% if "Monday" in request.args.special_days %} checked=""{% endif %}> 
+                            <input class="form-check-input" id="Monday" name="special_days" type="checkbox" value="Monday"{% if "Monday" in form.data.special_days %} checked=""{% endif %}> 
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Tuesday">{{ _('Di') }}</label>
-                            <input class="form-check-input" id="Tuesday" name="special_days" type="checkbox" value="Tuesday"{% if "Tuesday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Tuesday" name="special_days" type="checkbox" value="Tuesday"{% if "Tuesday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Wednesday">{{ _('Mi') }}</label>
-                            <input class="form-check-input" id="Wednesday" name="special_days" type="checkbox" value="Wednesday"{% if "Wednesday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Wednesday" name="special_days" type="checkbox" value="Wednesday"{% if "Wednesday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Easter">{{ _('Do') }}</label>
-                            <input class="form-check-input" id="Thursday" name="special_days" type="checkbox" value="Thursday"{% if "Thursday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Thursday" name="special_days" type="checkbox" value="Thursday"{% if "Thursday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Friday">{{ _('Fr') }}</label>
-                            <input class="form-check-input" id="Friday" name="special_days" type="checkbox" value="Friday"{% if "Friday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Friday" name="special_days" type="checkbox" value="Friday"{% if "Friday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Saturday">{{ _('Sa') }}</label>
-                            <input class="form-check-input" id="Saturday" name="special_days" type="checkbox" value="Saturday"{% if "Saturday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Saturday" name="special_days" type="checkbox" value="Saturday"{% if "Saturday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                         <div class="form-check form-check-inline form-group">
                             <label class="form-check-label" for="Sunday">{{ _('So') }}</label>
-                            <input class="form-check-input" id="Sunday" name="special_days" type="checkbox" value="Sunday"{% if "Sunday" in request.args.special_days %} checked=""{% endif %}>
+                            <input class="form-check-input" id="Sunday" name="special_days" type="checkbox" value="Sunday"{% if "Sunday" in form.data.special_days %} checked=""{% endif %}>
                         </div>
                     </div>
                 </div>

@@ -133,6 +133,8 @@ def r_advanced_search():
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
+    if form.special_days.data and len(form.special_days.data) == 1:
+        form.special_days.data = form.special_days.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
