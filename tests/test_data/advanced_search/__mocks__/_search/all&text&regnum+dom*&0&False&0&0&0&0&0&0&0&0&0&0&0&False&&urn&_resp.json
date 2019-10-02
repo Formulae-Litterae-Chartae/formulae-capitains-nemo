@@ -1,9 +1,9 @@
 {
-  "took": 19,
+  "took": 61,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -40,7 +40,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -68,7 +68,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -361,15 +361,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -382,7 +382,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -603,15 +603,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -624,7 +624,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v5",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -669,7 +669,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v5",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -714,7 +714,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v5",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -749,8 +749,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -763,7 +763,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -805,7 +805,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v5",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -840,8 +840,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -886,6 +886,9 @@
           "doc_count": 0
         },
         "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
           "doc_count": 0
         },
         "Mondsee": {

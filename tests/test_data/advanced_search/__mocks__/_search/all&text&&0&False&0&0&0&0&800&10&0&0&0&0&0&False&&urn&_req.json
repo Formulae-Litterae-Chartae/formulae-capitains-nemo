@@ -176,6 +176,11 @@
               "_type": "merowinger1"
             }
           },
+          "Mittelrheinisch": {
+            "match": {
+              "_type": "mittelrheinisch"
+            }
+          },
           "Mondsee": {
             "match": {
               "_type": "mondsee"

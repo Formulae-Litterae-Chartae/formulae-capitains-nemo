@@ -1,9 +1,9 @@
 {
-  "took": 9,
+  "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -35,7 +35,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -58,7 +58,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -81,7 +81,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -104,7 +104,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v5",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -159,6 +159,9 @@
           "doc_count": 0
         },
         "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
           "doc_count": 0
         },
         "Mondsee": {
