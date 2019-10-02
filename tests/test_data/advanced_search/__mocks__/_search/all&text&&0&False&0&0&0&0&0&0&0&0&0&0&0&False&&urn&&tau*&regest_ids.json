@@ -3,6 +3,9 @@
     "id": "urn:cts:formulae:andecavensis.form008.lat001"
   },
   {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
+  },
+  {
     "id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
   },
   {
@@ -25,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:freising.bitterauf0727.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:freising.bitterauf0729.lat001"
   }
 ]

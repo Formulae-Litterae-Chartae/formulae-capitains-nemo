@@ -431,6 +431,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Merowinger": {
                       "doc_count": 0
                     },
+                    "Mittelrheinisch": {
+                      "doc_count": 0
+                    },
                     "Mondsee": {
                       "doc_count": 0
                     },
@@ -1722,6 +1725,9 @@ class TestES(Formulae_Testing):
                                                         "Merowinger": {
                                                             "doc_count": 0
                                                         },
+                                                        "Mittelrheinisch": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Mondsee": {
                                                           "doc_count": 0
                                                         },
@@ -1788,6 +1794,7 @@ class TestES(Formulae_Testing):
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Markulf': {'match': {'_type': 'markulf'}},
                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                        'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
                                         'Passau': {'match': {'_type': 'passau'}},
                                         'Rätien': {'match': {'_type': 'raetien'}},
