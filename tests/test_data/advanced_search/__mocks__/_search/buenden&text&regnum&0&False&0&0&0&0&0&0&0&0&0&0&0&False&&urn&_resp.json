@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 13,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -326,7 +326,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v5",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -547,15 +547,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
-            "Monday",
-            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
             "Lent",
+            "Thursday",
+            "Saturday",
+            "Easter",
+            "Tuesday",
             "Wednesday",
-            "Saturday"
+            "Sunday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -600,6 +600,9 @@
           "doc_count": 0
         },
         "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
           "doc_count": 0
         },
         "Mondsee": {

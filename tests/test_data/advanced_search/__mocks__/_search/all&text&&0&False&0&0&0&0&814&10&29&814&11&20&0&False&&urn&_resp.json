@@ -1,9 +1,9 @@
 {
-  "took": 9,
+  "took": 84,
   "timed_out": false,
   "_shards": {
-    "total": 20,
-    "successful": 20,
+    "total": 22,
+    "successful": 22,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v5",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -120,7 +120,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v5",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -154,7 +154,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v5",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
         "_score": null,
@@ -188,7 +188,7 @@
         ]
       },
       {
-        "_index": "luzern_v4",
+        "_index": "luzern_v5",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -222,7 +222,7 @@
         ]
       },
       {
-        "_index": "luzern_v4",
+        "_index": "luzern_v5",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -256,7 +256,7 @@
         ]
       },
       {
-        "_index": "luzern_v4",
+        "_index": "luzern_v5",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -290,7 +290,7 @@
         ]
       },
       {
-        "_index": "luzern_v4",
+        "_index": "luzern_v5",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "luzern_v4",
+        "_index": "luzern_v5",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -390,6 +390,9 @@
           "doc_count": 0
         },
         "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
           "doc_count": 0
         },
         "Mondsee": {
