@@ -33,6 +33,7 @@
         </xsl:if>
         <xsl:choose>
             <xsl:when test="parent::tei:seg[@type='italic']"><span class="w font-italic"><xsl:value-of select="."/></span></xsl:when>
+            <xsl:when test="parent::tei:seg[@type='latin-word']"><span class="w latin-word"><xsl:value-of select="."/></span></xsl:when>
             <xsl:otherwise><span class="w"><xsl:value-of select="."/></span></xsl:otherwise>
         </xsl:choose>
     </xsl:template>

@@ -88,8 +88,6 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
 
-    OPEN_NOTES = []
-
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch")}
 
@@ -689,7 +687,6 @@ class NemoFormulae(Nemo):
             "prev": prev,
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
-            "show_notes": objectId in self.OPEN_NOTES,
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
             "isReferencedBy": inRefs
         }
