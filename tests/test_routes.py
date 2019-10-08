@@ -468,7 +468,6 @@ class TestIndividualRoutes(Formulae_Testing):
                 }}
         mock_search.return_value = [[], 0, aggs]
         with self.client as c:
-
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
@@ -497,9 +496,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
             params['corpus'] = 'chartae'
+            params['special_days'] = 'Easter%2BTuesday'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
@@ -853,7 +853,7 @@ class TestForms(Formulae_Testing):
     def test_validate_success_advanced_search_form(self):
         """ Ensure that a form with valid data validates"""
         form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
-                                  day_start=12, year_end=700, month_end="01", day_end=12)
+                                  day_start=12, year_end=700, month_end="01", day_end=12, special_days=['Easter Tuesday'])
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
         form = AdvancedSearchForm(q="regnum", slop=500)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
@@ -1990,7 +1990,27 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['special_days'] = [test_args['special_days']]
+        test_args['special_days'] = test_args['special_days'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_multiple_specific_day_advanced_search(self, mock_search):
+        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter+Saturday'), ("regest_q", ''),
+                                 ("regest_field", "regest")])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['special_days'] = test_args['special_days'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
