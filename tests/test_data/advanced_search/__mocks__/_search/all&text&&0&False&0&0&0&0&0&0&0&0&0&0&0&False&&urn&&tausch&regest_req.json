@@ -89,6 +89,11 @@
               "_type": "buenden"
             }
           },
+          "Echternach": {
+            "match": {
+              "_type": "echternach"
+            }
+          },
           "Freising": {
             "match": {
               "_type": "freising"

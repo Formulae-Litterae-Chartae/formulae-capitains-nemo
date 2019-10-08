@@ -1,18 +1,129 @@
 {
-  "took": 9,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 40,
+    "total": 43,
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v5",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 11",
+          "urn": "urn:cts:formulae:echternach.wampach0011.lat001",
+          "date_string": "[704] 10 01",
+          "comp_ort": "Bettingen",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Bettingen",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 704,
+              "month": 10,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0704-10-01"
+          ],
+          "min_date": "0704-10-01",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0011.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 28",
+          "urn": "urn:cts:formulae:echternach.wampach0028.lat001",
+          "date_string": "[718] 10 24",
+          "comp_ort": "S\u00fcstern",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "S\u00fcstern",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 718,
+              "month": 10,
+              "day": 24
+            }
+          ],
+          "all_dates": [
+            "0718-10-24"
+          ],
+          "min_date": "0718-10-24",
+          "days": [
+            "Monday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0028.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 34",
+          "urn": "urn:cts:formulae:echternach.wampach0034.lat001",
+          "date_string": "[726] 10 20",
+          "comp_ort": "Weimodo regia villa ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Weimodo regia villa ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 726,
+              "month": 10,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0726-10-20"
+          ],
+          "min_date": "0726-10-20",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0034.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -55,8 +166,8 @@
           ],
           "min_date": "0765",
           "days": [
-            "Tuesday",
-            "Thursday"
+            "Thursday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -64,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -101,7 +212,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -138,7 +249,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -175,7 +286,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -212,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v5",
+        "_index": "fulda_stengel_v7",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -249,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v5",
+        "_index": "fulda_stengel_v7",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -284,117 +395,6 @@
         "sort": [
           "urn:cts:formulae:fulda_stengel.stengel0083.lat001"
         ]
-      },
-      {
-        "_index": "fulda_stengel_v5",
-        "_type": "fulda_stengel",
-        "_id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 172",
-          "urn": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
-          "date_string": "786 10 08",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 786,
-              "month": 10,
-              "day": 8
-            }
-          ],
-          "all_dates": [
-            "0786-10-08"
-          ],
-          "min_date": "0786-10-08",
-          "days": [
-            "Sunday"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:fulda_stengel.stengel0172.lat001"
-        ]
-      },
-      {
-        "_index": "fulda_stengel_v5",
-        "_type": "fulda_stengel",
-        "_id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 251",
-          "urn": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
-          "date_string": "797 10 24",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 797,
-              "month": 10,
-              "day": 24
-            }
-          ],
-          "all_dates": [
-            "0797-10-24"
-          ],
-          "min_date": "0797-10-24",
-          "days": [
-            "Tuesday"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:fulda_stengel.stengel0251.lat001"
-        ]
-      },
-      {
-        "_index": "fulda_stengel_v5",
-        "_type": "fulda_stengel",
-        "_id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 252",
-          "urn": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
-          "date_string": "797 10 24",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 797,
-              "month": 10,
-              "day": 24
-            }
-          ],
-          "all_dates": [
-            "0797-10-24"
-          ],
-          "min_date": "0797-10-24",
-          "days": [
-            "Tuesday"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:fulda_stengel.stengel0252.lat001"
-        ]
       }
     ]
   },
@@ -409,6 +409,9 @@
         },
         "B\u00fcnden": {
           "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 3
         },
         "Freising": {
           "doc_count": 5
@@ -501,7 +504,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 37
+          "doc_count": 40
         },
         {
           "key": "800-899",

@@ -37,6 +37,10 @@ def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
     special_days = request.args.get('special_days', '').split('+')
+    if len(corpus) == 1:
+        corpus = corpus[0].split(' ')
+    if len(special_days) == 1:
+        special_days = special_days[0].split(' ')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))

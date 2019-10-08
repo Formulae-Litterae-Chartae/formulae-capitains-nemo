@@ -113,6 +113,11 @@
               "_type": "buenden"
             }
           },
+          "Echternach": {
+            "match": {
+              "_type": "echternach"
+            }
+          },
           "Freising": {
             "match": {
               "_type": "freising"
@@ -146,6 +151,11 @@
           "Merowinger": {
             "match": {
               "_type": "merowinger1"
+            }
+          },
+          "Mittelrheinisch": {
+            "match": {
+              "_type": "mittelrheinisch"
             }
           },
           "Mondsee": {

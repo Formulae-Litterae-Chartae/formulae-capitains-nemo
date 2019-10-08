@@ -3,49 +3,20 @@
     "bool": {
       "must": [
         {
-          "bool": {
-            "should": [
+          "span_near": {
+            "clauses": [
               {
-                "range": {
-                  "dating": {
-                    "gte": "0800-10",
-                    "lte": "0800-11"
+                "span_multi": {
+                  "match": {
+                    "wildcard": {
+                      "text": "venerabili?"
+                    }
                   }
                 }
-              },
-              {
-                "bool": {
-                  "must": [
-                    {
-                      "nested": {
-                        "path": "specific_date",
-                        "query": {
-                          "range": {
-                            "specific_date.year": {
-                              "gte": 800,
-                              "lte": 800
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "nested": {
-                        "path": "specific_date",
-                        "query": {
-                          "range": {
-                            "specific_date.month": {
-                              "gte": 10,
-                              "lte": 11
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
               }
-            ]
+            ],
+            "slop": "0",
+            "in_order": false
           }
         }
       ]

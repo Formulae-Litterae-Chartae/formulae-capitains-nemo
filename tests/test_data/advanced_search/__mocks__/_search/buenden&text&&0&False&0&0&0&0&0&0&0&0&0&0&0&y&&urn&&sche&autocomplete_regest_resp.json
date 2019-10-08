@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -51,7 +51,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -93,7 +93,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -138,7 +138,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -359,15 +359,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Sunday",
             "Monday",
             "Easter",
-            "Friday",
-            "Thursday",
             "Tuesday",
-            "Lent",
             "Wednesday",
-            "Saturday"
+            "Thursday",
+            "Sunday",
+            "Saturday",
+            "Friday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -380,7 +380,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -470,7 +470,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -521,6 +521,9 @@
         "B\u00fcnden": {
           "doc_count": 7
         },
+        "Echternach": {
+          "doc_count": 0
+        },
         "Freising": {
           "doc_count": 0
         },
@@ -540,6 +543,9 @@
           "doc_count": 0
         },
         "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
           "doc_count": 0
         },
         "Mondsee": {

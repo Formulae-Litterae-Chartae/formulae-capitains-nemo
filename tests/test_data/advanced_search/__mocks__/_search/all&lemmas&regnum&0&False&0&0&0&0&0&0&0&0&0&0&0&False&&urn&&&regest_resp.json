@@ -1,9 +1,9 @@
 {
-  "took": 15,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v5",
+        "_index": "andecavensis_v7",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v5",
+        "_index": "andecavensis_v7",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -85,6 +85,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Echternach": {
           "doc_count": 0
         },
         "Freising": {

@@ -1,5 +1,23 @@
 [
   {
+    "id": "urn:cts:formulae:echternach.wampach0130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0136.lat001"
+  },
+  {
     "id": "urn:cts:formulae:freising.bitterauf0329.lat001"
   },
   {
@@ -10,23 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:hersfeld.weirich0025.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:hersfeld.weirich0038.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0001.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0002.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0003.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0004.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:luzern.schiess0005.lat001"
   }
 ]
