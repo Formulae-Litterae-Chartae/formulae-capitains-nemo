@@ -413,6 +413,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "B\u00fcnden": {
                       "doc_count": 0
                     },
+                    "Echternach": {
+                        "doc_count": 0
+                    },
                     "Freising": {
                         "doc_count": 0
                     },
@@ -1704,6 +1707,9 @@ class TestES(Formulae_Testing):
                                                         "B\u00fcnden": {
                                                           "doc_count": 0
                                                         },
+                                                        "Echternach": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Freising": {
                                                             "doc_count": 0
                                                         },
@@ -1787,6 +1793,7 @@ class TestES(Formulae_Testing):
                                        {'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
+                                        'Echternach': {'match': {'_type': 'echternach'}},
                                         'Freising': {'match': {'_type': 'freising'}},
                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
