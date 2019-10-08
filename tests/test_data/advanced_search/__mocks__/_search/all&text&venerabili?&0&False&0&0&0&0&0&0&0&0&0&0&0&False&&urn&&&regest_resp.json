@@ -1,0 +1,579 @@
+{
+  "took": 4,
+  "timed_out": false,
+  "_shards": {
+    "total": 23,
+    "successful": 23,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 1041,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "arnulfinger_v3",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 2",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
+          "date_string": "687 02 20",
+          "comp_ort": "Villa Nielsio",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Villa Nielsio",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 687,
+              "month": 2,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0687-02-20"
+          ],
+          "min_date": "0687-02-20",
+          "days": [
+            "Lent",
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v3",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 3",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
+          "date_string": "701 01 20",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 701,
+              "month": 1,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0701-01-20"
+          ],
+          "min_date": "0701-01-20",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v3",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 21",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
+          "date_string": "750 08 17",
+          "comp_ort": "Villa in palatio Attigny",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Villa in palatio Attigny",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 750,
+              "month": 8,
+              "day": 17
+            }
+          ],
+          "all_dates": [
+            "0750-08-17"
+          ],
+          "min_date": "0750-08-17",
+          "days": [
+            "Monday"
+          ]
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0021.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v3",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 23",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
+          "date_string": "(751 vor 09 23/ 10 22, vllt sogar vor 06 20)",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0724-01-01",
+              "lte": "0751-09-23"
+            }
+          ],
+          "all_dates": [
+            "0724-01-01",
+            "0751-09-23"
+          ],
+          "min_date": "0724-01-01"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0023.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v7",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
+          "lemmas": null,
+          "regest": "Himiltrud \u00fcbertr\u00e4gt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des R\u00fcckkaufes.",
+          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 82",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
+          "date_string": "890 05 20\u2013890 11 25",
+          "comp_ort": "R\u00f6tis",
+          "autocomplete": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Himiltrud \u00fcbertr\u00e4gt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des R\u00fcckkaufes.",
+          "orig_comp_ort": "R\u00f6tis",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0890-05-20",
+              "lte": "0890-11-25"
+            }
+          ],
+          "all_dates": [
+            "0890-05-20",
+            "0890-11-25"
+          ],
+          "min_date": "0890-05-20"
+        },
+        "highlight": {
+          "text": [
+            "Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc </small><strong>venerabilis</strong><small> abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam."
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:buenden.meyer-marthaler0082.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 23",
+          "urn": "urn:cts:formulae:echternach.wampach0023.lat001",
+          "date_string": "[698\u2013714]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0698-01-01",
+              "lte": "0714-12-31"
+            }
+          ],
+          "all_dates": [
+            "0698-01-01",
+            "0714-12-31"
+          ],
+          "min_date": "0698-01-01"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0023.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 79",
+          "urn": "urn:cts:formulae:echternach.wampach0079.lat001",
+          "date_string": "[775 10 09\u2013776 10 08]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0775-10-09",
+              "lte": "0776-10-08"
+            }
+          ],
+          "all_dates": [
+            "0775-10-09",
+            "0776-10-08"
+          ],
+          "min_date": "0775-10-09"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0079.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 88",
+          "urn": "urn:cts:formulae:echternach.wampach0088.lat001",
+          "date_string": "[783 10 09\u2013784 10 08]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0783-10-09",
+              "lte": "0784-10-08"
+            }
+          ],
+          "all_dates": [
+            "0783-10-09",
+            "0784-10-08"
+          ],
+          "min_date": "0783-10-09"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0088.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 94",
+          "urn": "urn:cts:formulae:echternach.wampach0094.lat001",
+          "date_string": "[785 10 09\u2013786 10 08",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0785-10-09",
+              "lte": "0786-10-08"
+            }
+          ],
+          "all_dates": [
+            "0785-10-09",
+            "0786-10-08"
+          ],
+          "min_date": "0785-10-09"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0094.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 105",
+          "urn": "urn:cts:formulae:echternach.wampach0105.lat001",
+          "date_string": "[790 10 09\u2013791 10 08]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0790-10-09",
+              "lte": "0791-10-08"
+            }
+          ],
+          "all_dates": [
+            "0790-10-09",
+            "0791-10-08"
+          ],
+          "min_date": "0790-10-09"
+        },
+        "highlight": {
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "regest": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0105.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 4
+        },
+        "B\u00fcnden": {
+          "doc_count": 1
+        },
+        "Echternach": {
+          "doc_count": 17
+        },
+        "Freising": {
+          "doc_count": 339
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 2
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 71
+        },
+        "Hersfeld": {
+          "doc_count": 39
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 57
+        },
+        "Mittelrheinisch": {
+          "doc_count": 17
+        },
+        "Mondsee": {
+          "doc_count": 36
+        },
+        "Passau": {
+          "doc_count": 16
+        },
+        "Regensburg": {
+          "doc_count": 115
+        },
+        "Rheinisch": {
+          "doc_count": 13
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 38
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 6
+        },
+        "St. Gallen": {
+          "doc_count": 178
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 89
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 3
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 6
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 35
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 214
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 554
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 187
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 13
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 20
+    }
+  }
+}

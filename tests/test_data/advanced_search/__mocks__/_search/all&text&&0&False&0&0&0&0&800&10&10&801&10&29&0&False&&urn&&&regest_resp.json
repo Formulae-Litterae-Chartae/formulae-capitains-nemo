@@ -1,18 +1,18 @@
 {
-  "took": 27,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 409,
+    "total": 417,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Friday",
-            "Lent",
-            "Thursday",
-            "Saturday",
+            "Monday",
             "Easter",
             "Tuesday",
             "Wednesday",
+            "Thursday",
             "Sunday",
-            "Monday"
+            "Saturday",
+            "Friday",
+            "Lent"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,17 +583,17 @@
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0121.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
-          "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
-          "date_string": "a) 783-788 b) nach 792",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 121",
+          "urn": "urn:cts:formulae:echternach.wampach0121.lat001",
+          "date_string": "[801 10 09\u2013802 10 08]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -602,38 +602,32 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0783",
-              "lte": "0789"
-            },
-            {
-              "gte": "0792",
-              "lte": "0812"
+              "gte": "0801-10-09",
+              "lte": "0802-10-08"
             }
           ],
           "all_dates": [
-            "0783",
-            "0789",
-            "0792",
-            "0812"
+            "0801-10-09",
+            "0802-10-08"
           ],
-          "min_date": "0783"
+          "min_date": "0801-10-09"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0109.lat001"
+          "urn:cts:formulae:echternach.wampach0121.lat001"
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0122.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 117",
-          "urn": "urn:cts:formulae:freising.bitterauf0117.lat001",
-          "date_string": "783-802",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 122",
+          "urn": "urn:cts:formulae:echternach.wampach0122.lat001",
+          "date_string": "[801 10 09\u2013802 10 08]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -642,18 +636,18 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0783",
-              "lte": "0803"
+              "gte": "0801-10-09",
+              "lte": "0802-10-08"
             }
           ],
           "all_dates": [
-            "0783",
-            "0803"
+            "0801-10-09",
+            "0802-10-08"
           ],
-          "min_date": "0783"
+          "min_date": "0801-10-09"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0117.lat001"
+          "urn:cts:formulae:echternach.wampach0122.lat001"
         ]
       }
     ]
@@ -668,6 +662,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 8
+        },
+        "Echternach": {
           "doc_count": 8
         },
         "Freising": {
@@ -761,7 +758,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 360
+          "doc_count": 366
         },
         {
           "key": "800-899",
@@ -769,7 +766,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 43
+          "doc_count": 45
         },
         {
           "key": "900-999",

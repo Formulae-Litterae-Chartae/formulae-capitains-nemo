@@ -1,5 +1,14 @@
 [
   {
+    "id": "urn:cts:formulae:echternach.wampach0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0034.lat001"
+  },
+  {
     "id": "urn:cts:formulae:freising.bitterauf0024.lat001"
   },
   {
@@ -19,14 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001"
   }
 ]

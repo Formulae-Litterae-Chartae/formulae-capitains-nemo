@@ -1,18 +1,18 @@
 {
-  "took": 24,
+  "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 59,
+    "total": 60,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v5",
+        "_index": "andecavensis_v7",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v5",
+        "_index": "andecavensis_v7",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -295,15 +295,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Friday",
-            "Lent",
-            "Thursday",
-            "Saturday",
+            "Monday",
             "Easter",
             "Tuesday",
             "Wednesday",
+            "Thursday",
             "Sunday",
-            "Monday"
+            "Saturday",
+            "Friday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -319,7 +319,49 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 170",
+          "urn": "urn:cts:formulae:echternach.wampach0170.lat001",
+          "date_string": "[915\u2013928?]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0915-01-01",
+              "lte": "0928-12-31"
+            }
+          ],
+          "all_dates": [
+            "0915-01-01",
+            "0928-12-31"
+          ],
+          "min_date": "0915-01-01"
+        },
+        "highlight": {
+          "regest": "text",
+          "text": "text",
+          "lemmas": "text",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0170.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -359,7 +401,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -399,7 +441,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -444,7 +486,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -489,7 +531,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -545,7 +587,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -574,8 +616,8 @@
           ],
           "min_date": "0819-04-14",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -588,51 +630,6 @@
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0409.lat001"
-        ]
-      },
-      {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 412",
-          "urn": "urn:cts:formulae:freising.bitterauf0412.lat001",
-          "date_string": "819 05 06",
-          "comp_ort": "(Freising)",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": "(Freising)",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 819,
-              "month": 5,
-              "day": 6
-            }
-          ],
-          "all_dates": [
-            "0819-05-06"
-          ],
-          "min_date": "0819-05-06",
-          "days": [
-            "Friday"
-          ]
-        },
-        "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
-        },
-        "sort": [
-          "urn:cts:formulae:freising.bitterauf0412.lat001"
         ]
       }
     ]
@@ -647,6 +644,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 1
+        },
+        "Echternach": {
           "doc_count": 1
         },
         "Freising": {
@@ -756,7 +756,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 1
+          "doc_count": 2
         },
         {
           "key": ">1000",

@@ -356,7 +356,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
     # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"] and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
+    if current_app.config["SAVE_REQUESTS"]:# and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \

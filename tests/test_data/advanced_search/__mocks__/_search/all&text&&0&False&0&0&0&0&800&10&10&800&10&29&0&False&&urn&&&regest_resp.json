@@ -1,18 +1,18 @@
 {
-  "took": 28,
+  "took": 3,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 360,
+    "total": 366,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -92,7 +92,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -132,7 +132,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -172,7 +172,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -206,17 +206,17 @@
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 109",
-          "urn": "urn:cts:formulae:freising.bitterauf0109.lat001",
-          "date_string": "a) 783-788 b) nach 792",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 130",
+          "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
+          "date_string": "[789\u2013814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -225,38 +225,32 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0783",
-              "lte": "0789"
-            },
-            {
-              "gte": "0792",
-              "lte": "0812"
+              "gte": "0789-01-01",
+              "lte": "0814-12-31"
             }
           ],
           "all_dates": [
-            "0783",
-            "0789",
-            "0792",
-            "0812"
+            "0789-01-01",
+            "0814-12-31"
           ],
-          "min_date": "0783"
+          "min_date": "0789-01-01"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0109.lat001"
+          "urn:cts:formulae:echternach.wampach0130.lat001"
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 117",
-          "urn": "urn:cts:formulae:freising.bitterauf0117.lat001",
-          "date_string": "783-802",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 132",
+          "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
+          "date_string": "[771\u2013814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -265,32 +259,32 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0783",
-              "lte": "0803"
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
             }
           ],
           "all_dates": [
-            "0783",
-            "0803"
+            "0771-01-01",
+            "0814-12-31"
           ],
-          "min_date": "0783"
+          "min_date": "0771-01-01"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0117.lat001"
+          "urn:cts:formulae:echternach.wampach0132.lat001"
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0136.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 136",
-          "urn": "urn:cts:formulae:freising.bitterauf0136.lat001",
-          "date_string": "790-807",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 133",
+          "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
+          "date_string": "[771\u2013814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -299,32 +293,32 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0790",
-              "lte": "0808"
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
             }
           ],
           "all_dates": [
-            "0790",
-            "0808"
+            "0771-01-01",
+            "0814-12-31"
           ],
-          "min_date": "0790"
+          "min_date": "0771-01-01"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0136.lat001"
+          "urn:cts:formulae:echternach.wampach0133.lat001"
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0137.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 137",
-          "urn": "urn:cts:formulae:freising.bitterauf0137.lat001",
-          "date_string": "790-807",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 134",
+          "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
+          "date_string": "[711\u2013814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -333,32 +327,32 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0790",
-              "lte": "0808"
+              "gte": "0711-01-01",
+              "lte": "0814-12-31"
             }
           ],
           "all_dates": [
-            "0790",
-            "0808"
+            "0711-01-01",
+            "0814-12-31"
           ],
-          "min_date": "0790"
+          "min_date": "0711-01-01"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0137.lat001"
+          "urn:cts:formulae:echternach.wampach0134.lat001"
         ]
       },
       {
-        "_index": "freising_v5",
-        "_type": "freising",
-        "_id": "urn:cts:formulae:freising.bitterauf0145.lat001",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
           "regest": "text",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 145",
-          "urn": "urn:cts:formulae:freising.bitterauf0145.lat001",
-          "date_string": "791-802",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 135",
+          "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
+          "date_string": "[771\u2013814]",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
@@ -367,18 +361,18 @@
           "forgery": false,
           "dating": [
             {
-              "gte": "0791",
-              "lte": "0803"
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
             }
           ],
           "all_dates": [
-            "0791",
-            "0803"
+            "0771-01-01",
+            "0814-12-31"
           ],
-          "min_date": "0791"
+          "min_date": "0771-01-01"
         },
         "sort": [
-          "urn:cts:formulae:freising.bitterauf0145.lat001"
+          "urn:cts:formulae:echternach.wampach0135.lat001"
         ]
       }
     ]
@@ -394,6 +388,9 @@
         },
         "B\u00fcnden": {
           "doc_count": 5
+        },
+        "Echternach": {
+          "doc_count": 6
         },
         "Freising": {
           "doc_count": 21
@@ -486,7 +483,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 344
+          "doc_count": 350
         },
         {
           "key": "800-899",

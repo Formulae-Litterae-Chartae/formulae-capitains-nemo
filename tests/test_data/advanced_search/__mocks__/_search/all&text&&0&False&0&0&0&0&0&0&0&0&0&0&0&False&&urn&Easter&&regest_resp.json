@@ -1,9 +1,9 @@
 {
-  "took": 7,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Friday",
-            "Lent",
-            "Thursday",
-            "Saturday",
+            "Monday",
             "Easter",
             "Tuesday",
             "Wednesday",
+            "Thursday",
             "Sunday",
-            "Monday"
+            "Saturday",
+            "Friday",
+            "Lent"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v5",
+        "_index": "buenden_v7",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Friday",
-            "Lent",
-            "Thursday",
-            "Saturday",
+            "Monday",
             "Easter",
             "Tuesday",
             "Wednesday",
+            "Thursday",
             "Sunday",
-            "Monday"
+            "Saturday",
+            "Friday",
+            "Lent"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -596,14 +596,14 @@
         ]
       },
       {
-        "_index": "merowinger3_v3",
+        "_index": "merowinger5_v5",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Dagobert I. ernennt seinen Thesaurar Desiderius zum Bischof von Cahors.",
+          "regest": "text",
           "title": "Die Urkunden der Merowinger (Eds. K\u00f6lzer/Br\u00fchl) Nr. 38",
           "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "date_string": "(630) 04 08 (Ostern)",
@@ -634,7 +634,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -672,7 +672,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -710,7 +710,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -748,7 +748,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -786,7 +786,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -824,7 +824,7 @@
         ]
       },
       {
-        "_index": "salzburg_v5",
+        "_index": "salzburg_v7",
         "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -874,6 +874,9 @@
         },
         "B\u00fcnden": {
           "doc_count": 2
+        },
+        "Echternach": {
+          "doc_count": 0
         },
         "Freising": {
           "doc_count": 1

@@ -1,18 +1,222 @@
 {
-  "took": 84,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 44,
+    "total": 50,
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v5",
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 130",
+          "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
+          "date_string": "[789\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0789-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0789-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0789-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0130.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 132",
+          "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0132.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 133",
+          "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0133.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 134",
+          "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
+          "date_string": "[711\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0711-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0711-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0711-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0134.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 135",
+          "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0135.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 136",
+          "urn": "urn:cts:formulae:echternach.wampach0136.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0136.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -49,7 +253,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -86,7 +290,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -120,7 +324,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -152,210 +356,6 @@
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0025.lat001"
         ]
-      },
-      {
-        "_index": "hersfeld_v5",
-        "_type": "hersfeld",
-        "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 38",
-          "urn": "urn:cts:formulae:hersfeld.weirich0038.lat001",
-          "date_string": "[9. Jahrhundert]",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0799-12-31",
-              "lte": "0899-12-31"
-            }
-          ],
-          "all_dates": [
-            "0799-12-31",
-            "0899-12-31"
-          ],
-          "min_date": "0799-12-31"
-        },
-        "sort": [
-          "urn:cts:formulae:hersfeld.weirich0038.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v5",
-        "_type": "luzern",
-        "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.1",
-          "urn": "urn:cts:formulae:luzern.schiess0001.lat001",
-          "date_string": "Vor 840",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0800",
-              "lte": "0841"
-            }
-          ],
-          "all_dates": [
-            "0800",
-            "0841"
-          ],
-          "min_date": "0800"
-        },
-        "sort": [
-          "urn:cts:formulae:luzern.schiess0001.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v5",
-        "_type": "luzern",
-        "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.2",
-          "urn": "urn:cts:formulae:luzern.schiess0002.lat001",
-          "date_string": "Vor 840",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0800",
-              "lte": "0841"
-            }
-          ],
-          "all_dates": [
-            "0800",
-            "0841"
-          ],
-          "min_date": "0800"
-        },
-        "sort": [
-          "urn:cts:formulae:luzern.schiess0002.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v5",
-        "_type": "luzern",
-        "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.3",
-          "urn": "urn:cts:formulae:luzern.schiess0003.lat001",
-          "date_string": "Vor 840",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0800",
-              "lte": "0841"
-            }
-          ],
-          "all_dates": [
-            "0800",
-            "0841"
-          ],
-          "min_date": "0800"
-        },
-        "sort": [
-          "urn:cts:formulae:luzern.schiess0003.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v5",
-        "_type": "luzern",
-        "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.4",
-          "urn": "urn:cts:formulae:luzern.schiess0004.lat001",
-          "date_string": "Vor 840",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0800",
-              "lte": "0841"
-            }
-          ],
-          "all_dates": [
-            "0800",
-            "0841"
-          ],
-          "min_date": "0800"
-        },
-        "sort": [
-          "urn:cts:formulae:luzern.schiess0004.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v5",
-        "_type": "luzern",
-        "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
-        "_score": null,
-        "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
-          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.5",
-          "urn": "urn:cts:formulae:luzern.schiess0005.lat001",
-          "date_string": "Vor 840",
-          "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0800",
-              "lte": "0841"
-            }
-          ],
-          "all_dates": [
-            "0800",
-            "0841"
-          ],
-          "min_date": "0800"
-        },
-        "sort": [
-          "urn:cts:formulae:luzern.schiess0005.lat001"
-        ]
       }
     ]
   },
@@ -370,6 +370,9 @@
         },
         "B\u00fcnden": {
           "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 6
         },
         "Freising": {
           "doc_count": 3
@@ -462,7 +465,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 18
+          "doc_count": 24
         },
         {
           "key": "800-899",

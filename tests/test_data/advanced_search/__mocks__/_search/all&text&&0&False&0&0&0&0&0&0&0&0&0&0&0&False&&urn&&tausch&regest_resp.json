@@ -1,9 +1,9 @@
 {
-  "took": 11,
+  "took": 2,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
@@ -96,7 +96,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
@@ -138,7 +138,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
@@ -180,7 +180,7 @@
         ]
       },
       {
-        "_index": "freising_v5",
+        "_index": "freising_v7",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
@@ -222,7 +222,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
         "_score": null,
@@ -267,7 +267,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -312,7 +312,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
         "_score": null,
@@ -358,7 +358,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
         "_score": null,
@@ -387,8 +387,8 @@
           ],
           "min_date": "0948-03-30",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -404,7 +404,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v5",
+        "_index": "hersfeld_v7",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
         "_score": null,
@@ -433,8 +433,8 @@
           ],
           "min_date": "0948-03-30",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -461,6 +461,9 @@
           "doc_count": 0
         },
         "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Echternach": {
           "doc_count": 0
         },
         "Freising": {

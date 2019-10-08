@@ -1,32 +1,32 @@
 {
-  "took": 13,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 22,
-    "successful": 22,
+    "total": 23,
+    "successful": 23,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 725,
+    "total": 741,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der illuster vir Pippin und seine illustra matrona Plectrud tauschen den Ort Parois (d\u00e9p. Meuse, cant. Clermont) mit dem Bischof Armoin von Verdun und dem Archidiakon Anglebert von St. Vanne gegen den Ort Cumi\u00e8res (d\u00e9p. Meuse, cant. Charny), den Pippin und Plectrud vorher an St. Vanne geschenkt hatten.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 3",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
           "date_string": "701 01 20",
           "comp_ort": " ",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der illuster vir Pippin und seine illustra matrona Plectrud tauschen den Ort Parois (d\u00e9p. Meuse, cant. Clermont) mit dem Bischof Armoin von Verdun und dem Archidiakon Anglebert von St. Vanne gegen den Ort Cumi\u00e8res (d\u00e9p. Meuse, cant. Charny), den Pippin und Plectrud vorher an St. Vanne geschenkt hatten.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -49,21 +49,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der illuster vir Pippin, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud, Tochter des verstorbenen Huogobertus, schenken dem auf ihrem Besitz errichteten Kloster Echternach, zu dessen Abt sie den Bischof Willibrord eingesetzt haben, den Teil von Echternach, der im Besitz des verstorbenen Herzogs Theotar war und den dessen verstorbener Sohn Theodard ihnen \u00fcbereignet hatte, mit dem Ziel, da\u00df das Kloster unter dem Schutz Pippins und seiner Erben bleibe.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 4",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
           "date_string": "706 05 13(Christi Himmelfahrt)",
           "comp_ort": "Gaimundas",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der illuster vir Pippin, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud, Tochter des verstorbenen Huogobertus, schenken dem auf ihrem Besitz errichteten Kloster Echternach, zu dessen Abt sie den Bischof Willibrord eingesetzt haben, den Teil von Echternach, der im Besitz des verstorbenen Herzogs Theotar war und den dessen verstorbener Sohn Theodard ihnen \u00fcbereignet hatte, mit dem Ziel, da\u00df das Kloster unter dem Schutz Pippins und seiner Erben bleibe.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Gaimundas",
           "forgery": false,
           "specific_date": [
@@ -86,21 +86,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der illuster vir Pippin, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud, Tochter des verstorbenen Huogobertus, best\u00e4tigen dem Bischof Willibrord den Besitz des auf ihrem Gut errichteten Klosters Echternach und verleihen freie Abtwahl unter der Bedingung, da\u00df der Gew\u00e4hlte ihnen und ihren Erben die Treue halte und unter ihrem Schutz verbleibe.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 5",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
           "date_string": "706 05 13 (Christi Himmelfahrt)",
           "comp_ort": "Gamundias",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der illuster vir Pippin, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud, Tochter des verstorbenen Huogobertus, best\u00e4tigen dem Bischof Willibrord den Besitz des auf ihrem Gut errichteten Klosters Echternach und verleihen freie Abtwahl unter der Bedingung, da\u00df der Gew\u00e4hlte ihnen und ihren Erben die Treue halte und unter ihrem Schutz verbleibe.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Gamundias",
           "forgery": false,
           "specific_date": [
@@ -123,21 +123,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der illuster vir Pippin, dux, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud (Blittrudis ), Tochter des Huogobertus, schenken dem Bischof Willibrord oratorium und cellula in Susteren, die Plectrud von Alberich und Haderich gekauft hatte, damit er dort eine geistliche Gemeinschaft einrichte. Sie best\u00e4tigen den fratres f\u00fcr den Fall von Willibrords Tod die freie Abtwahl unter der Bedingung, da\u00df der Gew\u00e4hlte ihnen, ihrem Sohn Grimoald und dessen S\u00f6hnen, sowie den S\u00f6hnen Drogos, ihren Enkeln, die Treue halte und unter dem Schutz der Aussteller, Grimoalds und seiner S\u00f6hne sowie der S\u00f6hne Drogos, ihrer Enkel, bleibe. Da Pippin krank ist, beauftragt er Plectrud, die Urkunde zu firmieren.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 6",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "date_string": "714 03 02",
           "comp_ort": "Villa Bakel (?)",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der illuster vir Pippin, dux, Sohn des verstorbenen Ansegisel, und seine illustris matrona Plectrud (Blittrudis ), Tochter des Huogobertus, schenken dem Bischof Willibrord oratorium und cellula in Susteren, die Plectrud von Alberich und Haderich gekauft hatte, damit er dort eine geistliche Gemeinschaft einrichte. Sie best\u00e4tigen den fratres f\u00fcr den Fall von Willibrords Tod die freie Abtwahl unter der Bedingung, da\u00df der Gew\u00e4hlte ihnen, ihrem Sohn Grimoald und dessen S\u00f6hnen, sowie den S\u00f6hnen Drogos, ihren Enkeln, die Treue halte und unter dem Schutz der Aussteller, Grimoalds und seiner S\u00f6hne sowie der S\u00f6hne Drogos, ihrer Enkel, bleibe. Da Pippin krank ist, beauftragt er Plectrud, die Urkunde zu firmieren.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Villa Bakel (?)",
           "forgery": false,
           "specific_date": [
@@ -161,21 +161,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der sacerdos Hugo, sein Bruder, der illuster vir Herzog Arnulf, sowie Pippin und Godefridus schenken dem Abt Liutbertus der St. Apostelkirche bei Metz als Gegenleistung f\u00fcr die \u00dcberlassung einer Grabstelle f\u00fcr ihren Vater Drogo die villa Iudiacum mit Zubeh\u00f6r",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 8",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
           "date_string": "715 06 24 oder 25",
           "comp_ort": "Metz",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der sacerdos Hugo, sein Bruder, der illuster vir Herzog Arnulf, sowie Pippin und Godefridus schenken dem Abt Liutbertus der St. Apostelkirche bei Metz als Gegenleistung f\u00fcr die \u00dcberlassung einer Grabstelle f\u00fcr ihren Vater Drogo die villa Iudiacum mit Zubeh\u00f6r",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Metz",
           "forgery": false,
           "specific_date": [
@@ -196,8 +196,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -205,21 +205,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Karl (Martell) schenkt dem Kloster Echternach seinen Besitz in Bollendorf, den er von seinem Vater Pippin geerbt hat.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 9",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
           "date_string": "718 02 23",
           "comp_ort": "villa Fidiacus",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Karl (Martell) schenkt dem Kloster Echternach seinen Besitz in Bollendorf, den er von seinem Vater Pippin geerbt hat.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "villa Fidiacus",
           "forgery": false,
           "specific_date": [
@@ -234,8 +234,8 @@
           ],
           "min_date": "0718-02-23",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -243,21 +243,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt an das Kloster im castrum Utrecht, dem Erzbischof Willibrord vorsteht, alles, was er oder der fiscus innerhalb und au\u00dferhalb der Mauern des castrum besitzt, und die villa Vechten.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 12",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
           "date_string": "723 01 01",
           "comp_ort": "Villa Herstal",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt an das Kloster im castrum Utrecht, dem Erzbischof Willibrord vorsteht, alles, was er oder der fiscus innerhalb und au\u00dferhalb der Mauern des castrum besitzt, und die villa Vechten.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Villa Herstal",
           "forgery": false,
           "specific_date": [
@@ -280,21 +280,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt an die St. Salvatorkirche in pago Batuvua (in Utrecht) zu H\u00e4nden des Bischofs Willibrord die villa Elst in Merm. Die villa hatte einst Everhardus besessen, K\u00f6nig Childebert (III.) zog sie aber wegen dessen Untreue f\u00fcr den fiscus ein und schenkte sie Pippin, der sie an Karl vererbte.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 13",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
           "date_string": "726 06 oder 07 09",
           "comp_ort": "Castrum Z\u00fclpich",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt an die St. Salvatorkirche in pago Batuvua (in Utrecht) zu H\u00e4nden des Bischofs Willibrord die villa Elst in Merm. Die villa hatte einst Everhardus besessen, K\u00f6nig Childebert (III.) zog sie aber wegen dessen Untreue f\u00fcr den fiscus ein und schenkte sie Pippin, der sie an Karl vererbte.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Castrum Z\u00fclpich",
           "forgery": false,
           "specific_date": [
@@ -324,21 +324,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt dem Kloster St. Denis die villa Clichy im Gau von Paris mit allem Zubeh\u00f6r, worunter auch Weinberge.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 14",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
           "date_string": "741 09 17",
           "comp_ort": "Villa in palatio Quierzy",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der inluster vir Hausmeier Karl (Martell), Sohn des verstorbenen Pippin, schenkt dem Kloster St. Denis die villa Clichy im Gau von Paris mit allem Zubeh\u00f6r, worunter auch Weinberge.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Villa in palatio Quierzy",
           "forgery": false,
           "specific_date": [
@@ -361,21 +361,21 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
         "_source": {
           "text": "text",
           "lemmas": "text",
-          "regest": "Der Hausmeier Karlmann (illuster vir Signumzeile), Sohn des verstorbenen Karl, schenkt dem Abt Anglinus f\u00fcr das Kloster Stavelot/Malmedy mehrere villae, die z. T im Gau Condroz liegen. Anglinus soll zeitlebens die Nutzung dieser G\u00fcter haben, nach seinem Tod soll sein Neffe Gotbaldus die villa Vuadelino per precariam erhalten. Au\u00dferdem schenkt Karlmann zwei Orte mit vier namentlich genannten H\u00f6rigen ex genere Condustrensi.",
+          "regest": "text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 15",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
           "date_string": "(746 oder 747?) 06 06",
           "comp_ort": "Villa Wasseiges",
           "autocomplete": "text",
           "autocomplete_lemmas": "text",
-          "autocomplete_regest": "Der Hausmeier Karlmann (illuster vir Signumzeile), Sohn des verstorbenen Karl, schenkt dem Abt Anglinus f\u00fcr das Kloster Stavelot/Malmedy mehrere villae, die z. T im Gau Condroz liegen. Anglinus soll zeitlebens die Nutzung dieser G\u00fcter haben, nach seinem Tod soll sein Neffe Gotbaldus die villa Vuadelino per precariam erhalten. Au\u00dferdem schenkt Karlmann zwei Orte mit vier namentlich genannten H\u00f6rigen ex genere Condustrensi.",
+          "autocomplete_regest": "text",
           "orig_comp_ort": "Villa Wasseiges",
           "forgery": false,
           "specific_date": [
@@ -396,8 +396,8 @@
           ],
           "min_date": "0746-06-06",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -417,6 +417,9 @@
         },
         "B\u00fcnden": {
           "doc_count": 3
+        },
+        "Echternach": {
+          "doc_count": 16
         },
         "Freising": {
           "doc_count": 104
@@ -509,7 +512,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 692
+          "doc_count": 708
         },
         {
           "key": "800-899",
