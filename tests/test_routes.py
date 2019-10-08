@@ -853,7 +853,7 @@ class TestForms(Formulae_Testing):
     def test_validate_success_advanced_search_form(self):
         """ Ensure that a form with valid data validates"""
         form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
-                                  day_start=12, year_end=700, month_end="01", day_end=12)
+                                  day_start=12, year_end=700, month_end="01", day_end=12, special_days=['Easter Tuesday'])
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
         form = AdvancedSearchForm(q="regnum", slop=500)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
