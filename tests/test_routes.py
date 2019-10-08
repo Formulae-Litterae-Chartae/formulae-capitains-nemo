@@ -468,7 +468,6 @@ class TestIndividualRoutes(Formulae_Testing):
                 }}
         mock_search.return_value = [[], 0, aggs]
         with self.client as c:
-
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             response = c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
@@ -497,9 +496,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
             params['corpus'] = 'chartae'
+            params['special_days'] = 'Easter%2BTuesday'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
