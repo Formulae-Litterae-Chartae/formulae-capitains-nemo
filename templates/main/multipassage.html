@@ -126,7 +126,7 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if current_user.project_team == False and 'andecavensis' in text.objectId  %}
+            {% if not current_user.project_team and 'andecavensis' in text.objectId  %}
                 {% if loop.last %}
                 <section class="col-sm no-copy">
                 {% else %}
