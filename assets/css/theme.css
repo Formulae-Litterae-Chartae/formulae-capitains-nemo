@@ -643,3 +643,7 @@ div.transcription p {
     padding-left: 10px;
     margin-left: 10px;
 }
+
+.indented-paragraph {
+    margin-left: 1em;
+}
