@@ -202,7 +202,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
-            self.assertIn(b'Encrypt 8 0 R', r.get_data())
+            self.assertIn(b'Encrypt 12 0 R', r.get_data())
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
 
@@ -392,7 +392,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
-            self.assertIn(b'Encrypt 8 0 R', r.get_data())
+            self.assertIn(b'Encrypt 12 0 R', r.get_data())
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
 
