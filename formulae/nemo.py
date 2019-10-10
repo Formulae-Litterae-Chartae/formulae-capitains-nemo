@@ -22,6 +22,8 @@ from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate,
 from reportlab.lib.pdfencrypt import EncryptionFlowable
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
 
 
@@ -113,6 +115,16 @@ class NemoFormulae(Nemo):
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
+        self.register_font()
+
+    def register_font(self):
+        """ Registers the LiberationSerif font to be used in producing PDFs"""
+        pdfmetrics.registerFont(TTFont('Liberation', 'LiberationSerif-Regular.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationBd', 'LiberationSerif-Bold.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationIt', 'LiberationSerif-Italic.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationBI', 'LiberationSerif-BoldItalic.ttf'))
+        pdfmetrics.registerFontFamily('Liberation', normal='Liberation', bold='LiberationBd', italic='LiberationIt',
+                                      boldItalic='LiberationBI')
 
     def get_all_corpora(self):
         """ A convenience function to return all sub-corpora in all collections
@@ -918,10 +930,12 @@ class NemoFormulae(Nemo):
         custom_style = copy(sample_style_sheet['Normal'])
         custom_style.name = 'Notes'
         custom_style.fontSize = 8
+        custom_style.fontName = 'Liberation'
         cit_style = copy(sample_style_sheet['Normal'])
         cit_style.name = 'DocCitation'
         cit_style.fontSize = 8
         cit_style.alignment = 1
+        sample_style_sheet['BodyText'].fontName = 'Liberation'
         encryption = EncryptionFlowable(userPassword='',
                                         ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
                                         canPrint=1,
