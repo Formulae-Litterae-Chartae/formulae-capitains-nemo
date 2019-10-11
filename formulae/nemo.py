@@ -297,12 +297,7 @@ class NemoFormulae(Nemo):
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
         if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
-        if len(data['collections']['members']) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        elif len(data['collections']['members']) == 1:
+        if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
         return data
@@ -380,10 +375,7 @@ class NemoFormulae(Nemo):
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
         if len(r) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
