@@ -169,6 +169,8 @@ class NemoFormulae(Nemo):
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
             if par.lstrip('0') == '':
                 par = _('(Titel)')
+            elif 'computus' in par:
+                par = '057(Computus)'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
         return par, metadata, m
@@ -396,6 +398,9 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
+                    work_name = par.lstrip('0') if type(par) is str else ''
+                    if 'Computus' in work_name:
+                        work_name = '(Computus)'
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
@@ -403,7 +408,7 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': par.lstrip('0') if type(par) is str else ''}
+                              'name': work_name}
                     r[par]["versions"][key].append(metadata)
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
@@ -448,11 +453,10 @@ class NemoFormulae(Nemo):
         edition_names = {}
         full_edition_names = {}
         template = "main::sub_collection_mv.html"
-        list_of_readable_descendants = list(self.resolver.getMetadata(collection.id).readableDescendants)
-        list_of_readable_descendants.sort(key=lambda x: int(re.sub(r'.*?(\d+)\Z', r'\1', x.parent.id)))
+        list_of_readable_descendants = self.all_texts[collection.id]
 
-        if (('markulf' in objectId) or ('andecavensis' in objectId)):
-            for m in list_of_readable_descendants:
+        if 'markulf' in objectId or 'andecavensis' in objectId:
+            for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
                     title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
