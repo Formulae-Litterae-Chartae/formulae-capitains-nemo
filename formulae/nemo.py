@@ -35,7 +35,8 @@ class NemoFormulae(Nemo):
         ("/lang/<code>", "r_set_language", ["GET", "POST"]),
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
-        ("/contact", "r_contact", ["GET"])
+        ("/contact", "r_contact", ["GET"]),
+        ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"])
     ]
     SEMANTIC_ROUTES = [
         "r_collection", "r_references", "r_multipassage"
@@ -719,6 +720,14 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::contact.html"}
+
+    def r_man_desc(self, manuscript):
+        """ Route for manuscript descriptions
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::{}_desc.html".format(manuscript)}
 
     def extract_notes(self, text):
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

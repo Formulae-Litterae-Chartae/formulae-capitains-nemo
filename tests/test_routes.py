@@ -178,6 +178,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
     def test_authorized_project_member(self):
 
@@ -271,6 +273,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('viewer::miradorviewer.html')
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -343,6 +347,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
 
     @patch("formulae.search.routes.advanced_query_index")
