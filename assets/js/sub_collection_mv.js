@@ -1,6 +1,3 @@
-$('.list-group-item.flex-column').css('max-height', '80vh');
-$('.list-group-item.flex-column').css('width', '15%');
-
 
 $(function() {
     $('.card.search-hit').click(function() {

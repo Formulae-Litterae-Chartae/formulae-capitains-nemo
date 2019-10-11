@@ -647,3 +647,8 @@ div.transcription p {
 .indented-paragraph {
     margin-left: 1em;
 }
+
+.mv-rows {
+    max-height: 80vh;
+    width: 15%;
+}
