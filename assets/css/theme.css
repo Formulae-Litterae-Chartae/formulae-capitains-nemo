@@ -604,3 +604,7 @@ div.transcription p {
     font-size: larger;
     margin-bottom: .25em;
 }
+
+.indented-paragraph {
+    margin-left: 1em;
+}

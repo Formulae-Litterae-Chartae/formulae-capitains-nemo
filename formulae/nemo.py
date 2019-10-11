@@ -356,11 +356,16 @@ class NemoFormulae(Nemo):
                     par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
                     if par.lstrip('0') == '':
                         par = _('(Titel)')
+                    elif 'computus' in par:
+                        par = '057(Computus)'
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
+                    work_name = par.lstrip('0') if type(par) is str else ''
+                    if 'Computus' in work_name:
+                        work_name = '(Computus)'
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
@@ -368,7 +373,7 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': par.lstrip('0') if type(par) is str else ''}
+                              'name': work_name}
                     r[par]["versions"][key].append(metadata)
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],

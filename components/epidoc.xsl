@@ -178,10 +178,11 @@
     
     
     <xsl:template match="t:p">
-        <p>
+        <xsl:element name="p">
+            <xsl:if test="@style='subparagraph'"><xsl:attribute name="class">indented-paragraph</xsl:attribute></xsl:if>
             <xsl:apply-templates select="@urn" />
             <xsl:apply-templates/>
-        </p>
+        </xsl:element>
     </xsl:template>
     
     

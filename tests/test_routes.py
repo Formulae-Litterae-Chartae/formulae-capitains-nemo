@@ -237,7 +237,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            self.assertRegex(r.get_data(as_text=True), 'Lesen:.+\[Edition\].+\[Deutsche Übersetzung\]')
+            self.assertRegex(r.get_data(as_text=True), '\[Edition\].+\[Deutsche Übersetzung\].+Transkriptionen:')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
