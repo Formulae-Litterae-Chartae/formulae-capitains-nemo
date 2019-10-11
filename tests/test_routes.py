@@ -205,6 +205,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(b'Encrypt 12 0 R', r.get_data())
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
     def test_authorized_project_member(self):
 
@@ -315,6 +317,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertNotIn(b'Encrypt', r.get_data())
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -395,6 +399,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(b'Encrypt 12 0 R', r.get_data())
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            c.get('manuscript_desc/fulda_d1', follow_redirects=True)
+            self.assertTemplateUsed('main::fulda_d1_desc.html')
 
 
     @patch("formulae.search.routes.advanced_query_index")
