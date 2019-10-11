@@ -28,12 +28,12 @@
         {{ build_column(collections.readable.translations) }}
         {{ build_column(collections.readable.transcriptions) }}
     </ul>
-{% endif %}
 </div>
-<footer>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
-</footer>
+{% endif %}
+{% endblock %}
+
+{% block additionalscript %}
+<script src="{{url_for('InstanceNemo.static', filename='js/sub_collection_mv.js')}}"></script>
 {% endblock %}
 
 {% macro build_column(type_dict) %}
