@@ -7,6 +7,7 @@ from flask_nemo import Nemo
 from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
+from MyCapytain.resources.collections.cts import XmlCtsTextgroupMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
@@ -67,12 +68,13 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon', 'urn:cts:formulae:freising',
-                        'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch', 'urn:cts:formulae:mondsee',
-                        'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
-                        'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen',
-                        'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich'] #, 'urn:cts:formulae:andecavensis.form001'] + ['urn:cts:formulae:andecavensis']
+    OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon',
+                        'urn:cts:formulae:freising', 'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel',
+                        'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch',
+                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg',
+                        'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden',
+                        'urn:cts:formulae:zuerich']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg',
@@ -293,12 +295,9 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if len(data['collections']['members']) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        elif len(data['collections']['members']) == 1:
+        if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
+            return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
+        if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         data['template'] = "main::sub_collections.html"
         return data
@@ -352,11 +351,16 @@ class NemoFormulae(Nemo):
                     par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
                     if par.lstrip('0') == '':
                         par = _('(Titel)')
+                    elif 'computus' in par:
+                        par = '057(Computus)'
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                     metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
+                    work_name = par.lstrip('0') if type(par) is str else ''
+                    if 'Computus' in work_name:
+                        work_name = '(Computus)'
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               # short_regest will change to str(m.get_cts_property('short-regest')) and
                               # regest will change to str(m.get_description()) once I have reconverted the texts
@@ -364,17 +368,14 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': par.lstrip('0') if type(par) is str else ''}
+                              'name': work_name}
                     r[par]["versions"][key].append(metadata)
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
         if len(r) == 0:
-            if "andecavensis" in objectId:
-                flash(_('Die Formulae Andecavensis sind in der Endredaktion und werden bald zur Verfügung stehen.'))
-            else:
-                flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
         return {
             "template": template,
             "collections": {
