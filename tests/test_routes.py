@@ -737,21 +737,58 @@ class TestFunctions(Formulae_Testing):
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             data = self.nemo.r_corpus_mv('urn:cts:formulae:markulf')
-            self.assertEqual(data['collections']['readable'], {
-            'editions':
-                [
-                    {'name': 'lat001', 'edition_name': 'Edition', 'full_edition_name': '', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.lat001']]}
-                ],
-            'translations': [],
-            'transcriptions': [
-                    {'name': 'ko2', 'edition_name': 'Ko2', 'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, Fabr. 84 (Ko2)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.ko2']]},
-                    {'name': 'le1', 'edition_name': 'Le1', 'full_edition_name': 'Leiden BPL 114 (Le1)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.le1']]},
-                    {'name': 'm4', 'edition_name': 'M4', 'full_edition_name': 'München BSB clm 4650 (M4)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.m4']]},
-                    {'name': 'p3', 'edition_name': 'P3', 'full_edition_name': 'Paris BNF 2123 (P3)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p3']]},
-                    {'name': 'p12', 'edition_name': 'P12', 'full_edition_name': 'Paris BNF 4627 (P12)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p12']]},
-                    {'name': 'p16', 'edition_name': 'P16', 'full_edition_name': 'Paris BNF 10756 (P16)', 'titles': ['Markulf I,3'], 'links': [['form003'], ['urn:cts:formulae:markulf.form003.p16']]}
-                ]
-            })
+            self.assertEqual(data['collections']['readable'],
+                             {'editions': [{'edition_name': 'Edition',
+                                            'full_edition_name': '',
+                                            'links': [['form003'],
+                                                      ['urn:cts:formulae:markulf.form003.lat001']],
+                                            'name': 'lat001',
+                                            'regesten': [''],
+                                            'titles': ['Markulf I,3']}],
+                              'transcriptions': [{'edition_name': 'Ko2',
+                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                                                       'Fabr. 84 (Ko2)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.ko2']],
+                                                  'name': 'ko2',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'Le1',
+                                                  'full_edition_name': 'Leiden BPL 114 (Le1)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.le1']],
+                                                  'name': 'le1',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'M4',
+                                                  'full_edition_name': 'München BSB clm 4650 (M4)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.m4']],
+                                                  'name': 'm4',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P3',
+                                                  'full_edition_name': 'Paris BNF 2123 (P3)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p3']],
+                                                  'name': 'p3',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P12',
+                                                  'full_edition_name': 'Paris BNF 4627 (P12)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p12']],
+                                                  'name': 'p12',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P16',
+                                                  'full_edition_name': 'Paris BNF 10756 (P16)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p16']],
+                                                  'name': 'p16',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']}],
+                              'translations': []})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
