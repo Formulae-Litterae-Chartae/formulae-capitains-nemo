@@ -45,12 +45,17 @@
         <div class="card border-light">
             {% for name in values['links'][0]%}
                 <div class="card search-hit">
-                    {% if values['titles'][loop.index-1] %}<h5><p>{{ values['titles'][loop.index-1] }}</p></h5>{% endif %}
+                    {% if 'regesten' in values and values['regesten'][loop.index0] %}
+                    {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
                     <div class="card-body p-2 search-hit-menu">
-                        <p>
-                            <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _("Lesen") }}</a>
-                        </p>
+                        {{ values['regesten'][loop.index0] }}
                     </div>
+                    {% else %}
+                    {% if values['titles'][loop.index-1] %}<h5>{{ values['titles'][loop.index-1] }}</h5>{% endif %}
+                    <div class="card-body p-2 search-hit-menu">
+                        <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Lesen') }}</a>
+                    </div>
+                    {% endif %}
                 </div>
 
             {% endfor %}

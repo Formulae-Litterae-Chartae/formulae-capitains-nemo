@@ -453,6 +453,7 @@ class NemoFormulae(Nemo):
         titles = {}
         edition_names = {}
         full_edition_names = {}
+        regesten = {}
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = self.all_texts[collection.id]
 
@@ -464,6 +465,7 @@ class NemoFormulae(Nemo):
                     form = str(m.id).split(".")[-2]
                     edition_name = ed_trans_mapping.get(edition, edition).title()
                     full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+                    regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
                         titles[edition] = [title]
@@ -471,10 +473,12 @@ class NemoFormulae(Nemo):
                         forms[edition] = [form]
                         edition_names[edition] = edition_name
                         full_edition_names[edition] = full_edition_name
+                        regesten[edition] = [regest]
                     else:
                         titles[edition].append(title)
                         translations[edition].append(m.id)
                         forms[edition].append(form)
+                        regesten[edition].append(regest)
             for k, v in translations.items():
                 if k == 'lat001':
                     r['editions'].append({
@@ -483,6 +487,7 @@ class NemoFormulae(Nemo):
                         "full_edition_name": full_edition_names[k],
                         "titles": titles[k],
                         "links": [forms[k], v],
+                        "regesten": regesten[k]
                     })
                 elif k == 'deu001':
                     r['translations'].append({
@@ -491,6 +496,7 @@ class NemoFormulae(Nemo):
                         "full_edition_name": full_edition_names[k],
                         "titles": titles[k],
                         "links": [forms[k], v],
+                        "regesten": regesten[k]
                     })
                 else:
                     r['transcriptions'].append({
@@ -499,6 +505,7 @@ class NemoFormulae(Nemo):
                         "full_edition_name": full_edition_names[k],
                         "titles": titles[k],
                         "links": [forms[k], v],
+                        "regesten": regesten[k]
                     })
 
             r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
