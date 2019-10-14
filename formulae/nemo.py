@@ -159,8 +159,10 @@ class NemoFormulae(Nemo):
                 else:
                     full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
             par = '-'.join(par)
-            if 'n' in par:
-                par = 'z' + par
+            if par == 'na':
+                par = '1' + par
+            elif 'n' in par:
+                par = '2' + par
             par = (par, full_par)
             metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
         elif "elexicon" in m.id:
