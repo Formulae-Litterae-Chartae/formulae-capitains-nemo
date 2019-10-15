@@ -412,6 +412,7 @@ nav .dropdown:hover .dropdown-menu {
     border-right: 1px solid #ddd;
     padding-left: 0.5rem;
     display: table-cell;
+    font-weight: bold;
 }
 
 #search-stat-table .table-row {
