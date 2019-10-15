@@ -6,32 +6,32 @@
     {% if total_results > 0 %}
     <div class="btn-group dropright">
          <a type="button" id="searchStats" class="btn btn-link pl-1 h1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer') }} <span id="searchTotal" title="{{ _('Mehr Statistiken') }}"><i class="fas fa-question-circle"></i></span></h1>
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer von') }} <span id="aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumente') }} <span id="searchTotal" title="{{ _('Mehr Statistiken') }}"><i class="fas fa-chart-pie"></i><i class="fas fa-chart-bar"></i>Σ</span></h1>
         </a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
-            <table id="search-stat-table">
-            <tr>
-            <th>{{ _('Corpus') }}</th>
-            <th>{{ _('Datierung') }}</th>
-            </tr>
-            <tr>
-                <td>
-                {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
-                {% if corp_hits['doc_count'] != 0 %}
-                <span class="dropdown-item-text search-stat">{{ search_corp }}: {{ corp_hits['doc_count'] }}</span>
-                {% endif %}
-                {% endfor %}
-                </td>
-                <td>
-                {% if aggs['no_date']['doc_count'] != 0 %}<span class="dropdown-item-text search-stat">{{ _('k.A.') }}: {{ aggs['no_date']['doc_count'] }}</span>{% endif %}
-                {% for cent in aggs['range']['buckets'] %}
-                {% if cent['doc_count'] != 0 %}
-                <span class="dropdown-item-text search-stat">{{ cent['key'] }}: {{ cent['doc_count'] }}</span>
-                {% endif %}
-                {% endfor %}
-                </td>
-            </tr>
-            </table>
+            <div id="search-stat-table">
+            <div class="table-header">
+                <div class="table-cell">{{ _('Corpus') }}</div>
+                <div class="table-cell">{{ _('Datierung') }}</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="stat-sub-table">
+                    {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="table-cell">
+                    <div class="stat-sub-table">
+                    {% if aggs['no_date']['doc_count'] != 0 %}<div class="stat-sub-row"><div class="stat-sub-cell">{{ _('k.A.') }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ aggs['no_date']['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente ohne Datum')}}">({{ aggs['all_docs']['no_date']['doc_count'] }})</div></div>{% endif %}
+                    {% for cent in aggs['range']['buckets'] %}
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ cent['key'] }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ cent['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente in dieser Datumsspanne')}}">({{ aggs['all_docs']['range']['buckets'][loop.index0]['doc_count'] }})</div></div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
     {% else %}

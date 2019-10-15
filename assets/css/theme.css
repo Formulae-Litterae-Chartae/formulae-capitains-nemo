@@ -400,16 +400,41 @@ nav .dropdown:hover .dropdown-menu {
 
 #searchTotal {
     color: blue;
+    font-size: 1.5rem;
+    vertical-align: middle;
 }
 
-#search-stat-table th {
+#search-stat-table .table-header {
+    display: table-header-group;
+}
+
+#search-stat-table .table-header .table-cell {
     border-right: 1px solid #ddd;
     padding-left: 0.5rem;
+    display: table-cell;
 }
 
-#search-stat-table td {
+#search-stat-table .table-row {
+    display: table-row;
+}
+
+.stat-sub-table {
+    display: table;
+    margin-left: 2rem;
+}
+
+.stat-sub-row {
+    display: table-row;
+}
+
+.stat-sub-cell {
+    display: table-cell;
+}
+
+#search-stat-table .table-row .table-cell {
     border-right: 1px solid #ddd;
     vertical-align:top;
+    display: table-cell;
 }
 
 #re-search-table {
@@ -651,4 +676,8 @@ div.transcription p {
 .mv-rows {
     max-height: 80vh;
     width: 15%;
+}
+
+#aggs-all-docs {
+    text-decoration: underline;
 }

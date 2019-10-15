@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -114,7 +114,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -148,7 +148,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -182,7 +182,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -216,7 +216,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -250,7 +250,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -284,7 +284,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -318,7 +318,7 @@
         ]
       },
       {
-        "_index": "mondsee_v7",
+        "_index": "mondsee_v3",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -354,6 +354,143 @@
     ]
   },
   "aggregations": {
+    "all_docs": {
+      "doc_count": 198,
+      "corpus": {
+        "buckets": {
+          "Angers": {
+            "doc_count": 61
+          },
+          "Arnulfinger": {
+            "doc_count": 0
+          },
+          "B\u00fcnden": {
+            "doc_count": 0
+          },
+          "Echternach": {
+            "doc_count": 0
+          },
+          "Freising": {
+            "doc_count": 0
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 0
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 0
+          },
+          "Hersfeld": {
+            "doc_count": 0
+          },
+          "Luzern": {
+            "doc_count": 0
+          },
+          "Markulf": {
+            "doc_count": 0
+          },
+          "Merowinger": {
+            "doc_count": 0
+          },
+          "Mittelrheinisch": {
+            "doc_count": 0
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Passau": {
+            "doc_count": 0
+          },
+          "Regensburg": {
+            "doc_count": 0
+          },
+          "Rheinisch": {
+            "doc_count": 0
+          },
+          "R\u00e4tien": {
+            "doc_count": 0
+          },
+          "Salzburg": {
+            "doc_count": 0
+          },
+          "Sch\u00e4ftlarn": {
+            "doc_count": 0
+          },
+          "St. Gallen": {
+            "doc_count": 0
+          },
+          "Wei\u00dfenburg": {
+            "doc_count": 0
+          },
+          "Werden": {
+            "doc_count": 0
+          },
+          "Z\u00fcrich": {
+            "doc_count": 0
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 0
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 0
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 0
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 62
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 74
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 0
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 0
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 61
+      }
+    },
     "corpus": {
       "buckets": {
         "Angers": {
