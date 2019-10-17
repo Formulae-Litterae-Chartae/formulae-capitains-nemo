@@ -16,6 +16,7 @@
     <h1>
     {{collections.current.label}}
     </h1>
+    <a class="ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Corpusübersicht') }}</a>
 </header>
 </div>
 
