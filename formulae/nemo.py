@@ -736,9 +736,9 @@ class NemoFormulae(Nemo):
             if "manifest" in i:
                 i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [m for m in p.readableDescendants if m.id not in ids] + \
-                              [self.resolver.getMetadata(str(x)) for x in
-                               self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
+            translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
+                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).get_single(DC.title))
+                               for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
@@ -933,8 +933,19 @@ class NemoFormulae(Nemo):
             cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
             cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
             cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
-            f = Frame(doc.leftMargin, doc.pagesize[1] - inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
+            f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
             canvas.saveState()
+            canvas.drawImage(self.static_folder + 'images/logo_white.png',
+                             inch, 0, width=doc.pagesize[0], height=doc.pagesize[1] - 0.5 * inch)
+            canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
+                             doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
+                             mask=[255, 256, 255, 256, 255, 256])
+            canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
+                             (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
+                             height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
+            canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
+                             doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
+                             height=0.5 * inch)
             f.addFromList(cit_flowables, canvas)
             canvas.setFont('Times-Roman', 8)
             canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
