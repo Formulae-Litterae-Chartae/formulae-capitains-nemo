@@ -60,7 +60,7 @@
                         </button>
                         <div class="dropdown-menu version-dropdown">
                 {% endif %}
-                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest[1] }}</a>
+                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest[1]|safe }}</a>
                 {% if loop.last %}
                         </div>
                     </div>
@@ -76,7 +76,7 @@
             <span></span>
             <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
         {% else %}
-            <div class="entry-title text-center">{{object.collections.current.label}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            <div class="entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
         {% endif %}
         
     </div>
@@ -98,7 +98,7 @@
         {% if translation[objId] %}
             <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
             {% for t in translation[objId] %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t.id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t.get_label()|string + ' (' + t.lang + ')' }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe + ' (' + t[0].lang + ')' }}</span></a>
 
             {% endfor %}
             <div class="dropdown-divider"></div>
