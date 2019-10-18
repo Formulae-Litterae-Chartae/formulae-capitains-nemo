@@ -22,6 +22,7 @@
             {% set prev_obj = _('Vorherige Urkunde') %}
             {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
+            {% if 'manifest' not in object.objectId %}
             {% if object.prev_version %}
             {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
             <div class="col">
@@ -41,6 +42,7 @@
             {% else %}
             <div class="col">
             </div>
+            {% endif %}
             {% endif %}
         </div>
         <div class="row justify-content-center pt-0 pb-0">
@@ -72,7 +74,7 @@
             </div>
         </div>
         {% if 'manifest' in object.objectId %}
-            <div class="entry-title text-center">{{object.title}}</div>
+            <div class="entry-title text-center">{{object.title|safe}}</div>
             <span></span>
             <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
         {% else %}
@@ -98,7 +100,7 @@
         {% if translation[objId] %}
             <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
             {% for t in translation[objId] %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe + ' (' + t[0].lang + ')' }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
 
             {% endfor %}
             <div class="dropdown-divider"></div>
@@ -110,7 +112,7 @@
             <a class="dropdown-item">- <span>{{ r }}</span></a>
             {% else %}
             {% if r[0].id not in prev_texts %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, r[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string + ' (' + r[0].lang + ')' }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, r[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string }}</span></a>
             {% for c in r[1] %}
             <span class="dropdown-item ml-2">- {{ c }}</span>
             {% endfor %}
