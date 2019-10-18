@@ -9,7 +9,7 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
@@ -22,6 +22,7 @@ from json import dumps
 import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
+from datetime import date
 
 
 class TestConfig(Config):
@@ -40,10 +41,12 @@ class Formulae_Testing(flask_testing.TestCase):
 
         app = create_app(TestConfig)
         resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
-                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
+                                                                  "elex_notes": "components/extract_elex_notes.xsl",
+                                                                  "pdf": "components/xml_to_pdf.xsl"},
                                  templates={"main": "templates/main",
                                             "errors": "templates/errors",
                                             "auth": "templates/auth",
@@ -99,7 +102,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/bibliography', follow_redirects=True)
             self.assertTemplateUsed('main::bibliography.html')
             c.get('/contact', follow_redirects=True)
-            self.assertTemplateUsed('main::contact.html')
+            self.assertTemplateUsed('auth::login.html')
             c.get('/search/doc', follow_redirects=True)
             self.assertTemplateUsed('search::documentation.html')
             c.get('/auth/user/project.member', follow_redirects=True)
@@ -118,7 +121,6 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -135,15 +137,20 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
+            c.get('/add_collection/formulae_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertTemplateUsed('main::sub_collections.html')
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertTemplateUsed('main::lexicon_modal.html')
+            c.get('/add_collection/lexicon_entries/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
             # An non-authenicated user who surfs to the login page should not be redirected
@@ -154,17 +161,33 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection_mv.html')
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            p = re.compile('<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>.+<h5>Notitia Arnonis Notitia Arnonis: </h5>',
+            p = re.compile('<h5>Notitia Arnonis: </h5>.+<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>',
                            re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), p)
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
-            self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('no-copy text-section', r.get_data(as_text=True))
+            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('no-copy text-section', r.get_data(as_text=True))
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:markulf.form003.le1/passage/1+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/reading_format/rows', follow_redirects=True,
+                  headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertEqual(session['reading_format'], 'rows')
+            response = c.get('/reading_format/columns', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
+            self.assertEqual(response.get_data(as_text=True), 'OK')
+            self.assertEqual(session['reading_format'], 'columns')
             c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
             self.assertTemplateUsed('main::bibliography.html')
             self.assertEqual(session['locale'], 'en')
@@ -178,6 +201,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -202,6 +229,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
             c.get('/collections/other_collection', follow_redirects=True)
@@ -212,6 +240,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection_mv.html')
+            c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection_mv.html')
+            c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -242,8 +276,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(r.get_data(as_text=True), '\[Edition\].+\[Deutsche Übersetzung\].+Transkriptionen:')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
@@ -261,18 +297,28 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
             self.assertTemplateUsed("errors::unknown_collection.html")
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001', follow_redirects=True)
-            self.assertTemplateUsed('viewer::miradorviewer.html')
+            # c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
+            # self.assertTemplateUsed('viewer::miradorviewer.html')
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
+            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
+            self.assertTemplateUsed('viewer::miradorviewer.html')
+            r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertIn('Angers 2 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -301,6 +347,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/lexicon_entries', follow_redirects=True)
+            self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
@@ -311,6 +359,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -347,6 +397,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
+            r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
+            self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
+            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -366,6 +420,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     },
                     "B\u00fcnden": {
                       "doc_count": 0
+                    },
+                    "Echternach": {
+                        "doc_count": 0
                     },
                     "Freising": {
                         "doc_count": 0
@@ -437,22 +494,23 @@ class TestIndividualRoutes(Formulae_Testing):
                           'g.corpora should be set when session["previous_search_args"] is set.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, field='text', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=[''])
+                                           special_days=[''], regest_q='')
             # Check g.corpora
             self.assertIn(('andecavensis', 'Angers'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
             params['corpus'] = 'chartae'
+            params['special_days'] = 'Easter%2BTuesday'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
@@ -512,13 +570,13 @@ class TestIndividualRoutes(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+                                 ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         mock_search.return_value = resp
         set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
-        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title'], 'sents': []} for hit in resp['hits']['hits']])
+        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -544,18 +602,18 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_session_previous_search_args_all_corps(self, mock_search):
         """ Make sure that session['previous_search_args'] is set correctly with 'all' corpora"""
-        search_url = "/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end="
+        search_url = "/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end=&regest_q="
         previous_args = {'source': 'advanced', 'corpus': 'all', 'q': 'regnum', 'fuzziness': '0', 'slop': '0',
                          'in_order': 'False', 'year': '', 'month': '0', 'day': '', 'year_start': '', 'month_start': '0',
                          'day_start': '', 'year_end': '', 'month_end': '0', 'day_end': '', 'date_plus_minus': '0',
                          'exclusive_date_range': 'False', 'composition_place': '', 'submit': 'True', 'sort': 'urn',
-                         'special_days': ''}
+                         'special_days': '', 'regest_q': '', 'regest_field': 'regest'}
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+                                 ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
@@ -675,6 +733,109 @@ class TestFunctions(Formulae_Testing):
                                                         "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
                          "KWIC strings for the inrefs should be correctly split and marked-up")
 
+    def test_corpus_mv(self):
+        """ Make sure the correct values are returned by r_corpus_mv"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:markulf')
+            self.assertEqual(data['collections']['readable'],
+                             {'editions': [{'edition_name': 'Edition',
+                                            'full_edition_name': '',
+                                            'links': [['form003'],
+                                                      ['urn:cts:formulae:markulf.form003.lat001']],
+                                            'name': 'lat001',
+                                            'regesten': [''],
+                                            'titles': ['Markulf I,3']}],
+                              'transcriptions': [{'edition_name': 'Ko2',
+                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                                                       'Fabr. 84 (Ko2)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.ko2']],
+                                                  'name': 'ko2',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'Le1',
+                                                  'full_edition_name': 'Leiden BPL 114 (Le1)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.le1']],
+                                                  'name': 'le1',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'M4',
+                                                  'full_edition_name': 'München BSB clm 4650 (M4)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.m4']],
+                                                  'name': 'm4',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P3',
+                                                  'full_edition_name': 'Paris BNF 2123 (P3)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p3']],
+                                                  'name': 'p3',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P12',
+                                                  'full_edition_name': 'Paris BNF 4627 (P12)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p12']],
+                                                  'name': 'p12',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']},
+                                                 {'edition_name': 'P16',
+                                                  'full_edition_name': 'Paris BNF 10756 (P16)',
+                                                  'links': [['form003'],
+                                                            ['urn:cts:formulae:markulf.form003.p16']],
+                                                  'name': 'p16',
+                                                  'regesten': [''],
+                                                  'titles': ['Markulf I,3']}],
+                              'translations': []})
+
+    def test_corpus_mv_passau(self):
+        """ Make sure the correct values are returned by r_corpus_mv"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:stgallen')
+            self.assertEqual(data['collections']['readable'], {
+            'editions':[],
+            'translations': [],
+            'transcriptions': []
+            })
+
+    def test_get_prev_next_text(self):
+        """ Make sure that the previous text and next text in a corpus are correctly returned"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-a0001.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], None)
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-bna1.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-na.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], None)
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-bna1.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:salzburg.hauthaler-na.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:salzburg.hauthaler-bna1.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:stgallen.wartmann0615.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:stgallen.wartmann0001.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:stgallen.wartmann0615.lat002')
+            data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form001.fu2', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], None)
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.computus.fu2')
+            data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form004.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.deu001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.deu001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form003.deu001')
 
 
 class TestForms(Formulae_Testing):
@@ -746,7 +907,11 @@ class TestForms(Formulae_Testing):
     def test_validate_success_advanced_search_form(self):
         """ Ensure that a form with valid data validates"""
         form = AdvancedSearchForm(corpus=['all'], year=600, month="01", day=31, year_start=600, month_start='12',
-                                  day_start=12, year_end=700, month_end="01", day_end=12)
+                                  day_start=12, year_end=700, month_end="01", day_end=12, special_days=['Easter Tuesday'])
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+        form = AdvancedSearchForm(q="regnum", slop=500)
+        self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
+        form = AdvancedSearchForm(date_plus_minus=100)
         self.assertTrue(form.validate(), "Errors: {}".format(form.errors))
 
     def test_valid_data_simple_search_form(self):
@@ -801,6 +966,8 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), "Invalid month_end choice should not validate")
         form = AdvancedSearchForm(day_end=32)
         self.assertFalse(form.validate(), "Invalid day_end choice should not validate")
+        form = AdvancedSearchForm(date_plus_minus=200)
+        self.assertFalse(form.validate(), "Invalid date_plus_minus choice should not validate")
 
     def test_validate_valid_registration_form(self):
         """ Ensure that correct data for new user registration validates"""
@@ -961,6 +1128,260 @@ class TestAuth(Formulae_Testing):
 
 
 class TestES(Formulae_Testing):
+
+    TEST_ARGS = {'test_date_range_search_same_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''),
+                                                                  ("fuzziness", "0"), ('in_order', 'False'),
+                                                                  ("year", 0), ('slop', '0'), ("month", 0),
+                                                                  ("day", 0), ("year_start", 814),
+                                                                  ("month_start", 10), ("day_start", 29),
+                                                                  ("year_end", 814), ("month_end", 11),
+                                                                  ("day_end", 20), ('date_plus_minus', 0),
+                                                                  ('exclusive_date_range', 'False'),
+                                                                  ("composition_place", ''), ('sort', 'urn'),
+                                                                  ('special_days', ''), ("regest_q", ''),
+                                                                  ("regest_field", "regest")]),
+                 'test_date_range_search_same_month': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 10), ("year_end", 800), ("month_end", 10),
+                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_different_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 10), ("year_end", 801), ("month_end", 10),
+                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 810), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 0), ("year_end", 800), ("month_end", 11),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 0), ("year_end", 801), ("month_end", 11),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
+                                 ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_normal_date_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_normal_date_only_year_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_date_plus_minus_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_exclusive_date_range_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 800), ("month_start", 12), ("day_start", 25), ("year_end", 820),
+                                 ("month_end", 12), ("day_end", 25), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
+                                 ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multiword_wildcard_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum+dom*'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_lemma_advanced_search': OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ('lemma_search', 'y')]),
+                 'test_regest_advanced_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tausch'),
+                                 ("regest_field", "regest")]),
+                 'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'schenk*'),
+                                 ("regest_field", "regest")]),
+                 'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tau*'),
+                                 ("regest_field", "regest")]),
+                 'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'vir+venerabilis'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ('lemma_search', 'y')]),
+                 'test_single_word_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'pettonis'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum+domni'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'venerabili?'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_composition_place_advanced_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
+                                 ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_suggest_composition_places': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
+                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"), ("field", "autocomplete"), ("q", 'ill'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'sche'),
+                                 ("regest_field", "autocomplete_regest")]),
+                 'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'illam'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tau'),
+                                 ("regest_field", "autocomplete_regest"), ('qSource', '')]),
+                 'test_save_requests': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
+                                 ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter'), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', 'Easter+Saturday'), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_download_search_results': OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'schenk*'),
+                                 ("regest_field", "regest")])
+                 }
+
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
 
@@ -985,11 +1406,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
-                                 ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
-                                 ("day_end", 20), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_same_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1002,11 +1419,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_month(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 10), ("year_end", 800), ("month_end", 10),
-                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_same_month']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1019,11 +1432,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_different_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 10), ("year_end", 801), ("month_end", 10),
-                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_different_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1036,11 +1445,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 810), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1053,11 +1458,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year_and_month_same_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 800), ("month_end", 11),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_year_and_month_same_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1070,11 +1471,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year_and_month_different_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 801), ("month_end", 11),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_year_and_month_different_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1087,11 +1484,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_start_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1111,11 +1504,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_end_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1128,11 +1517,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_start_year_and_month']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1145,11 +1530,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year_and_month(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_range_search_only_end_year_and_month']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1162,11 +1543,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_normal_date_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_normal_date_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1179,11 +1556,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_normal_date_only_year_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_normal_date_only_year_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1196,11 +1569,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_plus_minus_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_date_plus_minus_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1213,12 +1582,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_exclusive_date_range_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1231,12 +1595,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search_only_year(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_exclusive_date_range_search_only_year']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1249,12 +1608,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search_same_month_and_day(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 800), ("month_start", 12), ("day_start", 25), ("year_end", 820),
-                                 ("month_end", 12), ("day_end", 25), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_exclusive_date_range_search_same_month_and_day']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1267,13 +1621,8 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multi_corpus_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "andecavensis+mondsee"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', 0), ("month", 0), ("day", 0),
-                                 ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
-                                 ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args = self.TEST_ARGS['test_multi_corpus_search']
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -1285,12 +1634,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multiword_wildcard_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", 'regnum+dom*'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_multiword_wildcard_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1304,12 +1648,47 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_lemma_advanced_search']
+        test_args.pop('lemma_search')
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_advanced_search(self, mock_search):
+        test_args = self.TEST_ARGS['test_regest_advanced_search']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_and_word_advanced_search(self, mock_search):
+        test_args = self.TEST_ARGS['test_regest_and_word_advanced_search']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_advanced_search_with_wildcard(self, mock_search):
+        test_args = self.TEST_ARGS['test_regest_advanced_search_with_wildcard']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1322,12 +1701,8 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multiword_lemma_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'vir+venerabilis'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_multiword_lemma_advanced_search']
+        test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1340,6 +1715,39 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
+    def test_single_word_highlighting(self, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = self.TEST_ARGS['test_single_word_highlighting']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup(' dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup(' licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_multi_word_highlighting(self, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
+        test_args = self.TEST_ARGS['test_multi_word_highlighting']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup(' presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup(' presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup(' presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup(' presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     def test_single_lemma_highlighting(self, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
@@ -1347,13 +1755,9 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
-        fake_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")])
+        fake_args = self.TEST_ARGS['test_single_lemma_highlighting']
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -1382,13 +1786,9 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
-        fake_args = OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'regnum+domni'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")])
+        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -1409,12 +1809,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search_with_wildcard(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'venerabili?'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
         mock_search.return_value = [], 0, {}
         with self.client:
             ids, hits, agg = advanced_query_index(**test_args)
@@ -1424,12 +1819,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_composition_place_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
-                                 ('sort', 'urn'), ('special_days', '')])
+        test_args =self.TEST_ARGS['test_composition_place_advanced_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1461,6 +1851,9 @@ class TestES(Formulae_Testing):
                                                         },
                                                         "B\u00fcnden": {
                                                           "doc_count": 0
+                                                        },
+                                                        "Echternach": {
+                                                            "doc_count": 0
                                                         },
                                                         "Freising": {
                                                             "doc_count": 0
@@ -1545,6 +1938,7 @@ class TestES(Formulae_Testing):
                                        {'Angers': {'match': {'_type': 'andecavensis'}},
                                         'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                         'Bünden': {'match': {'_type': 'buenden'}},
+                                        'Echternach': {'match': {'_type': 'echternach'}},
                                         'Freising': {'match': {'_type': 'freising'}},
                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
@@ -1596,27 +1990,17 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_suggest_composition_places']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'Freising', 'Isen']
+        expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa ']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion(self, mock_search):
-        test_args = OrderedDict([("corpus", "buenden"), ("field", "autocomplete"), ("q", 'ill'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', '')])
+        test_args = self.TEST_ARGS['test_suggest_word_search_completion']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = ['ill',
@@ -1631,18 +2015,60 @@ class TestES(Formulae_Testing):
                     'illi et mihi econtra donaretur et ',
                     'illi licui set habere']
         mock_search.return_value = resp
-        test_args.pop('q')
-        results = suggest_word_search('ill', **test_args)
+        test_args['qSource'] = 'text'
+        results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
         # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
-        results = suggest_word_search('*', **test_args)
+        test_args['q'] = '*'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
-        results = suggest_word_search('?', **test_args)
+        test_args['q'] = '?'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
-        results = suggest_word_search('ill*', **test_args)
+        test_args['q'] = 'ill*'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
-        results = suggest_word_search('ill?', **test_args)
+        test_args['q'] = 'ill?'
+        results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_regest_word_search_completion(self, mock_search):
+        test_args = self.TEST_ARGS['test_suggest_regest_word_search_completion']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = ['sche',
+                    'schenkt dem kloster disentis auf ableben',
+                    'schenkt dem kloster disentis güter ',
+                    'schenkt der kirche st hilarius zu ',
+                    'schenkt seinem neffen priectus seinen',
+                    'schenkt zu seinem und seiner eltern ',
+                    'schenkt zu seinem und seiner gattin ',
+                    'schenkt zum seelenheil seines bruders']
+        mock_search.return_value = resp
+        test_args['qSource'] = 'regest'
+        results = suggest_word_search(**test_args)
+        self.assertEqual(results, expected, 'The true results should match the expected results.')
+        # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
+        test_args['regest_q'] = '*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        test_args['regest_q'] = '?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
+        test_args['regest_q'] = 'tau*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
+        test_args['regest_q'] = 'tau?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_word_search_completion_no_qSource(self, mock_search):
+        """ Make sure that None is returned if qSource is not an accepted value"""
+        test_args = self.TEST_ARGS['test_suggest_word_search_completion_no_qSource']
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results)
 
     def test_results_sort_option(self):
         self.assertEqual(build_sort_list('urn'), 'urn')
@@ -1655,12 +2081,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_save_requests(self, mock_search):
         self.app.config['SAVE_REQUESTS'] = True
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
-                                 ('sort', 'urn'), ('special_days', '')])
+        test_args = self.TEST_ARGS['test_save_requests']
         file_name_base = self.build_file_name(test_args)
         fake = FakeElasticsearch(file_name_base, 'advanced_search')
         body = fake.load_request()
@@ -1678,19 +2099,28 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_specific_day_advanced_search(self, mock_search):
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', 'Easter')])
+        test_args = self.TEST_ARGS['test_specific_day_advanced_search']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['special_days'] = [test_args['special_days']]
+        test_args['special_days'] = test_args['special_days'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_multiple_specific_day_advanced_search(self, mock_search):
+        test_args = self.TEST_ARGS['test_multiple_specific_day_advanced_search']
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['special_days'] = test_args['special_days'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -1701,23 +2131,20 @@ class TestES(Formulae_Testing):
             c.get('/search/download', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
             self.assertTemplateUsed('main::index.html')
-        test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', 'Easter')])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args = self.TEST_ARGS['test_download_search_results']
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
-        with open('tests/test_data/advanced_search/downloaded_search.txt') as f:
+        self.nemo.open_texts.append('urn:cts:formulae:buenden.meyer-marthaler0027.lat001')
+        with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
             expected = f.read()
         with self.client as c:
-            c.get('/search/results?month=0&year_start=&q=&day_end=&year_end=&date_plus_minus=0&sort=urn&composition_place=&fuzziness=0&exclusive_date_range=False&special_days=Easter&month_start=0&in_order=False&month_end=0&day_start=&submit=True&day=&corpus=all&slop=0&year=&source=advanced')
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenkt&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
-            self.assertEqual(r.get_data(as_text=True), expected.strip())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
 
 class TestErrors(Formulae_Testing):
@@ -1725,6 +2152,13 @@ class TestErrors(Formulae_Testing):
         with self.client as c:
             response = c.get('/trying.php', follow_redirects=True)
             self.assert404(response, 'A URL that does not exist on the server should return a 404.')
+
+    def test_UnknownCollection_error_mv(self):
+        with self.client as c:
+            response = c.get('/corpus_m/urn:cts:formulae:buendner', follow_redirects=True)
+            self.assert404(response, 'An Unknown Collection Error should also return 404.')
+            self.assertTemplateUsed("errors::unknown_collection.html")
+
 
     def test_UnknownCollection_error(self):
         with self.client as c:

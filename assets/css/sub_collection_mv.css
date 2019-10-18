@@ -1,0 +1,22 @@
+.row_mv {
+    width: 100%;
+    overflow: scroll;
+}.mv-rows{
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    overflow: scroll;
+    float: Left;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-down: 0px;
+}.mv-card-header{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    background-color: #263d3d;
+    color: #fff
+}.title{
+    margin-left: auto;
+    margin-right: auto;
+}

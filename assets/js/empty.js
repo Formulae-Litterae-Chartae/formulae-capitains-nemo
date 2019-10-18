@@ -45,6 +45,10 @@ function restrictSearch() {
 $('.lang-link').bind('click', function(event) {
     event.preventDefault();
     e = this;
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
@@ -55,7 +59,7 @@ $('.lang-link').bind('click', function(event) {
             }
         }
     };
-    request.open('GET', '/lang/' + e.getAttribute('value'), true);
+    request.open('GET', subdomain + '/lang/' + e.getAttribute('value'), true);
     request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     request.send()
 })

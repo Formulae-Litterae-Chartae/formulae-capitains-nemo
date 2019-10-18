@@ -14,13 +14,11 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
         Optional() validator. I think this must have seen this as an empty field and thus erased all previous validation
         results since it correctly invalidates invalid data when the Optional() validator is not included.
     """
-    if not message:
-        message = "Field value must between between %i and %i." % (min, max)
 
     def _length(form, field):
         if field.data:
             if int(field.data) < min or max != -1 and int(field.data) > max:
-                raise ValidationError(message)
+                raise ValidationError(message or "Field value must between between %i and %i." % (min, max))
 
     return _length
 
@@ -47,11 +45,9 @@ class AdvancedSearchForm(SearchForm):
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
-    slop = IntegerField(_l("Suchradius"),
-                        validators=[validate_optional_number_range(min=0, max=100,
-                                                                   message=_l('Der Suchradius muss zwischen 0 und 100 liegen'))],
-                        default=0)
+    slop = IntegerField(_l("Suchradius"), default=0)
     in_order = BooleanField(_l('Wortreihenfolge beachten?'))
+    regest_q = StringField(_l('Regestensuche'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln'))])
     year = StringField(_l('Jahr'), validators=[validate_optional_number_range(min=500, max=1000,

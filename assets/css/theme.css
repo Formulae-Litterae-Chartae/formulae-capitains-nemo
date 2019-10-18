@@ -183,6 +183,15 @@ a.lex:active {
 .row {
     padding-top: 30px;
     padding-bottom: 30px;
+
+}
+
+.row_mv {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 .firsturn {
@@ -202,6 +211,10 @@ a.lex:active {
 
 #reading-container article section.with-border {
     border-right: 1px solid;
+}
+
+#reading-container article section.bottom-border {
+    border-bottom: 1px solid;
 }
 
 nav .dropdown-menu {
@@ -570,7 +583,7 @@ div.transcription p {
 
 .manuscript-number {
     vertical-align: sub;
-    font-size: smaller;
+    font-size: small !important;
 }
 
 .regest_collapse_heading {
@@ -605,6 +618,37 @@ div.transcription p {
     margin-bottom: .25em;
 }
 
+.regest-sents-heading {
+    font-size: smaller;
+    text-decoration: underline;
+}
+
+.text-section.scrolling {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.text-row {
+    padding-bottom: 0;
+    padding-top: 1em;
+}
+
+.reading-format-image {
+    width: auto;
+    height: 30px;
+}
+
+#scroll-control-image {
+    border-left: 1px solid;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
 .indented-paragraph {
     margin-left: 1em;
+}
+
+.mv-rows {
+    max-height: 80vh;
+    width: 15%;
 }

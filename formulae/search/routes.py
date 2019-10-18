@@ -6,6 +6,10 @@ from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
 import re
+from io import BytesIO
+from reportlab.platypus import Paragraph, SimpleDocTemplate
+from reportlab.lib.styles import getSampleStyleSheet
+from datetime import date
 
 
 CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -33,6 +37,10 @@ def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
     special_days = request.args.get('special_days', '').split('+')
+    if len(corpus) == 1:
+        corpus = corpus[0].split(' ')
+    if len(special_days) == 1:
+        special_days = special_days[0].split(' ')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -55,6 +63,7 @@ def r_results():
                                                   fuzziness=request.args.get("fuzziness", "0"), page=page,
                                                   in_order=request.args.get('in_order', 'False'),
                                                   slop=request.args.get('slop', '0'),
+                                                  regest_q=request.args.get('regest_q'),
                                                   year=request.args.get('year', 0, type=int),
                                                   month=request.args.get('month', 0, type=int),
                                                   day=request.args.get('day', 0, type=int),
@@ -128,6 +137,8 @@ def r_advanced_search():
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
+    if form.special_days.data and len(form.special_days.data) == 1:
+        form.special_days.data = form.special_days.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
@@ -151,7 +162,9 @@ def r_search_docs():
 
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
-    words = suggest_word_search(word, field=request.args.get('field', 'autocomplete'),
+    qSource = request.args.get('qSource', 'text')
+    words = suggest_word_search(q=word if qSource == 'text' else request.args.get('q', ''),
+                                field=request.args.get('field', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
                                 in_order=request.args.get('in_order', 'False'),
                                 slop=request.args.get('slop', '0'),
@@ -168,7 +181,10 @@ def word_search_suggester(word):
                                 corpus=request.args.get('corpus', '').split() or ['all'],
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                 composition_place=request.args.get('composition_place', ''),
-                                special_days=request.args.get('special_days', '').split())
+                                special_days=request.args.get('special_days', '').split(),
+                                regest_q=word if qSource == 'regest' else request.args.get('regest_q', ''),
+                                regest_field=request.args.get('regest_field', 'regest'),
+                                qSource=request.args.get('qSource', 'text'))
     return dumps(words)
 
 
@@ -178,9 +194,10 @@ def download_search_results():
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
     else:
-        resp = ['--------------' + '\n' + _('Suchergebnisse') + '\n' + '--------------']
-        arg_list = ['-------------' + '\n' + _('Suchparameter') + '\n' + '-------------']
-        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')), ('fuzziness', _('Unschärfegrad')),
+        resp = list()
+        arg_list = list()
+        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
+                              ('regest_q', _('Regesten Suchbegriff')), ('fuzziness', _('Unschärfegrad')),
                               ('slop', _('Suchradius')), ('in_order', _('Wortreihenfolge beachten?')), ('year', _('Jahr')),
                               ('month', _('Monat')), ('day', _('Tag')), ('year_start', _('Anfangsjahr')),
                               ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
@@ -193,6 +210,32 @@ def download_search_results():
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
         for d in session['previous_search']:
-            resp.append('{}\n{}'.format(d['title'], '\n'.join(['- {}'.format(re.sub(r'</?strong>|</?small>', '_', str(s))) for s in d['sents']]) or _('- Text nicht zugänglich.')))
-        return Response('\n'.join(arg_list) + '\n\n' + '\n\n'.join(resp), mimetype='text/plain',
-                        headers={'Content-Disposition': 'attachment;filename=Formulae-Litterae-Chartae-Suchergebnisse.txt'})
+            r = {'title': d['title'], 'sents': [], 'regest_sents': []}
+            if 'sents' in d:
+                r['sents'] = ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>', str(s)))
+                              for s in d['sents']]
+            if 'regest_sents' in d:
+                r['regest_sents'] = ['<u>' + _('Aus dem Regest') + '</u>']
+                r['regest_sents'] += ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>',
+                                                           str(s)))
+                                      for s in d['regest_sents']]
+            resp.append(r)
+        pdf_buffer = BytesIO()
+        description = 'Formulae-Litterae-Chartae Suchergebnisse ({})'.format(date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
+        sample_style_sheet = getSampleStyleSheet()
+        flowables = list([Paragraph(_('Suchparameter'), sample_style_sheet['Heading3'])])
+        for a in arg_list:
+            flowables.append(Paragraph(a, sample_style_sheet['Normal']))
+        flowables.append(Paragraph(_('Suchergebnisse'), sample_style_sheet['Heading3']))
+        for p in resp:
+            flowables.append(Paragraph(p['title'], sample_style_sheet['Heading4']))
+            for sentence in p['sents']:
+                flowables.append(Paragraph(sentence, sample_style_sheet['Normal']))
+            for r_sentence in p['regest_sents']:
+                flowables.append(Paragraph(r_sentence, sample_style_sheet['Normal']))
+        my_doc.build(flowables)
+        pdf_value = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return Response(pdf_value, mimetype='application/pdf',
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})

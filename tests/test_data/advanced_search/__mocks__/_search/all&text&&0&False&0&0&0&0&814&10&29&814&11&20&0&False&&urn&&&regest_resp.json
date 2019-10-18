@@ -1,0 +1,498 @@
+{
+  "took": 4,
+  "timed_out": false,
+  "_shards": {
+    "total": 23,
+    "successful": 23,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 50,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 130",
+          "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
+          "date_string": "[789\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0789-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0789-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0789-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0130.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 132",
+          "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0132.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 133",
+          "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0133.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 134",
+          "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
+          "date_string": "[711\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0711-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0711-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0711-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0134.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 135",
+          "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0135.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 136",
+          "urn": "urn:cts:formulae:echternach.wampach0136.lat001",
+          "date_string": "[771\u2013814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:echternach.wampach0136.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 329",
+          "urn": "urn:cts:formulae:freising.bitterauf0329.lat001",
+          "date_string": "814 11 12",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 814,
+              "month": 11,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0814-11-12"
+          ],
+          "min_date": "0814-11-12",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0329.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 330",
+          "urn": "urn:cts:formulae:freising.bitterauf0330.lat001",
+          "date_string": "814 11 17",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 814,
+              "month": 11,
+              "day": 17
+            }
+          ],
+          "all_dates": [
+            "0814-11-17"
+          ],
+          "min_date": "0814-11-17",
+          "days": [
+            "Friday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0330.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v7",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 470",
+          "urn": "urn:cts:formulae:freising.bitterauf0470.lat001",
+          "date_string": "Vor 822 09 05",
+          "comp_ort": "Erdweg",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": "Erdweg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0810",
+              "lte": "0822-09-05"
+            }
+          ],
+          "all_dates": [
+            "0810",
+            "0822-09-05"
+          ],
+          "min_date": "0810"
+        },
+        "sort": [
+          "urn:cts:formulae:freising.bitterauf0470.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v7",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "text",
+          "lemmas": "text",
+          "regest": "text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 25",
+          "urn": "urn:cts:formulae:hersfeld.weirich0025.lat001",
+          "date_string": "[814]",
+          "comp_ort": " ",
+          "autocomplete": "text",
+          "autocomplete_lemmas": "text",
+          "autocomplete_regest": "text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0814-01-01"
+        },
+        "sort": [
+          "urn:cts:formulae:hersfeld.weirich0025.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 6
+        },
+        "Freising": {
+          "doc_count": 3
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 2
+        },
+        "Luzern": {
+          "doc_count": 6
+        },
+        "Markulf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 17
+        },
+        "Passau": {
+          "doc_count": 3
+        },
+        "Regensburg": {
+          "doc_count": 3
+        },
+        "Rheinisch": {
+          "doc_count": 4
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 1
+        },
+        "St. Gallen": {
+          "doc_count": 2
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 1
+        },
+        "Werden": {
+          "doc_count": 2
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 24
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 25
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

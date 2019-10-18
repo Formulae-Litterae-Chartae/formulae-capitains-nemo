@@ -1,0 +1,88 @@
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="deu">
+      <fileDesc>
+         <titleStmt>
+            <title>Salzburger Urkundenbuch (Ed. Hauthaler); Breves Notitiae, Einleitung</title>
+            <editor>Hauthaler, Willibald Abt (O.S.B)</editor>
+            <editor>Martin, Franz</editor>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               Digitale Transkription des Salzburger Urkundenbuchs
+            </edition>
+            <respStmt>
+               <resp>Projektleiter</resp>
+               <resp xml:lang="eng">Principal investigator</resp>
+               <persName>Prof. Dr. Philippe Depreux (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Korrektur</resp>
+               <resp xml:lang="eng">Proofreading</resp>
+               <persName>Franziska Quaas (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Dokument- und Urkundenbearbeitung</resp>
+               <resp xml:lang="eng">Initial charter processing</resp>
+               <persName>Magdalena Hermann-Kowalczyk (Studentische Hilfskraft, Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Hauptentwickler</resp>
+               <resp xml:lang="eng">Lead developer</resp>
+               <persName>Matthew Munson (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Umwandlung in XML/TEI</resp>
+               <resp xml:lang="eng">Conversion into XML/TEI</resp>
+               <persName>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</persName>
+            </respStmt>
+            <sponsor>Akademie der Wissenschaften in Hamburg</sponsor>
+            <sponsor>Universität Hamburg</sponsor>
+         </editionStmt>
+         <publicationStmt>
+            <publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</publisher>
+            <pubPlace>Hamburg</pubPlace>
+            <date when="2018"/>
+            <availability>
+                <licence corresp="urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001" target="https://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License.</licence>
+               <licence corresp="#salzburg.hauthaler-bn-intro/front">All Rights Reserved.</licence>
+            </availability>
+         </publicationStmt>
+		       <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <idno type="OCLC">312728555</idno>
+                  <title level="m" type="main">Salzburger Urkundenbuch</title>
+                  <editor>Hauthaler, Willibald</editor>
+                  <imprint>
+                     <publisher>Gesellschaft für Salzburger Landeskunde</publisher>
+                     <pubPlace>Salzburg</pubPlace>
+                     <date when="1910" n="originalAusgabe">1910</date>
+                     <biblScope unit="volume">2</biblScope>
+                     <biblScope unit="pp">
+                  17-18
+               </biblScope>
+                  </imprint>
+               </monogr>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Bei dieser Datei handelt es sich um eine OCR-bearbeitete Transkription des Salzburger Urkundenbuchs, welches 1920 von Abt Willibald Hauthaler O.S.B. herausgegeben worden ist. Die OCR-Texte wurden korrigiert und in gemäß TEI-P5-Vorgaben in einzelne XML-TEI-Dateien, umgewandelt. Auf dieser Grundlage und unter Einhaltung der CapiTainS-Vorgaben wurde die Formulae-Litterae-Chartae-Projektdatenbank erstellt.</p>
+         <refsDecl n="CTS">
+            <cRefPattern matchPattern="(.+)" n="charta" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
+         </refsDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text type="charta" xml:id="salzburg.hauthaler-bn-intro">
+      <front xml:lang="deu"/>
+      <body>
+               <div type="edition" xml:lang="lat" n="urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001">
+                  <div type="textpart" subtype="notitia" n="1">
+                     <p xml:space="preserve"><w>Some</w> <w>text</w></p>
+                  </div>
+               </div>
+            </body>
+   </text>
+</TEI>

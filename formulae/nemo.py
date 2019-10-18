@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash, request
+from flask import url_for, Markup, g, session, flash, request, Response
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -6,7 +6,7 @@ from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
-from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
+from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata, CtsTextInventoryMetadata
 from MyCapytain.resources.collections.cts import XmlCtsTextgroupMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
@@ -16,7 +16,15 @@ import re
 from datetime import date
 from string import punctuation
 from urllib.parse import quote
-from json import load as json_load
+from json import load as json_load, loads as json_loads
+from io import BytesIO
+from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate, Frame
+from reportlab.lib.pdfencrypt import EncryptionFlowable
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib.units import inch
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from copy import copy
 
 
 class NemoFormulae(Nemo):
@@ -25,6 +33,7 @@ class NemoFormulae(Nemo):
         ("/", "r_index", ["GET"]),
         ("/collections", "r_collections", ["GET"]),
         ("/collections/<objectId>", "r_collection", ["GET"]),
+        ("/corpus_m/<objectId>", "r_corpus_mv", ["GET"]),
         ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
@@ -36,10 +45,12 @@ class NemoFormulae(Nemo):
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"]),
+        ("/pdf/<objectId>", "r_pdf", ["GET"]),
+        ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"])
     ]
     SEMANTIC_ROUTES = [
-        "r_collection", "r_references", "r_multipassage"
+        "r_collection", "r_collection_mv", "r_references", "r_multipassage"
     ]
 
     FILTERS = [
@@ -66,22 +77,20 @@ class NemoFormulae(Nemo):
 
     PROTECTED = [
         # "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
-        # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_add_text_corpus"
+        # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon',
-                        'urn:cts:formulae:freising', 'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel',
-                        'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch',
-                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg',
-                        'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn',
-                        'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden',
-                        'urn:cts:formulae:zuerich']
+                        'urn:cts:formulae:echternach', 'urn:cts:formulae:freising', 'urn:cts:formulae:fulda_dronke',
+                        'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern',
+                        'urn:cts:formulae:mittelrheinisch', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau',
+                        'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg',
+                        'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg',
+                        'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:mondsee',
-                             'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch','urn:cts:formulae:salzburg',
-                             'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
-
-    OPEN_NOTES = []
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:echternach', 'urn:cts:formulae:fulda_stengel',
+                             'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
+                             'urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch")}
@@ -97,8 +106,8 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
-        self.open_texts, self.half_open_texts = self.get_open_texts()
         self.sub_colls = self.get_all_corpora()
+        self.all_texts, self.open_texts, self.half_open_texts = self.get_open_texts()
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
@@ -107,6 +116,16 @@ class NemoFormulae(Nemo):
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
+        self.register_font()
+
+    def register_font(self):
+        """ Registers the LiberationSerif font to be used in producing PDFs"""
+        pdfmetrics.registerFont(TTFont('Liberation', 'LiberationSerif-Regular.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationBd', 'LiberationSerif-Bold.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationIt', 'LiberationSerif-Italic.ttf'))
+        pdfmetrics.registerFont(TTFont('LiberationBI', 'LiberationSerif-BoldItalic.ttf'))
+        pdfmetrics.registerFontFamily('Liberation', normal='Liberation', bold='LiberationBd', italic='LiberationIt',
+                                      boldItalic='LiberationBI')
 
     def get_all_corpora(self):
         """ A convenience function to return all sub-corpora in all collections
@@ -122,25 +141,59 @@ class NemoFormulae(Nemo):
             colls[member['id']] = members
         return colls
 
+    def ordered_corpora(self, m):
+        """ Sets up the readable descendants in each corpus to be correctly ordered
+
+        :param m: the metadata for the descendant
+        :return: a tuple that will be put in the correct place in the ordered list when sorted
+        """
+        version = m.id.split('.')[-1]
+        if "salzburg" in m.id:
+            par = m.parent.id.split('-')[1:]
+            if len(par) == 2:
+                full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
+            else:
+                p = re.match(r'(\D+)(\d+)', par[0])
+                if p:
+                    full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
+                else:
+                    full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
+            par = '-'.join(par)
+            if par == 'na':
+                par = '1' + par
+            elif 'n' in par:
+                par = '2' + par
+            par = (par, full_par)
+            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+        elif "elexicon" in m.id:
+            par = m.parent.id.split('.')[-1][0].capitalize()
+            metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+        else:
+            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
+            if par.lstrip('0') == '':
+                par = _('(Titel)')
+            elif 'computus' in par:
+                par = '057(Computus)'
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
+        return par, metadata, m
+
     def get_open_texts(self):
         """ Creates the lists of open and half-open texts to be used later. I have moved this to a function to try to
             cache it.
 
-        :return: list of open texts and half-open texts
+        :return: dictionary of all texts {collection: [readableDescendants]}, list of open texts, and half-open texts
         """
         open_texts = []
         half_open_texts = []
-        for c in self.OPEN_COLLECTIONS: # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
-            try:
-                open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
-        for c in self.HALF_OPEN_COLLECTIONS:
-            try:
-                half_open_texts += [x.id for x in self.resolver.getMetadata(c).readableDescendants]
-            except UnknownCollection:
-                continue
-        return open_texts, half_open_texts
+        all_texts = {m['id']: sorted([self.ordered_corpora(r) for r in self.resolver.getMetadata(m['id']).readableDescendants])
+                     for l in self.sub_colls.values() for m in l}
+        for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
+            if c in self.OPEN_COLLECTIONS:
+                open_texts += [x[1][0] for x in all_texts[c]]
+            if c in self.HALF_OPEN_COLLECTIONS:
+                half_open_texts += [x[1][0] for x in all_texts[c]]
+        return all_texts, open_texts, half_open_texts
 
     def check_project_team(self):
         """ A convenience function that checks if the current user is a part of the project team"""
@@ -192,6 +245,7 @@ class NemoFormulae(Nemo):
         :param s: the separator
         :return: a string of the values joined by the separator
         """
+
         return s.join(l).strip(s)
 
     def f_replace_indexed_item(self, l, i, v):
@@ -223,6 +277,20 @@ class NemoFormulae(Nemo):
         :type code: str
         """
         session['locale'] = code
+        refresh()
+        if request.headers.get('X-Requested-With') == "XMLHttpRequest":
+            return 'OK'
+        else:
+            flash('Language Changed. You may need to refresh the page in your browser.')
+            return redirect(request.referrer)
+
+    def r_reading_format(self, direction):
+        """ Sets the session's language code which will be used for all requests
+
+        :param code: The 2-letter language code
+        :type code: str
+        """
+        session['reading_format'] = direction
         refresh()
         if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
@@ -321,7 +389,7 @@ class NemoFormulae(Nemo):
             template = "main::salzburg_collection.html"
         else:
             template = "main::sub_collection.html"
-        for m in list(self.resolver.getMetadata(collection.id).readableDescendants):
+        for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 version = m.id.split('.')[-1]
                 if 'lat' in version:
@@ -330,32 +398,6 @@ class NemoFormulae(Nemo):
                     key = 'translations'
                 else:
                     key = 'transcriptions'
-                if "salzburg" in m.id:
-                    par = m.parent.id.split('-')[1:]
-                    if len(par) == 2:
-                        full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
-                    else:
-                        p = re.match(r'(\D+)(\d+)', par[0])
-                        if p:
-                            full_par = (self.SALZBURG_MAPPING[p.group(1)], p.group(2).lstrip('0'))
-                        else:
-                            full_par = (self.SALZBURG_MAPPING[par[0]], self.SALZBURG_MAPPING[par[0]])
-                    par = '-'.join(par)
-                    if 'n' in par:
-                        par = 'z' + par
-                    par = (par, full_par)
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
-                elif "elexicon" in m.id:
-                    par = m.parent.id.split('.')[-1][0].capitalize()
-                    metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
-                else:
-                    par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
-                    if par.lstrip('0') == '':
-                        par = _('(Titel)')
-                    elif 'computus' in par:
-                        par = '057(Computus)'
-                    manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
-                    metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata)
                 else:
@@ -377,7 +419,8 @@ class NemoFormulae(Nemo):
                                                         key=lambda x: x[2][0])
         if len(r) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-        return {
+
+        return_value = {
             "template": template,
             "collections": {
                 "current": {
@@ -391,6 +434,106 @@ class NemoFormulae(Nemo):
                 "parents": self.make_parents(collection, lang=lang)
             }
         }
+        return return_value
+
+    def r_corpus_mv(self, objectId, lang=None):
+        """ Route to browse collections and add another text to the view
+
+        :param objectId: Collection identifier
+        :type objectId: str
+        :param lang: Lang in which to express main data
+        :type lang: str
+        :return: Template and collections contained in given collection
+        :rtype: {str: Any}
+        """
+
+        collection = self.resolver.getMetadata(objectId)
+        ed_trans_mapping = {'lat001': _('Edition'), 'deu001': _('Übersetzung')}
+        r = {'editions': [], 'translations': [], 'transcriptions': []}
+        translations = {}
+        forms = {}
+        titles = {}
+        edition_names = {}
+        full_edition_names = {}
+        regesten = {}
+        template = "main::sub_collection_mv.html"
+        list_of_readable_descendants = self.all_texts[collection.id]
+
+        if 'markulf' in objectId or 'andecavensis' in objectId:
+            for par, metadata, m in list_of_readable_descendants:
+                if self.check_project_team() is True or m.id in self.open_texts:
+                    edition = str(m.id).split(".")[-1]
+                    title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
+                    form = str(m.id).split(".")[-2]
+                    edition_name = ed_trans_mapping.get(edition, edition).title()
+                    full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+                    regest = str(m.metadata.get_single(DCTERMS.abstract))
+
+                    if edition not in translations.keys():
+                        titles[edition] = [title]
+                        translations[edition] = [m.id]
+                        forms[edition] = [form]
+                        edition_names[edition] = edition_name
+                        full_edition_names[edition] = full_edition_name
+                        regesten[edition] = [regest]
+                    else:
+                        titles[edition].append(title)
+                        translations[edition].append(m.id)
+                        forms[edition].append(form)
+                        regesten[edition].append(regest)
+            for k, v in translations.items():
+                if k == 'lat001':
+                    r['editions'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                        "regesten": regesten[k]
+                    })
+                elif k == 'deu001':
+                    r['translations'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                        "regesten": regesten[k]
+                    })
+                else:
+                    r['transcriptions'].append({
+                        "name": k,
+                        "edition_name": edition_names[k],
+                        "full_edition_name": full_edition_names[k],
+                        "titles": titles[k],
+                        "links": [forms[k], v],
+                        "regesten": regesten[k]
+                    })
+
+            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
+                                         key=lambda x: re.search(r'\D+', x['name']).group(0))
+
+
+        else:
+
+            r = {'editions': [], 'translations': [], 'transcriptions': []}
+            flash(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
+
+        return_value = {
+            "template": template,
+            "collections": {
+                "current": {
+                    "label": str(collection.get_label(lang)),
+                    "id": collection.id,
+                    "model": str(collection.model),
+                    "type": str(collection.type),
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                },
+                "readable": r,
+                "parents": self.make_parents(collection, lang=lang)
+            }
+        }
+        return return_value
 
     def r_add_text_collections(self, objectIds, reffs, lang=None):
         """ Retrieve the top collections of the inventory
@@ -422,14 +565,15 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
+        if type(collection) == XmlCtsTextgroupMetadata:
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
+                                    objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
         if self.check_project_team() is False:
             members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
         if len(members) == 1:
-            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'],
-                                    objectIds=objectIds, reffs=reffs, lang=lang))
-        elif len(members) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'], objectIds=objectIds,
+                                    reffs=reffs, lang=lang))
         return {
             "template": "main::sub_collections.html",
             "collections": {
@@ -470,6 +614,23 @@ class NemoFormulae(Nemo):
         collection, reffs = self.get_reffs(objectId=objectId, export_collection=True)
         first, _ = reffs[0]
         return str(first)
+
+    def get_prev_next_texts(self, objId, collection):
+        """ Get the previous and next texts in a collection
+
+        :param objId: the ID of the current object
+        :param collection: the grandparent of the current object (should be the collection, e.g., Freising or Markulf)
+        :return: the IDs of the previous and next text in the same collection
+        """
+        if re.search(r'lat\d\d\d', objId.split('.')[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
+        elif re.search(r'deu\d\d\d', objId.split('.')[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
+        else:
+            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
+        orig_index = sibling_texts.index(objId)
+        return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
+               sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
 
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage
@@ -546,7 +707,6 @@ class NemoFormulae(Nemo):
             "prev": prev,
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
-            "show_notes": objectId in self.OPEN_NOTES,
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
             "isReferencedBy": inRefs
         }
@@ -562,9 +722,13 @@ class NemoFormulae(Nemo):
         :type subreferences: str
         :param result_sents: The list of sentences from elasticsearch results
         :type result_sents: str
+        :param reading_format: The format to display multiple texts on the reading page: 'columns' or 'rows'
+        :type reading_format: str
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
+        if 'reading_format' not in session:
+            session['reading_format'] = 'columns'
         ids = objectIds.split('+')
         translations = {}
         view = 1
@@ -572,9 +736,9 @@ class NemoFormulae(Nemo):
             if "manifest" in i:
                 i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [m for m in p.readableDescendants if m.id not in ids] + \
-                              [self.resolver.getMetadata(str(x)) for x in
-                               self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
+            translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
+                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).get_single(DC.title))
+                               for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
         subrefers = subreferences.split('+')
@@ -589,14 +753,19 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
+                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'], d['collections']['parents'][1])
                 del d['template']
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
+                    if type(formulae) == list:
+                        formulae = self.app.picture_file[formulae[0]]
+                        flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+                    # This should no longer be necessary since all manifests should be linked to a specific version id
                     # This is when there is a single manuscript for the transcription, edition, and translation
-                    elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
-                        formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
+                    # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
+                    #    formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
@@ -623,8 +792,13 @@ class NemoFormulae(Nemo):
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
                                                                     else '') + ' (' + d['collections']['current']['title'] + ')'
                 else:
-                    d["IIIFviewer"] = "manifest:" + d['collections']['parents'][0]['id'] in self.app.picture_file \
-                                      or "manifest:" + d['collections']['current']['id'] in self.app.picture_file
+                    d["IIIFviewer"] = []
+                    if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
+                        manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
+                        if type(manifests) == dict:
+                            d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
+                        elif type(manifests) == list:
+                            d["IIIFviewer"] = manifests
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
@@ -693,8 +867,8 @@ class NemoFormulae(Nemo):
         subreference = "1"
         d = self.r_passage(objectId, subreference, lang=lang)
         d['template'] = 'main::lexicon_modal.html'
-        d['prev_texts'] = m.group(1)
-        d['prev_reffs'] = m.group(2) if "texts" in request.referrer else "all"
+        d['prev_texts'] = m.group(1).replace('%2B', '+')
+        d['prev_reffs'] = m.group(2).replace('%2B', '+') if "texts" in request.referrer else "all"
         return d
 
     def r_impressum(self):
@@ -744,3 +918,83 @@ class NemoFormulae(Nemo):
                 xslt = etree.XSLT(etree.parse(f))
 
         return str(xslt(etree.fromstring(text)))
+
+    def r_pdf(self, objectId):
+        """Produces a PDF from the objectId for download and then delivers it
+
+        :param objectId: the URN of the text to transform
+        :return:
+        """
+        if (self.check_project_team() is False and objectId not in self.open_texts) or not re.search(r'andecavensis|markulf', objectId):
+            flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            return redirect(url_for('InstanceNemo.r_index'))
+
+        def add_citation_info(canvas, doc):
+            cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
+            cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
+            f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
+            canvas.saveState()
+            canvas.drawImage(self.static_folder + 'images/logo_white.png',
+                             inch, 0, width=doc.pagesize[0], height=doc.pagesize[1] - 0.5 * inch)
+            canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
+                             doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
+                             mask=[255, 256, 255, 256, 255, 256])
+            canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
+                             (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
+                             height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
+            canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
+                             doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
+                             height=0.5 * inch)
+            f.addFromList(cit_flowables, canvas)
+            canvas.setFont('Times-Roman', 8)
+            canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
+            canvas.restoreState()
+        new_subref = self.get_reffs(objectId)[0][0]
+        text = self.get_passage(objectId=objectId, subreference=new_subref)
+        metadata = self.resolver.getMetadata(objectId=objectId)
+        with open(self._transform['pdf']) as f:
+            xslt = etree.XSLT(etree.parse(f))
+        d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
+        pdf_buffer = BytesIO()
+        description = '{} ({})'.format(str(metadata.metadata.get_single(DC.title, lang=None)), date.today().isoformat())
+        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
+        sample_style_sheet = getSampleStyleSheet()
+        custom_style = copy(sample_style_sheet['Normal'])
+        custom_style.name = 'Notes'
+        custom_style.fontSize = 8
+        custom_style.fontName = 'Liberation'
+        cit_style = copy(sample_style_sheet['Normal'])
+        cit_style.name = 'DocCitation'
+        cit_style.fontSize = 8
+        cit_style.alignment = 1
+        sample_style_sheet['BodyText'].fontName = 'Liberation'
+        encryption = EncryptionFlowable(userPassword='',
+                                        ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
+                                        canPrint=1,
+                                        canAnnotate=0,
+                                        canCopy=0,
+                                        canModify=0)
+        flowables = list()
+        flowables.append(Paragraph(str(metadata.metadata.get_single(DC.title, lang=None)), sample_style_sheet['Heading1']))
+        for p in d['paragraphs']:
+            flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
+        if d['app']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['app']:
+                flowables.append(Paragraph(n, custom_style))
+        if d['hist_notes']:
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in d['hist_notes']:
+                flowables.append(Paragraph(n, custom_style))
+        if self.check_project_team() is False:
+            flowables.append(encryption)
+        my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
+        pdf_value = pdf_buffer.getvalue()
+        pdf_buffer.close()
+        return Response(pdf_value, mimetype='application/pdf',
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})

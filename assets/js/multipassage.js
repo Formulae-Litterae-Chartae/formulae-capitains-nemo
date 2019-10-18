@@ -176,6 +176,10 @@ function showLexEntry(word) {
         var lemma = word.getAttribute('data-lexicon');
         var request = new XMLHttpRequest();
         var message = lexModal.getAttribute('message');
+        var subdomain = '';
+        if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+            subdomain = '/dev'
+        }
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
@@ -186,7 +190,7 @@ function showLexEntry(word) {
                 }
             }
         };
-        request.open('GET', '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
+        request.open('GET', subdomain + '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
         request.send()
     }
     
@@ -255,3 +259,40 @@ $('.note').click(function() {
         $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
     }
 });
+
+function changeScrollMode(el) {
+    if (el.getAttribute('title') == toScrollingTexts) {
+        el.setAttribute('title', fromScrollingTexts);
+        el.setAttribute('src', scrollTogetherSrc);
+    } else {
+        el.setAttribute('title', toScrollingTexts);
+        el.setAttribute('src', scrollIndependentSrc);
+    };
+    var textSections = document.querySelectorAll('.text-section');
+    for (let section of textSections) {
+        section.classList.toggle('scrolling');
+    }
+};
+
+// AJAX request to change reading format and then refresh the page
+$('.reading-format-setter').bind('click', function(event) {
+    event.preventDefault();
+    e = this;
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change reading direction')
+            }
+        }
+    };
+    request.open('GET', subdomain + '/reading_format/' + e.getAttribute('value'), true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+})
