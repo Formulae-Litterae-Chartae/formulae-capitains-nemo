@@ -18,7 +18,9 @@
                 <div class="table-cell">
                     <div class="stat-sub-table">
                     {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
+                    {% if aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] != 0 %}
                     <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
+                    {% endif %}
                     {% endfor %}
                     </div>
                 </div>
