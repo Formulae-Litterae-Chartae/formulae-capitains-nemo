@@ -18,7 +18,7 @@
 {% endif %}
 <header>
     <h1>
-    {{collections.current.label}}
+    {{collections.current.label|striptags}}
     </h1>
     {% if collections.parents[-1].id == 'formulae_collection' %}
     {% if collections.current.label == 'Formulae Andecavensis' %}

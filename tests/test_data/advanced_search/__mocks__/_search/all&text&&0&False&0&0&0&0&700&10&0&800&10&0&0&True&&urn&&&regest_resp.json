@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "freising_v7",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -166,8 +166,8 @@
           ],
           "min_date": "0765",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -175,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v7",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "_index": "freising_v7",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "_index": "freising_v7",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "_index": "freising_v7",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v7",
+        "_index": "fulda_stengel_v3",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v7",
+        "_index": "fulda_stengel_v3",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -399,6 +399,143 @@
     ]
   },
   "aggregations": {
+    "all_docs": {
+      "doc_count": 4743,
+      "corpus": {
+        "buckets": {
+          "Angers": {
+            "doc_count": 61
+          },
+          "Arnulfinger": {
+            "doc_count": 24
+          },
+          "B\u00fcnden": {
+            "doc_count": 24
+          },
+          "Echternach": {
+            "doc_count": 152
+          },
+          "Freising": {
+            "doc_count": 1383
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "Hersfeld": {
+            "doc_count": 121
+          },
+          "Luzern": {
+            "doc_count": 6
+          },
+          "Markulf": {
+            "doc_count": 22
+          },
+          "Merowinger": {
+            "doc_count": 196
+          },
+          "Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Passau": {
+            "doc_count": 102
+          },
+          "Regensburg": {
+            "doc_count": 269
+          },
+          "Rheinisch": {
+            "doc_count": 78
+          },
+          "R\u00e4tien": {
+            "doc_count": 60
+          },
+          "Salzburg": {
+            "doc_count": 229
+          },
+          "Sch\u00e4ftlarn": {
+            "doc_count": 37
+          },
+          "St. Gallen": {
+            "doc_count": 779
+          },
+          "Wei\u00dfenburg": {
+            "doc_count": 276
+          },
+          "Werden": {
+            "doc_count": 66
+          },
+          "Z\u00fcrich": {
+            "doc_count": 52
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 7
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 23
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 143
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 1412
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 2020
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 816
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 92
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 195
+      }
+    },
     "corpus": {
       "buckets": {
         "Angers": {

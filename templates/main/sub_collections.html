@@ -15,17 +15,17 @@
     </h1>
     </header>
     </div>
-    <div class="row justify-content-center">
+    <div class="row py-0">
+    <div class="col-auto">
+    <ul class="list-group">
     {% for coll in collections.members|sort(attribute="id") %}
-        <div class="col-xl-2 col-6">
-            <div class="card">
-                <div class="card-header text-center pb-0">
-                    <a class="card-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
-                        <h5>{{ coll.label }}</h5>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <li class="list-group-item py-0">
+            <a href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
+                <h5 class="my-2">{{ coll.label|safe }}</h5>
+            </a>
+        </li>
     {% endfor %}
+    </ul>
+    </div>
     </div>
 {% endblock %}

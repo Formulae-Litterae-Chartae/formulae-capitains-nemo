@@ -1958,7 +1958,51 @@ class TestES(Formulae_Testing):
                                         'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                         'Werden': {'match': {'_type': 'werden'}},
                                         'Zürich': {'match': {'_type': 'zuerich'}}}}},
-                         'no_date': {'missing': {'field': 'min_date'}}}}
+                         'no_date': {'missing': {'field': 'min_date'}},
+                         'all_docs': {'global': {},
+                                      'aggs': {
+                                          'range':
+                                              {'date_range':
+                                                   {'field': 'min_date',
+                                                    'format': 'yyyy',
+                                                    'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                                               {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                                               {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                                               {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                                               {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                                               {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                                               {'key': '>1000', 'from': '1000'}]}},
+                                          'corpus':
+                                              {'filters':
+                                                   {'filters':
+                                                        {'Angers': {'match': {'_type': 'andecavensis'}},
+                                                         'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                                         'Bünden': {'match': {'_type': 'buenden'}},
+                                                         'Echternach': {'match': {'_type': 'echternach'}},
+                                                         'Freising': {'match': {'_type': 'freising'}},
+                                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                         'Luzern': {'match': {'_type': 'luzern'}},
+                                                         'Markulf': {'match': {'_type': 'markulf'}},
+                                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                                         'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                                         'Mondsee': {'match': {'_type': 'mondsee'}},
+                                                         'Passau': {'match': {'_type': 'passau'}},
+                                                         'Rätien': {'match': {'_type': 'raetien'}},
+                                                         'Regensburg': {'match': {'_type': 'regensburg'}},
+                                                         'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                                         'Salzburg': {'match': {'_type': 'salzburg'}},
+                                                         'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                                         'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                                         'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                                         'Werden': {'match': {'_type': 'werden'}},
+                                                         'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                          'no_date': {'missing': {'field': 'min_date'}}
+                                      }
+                                      }
+                         }
+                }
         query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['query'] = 'regnum domni'
@@ -2241,3 +2285,22 @@ class TestNemoSetup_withoutviewer(Formulae_Testing_without_mapping):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+
+
+def rebuild_search_mock_files(url_base="http://127.0.0.1:5000"):
+    """Automatically rebuilds the mock files for the ElasticSearch tests.
+    This requires that a local version of the app is running at url_base and that the config variable
+    SAVE_REQUESTS is set to True.
+
+    :param url_base: The base url at which the app is currently running.
+    """
+    import requests
+    test_args = TestES.TEST_ARGS.items()
+    for k, v in test_args:
+        url_ext = []
+        for x, y in v.items():
+            url_ext.append('{}={}'.format(x, y))
+        url = '{}/search/results?source=advanced&sort=urn&{}'.format(url_base, '&'.join(url_ext))
+        r = requests.get(url)
+        if r.status_code != 200:
+            print(url + ' did not succeed. Status code: ' + r.status_code)
