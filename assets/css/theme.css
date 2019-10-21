@@ -400,8 +400,9 @@ nav .dropdown:hover .dropdown-menu {
 
 #searchTotal {
     color: blue;
-    font-size: 1.5rem;
+    font-size: 2rem;
     vertical-align: middle;
+    font-weight: bold;
 }
 
 #search-stat-table .table-header {
@@ -682,3 +683,4 @@ div.transcription p {
 #aggs-all-docs {
     text-decoration: underline;
 }
+

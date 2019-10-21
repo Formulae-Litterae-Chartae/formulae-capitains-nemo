@@ -6,7 +6,7 @@
     {% if total_results > 0 %}
     <div class="btn-group dropright">
          <a type="button" id="searchStats" class="btn btn-link pl-1 h1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer von') }} <span id="aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumente') }} <span id="searchTotal" title="{{ _('Mehr Statistiken') }}"><i class="fas fa-chart-pie"></i><i class="fas fa-chart-bar"></i>Σ</span></h1>
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer von') }} <span id="aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumente') }} <span id="searchTotal" title="{{ _('Mehr Statistiken') }}">Σ</span></h1>
         </a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">
