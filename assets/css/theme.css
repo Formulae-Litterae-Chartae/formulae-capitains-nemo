@@ -684,3 +684,7 @@ div.transcription p {
     text-decoration: underline;
 }
 
+.collection-origin {
+    font-style: italic;
+    font-weight: bold;
+}

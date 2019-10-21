@@ -18,7 +18,7 @@
 {% endif %}
 <header>
     <h1>
-    {{collections.current.label}}
+    {{collections.current.label|striptags}}
     </h1>
     {% if collections.current.label == 'Formulae Andecavensis' %}
     <a class="man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zur Inhaltsbeschreibung des Manuskripts') }}</a>
