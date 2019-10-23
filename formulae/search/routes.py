@@ -120,10 +120,10 @@ def r_results():
     if 'previous_search_args' in session:
         g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
     return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
-                       next_url=next_url, prev_url=prev_url, page_urls=page_urls,
-                       first_url=first_url, last_url=last_url, current_page=page,
-                       search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
-                       sort_urls=sort_urls, total_results=total, aggs=aggs)
+                                                 next_url=next_url, prev_url=prev_url, page_urls=page_urls,
+                                                 first_url=first_url, last_url=last_url, current_page=page,
+                                                 search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
+                                                 sort_urls=sort_urls, total_results=total, aggs=aggs)
 
 
 @bp.route("/advanced_search", methods=["GET"])

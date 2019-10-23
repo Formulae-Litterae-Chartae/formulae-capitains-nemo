@@ -18,11 +18,11 @@
 {% endif %}
 <header>
     <h1>
-    {{collections.current.label}}
+    {{collections.current.label|striptags}}
     </h1>
     {% if collections.parents[-1].id == 'formulae_collection' %}
     {% if collections.current.label == 'Formulae Andecavensis' %}
-    <a class="man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskripteninhalt') }}</a><br>
+    <a class="man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
     {% endif %}
     <a class="ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
     {% endif %}
