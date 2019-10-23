@@ -936,7 +936,7 @@ class NemoFormulae(Nemo):
             f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
             canvas.saveState()
             canvas.drawImage(self.static_folder + 'images/logo_white.png',
-                             inch, 0, width=doc.pagesize[0], height=doc.pagesize[1] - 0.5 * inch)
+                             inch, inch, width=doc.pagesize[0] - doc.rightMargin, height=doc.pagesize[1] - 1.5 * inch)
             canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
                              doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
                              mask=[255, 256, 255, 256, 255, 256])
