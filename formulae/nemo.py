@@ -799,7 +799,7 @@ class NemoFormulae(Nemo):
                         if type(manifests) == dict:
                             d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
                         elif type(manifests) == list:
-                            d["IIIFviewer"] = manifests
+                            d["IIIFviewer"] = [(link, self.app.picture_file[link]['title']) for link in manifests]
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
