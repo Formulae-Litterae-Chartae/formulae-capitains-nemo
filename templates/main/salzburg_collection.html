@@ -19,7 +19,7 @@
 {% set ns = namespace(codex = 'Codex Odalberti') %}
 <header>
     <h1>
-    {{collections.current.label}}
+    {{collections.current.label|striptags}}
     </h1>
 </header>
 </div>
