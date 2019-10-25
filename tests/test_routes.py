@@ -280,6 +280,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
+            # make sure hasVersion metadata is correctly interpreted
+            r = c.get('/texts/urn:cts:formulae:fulda_dronke.dronke0004a.lat001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 15', r.get_data(as_text=True))
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',

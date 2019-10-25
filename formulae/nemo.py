@@ -738,7 +738,7 @@ class NemoFormulae(Nemo):
                 i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
-                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).get_single(DC.title))
+                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
                                for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
