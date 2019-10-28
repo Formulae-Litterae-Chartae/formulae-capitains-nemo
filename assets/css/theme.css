@@ -688,3 +688,10 @@ div.transcription p {
     font-style: italic;
     font-weight: bold;
 }
+
+.nav-item.dropdown .dropdown-menu {
+    height: auto;
+    width: auto;
+    max-height: 70vh;
+    overflow: auto;
+}
