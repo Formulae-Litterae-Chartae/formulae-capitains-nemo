@@ -99,7 +99,7 @@
                 {% for sent in post['sents'] %}
                 <p class="card-text m-0"><small>- {{ sent }}</small></p>
                 {% endfor %}
-                {% if post['regest_sents'] != [] %}
+                {% if post['regest_sents'] %}
                 <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
                 {% endif %}
                 {% for sent in post['regest_sents'] %}
