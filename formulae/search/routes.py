@@ -190,7 +190,7 @@ def word_search_suggester(word):
 
 @bp.route('/download', methods=["GET"])
 def download_search_results():
-    if 'previous_search' not in session:
+    if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
     else:
@@ -211,10 +211,10 @@ def download_search_results():
             arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
         for d in session['previous_search']:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
-            if 'sents' in d:
+            if 'sents' in d and d['sents'] != []:
                 r['sents'] = ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>', str(s)))
                               for s in d['sents']]
-            if 'regest_sents' in d:
+            if 'regest_sents' in d and d['regest_sents'] != []:
                 r['regest_sents'] = ['<u>' + _('Aus dem Regest') + '</u>']
                 r['regest_sents'] += ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>',
                                                            str(s)))
