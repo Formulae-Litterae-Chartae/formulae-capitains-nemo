@@ -220,14 +220,21 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
             query_words = q.split()
             for i, w in enumerate(lems):
                 if w == query_words[0] and set(query_words).issubset(lems[max(i - (int(slop) + addend), 0):min(i + (int(slop) + len(query_words)), len(lems))]):
+                    if ratio == 1.0:
+                        start_i, end_i = max(i - (int(slop) + addend), 0), min(i + (int(slop) + len(query_words)), len(lems))
+                        for lem_i, lem_word in enumerate(lems[start_i:end_i]):
+                            if lem_word in query_words:
+                                inflected[start_i + lem_i] = PRE_TAGS + inflected[start_i + lem_i] + POST_TAGS
                     rounded = round(i * ratio)
-                    sentences.append(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))]))
+                    sentences.append(Markup(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))])))
         else:
             while q in lems[start:]:
                 i = lems.index(q, start)
                 start = i + 1
+                if ratio == 1.0:
+                    inflected[i] = PRE_TAGS + inflected[i] + POST_TAGS
                 rounded = round(i * ratio)
-                sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
+                sentences.append(Markup(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))])))
         ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'title': hit['_source']['title'],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []})
