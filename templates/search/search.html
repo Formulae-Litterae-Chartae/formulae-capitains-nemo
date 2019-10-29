@@ -44,7 +44,7 @@
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
     <div class="row search-subtitle-row">
-        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if 'previous_search_args' in session %}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
         <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.download_search_results') }}" id="searchDownload">{{ _('Suchergebnisse herunterladen') }}</a></div>
         <div class="col-auto">
             <div class="dropdown">
