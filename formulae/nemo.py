@@ -932,6 +932,7 @@ class NemoFormulae(Nemo):
 
         def add_citation_info(canvas, doc):
             cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
             cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
             cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
             f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
@@ -958,7 +959,8 @@ class NemoFormulae(Nemo):
             xslt = etree.XSLT(etree.parse(f))
         d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
         pdf_buffer = BytesIO()
-        description = '{} ({})'.format(str(metadata.metadata.get_single(DC.title, lang=None)), date.today().isoformat())
+        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))
+        description = '{} ({})'.format(doc_title, date.today().isoformat())
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -977,7 +979,7 @@ class NemoFormulae(Nemo):
                                         canCopy=0,
                                         canModify=0)
         flowables = list()
-        flowables.append(Paragraph(str(metadata.metadata.get_single(DC.title, lang=None)), sample_style_sheet['Heading1']))
+        flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
         for p in d['paragraphs']:
             flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
         if d['app']:
