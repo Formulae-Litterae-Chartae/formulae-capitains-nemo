@@ -580,7 +580,10 @@ class TestIndividualRoutes(Formulae_Testing):
         resp = fake.load_response()
         mock_search.return_value = resp
         set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
-        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in resp['hits']['hits']])
+        self.assertEqual(session['previous_search'],
+                         [{'id': hit['_id'],
+                           'title': hit['_source']['title'],
+                           'regest_sents': [], 'sents': []} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
