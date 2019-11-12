@@ -760,6 +760,9 @@ class NemoFormulae(Nemo):
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
+                    else:
+                        flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
+                        continue
                     if type(formulae) == list:
                         formulae = self.app.picture_file[formulae[0]]
                         flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))

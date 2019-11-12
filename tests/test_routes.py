@@ -306,6 +306,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+            c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (Deutsch)'))
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
@@ -579,11 +582,13 @@ class TestIndividualRoutes(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         mock_search.return_value = resp
-        set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
+        set_session_token('all', body, field=test_args['field'], q='text')
         self.assertEqual(session['previous_search'],
                          [{'id': hit['_id'],
                            'title': hit['_source']['title'],
-                           'regest_sents': [], 'sents': []} for hit in resp['hits']['hits']])
+                           'info': hit['_source'],
+                           'regest_sents': [Markup('regest text')],
+                           'sents': ['some real text']} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -1769,16 +1774,18 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['omnium cartarum adcommodat firmitatem. Facta cartula in civitate '
-                            'Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub '
-                            'die, quod est',
-                            'ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum '
-                            'superscripsi. Signum Baselii et filii sui Rofini, qui haec']},
-                 {'sents': ['Facta donacio in loco Fortunes, sub presencia virorum testium sub '
-                            'regnum domni nostri Caroli regis, Sub die, quod est pridie',
-                            'Sub die, quod est pridie kl. aprilis. Notavi diem et regnum '
-                            'superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui '
-                            'haec']}]
+        sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
+                                   '</small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, '
+                                   'sub die, quod est'),
+                            Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui '
+                                   'Rofini, qui haec')]},
+                 {'sents': [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub '
+                                   '</small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod '
+                                   'est pridie'),
+                            Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
+                                   'Felicianes uxoris ipsius, qui haec')]}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -1800,14 +1807,14 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['Archaciani legis stipulacionis subnixa, qui omnium cartarum '
-                            'adcommodat firmitatem. Facta cartula in civitate Curia, sub '
-                            'regnum domni nostri Charoli gloriosissimi regis, sub die, quod '
-                            'est XV kl. madii, sub presenciarum']},
-                 {'sents': ['qui omnium cartarum accomodat firmitate. Facta donacio in loco '
-                            'Fortunes, sub presencia virorum testium sub regnum domni nostri '
-                            'Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem '
-                            'et']}]
+        sents = [{'sents': [Markup('Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. '
+                                   'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
+                                   'quod est XV kl. madii, sub presenciarum')]},
+                 {'sents': [Markup('qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub '
+                                   'presencia virorum testium sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
+                                   'pridie kl. aprilis. Notavi diem et')]}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')

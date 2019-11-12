@@ -102,25 +102,28 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template, field, q, regest_q=None):
+def set_session_token(index, orig_template, field, q, regest_q=None, ordered_terms=False, slop=0, regest_field='regest'):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
-    for hit in session_search['hits']['hits']:
-        d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
-        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-        if q:
-            d['sents'] = [_('Text nicht zugänglich.')]
-            if current_app.config['nemo_app'].check_project_team() is True or open_text:
-                d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
-        if regest_q:
-            d['regest_sents'] = [_('Regest nicht zugänglich.')]
-            if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
-                d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
-        search_hits.append(d)
+    if field == 'lemmas':
+        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field)
+    else:
+        for hit in session_search['hits']['hits']:
+            d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
+            open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+            half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+            if q:
+                d['sents'] = [_('Text nicht zugänglich.')]
+                if current_app.config['nemo_app'].check_project_team() is True or open_text:
+                    d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
+            if regest_q:
+                d['regest_sents'] = [_('Regest nicht zugänglich.')]
+                if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
+                    d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
+            search_hits.append(d)
     session['previous_search'] = search_hits
 
 
@@ -195,6 +198,49 @@ def highlight_segment(orig_str):
     return orig_str[init_index:end_index]
 
 
+def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
+    """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
+
+    :param search:
+    :param q:
+    :param ordered_terms:
+    :param slop:
+    :param regest_field:
+    :return:
+    """
+    ids = []
+    for hit in search['hits']['hits']:
+        sentences = []
+        start = 0
+        lems = hit['_source']['lemmas'].split()
+        inflected = hit['_source']['text'].split()
+        ratio = len(inflected)/len(lems)
+        if ' ' in q:
+            addend = 0 if ordered_terms else 1
+            query_words = q.split()
+            for i, w in enumerate(lems):
+                if w == query_words[0] and set(query_words).issubset(lems[max(i - (int(slop) + addend), 0):min(i + (int(slop) + len(query_words)), len(lems))]):
+                    if ratio == 1.0:
+                        start_i, end_i = max(i - (int(slop) + addend), 0), min(i + (int(slop) + len(query_words)), len(lems))
+                        for lem_i, lem_word in enumerate(lems[start_i:end_i]):
+                            if lem_word in query_words:
+                                inflected[start_i + lem_i] = PRE_TAGS + inflected[start_i + lem_i] + POST_TAGS
+                    rounded = round(i * ratio)
+                    sentences.append(Markup(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))])))
+        else:
+            while q in lems[start:]:
+                i = lems.index(q, start)
+                start = i + 1
+                if ratio == 1.0:
+                    inflected[i] = PRE_TAGS + inflected[i] + POST_TAGS
+                rounded = round(i * ratio)
+                sentences.append(Markup(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))])))
+        ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'title': hit['_source']['title'],
+                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                    if 'highlight' in hit and regest_field in hit['highlight'] else []})
+    return ids
+
+
 def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
                          year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
                          day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
@@ -216,6 +262,9 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                                   }
     if not current_app.elasticsearch:
         return [], 0, {}
+    ordered_terms = True
+    if in_order == 'False':
+        ordered_terms = False
     if field == 'lemmas':
         fuzz = '0'
         if '*' in q or '?' in q:
@@ -227,9 +276,6 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
         clauses = []
-        ordered_terms = True
-        if in_order == 'False':
-            ordered_terms = False
         for term in q.split():
             if '*' in term or '?' in term:
                 clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
@@ -240,9 +286,6 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
 
     if regest_q:
         clauses = []
-        ordered_terms = True
-        if in_order == 'False':
-            ordered_terms = False
         for term in regest_q.split():
             if '*' in term or '?' in term:
                 clauses.append({'span_multi': {'match': {'wildcard': {regest_field: term}}}})
@@ -313,36 +356,14 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    set_session_token(corpus, body_template, field, q if field == 'text' else '',
-                      regest_q if regest_field == 'regest' else '')
+    set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+                      regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
         # match up 1-to-1.
         if field == 'lemmas':
-            ids = []
-            for hit in search['hits']['hits']:
-                sentences = []
-                start = 0
-                lems = hit['_source']['lemmas'].split()
-                inflected = hit['_source']['text'].split()
-                ratio = len(inflected)/len(lems)
-                if ' ' in q:
-                    addend = 0 if ordered_terms else 1
-                    query_words = q.split()
-                    for i, w in enumerate(lems):
-                        if w == query_words[0] and set(query_words).issubset(lems[max(i - (int(slop) + addend), 0):min(i + (int(slop) + len(query_words)), len(lems))]):
-                            rounded = round(i * ratio)
-                            sentences.append(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))]))
-                else:
-                    while q in lems[start:]:
-                        i = lems.index(q, start)
-                        start = i + 1
-                        rounded = round(i * ratio)
-                        sentences.append(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))]))
-                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences,
-                            'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                            if 'highlight' in hit and regest_field in hit['highlight'] else []})
+            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
