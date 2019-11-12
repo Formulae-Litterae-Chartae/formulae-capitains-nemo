@@ -109,7 +109,7 @@ def set_session_token(index, orig_template, field, q, regest_q=None):
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
     for hit in session_search['hits']['hits']:
-        d = {'id': hit['_id'], 'title': hit['_source']['title']}
+        d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
         if q:
