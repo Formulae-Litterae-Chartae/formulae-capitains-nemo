@@ -29,33 +29,65 @@
 </header>
 </div>
 {% if collections.readable %}
-<h4>{{ _('Gehe zu (Text):') }}</h4>
-{% for number, values in collections.readable|dictsort %}
-<a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']}}</a>
-{% endfor %}
-<div class="row">
-    <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
-        <ul class="list-group list-group-flush">
-        {% for number, values in collections.readable|dictsort %}
-            <li id="N{{number}}" class="list-group-item flex-column">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5>{% if values['name'] != _('(Titel)') and values['name'] != _('(Computus)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
-                    <p>{% if 'andecavensis' in collections.current.id or 'markulf' in collections.current.id %}{% for urn, lang, version in values['versions']['editions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Edition') }}]</a>{% endfor %}{% for urn, lang, version in values['versions']['translations']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>{% endfor %}{% if values['versions']['transcriptions'] %}<a class="card-link">{{ _('Transkriptionen') }}:</a>{% for urn, lang, version in values['versions']['transcriptions'] %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ version[0]|title }}<seg class="manuscript-number">{{ version[1] }}</seg>]</a>{% endfor %}{% endif %}{% else %}{% for urn, lang, version in values['versions']['editions']|sort %}<a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>{% endfor %}{% endif %}</p>
-                </div>
-                {% if current_user.project_team or collections.current.open_regesten %}
-                {% if values['short_regest'] %}<p class="mb-1">{{ values['short_regest'] }}</p>{% endif %}
-                {{ make_dates(values) }}
-                {% for p in values['regest'] %}
-                <p><small>{{ p }}</small></p>
-                {% endfor %}
-                <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                {% else %}
-                {{ make_dates(values) }}
-                <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
-                {% endif %}
-            </li>
-        {% endfor %}
-        </ul>
+    <h4>{{ _('Gehe zu (Text):') }}</h4>
+    {% for number, values in collections.readable|dictsort %}
+        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']}}</a>
+    {% endfor %}
+    <div class="row">
+        <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
+            <ul class="list-group list-group-flush">
+            {% for number, values in collections.readable|dictsort %}
+                <li id="N{{number}}" class="list-group-item flex-column">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5>{% if values['name'] != _('(Titel)') and values['name'] != _('(Computus)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
+                        <p>
+                            {% if 'andecavensis' in collections.current.id or 'markulf' in collections.current.id %}
+                                {% for urn, lang, version in values['versions']['editions']|sort %}
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Edition') }}]</a>
+                                {% endfor %}
+                                {% for urn, lang, version in values['versions']['translations']|sort %}
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>
+                                {% endfor %}
+                                {% if values['versions']['transcriptions'] %}
+                                    <div class="dropdown">
+                                        <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {% if values['versions']['transcriptions']|length > 1 %}
+                                        {{ _('Transkriptionen/Manuskriptbilder') }}
+                                        {% else %}
+                                        {{ _('Transkription/Manuskriptbild') }}
+                                        {% endif %}
+                                        </button>
+                                        <div class="dropdown-menu transcription-dropdown">
+                                        {% for urn, lang, version in values['versions']['transcriptions'] %}
+                                            <a class="dropdown-item " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ version[0]|title }}<seg class="manuscript-number">{{ version[1] }}</seg>]</a>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                {% for urn, lang, version in values['versions']['editions']|sort %}
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>
+                                    {% endfor %}
+                            {% endif %}
+                        </p>
+                        {% if current_user.project_team or collections.current.open_regesten %}
+                            {% if values['short_regest'] %}
+                                <p class="mb-1">{{ values['short_regest'] }}</p>
+                            {% endif %}
+                            {{ make_dates(values) }}
+                            {% for p in values['regest'] %}
+                                <p><small>{{ p }}</small></p>
+                            {% endfor %}
+                            <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
+                        {% else %}
+                            {{ make_dates(values) }}
+                            <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endif %}
 </div>
