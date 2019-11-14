@@ -43,7 +43,9 @@
                         <p>
                             {% if 'andecavensis' in collections.current.id or 'markulf' in collections.current.id %}
                                 {% for urn, lang, version in values['versions']['editions']|sort %}
-                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Edition') }}]</a>
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
+                                        [{{ _('Edition') }}]
+                                    </a>
                                 {% endfor %}
                                 {% for urn, lang, version in values['versions']['translations']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>
