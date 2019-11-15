@@ -14,15 +14,17 @@
 <!-- THE LEFT COLUMN -->
 <div id="sidebar_l" class="col-2 d-none d-lg-block">
     <div class="d-flex flex-column" id="left-sticky-col">
-    {% if session['previous_search'] %}
-        {% include "main::prev_search.html" %}
-    {% endif %}
+        {% if session['previous_search'] %}
+            {% include "main::prev_search.html" %}
+        {% endif %}
         {% with objs = objects|slice(2)|first, note_class = 'noteCardLeft' %}
-        {% include "main::notes.html" %}
+            {% include "main::notes.html" %}
         {% endwith %}
     </div>
 </div>
 
+
+        
 <!-- button to collapse the left sidebar-->
 <button type="button" id="sidebarCollapse_l" class="btn btn-link btn-lg px-0 d-none d-lg-block" title="{{ _('Linke Spalte zuklappen.') }}">«</button>
 
