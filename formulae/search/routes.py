@@ -24,7 +24,7 @@ def r_simple_search():
                 flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             elif k == 'q':
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
-        return redirect(url_for('.r_results', source='simple', corpus=['formulae', 'chartae'], q=g.search_form.data['q']))
+        return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
     data = g.search_form.data
     data['q'] = data['q'].lower()
     corpus = '+'.join(data.pop("corpus"))
@@ -57,6 +57,8 @@ def r_results():
                                    sort=request.args.get('sort', 'urn'))
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
                        'sort': request.args.get('sort', 'urn')}
+        if request.args.get('old_search', None):
+            search_args.update({'old_search': True})
     else:
         posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                                   q=request.args.get('q'),
