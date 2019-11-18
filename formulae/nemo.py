@@ -164,10 +164,10 @@ class NemoFormulae(Nemo):
             elif 'n' in par:
                 par = '2' + par
             par = (par, full_par)
-            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
             par = m.parent.id.split('.')[-1][0].capitalize()
-            metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+            metadata = [m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
             if par.lstrip('0') == '':
