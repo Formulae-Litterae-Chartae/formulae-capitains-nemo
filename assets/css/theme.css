@@ -695,3 +695,8 @@ div.transcription p {
     max-height: 70vh;
     overflow: auto;
 }
+
+p.flash-yellow {
+    animation-name: note-focus;
+    animation-duration: 4s;
+}

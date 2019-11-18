@@ -1,4 +1,5 @@
 var lexModal = document.getElementById('lexicon-modal');
+var scrollControl = document.getElementById('scroll-control-image');
 $('.apparatus-title').append(appHeading);
 $('.commentary-title').append(comHeading);
 $('[id$="a1-hide-button"]').attr('title', appCloseButton)
@@ -296,3 +297,23 @@ $('.reading-format-setter').bind('click', function(event) {
     request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     request.send()
 })
+
+function goToLinkedParagraph(h, t) {
+    el = document.getElementById(t);
+    if (scrollControl.getAttribute('title') == toScrollingTexts) {
+        scrollControl.setAttribute('title', fromScrollingTexts);
+        scrollControl.setAttribute('src', scrollTogetherSrc);
+        var textSections = document.querySelectorAll('.text-section');
+        for (let section of textSections) {
+            section.classList.toggle('scrolling');
+        }
+    }
+    target = document.getElementById(h);
+    el.scrollIntoView();
+    el.onanimationend =  function() {this.classList.remove('flash-yellow')};
+    el.classList.add( 'flash-yellow' );
+    target.scrollIntoView();
+    target.onanimationend =  function() {this.classList.remove('flash-yellow')};
+    target.classList.add( 'flash-yellow' );
+    console.log(target);
+};
