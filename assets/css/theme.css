@@ -507,6 +507,10 @@ button.close {
     margin-top: .25rem;
 }
 
+.corpora-search-results-dropdown {
+    z-index: 1030;
+}
+
 .smallfont {
     font-size: small;
 }

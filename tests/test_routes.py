@@ -1848,7 +1848,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_simple_multi_corpus_search(self, mock_search):
-        test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
+        test_args = OrderedDict([("index", 'formulae+chartae'), ("query", 'regnum'), ("field", "text"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
@@ -2019,15 +2019,15 @@ class TestES(Formulae_Testing):
                          }
                 }
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 'regnum domni'
         body['query']['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 're?num'
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['index'] = ['']
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
@@ -2043,6 +2043,14 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            old_search_args = session['previous_search_args']
+            self.assertIn('fulda_dronke', old_search_args['corpus'],
+                          'Charters should automatically be search when no index is given in simple search.')
+            self.assertIn('andecavensis', old_search_args['corpus'],
+                          'Formulae should automatically be search when no index is given in simple search.')
+            self.client.get('/search/simple?index=&q=regnum&old_search=True', follow_redirects=True)
+            self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
+                             'Searches made with the old_search=True argument should not change the previous_search_args.')
             self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
             self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
                                       _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
