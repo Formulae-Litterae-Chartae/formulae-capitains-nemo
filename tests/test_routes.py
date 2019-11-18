@@ -2048,7 +2048,7 @@ class TestES(Formulae_Testing):
                           'Charters should automatically be search when no index is given in simple search.')
             self.assertIn('andecavensis', old_search_args['corpus'],
                           'Formulae should automatically be search when no index is given in simple search.')
-            self.client.get('/search/simple?index=&q=regnum&old_search=True', follow_redirects=True)
+            self.client.get('/results/simple?index=&q=regnum&old_search=True', follow_redirects=True)
             self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
                              'Searches made with the old_search=True argument should not change the previous_search_args.')
             self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
