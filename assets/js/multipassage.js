@@ -86,6 +86,14 @@ $(document).ready(function () {
     $(".no-copy").on("contextmenu",function(e){
         return false;
     });
+    
+    var parLinks = document.getElementsByClassName('paragraph-link');
+    for (let link of parLinks) {
+        if (document.getElementById(link.getAttribute('link-to'))) {
+            link.removeAttribute('hidden');
+        }
+    }
+    
 });
 
 function hideNotes(c) {
