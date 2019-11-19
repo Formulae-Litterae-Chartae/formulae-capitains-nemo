@@ -53,24 +53,8 @@
             {% set all_texts = all_texts|insert_in_list(index - 1, object.objectId) %}
             {% set all_reffs = all_reffs|insert_in_list(index - 1, object.subreference) %}
             {% endif %}
-            {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
-                {% if loop.first %}
-                <div class="col col-auto">
-                    <div class="dropdown">
-                        <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ _('Manuskriptbilder') }}
-                        </button>
-                        <div class="dropdown-menu version-dropdown">
-                {% endif %}
-                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest[1]|safe }}</a>
-                {% if loop.last %}
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            {% endfor %}
             <div class="col col-auto">
-                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy) }}
+                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy, object, index) }}
             </div>
         </div>
         {% if 'manifest' in object.objectId %}
@@ -91,12 +75,21 @@
 
 </header>
 {% endmacro %}
-{% macro version_menu(objId, inRefs) %}
+{% macro version_menu(objId, inRefs, object, index) %}
 <div class="dropdown">
     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ _('Weitere Texte') }}
+        {{ _('Eine Spalte hinzufügen') }}
     </button>
     <div class="dropdown-menu version-dropdown">
+        {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
+            {% if loop.first %}
+                <span class="dropdown-item-text">{{ _('Manuskriptbilder') }}</span>
+            {% endif %}
+                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ manifest[1]|safe }}</span></a>
+            {% if loop.last %}
+                <div class="dropdown-divider"></div>
+            {% endif %}
+        {% endfor %}
         {% if translation[objId] %}
             <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
             {% for t in translation[objId] %}
