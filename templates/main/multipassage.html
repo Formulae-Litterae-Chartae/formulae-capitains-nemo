@@ -22,28 +22,6 @@
             {% set prev_obj = _('Vorherige Urkunde') %}
             {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
-            {% if 'manifest' not in object.objectId %}
-            {% if object.prev_version %}
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
-            <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">«<small>{{ prev_obj }}</small></a>
-            </div>
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
-            {% else %}
-            <div class="col">
-            </div>
-            {% endif %}
-            {% if object.next_version %}
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
-            <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}"><small>{{ next_obj }}</small>»</a>
-            </div>
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
-            {% else %}
-            <div class="col">
-            </div>
-            {% endif %}
-            {% endif %}
         </div>
         <div class="row justify-content-center pt-0 pb-0">
             {% if objects|length > 1 %}
@@ -57,14 +35,61 @@
                 {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy, object, index) }}
             </div>
         </div>
+        <div class="row py-1 align-items-center">
+        {% set ns = namespace(hit_index=-1) %}
+        {% for hit in session['previous_search'] %}
+            {% if hit['id'] == object.objectId %}
+                {% set ns.hit_index = loop.index0 %}
+            {% endif %}
+        {% endfor %}
         {% if 'manifest' in object.objectId %}
             <div class="entry-title text-center">{{object.title|safe}}</div>
             <span></span>
             <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
         {% else %}
-            <div class="entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            {% if object.prev_version %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}"><i class="fas fa-step-backward"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            {% if ns.hit_index != -1 and ns.hit_index > 0 %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index - 1]['id']) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-search-minus"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            <div class="col entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['id']) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-search-plus"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            {% if object.next_version %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}"><i class="fas fa-step-forward"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
         {% endif %}
-        
+        </div>
     </div>
     {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}
         {% if object.open_regest or current_user.project_team or object.collections.current.dating or object.collections.current.issued_at %}
@@ -196,7 +221,7 @@
                 {{ navigation }}
             </nav> -->
 
-            <div class="row">
+            <div class="row pt-3">
                 <section class="col-sm with-border" id="viewer" style="display:none;"></section>
             {% for text in objects %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
