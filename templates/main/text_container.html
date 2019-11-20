@@ -12,7 +12,7 @@
     {% set prev_reffs = subreference %}
 {% endif %}
 <!-- THE LEFT COLUMN -->
-<div id="sidebar_l" class="col-2 d-none d-lg-block">
+<div id="sidebar_l" class="col-2 d-none d-lg-block reading-sidebar">
     <div class="d-flex flex-column" id="left-sticky-col">
         {% if session['previous_search'] %}
             {% include "main::prev_search.html" %}
@@ -23,23 +23,16 @@
     </div>
 </div>
 
-
-        
-<!-- button to collapse the left sidebar-->
-<button type="button" id="sidebarCollapse_l" class="btn btn-link btn-lg px-0 d-none d-lg-block" title="{{ _('Linke Spalte zuklappen.') }}">«</button>
-
 {% include "main::no_copy_modal.html" %}
 
-<div class="col-sm hfeed right-columns" id="reading-container">
+<div class="col hfeed right-columns" id="reading-container">
 <!-- THE TEXTS -->
 {% block texts %}
 {% endblock %}
 </div>
-<!-- button to collapse the right sidebar-->
-<button type="button" class="btn btn-link btn-lg px-0 d-none d-lg-block" id="sidebarCollapse_r" title="{{ _('Rechte Spalte zuklappen.') }}">»</button>
 
 <!-- THE RIGHT COLUMN -->
-<div id="sidebar_r" class="col-2 d-none d-lg-block">
+<div id="sidebar_r" class="col-2 d-none d-lg-block reading-sidebar">
     <div class="d-flex flex-column" id="right-sticky-col">
         {% include "main::lexicon.html" %}
         {% if objects|length > 1 %}
@@ -56,5 +49,9 @@
 {% endblock %}
 
 {% block footer %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
+<script>
+var gutterBackgroundImage="url('{{ url_for('InstanceNemo.static', filename='images/vertical_handle.png') }}')";
+</script>
 <script type="text/javascript" src="{{url_for('InstanceNemo.static', filename='js/text_container.js')}}"></script>
 {% endblock %}
