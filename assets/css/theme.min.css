@@ -115,7 +115,7 @@ ul.menu li a.active {
  */
 #reading-container article {
     padding:0.404em 2.617em 1.2em;
-    margin:1em auto;
+    margin:0 auto;
     max-width: 100%;
 
     font-family: 'Palatino', 'Palatino Linotype', 'Georgia', 'Serif';
