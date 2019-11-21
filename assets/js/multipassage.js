@@ -318,10 +318,10 @@ function goToLinkedParagraph(h, t) {
     }
     target = document.getElementById(h);
     el.scrollIntoView();
-    el.onanimationend =  function() {this.classList.remove('flash-yellow')};
-    el.classList.add( 'flash-yellow' );
+    el.onanimationend =  function() {this.classList.remove('flash-grey')};
+    el.classList.add( 'flash-grey' );
     target.scrollIntoView();
-    target.onanimationend =  function() {this.classList.remove('flash-yellow')};
-    target.classList.add( 'flash-yellow' );
+    target.onanimationend =  function() {this.classList.remove('flash-grey')};
+    target.classList.add( 'flash-grey' );
     console.log(target);
 };
