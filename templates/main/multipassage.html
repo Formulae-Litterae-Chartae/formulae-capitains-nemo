@@ -60,7 +60,7 @@
             {% if ns.hit_index != -1 and ns.hit_index > 0 %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index - 1]['id']) %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-search-minus"></i></a>
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-chevron-up"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
@@ -71,7 +71,7 @@
             {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['id']) %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-search-plus"></i></a>
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-chevron-down"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
@@ -115,8 +115,8 @@
                 <div class="dropdown-divider"></div>
             {% endif %}
         {% endfor %}
-        {% if translation[objId] %}
-            <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
+        {% if translation[objId] and object.collections.parents[-1]['id'] == 'formulae_collection' %}
+            <span class="dropdown-item-text">{{ _('Edition, Übersetzung, Transkription') }}</span>
             {% for t in translation[objId] %}
             <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
 
@@ -139,10 +139,18 @@
             {% endfor %}
             <div class="dropdown-divider"></div>
         {% endif %}
-        <span class="dropdown-item-text">{{ _('anderen Texte') }}</span>
+        <span class="dropdown-item-text">{{ _('Weitere Texte') }}</span>
+        {% if translation[objId] and object.collections.parents[-1]['id'] == 'other_collection' %}
+            <span class="dropdown-item">{{ _('Verwandte Texte') }}</span>
+            {% for t in translation[objId] %}
+            <a class="dropdown-item related-text" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
+
+            {% endfor %}
+            <div class="dropdown-divider"></div>
+        {% endif %}
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
-        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Andere Texte') }}</span></a>
+        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Urkunden und Briefe') }}</span></a>
     </div>
 </div>
 {% endmacro %}

@@ -709,3 +709,13 @@ p.flash-grey {
     animation-name: text-focus;
     animation-duration: 4s;
 }
+
+.paragraph-link {
+    font-size: 50%;
+    top: -.5em;
+    position: relative;
+}
+
+.related-text {
+    margin-left: 1em;
+}
