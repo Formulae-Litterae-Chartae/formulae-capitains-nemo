@@ -192,7 +192,7 @@
                     <xsl:attribute name="class">paragraph-link</xsl:attribute>
                     <xsl:attribute name="link-to"><xsl:value-of select="@corresp"/></xsl:attribute>
                     <xsl:attribute name="hidden"></xsl:attribute>
-                    <xsl:text>⚓</xsl:text>
+                    <i class="fas fa-anchor"></i>
                 </xsl:element>
             </xsl:if>
             <xsl:apply-templates select="@urn" />
