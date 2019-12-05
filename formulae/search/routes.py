@@ -45,13 +45,13 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     page = request.args.get('page', 1, type=int)
-    if request.args.get('lemma_search') == 'y':
+    if request.args.get('lemma_search') in ['y', 'True']:
         field = 'lemmas'
     else:
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total, aggs = query_index(corpus, 'text',
+        posts, total, aggs = query_index(corpus, field,
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
