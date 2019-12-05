@@ -1949,9 +1949,8 @@ class TestES(Formulae_Testing):
             self.assertEqual(hits, 0)
             self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
 
-
     @patch.object(Elasticsearch, "search")
-    def test_lemma_advanced_search_with_wildcard(self, mock_search):
+    def test_lemma_simple_search_with_wildcard(self, mock_search):
         test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
         mock_search.return_value = [], 0, {}
         with self.client:
