@@ -78,11 +78,15 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
+    if field == 'lemmas':
+        if '*' in query or '?' in query:
+            flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
+            return [], 0, {}
     for term in query_terms:
         if '*' in term or '?' in term:
-            clauses.append({'span_multi': {'match': {'wildcard': {'text': term}}}})
+            clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
         else:
-            clauses.append({"span_term": {'text': term}})
+            clauses.append({"span_term": {field: term}})
     search_body = {'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
                    "sort": sort,
                    'from': (page - 1) * per_page, 'size': per_page,
@@ -98,7 +102,10 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
     set_session_token(index, search_body, field, query)
-    ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+    if field == 'lemmas':
+        ids = lem_highlight_to_text(search, query, False, 0, 'regest')
+    else:
+        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
     return ids, search['hits']['total'], search['aggregations']
 
 
