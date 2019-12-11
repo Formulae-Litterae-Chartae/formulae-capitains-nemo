@@ -507,6 +507,10 @@ button.close {
     margin-top: .25rem;
 }
 
+.corpora-search-results-dropdown {
+    z-index: 1030;
+}
+
 .smallfont {
     font-size: small;
 }
@@ -551,7 +555,7 @@ img[id$="-flag-navbar"] {
 }
 
 @keyframes note-focus {
-    from {background-color: yellow;}
+    from {background-color: lightgrey;}
     to {background-color: initial;}
 }
 
@@ -694,4 +698,24 @@ div.transcription p {
     width: auto;
     max-height: 70vh;
     overflow: auto;
+}
+
+@keyframes text-focus {
+    from {background-color: lightgrey;}
+    to {background-color: initial;}
+}
+
+p.flash-grey {
+    animation-name: text-focus;
+    animation-duration: 4s;
+}
+
+.paragraph-link {
+    font-size: 50%;
+    top: -.5em;
+    position: relative;
+}
+
+.related-text {
+    margin-left: 1em;
 }

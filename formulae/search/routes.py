@@ -24,7 +24,7 @@ def r_simple_search():
                 flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             elif k == 'q':
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
-        return redirect(url_for('.r_results', source='simple', corpus=['formulae', 'chartae'], q=g.search_form.data['q']))
+        return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
     data = g.search_form.data
     data['q'] = data['q'].lower()
     corpus = '+'.join(data.pop("corpus"))
@@ -45,18 +45,20 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     page = request.args.get('page', 1, type=int)
-    if request.args.get('lemma_search') == 'y':
+    if request.args.get('lemma_search') in ['y', 'True']:
         field = 'lemmas'
     else:
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total, aggs = query_index(corpus, 'text',
+        posts, total, aggs = query_index(corpus, field,
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
                        'sort': request.args.get('sort', 'urn')}
+        if request.args.get('old_search', None):
+            search_args.update({'old_search': True})
     else:
         posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                                   q=request.args.get('q'),

@@ -35,7 +35,7 @@
                 <a class="nav-link" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Andere Texte') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
                     {% for coll in g.sub_colls['other_collection']|sort(attribute="id") %}
                     {% if current_user.project_team or coll.id in g.open_collections %}

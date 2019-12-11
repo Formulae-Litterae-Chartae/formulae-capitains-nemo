@@ -164,10 +164,10 @@ class NemoFormulae(Nemo):
             elif 'n' in par:
                 par = '2' + par
             par = (par, full_par)
-            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
             par = m.parent.id.split('.')[-1][0].capitalize()
-            metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+            metadata = [m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
             if par.lstrip('0') == '':
@@ -175,7 +175,7 @@ class NemoFormulae(Nemo):
             elif 'computus' in par:
                 par = '057(Computus)'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
-            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
 
     def get_open_texts(self):
@@ -303,7 +303,7 @@ class NemoFormulae(Nemo):
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
         g.open_collections = self.OPEN_COLLECTIONS
-        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url and 'favicon' not in request.url:
+        if not re.search('texts|search|assets|favicon|reading_format', request.url):
             session.pop('previous_search', None)
 
     def after_request(self, response):
@@ -392,6 +392,10 @@ class NemoFormulae(Nemo):
             template = "main::sub_collection.html"
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
+                manuscript_data = [m.metadata.get_single(DC.source) or
+                                   '{}<seg class="manuscript-number">{}</seg>'.format(metadata[2][0].title(),
+                                                                                      metadata[2][1]),
+                                   "manifest:" + m.id in self.app.picture_file]
                 version = m.id.split('.')[-1]
                 if 'lat' in version:
                     key = 'editions'
@@ -400,7 +404,7 @@ class NemoFormulae(Nemo):
                 else:
                     key = 'transcriptions'
                 if par in r.keys():
-                    r[par]["versions"][key].append(metadata)
+                    r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
                     work_name = par.lstrip('0') if type(par) is str else ''
                     if 'Computus' in work_name:
@@ -413,7 +417,7 @@ class NemoFormulae(Nemo):
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               'name': work_name}
-                    r[par]["versions"][key].append(metadata)
+                    r[par]["versions"][key].append(metadata + [manuscript_data])
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),

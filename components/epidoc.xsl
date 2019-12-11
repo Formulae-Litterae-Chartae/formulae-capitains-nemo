@@ -180,6 +180,21 @@
     <xsl:template match="t:p">
         <xsl:element name="p">
             <xsl:if test="@style='subparagraph'"><xsl:attribute name="class">indented-paragraph</xsl:attribute></xsl:if>
+            <xsl:if test="@xml:id">
+                <xsl:attribute name="id">
+                    <xsl:value-of select="@xml:id"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@corresp">
+                <xsl:element name="a">
+                    <xsl:attribute name="href"><xsl:text>#</xsl:text></xsl:attribute>
+                    <xsl:attribute name="onclick"><xsl:text>goToLinkedParagraph('</xsl:text><xsl:value-of select="@corresp"/><xsl:text>', '</xsl:text><xsl:value-of select="@xml:id"/><xsl:text>')</xsl:text></xsl:attribute>
+                    <xsl:attribute name="class">paragraph-link</xsl:attribute>
+                    <xsl:attribute name="link-to"><xsl:value-of select="@corresp"/></xsl:attribute>
+                    <xsl:attribute name="hidden"></xsl:attribute>
+                    <i class="fas fa-anchor"></i>
+                </xsl:element>
+            </xsl:if>
             <xsl:apply-templates select="@urn" />
             <xsl:apply-templates/>
         </xsl:element>

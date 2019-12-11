@@ -30,6 +30,7 @@ class SearchForm(FlaskForm):
                                  validators=[DataRequired(
                                      message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")'))]
                                  )
+    lemma_search = BooleanField(_l('Lemma'))
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:

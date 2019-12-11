@@ -22,28 +22,6 @@
             {% set prev_obj = _('Vorherige Urkunde') %}
             {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
-            {% if 'manifest' not in object.objectId %}
-            {% if object.prev_version %}
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
-            <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">«<small>{{ prev_obj }}</small></a>
-            </div>
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
-            {% else %}
-            <div class="col">
-            </div>
-            {% endif %}
-            {% if object.next_version %}
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
-            <div class="col">
-                <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}"><small>{{ next_obj }}</small>»</a>
-            </div>
-            {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
-            {% else %}
-            <div class="col">
-            </div>
-            {% endif %}
-            {% endif %}
         </div>
         <div class="row justify-content-center pt-0 pb-0">
             {% if objects|length > 1 %}
@@ -53,34 +31,65 @@
             {% set all_texts = all_texts|insert_in_list(index - 1, object.objectId) %}
             {% set all_reffs = all_reffs|insert_in_list(index - 1, object.subreference) %}
             {% endif %}
-            {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
-                {% if loop.first %}
-                <div class="col col-auto">
-                    <div class="dropdown">
-                        <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ _('Manuskriptbilder') }}
-                        </button>
-                        <div class="dropdown-menu version-dropdown">
-                {% endif %}
-                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">{{ manifest[1]|safe }}</a>
-                {% if loop.last %}
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            {% endfor %}
             <div class="col col-auto">
-                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy) }}
+                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy, object, index) }}
             </div>
         </div>
+        <div class="row py-1 align-items-center">
+        {% set ns = namespace(hit_index=-1) %}
+        {% for hit in session['previous_search'] %}
+            {% if hit['id'] == object.objectId %}
+                {% set ns.hit_index = loop.index0 %}
+            {% endif %}
+        {% endfor %}
         {% if 'manifest' in object.objectId %}
             <div class="entry-title text-center">{{object.title|safe}}</div>
             <span></span>
             <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
         {% else %}
-            <div class="entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            {% if object.prev_version %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}"><i class="fas fa-step-backward"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            {% if ns.hit_index != -1 and ns.hit_index > 0 %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index - 1]['id']) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-chevron-up"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            <div class="col entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if ('andecavensis' in object.collections.current.id or 'markulf' in object.collections.current.id) and 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['id']) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-chevron-down"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            {% if object.next_version %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
+                <div class="col-1">
+                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}"><i class="fas fa-step-forward"></i></a>
+                </div>
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
         {% endif %}
-        
+        </div>
     </div>
     {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}
         {% if object.open_regest or current_user.project_team or object.collections.current.dating or object.collections.current.issued_at %}
@@ -91,14 +100,23 @@
 
 </header>
 {% endmacro %}
-{% macro version_menu(objId, inRefs) %}
+{% macro version_menu(objId, inRefs, object, index) %}
 <div class="dropdown">
     <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ _('Weitere Texte') }}
+        {{ _('Eine Spalte hinzufügen') }}
     </button>
     <div class="dropdown-menu version-dropdown">
-        {% if translation[objId] %}
-            <span class="dropdown-item-text">{{ _('andere Version(en) dieser Text') }}</span>
+        {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
+            {% if loop.first %}
+                <span class="dropdown-item-text">{{ _('Manuskriptbilder') }}</span>
+            {% endif %}
+                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ manifest[1]|safe }}</span></a>
+            {% if loop.last %}
+                <div class="dropdown-divider"></div>
+            {% endif %}
+        {% endfor %}
+        {% if translation[objId] and object.collections.parents[-1]['id'] == 'formulae_collection' %}
+            <span class="dropdown-item-text">{{ _('Edition, Übersetzung, Transkription') }}</span>
             {% for t in translation[objId] %}
             <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
 
@@ -121,10 +139,18 @@
             {% endfor %}
             <div class="dropdown-divider"></div>
         {% endif %}
-        <span class="dropdown-item-text">{{ _('anderen Texte') }}</span>
+        {% if translation[objId] and object.collections.parents[-1]['id'] == 'other_collection' %}
+            <span class="dropdown-item-text">{{ _('Verwandte Texte') }}</span>
+            {% for t in translation[objId] %}
+            <a class="dropdown-item related-text" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
+
+            {% endfor %}
+            <div class="dropdown-divider"></div>
+        {% endif %}
+        <span class="dropdown-item-text">{{ _('Weitere Texte') }}</span>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
-        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Andere Texte') }}</span></a>
+        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Urkunden und Briefe') }}</span></a>
     </div>
 </div>
 {% endmacro %}
@@ -203,7 +229,7 @@
                 {{ navigation }}
             </nav> -->
 
-            <div class="row">
+            <div class="row pt-3">
                 <section class="col-sm with-border" id="viewer" style="display:none;"></section>
             {% for text in objects %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
