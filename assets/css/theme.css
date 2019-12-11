@@ -555,7 +555,7 @@ img[id$="-flag-navbar"] {
 }
 
 @keyframes note-focus {
-    from {background-color: yellow;}
+    from {background-color: lightgrey;}
     to {background-color: initial;}
 }
 
