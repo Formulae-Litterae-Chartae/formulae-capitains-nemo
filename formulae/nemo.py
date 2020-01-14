@@ -972,6 +972,13 @@ class NemoFormulae(Nemo):
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))
         description = '{} ({})'.format(doc_title, date.today().isoformat())
+        trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
+        filename = ''
+        for char in description:
+            new_char = char
+            if char in trans_table:
+                new_char = trans_table[char]
+            filename += new_char
         if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
             txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
                                      doc_title,
@@ -979,7 +986,7 @@ class NemoFormulae(Nemo):
                                      '\n'.join(d['app']),
                                      '\n'.join(d['hist_notes'])])
             return Response(txt_value, mimetype='text/plain',
-                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', description))})
+                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename).encode('ascii', 'replace'))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -1019,4 +1026,4 @@ class NemoFormulae(Nemo):
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename*={}.pdf'.format(description.replace(' ', '_'))})
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename).encode('ascii', 'replace'))})
