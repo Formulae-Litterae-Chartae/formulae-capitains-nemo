@@ -164,10 +164,10 @@ class NemoFormulae(Nemo):
             elif 'n' in par:
                 par = '2' + par
             par = (par, full_par)
-            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], version)
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
             par = m.parent.id.split('.')[-1][0].capitalize()
-            metadata = (m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang])
+            metadata = [m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
             if par.lstrip('0') == '':
@@ -175,7 +175,7 @@ class NemoFormulae(Nemo):
             elif 'computus' in par:
                 par = '057(Computus)'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
-            metadata = (m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups())
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
 
     def get_open_texts(self):
@@ -303,7 +303,7 @@ class NemoFormulae(Nemo):
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
         g.open_collections = self.OPEN_COLLECTIONS
-        if 'texts' not in request.url and 'search' not in request.url and 'assets' not in request.url and 'favicon' not in request.url:
+        if not re.search('texts|search|assets|favicon|reading_format', request.url):
             session.pop('previous_search', None)
 
     def after_request(self, response):
@@ -392,6 +392,10 @@ class NemoFormulae(Nemo):
             template = "main::sub_collection.html"
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
+                manuscript_data = [m.metadata.get_single(DC.source) or
+                                   '{}<seg class="manuscript-number">{}</seg>'.format(metadata[2][0].title(),
+                                                                                      metadata[2][1]),
+                                   "manifest:" + m.id in self.app.picture_file]
                 version = m.id.split('.')[-1]
                 if 'lat' in version:
                     key = 'editions'
@@ -400,7 +404,7 @@ class NemoFormulae(Nemo):
                 else:
                     key = 'transcriptions'
                 if par in r.keys():
-                    r[par]["versions"][key].append(metadata)
+                    r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
                     work_name = par.lstrip('0') if type(par) is str else ''
                     if 'Computus' in work_name:
@@ -413,7 +417,7 @@ class NemoFormulae(Nemo):
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               'name': work_name}
-                    r[par]["versions"][key].append(metadata)
+                    r[par]["versions"][key].append(metadata + [manuscript_data])
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -738,7 +742,7 @@ class NemoFormulae(Nemo):
                 i = re.sub(r'^manifest:', '', i)
             p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
             translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
-                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).get_single(DC.title))
+                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
                                for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
                                if str(x) not in ids]
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
@@ -760,6 +764,9 @@ class NemoFormulae(Nemo):
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
+                    else:
+                        flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
+                        continue
                     if type(formulae) == list:
                         formulae = self.app.picture_file[formulae[0]]
                         flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
@@ -799,7 +806,7 @@ class NemoFormulae(Nemo):
                         if type(manifests) == dict:
                             d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
                         elif type(manifests) == list:
-                            d["IIIFviewer"] = manifests
+                            d["IIIFviewer"] = [(link, self.app.picture_file[link]['title']) for link in manifests]
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
@@ -926,18 +933,23 @@ class NemoFormulae(Nemo):
         :param objectId: the URN of the text to transform
         :return:
         """
-        if (self.check_project_team() is False and objectId not in self.open_texts) or not re.search(r'andecavensis|markulf', objectId):
+        if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
+        is_formula = re.search(r'markulf|andecavensis|elexicon', objectId) is not None
 
         def add_citation_info(canvas, doc):
-            cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string = re.sub(r', \[UR[LI].*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
+            cit_string = re.sub(r'<span class="surname">', r'<span>', cit_string)
             cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
             cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
             f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
             canvas.saveState()
-            canvas.drawImage(self.static_folder + 'images/logo_white.png',
-                             inch, inch, width=doc.pagesize[0] - doc.rightMargin, height=doc.pagesize[1] - 1.5 * inch)
+            if is_formula is True:
+                canvas.drawImage(self.static_folder + 'images/logo_white.png',
+                                 inch, inch, width=doc.pagesize[0] - doc.rightMargin,
+                                 height=doc.pagesize[1] - 1.5 * inch)
             canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
                              doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
                              mask=[255, 256, 255, 256, 255, 256])
@@ -958,7 +970,23 @@ class NemoFormulae(Nemo):
             xslt = etree.XSLT(etree.parse(f))
         d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
         pdf_buffer = BytesIO()
-        description = '{} ({})'.format(str(metadata.metadata.get_single(DC.title, lang=None)), date.today().isoformat())
+        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))
+        description = '{} ({})'.format(doc_title, date.today().isoformat())
+        trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
+        filename = ''
+        for char in description:
+            new_char = char
+            if char in trans_table:
+                new_char = trans_table[char]
+            filename += new_char
+        if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
+            txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
+                                     doc_title,
+                                     '\n'.join(d['paragraphs']),
+                                     '\n'.join(d['app']),
+                                     '\n'.join(d['hist_notes'])])
+            return Response(txt_value, mimetype='text/plain',
+                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -977,7 +1005,7 @@ class NemoFormulae(Nemo):
                                         canCopy=0,
                                         canModify=0)
         flowables = list()
-        flowables.append(Paragraph(str(metadata.metadata.get_single(DC.title, lang=None)), sample_style_sheet['Heading1']))
+        flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
         for p in d['paragraphs']:
             flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
         if d['app']:
@@ -992,10 +1020,10 @@ class NemoFormulae(Nemo):
             flowables.append(Spacer(1, 5))
             for n in d['hist_notes']:
                 flowables.append(Paragraph(n, custom_style))
-        if self.check_project_team() is False:
+        if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename))})

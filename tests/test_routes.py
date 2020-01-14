@@ -23,6 +23,7 @@ import re
 from math import ceil
 from formulae.dispatcher_builder import organizer
 from datetime import date
+from copy import copy
 
 
 class TestConfig(Config):
@@ -273,13 +274,18 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            self.assertRegex(r.get_data(as_text=True), '\[Edition\].+\[Deutsche Übersetzung\].+Transkriptionen:')
+            re_sub_coll = re.compile(r'\[Edition\].+\[Deutsche Übersetzung\].+Transkription/Manuskriptbild', re.DOTALL)
+            self.assertRegex(r.get_data(as_text=True), re_sub_coll)
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
+            # make sure hasVersion metadata is correctly interpreted
+            r = c.get('/texts/urn:cts:formulae:fulda_dronke.dronke0004a.lat001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 15', r.get_data(as_text=True))
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
@@ -302,6 +308,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
+            c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (Deutsch)'))
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
@@ -317,8 +326,9 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertIn('Angers 2 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
-            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
-            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            r = c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertIn('Urkundenlandschaft R\\344tien, Nummer 1 \\(1\\) \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -399,8 +409,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
-            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
-            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            r = c.get('/pdf/urn:cts:formulae:fulda_stengel.stengel0015.lat001', follow_redirects=True)
+            self.assertIn('\\(Ed. Stengel\\) Nr. 15 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
+            r = c.get('/pdf/urn:cts:formulae:salzburg.hauthaler-a0001.lat001', follow_redirects=True)
+            self.assertIn('Salzburger Urkundenbuch Urkunden von 790-1246, Codex Odalberti (A), Urkundennummer 1',
+                          r.get_data(as_text=True))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -575,8 +589,13 @@ class TestIndividualRoutes(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         mock_search.return_value = resp
-        set_session_token('all', body, field=test_args['field'], q=test_args['q'] if test_args['field'] == 'text' else '')
-        self.assertEqual(session['previous_search'], [{'id': hit['_id'], 'title': hit['_source']['title']} for hit in resp['hits']['hits']])
+        set_session_token('all', body, field=test_args['field'], q='text')
+        self.assertEqual(session['previous_search'],
+                         [{'id': hit['_id'],
+                           'title': hit['_source']['title'],
+                           'info': hit['_source'],
+                           'regest_sents': [Markup('regest text')],
+                           'sents': ['some real text']} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -1648,6 +1667,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search(self, mock_search):
+        orig_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         test_args = self.TEST_ARGS['test_lemma_advanced_search']
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
@@ -1659,6 +1679,121 @@ class TestES(Formulae_Testing):
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.TEST_ARGS['test_lemma_advanced_search'] = orig_args
+
+    @patch.object(Elasticsearch, "search")
+    def test_lemma_simple_search(self, mock_search):
+        orig_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
+        test_args = self.TEST_ARGS['test_lemma_advanced_search']
+        test_args.pop('lemma_search')
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = {'query':
+                    {'span_near':
+                         {'clauses':
+                              [{'span_term':
+                                    {'lemmas': 'regnum'}}
+                               ],
+                          'slop': 0,
+                          'in_order': True}},
+                'sort': 'urn', 'from': 0, 'size': 10,
+                'highlight':
+                    {'fields':
+                         {'lemmas':
+                              {'fragment_size': 1000}
+                          },
+                     'pre_tags': ['</small><strong>'],
+                     'post_tags': ['</strong><small>'],
+                     'encoder': 'html'},
+                'aggs':
+                    {
+                        'range': {
+                            'date_range': {
+                                'field': 'min_date',
+                                'format': 'yyyy',
+                                'ranges':
+                                    [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                     {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                     {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                     {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                     {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                     {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                     {'key': '>1000', 'from': '1000'}]}},
+                        'corpus': {
+                            'filters': {
+                                'filters': {
+                                    'Angers': {'match': {'_type': 'andecavensis'}},
+                                    'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                    'Bünden': {'match': {'_type': 'buenden'}},
+                                    'Echternach': {'match': {'_type': 'echternach'}},
+                                    'Freising': {'match': {'_type': 'freising'}},
+                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                    'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                    'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                    'Luzern': {'match': {'_type': 'luzern'}},
+                                    'Markulf': {'match': {'_type': 'markulf'}},
+                                    'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                    'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                    'Mondsee': {'match': {'_type': 'mondsee'}},
+                                    'Passau': {'match': {'_type': 'passau'}},
+                                    'Rätien': {'match': {'_type': 'raetien'}},
+                                    'Regensburg': {'match': {'_type': 'regensburg'}},
+                                    'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                    'Salzburg': {'match': {'_type': 'salzburg'}},
+                                    'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                    'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                    'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                    'Werden': {'match': {'_type': 'werden'}},
+                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                        'no_date': {'missing': {'field': 'min_date'}},
+                        'all_docs': {
+                            'global': {},
+                            'aggs': {'range':
+                                         {'date_range':
+                                              {'field': 'min_date',
+                                               'format': 'yyyy',
+                                               'ranges': [
+                                                   {'key': '<499', 'from': '0002', 'to': '0499'},
+                                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                                   {'key': '>1000', 'from': '1000'}]}},
+                                     'corpus': {'filters':
+                                                    {'filters':
+                                                         {'Angers': {'match': {'_type': 'andecavensis'}},
+                                                          'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                                          'Bünden': {'match': {'_type': 'buenden'}},
+                                                          'Echternach': {'match': {'_type': 'echternach'}},
+                                                          'Freising': {'match': {'_type': 'freising'}},
+                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                          'Luzern': {'match': {'_type': 'luzern'}},
+                                                          'Markulf': {'match': {'_type': 'markulf'}},
+                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
+                                                          'Passau': {'match': {'_type': 'passau'}},
+                                                          'Rätien': {'match': {'_type': 'raetien'}},
+                                                          'Regensburg': {'match': {'_type': 'regensburg'}},
+                                                          'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                                          'Salzburg': {'match': {'_type': 'salzburg'}},
+                                                          'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                                          'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                                          'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                                          'Werden': {'match': {'_type': 'werden'}},
+                                                          'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                     'no_date': {'missing': {'field': 'min_date'}}}}}}
+
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.TEST_ARGS['test_lemma_advanced_search'] = orig_args
 
     @patch.object(Elasticsearch, "search")
     def test_regest_advanced_search(self, mock_search):
@@ -1762,16 +1897,18 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['omnium cartarum adcommodat firmitatem. Facta cartula in civitate '
-                            'Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub '
-                            'die, quod est',
-                            'ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum '
-                            'superscripsi. Signum Baselii et filii sui Rofini, qui haec']},
-                 {'sents': ['Facta donacio in loco Fortunes, sub presencia virorum testium sub '
-                            'regnum domni nostri Caroli regis, Sub die, quod est pridie',
-                            'Sub die, quod est pridie kl. aprilis. Notavi diem et regnum '
-                            'superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui '
-                            'haec']}]
+        sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
+                                   '</small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, '
+                                   'sub die, quod est'),
+                            Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui '
+                                   'Rofini, qui haec')]},
+                 {'sents': [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub '
+                                   '</small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod '
+                                   'est pridie'),
+                            Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
+                                   'Felicianes uxoris ipsius, qui haec')]}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -1793,14 +1930,14 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': ['Archaciani legis stipulacionis subnixa, qui omnium cartarum '
-                            'adcommodat firmitatem. Facta cartula in civitate Curia, sub '
-                            'regnum domni nostri Charoli gloriosissimi regis, sub die, quod '
-                            'est XV kl. madii, sub presenciarum']},
-                 {'sents': ['qui omnium cartarum accomodat firmitate. Facta donacio in loco '
-                            'Fortunes, sub presencia virorum testium sub regnum domni nostri '
-                            'Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem '
-                            'et']}]
+        sents = [{'sents': [Markup('Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. '
+                                   'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
+                                   'quod est XV kl. madii, sub presenciarum')]},
+                 {'sents': [Markup('qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub '
+                                   'presencia virorum testium sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
+                                   'pridie kl. aprilis. Notavi diem et')]}]
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -1813,6 +1950,16 @@ class TestES(Formulae_Testing):
         mock_search.return_value = [], 0, {}
         with self.client:
             ids, hits, agg = advanced_query_index(**test_args)
+            self.assertEqual(ids, [])
+            self.assertEqual(hits, 0)
+            self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
+
+    @patch.object(Elasticsearch, "search")
+    def test_lemma_simple_search_with_wildcard(self, mock_search):
+        test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
+        mock_search.return_value = [], 0, {}
+        with self.client:
+            ids, hits, agg = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
             self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
@@ -1833,7 +1980,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_simple_multi_corpus_search(self, mock_search):
-        test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
+        test_args = OrderedDict([("index", 'formulae+chartae'), ("query", 'regnum'), ("field", "text"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
@@ -2004,15 +2151,15 @@ class TestES(Formulae_Testing):
                          }
                 }
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 'regnum domni'
         body['query']['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 're?num'
         body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['index'] = ['']
         hits, total, aggs = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
@@ -2028,6 +2175,14 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+            old_search_args = session['previous_search_args']
+            self.assertIn('fulda_dronke', old_search_args['corpus'],
+                          'Charters should automatically be search when no index is given in simple search.')
+            self.assertIn('andecavensis', old_search_args['corpus'],
+                          'Formulae should automatically be search when no index is given in simple search.')
+            self.client.get('/search/results?source=simple&index=formulae&q=regnum&old_search=True', follow_redirects=True)
+            self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
+                             'Searches made with the old_search=True argument should not change the previous_search_args.')
             self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
             self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
                                       _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))

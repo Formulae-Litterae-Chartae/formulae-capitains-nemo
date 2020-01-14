@@ -1,27 +1,44 @@
+$(document).ready(function () {
+    $('.reading-sidebar').each(function() {
+        $( this ).css('max-width', '33%');
+        $( this ).css('min-width', '0');
+        $( this ).removeClass('d-none d-lg-block')
+    });
+    
+    $('#sidebar_r').css('padding-left', '0px');
 
-    $(document).ready(function() {
+    $('#sidebar_l').css('padding-right', '0px');
 
-        $('#sidebarCollapse_l').click(function() {
-            $('#sidebar_l').toggleClass('active');
-            var el_l = document.getElementById('sidebarCollapse_l');
-            if ($('#sidebar_l').css('marginLeft')=='0px'){
-                el_l.textContent = '«';
-                el_l.setAttribute('title', 'Linke Spalte zuklappen.');
-            }else{
-                el_l.textContent = '»';
-                el_l.setAttribute('title', 'Linke Spalte aufklappen.');
-            }
-        });
-
-        $('#sidebarCollapse_r').click(function() {
-            $('#sidebar_r').toggleClass('active');
-            var el_r = document.getElementById('sidebarCollapse_r');
-            if (el_r.textContent == '«'){
-                el_r.textContent = '»';
-                el_r.setAttribute('title', 'Rechte Spalte zuklappen.');
-            }else{
-                el_r.textContent = '«';
-                el_r.setAttribute('title', 'Rechte Spalte aufklappen.');
-            }
+    $('#reading-container').css({
+    "padding-left": '0px',
+    "padding-right": '0px'
+    });
+    
+    $('.gutter.gutter-horizontal').each(function() {
+        $( this ).css({
+            'visibility': 'visible',
+            'background-image': gutterBackgroundImage,
+            'z-index': 1000
         });
     });
+});
+
+Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
+    sizes: [16, 68, 16],
+    minSize: [0, 100, 0],
+    elementStyle: function(dimension, size, gutterSize) {
+        if (size > 0.5) {
+            return {
+                'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+                'display': 'block'
+            }
+        } else {
+            return {
+                'display': 'none'
+            }
+        }
+    },
+    gutterStyle: (dimension, gutterSize) => ({
+        'flex-basis':  `${gutterSize}px`,
+    }),
+})
