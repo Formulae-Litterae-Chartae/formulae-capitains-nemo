@@ -986,7 +986,7 @@ class NemoFormulae(Nemo):
                                      '\n'.join(d['app']),
                                      '\n'.join(d['hist_notes'])])
             return Response(txt_value, mimetype='text/plain',
-                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename).encode('ascii', 'replace'))})
+                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -1026,4 +1026,4 @@ class NemoFormulae(Nemo):
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename).encode('ascii', 'replace'))})
+                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename))})
