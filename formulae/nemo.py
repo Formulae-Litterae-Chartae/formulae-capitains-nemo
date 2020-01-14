@@ -982,7 +982,7 @@ class NemoFormulae(Nemo):
         if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
             txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
                                      doc_title,
-                                     '\n\t'.join(d['paragraphs']),
+                                     '\n'.join(d['paragraphs']),
                                      '\n'.join(d['app']),
                                      '\n'.join(d['hist_notes'])])
             return Response(txt_value, mimetype='text/plain',
