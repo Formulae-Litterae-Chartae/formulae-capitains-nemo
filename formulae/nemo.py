@@ -933,19 +933,23 @@ class NemoFormulae(Nemo):
         :param objectId: the URN of the text to transform
         :return:
         """
-        if (self.check_project_team() is False and objectId not in self.open_texts) or not re.search(r'andecavensis|markulf', objectId):
+        if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
+        is_formula = re.search(r'markulf|andecavensis|elexicon', objectId) is not None
 
         def add_citation_info(canvas, doc):
-            cit_string = re.sub(r', \[URL.*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string = re.sub(r', \[UR[LI].*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
+            cit_string = re.sub(r'<span class="surname">', r'<span>', cit_string)
             cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
             cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
             f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
             canvas.saveState()
-            canvas.drawImage(self.static_folder + 'images/logo_white.png',
-                             inch, inch, width=doc.pagesize[0] - doc.rightMargin, height=doc.pagesize[1] - 1.5 * inch)
+            if is_formula is True:
+                canvas.drawImage(self.static_folder + 'images/logo_white.png',
+                                 inch, inch, width=doc.pagesize[0] - doc.rightMargin,
+                                 height=doc.pagesize[1] - 1.5 * inch)
             canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
                              doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
                              mask=[255, 256, 255, 256, 255, 256])
@@ -968,6 +972,14 @@ class NemoFormulae(Nemo):
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))
         description = '{} ({})'.format(doc_title, date.today().isoformat())
+        if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
+            txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
+                                     doc_title,
+                                     '\n\t'.join(d['paragraphs']),
+                                     '\n'.join(d['app']),
+                                     '\n'.join(d['hist_notes'])])
+            return Response(txt_value, mimetype='text/plain',
+                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', description))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -1001,7 +1013,7 @@ class NemoFormulae(Nemo):
             flowables.append(Spacer(1, 5))
             for n in d['hist_notes']:
                 flowables.append(Paragraph(n, custom_style))
-        if self.check_project_team() is False:
+        if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
