@@ -1019,4 +1019,4 @@ class NemoFormulae(Nemo):
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
         return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
+                        headers={'Content-Disposition': 'attachment;filename*={}.pdf'.format(description.replace(' ', '_'))})
