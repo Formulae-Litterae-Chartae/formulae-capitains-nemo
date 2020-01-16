@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:andecavensis.computus</identifier>
+   <parent>urn:cts:formulae:andecavensis</parent>
+   <dc:title xml:lang="deu">Angers, Computus</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./andecavensis.computus.fu2.xml">
+         <identifier>urn:cts:formulae:andecavensis.computus.fu2</identifier>
+         <parent>urn:cts:formulae:andecavensis.computus</parent>
+         <dc:title xml:lang="deu">Angers, Computus, Fu&lt;span class="manuscript-number"&gt;2&lt;/span&gt; (Fulda, Hessische Landesbibliothek, D1)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Fu&lt;span class="manuscript-number"&gt;2&lt;/span&gt; (Fulda, Hessische Landesbibliothek, D1)</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-10-18</dct:created>
+            <dct:bibliographicCitation>Angers, Computus, Fu&lt;span class="manuscript-number"&gt;2&lt;/span&gt; (Fulda, Hessische Landesbibliothek, D1), Formulae-Litterae-Chartae Projekt. Hamburg 2019-10-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.computus.fu2/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

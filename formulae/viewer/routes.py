@@ -1,7 +1,7 @@
 from flask import flash, url_for, current_app
 from formulae.viewer import bp
 from flask_babel import _
-from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata
+from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from flask_babel import lazy_gettext as _l
 import re
@@ -11,11 +11,12 @@ import re
 def fullscreenviewer(objectId):
     if "manifest" in objectId:
         objectId = re.sub(r'^manifest:', '', objectId)
-    collection = current_app.config['nemo_app'].get_collection(objectId)
-    if isinstance(collection, CtsWorkMetadata):
-        editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+    metadata = current_app.config['nemo_app'].get_collection(objectId)
+    if isinstance(metadata, XmlCapitainsCollectionMetadata):
+        editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and t.subtype == 'cts:edition']
         if len(editions) == 0:
-            raise UnknownCollection('{}'.format(collection.get_label()) + _l(' hat keine Edition.'))
+            raise UnknownCollection(str(metadata.get_label()) + _l(' hat keine Edition.'),
+                                    objectId)
         objectId = str(editions[0].id)
     if current_app.config['nemo_app'].check_project_team() is True or objectId in current_app.config['nemo_app'].open_texts:
         template = {'manifest': 'viewer::miradorviewer.html'}

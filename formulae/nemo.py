@@ -6,8 +6,7 @@ from werkzeug.utils import redirect
 from flask_nemo import Nemo
 from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
-from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata, CtsTextInventoryMetadata
-from MyCapytain.resources.collections.cts import XmlCtsTextgroupMetadata
+from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
@@ -149,7 +148,7 @@ class NemoFormulae(Nemo):
         """
         version = m.id.split('.')[-1]
         if "salzburg" in m.id:
-            par = m.parent.id.split('-')[1:]
+            par = m.parent[0].id.split('-')[1:]
             if len(par) == 2:
                 full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
             else:
@@ -166,10 +165,10 @@ class NemoFormulae(Nemo):
             par = (par, full_par)
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
-            par = m.parent.id.split('.')[-1][0].capitalize()
-            metadata = [m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+            par = m.parent[0].id.split('.')[-1][0].capitalize()
+            metadata = [m.id, m.parent[0].id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         else:
-            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
+            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent[0].id)
             if par.lstrip('0') == '':
                 par = _('(Titel)')
             elif 'computus' in par:
@@ -365,7 +364,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
+        if 'base_collection' not in [x.id for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -468,10 +467,10 @@ class NemoFormulae(Nemo):
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
-                    title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
+                    title = str(m.parent[0].metadata.get_single(DC.title))  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
                     form = str(m.id).split(".")[-2]
                     edition_name = ed_trans_mapping.get(edition, edition).title()
-                    full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+                    full_edition_name = re.sub(r'{}|\(lat\)|\(deu\)'.format(title), '', str(m.metadata.get_single(DC.title))).strip()
                     regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
@@ -570,7 +569,7 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
-        if type(collection) == XmlCtsTextgroupMetadata:
+        if 'base_collection' not in [x.id for x in collection.parent]:
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
@@ -649,23 +648,23 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        collection = self.get_collection(objectId)
-        if isinstance(collection, CtsWorkMetadata):
-            editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+        metadata = self.get_collection(objectId)
+        if isinstance(metadata, XmlCapitainsCollectionMetadata):
+            editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and t.subtype == 'cts:edition']
             if len(editions) == 0:
-                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
+                raise UnknownCollection('{}.{}'.format(metadata.get_label(lang), subreference) + _l(' hat keine Edition.'),
                                         objectId)
             objectId = str(editions[0].id)
-            collection = self.get_collection(objectId)
+            metadata = self.get_collection(objectId)
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
             new_subref = self.get_reffs(objectId)[0][0]
             text = self.get_passage(objectId=objectId, subreference=new_subref)
-            flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
+            flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
-        metadata = self.resolver.getMetadata(objectId=objectId)
+        # metadata1 = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
         else:
@@ -682,30 +681,33 @@ class NemoFormulae(Nemo):
                     inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
+        translations = [(m, m.metadata.get_single(DC.title)) for m in metadata.readable_siblings] + \
+                       [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
+                        for x in metadata.metadata.get(DCTERMS.hasVersion)]
         return {
             "template": "main::text.html",
             "objectId": objectId,
             "subreference": subreference,
             "collections": {
                 "current": {
-                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or collection.get_label(lang),
-                    "id": collection.id,
-                    "model": str(collection.model),
-                    "type": str(collection.type),
+                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang),
+                    "id": metadata.id,
+                    "model": str(metadata.model),
+                    "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
                     "description": str(text.get_description(lang)) or '',
-                    "coins": self.make_coins(collection, text, subreference, lang=lang),
+                    "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
-                    'lang': collection.lang,
+                    'lang': metadata.lang,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
-                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in collection.id else '',
+                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or '')
                 },
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": self.make_parents(metadata, lang=lang)
             },
             "text_passage": Markup(passage),
             "notes": Markup(notes),
@@ -713,7 +715,8 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
-            "isReferencedBy": inRefs
+            "isReferencedBy": inRefs,
+            "translations": translations
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -737,15 +740,7 @@ class NemoFormulae(Nemo):
         ids = objectIds.split('+')
         translations = {}
         view = 1
-        for i in ids:
-            if "manifest" in i:
-                i = re.sub(r'^manifest:', '', i)
-            p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
-                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
-                               for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
-                               if str(x) not in ids]
-        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
+        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
@@ -760,6 +755,7 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'], d['collections']['parents'][1])
                 del d['template']
+                translations[id] = [x for x in d.pop('translations', None) if x[0].id not in ids]
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
@@ -816,6 +812,7 @@ class NemoFormulae(Nemo):
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+        passage_data['translation'] = translations
         return passage_data
 
     def convert_result_sents(self, result_sents):

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:markulf.form003</identifier>
+   <parent>urn:cts:formulae:markulf</parent>
+   <dc:title xml:lang="deu">Markulf I,3</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="../../le01/markulf.form003.le1.xml">
+         <identifier>urn:cts:formulae:markulf.form003.le1</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 Leiden BPL 114 (Le1) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 Leiden BPL 114 (Le1) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.le1/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="../../m04/markulf.form003.m4.xml">
+         <identifier>urn:cts:formulae:markulf.form003.m4</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 München BSB clm 4650 (M4) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 München BSB clm 4650 (M4) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.m4/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="./markulf.form003.lat001.xml">
+         <identifier>urn:cts:formulae:markulf.form003.lat001</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.lat001/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="../../p12/markulf.form003.p12.xml">
+         <identifier>urn:cts:formulae:markulf.form003.p12</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 Paris BNF 4627 (P12) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 Paris BNF 4627 (P12) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.p12/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="../../p03/markulf.form003.p3.xml">
+         <identifier>urn:cts:formulae:markulf.form003.p3</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 Paris BNF 2123 (P3) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 Paris BNF 2123 (P3) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.p3/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="../../ko02/markulf.form003.ko2.xml">
+         <identifier>urn:cts:formulae:markulf.form003.ko2</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 Kopenhagen, Kongelige Bibliotek, Fabr. 84 (Ko2) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 Kopenhagen, Kongelige Bibliotek, Fabr. 84 (Ko2) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.ko2/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="../../p16/markulf.form003.p16.xml">
+         <identifier>urn:cts:formulae:markulf.form003.p16</identifier>
+         <parent>urn:cts:formulae:markulf.form003</parent>
+         <dc:title xml:lang="deu">Markulf I,3 Paris BNF 10756 (P16) (lat)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2019-08-09</dct:created>
+            <dct:bibliographicCitation>Markulf I,3 Paris BNF 10756 (P16) (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-08-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:markulf.form003.p16/passage/all]</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

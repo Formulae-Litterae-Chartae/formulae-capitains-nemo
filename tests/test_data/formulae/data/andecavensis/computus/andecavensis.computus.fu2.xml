@@ -2,12 +2,12 @@
    <teiHeader xml:lang="deu">
       <fileDesc>
          <titleStmt>
-            <title>Angers, Computus (Fu2)</title>
+            <title>Angers, Computus</title>
             <author/>
             <editor>Christoph Walther</editor>
          </titleStmt>
          <editionStmt>
-            <edition>Digitale Transkription von Angers, Computus (Fu2)</edition>
+            <edition>Digitale Transkription von Angers 61, Fu2 (Fulda, Hessische Landesbibliothek, D1)</edition>
             <respStmt>
                <resp>Projektleiter</resp>
                <resp xml:lang="eng">Principal investigator</resp>
@@ -29,7 +29,7 @@
          <publicationStmt>
             <publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</publisher>
             <pubPlace>Hamburg</pubPlace>
-            <date when="2019-10-11"/>
+            <date when="2019-10-18"/>
             <availability>
                <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/">
                                 Distributed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
@@ -37,8 +37,12 @@
             </availability>
          </publicationStmt>
          <sourceDesc>
-            <p>Digitales Original: mit Classical Text Editor erstellt</p>
-            <p xml:lang="eng">Born Digital: created with the Classical Text Editor</p>
+            <msDesc>
+               <msIdentifier>
+                  <idno>Fu2</idno>
+                  <msName>Fulda, Hessische Landesbibliothek, D1</msName>
+               </msIdentifier>
+            </msDesc>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
@@ -60,7 +64,87 @@
               n="urn:cts:formulae:andecavensis.computus.fu2"
               subtype="transcription">
             <div type="textpart" subtype="formula" n="1">
-               <p xml:space="preserve"><w>Some</w> <w>Text</w></p>
+               <p xml:space="preserve"><w>[fol</w>.<w>180</w><seg type="superscript;smaller-text;"><w>r</w></seg>]</p>
+               <p xml:space="preserve">[...]</p>
+               <p xml:space="preserve"><w>SEX</w> <w>ETATIS</w> <w>SUNT</w> <w>MUNDI</w> </p>
+               <p xml:space="preserve"><w>Prima</w> <w>ab</w> <w>Adam</w> <w>usq[</w><seg type="italic;"><w>ue</w></seg>] <w>ad</w> <w>Noe</w>; </p>
+               <p xml:space="preserve"><w>secunda</w> <w>ad</w> <w>Noae</w> <w>usq[</w><seg type="italic;"><w>ue</w></seg>] <w>ad</w> <w>Abraa[</w><seg type="italic;"><w>m</w></seg>];</p>
+               <p xml:space="preserve"><w>tercia</w> <w>ab</w> <w>Habraam</w> <w>usq[</w><seg type="italic;"><w>ue</w></seg>] </p>
+               <p xml:space="preserve"><w>ad</w> <w>Moysen</w>; <w>quarta</w> <w>ad</w> <w>Moysen</w> </p>
+               <p xml:space="preserve"><w>usque</w> <w>ad</w> <w>Dauid</w>; <w>quinta</w> <w>a</w> <w>Dauid</w> </p>
+               <p xml:space="preserve"><w>usque</w> <w>ad</w> <w>Johannem</w> <w>Baptistae</w>; </p>
+               <p xml:space="preserve"><w>sexta</w> <w>a</w> <w>Johannem</w> <w>Baptiste</w> </p>
+               <p xml:space="preserve"><w>usque</w> <w>ad</w> <w>resurrectione[</w><seg type="italic;"><w>m</w></seg>] <w>Chr[</w><seg type="italic;"><w>ist</w></seg><w>]i</w> </p>
+               <p xml:space="preserve"><w>et</w> <w>sic</w> <w>adserunt</w> <w>seniores</w> </p>
+               <p xml:space="preserve"><w>quod</w> <w>sex</w> <w>etatis</w> <w>sint</w> <w>in</w> <w>homine[</w><seg type="italic;"><w>m</w></seg>], </p>
+               <p xml:space="preserve"><w>quem</w> <w>D[</w><seg type="italic;"><w>eu</w></seg><w>]s</w> <w>de</w> <w>limo</w> <w>terre</w> <w>ad</w> <w>simi-</w></p>
+               <p xml:space="preserve"><w>litudinem</w> <w>sua[</w><seg type="italic;"><w>m</w></seg>] <w>plasmauit</w>. </p>
+               <p xml:space="preserve"><w>[fol</w>.<w>180</w><seg type="superscript;smaller-text;"><w>v</w></seg>]</p>
+               <p xml:space="preserve"><w>QUALITER</w> <w>INTELLEGERE</w> <w>POSSO</w> </p>
+               <p xml:space="preserve"><w>BISSEXTO</w></p>
+               <p xml:space="preserve"><w>In</w> <w>sex</w> <w>dies</w> <w>fecit</w> <w>D[</w><seg type="italic;"><w>eu</w></seg><w>]s</w> <w>mundo</w> <w>et</w> <w>in</w> <w>sep-</w></p>
+               <p xml:space="preserve"><w>timo</w> <w>requieuit</w>. <w>Ergo</w> <w>ut</w> <w>plenius</w> </p>
+               <p xml:space="preserve"><w>intellegatur</w> <w>conpotas</w> <w>quantas</w> </p>
+               <p xml:space="preserve"><w>oras</w> <w>habit</w> <w>annus</w> <w>et</w> <w>diuidis</w> </p>
+               <p xml:space="preserve"><w>illas</w> <w>in</w> <w>septe</w> <w>partis</w> <w>et</w> <w>quantas</w> </p>
+               <p xml:space="preserve"><w>remanent</w> <w>inde</w> <w>fiat</w> <w>bissextus</w>.</p>
+               <p xml:space="preserve"><w>Primas</w> <w>conpotas</w> <w>dies</w> <seg type="small-caps;"><w>ccc</w></seg></p>
+               <p xml:space="preserve"><w>quomodo</w> <w>oras</w> <w>dicis</w> <w>tricentini</w> <w>sunt</w> </p>
+               <p xml:space="preserve"><seg type="small-caps;"><w>iii</w></seg>[<seg type="italic;superscript;smaller-text;"><w>a</w></seg>] <w>milia</w>. <w>Item</w> <w>facies</w> <w>bis</w> <w>tricentini</w> </p>
+               <p xml:space="preserve"><w>sunt</w>; <seg type="small-caps;"><w>dcccc</w></seg> <w>fient</w> <w>fiunt</w> <w>in</w> <seg type="small-caps;"><w>ccc</w> </seg><w>dies</w>:</p>
+               <p xml:space="preserve"><w>oras</w> <seg type="small-caps;"><w>iii</w></seg>[<seg type="superscript;smaller-text;"><w>a</w></seg>] <w>milia</w> <seg type="small-caps;"><w>dc</w></seg>. <w>Item</w> <w>facies</w> <w>decies</w> </p>
+               <p xml:space="preserve"><w>sexagenus</w> <seg type="small-caps;"><w>dc</w></seg> <w>sunt</w> <w>et</w> <w>bis</w> <w>sexagine</w> <seg type="small-caps;"><w>cxx</w></seg> <w>fient</w> </p>
+               <p xml:space="preserve"><w>fiunt</w> <w>oras</w> <seg type="small-caps;"><w>dccxx</w></seg>. <w>Item</w> <w>facies</w> <w>quinqui-</w></p>
+               <p xml:space="preserve"><w>es</w> <w>decenus</w> <w>et</w> <w>bis</w> <w>quini</w> <seg type="small-caps;"><w>x</w></seg>; <w>ecce</w> <w>abis</w> <seg type="small-caps;"><w>lx</w></seg>. </p>
+               <p xml:space="preserve"><w>De</w> <w>dies</w> <w>quinque</w> <w>fiunt</w> <w>fieri</w> <w>simol</w> <w>in</w> <w>in-</w></p>
+               <p xml:space="preserve"><w>tegro</w> <w>anno</w> <w>de</w> <w>dies</w> <seg type="small-caps;"><w>ccclxv</w></seg> <w>sunt</w> <w>oras</w> </p>
+               <p xml:space="preserve"><seg type="small-caps;"><w>iiii</w></seg> <w>milia</w> <seg type="small-caps;"><w>lxxx</w></seg> <w>et</w> <w>alias</w> <w>tantas</w> <w>in</w> <w>noctis</w>; </p>
+               <p xml:space="preserve"><w>fieri</w> <w>simul</w> <w>de</w> <w>dies</w> <w>et</w> <w>noctis</w> </p>
+               <p xml:space="preserve"><w>[fol</w>.<w>181</w><seg type="superscript;smaller-text;"><w>r</w></seg>]</p>
+               <p xml:space="preserve"><w>oras</w> <w>octo</w> <w>milia</w> <seg type="small-caps;"><w>dcclx</w></seg>. <w>Diuidis</w> <w>illas</w> </p>
+               <p xml:space="preserve"><w>in</w> <w>septe</w> <w>partis</w> <w>et</w> <w>remanent</w> <seg type="small-caps;"><w>iii</w></seg>[<seg type="superscript;smaller-text;"><w>us</w></seg>] </p>
+               <p xml:space="preserve"><w>istas</w> <seg type="small-caps;"><w>iii</w></seg> <w>oras</w> <w>in</w> <w>quattuor</w> <w>annis</w> </p>
+               <p xml:space="preserve"><w>faciunt</w> <w>diem</w> <w>unum</w> <w>etexinde</w> <w>fiet</w> </p>
+               <p xml:space="preserve"><w>bissextus</w>. </p>
+               <p xml:space="preserve"><w>Bissextum</w> <w>non</w> <w>ob</w> <w>illum</w> <w>diem</w> <w>fieri</w>, </p>
+               <p xml:space="preserve"><w>ut</w> <w>quandam</w> <w>potant</w> <w>cum</w> <w>Iosoe</w> </p>
+               <p xml:space="preserve"><w>solo</w> <w>orauit</w> <w>stare</w> <w>creden-</w></p>
+               <p xml:space="preserve"><w>dum</w> <w>est</w> <w>quia</w> <w>illi</w> <w>dies</w> <w>et</w> <w>fuit</w> </p>
+               <p xml:space="preserve"><w>et</w> <w>preteriit</w> <w>sed</w> <w>ob</w> <w>hoc</w> <w>dicitur</w> </p>
+               <p xml:space="preserve"><w>bissextum</w> <w>quod</w> <w>in</w> <w>annum</w> <w>et</w> </p>
+               <p xml:space="preserve"><w>quemquae</w> <w>minse</w> <w>punctus</w> </p>
+               <p xml:space="preserve"><w>unus</w> <w>adcriscat</w>. <w>Ponctus</w> <w>uero</w> </p>
+               <p xml:space="preserve"><w>unus</w> <w>quarta</w> <w>pars</w> <w>ora</w> <w>est</w>; </p>
+               <p xml:space="preserve"><w>quattuor</w> <w>uero</w> <w>puncti</w> <w>una</w> </p>
+               <p xml:space="preserve"><w>ora</w> <w>explecant</w>. <w>Ergo</w> <w>in</w> <w>quattuor</w> </p>
+               <p xml:space="preserve"><w>annis</w> <w>quod</w> <w>sunt</w> <w>duodecem</w> <w>ore</w> </p>
+               <p xml:space="preserve"><w>diem</w> <w>faciunt</w> <w>uno</w>. <w>Hoc</w> <w>est</w>: </p>
+               <p xml:space="preserve"><w>in</w> <w>primo</w> <w>anno</w> <seg type="small-caps;"><w>iii</w></seg> <w>oras</w> <w>adcriscunt</w> </p>
+               <p xml:space="preserve"><w>[fol</w>.<w>181</w><seg type="superscript;smaller-text;"><w>v</w></seg>]</p>
+               <p xml:space="preserve"><w>et</w> <w>in</w> <w>alio</w> <w>et</w> [<seg type="italic;"><w>ter</w></seg><w>]cio</w> <w>similiter</w> <w>faciunt</w>; </p>
+               <p xml:space="preserve"><w>cum</w> <w>conpliti</w> <w>fuerunt</w> <w>ipsus</w> <w>duo-</w></p>
+               <p xml:space="preserve"><w>dicem</w> <w>oras</w> <w>implent</w> <w>diem</w> <w>unum</w> </p>
+               <p xml:space="preserve"><w>et</w> <w>exind</w> <w>fiet</w> <w>bissextus</w> <w>et</w> <w>ipse</w> <w>dies</w> <w>aderit</w> </p>
+               <p xml:space="preserve"><w>bissextus</w>. <w>INCIPIT</w> <w>COMPOTUM</w> </p>
+               <p xml:space="preserve"><w>ANNORUM</w> <w>AB</w> <w>INICIO</w> <w>MUN-</w></p>
+               <p xml:space="preserve"><w>DI</w> <w>UQUAE</w> <w>ANNUM</w> <w>III</w> <w>THEUDORIGE</w> <seg type="superscript;smaller-text;"><w>REGIS</w></seg> </p>
+               <p xml:space="preserve"><w>A</w> <w>mundi</w> <w>principio</w> <w>usquae</w> <w>a</w> <w>diluuio</w> </p>
+               <p xml:space="preserve"><w>duo</w> <w>milia</w> <seg type="small-caps;"><w>ccxlii</w></seg> <w>anni</w> <w>sunt</w> </p>
+               <p xml:space="preserve"><w>et</w> <w>a</w> <w>diluuio</w> <w>usque</w> <seg type="line-through;"><w>ad</w> <w>diluuio</w></seg> </p>
+               <p xml:space="preserve"><w>ad</w> <w>Abraam</w> <w>natiuetate</w> </p>
+               <p xml:space="preserve"><seg type="small-caps;"><w>dccccxl</w></seg> <w>anni</w> <w>sunt</w>; <w>a</w> <w>mundi</w> </p>
+               <p xml:space="preserve"><w>principio</w> <w>usque</w> <w>quo</w> <w>filiis</w> <w>Israhel</w> </p>
+               <p xml:space="preserve"><w>mistirio</w> <w>caelesti</w> <w>iniciauerunt</w> <w>anni</w> </p>
+               <p xml:space="preserve"><w>sunt</w> <seg type="small-caps;"><w>iii</w></seg> <w>milia</w> <seg type="small-caps;"><w>dclxxxviiii</w></seg>; </p>
+               <p xml:space="preserve"><w>a</w> <w>principio</w> <w>mundi</w> <w>usque</w> <w>ad</w> <w>passio-</w></p>
+               <p xml:space="preserve"><w>nem</w> <w>Christi</w> <seg type="small-caps;"><w>v</w></seg> <w>milia</w> <seg type="small-caps;"><w>ccxxviiii</w></seg> </p>
+               <p xml:space="preserve"><w>anni</w> <w>fuerunt</w>; <w>abunde</w> <w>p[</w><seg type="italic;"><w>er</w></seg><w>]actis</w> <w>regnu[</w><seg type="italic;"><w>m</w></seg>] </p>
+               <p xml:space="preserve"><w>Chlodoueo</w>, <w>Chlothoario</w>, <w>Theodo-</w></p>
+               <p xml:space="preserve"><w>rigo</w> <w>et</w> <w>Childorico</w> <w>a</w> <w>mundi</w> <w>inicio</w> </p>
+               <p xml:space="preserve"><w>[fol</w>.<w>182</w><seg type="superscript;smaller-text;"><w>r</w></seg>]</p>
+               <p xml:space="preserve"><w>anni</w> <w>sunt</w> <seg type="small-caps;"><w>v</w></seg> <w>milia</w> <seg type="small-caps;"><w>dccclxxx</w></seg> </p>
+               <p xml:space="preserve"><w>in</w> <w>anno</w> <w>tercio</w> <w>Theudorico</w> <w>regis</w>. </p>
+               <p xml:space="preserve">[...]</p>
             </div>
          </div>
       </body>
