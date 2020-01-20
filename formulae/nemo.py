@@ -673,7 +673,7 @@ class NemoFormulae(Nemo):
         prev, next = self.get_siblings(objectId, subreference, text)
         inRefs = []
         for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
-            ref = str(inRef).split('%')
+            ref = str(inRef).split('%')[1:]
             cits = ref[1:]
             for i, cit in enumerate(cits):
                 cits[i] = Markup(Markup(cit))
