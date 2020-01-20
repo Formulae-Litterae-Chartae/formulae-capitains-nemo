@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 13,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -17,16 +17,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 915",
           "urn": "urn:cts:formulae:freising.bitterauf0915.lat001",
           "date_string": "875-876",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -42,12 +42,24 @@
           "min_date": "0875"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0915.lat001"
@@ -59,16 +71,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 953",
           "urn": "urn:cts:formulae:freising.bitterauf0953.lat001",
           "date_string": "876-883",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -84,12 +96,24 @@
           "min_date": "0876"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0953.lat001"
@@ -101,16 +125,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1118",
           "urn": "urn:cts:formulae:freising.bitterauf1118.lat001",
           "date_string": "Nach 938",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -126,12 +150,24 @@
           "min_date": "0938"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf1118.lat001"
@@ -143,16 +179,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1155",
           "urn": "urn:cts:formulae:freising.bitterauf1155.lat001",
           "date_string": "Nach 957",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -168,12 +204,24 @@
           "min_date": "0957"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf1155.lat001"
@@ -185,16 +233,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1245",
           "urn": "urn:cts:formulae:freising.bitterauf1245.lat001",
           "date_string": "-",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -210,12 +258,24 @@
           "min_date": "0972"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf1245.lat001"
@@ -227,16 +287,16 @@
         "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 45",
           "urn": "urn:cts:formulae:hersfeld.weirich0045.lat001",
           "date_string": "932 06 01",
           "comp_ort": "Erfurt",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Erfurt",
           "forgery": false,
           "specific_date": [
@@ -255,12 +315,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0045.lat001"
@@ -272,16 +344,16 @@
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 46",
           "urn": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "date_string": "933 06 01",
           "comp_ort": "Frankfurt",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Frankfurt",
           "forgery": false,
           "specific_date": [
@@ -300,12 +372,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0046.lat001"
@@ -317,16 +401,16 @@
         "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 48",
           "urn": "urn:cts:formulae:hersfeld.weirich0048.lat001",
           "date_string": "94[8] 03 27",
           "comp_ort": "Magdeburg",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Magdeburg",
           "forgery": false,
           "specific_date": [
@@ -346,12 +430,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0048.lat001"
@@ -363,16 +459,16 @@
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 49",
           "urn": "urn:cts:formulae:hersfeld.weirich0049.lat003",
           "date_string": "94[8] 03 30",
           "comp_ort": "Magdeburg",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Magdeburg",
           "forgery": false,
           "specific_date": [
@@ -392,12 +488,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0049.lat003"
@@ -409,16 +517,16 @@
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 49",
           "urn": "urn:cts:formulae:hersfeld.weirich0049.lat004",
           "date_string": "94[8] 03 30",
           "comp_ort": "Magdeburg",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Magdeburg",
           "forgery": false,
           "specific_date": [
@@ -438,12 +546,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:hersfeld.weirich0049.lat004"

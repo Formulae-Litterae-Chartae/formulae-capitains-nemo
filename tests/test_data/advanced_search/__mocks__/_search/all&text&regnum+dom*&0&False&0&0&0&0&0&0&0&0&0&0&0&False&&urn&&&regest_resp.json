@@ -1,5 +1,5 @@
 {
-  "took": 14,
+  "took": 48,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -17,26 +17,38 @@
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Angers 1",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
@@ -48,26 +60,38 @@
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Angers 34",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"
@@ -635,16 +659,16 @@
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 3",
           "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
           "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -666,12 +690,24 @@
           "min_date": "0768"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0003.lat001"
@@ -683,16 +719,16 @@
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 6",
           "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
           "date_string": "768\u2013800 [814]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -714,12 +750,24 @@
           "min_date": "0768"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0006.lat001"
@@ -731,16 +779,16 @@
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenlandschaft R\u00e4tien (Ed. Erhart/Kleindinst) Nr. 44",
           "urn": "urn:cts:formulae:raetien.erhart0044.lat001",
           "date_string": "858/865 02 12",
           "comp_ort": "Grabs",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
           "forgery": false,
           "specific_date": [
@@ -766,12 +814,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:raetien.erhart0044.lat001"
@@ -783,16 +843,16 @@
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
           "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "date_string": "762 08 20",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -811,12 +871,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0026.lat001"
@@ -828,16 +900,16 @@
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
           "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "date_string": "858 (865) 02 12",
           "comp_ort": "Grabs",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
           "forgery": false,
           "specific_date": [
@@ -863,12 +935,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0458.lat001"

@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 15,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -17,26 +17,38 @@
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Angers 8",
           "urn": "urn:cts:formulae:andecavensis.form008.lat001",
           "date_string": " ",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form008.lat001"
@@ -48,16 +60,16 @@
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 3",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
           "date_string": "701 01 20",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -76,12 +88,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
@@ -135,16 +159,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0152.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 152",
           "urn": "urn:cts:formulae:echternach.wampach0152.lat001",
           "date_string": "[876 08\u2013 877 08]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -160,12 +184,24 @@
           "min_date": "0876-08-01"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0152.lat001"
@@ -177,16 +213,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0116.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 116",
           "urn": "urn:cts:formulae:freising.bitterauf0116.lat001",
           "date_string": "783-793",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -202,12 +238,24 @@
           "min_date": "0783"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0116.lat001"
@@ -219,16 +267,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0267.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 267",
           "urn": "urn:cts:formulae:freising.bitterauf0267.lat001",
           "date_string": "807-808",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -244,12 +292,24 @@
           "min_date": "0807"
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0267.lat001"
@@ -261,16 +321,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0283.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 283",
           "urn": "urn:cts:formulae:freising.bitterauf0283.lat001",
           "date_string": "808 10 20",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -289,12 +349,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0283.lat001"
@@ -306,16 +378,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0298.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 298",
           "urn": "urn:cts:formulae:freising.bitterauf0298.lat001",
           "date_string": "811 05 24",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -334,12 +406,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0298.lat001"
@@ -351,16 +435,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0671.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 671",
           "urn": "urn:cts:formulae:freising.bitterauf0671.lat001",
           "date_string": "845 04 09",
           "comp_ort": "Freising",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -379,12 +463,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0671.lat001"
@@ -396,16 +492,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0726.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 726",
           "urn": "urn:cts:formulae:freising.bitterauf0726.lat001",
           "date_string": "851 04 28",
           "comp_ort": "Freising",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -424,12 +520,24 @@
           ]
         },
         "highlight": {
-          "regest": "text",
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text"
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:freising.bitterauf0726.lat001"
