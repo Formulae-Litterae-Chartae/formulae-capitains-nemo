@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -17,16 +17,16 @@
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 291",
           "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "date_string": "825 05 11",
           "comp_ort": "(Basel-)Augst",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "(Basel-)Augst",
           "forgery": false,
           "specific_date": [
