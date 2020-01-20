@@ -412,9 +412,6 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/pdf/urn:cts:formulae:fulda_stengel.stengel0015.lat001', follow_redirects=True)
             self.assertIn('\\(Ed. Stengel\\) Nr. 15 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
-            r = c.get('/pdf/urn:cts:formulae:salzburg.hauthaler-a0001.lat001', follow_redirects=True)
-            self.assertIn('Salzburger Urkundenbuch Urkunden von 790-1246, Codex Odalberti (A), Urkundennummer 1',
-                          r.get_data(as_text=True))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
