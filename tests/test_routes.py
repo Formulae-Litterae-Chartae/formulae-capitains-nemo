@@ -1,5 +1,5 @@
 from config import Config
-from capitains_nautilus.cts.resolver import NautilusCTSResolver
+from MyCapytain.resolvers.cts.local import CtsCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
@@ -41,7 +41,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
@@ -2375,7 +2375,7 @@ class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -2408,7 +2408,7 @@ class Formulae_Testing_without_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING=""
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
