@@ -980,14 +980,6 @@ class NemoFormulae(Nemo):
             if char in trans_table:
                 new_char = trans_table[char]
             filename += new_char
-        if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
-            txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
-                                     doc_title,
-                                     '\n'.join(d['paragraphs']),
-                                     '\n'.join(d['app']),
-                                     '\n'.join(d['hist_notes'])])
-            return Response(txt_value, mimetype='text/plain',
-                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
