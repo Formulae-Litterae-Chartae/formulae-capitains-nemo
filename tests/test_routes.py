@@ -594,8 +594,8 @@ class TestIndividualRoutes(Formulae_Testing):
                          [{'id': hit['_id'],
                            'title': hit['_source']['title'],
                            'info': hit['_source'],
-                           'regest_sents': ['regest text'],
-                           'sents': ['some real text']} for hit in resp['hits']['hits']])
+                           'regest_sents': [Markup('regest text')],
+                           'sents': [Markup('some real text')]} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
