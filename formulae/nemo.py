@@ -939,9 +939,9 @@ class NemoFormulae(Nemo):
         is_formula = re.search(r'markulf|andecavensis|elexicon', objectId) is not None
 
         def add_citation_info(canvas, doc):
-            cit_string = re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '<br/>'
-            cit_string += 'URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '<br/>'
-            cit_string += _('Heruntergeladen: ') + date.today().isoformat()
+            cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
+            cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
+            cit_string += '<font color="grey">' + ('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
             cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
             cit_flowables = [Paragraph(cit_string, cit_style)]
@@ -984,7 +984,7 @@ class NemoFormulae(Nemo):
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
         custom_style.name = 'Notes'
-        custom_style.fontSize = 8
+        custom_style.fontSize = 10
         custom_style.fontName = 'Liberation'
         cit_style = copy(sample_style_sheet['Normal'])
         cit_style.name = 'DocCitation'
@@ -992,6 +992,8 @@ class NemoFormulae(Nemo):
         cit_style.alignment = 1
         cit_style.leading = 9.6
         sample_style_sheet['BodyText'].fontName = 'Liberation'
+        sample_style_sheet['BodyText'].fontSize = 12
+        sample_style_sheet['BodyText'].leading = 14.4
         encryption = EncryptionFlowable(userPassword='',
                                         ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
                                         canPrint=1,
