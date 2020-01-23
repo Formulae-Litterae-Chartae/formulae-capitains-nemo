@@ -245,7 +245,7 @@ class NemoFormulae(Nemo):
         :param s: the separator
         :return: a string of the values joined by the separator
         """
-
+        l = [str(x) for x in l]
         return s.join(l).strip(s)
 
     def f_replace_indexed_item(self, l, i, v):

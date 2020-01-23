@@ -88,6 +88,9 @@
                   <div type="textpart" subtype="charta" n="1">
                      <p>Some text</p>
                   </div>
+                  <div type="textpart" subtype="charta" n="2">
+                     <p></p>
+                  </div>
                </div>
             </body>
    </text>
