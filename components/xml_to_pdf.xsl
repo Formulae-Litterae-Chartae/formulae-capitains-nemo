@@ -101,7 +101,7 @@
         </xsl:for-each>
         <xsl:text>], </xsl:text>
         <xsl:text>"hist_notes": [</xsl:text>
-        <xsl:for-each select="//t:note[@type='n1']">
+        <xsl:for-each select="//t:note[not(@type='a1')]">
             <xsl:text>"</xsl:text>
             <sup>
                 <xsl:choose>

@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 16,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -347,16 +347,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 105",
           "urn": "urn:cts:formulae:echternach.wampach0105.lat001",
           "date_string": "[790 10 09\u2013791 10 08]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [

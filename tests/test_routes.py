@@ -1,5 +1,5 @@
 from config import Config
-from capitains_nautilus.cts.resolver import NautilusCTSResolver
+from MyCapytain.resolvers.cts.local import CtsCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
@@ -41,7 +41,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
@@ -326,8 +326,9 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertIn('Angers 2 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
-            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
-            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            r = c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
+            self.assertIn('Urkundenlandschaft R\\344tien, Nummer 1 \\(1\\) \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -408,8 +409,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
-            c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
-            self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
+            r = c.get('/pdf/urn:cts:formulae:fulda_stengel.stengel0015.lat001', follow_redirects=True)
+            self.assertIn('\\(Ed. Stengel\\) Nr. 15 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
 
@@ -590,7 +592,7 @@ class TestIndividualRoutes(Formulae_Testing):
                            'title': hit['_source']['title'],
                            'info': hit['_source'],
                            'regest_sents': [Markup('regest text')],
-                           'sents': ['some real text']} for hit in resp['hits']['hits']])
+                           'sents': [Markup('some real text')]} for hit in resp['hits']['hits']])
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -2335,7 +2337,7 @@ class TestES(Formulae_Testing):
         with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
             expected = f.read()
         with self.client as c:
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenkt&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
@@ -2373,7 +2375,7 @@ class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -2406,7 +2408,7 @@ class Formulae_Testing_without_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING=""
         app = create_app(TestConfig)
-        resolver = NautilusCTSResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",

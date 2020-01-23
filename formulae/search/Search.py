@@ -50,6 +50,7 @@ AGGREGATIONS['all_docs']['aggs']['range'] = AGGREGATIONS['range']
 AGGREGATIONS['all_docs']['aggs']['corpus'] = AGGREGATIONS['corpus']
 AGGREGATIONS['all_docs']['aggs']['no_date'] = AGGREGATIONS['no_date']
 HITS_TO_READER = 10000
+LEMMA_INDICES = ['lemmas']
 
 
 def build_sort_list(sort_str):
@@ -219,7 +220,8 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     for hit in search['hits']['hits']:
         sentences = []
         start = 0
-        lems = hit['_source']['lemmas'].split()
+        lem_index = list(hit['highlight'].keys())[0]
+        lems = hit['_source'][lem_index].split()
         inflected = hit['_source']['text'].split()
         ratio = len(inflected)/len(lems)
         if ' ' in q:
@@ -282,14 +284,25 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
+        # To implement multiple lemma fields, create a 'span_near' statement for each of the lemma indices
+        # and wrap them all in {'bool': {'should': [{'span_near'...
         clauses = []
-        for term in q.split():
-            if '*' in term or '?' in term:
-                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
-            else:
-                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
-        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
-                                                                     'in_order': ordered_terms}})
+        if field == 'lemmas':
+            for lem_field in LEMMA_INDICES:
+                span_clauses = []
+                for term in q.split():
+                    span_clauses.append({'span_multi': {'match': {'fuzzy': {lem_field: {"value": term, "fuzziness": fuzz}}}}})
+                clauses.append({'span_near': {'clauses': span_clauses, 'slop': slop, 'in_order': ordered_terms}})
+            body_template['query']['bool']['must'].append({'bool': {'should': span_clauses}})
+        else:
+            for term in q.split():
+                if '*' in term or '?' in term:
+                    clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+                else:
+                    clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
+
+            body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
+                                                                 'in_order': ordered_terms}})
 
     if regest_q:
         clauses = []
