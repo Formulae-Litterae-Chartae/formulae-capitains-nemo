@@ -9,10 +9,8 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from flask_login import current_user, login_required
-import flask_babel
+from flask_login import current_user
 from flask_babel import _
-from babel.core import UnknownLocaleError
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
 from tests.fake_es import FakeElasticsearch
@@ -741,12 +739,9 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(self.nemo.get_locale(), 'fre')
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
-
-    @patch.object(flask_babel, 'get_locale')
-    def test_catch_get_locale_error(self, mock_locale):
-        """ Make sure that an UnknownLocaleError from Babel is correctly caught"""
-        mock_locale.return_value = UnknownLocaleError
-        self.assertEqual(self.nemo.get_locale(), 'ger', 'An UnknownLocaleError should return German as the language')
+            # The following should throw an UnknownLocaleError
+            c.post('/lang/none')
+            self.assertEqual(self.nemo.get_locale(), 'ger', 'An UnknownLocaleError should return German as the language')
 
     def test_r_passage_return_values(self):
         """ Make sure the correct values are returned by r_passage"""
