@@ -244,7 +244,7 @@ class NemoFormulae(Nemo):
         :param s: the separator
         :return: a string of the values joined by the separator
         """
-
+        l = [str(x) for x in l]
         return s.join(l).strip(s)
 
     def f_replace_indexed_item(self, l, i, v):
@@ -672,7 +672,7 @@ class NemoFormulae(Nemo):
         prev, next = self.get_siblings(objectId, subreference, text)
         inRefs = []
         for inRef in sorted(metadata.metadata.get(DCTERMS.isReferencedBy)):
-            ref = str(inRef).split('%')
+            ref = str(inRef).split('%')[1:]
             cits = ref[1:]
             for i, cit in enumerate(cits):
                 cits[i] = Markup(Markup(cit))
@@ -936,26 +936,27 @@ class NemoFormulae(Nemo):
         is_formula = re.search(r'markulf|andecavensis|elexicon', objectId) is not None
 
         def add_citation_info(canvas, doc):
-            cit_string = re.sub(r', \[UR[LI].*\]', '. ', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation)))
+            cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
+            cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
+            cit_string += '<font color="grey">' + ('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
-            cit_string = re.sub(r'<span class="surname">', r'<span>', cit_string)
-            cit_string += _('Heruntergeladen: ') + date.today().isoformat() + '.'
-            cit_flowables = [Paragraph('[' + cit_string + ']', cit_style)]
-            f = Frame(doc.leftMargin, doc.pagesize[1] - 0.5 * inch, doc.pagesize[0] - doc.leftMargin - doc.rightMargin, 0.5 * inch)
+            cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
+            cit_flowables = [Paragraph(cit_string, cit_style)]
+            f = Frame(doc.leftMargin - .9 * inch, 0.01 * inch, doc.pagesize[0] - .2 * inch, 0.7 * inch, showBoundary=0)
             canvas.saveState()
             if is_formula is True:
                 canvas.drawImage(self.static_folder + 'images/logo_white.png',
                                  inch, inch, width=doc.pagesize[0] - doc.rightMargin,
                                  height=doc.pagesize[1] - 1.5 * inch)
-            canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
-                             doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
-                             mask=[255, 256, 255, 256, 255, 256])
-            canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
-                             (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
-                             height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
-            canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
-                             doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
-                             height=0.5 * inch)
+                canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
+                                 doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
+                                 mask=[255, 256, 255, 256, 255, 256])
+                canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
+                                 (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
+                                 height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
+                canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
+                                 doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
+                                 height=0.5 * inch)
             f.addFromList(cit_flowables, canvas)
             canvas.setFont('Times-Roman', 8)
             canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
@@ -976,25 +977,20 @@ class NemoFormulae(Nemo):
             if char in trans_table:
                 new_char = trans_table[char]
             filename += new_char
-        if objectId == "urn:cts:formulae:salzburg.hauthaler-a0001.lat001":
-            txt_value = '\n\n'.join([re.sub(r'<.*?>', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))),
-                                     doc_title,
-                                     '\n'.join(d['paragraphs']),
-                                     '\n'.join(d['app']),
-                                     '\n'.join(d['hist_notes'])])
-            return Response(txt_value, mimetype='text/plain',
-                            headers={'Content-Disposition': 'attachment;filename={}.txt'.format(re.sub(r'\W+', '_', filename))})
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
         custom_style.name = 'Notes'
-        custom_style.fontSize = 8
+        custom_style.fontSize = 10
         custom_style.fontName = 'Liberation'
         cit_style = copy(sample_style_sheet['Normal'])
         cit_style.name = 'DocCitation'
         cit_style.fontSize = 8
         cit_style.alignment = 1
+        cit_style.leading = 9.6
         sample_style_sheet['BodyText'].fontName = 'Liberation'
+        sample_style_sheet['BodyText'].fontSize = 12
+        sample_style_sheet['BodyText'].leading = 14.4
         encryption = EncryptionFlowable(userPassword='',
                                         ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
                                         canPrint=1,

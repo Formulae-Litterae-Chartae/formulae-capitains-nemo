@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 11,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -31,12 +31,24 @@
           "forgery": false
         },
         "highlight": {
-          "lemmas": ["lemma text"],
-          "text": ["text"],
-          "autocomplete": ["autocomplete text"],
-          "autocomplete_lemmas": ["autocomplete lemma text"],
-          "regest": ["regest text"],
-          "autocomplete_regest": ["autocomplete regest text"]
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form001.lat001"
@@ -62,12 +74,24 @@
           "forgery": false
         },
         "highlight": {
-          "lemmas": ["lemma text"],
-          "text": ["text"],
-          "autocomplete": ["autocomplete text"],
-          "autocomplete_lemmas": ["autocomplete lemma text"],
-          "regest": ["regest text"],
-          "autocomplete_regest": ["autocomplete regest text"]
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form034.lat001"

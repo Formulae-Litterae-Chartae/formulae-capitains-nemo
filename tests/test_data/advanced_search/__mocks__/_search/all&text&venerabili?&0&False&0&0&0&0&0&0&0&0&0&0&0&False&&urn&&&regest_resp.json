@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 20,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -17,16 +17,16 @@
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 2",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
           "date_string": "687 02 20",
           "comp_ort": "Villa Nielsio",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Villa Nielsio",
           "forgery": false,
           "specific_date": [
@@ -46,12 +46,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
@@ -63,16 +75,16 @@
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 3",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
           "date_string": "701 01 20",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -91,12 +103,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
@@ -108,16 +132,16 @@
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 21",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
           "date_string": "750 08 17",
           "comp_ort": "Villa in palatio Attigny",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Villa in palatio Attigny",
           "forgery": false,
           "specific_date": [
@@ -136,12 +160,24 @@
           ]
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0021.lat001"
@@ -153,16 +189,16 @@
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 23",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
           "date_string": "(751 vor 09 23/ 10 22, vllt sogar vor 06 20)",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -178,12 +214,24 @@
           "min_date": "0724-01-01"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0023.lat001"
@@ -234,16 +282,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 23",
           "urn": "urn:cts:formulae:echternach.wampach0023.lat001",
           "date_string": "[698\u2013714]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -259,12 +307,24 @@
           "min_date": "0698-01-01"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0023.lat001"
@@ -276,16 +336,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 79",
           "urn": "urn:cts:formulae:echternach.wampach0079.lat001",
           "date_string": "[775 10 09\u2013776 10 08]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -301,12 +361,24 @@
           "min_date": "0775-10-09"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0079.lat001"
@@ -318,16 +390,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 88",
           "urn": "urn:cts:formulae:echternach.wampach0088.lat001",
           "date_string": "[783 10 09\u2013784 10 08]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -343,12 +415,24 @@
           "min_date": "0783-10-09"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0088.lat001"
@@ -360,16 +444,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 94",
           "urn": "urn:cts:formulae:echternach.wampach0094.lat001",
           "date_string": "[785 10 09\u2013786 10 08",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -385,12 +469,24 @@
           "min_date": "0785-10-09"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0094.lat001"
@@ -402,16 +498,16 @@
         "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
         "_score": null,
         "_source": {
-          "text": "text",
-          "lemmas": "text",
-          "regest": "text",
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 105",
           "urn": "urn:cts:formulae:echternach.wampach0105.lat001",
           "date_string": "[790 10 09\u2013791 10 08]",
           "comp_ort": " ",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "autocomplete_regest": "text",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -427,12 +523,24 @@
           "min_date": "0790-10-09"
         },
         "highlight": {
-          "text": "text",
-          "lemmas": "text",
-          "autocomplete": "text",
-          "autocomplete_lemmas": "text",
-          "regest": "text",
-          "autocomplete_regest": "text"
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
         },
         "sort": [
           "urn:cts:formulae:echternach.wampach0105.lat001"

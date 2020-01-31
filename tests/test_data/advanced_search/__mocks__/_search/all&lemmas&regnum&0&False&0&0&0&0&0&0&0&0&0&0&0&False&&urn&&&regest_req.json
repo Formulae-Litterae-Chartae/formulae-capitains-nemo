@@ -3,8 +3,8 @@
     "bool": {
       "must": [
         {
-          "span_near": {
-            "clauses": [
+          "bool": {
+            "should": [
               {
                 "span_multi": {
                   "match": {
@@ -17,9 +17,7 @@
                   }
                 }
               }
-            ],
-            "slop": "0",
-            "in_order": false
+            ]
           }
         }
       ]

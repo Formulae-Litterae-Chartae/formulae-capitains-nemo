@@ -6,6 +6,8 @@
     version="1.0">
     
     <xsl:output method="html" omit-xml-declaration="yes" indent="no"/>
+    <xsl:param name="dblquote">"</xsl:param>
+    <xsl:param name="sglquote">'</xsl:param>
     
     <xsl:template match="/">
         <xsl:text>{</xsl:text>
@@ -26,7 +28,9 @@
                                     <xsl:call-template name="forWords"/>
                                 </xsl:when>
                                 <xsl:when test="self::text()">
-                                    <xsl:value-of select="."/>
+                                    <xsl:call-template name="replaceQuotes">
+                                        <xsl:with-param name="text" select="."/>
+                                    </xsl:call-template>
                                 </xsl:when>
                             </xsl:choose>
                         </xsl:for-each>
@@ -38,7 +42,9 @@
                                     <xsl:call-template name="forWords"/>
                                 </xsl:when>
                                 <xsl:when test="self::text()">
-                                    <xsl:value-of select="."/>
+                                    <xsl:call-template name="replaceQuotes">
+                                        <xsl:with-param name="text" select="."/>
+                                    </xsl:call-template>
                                 </xsl:when>
                             </xsl:choose>
                         </xsl:for-each>
@@ -50,13 +56,17 @@
                                     <xsl:call-template name="forWords"/>
                                 </xsl:when>
                                 <xsl:when test="self::text()">
-                                    <xsl:value-of select="."/>
+                                    <xsl:call-template name="replaceQuotes">
+                                        <xsl:with-param name="text" select="."/>
+                                    </xsl:call-template>
                                 </xsl:when>
                             </xsl:choose>
                         </xsl:for-each>
                     </xsl:when>
                     <xsl:when test="self::text()">
-                        <xsl:value-of select="."/>
+                        <xsl:call-template name="replaceQuotes">
+                            <xsl:with-param name="text" select="."/>
+                        </xsl:call-template>
                     </xsl:when>
                     <xsl:when test="self::t:note">
                         <sup>
@@ -95,13 +105,15 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </sup>
-                <xsl:text> </xsl:text>
-                <xsl:apply-templates mode="noteSegs"/>
+            <xsl:text> </xsl:text>
+            <xsl:call-template name="replaceQuotes">
+                <xsl:with-param name="text"><xsl:apply-templates mode="noteSegs"/></xsl:with-param>
+            </xsl:call-template>
             <xsl:text>"</xsl:text><xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
         </xsl:for-each>
         <xsl:text>], </xsl:text>
         <xsl:text>"hist_notes": [</xsl:text>
-        <xsl:for-each select="//t:note[@type='n1']">
+        <xsl:for-each select="//t:note[not(@type='a1')]">
             <xsl:text>"</xsl:text>
             <sup>
                 <xsl:choose>
@@ -117,7 +129,9 @@
                 </xsl:choose>
             </sup>
             <xsl:text> </xsl:text>
-            <xsl:apply-templates mode="noteSegs"/>
+            <xsl:call-template name="replaceQuotes">
+                <xsl:with-param name="text"><xsl:apply-templates mode="noteSegs"/></xsl:with-param>
+            </xsl:call-template>
             <xsl:text>"</xsl:text><xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
         </xsl:for-each>
         <xsl:text>]}</xsl:text>
@@ -232,6 +246,11 @@
             </xsl:when>
             <xsl:otherwise><xsl:copy-of select="$theText"/></xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template name="replaceQuotes">
+        <xsl:param name="text"/>
+        <xsl:copy-of select="translate($text, $dblquote, $sglquote)"/>
     </xsl:template>
     
 </xsl:stylesheet>

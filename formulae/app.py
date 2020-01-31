@@ -1,15 +1,12 @@
 from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
-# from capitains_nautilus.flask_ext import FlaskNautilus
 from . import create_app
 from .nemo import NemoFormulae
 from .dispatcher_builder import organizer
 
 flask_app = create_app()
 resolver = XmlCapitainsLocalResolver(flask_app.config['CORPUS_FOLDERS'],
-                               dispatcher=organizer,
-                               # cache=FileSystemCache(flask_app.config['CACHE_DIRECTORY'])
-                               )
-# nautilus_api = FlaskNautilus(prefix="/api", resolver=resolver, app=flask_app)
+                                     dispatcher=organizer
+                                     )
 
 nemo = NemoFormulae(
     name="InstanceNemo",
