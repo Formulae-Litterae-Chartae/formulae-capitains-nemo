@@ -9,7 +9,7 @@ import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError
-from flask_login import current_user, login_required
+from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
@@ -21,7 +21,6 @@ from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 from math import ceil
-from formulae.dispatcher_builder import organizer
 from datetime import date
 from copy import copy
 
@@ -41,7 +40,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
@@ -2375,7 +2374,7 @@ class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
-        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -2410,7 +2409,7 @@ class Formulae_Testing_without_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING=""
         app = create_app(TestConfig)
-        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",

@@ -148,7 +148,7 @@ class NemoFormulae(Nemo):
         """
         version = m.id.split('.')[-1]
         if "salzburg" in m.id:
-            par = m.parent[0].id.split('-')[1:]
+            par = list(m.parent)[0].split('-')[1:]
             if len(par) == 2:
                 full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
             else:
@@ -165,10 +165,11 @@ class NemoFormulae(Nemo):
             par = (par, full_par)
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
-            par = m.parent[0].id.split('.')[-1][0].capitalize()
-            metadata = [m.id, m.parent[0].id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+            parent_0 = list(m.parent)[0]
+            par = parent_0.split('.')[-1][0].capitalize()
+            metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         else:
-            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent[0].id)
+            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':
                 par = _('(Titel)')
             elif 'computus' in par:
@@ -185,7 +186,7 @@ class NemoFormulae(Nemo):
         """
         open_texts = []
         half_open_texts = []
-        all_texts = {m['id']: sorted([self.ordered_corpora(r) for r in self.resolver.getMetadata(m['id']).readableDescendants])
+        all_texts = {m['id']: sorted([self.ordered_corpora(r) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
                      for l in self.sub_colls.values() for m in l}
         for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
             if c in self.OPEN_COLLECTIONS:
@@ -364,7 +365,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if 'base_collection' not in [x.id for x in self.resolver.getMetadata(objectId).parent]:
+        if 'base_collection' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
