@@ -5,6 +5,7 @@ from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
     set_session_token, suggest_word_search
+from flask_nemo.filters import slugify
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -863,6 +864,21 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.deu001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.deu001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form003.deu001')
+
+    def test_semantic(self):
+        """ Make sure that the correct SEO-friendly strings are returned by semantic"""
+        c = self.nemo.resolver.id_to_coll['urn:cts:formulae:raetien.erhart0001.lat001']
+        p = self.nemo.resolver.id_to_coll['urn:cts:formulae:raetien.erhart0001']
+        # Test without parent
+        s = self.nemo.semantic(c)
+        for ancestor in c.ancestors.values():
+            if ancestor.get_label():
+                self.assertIn(slugify(ancestor.get_label()), s)
+        # Test with parent
+        s = self.nemo.semantic(c, p)
+        for ancestor in c.ancestors.values():
+            if ancestor.get_label():
+                self.assertIn(slugify(ancestor.get_label()), s)
 
 
 class TestForms(Formulae_Testing):

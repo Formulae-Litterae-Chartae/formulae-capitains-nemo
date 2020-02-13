@@ -16,7 +16,7 @@
          <parent>urn:cts:formulae:fu2.180r182r</parent>
          <dc:title xml:lang="deu">Fulda, Hessische Landesbibliothek, D1 [fol.180r-fol.182r]</dc:title>
          <dc:language>lat</dc:language>
-         <dc:type>cts:edition</dc:type>
+         <dc:type>transcription</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
          <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
          <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
