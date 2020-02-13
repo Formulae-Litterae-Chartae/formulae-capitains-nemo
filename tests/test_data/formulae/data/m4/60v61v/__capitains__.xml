@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:m4.60v61v</identifier>
+   <parent>urn:cts:formulae:m4</parent>
+   <dc:title xml:lang="deu">München BSB clm 4650 [fol.60v-fol.61v]</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./m4.60v61v.lat001.xml">
+         <identifier>urn:cts:formulae:m4.60v61v.lat001</identifier>
+         <parent>urn:cts:formulae:m4.60v61v</parent>
+         <dc:title xml:lang="deu">München BSB clm 4650 [fol.60v-fol.61v]</dc:title>
+         <dc:language>lat</dc:language>
+         <dc:type>transcription</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>München BSB clm 4650 [fol.60v-fol.61v]</dc:source>
+         <dc:description xml:lang="deu"/>
+         <structured-metadata>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2020-02-12</dct:created>
+            <dct:bibliographicCitation>München BSB clm 4650 [fol.60v-fol.61v], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:m4.60v61v.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu"/>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

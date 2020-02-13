@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:p3</identifier>
+   <dc:title xml:lang="deu">p3</dc:title>
+   <dc:type>cts:textgroup</dc:type>
+   <structured-metadata>
+      <bib:AbbreviatedTitle>p3</bib:AbbreviatedTitle>
+   </structured-metadata>
+   <members>
+      <collection path="./128vb129rb/__capitains__.xml"
+                  identifier="urn:cts:formulae:p3.128vb129rb"/>
+   </members>
+</collection>

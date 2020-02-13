@@ -161,7 +161,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
@@ -176,7 +176,7 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('no-copy text-section', r.get_data(as_text=True))
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:markulf.form003.le1/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
@@ -198,7 +198,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
+            r = c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -240,12 +240,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
+            self.assertMessageFlashed(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -310,9 +310,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (deu)'))
-            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:p12.65r65v.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
+            c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
@@ -368,7 +368,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -403,7 +403,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -446,7 +446,7 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Luzern": {
                       "doc_count": 0
                     },
-                    "Markulf": {
+                    "Marculf": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -747,65 +747,70 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
                                                         "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
                          "KWIC strings for the inrefs should be correctly split and marked-up")
+        self.assertEqual(data['collections']['current']['citation'],
+                         'Lößlein, Horst, "Abbas, abbatissa", in: Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg (2019-05-07), [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/all]',
+                         'Citaion data should be retrieved correctly.')
 
     def test_corpus_mv(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            data = self.nemo.r_corpus_mv('urn:cts:formulae:markulf')
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:marculf')
             self.assertEqual(data['collections']['readable'],
                              {'editions': [{'edition_name': 'Edition',
-                                            'full_edition_name': '',
-                                            'links': [['form003'],
-                                                      ['urn:cts:formulae:markulf.form003.lat001']],
-                                            'name': 'lat001',
-                                            'regesten': [''],
-                                            'titles': ['Markulf I,3']}],
-                              'transcriptions': [{'edition_name': 'Ko2',
-                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
-                                                                       'Fabr. 84 (Ko2)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.ko2']],
-                                                  'name': 'ko2',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'Le1',
-                                                  'full_edition_name': 'Leiden BPL 114 (Le1)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.le1']],
-                                                  'name': 'le1',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'M4',
-                                                  'full_edition_name': 'München BSB clm 4650 (M4)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.m4']],
-                                                  'name': 'm4',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P3',
-                                                  'full_edition_name': 'Paris BNF 2123 (P3)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p3']],
-                                                  'name': 'p3',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P12',
-                                                  'full_edition_name': 'Paris BNF 4627 (P12)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p12']],
-                                                  'name': 'p12',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P16',
-                                                  'full_edition_name': 'Paris BNF 10756 (P16)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p16']],
-                                                  'name': 'p16',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']}],
-                              'translations': []})
+                                           'full_edition_name': '',
+                                           'links': [['urn:cts:formulae:marculf.form003'],
+                                                     ['urn:cts:formulae:marculf.form003.lat001']],
+                                           'name': 'lat001',
+                                           'regesten': [''],
+                                           'titles': ['Marculf I,3']}],
+                             'transcriptions': [{'edition_name': 'Ko2',
+                                                 'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                                                      'Fabr. 84 [fol.69r-fol.70v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:ko2.69r70v.lat001']],
+                                                 'name': 'ko2',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'Le1',
+                                                 'full_edition_name': 'Leiden BPL 114 [fol.109v-fol.110v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:le1.109v110v.lat001']],
+                                                 'name': 'le1',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'M4',
+                                                 'full_edition_name': 'München BSB clm 4650 '
+                                                                      '[fol.60v-fol.61v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:m4.60v61v.lat001']],
+                                                 'name': 'm4',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P3',
+                                                 'full_edition_name': 'Paris BNF 2123 '
+                                                                      '[fol.128vb-fol.129rb]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p3.128vb129rb.lat001']],
+                                                 'name': 'p3',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P12',
+                                                 'full_edition_name': 'Paris BNF 4627 [fol.65r-fol.65v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p12.65r65v.lat001']],
+                                                 'name': 'p12',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P16',
+                                                 'full_edition_name': 'Paris BNF 10756 [fol.7r-fol.7v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p16.7r7v.lat001']],
+                                                 'name': 'p16',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']}],
+                             'translations': []})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
@@ -1726,7 +1731,7 @@ class TestES(Formulae_Testing):
                                     'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                     'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                     'Luzern': {'match': {'_type': 'luzern'}},
-                                    'Markulf': {'match': {'_type': 'markulf'}},
+                                    'Marculf': {'match': {'_type': 'marculf'}},
                                     'Merowinger': {'match': {'_type': 'merowinger1'}},
                                     'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                     'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -1766,7 +1771,7 @@ class TestES(Formulae_Testing):
                                                           'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                           'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                                           'Luzern': {'match': {'_type': 'luzern'}},
-                                                          'Markulf': {'match': {'_type': 'markulf'}},
+                                                          'Marculf': {'match': {'_type': 'marculf'}},
                                                           'Merowinger': {'match': {'_type': 'merowinger1'}},
                                                           'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                                           'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2013,7 +2018,7 @@ class TestES(Formulae_Testing):
                                                         "Luzern": {
                                                             "doc_count": 0
                                                         },
-                                                        "Markulf": {
+                                                        "Marculf": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
@@ -2087,7 +2092,7 @@ class TestES(Formulae_Testing):
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
-                                        'Markulf': {'match': {'_type': 'markulf'}},
+                                        'Marculf': {'match': {'_type': 'marculf'}},
                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
                                         'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2127,7 +2132,7 @@ class TestES(Formulae_Testing):
                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                                          'Luzern': {'match': {'_type': 'luzern'}},
-                                                         'Markulf': {'match': {'_type': 'markulf'}},
+                                                         'Marculf': {'match': {'_type': 'marculf'}},
                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2338,6 +2343,9 @@ class TestES(Formulae_Testing):
         with self.client as c:
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
+            # Uncomment this when the mock search download file needs to be recreated
+            #with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
+            #    f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 

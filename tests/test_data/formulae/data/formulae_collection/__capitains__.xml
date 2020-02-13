@@ -12,10 +12,10 @@
     <dc:title xml:lang="deu">Formulae</dc:title>
     <dc:title xml:lang="eng">Formulae</dc:title>
     <dc:title xml:lang="fre">Formulae</dc:title>
-    <dc:type>cts:textgroup</dc:type>
+    <dc:type>collected_collection</dc:type>
     <members>
         <collection identifier="urn:cts:formulae:andecavensis" path="../andecavensis/__capitains__.xml"/>
-        <collection identifier="urn:cts:formulae:markulf" path="../markulf/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:marculf" path="../marculf/__capitains__.xml"/>
     </members>
 </collection>
 

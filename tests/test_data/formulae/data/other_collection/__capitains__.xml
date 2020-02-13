@@ -12,7 +12,7 @@
     <dc:title xml:lang="deu">Andere Texte</dc:title>
     <dc:title xml:lang="eng">Other Texts</dc:title>
     <dc:title xml:lang="fre">Autres Textes</dc:title>
-    <dc:type>cts:textgroup</dc:type>
+    <dc:type>collected_collection</dc:type>
     <members>
         <collection identifier="urn:cts:formulae:fulda_dronke" path="../fulda_dronke/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:fulda_stengel" path="../fulda_stengel/__capitains__.xml"/>

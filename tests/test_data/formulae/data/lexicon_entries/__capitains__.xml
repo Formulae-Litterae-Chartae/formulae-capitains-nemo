@@ -12,7 +12,7 @@
     <dc:title xml:lang="deu">Lexikon</dc:title>
     <dc:title xml:lang="eng">Lexicon</dc:title>
     <dc:title xml:lang="fre">Lexique</dc:title>
-    <dc:type>cts:textgroup</dc:type>
+    <dc:type>collected_collection</dc:type>
     <members>
         <collection identifier="urn:cts:formulae:elexicon" path="../elexicon/__capitains__.xml"/>
     </members>

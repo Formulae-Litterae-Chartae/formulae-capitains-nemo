@@ -1,12 +1,9 @@
 from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from . import create_app
 from .nemo import NemoFormulae
-from .dispatcher_builder import organizer
 
 flask_app = create_app()
-resolver = XmlCapitainsLocalResolver(flask_app.config['CORPUS_FOLDERS'],
-                                     dispatcher=organizer
-                                     )
+resolver = XmlCapitainsLocalResolver(flask_app.config['CORPUS_FOLDERS'])
 
 nemo = NemoFormulae(
     name="InstanceNemo",

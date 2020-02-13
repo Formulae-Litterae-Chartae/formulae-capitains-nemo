@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -404,7 +404,7 @@
           "Luzern": {
             "doc_count": 0
           },
-          "Markulf": {
+          "Marculf": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -539,7 +539,7 @@
         "Luzern": {
           "doc_count": 0
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {

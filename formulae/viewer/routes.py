@@ -13,7 +13,7 @@ def fullscreenviewer(objectId):
         objectId = re.sub(r'^manifest:', '', objectId)
     metadata = current_app.config['nemo_app'].get_collection(objectId)
     if isinstance(metadata, XmlCapitainsCollectionMetadata):
-        editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and t.subtype == 'cts:edition']
+        editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and 'cts:edition' in t.subtype]
         if len(editions) == 0:
             raise UnknownCollection(str(metadata.get_label()) + _l(' hat keine Edition.'),
                                     objectId)

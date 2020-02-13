@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:fu2</identifier>
+   <dc:title xml:lang="deu">fu2</dc:title>
+   <dc:type>cts:textgroup</dc:type>
+   <structured-metadata>
+      <bib:AbbreviatedTitle>fu2</bib:AbbreviatedTitle>
+   </structured-metadata>
+   <members>
+      <collection path="./136r139r/__capitains__.xml"
+                  identifier="urn:cts:formulae:fu2.136r139r"/>
+      <collection path="./180r182r/__capitains__.xml"
+         identifier="urn:cts:formulae:fu2.180r182r"/>
+   </members>
+</collection>

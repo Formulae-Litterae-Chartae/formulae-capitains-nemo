@@ -148,9 +148,9 @@
               "_type": "luzern"
             }
           },
-          "Markulf": {
+          "Marculf": {
             "match": {
-              "_type": "markulf"
+              "_type": "marculf"
             }
           },
           "Merowinger": {
@@ -319,9 +319,9 @@
                   "_type": "luzern"
                 }
               },
-              "Markulf": {
+              "Marculf": {
                 "match": {
-                  "_type": "markulf"
+                  "_type": "marculf"
                 }
               },
               "Merowinger": {
