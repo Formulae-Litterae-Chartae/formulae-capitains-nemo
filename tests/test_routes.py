@@ -1,10 +1,11 @@
 from config import Config
-from MyCapytain.resolvers.cts.local import CtsCapitainsLocalResolver
+from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
     set_session_token, suggest_word_search
+from flask_nemo.filters import slugify
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -21,7 +22,6 @@ from flask import Markup, session, g, url_for, abort
 from json import dumps
 import re
 from math import ceil
-from formulae.dispatcher_builder import organizer
 from datetime import date
 from copy import copy
 
@@ -41,7 +41,7 @@ class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
         app = create_app(TestConfig)
-        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         NemoFormulae.PROTECTED = ['r_contact']
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
@@ -147,7 +147,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
+            c.get('/lexicon/urn:cts:formulae:elexicon.abbas.deu001', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertTemplateUsed('main::lexicon_modal.html')
             c.get('/add_collection/lexicon_entries/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -162,7 +162,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
@@ -177,7 +177,7 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('no-copy text-section', r.get_data(as_text=True))
-            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:markulf.form003.le1/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
@@ -199,7 +199,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::index.html')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
+            r = c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -241,12 +241,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
+            self.assertMessageFlashed(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -257,7 +257,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/add_collections/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
-            c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
+            c.get('/lexicon/urn:cts:formulae:elexicon.abbas.deu001', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertTemplateUsed('main::lexicon_modal.html')
             c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -282,6 +282,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('no-copy text-section', r.get_data(as_text=True))
+            c.get('/texts/urn:cts:formulae:andecavensis.computus.fu2+urn:cts:formulae:andecavensis.computus.lat001/passage/all+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c.get('/texts/urn:cts:formulae:andecavensis.form000.lat001+urn:cts:formulae:andecavensis.form000.fu2/passage/all+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
             # make sure hasVersion metadata is correctly interpreted
             r = c.get('/texts/urn:cts:formulae:fulda_dronke.dronke0004a.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
@@ -291,7 +295,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(r'<span class="choice"><span class="abbr">o.t.</span><span class="expan">other text</span></span>',
                           r.get_data(as_text=True), '<choice> elements should be correctly converted.')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/2+12', follow_redirects=True)
-            self.assertMessageFlashed('Angers 1.12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
+            self.assertMessageFlashed('Angers 1 (lat), 12 wurde nicht gefunden. Der ganze Text wird angezeigt.')
             self.assertTemplateUsed('main::multipassage.html')
             r = c.get('/texts/urn:cts:formulae:andecavensis.form001/passage/2', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
@@ -310,10 +314,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (Deutsch)'))
-            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:markulf.form003.p12/passage/1+all', follow_redirects=True)
+            self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (deu)'))
+            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:p12.65r65v.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/texts/manifest:urn:cts:formulae:markulf.form003.m4/passage/1', follow_redirects=True)
+            c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
@@ -324,10 +328,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
-            self.assertIn('Angers 2 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
+            self.assertIn('Angers 2 \\(lat\\) \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             r = c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
-            self.assertIn('Urkundenlandschaft R\\344tien, Nummer 1 \\(1\\) \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            self.assertIn('Urkundenlandschaft R\\344tien \\(Ed. Erhart/Kleindinst\\) Nr. 1 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
@@ -369,7 +373,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
-            c.get('/corpus_m/urn:cts:formulae:markulf', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
@@ -383,7 +387,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
-            c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
+            c.get('/lexicon/urn:cts:formulae:elexicon.abbas.deu001', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertTemplateUsed('main::lexicon_modal.html')
             c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -404,7 +408,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('viewer/urn:cts:formulae:markulf.form003.lat001', follow_redirects=True)
+            c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -447,7 +451,7 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Luzern": {
                       "doc_count": 0
                     },
-                    "Markulf": {
+                    "Marculf": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -671,10 +675,10 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure the bibliographical links in the notes work correctly"""
         expected = re.compile('<sup>1</sup>  <a data-content="[^"]*&lt;span class=&quot;surname&quot;&gt;Hegglin&lt;/span&gt;, TITLE')
         with self.client as c:
-            response = c.get('/lexicon/urn:cts:formulae:elexicon.abbas_abbatissa.deu001', follow_redirects=True,
+            response = c.get('/lexicon/urn:cts:formulae:elexicon.abbas.deu001', follow_redirects=True,
                              headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertRegex(response.get_data(as_text=True), expected)
-            response = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            response = c.get('/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/1', follow_redirects=True)
             self.assertRegex(response.get_data(as_text=True), expected)
 
     def test_cache_max_age_header_set(self):
@@ -694,9 +698,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula.')
-            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
+            self.assertIn('id="header-urn-cts-formulae-elexicon-abbas-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for elex.')
             r = c.get('/texts/manifest:urn:cts:formulae:andecavensis.form005.lat001/passage/1', follow_redirects=True)
             self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form005-lat001"',
@@ -710,15 +714,15 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             self.assertNotIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for a formula.')
-            r = c.get('/texts/urn:cts:formulae:elexicon.abbas_abbatissa.deu001/passage/1', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertNotIn('id="header-urn-cts-formulae-elexicon-abbas_abbatissa-deu001"',
+            self.assertNotIn('id="header-urn-cts-formulae-elexicon-abbas-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
 
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
         """ Make sure that the first passage of a text is correctly returned"""
-        passage = self.nemo.get_first_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001')
+        passage = self.nemo.get_first_passage('urn:cts:formulae:elexicon.abbas.deu001')
         self.assertEqual(passage, '1')
         passage = self.nemo.get_first_passage('urn:cts:formulae:andecavensis.form001.lat001')
         self.assertEqual(passage, '2')
@@ -745,71 +749,76 @@ class TestFunctions(Formulae_Testing):
 
     def test_r_passage_return_values(self):
         """ Make sure the correct values are returned by r_passage"""
-        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas_abbatissa.deu001', 'all', 'eng')
+        data = self.nemo.r_passage('urn:cts:formulae:elexicon.abbas.deu001', 'all', 'eng')
         self.assertEqual(data['isReferencedBy'][0], 'urn:cts:formulae:andecavensis.form007.lat001',
                          "texts that aren't in the corpus should return a simple string with the URN identifier")
         self.assertEqual(data['isReferencedBy'][1][1], ["uir illo <span class='elex-word'>abbate</span> uel reliquis",
                                                         "fuit ipsius <span class='elex-word'>abbati</span> uel quibus"],
                          "KWIC strings for the inrefs should be correctly split and marked-up")
+        self.assertEqual(data['collections']['current']['citation'],
+                         'Lößlein, Horst, "Abbas, abbatissa", in: Formulae-Litterae-Chartae. Neuedition der frühmittelalterlichen Formulae, Hamburg (2019-05-07), [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/all]',
+                         'Citaion data should be retrieved correctly.')
 
     def test_corpus_mv(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            data = self.nemo.r_corpus_mv('urn:cts:formulae:markulf')
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:marculf')
             self.assertEqual(data['collections']['readable'],
                              {'editions': [{'edition_name': 'Edition',
-                                            'full_edition_name': '',
-                                            'links': [['form003'],
-                                                      ['urn:cts:formulae:markulf.form003.lat001']],
-                                            'name': 'lat001',
-                                            'regesten': [''],
-                                            'titles': ['Markulf I,3']}],
-                              'transcriptions': [{'edition_name': 'Ko2',
-                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
-                                                                       'Fabr. 84 (Ko2)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.ko2']],
-                                                  'name': 'ko2',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'Le1',
-                                                  'full_edition_name': 'Leiden BPL 114 (Le1)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.le1']],
-                                                  'name': 'le1',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'M4',
-                                                  'full_edition_name': 'München BSB clm 4650 (M4)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.m4']],
-                                                  'name': 'm4',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P3',
-                                                  'full_edition_name': 'Paris BNF 2123 (P3)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p3']],
-                                                  'name': 'p3',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P12',
-                                                  'full_edition_name': 'Paris BNF 4627 (P12)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p12']],
-                                                  'name': 'p12',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']},
-                                                 {'edition_name': 'P16',
-                                                  'full_edition_name': 'Paris BNF 10756 (P16)',
-                                                  'links': [['form003'],
-                                                            ['urn:cts:formulae:markulf.form003.p16']],
-                                                  'name': 'p16',
-                                                  'regesten': [''],
-                                                  'titles': ['Markulf I,3']}],
-                              'translations': []})
+                                           'full_edition_name': '',
+                                           'links': [['urn:cts:formulae:marculf.form003'],
+                                                     ['urn:cts:formulae:marculf.form003.lat001']],
+                                           'name': 'lat001',
+                                           'regesten': [''],
+                                           'titles': ['Marculf I,3']}],
+                             'transcriptions': [{'edition_name': 'Ko2',
+                                                 'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                                                      'Fabr. 84 [fol.69r-fol.70v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:ko2.69r70v.lat001']],
+                                                 'name': 'ko2',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'Le1',
+                                                 'full_edition_name': 'Leiden BPL 114 [fol.109v-fol.110v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:le1.109v110v.lat001']],
+                                                 'name': 'le1',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'M4',
+                                                 'full_edition_name': 'München BSB clm 4650 '
+                                                                      '[fol.60v-fol.61v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:m4.60v61v.lat001']],
+                                                 'name': 'm4',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P3',
+                                                 'full_edition_name': 'Paris BNF 2123 '
+                                                                      '[fol.128vb-fol.129rb]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p3.128vb129rb.lat001']],
+                                                 'name': 'p3',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P12',
+                                                 'full_edition_name': 'Paris BNF 4627 [fol.65r-fol.65v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p12.65r65v.lat001']],
+                                                 'name': 'p12',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']},
+                                                {'edition_name': 'P16',
+                                                 'full_edition_name': 'Paris BNF 10756 [fol.7r-fol.7v]',
+                                                 'links': [['urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p16.7r7v.lat001']],
+                                                 'name': 'p16',
+                                                 'regesten': [''],
+                                                 'titles': ['Marculf I,3']}],
+                             'translations': []})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
@@ -846,15 +855,30 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:stgallen.wartmann0615.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:stgallen.wartmann0001.lat001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:stgallen.wartmann0615.lat002')
-            data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form001.fu2', '1')
+            data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form000.fu2', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
-            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.computus.fu2')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form001.fu2')
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.lat001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form004.lat001')
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.deu001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.deu001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form003.deu001')
+
+    def test_semantic(self):
+        """ Make sure that the correct SEO-friendly strings are returned by semantic"""
+        c = self.nemo.resolver.id_to_coll['urn:cts:formulae:raetien.erhart0001.lat001']
+        p = self.nemo.resolver.id_to_coll['urn:cts:formulae:raetien.erhart0001']
+        # Test without parent
+        s = self.nemo.semantic(c)
+        for ancestor in c.ancestors.values():
+            if ancestor.get_label():
+                self.assertIn(slugify(ancestor.get_label()), s)
+        # Test with parent
+        s = self.nemo.semantic(c, p)
+        for ancestor in c.ancestors.values():
+            if ancestor.get_label():
+                self.assertIn(slugify(ancestor.get_label()), s)
 
 
 class TestForms(Formulae_Testing):
@@ -1730,7 +1754,7 @@ class TestES(Formulae_Testing):
                                     'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                     'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                     'Luzern': {'match': {'_type': 'luzern'}},
-                                    'Markulf': {'match': {'_type': 'markulf'}},
+                                    'Marculf': {'match': {'_type': 'marculf'}},
                                     'Merowinger': {'match': {'_type': 'merowinger1'}},
                                     'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                     'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -1770,7 +1794,7 @@ class TestES(Formulae_Testing):
                                                           'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                           'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                                           'Luzern': {'match': {'_type': 'luzern'}},
-                                                          'Markulf': {'match': {'_type': 'markulf'}},
+                                                          'Marculf': {'match': {'_type': 'marculf'}},
                                                           'Merowinger': {'match': {'_type': 'merowinger1'}},
                                                           'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                                           'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2017,7 +2041,7 @@ class TestES(Formulae_Testing):
                                                         "Luzern": {
                                                             "doc_count": 0
                                                         },
-                                                        "Markulf": {
+                                                        "Marculf": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
@@ -2091,7 +2115,7 @@ class TestES(Formulae_Testing):
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
-                                        'Markulf': {'match': {'_type': 'markulf'}},
+                                        'Marculf': {'match': {'_type': 'marculf'}},
                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
                                         'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                         'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2131,7 +2155,7 @@ class TestES(Formulae_Testing):
                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                                          'Luzern': {'match': {'_type': 'luzern'}},
-                                                         'Markulf': {'match': {'_type': 'markulf'}},
+                                                         'Marculf': {'match': {'_type': 'marculf'}},
                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2342,6 +2366,9 @@ class TestES(Formulae_Testing):
         with self.client as c:
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download')
+            # Uncomment this when the mock search download file needs to be recreated
+            #with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
+            #    f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
@@ -2378,7 +2405,7 @@ class Formulae_Testing_error_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
         app = create_app(TestConfig)
-        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",
@@ -2397,6 +2424,7 @@ class Formulae_Testing_error_mapping(Formulae_Testing):
             abort(500)
         return app
 
+
 class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
     def test_setup_global_app(self):
         """ Make sure that the instance of Nemo on the server is created correctly"""
@@ -2407,11 +2435,12 @@ class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
+
 class Formulae_Testing_without_mapping(Formulae_Testing):
     def create_app(self):
         TestConfig.IIIF_MAPPING=""
         app = create_app(TestConfig)
-        resolver = CtsCapitainsLocalResolver(app.config['CORPUS_FOLDERS'], dispatcher=organizer)
+        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
         self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
                                  app=app, base_url="", transform={"default": "components/epidoc.xsl",
                                                                   "notes": "components/extract_notes.xsl",

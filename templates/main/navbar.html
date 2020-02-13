@@ -26,7 +26,7 @@
                 <div class="dropdown-menu" aria-labelledby="formulaeDropdown">
                     {% for coll in g.sub_colls['formulae_collection']|sort(attribute="id") %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label'] }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }}</a>
                     {% endif %}
                     {% endfor %}
                 </div>

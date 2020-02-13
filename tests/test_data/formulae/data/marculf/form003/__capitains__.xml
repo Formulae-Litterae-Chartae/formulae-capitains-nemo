@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:marculf.form003</identifier>
+   <parent>urn:cts:formulae:marculf</parent>
+   <dc:title xml:lang="deu">Marculf I,3</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection path="../../p16/7r7v/__capitains__.xml"
+                  identifier="urn:cts:formulae:p16.7r7v"/>
+      <collection path="../../p3/128vb129rb/__capitains__.xml"
+                  identifier="urn:cts:formulae:p3.128vb129rb"/>
+      <collection path="../../le1/109v110v/__capitains__.xml"
+                  identifier="urn:cts:formulae:le1.109v110v"/>
+      <collection path="../../m4/60v61v/__capitains__.xml"
+                  identifier="urn:cts:formulae:m4.60v61v"/>
+      <collection path="../../p12/65r65v/__capitains__.xml"
+                  identifier="urn:cts:formulae:p12.65r65v"/>
+      <collection path="../../ko2/69r70v/__capitains__.xml"
+                  identifier="urn:cts:formulae:ko2.69r70v"/>
+      <collection readable="true" path="./marculf.form003.lat001.xml">
+         <identifier>urn:cts:formulae:marculf.form003.lat001</identifier>
+         <parent>urn:cts:formulae:marculf.form003</parent>
+         <dc:title xml:lang="deu">Marculf I,3</dc:title>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Marculf I,3, in: , ,  , S. .</dc:source>
+         <dc:description xml:lang="deu"/>
+         <structured-metadata>
+            <bib:editor/>
+            <dct:dateCopyrighted/>
+            <dct:created/>
+            <dct:bibliographicCitation>Marculf I,3, in: , ,  , S. .</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu"/>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

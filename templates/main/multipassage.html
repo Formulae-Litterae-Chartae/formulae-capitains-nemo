@@ -202,7 +202,7 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if not current_user.project_team and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
+            {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
                 <section class="row no-copy text-section text-row">
             {% else %}
                 <section class="row text-section text-row">
@@ -236,7 +236,7 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if not current_user.project_team and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
+            {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids  %}
                 {% if loop.last %}
                 <section class="col-sm no-copy text-section">
                 {% else %}

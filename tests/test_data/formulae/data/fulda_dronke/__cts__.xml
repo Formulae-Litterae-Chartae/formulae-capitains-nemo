@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ti:textgroup xmlns:ti="http://chs.harvard.edu/xmlns/cts" xmlns:cpt="http://purl.org/capitains/ns/1.0#" xmlns:bib="http://bibliotek-o.org/1.0/ontology/" urn="urn:cts:formulae:fulda_dronke">
-   <ti:groupname xml:lang="deu">Codex diplomaticus &lt;span class="collection-origin"&gt;Fuldensis&lt;/span&gt;</ti:groupname>
-   <cpt:structured-metadata>
-      <bib:AbbreviatedTitle xml:lang="lat">Cod. dipl. Fuldensis</bib:AbbreviatedTitle>
-   </cpt:structured-metadata>
-</ti:textgroup>

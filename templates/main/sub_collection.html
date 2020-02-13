@@ -73,7 +73,14 @@
                             {% else %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>
-                                    {% endfor %}
+                                {% endfor %}
+                                {% for urn, lang, version, source in values['versions']['transcriptions'] %}
+                                    {% if source[1] == True %}
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn, 'manifest:' + urn]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                    {% else %}
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                    {% endif %}
+                                {% endfor %}
                             {% endif %}
                         </span>
                         </div>
