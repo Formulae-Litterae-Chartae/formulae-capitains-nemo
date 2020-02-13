@@ -738,6 +738,9 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(self.nemo.get_locale(), 'fre')
             c.post('/lang/en')
             self.assertEqual(self.nemo.get_locale(), 'eng')
+            # The following should throw an UnknownLocaleError
+            c.post('/lang/none')
+            self.assertEqual(self.nemo.get_locale(), 'ger', 'An UnknownLocaleError should return German as the language')
 
     def test_r_passage_return_values(self):
         """ Make sure the correct values are returned by r_passage"""

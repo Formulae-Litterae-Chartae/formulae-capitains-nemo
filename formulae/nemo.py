@@ -2,6 +2,7 @@ from flask import url_for, Markup, g, session, flash, request, Response
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
+from babel.core import UnknownLocaleError
 from werkzeug.utils import redirect
 from flask_nemo import Nemo, filters
 from rdflib.namespace import DCTERMS, DC, Namespace
@@ -245,7 +246,10 @@ class NemoFormulae(Nemo):
 
         :rtype: str
         """
-        best_match = str(get_locale())
+        try:
+            best_match = str(get_locale())
+        except UnknownLocaleError:
+            best_match = 'de'
         lang = self.__default_lang__
         if best_match == "de":
             lang = "ger"
