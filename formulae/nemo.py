@@ -181,11 +181,11 @@ class NemoFormulae(Nemo):
                     elif 'computus' in par:
                         par = '057(Computus)'
                 else:
-                    par = re.sub(r'.*?(\d+[rvab])(\d+[rvab])?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
                 manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             else:
                 if collection in m.id:
-                    par = re.sub(r'.*?(\d+[rvab])(\d+[rvab])?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
