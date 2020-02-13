@@ -191,11 +191,7 @@ class NemoFormulae(Nemo):
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
                     par = re.sub(r'.*?(\d+\D?)\Z', r'\1', form_num)
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
-            try:
-                metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
-            except AttributeError:
-                print(m.id, m.id.split('.'), collection)
-                raise AttributeError
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':

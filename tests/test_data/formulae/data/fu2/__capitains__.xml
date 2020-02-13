@@ -13,6 +13,8 @@
       <bib:AbbreviatedTitle>fu2</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./136r/__capitains__.xml"
+         identifier="urn:cts:formulae:fu2.136r"/>
       <collection path="./136r139r/__capitains__.xml"
                   identifier="urn:cts:formulae:fu2.136r139r"/>
       <collection path="./180r182r/__capitains__.xml"
