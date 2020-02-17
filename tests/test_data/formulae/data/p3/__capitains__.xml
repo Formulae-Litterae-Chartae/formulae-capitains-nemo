@@ -13,6 +13,8 @@
       <bib:AbbreviatedTitle>p3</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./105va106rb/__capitains__.xml"
+         identifier="urn:cts:formulae:p3.105va106rb"/>
       <collection path="./128vb129rb/__capitains__.xml"
                   identifier="urn:cts:formulae:p3.128vb129rb"/>
    </members>

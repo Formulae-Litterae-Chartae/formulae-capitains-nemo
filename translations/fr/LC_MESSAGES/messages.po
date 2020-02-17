@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-11 13:59+0100\n"
+"POT-Creation-Date: 2020-02-17 16:51+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -22,81 +22,80 @@ msgstr "Veuillez vous connecter pour accéder à cette page."
 msgid "Der Viewer konnte nicht gestartet werden."
 msgstr ""
 
-#: formulae/nemo.py:95
+#: formulae/nemo.py:96
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:95
+#: formulae/nemo.py:96
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:95
+#: formulae/nemo.py:96
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:96
+#: formulae/nemo.py:97
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:174 templates/main/sub_collection.html:42
+#: formulae/nemo.py:180 formulae/nemo.py:201
 msgid "(Titel)"
 msgstr "(Titre)"
 
-#: formulae/nemo.py:426 tests/test_routes.py:146 tests/test_routes.py:162
-#: tests/test_routes.py:164 tests/test_routes.py:166 tests/test_routes.py:364
-#: tests/test_routes.py:372
+#: formulae/nemo.py:194 formulae/nemo.py:203
+msgid "(Prolog)"
+msgstr ""
+
+#: formulae/nemo.py:501 tests/test_routes.py:146 tests/test_routes.py:162
+#: tests/test_routes.py:164 tests/test_routes.py:166 tests/test_routes.py:369
+#: tests/test_routes.py:377
 msgid "Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden."
 msgstr ""
 "Cette collection est protégée par le droit d'auteur et ne peut être "
 "affichée ici."
 
-#: formulae/nemo.py:456 templates/main/sub_collection.html:47
+#: formulae/nemo.py:534 templates/main/sub_collection.html:47
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:456
+#: formulae/nemo.py:534
 msgid "Übersetzung"
 msgstr ""
 
-#: formulae/nemo.py:525 tests/test_routes.py:249
-msgid "Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar"
+#: formulae/nemo.py:606 tests/test_routes.py:249
+msgid "Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar"
 msgstr ""
 
-#: formulae/nemo.py:656 formulae/viewer/routes.py:18 tests/test_routes.py:302
-#: tests/test_routes.py:305
+#: formulae/nemo.py:770 formulae/viewer/routes.py:18 tests/test_routes.py:306
+#: tests/test_routes.py:309
 msgid " hat keine Edition."
 msgstr ""
 
-#: formulae/nemo.py:665
+#: formulae/nemo.py:779
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr "Aucun résultat trouvé. Le texte complet est affiché."
 
-#: formulae/nemo.py:768
+#: formulae/nemo.py:883
 msgid "Es gibt keine Manuskriptbilder für "
 msgstr ""
 
-#: formulae/nemo.py:772 formulae/viewer/routes.py:25 tests/test_routes.py:310
-#: tests/test_routes.py:320 tests/test_routes.py:323
+#: formulae/nemo.py:887 formulae/viewer/routes.py:26 tests/test_routes.py:314
+#: tests/test_routes.py:324 tests/test_routes.py:327
 msgid ""
 "Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird "
 "hier gezeigt."
 msgstr ""
 
-#: formulae/nemo.py:818 tests/test_routes.py:182 tests/test_routes.py:184
-#: tests/test_routes.py:401
+#: formulae/nemo.py:934 tests/test_routes.py:182 tests/test_routes.py:184
+#: tests/test_routes.py:406
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 
-#: formulae/nemo.py:937 tests/test_routes.py:208 tests/test_routes.py:330
-#: tests/test_routes.py:412
+#: formulae/nemo.py:1054 tests/test_routes.py:208
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:943
-msgid "Heruntergeladen: "
-msgstr ""
-
-#: formulae/auth/email.py:8 tests/test_routes.py:1063
+#: formulae/auth/email.py:8 tests/test_routes.py:1092
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Réinitialiser le mot de passe"
 
@@ -168,19 +167,19 @@ msgstr "Langue par défault"
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:53 tests/test_routes.py:996
+#: formulae/auth/forms.py:53 tests/test_routes.py:1025
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Veuillez choisir un autre nom d'utilisateur."
 
-#: formulae/auth/forms.py:58 tests/test_routes.py:998
+#: formulae/auth/forms.py:58 tests/test_routes.py:1027
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Veuillez choisir une autre adresse e-mail."
 
-#: formulae/auth/routes.py:25 tests/test_routes.py:1024
+#: formulae/auth/routes.py:25 tests/test_routes.py:1053
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:57 tests/test_routes.py:1141
+#: formulae/auth/routes.py:57 tests/test_routes.py:1170
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
@@ -196,8 +195,8 @@ msgstr "Vous avez réussi à changer la langue par défault."
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
-#: formulae/auth/routes.py:89 tests/test_routes.py:1069
-#: tests/test_routes.py:1078
+#: formulae/auth/routes.py:89 tests/test_routes.py:1098
+#: tests/test_routes.py:1107
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -205,7 +204,7 @@ msgstr ""
 "L'instruction pour réinitialiser votre mot de passe vous a été envoyée "
 "par e-mail"
 
-#: formulae/auth/routes.py:102 tests/test_routes.py:1101
+#: formulae/auth/routes.py:102 tests/test_routes.py:1130
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe ici."
 
@@ -213,11 +212,11 @@ msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe i
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Vous avez réussi à réinitialiser votre mot de passe."
 
-#: formulae/auth/routes.py:123 tests/test_routes.py:354
+#: formulae/auth/routes.py:123 tests/test_routes.py:359
 msgid "Sie sind schon eingeloggt."
 msgstr "Vous êtes déjà connecté(e)."
 
-#: formulae/auth/routes.py:133 tests/test_routes.py:1050
+#: formulae/auth/routes.py:133 tests/test_routes.py:1079
 msgid "Sie sind nun registriert."
 msgstr "Vous êtes désormais enregistré(e)."
 
@@ -226,12 +225,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:2365
+#: tests/test_routes.py:2397
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:2366
+#: tests/test_routes.py:2398
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -243,8 +242,8 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page principale"
 
-#: formulae/search/Search.py:83 formulae/search/Search.py:278
-#: tests/test_routes.py:1950 tests/test_routes.py:1960
+#: formulae/search/Search.py:84 formulae/search/Search.py:280
+#: tests/test_routes.py:1979 tests/test_routes.py:1989
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -252,11 +251,11 @@ msgstr ""
 "Les caractères spéciaux (\"*\" and \"?\") ne sont pas possibles lors de "
 "la recherche de lemmes."
 
-#: formulae/search/Search.py:126
+#: formulae/search/Search.py:127
 msgid "Text nicht zugänglich."
 msgstr ""
 
-#: formulae/search/Search.py:130
+#: formulae/search/Search.py:131
 msgid "Regest nicht zugänglich."
 msgstr ""
 
@@ -271,7 +270,7 @@ msgid "Corpora"
 msgstr "Corpus"
 
 #: formulae/search/forms.py:28 formulae/search/forms.py:53
-#: templates/main/multipassage.html:151 templates/main/navbar.html:25
+#: templates/main/multipassage.html:150 templates/main/navbar.html:25
 msgid "Formeln"
 msgstr "Formules"
 
@@ -279,8 +278,8 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:31 tests/test_routes.py:948
-#: tests/test_routes.py:2171
+#: formulae/search/forms.py:31 tests/test_routes.py:977
+#: tests/test_routes.py:2200
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")"
@@ -326,7 +325,7 @@ msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:55 formulae/search/forms.py:66
-#: formulae/search/forms.py:79 tests/test_routes.py:650
+#: formulae/search/forms.py:79 tests/test_routes.py:656
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit se situer entre 500 et 1000."
 
@@ -469,19 +468,19 @@ msgstr "Ven"
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/routes.py:24 tests/test_routes.py:2172
+#: formulae/search/routes.py:24 tests/test_routes.py:2201
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:26 tests/test_routes.py:2183
+#: formulae/search/routes.py:26 tests/test_routes.py:2212
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
-#: formulae/search/routes.py:152 tests/test_routes.py:653
+#: formulae/search/routes.py:152 tests/test_routes.py:659
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins un champ."
 
-#: formulae/search/routes.py:196 tests/test_routes.py:2326
+#: formulae/search/routes.py:196 tests/test_routes.py:2355
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr ""
 
@@ -534,8 +533,8 @@ msgstr ""
 msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
 
-#: formulae/viewer/routes.py:31 tests/test_routes.py:203
-#: tests/test_routes.py:407
+#: formulae/viewer/routes.py:32 tests/test_routes.py:203
+#: tests/test_routes.py:412
 msgid "Diese Formelsammlung ist noch nicht frei zugänglich."
 msgstr ""
 
@@ -555,7 +554,7 @@ msgstr "Nouvel(le) utilisateur(trice)?"
 msgid "Klicken Sie hier"
 msgstr "Cliquez ici"
 
-#: templates/email/reset_password.html:1 tests/test_routes.py:1065
+#: templates/email/reset_password.html:1 tests/test_routes.py:1094
 msgid "Sehr geehrte(r)"
 msgstr "Cher/Chère"
 
@@ -636,7 +635,7 @@ msgstr "Parcourir"
 msgid "Ergebnisse der letzten Suche"
 msgstr "Résultats de la dernière recherche"
 
-#: templates/main/bibliography.html:6 templates/main/navbar.html:48
+#: templates/main/bibliography.html:6 templates/main/navbar.html:58
 msgid "Bibliographie"
 msgstr "Bibliographie"
 
@@ -685,7 +684,7 @@ msgstr ""
 msgid "Gehe zu Buchstabe:"
 msgstr "Aller à une lettre"
 
-#: templates/main/elex_modal_footer.html:3 templates/main/multipassage.html:70
+#: templates/main/elex_modal_footer.html:3 templates/main/multipassage.html:69
 #: templates/main/passage_footer.html:3
 msgid "Empfohlene Zitierweise"
 msgstr "Citation recommandée"
@@ -859,7 +858,7 @@ msgstr "En cas de questions, veuillez nous contacter."
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Survolez un mot avec la souris pour voir son lemme."
 
-#: templates/main/lexicon_modal.html:13 templates/main/multipassage.html:127
+#: templates/main/lexicon_modal.html:13 templates/main/multipassage.html:126
 msgid "Formeln mit diesem Lemma"
 msgstr ""
 
@@ -908,115 +907,115 @@ msgstr ""
 msgid "Spalte ausblenden"
 msgstr ""
 
-#: templates/main/multipassage.html:48
+#: templates/main/multipassage.html:47
 msgid "Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen."
 msgstr ""
 
-#: templates/main/multipassage.html:48
+#: templates/main/multipassage.html:47
 msgid "Zur Bibliothek"
 msgstr ""
 
-#: templates/main/multipassage.html:63
+#: templates/main/multipassage.html:62
 msgid "Vorheriges Suchergebnis"
 msgstr ""
 
-#: templates/main/multipassage.html:70
+#: templates/main/multipassage.html:69
 msgid "Diesen Text als PDF herunterladen."
 msgstr ""
 
-#: templates/main/multipassage.html:74
+#: templates/main/multipassage.html:73
 msgid "Nächstes Suchergebnis"
 msgstr ""
 
-#: templates/main/multipassage.html:106
+#: templates/main/multipassage.html:105
 msgid "Eine Spalte hinzufügen"
 msgstr ""
 
-#: templates/main/multipassage.html:111
+#: templates/main/multipassage.html:110
 msgid "Manuskriptbilder"
 msgstr ""
 
-#: templates/main/multipassage.html:119
+#: templates/main/multipassage.html:118
 msgid "Edition, Übersetzung, Transkription"
 msgstr ""
 
-#: templates/main/multipassage.html:143
+#: templates/main/multipassage.html:142
 msgid "Verwandte Texte"
 msgstr ""
 
-#: templates/main/multipassage.html:150
+#: templates/main/multipassage.html:149
 msgid "Weitere Texte"
 msgstr ""
 
-#: templates/main/multipassage.html:152 templates/main/navbar.html:35
+#: templates/main/multipassage.html:151 templates/main/navbar.html:35
 msgid "Lexikon"
 msgstr "Lexique"
 
-#: templates/main/multipassage.html:153
+#: templates/main/multipassage.html:152
 msgid "Urkunden und Briefe"
 msgstr ""
 
-#: templates/main/multipassage.html:161
+#: templates/main/multipassage.html:160
 msgid "Vorherige Seite"
 msgstr "Page précédente"
 
-#: templates/main/multipassage.html:166
+#: templates/main/multipassage.html:165
 msgid "Nächste Seite"
 msgstr "Page suivante"
 
-#: templates/main/multipassage.html:178
+#: templates/main/multipassage.html:177
 msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
 msgstr "Aucune entrée du lexique pour l'instant"
 
-#: templates/main/multipassage.html:183
+#: templates/main/multipassage.html:182
 msgid "Texte nebeneinander zeigen."
 msgstr ""
 
-#: templates/main/multipassage.html:183 templates/main/multipassage.html:184
+#: templates/main/multipassage.html:182 templates/main/multipassage.html:183
 msgid "übereinander"
 msgstr ""
 
-#: templates/main/multipassage.html:184
+#: templates/main/multipassage.html:183
 msgid "Texte übereinander zeigen."
 msgstr ""
 
-#: templates/main/multipassage.html:186 templates/main/multipassage.html:307
+#: templates/main/multipassage.html:185 templates/main/multipassage.html:306
 msgid "Texte unabhängig von einander scrollen."
 msgstr ""
 
-#: templates/main/multipassage.html:299
+#: templates/main/multipassage.html:298
 msgid "Mehr zeigen"
 msgstr "Afficher plus"
 
-#: templates/main/multipassage.html:300
+#: templates/main/multipassage.html:299
 msgid "Weniger zeigen"
 msgstr "Afficher moins"
 
-#: templates/main/multipassage.html:301
+#: templates/main/multipassage.html:300
 msgid "Apparatus"
 msgstr ""
 
-#: templates/main/multipassage.html:302
+#: templates/main/multipassage.html:301
 msgid "Kommentar"
 msgstr ""
 
-#: templates/main/multipassage.html:303
+#: templates/main/multipassage.html:302
 msgid "Alle Apparatusanmerkungen für diesen Text ausblenden"
 msgstr ""
 
-#: templates/main/multipassage.html:304
+#: templates/main/multipassage.html:303
 msgid "Alle Apparatusanmerkungen für diesen Text einblenden"
 msgstr ""
 
-#: templates/main/multipassage.html:305
+#: templates/main/multipassage.html:304
 msgid "Alle Kommentaranmerkungen für diesen Text ausblenden"
 msgstr ""
 
-#: templates/main/multipassage.html:306
+#: templates/main/multipassage.html:305
 msgid "Alle Kommentaranmerkungen für diesen Text einblenden"
 msgstr ""
 
-#: templates/main/multipassage.html:309
+#: templates/main/multipassage.html:308
 msgid "Texte zusammen scrollen."
 msgstr ""
 
@@ -1030,6 +1029,10 @@ msgstr "Déconnexion"
 
 #: templates/main/navbar.html:38
 msgid "Urkunden + Briefe"
+msgstr ""
+
+#: templates/main/navbar.html:48
+msgid "Manuskripte"
 msgstr ""
 
 #: templates/main/no_copy_modal.html:6
@@ -1083,13 +1086,13 @@ msgid "Lesen: "
 msgstr "Lire: "
 
 #: templates/main/salzburg_collection.html:58
-#: templates/main/sub_collection.html:75
+#: templates/main/sub_collection.html:83
 msgid "Version"
 msgstr "Version"
 
 #: templates/main/salzburg_collection.html:66
 #: templates/main/salzburg_collection.html:69
-#: templates/main/sub_collection.html:88 templates/main/sub_collection.html:91
+#: templates/main/sub_collection.html:96 templates/main/sub_collection.html:99
 msgid "Zurück zum Seitenanfang"
 msgstr "Retourner en haut de la page"
 
@@ -1099,10 +1102,6 @@ msgstr ""
 
 #: templates/main/sub_collection.html:27
 msgid "Zur Überlieferungsübersicht"
-msgstr ""
-
-#: templates/main/sub_collection.html:42
-msgid "(Computus)"
 msgstr ""
 
 #: templates/main/sub_collection.html:42
@@ -1583,15 +1582,15 @@ msgstr ""
 msgid "Suchen in:"
 msgstr "Chercher dans"
 
-#: tests/test_routes.py:313
-msgid "Es gibt keine Manuskriptbilder für Angers 3 (Deutsch)"
+#: tests/test_routes.py:317
+msgid "Es gibt keine Manuskriptbilder für Angers 3 (deu)"
 msgstr ""
 
-#: tests/test_routes.py:949 tests/test_routes.py:958
+#: tests/test_routes.py:978 tests/test_routes.py:987
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' n'est pas valable pour ce champ de recherche."
 
-#: tests/test_routes.py:957 tests/test_routes.py:2182
+#: tests/test_routes.py:986 tests/test_routes.py:2211
 msgid "Dieses Feld wird benötigt."
 msgstr "Ce champ est nécessaire."
 
@@ -2604,5 +2603,17 @@ msgstr "Ce champ est nécessaire."
 #~ msgstr ""
 
 #~ msgid "Rechte Spalte zuklappen."
+#~ msgstr ""
+
+#~ msgid "Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar"
+#~ msgstr ""
+
+#~ msgid "Heruntergeladen: "
+#~ msgstr ""
+
+#~ msgid "(Computus)"
+#~ msgstr ""
+
+#~ msgid "Es gibt keine Manuskriptbilder für Angers 3 (Deutsch)"
 #~ msgstr ""
 

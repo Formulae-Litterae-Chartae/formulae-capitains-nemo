@@ -882,9 +882,6 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
-                    if type(formulae) == list:
-                        formulae = self.app.picture_file[formulae[0]]
-                        flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
                     # This should no longer be necessary since all manifests should be linked to a specific version id
                     # This is when there is a single manuscript for the transcription, edition, and translation
                     # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
@@ -919,10 +916,7 @@ class NemoFormulae(Nemo):
                     for transcription in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
-                            if type(manifests) == dict:
-                                d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
-                            elif type(manifests) == list:
-                                d["IIIFviewer"] += [(link, self.app.picture_file[link]['title']) for link in manifests]
+                            d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
