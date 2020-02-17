@@ -25,7 +25,7 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
-from typing import Union, List, Dict
+from typing import List, Tuple, Union
 
 
 class NemoFormulae(Nemo):
@@ -139,7 +139,7 @@ class NemoFormulae(Nemo):
             for m in members:
                 m.update({'short_title':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
-            colls[member['id']] = members
+            colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
         return colls
 
     def ordered_corpora(self, m, collection):
@@ -181,21 +181,26 @@ class NemoFormulae(Nemo):
                     elif 'computus' in par:
                         par = '057(Computus)'
                 else:
-                    par = re.sub(r'.*?(\d+[rvab])(\d+[rvab])?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
                 manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             else:
                 if collection in m.id:
-                    par = re.sub(r'.*?(\d+[rvab])(\d+[rvab])?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
                     par = re.sub(r'.*?(\d+\D?)\Z', r'\1', form_num)
+                    if par.lstrip('0') == '':
+                        par = _('(Prolog)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':
-                par = _('(Titel)')
+                if 'andecavensis' in m.id:
+                    par = _('(Titel)')
+                else:
+                    par = _('(Prolog)')
             elif 'computus' in par:
                 par = '057(Computus)'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
@@ -495,6 +500,8 @@ class NemoFormulae(Nemo):
         if len(r) == 0:
             flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
 
+        current_parents = self.make_parents(collection, lang=lang)
+
         return_value = {
             "template": template,
             "collections": {
@@ -506,7 +513,8 @@ class NemoFormulae(Nemo):
                     "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
                 },
                 "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": current_parents,
+                "parent_ids": [x['id'] for x in current_parents]
             }
         }
         return return_value
@@ -693,19 +701,19 @@ class NemoFormulae(Nemo):
         first, _ = reffs[0]
         return str(first)
 
-    def get_prev_next_texts(self, objId, collection):
+    def get_prev_next_texts(self, objId):
         """ Get the previous and next texts in a collection
 
         :param objId: the ID of the current object
-        :param collection: the grandparent of the current object (should be the collection, e.g., Freising or Marculf)
         :return: the IDs of the previous and next text in the same collection
         """
-        if re.search(r'lat\d\d\d', objId.split('.')[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
-        elif re.search(r'deu\d\d\d', objId.split('.')[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
+        id_parts = objId.split('.')
+        if re.search(r'lat\d\d\d', id_parts[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
+        elif re.search(r'deu\d\d\d', id_parts[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
         else:
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if x[1][0].split('.')[-1] == id_parts[-1]]
         orig_index = sibling_texts.index(objId)
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
@@ -722,6 +730,26 @@ class NemoFormulae(Nemo):
         for ancestor in obj.ancestors.values():
             siblings += [x for x in ancestor.children.values() if x.readable]
         return siblings
+
+    def sort_transcriptions(self, obj: Union[XmlCapitainsReadableMetadata,
+                                      XmlCapitainsCollectionMetadata]) -> Tuple[str, int]:
+        """ Return sortable tuple for the transcriptions of an object """
+        identifier = obj.id
+        manuscript_id = identifier.split(':')[-1].split('.')[0]
+        parts = re.search(r'(\D+)?(\d+)?', manuscript_id).groups('0')
+        return parts[0], int(parts[1])
+
+    def get_transcriptions(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
+        """ Returns any manuscript transcriptions that are associated with this text
+
+        :param obj: the readable collection for which to find transcriptions
+        :return: the list of transcriptions
+        """
+        transcriptions = []
+        for parent in obj.parent:
+            parent_obj = self.resolver.id_to_coll[parent]
+            transcriptions += [v for v in parent_obj.descendants.values() if 'transcription' in v.subtype]
+        return sorted(transcriptions, key=self.sort_transcriptions)
 
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage
@@ -771,6 +799,7 @@ class NemoFormulae(Nemo):
         translations = [(m, m.metadata.get_single(DC.title)) for m in self.get_readable_siblings(metadata)] + \
                        [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
+        transcriptions = [(m, m.metadata.get_single(DC.title)) for m in self.get_transcriptions(metadata)]
         current_parents = self.make_parents(metadata, lang=lang)
         return {
             "template": "main::text.html",
@@ -805,7 +834,8 @@ class NemoFormulae(Nemo):
             "open_regest": objectId not in self.half_open_texts,
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
             "isReferencedBy": inRefs,
-            "translations": translations
+            "translations": translations + transcriptions,
+            "transcriptions": [x[0] for x in transcriptions]
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -842,8 +872,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
-                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'],
-                                                                                [x for x in d['collections']['parents'] if 'cts:textgroup' in x['subtype']][0])
+                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
                 translations[id] = [x for x in d.pop('translations', None) if x[0].id not in ids]
                 if v:
@@ -853,9 +882,6 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
-                    if type(formulae) == list:
-                        formulae = self.app.picture_file[formulae[0]]
-                        flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
                     # This should no longer be necessary since all manifests should be linked to a specific version id
                     # This is when there is a single manuscript for the transcription, edition, and translation
                     # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
@@ -884,15 +910,13 @@ class NemoFormulae(Nemo):
                                                                     this_manifest['sequences'][0]['canvases'][-1]['label']
                                                                     if
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
-                                                                    else '') + ' (' + d['collections']['current']['title'] + ')'
+                                                                    else '')
                 else:
                     d["IIIFviewer"] = []
-                    if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
-                        manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
-                        if type(manifests) == dict:
-                            d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
-                        elif type(manifests) == list:
-                            d["IIIFviewer"] = [(link, self.app.picture_file[link]['title']) for link in manifests]
+                    for transcription in d['transcriptions']:
+                        if "manifest:" + transcription.id in self.app.picture_file:
+                            manifests = self.app.picture_file["manifest:" + transcription.id]
+                            d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]

@@ -15,6 +15,8 @@
       <bib:AbbreviatedTitle>Marculf</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./form000/__capitains__.xml"
+         identifier="urn:cts:formulae:marculf.form000"/>
       <collection path="./form003/__capitains__.xml"
                   identifier="urn:cts:formulae:marculf.form003"/>
    </members>

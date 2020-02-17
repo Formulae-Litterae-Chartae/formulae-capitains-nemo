@@ -197,9 +197,9 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            r = c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            r = c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -286,6 +286,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/urn:cts:formulae:andecavensis.form000.lat001+urn:cts:formulae:andecavensis.form000.fu2/passage/all+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
+            r = c.get('/texts/urn:cts:formulae:marculf.form000.lat001+urn:cts:formulae:p3.105va106rb.lat001/passage/all+all', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            self.assertIn('Marculf Prolog', r.get_data(as_text=True))
             # make sure hasVersion metadata is correctly interpreted
             r = c.get('/texts/urn:cts:formulae:fulda_dronke.dronke0004a.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
@@ -309,9 +312,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
             # c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
             # self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.lat001/passage/1+all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.fu2/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (deu)'))
@@ -319,13 +321,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
-            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
-            self.assertTemplateUsed('viewer::miradorviewer.html')
-            self.assertMessageFlashed(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
-            c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertNotIn(b'Encrypt', r.get_data())
@@ -406,9 +404,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.')
-            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertTemplateUsed('viewer::miradorviewer.html')
-            c.get('viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Formelsammlung ist noch nicht frei zugänglich.'))
             self.assertTemplateUsed('main::index.html')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
@@ -768,11 +766,13 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['collections']['readable'],
                              {'editions': [{'edition_name': 'Edition',
                                            'full_edition_name': '',
-                                           'links': [['urn:cts:formulae:marculf.form003'],
-                                                     ['urn:cts:formulae:marculf.form003.lat001']],
+                                           'links': [['urn:cts:formulae:marculf.form000',
+                                                      'urn:cts:formulae:marculf.form003'],
+                                                     ['urn:cts:formulae:marculf.form000.lat001',
+                                                      'urn:cts:formulae:marculf.form003.lat001']],
                                            'name': 'lat001',
-                                           'regesten': [''],
-                                           'titles': ['Marculf I,3']}],
+                                           'regesten': ['', ''],
+                                           'titles': ['Marculf Prolog', 'Marculf I,3']}],
                              'transcriptions': [{'edition_name': 'Ko2',
                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
                                                                       'Fabr. 84 [fol.69r-fol.70v]',
@@ -798,12 +798,14 @@ class TestFunctions(Formulae_Testing):
                                                  'titles': ['Marculf I,3']},
                                                 {'edition_name': 'P3',
                                                  'full_edition_name': 'Paris BNF 2123 '
-                                                                      '[fol.128vb-fol.129rb]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:p3.128vb129rb.lat001']],
+                                                                      '[fol.105va-fol.106rb]',
+                                                 'links': [['urn:cts:formulae:marculf.form000',
+                                                            'urn:cts:formulae:marculf.form003'],
+                                                           ['urn:cts:formulae:p3.105va106rb.lat001',
+                                                            'urn:cts:formulae:p3.128vb129rb.lat001']],
                                                  'name': 'p3',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']},
+                                                 'regesten': ['', ''],
+                                                 'titles': ['Marculf Prolog', 'Marculf I,3']},
                                                 {'edition_name': 'P12',
                                                  'full_edition_name': 'Paris BNF 4627 [fol.65r-fol.65v]',
                                                  'links': [['urn:cts:formulae:marculf.form003'],

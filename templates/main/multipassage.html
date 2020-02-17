@@ -43,9 +43,8 @@
             {% endif %}
         {% endfor %}
         {% if 'manifest' in object.objectId %}
-            <div class="entry-title text-center">{{object.title|safe}}</div>
-            <span></span>
-            <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
+            <div class="col-12 entry-title text-center">{{object.title|safe}}</div>
+            <div class="col-12 text-center"><a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a></div>
         {% else %}
             {% if object.prev_version %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}

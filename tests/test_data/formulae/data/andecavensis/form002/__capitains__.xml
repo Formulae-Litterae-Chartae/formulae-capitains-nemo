@@ -11,6 +11,8 @@
    <dc:title xml:lang="deu">Angers 2</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
+      <collection path="../../fu2/139r139v/__capitains__.xml"
+         identifier="urn:cts:formulae:fu2.139r139v"/>
       <collection readable="true" path="./andecavensis.form002.lat001.xml">
          <identifier>urn:cts:formulae:andecavensis.form002.lat001</identifier>
          <parent>urn:cts:formulae:andecavensis.form002</parent>
