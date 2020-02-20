@@ -710,9 +710,9 @@ class NemoFormulae(Nemo):
         """
         id_parts = objId.split('.')
         if re.search(r'lat\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
         elif re.search(r'deu\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*deu\d\d\d'.format(id_parts[0]), x[1][0])]
         else:
             sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if x[1][0].split('.')[-1] == id_parts[-1]]
         orig_index = sibling_texts.index(objId)
