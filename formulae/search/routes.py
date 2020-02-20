@@ -166,7 +166,7 @@ def r_search_docs():
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word):
     qSource = request.args.get('qSource', 'text')
-    words = suggest_word_search(q=word if qSource == 'text' else request.args.get('q', ''),
+    words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
                                 field=request.args.get('field', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
                                 in_order=request.args.get('in_order', 'False'),
@@ -185,7 +185,7 @@ def word_search_suggester(word):
                                 exclusive_date_range=request.args.get('exclusive_date_range', "False"),
                                 composition_place=request.args.get('composition_place', ''),
                                 special_days=request.args.get('special_days', '').split(),
-                                regest_q=word if qSource == 'regest' else request.args.get('regest_q', ''),
+                                regest_q=word.lower() if qSource == 'regest' else request.args.get('regest_q', '').lower(),
                                 regest_field=request.args.get('regest_field', 'regest'),
                                 qSource=request.args.get('qSource', 'text'))
     return dumps(words)
