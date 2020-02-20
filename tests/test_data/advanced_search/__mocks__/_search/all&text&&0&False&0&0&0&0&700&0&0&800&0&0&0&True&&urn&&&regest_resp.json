@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -59,7 +59,7 @@
           "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 4",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
-          "date_string": "706 05 13(Christi Himmelfahrt)",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
           "comp_ort": "Gaimundas",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -161,7 +161,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -205,7 +205,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -243,7 +243,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
@@ -280,7 +280,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
@@ -315,8 +315,8 @@
           ],
           "min_date": "0726-06-09",
           "days": [
-            "Tuesday",
-            "Sunday"
+            "Sunday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
@@ -408,11 +408,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 4764,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -435,11 +435,14 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -478,7 +481,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -522,7 +525,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2021
           },
           {
             "key": "900-999",
@@ -541,7 +544,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 215
       }
     },
     "corpus": {
@@ -569,6 +572,9 @@
         },
         "Hersfeld": {
           "doc_count": 18
+        },
+        "Lorsch": {
+          "doc_count": 0
         },
         "Luzern": {
           "doc_count": 0

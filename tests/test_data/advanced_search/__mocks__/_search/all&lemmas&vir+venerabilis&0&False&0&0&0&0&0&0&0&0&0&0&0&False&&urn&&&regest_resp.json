@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 10,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form004.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form007.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form027.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -270,7 +270,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form032.lat001",
         "_score": null,
@@ -313,7 +313,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form037.lat001",
         "_score": null,
@@ -356,7 +356,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -399,7 +399,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -445,11 +445,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 4764,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -472,11 +472,14 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -515,7 +518,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -559,7 +562,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2021
           },
           {
             "key": "900-999",
@@ -578,7 +581,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 215
       }
     },
     "corpus": {
@@ -605,6 +608,9 @@
           "doc_count": 0
         },
         "Hersfeld": {
+          "doc_count": 0
+        },
+        "Lorsch": {
           "doc_count": 0
         },
         "Luzern": {

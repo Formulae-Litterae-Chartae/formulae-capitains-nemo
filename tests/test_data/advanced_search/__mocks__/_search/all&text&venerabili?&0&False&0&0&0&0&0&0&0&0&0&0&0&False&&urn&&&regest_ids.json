@@ -1,5 +1,8 @@
 [
   {
+    "id": "urn:cts:formulae:andecavensis.form001.lat001"
+  },
+  {
     "id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
   },
   {
@@ -25,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:echternach.wampach0094.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:echternach.wampach0105.lat001"
   }
 ]
