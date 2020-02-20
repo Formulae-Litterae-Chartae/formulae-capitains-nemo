@@ -145,6 +145,7 @@ def r_advanced_search():
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
+            data['regest_q'] = data['regest_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['lemma_search'] = request.args.get('lemma_search')
             data['special_days'] = '+'.join(data.pop('special_days')) or ''
