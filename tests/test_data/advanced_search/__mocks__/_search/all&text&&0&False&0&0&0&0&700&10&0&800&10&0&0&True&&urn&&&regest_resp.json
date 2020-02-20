@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
         "_score": null,
@@ -97,11 +97,11 @@
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 34",
           "urn": "urn:cts:formulae:echternach.wampach0034.lat001",
           "date_string": "[726] 10 20",
-          "comp_ort": "Weimodo regia villa ",
+          "comp_ort": "Weimodo regia villa",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Weimodo regia villa ",
+          "orig_comp_ort": "Weimodo regia villa",
           "forgery": false,
           "specific_date": [
             {
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -175,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v3",
+        "_index": "fulda_stengel_v1",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v3",
+        "_index": "fulda_stengel_v1",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -400,11 +400,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 4764,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -427,11 +427,14 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -470,7 +473,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -514,7 +517,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2021
           },
           {
             "key": "900-999",
@@ -533,7 +536,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 215
       }
     },
     "corpus": {
@@ -561,6 +564,9 @@
         },
         "Hersfeld": {
           "doc_count": 4
+        },
+        "Lorsch": {
+          "doc_count": 0
         },
         "Luzern": {
           "doc_count": 0

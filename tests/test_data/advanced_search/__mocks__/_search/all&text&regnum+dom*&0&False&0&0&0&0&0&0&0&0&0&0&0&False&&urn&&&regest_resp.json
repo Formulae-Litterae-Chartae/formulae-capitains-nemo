@@ -1,5 +1,5 @@
 {
-  "took": 40,
+  "took": 32,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -392,14 +392,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Monday",
-            "Tuesday",
-            "Easter",
-            "Lent",
-            "Saturday",
-            "Thursday",
             "Friday",
+            "Thursday",
+            "Tuesday",
+            "Sunday",
             "Wednesday",
-            "Sunday"
+            "Easter",
+            "Saturday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -634,14 +634,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Monday",
+            "Friday",
+            "Thursday",
             "Tuesday",
+            "Sunday",
+            "Wednesday",
             "Easter",
             "Saturday",
-            "Lent",
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Sunday"
+            "Lent"
           ]
         },
         "highlight": {
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -714,7 +714,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -774,7 +774,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -809,8 +809,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -838,7 +838,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -895,7 +895,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -930,8 +930,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -962,11 +962,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 4764,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -989,11 +989,14 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -1032,7 +1035,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -1076,7 +1079,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2021
           },
           {
             "key": "900-999",
@@ -1095,7 +1098,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 215
       }
     },
     "corpus": {
@@ -1122,6 +1125,9 @@
           "doc_count": 0
         },
         "Hersfeld": {
+          "doc_count": 0
+        },
+        "Lorsch": {
           "doc_count": 0
         },
         "Luzern": {

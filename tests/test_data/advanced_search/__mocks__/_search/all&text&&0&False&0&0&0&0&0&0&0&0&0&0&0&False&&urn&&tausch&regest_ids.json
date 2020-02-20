@@ -1,5 +1,8 @@
 [
   {
+    "id": "urn:cts:formulae:andecavensis.form008.lat001"
+  },
+  {
     "id": "urn:cts:formulae:freising.bitterauf0915.lat001"
   },
   {
@@ -25,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:hersfeld.weirich0049.lat003"
-  },
-  {
-    "id": "urn:cts:formulae:hersfeld.weirich0049.lat004"
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "took": 10,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 23,
@@ -8,11 +8,54 @@
     "failed": 0
   },
   "hits": {
-    "total": 1041,
+    "total": 1044,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v3",
+        "_index": "andecavensis_v1",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Angers 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -70,7 +113,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -127,7 +170,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -184,7 +227,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -194,7 +237,7 @@
           "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 23",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
-          "date_string": "(751 vor 09 23/ 10 22, vllt sogar vor 06 20)",
+          "date_string": "(751 vor 09 23/ 10 22, vllt. sogar vor 06 20)",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -238,7 +281,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -277,7 +320,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -331,7 +374,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -385,7 +428,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
@@ -439,7 +482,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
@@ -449,7 +492,7 @@
           "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 94",
           "urn": "urn:cts:formulae:echternach.wampach0094.lat001",
-          "date_string": "[785 10 09\u2013786 10 08",
+          "date_string": "[785 10 09\u2013786 10 08]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -491,70 +534,16 @@
         "sort": [
           "urn:cts:formulae:echternach.wampach0094.lat001"
         ]
-      },
-      {
-        "_index": "echternach_v3",
-        "_type": "echternach",
-        "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 105",
-          "urn": "urn:cts:formulae:echternach.wampach0105.lat001",
-          "date_string": "[790 10 09\u2013791 10 08]",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0790-10-09",
-              "lte": "0791-10-08"
-            }
-          ],
-          "all_dates": [
-            "0790-10-09",
-            "0791-10-08"
-          ],
-          "min_date": "0790-10-09"
-        },
-        "highlight": {
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:echternach.wampach0105.lat001"
-        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 4764,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -577,11 +566,14 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -620,7 +612,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -664,7 +656,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2021
           },
           {
             "key": "900-999",
@@ -683,13 +675,13 @@
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 215
       }
     },
     "corpus": {
       "buckets": {
         "Angers": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Arnulfinger": {
           "doc_count": 4
@@ -712,11 +704,14 @@
         "Hersfeld": {
           "doc_count": 39
         },
+        "Lorsch": {
+          "doc_count": 0
+        },
         "Luzern": {
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Merowinger": {
           "doc_count": 57
@@ -818,7 +813,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 20
+      "doc_count": 23
     }
   }
 }

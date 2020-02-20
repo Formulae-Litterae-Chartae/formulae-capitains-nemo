@@ -1755,6 +1755,7 @@ class TestES(Formulae_Testing):
                                     'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                     'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                     'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                    'Lorsch': {'match': {'_type': 'lorsch'}},
                                     'Luzern': {'match': {'_type': 'luzern'}},
                                     'Marculf': {'match': {'_type': 'marculf'}},
                                     'Merowinger': {'match': {'_type': 'merowinger1'}},
@@ -1795,6 +1796,7 @@ class TestES(Formulae_Testing):
                                                           'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                                           'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                           'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                          'Lorsch': {'match': {'_type': 'lorsch'}},
                                                           'Luzern': {'match': {'_type': 'luzern'}},
                                                           'Marculf': {'match': {'_type': 'marculf'}},
                                                           'Merowinger': {'match': {'_type': 'merowinger1'}},
@@ -2116,6 +2118,7 @@ class TestES(Formulae_Testing):
                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                        'Lorsch': {'match': {'_type': 'lorsch'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Marculf': {'match': {'_type': 'marculf'}},
                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
@@ -2156,6 +2159,7 @@ class TestES(Formulae_Testing):
                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                         'Lorsch': {'match': {'_type': 'lorsch'}},
                                                          'Luzern': {'match': {'_type': 'luzern'}},
                                                          'Marculf': {'match': {'_type': 'marculf'}},
                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
@@ -2218,7 +2222,7 @@ class TestES(Formulae_Testing):
         test_args = self.TEST_ARGS['test_suggest_composition_places']
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa ']
+        expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
         mock_search.return_value = resp
         results = suggest_composition_places()
         self.assertEqual(results, expected, 'The true results should match the expected results.')

@@ -8,8 +8,11 @@
               {
                 "span_multi": {
                   "match": {
-                    "wildcard": {
-                      "regest": "tau*"
+                    "fuzzy": {
+                      "text": {
+                        "value": "ill",
+                        "fuzziness": "0"
+                      }
                     }
                   }
                 }

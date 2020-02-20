@@ -131,6 +131,11 @@
               "_type": "hersfeld"
             }
           },
+          "Lorsch": {
+            "match": {
+              "_type": "lorsch"
+            }
+          },
           "Luzern": {
             "match": {
               "_type": "luzern"
@@ -300,6 +305,11 @@
               "Hersfeld": {
                 "match": {
                   "_type": "hersfeld"
+                }
+              },
+              "Lorsch": {
+                "match": {
+                  "_type": "lorsch"
                 }
               },
               "Luzern": {
