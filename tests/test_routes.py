@@ -840,8 +840,13 @@ class TestFunctions(Formulae_Testing):
     def test_r_corpus_return_values(self):
         """ Make sure that the r_corpus function reacts correctly to the different corpora"""
         with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
             data = self.nemo.r_corpus('urn:cts:formulae:lorsch')
             self.assertEqual(data['collections']['readable']['0002']['name'], 'Nr. 1 (Reg. 2)',
+                             'Lorsch works should be correctly named.')
+            data = self.nemo.r_corpus('urn:cts:formulae:marculf')
+            self.assertEqual(data['collections']['readable']['(Prolog)']['name'], _('(Prolog)'),
                              'Lorsch works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
             self.assertEqual(data['template'], "main::elex_collection.html", "Elexicon should use elex template")
