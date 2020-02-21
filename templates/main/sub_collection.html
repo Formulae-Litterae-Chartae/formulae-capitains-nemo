@@ -39,7 +39,7 @@
             {% for number, values in collections.readable|dictsort %}
                 <li id="N{{number}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if values['name']|int != 0 %}{% if 'manuscript_collection' in collections.parent_ids %}Folia{% else %}{{ _('Nummer') }}{% endif %} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
+                        <h5>{% if 'manuscript_collection' in collections.parent_ids %}Folia {% elif values['name']|int != 0 %}{{ _('Nummer') }} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
                         <span>
                             {% if 'andecavensis' in collections.current.id or 'marculf' in collections.current.id %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
