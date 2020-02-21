@@ -496,6 +496,10 @@ class NemoFormulae(Nemo):
                     work_name = par.lstrip('0') if type(par) is str else ''
                     if 'Computus' in work_name:
                         work_name = '(Computus)'
+                    elif 'Titel' in work_name:
+                        work_name = _('(Titel)')
+                    elif 'Prolog' in work_name:
+                        work_name = _('(Prolog)')
                     elif 'urn:cts:formulae:lorsch' in m.ancestors:
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
