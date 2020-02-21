@@ -446,6 +446,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Fulda (Stengel)": {
                       "doc_count": 0
                     },
+                    "Lorsch": {
+                        "doc_count": 0
+                    },
                     "Luzern": {
                       "doc_count": 0
                     },
@@ -833,6 +836,17 @@ class TestFunctions(Formulae_Testing):
             'translations': [],
             'transcriptions': []
             })
+
+    def test_r_corpus_return_values(self):
+        """ Make sure that the r_corpus function reacts correctly to the different corpora"""
+        with self.client as c:
+            data = self.nemo.r_corpus('urn:cts:formulae:lorsch')
+            self.assertEqual(data['collections']['readable']['0002']['name'], 'Nr. 1 (Reg. 2)',
+                             'Lorsch works should be correctly named.')
+            data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
+            self.assertEqual(data['template'], "main::elex_collection.html", "Elexicon should use elex template")
+            data = self.nemo.r_corpus('urn:cts:formulae:salzburg')
+            self.assertEqual(data['template'], "main::salzburg_collection.html", "Salzburg should use salzburg template")
 
     def test_get_prev_next_text(self):
         """ Make sure that the previous text and next text in a corpus are correctly returned"""
@@ -2040,6 +2054,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Hersfeld": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Lorsch": {
                                                             "doc_count": 0
                                                         },
                                                         "Luzern": {

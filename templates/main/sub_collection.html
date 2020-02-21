@@ -31,7 +31,7 @@
 {% if collections.readable %}
     <h4>{{ _('Gehe zu (Text):') }}</h4>
     {% for number, values in collections.readable|dictsort %}
-        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']|replace('(', '')|replace(')', '')}}</a>
+        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
     {% endfor %}
     <div class="row">
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
@@ -39,7 +39,7 @@
             {% for number, values in collections.readable|dictsort %}
                 <li id="N{{number}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if values['name']|int != 0 %}{% if 'manuscript_collection' in collections.parent_ids %}Folia{% else %}{{ _('Nummer') }}{% endif %} {% endif %}{{values['name']|replace('(', '')|replace(')', '')}}: </h5>
+                        <h5>{% if values['name']|int != 0 %}{% if 'manuscript_collection' in collections.parent_ids %}Folia{% else %}{{ _('Nummer') }}{% endif %} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
                         <span>
                             {% if 'andecavensis' in collections.current.id or 'marculf' in collections.current.id %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}

@@ -487,6 +487,10 @@ class NemoFormulae(Nemo):
                     work_name = par.lstrip('0') if type(par) is str else ''
                     if 'Computus' in work_name:
                         work_name = '(Computus)'
+                    elif 'urn:cts:formulae:lorsch' in m.ancestors:
+                        name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
+                        if name_part:
+                            work_name = name_part.group(0)
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
                               "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else str(m.metadata.get_single(DC.description)).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
