@@ -25,7 +25,7 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
-from typing import List, Tuple, Union
+from typing import List, Tuple, Union, Match
 
 
 class NemoFormulae(Nemo):
@@ -143,6 +143,15 @@ class NemoFormulae(Nemo):
             colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
         return colls
 
+    def sort_folia(self, matchobj: Match) -> str:
+        """Sets up the folia ranges of manuscripts for better sorting"""
+        groups = []
+        sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
+        groups.append('{:04}{}'.format(int(sub_groups[0]), sub_groups[1]))
+        if matchobj.group(2):
+            groups.append(matchobj.group(2))
+        return '-'.join(groups)
+
     def ordered_corpora(self, m, collection):
         """ Sets up the readable descendants in each corpus to be correctly ordered
 
@@ -182,11 +191,11 @@ class NemoFormulae(Nemo):
                     elif 'computus' in par:
                         par = '057(Computus)'
                 else:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0]).rstrip('-')
                 manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             else:
                 if collection in m.id:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', r'\1-\2', list(m.parent)[0]).rstrip('-')
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0]).rstrip('-')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
