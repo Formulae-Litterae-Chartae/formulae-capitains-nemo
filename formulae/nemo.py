@@ -95,7 +95,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
-                        "eng": _l("Englisch")}
+                        "eng": _l("Englisch"), "cat": _l("Katalanisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 
@@ -204,6 +204,10 @@ class NemoFormulae(Nemo):
                         par = _('(Prolog)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        elif 'katalonien' in m.id:
+            par = list(m.parent)[0].split('_')[-1]
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
             par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':
@@ -226,7 +230,9 @@ class NemoFormulae(Nemo):
         open_texts = []
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
-                     for l in self.sub_colls.values() for m in l}
+                     for l in self.sub_colls.values() for m in l if m['id'] != 'urn:cts:formulae:katalonien'}
+        all_texts.update({m: sorted([self.ordered_corpora(r, m) for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:katalonien']})
         for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -453,7 +459,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if 'katalonien' not in objectId and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -472,12 +478,13 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
+        template = "main::sub_collection.html"
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        else:
-            template = "main::sub_collection.html"
+        elif objectId == "urn:cts:formulae:katalonien":
+            return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 manuscript_data = [m.metadata.get_single(DC.source) or
@@ -516,7 +523,7 @@ class NemoFormulae(Nemo):
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
         if len(r) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
 
         current_parents = self.make_parents(collection, lang=lang)
 
