@@ -1,14 +1,14 @@
 {
-  "took": 5,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 23,
-    "successful": 23,
+    "total": 24,
+    "successful": 24,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1669,
+    "total": 1696,
     "max_score": null,
     "hits": [
       {
@@ -224,8 +224,8 @@
           ],
           "min_date": "0714-03-02",
           "days": [
-            "Friday",
-            "Lent"
+            "Lent",
+            "Friday"
           ]
         },
         "sort": [
@@ -386,7 +386,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4764,
+      "doc_count": 5018,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -413,8 +413,11 @@
           "Hersfeld": {
             "doc_count": 121
           },
-          "Lorsch": {
+          "Katalonien": {
             "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 254
           },
           "Luzern": {
             "doc_count": 6
@@ -495,7 +498,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1412
+            "doc_count": 1435
           },
           {
             "key": "800-899",
@@ -503,7 +506,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2021
+            "doc_count": 2071
           },
           {
             "key": "900-999",
@@ -511,18 +514,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 816
+            "doc_count": 847
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 92
+            "doc_count": 117
           }
         ]
       },
       "no_date": {
-        "doc_count": 215
+        "doc_count": 338
       }
     },
     "corpus": {
@@ -551,8 +554,11 @@
         "Hersfeld": {
           "doc_count": 22
         },
-        "Lorsch": {
+        "Katalonien": {
           "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 27
         },
         "Luzern": {
           "doc_count": 6
@@ -633,7 +639,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 1412
+          "doc_count": 1435
         },
         {
           "key": "800-899",
@@ -641,7 +647,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 57
+          "doc_count": 60
         },
         {
           "key": "900-999",

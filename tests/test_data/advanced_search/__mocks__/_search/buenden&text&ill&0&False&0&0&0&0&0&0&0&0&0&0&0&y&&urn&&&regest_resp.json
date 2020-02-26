@@ -41,6 +41,9 @@
           "Hersfeld": {
             "doc_count": 0
           },
+          "Katalonien": {
+            "doc_count": 0
+          },
           "Lorsch": {
             "doc_count": 0
           },
@@ -177,6 +180,9 @@
           "doc_count": 0
         },
         "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
           "doc_count": 0
         },
         "Lorsch": {

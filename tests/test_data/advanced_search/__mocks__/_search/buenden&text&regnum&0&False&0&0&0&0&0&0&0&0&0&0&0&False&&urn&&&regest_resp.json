@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Friday",
-            "Thursday",
+            "Lent",
             "Tuesday",
-            "Sunday",
+            "Thursday",
             "Wednesday",
             "Easter",
+            "Friday",
+            "Sunday",
             "Saturday",
-            "Lent"
+            "Monday"
           ]
         },
         "highlight": {
@@ -547,15 +547,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Monday",
-            "Friday",
-            "Thursday",
+            "Lent",
             "Tuesday",
-            "Sunday",
+            "Thursday",
             "Wednesday",
             "Easter",
+            "Friday",
+            "Sunday",
             "Saturday",
-            "Lent"
+            "Monday"
           ]
         },
         "highlight": {
@@ -596,6 +596,9 @@
             "doc_count": 0
           },
           "Hersfeld": {
+            "doc_count": 0
+          },
+          "Katalonien": {
             "doc_count": 0
           },
           "Lorsch": {
@@ -734,6 +737,9 @@
           "doc_count": 0
         },
         "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
           "doc_count": 0
         },
         "Lorsch": {
