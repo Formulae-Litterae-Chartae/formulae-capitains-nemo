@@ -137,6 +137,11 @@
               "_type": "hersfeld"
             }
           },
+          "Katalonien": {
+            "match": {
+              "_type": "katalonien"
+            }
+          },
           "Lorsch": {
             "match": {
               "_type": "lorsch"
@@ -311,6 +316,11 @@
               "Hersfeld": {
                 "match": {
                   "_type": "hersfeld"
+                }
+              },
+              "Katalonien": {
+                "match": {
+                  "_type": "katalonien"
                 }
               },
               "Lorsch": {

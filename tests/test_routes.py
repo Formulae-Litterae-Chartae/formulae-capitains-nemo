@@ -126,6 +126,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
             self.assertTemplateUsed('main::salzburg_collection.html')
+            c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
             # r_references does not work right now
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -174,7 +178,7 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('no-copy text-section', r.get_data(as_text=True))
-            r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form001.fu2/passage/all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             self.assertIn('no-copy text-section', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1+all', follow_redirects=True)
@@ -251,6 +255,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertMessageFlashed(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
+            c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -1787,6 +1795,7 @@ class TestES(Formulae_Testing):
                                     'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                     'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                     'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                    'Katalonien': {'match': {'_type': 'katalonien'}},
                                     'Lorsch': {'match': {'_type': 'lorsch'}},
                                     'Luzern': {'match': {'_type': 'luzern'}},
                                     'Marculf': {'match': {'_type': 'marculf'}},
@@ -1828,6 +1837,7 @@ class TestES(Formulae_Testing):
                                                           'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                                           'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                           'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                          'Katalonien': {'match': {'_type': 'katalonien'}},
                                                           'Lorsch': {'match': {'_type': 'lorsch'}},
                                                           'Luzern': {'match': {'_type': 'luzern'}},
                                                           'Marculf': {'match': {'_type': 'marculf'}},
@@ -2153,6 +2163,7 @@ class TestES(Formulae_Testing):
                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                        'Katalonien': {'match': {'_type': 'katalonien'}},
                                         'Lorsch': {'match': {'_type': 'lorsch'}},
                                         'Luzern': {'match': {'_type': 'luzern'}},
                                         'Marculf': {'match': {'_type': 'marculf'}},
@@ -2194,6 +2205,7 @@ class TestES(Formulae_Testing):
                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                         'Katalonien': {'match': {'_type': 'katalonien'}},
                                                          'Lorsch': {'match': {'_type': 'lorsch'}},
                                                          'Luzern': {'match': {'_type': 'luzern'}},
                                                          'Marculf': {'match': {'_type': 'marculf'}},

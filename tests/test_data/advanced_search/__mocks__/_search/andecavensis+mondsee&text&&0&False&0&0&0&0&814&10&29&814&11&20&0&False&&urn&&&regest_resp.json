@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -382,6 +382,9 @@
           "Hersfeld": {
             "doc_count": 0
           },
+          "Katalonien": {
+            "doc_count": 0
+          },
           "Lorsch": {
             "doc_count": 0
           },
@@ -518,6 +521,9 @@
           "doc_count": 0
         },
         "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
           "doc_count": 0
         },
         "Lorsch": {
