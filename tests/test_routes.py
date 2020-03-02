@@ -129,7 +129,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            self.assertMessageFlashed(_('Um die Digitalisate dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der jeweiligen Bibliothek.'))
             # r_references does not work right now
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -385,6 +385,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::elex_collection.html')
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
+            self.assertMessageFlashed(_('Um die Digitalisate dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der jeweiligen Bibliothek.'))
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
