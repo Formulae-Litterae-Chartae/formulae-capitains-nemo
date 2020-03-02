@@ -523,6 +523,7 @@ class NemoFormulae(Nemo):
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
+
         if len(r) == 0:
             if 'manuscript_collection' in collection.ancestors:
                 flash(_('Um die Digitalisate dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der jeweiligen Bibliothek.'))
