@@ -236,6 +236,11 @@
             <div class="row pt-3">
                 <section class="col-sm with-border" id="viewer" style="display:none;"></section>
             {% for text in objects %}
+            {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+                {% set copy_class = ' no-copy' %}
+            {% else %}
+                {% set copy_class = '' %}
+            {% endif %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}

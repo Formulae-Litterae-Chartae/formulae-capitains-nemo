@@ -17,7 +17,7 @@
          <identifier>urn:cts:formulae:andecavensis.form002.lat001</identifier>
          <parent>urn:cts:formulae:andecavensis.form002</parent>
          <dc:title xml:lang="deu">Angers 2 (lat)</dc:title>
-         <dc:description xml:lang="deu">Eine Person verkauft sich nach einem Diebstahl an ihrem Herrn und dessen Ehefrau gegen eine Geldzahlung an dieselben.</dc:description>
+         <dc:description xml:lang="deu">Some Regest</dc:description>
          <dc:language>lat</dc:language>
          <dc:type>cts:edition</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -27,7 +27,7 @@
          <dc:format>application/tei+xml</dc:format>
          <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
          <structured-metadata>
-            <dct:abstract xml:lang="deu">Selbstverkauf</dct:abstract>
+            <dct:abstract xml:lang="deu">Some short regest</dct:abstract>
             <bib:editor>Christoph Walther</bib:editor>
             <dct:created>2019-10-18</dct:created>
             <dct:bibliographicCitation>Angers 2 (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2019-10-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form002.lat001/passage/all]</dct:bibliographicCitation>
@@ -37,7 +37,7 @@
          <identifier>urn:cts:formulae:andecavensis.form002.deu001</identifier>
          <parent>urn:cts:formulae:andecavensis.form002</parent>
          <dc:title xml:lang="deu">Angers 2 (deu)</dc:title>
-         <dc:description xml:lang="deu">Eine Person verkauft sich nach einem Diebstahl an ihrem Herrn und dessen Ehefrau gegen eine Geldzahlung an dieselben.</dc:description>
+         <dc:description xml:lang="deu">Some Regest</dc:description>
          <dc:language>deu</dc:language>
          <dc:type>cts:translation</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -47,7 +47,7 @@
          <dc:format>application/tei+xml</dc:format>
          <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
          <structured-metadata>
-            <dct:abstract xml:lang="deu">Selbstverkauf</dct:abstract>
+            <dct:abstract xml:lang="deu">Some short regest</dct:abstract>
             <bib:editor>Christoph Walther</bib:editor>
             <dct:created>2019-10-18</dct:created>
             <dct:bibliographicCitation>Angers 2 (deu), Formulae-Litterae-Chartae Projekt. Hamburg 2019-10-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form002.deu001/passage/all]</dct:bibliographicCitation>
