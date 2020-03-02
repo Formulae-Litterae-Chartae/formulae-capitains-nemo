@@ -63,3 +63,25 @@ $('.lang-link').bind('click', function(event) {
     request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     request.send()
 })
+
+//to disable cut, copy, paste, and mouse right-click
+$(document).ready(function () {    
+    //Disable cut, copy, and paste
+    $('.no-copy').bind('cut copy paste', function (e) {
+        e.preventDefault();
+        $('#no-copy-message').modal('show')
+    });
+    
+    //Disable right-mouse click
+    $(".no-copy").on("contextmenu",function(e){
+        return false;
+    });
+    
+    var parLinks = document.getElementsByClassName('paragraph-link');
+    for (let link of parLinks) {
+        if (document.getElementById(link.getAttribute('link-to'))) {
+            link.removeAttribute('hidden');
+        }
+    }
+    
+});

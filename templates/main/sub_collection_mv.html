@@ -8,6 +8,14 @@
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
 
+{% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
+    {% set copy_class = ' no-copy' %}
+{% else %}
+    {% set copy_class = '' %}
+{% endif %}
+
+{% include "main::no_copy_modal.html" %}
+
 {% block article %}
 
 <link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/sub_collection_mv.css')}}">
@@ -48,7 +56,7 @@
                 <div class="card search-hit">
                     {% if 'regesten' in values and values['regesten'][loop.index0] %}
                     {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
-                    <div class="card-body p-2 search-hit-menu">
+                    <div class="card-body p-2 search-hit-menu{{ copy_class }}">
                         {{ values['regesten'][loop.index0] }}
                     </div>
                     {% else %}

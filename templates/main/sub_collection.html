@@ -1,5 +1,7 @@
 {% extends "main::container.html" %}
 
+{% include "main::no_copy_modal.html" %}
+
 {% macro make_dates(values) %}
 
 {% if values['dating'] not in ['None', ''] %}
@@ -86,12 +88,17 @@
                         </span>
                         </div>
                         {% if current_user.project_team or collections.current.open_regesten %}
+                            {% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
+                                {% set copy_class = ' no-copy' %}
+                            {% else %}
+                                {% set copy_class = '' %}
+                            {% endif %}
                             {% if values['short_regest'] %}
-                                <p class="mb-1">{{ values['short_regest'] }}</p>
+                                <p class="mb-1{{ copy_class }}">{{ values['short_regest'] }}</p>
                             {% endif %}
                             {{ make_dates(values) }}
                             {% for p in values['regest'] %}
-                                <p><small>{{ p }}</small></p>
+                                <p class="{{ copy_class }}"><small>{{ p }}</small></p>
                             {% endfor %}
                             <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% else %}
