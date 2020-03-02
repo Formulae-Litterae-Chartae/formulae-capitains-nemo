@@ -523,8 +523,12 @@ class NemoFormulae(Nemo):
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
+
         if len(r) == 0:
-            flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            if 'manuscript_collection' in collection.ancestors:
+                flash(_('Um die Digitalisate dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der jeweiligen Bibliothek.'))
+            else:
+                flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
 
         current_parents = self.make_parents(collection, lang=lang)
 
@@ -631,6 +635,11 @@ class NemoFormulae(Nemo):
             r = {'editions': [], 'translations': [], 'transcriptions': []}
             flash(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
 
+        if r == {'editions': [], 'translations': [], 'transcriptions': []}:
+            flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+
+        current_parents = self.make_parents(collection, lang=lang)
+
         return_value = {
             "template": template,
             "collections": {
@@ -642,7 +651,8 @@ class NemoFormulae(Nemo):
                     "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
                 },
                 "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": current_parents,
+                "parent_ids": [x['id'] for x in current_parents]
             }
         }
         return return_value
