@@ -1,5 +1,6 @@
 <!-- The Modal Content for the Regest -->
-    {% if object.collections.current.short_regest != '' %}
+
+{% if object.collections.current.short_regest != '' %}
     <div class="regest-header text-center">
         <div class="card-title mb-0 kurz-regest" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel">{{object.collections.current.short_regest}}</div><a data-toggle="collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">{{ _('Regest') }}</a>
     </div>
