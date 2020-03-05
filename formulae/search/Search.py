@@ -239,7 +239,7 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
             search_range_start = int(slop) + len(q_words)
             search_range_end = int(slop) + len(q_words) + 1
             if ordered_terms:
-                search_range_start = 1
+                search_range_start = -1
             for pos in positions[q_words[0]]:
                 index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
                 used_q_words = {q_words[0]}
