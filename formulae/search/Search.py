@@ -251,19 +251,20 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
                             used_q_words.add(w)
                 if set(q_words) == used_q_words:
                     ordered_span = sorted(span)
-                    start_offsets = [inflected_offsets[x][0] for x in ordered_span]
-                    end_offsets = [inflected_offsets[x][1] for x in ordered_span]
-                    start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
-                    end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
-                    sentence = ''
-                    for i, x in enumerate(text[start_index:end_index]):
-                        if i + start_index in start_offsets:
-                            sentence += PRE_TAGS + x
-                        elif i + start_index in end_offsets:
-                            sentence += x + POST_TAGS
-                        else:
-                            sentence += x
-                    sentences.append(Markup(sentence))
+                    if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
+                        start_offsets = [inflected_offsets[x][0] for x in ordered_span]
+                        end_offsets = [inflected_offsets[x][1] for x in ordered_span]
+                        start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
+                        end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                        sentence = ''
+                        for i, x in enumerate(text[start_index:end_index]):
+                            if i + start_index in start_offsets:
+                                sentence += PRE_TAGS + x
+                            elif i + start_index in end_offsets:
+                                sentence += x + POST_TAGS
+                            else:
+                                sentence += x
+                        sentences.append(Markup(sentence))
         # I need to change the highlight clause in search to get this to return the correct stuff
         else:
             positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]

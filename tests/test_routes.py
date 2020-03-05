@@ -2267,6 +2267,77 @@ class TestES(Formulae_Testing):
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_lemma_highlighting_terms_with_slop(self, mock_vectors, mock_search):
+        """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
+        def my_side_effect(index, doc_type, id):
+            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
+                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
+                    return load(f)
+            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
+                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
+                    return load(f)
+        test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'domni+regnum+regis'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "2"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")])
+        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
+        resp = fake.load_response()
+        for i, h in enumerate(resp['hits']['hits']):
+            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
+        sents = [{'sents': []},
+                 {'sents': [Markup('Facta donacio in loco Fortunes, sub '
+                                   'presencia virorum testium sub </small><strong>regnum </strong><small>'
+                                   '</small><strong>domni </strong><small>nostri Caroli '
+                                   '</small><strong>regis,</strong><small> Sub die, quod est '
+                                   'pridie kl. aprilis. Notavi diem et ')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_lemma_highlighting_terms_with_slop_in_order(self, mock_vectors, mock_search):
+        """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
+        def my_side_effect(index, doc_type, id):
+            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
+                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
+                    return load(f)
+            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
+                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
+                    return load(f)
+        test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'sub+regis'), ("fuzziness", "0"),
+                                 ("in_order", "True"), ("year", 0), ("slop", "4"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")])
+        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
+        resp = fake.load_response()
+        for i, h in enumerate(resp['hits']['hits']):
+            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
+        sents = [{'sents': []},
+                 {'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
+                                   'presencia virorum testium </small><strong>sub </strong><small>regnum '
+                                   'domni nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est '
+                                   'pridie kl. aprilis. Notavi diem et ')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search_with_wildcard(self, mock_search):
         test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
         mock_search.return_value = [], 0, {}
