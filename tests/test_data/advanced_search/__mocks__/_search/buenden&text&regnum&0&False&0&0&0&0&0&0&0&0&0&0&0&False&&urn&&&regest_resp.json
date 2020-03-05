@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -306,14 +306,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
             "Easter",
-            "Friday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "highlight": {
@@ -548,14 +548,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
             "Easter",
-            "Friday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "highlight": {

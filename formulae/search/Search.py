@@ -220,49 +220,67 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     """
     ids = []
     for hit in search['hits']['hits']:
-        text = hit['_source']['text'].split()
+        text = hit['_source']['text']
         sentences = []
         vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
+        inflected_offsets = dict()
+        lemma_positions = dict()
+        for v in vectors['term_vectors']['text']['terms'].values():
+            for o in v['tokens']:
+                inflected_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+        for k, v in vectors['term_vectors']['lemmas']['terms'].items():
+            for o in v['tokens']:
+                lemma_positions[o['position']] = k
         if ' ' in q:
             q_words = q.split()
             positions = {k: [] for k in q_words}
             for w in q_words:
-                for k, v in vectors['term_vectors'].items():
-                    if w in v['terms']:
-                        positions[w] += [i['position'] for i in v['terms'][w]['tokens']]
-            search_range = int(slop) + len(q_words)
+                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+            search_range_start = int(slop) + len(q_words)
+            search_range_end = int(slop) + len(q_words) + 1
             if ordered_terms:
-                search_range = int(slop)
+                search_range_start = 1
             for pos in positions[q_words[0]]:
-                index_range = range(pos - search_range, pos + search_range + 1)
+                index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
+                used_q_words = {q_words[0]}
                 span = {pos}
                 for w in q_words[1:]:
-                    span.update([x for x in positions[w] if x in index_range])
-                if len(span) == len(q_words):
+                    for next_pos in positions[w]:
+                        if next_pos in index_range:
+                            span.add(next_pos)
+                            used_q_words.add(w)
+                if set(q_words) == used_q_words:
                     ordered_span = sorted(span)
-                    start_index = max(0, ordered_span[0] - 5)
-                    sentence = []
-                    for i, x in enumerate(text[start_index:min(len(text) - 1, ordered_span[-1] + 5)]):
-                        if i + start_index in ordered_span:
-                            sentence.append(PRE_TAGS + x + POST_TAGS)
+                    start_offsets = [inflected_offsets[x][0] for x in ordered_span]
+                    end_offsets = [inflected_offsets[x][1] for x in ordered_span]
+                    start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
+                    end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                    sentence = ''
+                    for i, x in enumerate(text[start_index:end_index]):
+                        if i + start_index in start_offsets:
+                            sentence += PRE_TAGS + x
+                        elif i + start_index in end_offsets:
+                            sentence += x + POST_TAGS
                         else:
-                            sentence.append(x)
-                    sentences.append(Markup(' '.join(sentence)))
+                            sentence += x
+                    sentences.append(Markup(sentence))
         # I need to change the highlight clause in search to get this to return the correct stuff
         else:
-            positions = set()
-            for k, v in vectors['term_vectors'].items():
-                if q in v['terms']:
-                    positions.update([i['position'] for i in v['terms'][q]['tokens']])
+            positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
             for pos in positions:
-                start_index = max(0, pos - 10)
-                sentence = []
-                for i, x in enumerate(text[start_index:min(len(text) - 1, pos + 10)]):
-                    if i + start_index == pos:
-                        sentence.append(PRE_TAGS + x + POST_TAGS)
+                start_offset = inflected_offsets[pos][0]
+                end_offset = inflected_offsets[pos][1]
+                start_index = inflected_offsets[max(0, pos - 10)][0]
+                end_index = inflected_offsets[min(len(inflected_offsets) - 1, pos + 10)][1] + 1
+                sentence = ''
+                for i, x in enumerate(text[start_index:end_index]):
+                    if i + start_index == start_offset:
+                        sentence += PRE_TAGS + x
+                    elif i + start_index == end_offset:
+                        sentence += x + POST_TAGS
                     else:
-                        sentence.append(x)
-                sentences.append(Markup(' '.join(sentence)))
+                        sentence += x
+                sentences.append(Markup(sentence))
         ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'title': hit['_source']['title'],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []})
@@ -282,6 +300,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                      'from': (page - 1) * per_page, 'size': per_page,
                      'aggs': AGGREGATIONS
                      }
+
     body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
                                   'pre_tags': [PRE_TAGS],
@@ -300,9 +319,6 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             return [], 0, {}
     else:
         fuzz = fuzziness
-    lemma_fields = LEMMA_INDICES['normal']
-    if field == 'autocomplete':
-        lemma_fields = LEMMA_INDICES['auto']
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
@@ -310,42 +326,11 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         # and wrap them all in {'bool': {'should': [{'span_near'...
         clauses = []
         for term in q.split():
-            if field == "autocomplete":
-                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
+            if '*' in term or '?' in term:
+                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
             else:
-                if '*' in term or '?' in term:
-                    span_or_clauses = [{'span_multi': {'match': {'wildcard': {field: term}}}}]
-                    for lem_field in lemma_fields:
-                        span_or_clauses.append({'field_masking_span':
-                                                    {'query':
-                                                         {'span_multi':
-                                                              {'match':
-                                                                   {'wildcard':
-                                                                        {lem_field: term}
-                                                                    }
-                                                               }
-                                                          },
-                                                     'field': field
-                                                     }
-                                                })
-                else:
-                    span_or_clauses = [{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}]
-                    for lem_field in lemma_fields:
-                        span_or_clauses.append({'field_masking_span':
-                                                    {'query':
-                                                         {'span_multi':
-                                                              {'match':
-                                                                   {'fuzzy':
-                                                                        {lem_field:
-                                                                             {"value": term, "fuzziness": fuzz}
-                                                                         }
-                                                                    }
-                                                               }
-                                                          },
-                                                     'field': field
-                                                     }
-                                                })
-                clauses.append({'span_or': {'clauses': span_or_clauses}})
+                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
+
         body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
                                                                      'in_order': ordered_terms}})
 
@@ -421,13 +406,14 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    #set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-    #                  regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
+    if field not in ['autocomplete_lemmas', 'autocomplete']:
+        set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
         # match up 1-to-1.
-        if field in ['lemmas', 'text']:
+        if field == 'lemmas':
             ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field)
         else:
             ids = [{'id': hit['_id'],

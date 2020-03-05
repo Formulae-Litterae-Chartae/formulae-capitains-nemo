@@ -526,7 +526,7 @@ class NemoFormulae(Nemo):
 
         if len(r) == 0:
             if 'manuscript_collection' in collection.ancestors:
-                flash(_('Um die Digitalisate dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der jeweiligen Bibliothek.'))
+                flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
             else:
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
 

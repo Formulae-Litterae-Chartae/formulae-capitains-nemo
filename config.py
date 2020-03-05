@@ -24,6 +24,6 @@ class Config(object):
     IIIF_SERVER = os.environ.get('IIIF_SERVER')
     IIIF_MAPPING = os.environ.get('IIIF_MAPPING') or ';'.join(['{}/iiif'.format(f) for f in CORPUS_FOLDERS])
     # This should only be changed to True when collecting search queries and responses for mocking ES
-    SAVE_REQUESTS = False
+    SAVE_REQUESTS = True
     CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0 # Only need cache on the server, where this should be set in env
     PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')

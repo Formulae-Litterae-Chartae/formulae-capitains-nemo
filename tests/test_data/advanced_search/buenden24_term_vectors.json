@@ -1,0 +1,5008 @@
+{
+	"_index": "buenden_v1",
+	"_type": "buenden",
+	"_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+	"_version": 1,
+	"found": true,
+	"took": 0,
+	"term_vectors": {
+		"text": {
+			"field_statistics": {
+				"sum_doc_freq": 5170,
+				"doc_count": 24,
+				"sum_ttf": 8616
+			},
+			"terms": {
+				"a": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 0,
+							"start_offset": 4,
+							"end_offset": 5
+						}
+					]
+				},
+				"ab": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 65,
+							"start_offset": 375,
+							"end_offset": 377
+						},
+						{
+							"position": 182,
+							"start_offset": 1141,
+							"end_offset": 1143
+						},
+						{
+							"position": 235,
+							"start_offset": 1505,
+							"end_offset": 1507
+						}
+					]
+				},
+				"absit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 138,
+							"start_offset": 837,
+							"end_offset": 842
+						}
+					]
+				},
+				"actor": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 102,
+							"start_offset": 606,
+							"end_offset": 611
+						}
+					]
+				},
+				"ad": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 124,
+							"start_offset": 756,
+							"end_offset": 758
+						},
+						{
+							"position": 291,
+							"start_offset": 1920,
+							"end_offset": 1922
+						}
+					]
+				},
+				"adcommodat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 208,
+							"start_offset": 1318,
+							"end_offset": 1328
+						}
+					]
+				},
+				"advivo": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 95,
+							"start_offset": 563,
+							"end_offset": 569
+						}
+					]
+				},
+				"agrum": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 7,
+							"start_offset": 39,
+							"end_offset": 44
+						},
+						{
+							"position": 30,
+							"start_offset": 176,
+							"end_offset": 181
+						}
+					]
+				},
+				"alia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 55,
+							"start_offset": 316,
+							"end_offset": 320
+						}
+					]
+				},
+				"aliquando": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 161,
+							"start_offset": 989,
+							"end_offset": 998
+						}
+					]
+				},
+				"aliquis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 72,
+							"start_offset": 412,
+							"end_offset": 419
+						},
+						{
+							"position": 160,
+							"start_offset": 981,
+							"end_offset": 988
+						}
+					]
+				},
+				"aliter": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 139,
+							"start_offset": 844,
+							"end_offset": 850
+						}
+					]
+				},
+				"alium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 29,
+							"start_offset": 170,
+							"end_offset": 175
+						}
+					]
+				},
+				"anime": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 130,
+							"start_offset": 795,
+							"end_offset": 800
+						}
+					]
+				},
+				"aquiliani": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 200,
+							"start_offset": 1248,
+							"end_offset": 1257
+						}
+					]
+				},
+				"archaciani": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 201,
+							"start_offset": 1258,
+							"end_offset": 1268
+						}
+					]
+				},
+				"aurelii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 45,
+							"start_offset": 263,
+							"end_offset": 270
+						}
+					]
+				},
+				"baseli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 28,
+							"start_offset": 162,
+							"end_offset": 168
+						}
+					]
+				},
+				"baselii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 248,
+							"start_offset": 1590,
+							"end_offset": 1597
+						}
+					]
+				},
+				"baselius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 97,
+							"start_offset": 574,
+							"end_offset": 582
+						}
+					]
+				},
+				"benediccione": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 106,
+							"start_offset": 631,
+							"end_offset": 643
+						}
+					]
+				},
+				"bonorum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 231,
+							"start_offset": 1476,
+							"end_offset": 1483
+						}
+					]
+				},
+				"cartarum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 207,
+							"start_offset": 1309,
+							"end_offset": 1317
+						}
+					]
+				},
+				"cartula": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 148,
+							"start_offset": 909,
+							"end_offset": 916
+						},
+						{
+							"position": 173,
+							"start_offset": 1069,
+							"end_offset": 1076
+						},
+						{
+							"position": 196,
+							"start_offset": 1219,
+							"end_offset": 1226
+						},
+						{
+							"position": 211,
+							"start_offset": 1347,
+							"end_offset": 1354
+						}
+					]
+				},
+				"charoli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 219,
+							"start_offset": 1398,
+							"end_offset": 1405
+						}
+					]
+				},
+				"civitate": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 213,
+							"start_offset": 1358,
+							"end_offset": 1366
+						}
+					]
+				},
+				"coloni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 46,
+							"start_offset": 271,
+							"end_offset": 277
+						}
+					]
+				},
+				"condicione": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 92,
+							"start_offset": 544,
+							"end_offset": 554
+						}
+					]
+				},
+				"confinat": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 12,
+							"start_offset": 72,
+							"end_offset": 80
+						},
+						{
+							"position": 35,
+							"start_offset": 211,
+							"end_offset": 219
+						}
+					]
+				},
+				"conpellet": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 89,
+							"start_offset": 524,
+							"end_offset": 533
+						}
+					]
+				},
+				"contra": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 171,
+							"start_offset": 1057,
+							"end_offset": 1063
+						}
+					]
+				},
+				"coram": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 62,
+							"start_offset": 356,
+							"end_offset": 361
+						}
+					]
+				},
+				"credimus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 158,
+							"start_offset": 968,
+							"end_offset": 976
+						}
+					]
+				},
+				"crespionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 276,
+							"start_offset": 1803,
+							"end_offset": 1813
+						}
+					]
+				},
+				"curia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 214,
+							"start_offset": 1367,
+							"end_offset": 1372
+						}
+					]
+				},
+				"da": {
+					"term_freq": 6,
+					"tokens": [
+						{
+							"position": 13,
+							"start_offset": 81,
+							"end_offset": 83
+						},
+						{
+							"position": 18,
+							"start_offset": 106,
+							"end_offset": 108
+						},
+						{
+							"position": 36,
+							"start_offset": 220,
+							"end_offset": 222
+						},
+						{
+							"position": 42,
+							"start_offset": 251,
+							"end_offset": 253
+						},
+						{
+							"position": 48,
+							"start_offset": 281,
+							"end_offset": 283
+						},
+						{
+							"position": 54,
+							"start_offset": 313,
+							"end_offset": 315
+						}
+					]
+				},
+				"de": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 82,
+							"start_offset": 485,
+							"end_offset": 487
+						},
+						{
+							"position": 115,
+							"start_offset": 699,
+							"end_offset": 701
+						},
+						{
+							"position": 162,
+							"start_offset": 999,
+							"end_offset": 1001
+						}
+					]
+				},
+				"debeat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 107,
+							"start_offset": 644,
+							"end_offset": 650
+						}
+					]
+				},
+				"defendere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 79,
+							"start_offset": 461,
+							"end_offset": 470
+						}
+					]
+				},
+				"defensatum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 68,
+							"start_offset": 390,
+							"end_offset": 400
+						}
+					]
+				},
+				"dei": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 288,
+							"start_offset": 1898,
+							"end_offset": 1901
+						}
+					]
+				},
+				"die": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 223,
+							"start_offset": 1431,
+							"end_offset": 1434
+						}
+					]
+				},
+				"diem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 243,
+							"start_offset": 1554,
+							"end_offset": 1558
+						}
+					]
+				},
+				"dimisit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 2,
+							"start_offset": 11,
+							"end_offset": 18
+						}
+					]
+				},
+				"domni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 217,
+							"start_offset": 1385,
+							"end_offset": 1390
+						}
+					]
+				},
+				"donacionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 174,
+							"start_offset": 1077,
+							"end_offset": 1087
+						}
+					]
+				},
+				"donare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 109,
+							"start_offset": 657,
+							"end_offset": 663
+						}
+					]
+				},
+				"donati": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 279,
+							"start_offset": 1829,
+							"end_offset": 1835
+						}
+					]
+				},
+				"dubla": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 193,
+							"start_offset": 1201,
+							"end_offset": 1206
+						}
+					]
+				},
+				"dum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 94,
+							"start_offset": 559,
+							"end_offset": 562
+						}
+					]
+				},
+				"ea": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 90,
+							"start_offset": 535,
+							"end_offset": 537
+						}
+					]
+				},
+				"ego": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 96,
+							"start_offset": 570,
+							"end_offset": 573
+						},
+						{
+							"position": 284,
+							"start_offset": 1868,
+							"end_offset": 1871
+						}
+					]
+				},
+				"eo": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 190,
+							"start_offset": 1183,
+							"end_offset": 1185
+						},
+						{
+							"position": 236,
+							"start_offset": 1508,
+							"end_offset": 1510
+						}
+					]
+				},
+				"est": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 225,
+							"start_offset": 1441,
+							"end_offset": 1444
+						}
+					]
+				},
+				"et": {
+					"term_freq": 12,
+					"tokens": [
+						{
+							"position": 6,
+							"start_offset": 36,
+							"end_offset": 38
+						},
+						{
+							"position": 24,
+							"start_offset": 142,
+							"end_offset": 144
+						},
+						{
+							"position": 47,
+							"start_offset": 278,
+							"end_offset": 280
+						},
+						{
+							"position": 59,
+							"start_offset": 341,
+							"end_offset": 343
+						},
+						{
+							"position": 70,
+							"start_offset": 406,
+							"end_offset": 408
+						},
+						{
+							"position": 135,
+							"start_offset": 825,
+							"end_offset": 827
+						},
+						{
+							"position": 152,
+							"start_offset": 941,
+							"end_offset": 943
+						},
+						{
+							"position": 186,
+							"start_offset": 1161,
+							"end_offset": 1163
+						},
+						{
+							"position": 195,
+							"start_offset": 1216,
+							"end_offset": 1218
+						},
+						{
+							"position": 244,
+							"start_offset": 1559,
+							"end_offset": 1561
+						},
+						{
+							"position": 249,
+							"start_offset": 1598,
+							"end_offset": 1600
+						},
+						{
+							"position": 296,
+							"start_offset": 1956,
+							"end_offset": 1958
+						}
+					]
+				},
+				"eum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 88,
+							"start_offset": 520,
+							"end_offset": 523
+						}
+					]
+				},
+				"exinde": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 73,
+							"start_offset": 420,
+							"end_offset": 426
+						}
+					]
+				},
+				"facta": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 210,
+							"start_offset": 1341,
+							"end_offset": 1346
+						}
+					]
+				},
+				"factus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 145,
+							"start_offset": 892,
+							"end_offset": 898
+						}
+					]
+				},
+				"fecerunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 241,
+							"start_offset": 1537,
+							"end_offset": 1545
+						}
+					]
+				},
+				"fieri": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 156,
+							"start_offset": 958,
+							"end_offset": 963
+						},
+						{
+							"position": 255,
+							"start_offset": 1628,
+							"end_offset": 1633
+						}
+					]
+				},
+				"filii": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 250,
+							"start_offset": 1601,
+							"end_offset": 1606
+						},
+						{
+							"position": 260,
+							"start_offset": 1669,
+							"end_offset": 1674
+						}
+					]
+				},
+				"filio": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 3,
+							"start_offset": 19,
+							"end_offset": 24
+						}
+					]
+				},
+				"firma": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 198,
+							"start_offset": 1232,
+							"end_offset": 1237
+						}
+					]
+				},
+				"firmitatem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 209,
+							"start_offset": 1329,
+							"end_offset": 1339
+						}
+					]
+				},
+				"fratris": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 269,
+							"start_offset": 1744,
+							"end_offset": 1751
+						}
+					]
+				},
+				"fuerit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 192,
+							"start_offset": 1194,
+							"end_offset": 1200
+						}
+					]
+				},
+				"gauuenti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 282,
+							"start_offset": 1851,
+							"end_offset": 1859
+						}
+					]
+				},
+				"gloriosissimi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 220,
+							"start_offset": 1406,
+							"end_offset": 1419
+						}
+					]
+				},
+				"grano": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 116,
+							"start_offset": 702,
+							"end_offset": 707
+						}
+					]
+				},
+				"haec": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 254,
+							"start_offset": 1623,
+							"end_offset": 1627
+						}
+					]
+				},
+				"hanc": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 172,
+							"start_offset": 1064,
+							"end_offset": 1068
+						}
+					]
+				},
+				"helarii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 104,
+							"start_offset": 619,
+							"end_offset": 626
+						}
+					]
+				},
+				"heredibus": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 163,
+							"start_offset": 1002,
+							"end_offset": 1011
+						},
+						{
+							"position": 166,
+							"start_offset": 1020,
+							"end_offset": 1029
+						}
+					]
+				},
+				"homine": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 67,
+							"start_offset": 383,
+							"end_offset": 389
+						}
+					]
+				},
+				"iiii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 11,
+							"start_offset": 66,
+							"end_offset": 70
+						}
+					]
+				},
+				"illi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 85,
+							"start_offset": 500,
+							"end_offset": 504
+						}
+					]
+				},
+				"in": {
+					"term_freq": 10,
+					"tokens": [
+						{
+							"position": 8,
+							"start_offset": 45,
+							"end_offset": 47
+						},
+						{
+							"position": 15,
+							"start_offset": 90,
+							"end_offset": 92
+						},
+						{
+							"position": 21,
+							"start_offset": 123,
+							"end_offset": 125
+						},
+						{
+							"position": 26,
+							"start_offset": 152,
+							"end_offset": 154
+						},
+						{
+							"position": 38,
+							"start_offset": 230,
+							"end_offset": 232
+						},
+						{
+							"position": 44,
+							"start_offset": 260,
+							"end_offset": 262
+						},
+						{
+							"position": 51,
+							"start_offset": 294,
+							"end_offset": 296
+						},
+						{
+							"position": 56,
+							"start_offset": 321,
+							"end_offset": 323
+						},
+						{
+							"position": 133,
+							"start_offset": 812,
+							"end_offset": 814
+						},
+						{
+							"position": 212,
+							"start_offset": 1355,
+							"end_offset": 1357
+						}
+					]
+				},
+				"inanis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 142,
+							"start_offset": 871,
+							"end_offset": 877
+						}
+					]
+				},
+				"inconvulsa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 151,
+							"start_offset": 929,
+							"end_offset": 939
+						}
+					]
+				},
+				"inrumpere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 178,
+							"start_offset": 1104,
+							"end_offset": 1113
+						}
+					]
+				},
+				"intuli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 123,
+							"start_offset": 749,
+							"end_offset": 755
+						}
+					]
+				},
+				"iohannis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 23,
+							"start_offset": 133,
+							"end_offset": 141
+						},
+						{
+							"position": 58,
+							"start_offset": 331,
+							"end_offset": 339
+						}
+					]
+				},
+				"ipsa": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 39,
+							"start_offset": 233,
+							"end_offset": 237
+						},
+						{
+							"position": 77,
+							"start_offset": 448,
+							"end_offset": 452
+						},
+						{
+							"position": 183,
+							"start_offset": 1144,
+							"end_offset": 1148
+						}
+					]
+				},
+				"ipsius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 27,
+							"start_offset": 155,
+							"end_offset": 161
+						}
+					]
+				},
+				"ire": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 175,
+							"start_offset": 1088,
+							"end_offset": 1091
+						}
+					]
+				},
+				"ista": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 149,
+							"start_offset": 917,
+							"end_offset": 921
+						},
+						{
+							"position": 197,
+							"start_offset": 1227,
+							"end_offset": 1231
+						}
+					]
+				},
+				"iudici": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 188,
+							"start_offset": 1171,
+							"end_offset": 1177
+						}
+					]
+				},
+				"kalendas": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 112,
+							"start_offset": 677,
+							"end_offset": 685
+						}
+					]
+				},
+				"kl": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 227,
+							"start_offset": 1448,
+							"end_offset": 1450
+						}
+					]
+				},
+				"laurencia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 101,
+							"start_offset": 595,
+							"end_offset": 604
+						}
+					]
+				},
+				"legis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 202,
+							"start_offset": 1269,
+							"end_offset": 1274
+						}
+					]
+				},
+				"lobicini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 264,
+							"start_offset": 1700,
+							"end_offset": 1708
+						}
+					]
+				},
+				"loca": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 184,
+							"start_offset": 1149,
+							"end_offset": 1153
+						}
+					]
+				},
+				"locum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 127,
+							"start_offset": 776,
+							"end_offset": 781
+						}
+					]
+				},
+				"madii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 228,
+							"start_offset": 1452,
+							"end_offset": 1457
+						}
+					]
+				},
+				"maneat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 150,
+							"start_offset": 922,
+							"end_offset": 928
+						}
+					]
+				},
+				"martini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 53,
+							"start_offset": 304,
+							"end_offset": 311
+						}
+					]
+				},
+				"me": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 100,
+							"start_offset": 592,
+							"end_offset": 594
+						}
+					]
+				},
+				"mediana": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 17,
+							"start_offset": 97,
+							"end_offset": 104
+						},
+						{
+							"position": 41,
+							"start_offset": 242,
+							"end_offset": 249
+						}
+					]
+				},
+				"medium": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 20,
+							"start_offset": 116,
+							"end_offset": 122
+						},
+						{
+							"position": 25,
+							"start_offset": 145,
+							"end_offset": 151
+						}
+					]
+				},
+				"meis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 167,
+							"start_offset": 1030,
+							"end_offset": 1034
+						}
+					]
+				},
+				"meus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 146,
+							"start_offset": 899,
+							"end_offset": 903
+						}
+					]
+				},
+				"minuere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 74,
+							"start_offset": 427,
+							"end_offset": 434
+						}
+					]
+				},
+				"misericordia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 287,
+							"start_offset": 1885,
+							"end_offset": 1897
+						}
+					]
+				},
+				"modios": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 10,
+							"start_offset": 59,
+							"end_offset": 65
+						},
+						{
+							"position": 33,
+							"start_offset": 198,
+							"end_offset": 204
+						}
+					]
+				},
+				"modium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 113,
+							"start_offset": 686,
+							"end_offset": 692
+						}
+					]
+				},
+				"nobis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 108,
+							"start_offset": 651,
+							"end_offset": 656
+						}
+					]
+				},
+				"non": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 80,
+							"start_offset": 471,
+							"end_offset": 474
+						},
+						{
+							"position": 157,
+							"start_offset": 964,
+							"end_offset": 967
+						}
+					]
+				},
+				"nostre": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 131,
+							"start_offset": 801,
+							"end_offset": 807
+						}
+					]
+				},
+				"nostri": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 218,
+							"start_offset": 1391,
+							"end_offset": 1397
+						}
+					]
+				},
+				"nostrum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 120,
+							"start_offset": 726,
+							"end_offset": 733
+						}
+					]
+				},
+				"notavi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 242,
+							"start_offset": 1547,
+							"end_offset": 1553
+						}
+					]
+				},
+				"obitum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 118,
+							"start_offset": 714,
+							"end_offset": 720
+						}
+					]
+				},
+				"omni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 66,
+							"start_offset": 378,
+							"end_offset": 382
+						}
+					]
+				},
+				"omnium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 206,
+							"start_offset": 1302,
+							"end_offset": 1308
+						}
+					]
+				},
+				"orsacius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 285,
+							"start_offset": 1872,
+							"end_offset": 1880
+						}
+					]
+				},
+				"parte": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 50,
+							"start_offset": 288,
+							"end_offset": 293
+						}
+					]
+				},
+				"pecunia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 194,
+							"start_offset": 1207,
+							"end_offset": 1214
+						}
+					]
+				},
+				"per": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 110,
+							"start_offset": 664,
+							"end_offset": 667
+						}
+					]
+				},
+				"permaneat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 199,
+							"start_offset": 1238,
+							"end_offset": 1247
+						}
+					]
+				},
+				"perpetuo": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 134,
+							"start_offset": 815,
+							"end_offset": 823
+						}
+					]
+				},
+				"persona": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 170,
+							"start_offset": 1049,
+							"end_offset": 1056
+						}
+					]
+				},
+				"pettonis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 293,
+							"start_offset": 1928,
+							"end_offset": 1936
+						}
+					]
+				},
+				"post": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 117,
+							"start_offset": 709,
+							"end_offset": 713
+						}
+					]
+				},
+				"posterior": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 144,
+							"start_offset": 882,
+							"end_offset": 891
+						}
+					]
+				},
+				"potuerit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 81,
+							"start_offset": 475,
+							"end_offset": 483
+						}
+					]
+				},
+				"prefatum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 125,
+							"start_offset": 759,
+							"end_offset": 767
+						}
+					]
+				},
+				"presbiter": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 290,
+							"start_offset": 1910,
+							"end_offset": 1919
+						}
+					]
+				},
+				"presbiteri": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 265,
+							"start_offset": 1709,
+							"end_offset": 1719
+						},
+						{
+							"position": 294,
+							"start_offset": 1937,
+							"end_offset": 1947
+						}
+					]
+				},
+				"presenciarum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 230,
+							"start_offset": 1463,
+							"end_offset": 1475
+						}
+					]
+				},
+				"prestanti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 261,
+							"start_offset": 1675,
+							"end_offset": 1684
+						}
+					]
+				},
+				"pro": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 105,
+							"start_offset": 627,
+							"end_offset": 630
+						},
+						{
+							"position": 128,
+							"start_offset": 782,
+							"end_offset": 785
+						},
+						{
+							"position": 165,
+							"start_offset": 1016,
+							"end_offset": 1019
+						},
+						{
+							"position": 286,
+							"start_offset": 1881,
+							"end_offset": 1884
+						}
+					]
+				},
+				"proprio": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 84,
+							"start_offset": 492,
+							"end_offset": 499
+						}
+					]
+				},
+				"pulueraria": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 9,
+							"start_offset": 48,
+							"end_offset": 58
+						}
+					]
+				},
+				"quem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 1,
+							"start_offset": 6,
+							"end_offset": 10
+						}
+					]
+				},
+				"qui": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 87,
+							"start_offset": 516,
+							"end_offset": 519
+						},
+						{
+							"position": 189,
+							"start_offset": 1179,
+							"end_offset": 1182
+						},
+						{
+							"position": 205,
+							"start_offset": 1298,
+							"end_offset": 1301
+						},
+						{
+							"position": 234,
+							"start_offset": 1501,
+							"end_offset": 1504
+						},
+						{
+							"position": 253,
+							"start_offset": 1619,
+							"end_offset": 1622
+						}
+					]
+				},
+				"quis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 154,
+							"start_offset": 947,
+							"end_offset": 951
+						}
+					]
+				},
+				"quod": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 121,
+							"start_offset": 735,
+							"end_offset": 739
+						},
+						{
+							"position": 137,
+							"start_offset": 832,
+							"end_offset": 836
+						},
+						{
+							"position": 155,
+							"start_offset": 953,
+							"end_offset": 957
+						},
+						{
+							"position": 224,
+							"start_offset": 1436,
+							"end_offset": 1440
+						}
+					]
+				},
+				"quodlibet": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 169,
+							"start_offset": 1039,
+							"end_offset": 1048
+						}
+					]
+				},
+				"regis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 221,
+							"start_offset": 1420,
+							"end_offset": 1425
+						}
+					]
+				},
+				"regnum": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 216,
+							"start_offset": 1378,
+							"end_offset": 1384
+						},
+						{
+							"position": 245,
+							"start_offset": 1562,
+							"end_offset": 1568
+						}
+					]
+				},
+				"reiudicare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 140,
+							"start_offset": 851,
+							"end_offset": 861
+						}
+					]
+				},
+				"remedii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 270,
+							"start_offset": 1752,
+							"end_offset": 1759
+						}
+					]
+				},
+				"remedium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 129,
+							"start_offset": 786,
+							"end_offset": 794
+						}
+					]
+				},
+				"restituat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 86,
+							"start_offset": 505,
+							"end_offset": 514
+						}
+					]
+				},
+				"rofini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 252,
+							"start_offset": 1611,
+							"end_offset": 1617
+						}
+					]
+				},
+				"rofino": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 5,
+							"start_offset": 29,
+							"end_offset": 35
+						}
+					]
+				},
+				"rogaverunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 256,
+							"start_offset": 1634,
+							"end_offset": 1644
+						}
+					]
+				},
+				"rogiti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 237,
+							"start_offset": 1511,
+							"end_offset": 1517
+						}
+					]
+				},
+				"salubrium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 32,
+							"start_offset": 188,
+							"end_offset": 197
+						}
+					]
+				},
+				"sancta": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 185,
+							"start_offset": 1154,
+							"end_offset": 1160
+						}
+					]
+				},
+				"sancti": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 22,
+							"start_offset": 126,
+							"end_offset": 132
+						},
+						{
+							"position": 52,
+							"start_offset": 297,
+							"end_offset": 303
+						},
+						{
+							"position": 57,
+							"start_offset": 324,
+							"end_offset": 330
+						},
+						{
+							"position": 103,
+							"start_offset": 612,
+							"end_offset": 618
+						}
+					]
+				},
+				"sanctum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 126,
+							"start_offset": 768,
+							"end_offset": 775
+						}
+					]
+				},
+				"scripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 295,
+							"start_offset": 1948,
+							"end_offset": 1955
+						}
+					]
+				},
+				"scumunicatus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 181,
+							"start_offset": 1128,
+							"end_offset": 1140
+						}
+					]
+				},
+				"sed": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 147,
+							"start_offset": 905,
+							"end_offset": 908
+						}
+					]
+				},
+				"seffonis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 259,
+							"start_offset": 1660,
+							"end_offset": 1668
+						},
+						{
+							"position": 268,
+							"start_offset": 1735,
+							"end_offset": 1743
+						}
+					]
+				},
+				"semis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 114,
+							"start_offset": 693,
+							"end_offset": 698
+						}
+					]
+				},
+				"si": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 71,
+							"start_offset": 409,
+							"end_offset": 411
+						},
+						{
+							"position": 76,
+							"start_offset": 445,
+							"end_offset": 447
+						},
+						{
+							"position": 136,
+							"start_offset": 828,
+							"end_offset": 830
+						},
+						{
+							"position": 153,
+							"start_offset": 944,
+							"end_offset": 946
+						},
+						{
+							"position": 159,
+							"start_offset": 978,
+							"end_offset": 980
+						}
+					]
+				},
+				"sic": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 60,
+							"start_offset": 344,
+							"end_offset": 347
+						}
+					]
+				},
+				"signa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 240,
+							"start_offset": 1531,
+							"end_offset": 1536
+						}
+					]
+				},
+				"signum": {
+					"term_freq": 8,
+					"tokens": [
+						{
+							"position": 247,
+							"start_offset": 1583,
+							"end_offset": 1589
+						},
+						{
+							"position": 258,
+							"start_offset": 1653,
+							"end_offset": 1659
+						},
+						{
+							"position": 263,
+							"start_offset": 1693,
+							"end_offset": 1699
+						},
+						{
+							"position": 267,
+							"start_offset": 1728,
+							"end_offset": 1734
+						},
+						{
+							"position": 272,
+							"start_offset": 1768,
+							"end_offset": 1774
+						},
+						{
+							"position": 275,
+							"start_offset": 1796,
+							"end_offset": 1802
+						},
+						{
+							"position": 278,
+							"start_offset": 1822,
+							"end_offset": 1828
+						},
+						{
+							"position": 281,
+							"start_offset": 1844,
+							"end_offset": 1850
+						}
+					]
+				},
+				"singulas": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 111,
+							"start_offset": 668,
+							"end_offset": 676
+						}
+					]
+				},
+				"sit": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 69,
+							"start_offset": 401,
+							"end_offset": 404
+						},
+						{
+							"position": 132,
+							"start_offset": 808,
+							"end_offset": 811
+						},
+						{
+							"position": 143,
+							"start_offset": 878,
+							"end_offset": 881
+						},
+						{
+							"position": 180,
+							"start_offset": 1124,
+							"end_offset": 1127
+						}
+					]
+				},
+				"solvat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 187,
+							"start_offset": 1164,
+							"end_offset": 1170
+						}
+					]
+				},
+				"statuit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 61,
+							"start_offset": 348,
+							"end_offset": 355
+						}
+					]
+				},
+				"stipulacionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 203,
+							"start_offset": 1275,
+							"end_offset": 1288
+						}
+					]
+				},
+				"sub": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 215,
+							"start_offset": 1374,
+							"end_offset": 1377
+						},
+						{
+							"position": 222,
+							"start_offset": 1427,
+							"end_offset": 1430
+						},
+						{
+							"position": 229,
+							"start_offset": 1459,
+							"end_offset": 1462
+						}
+					]
+				},
+				"subnixa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 204,
+							"start_offset": 1289,
+							"end_offset": 1296
+						}
+					]
+				},
+				"subtus": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 19,
+							"start_offset": 109,
+							"end_offset": 115
+						},
+						{
+							"position": 37,
+							"start_offset": 223,
+							"end_offset": 229
+						}
+					]
+				},
+				"sui": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 251,
+							"start_offset": 1607,
+							"end_offset": 1610
+						}
+					]
+				},
+				"suo": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 4,
+							"start_offset": 25,
+							"end_offset": 28
+						},
+						{
+							"position": 83,
+							"start_offset": 488,
+							"end_offset": 491
+						}
+					]
+				},
+				"super": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 31,
+							"start_offset": 182,
+							"end_offset": 187
+						}
+					]
+				},
+				"superius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 122,
+							"start_offset": 740,
+							"end_offset": 748
+						}
+					]
+				},
+				"superscripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 246,
+							"start_offset": 1569,
+							"end_offset": 1581
+						}
+					]
+				},
+				"supra": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 14,
+							"start_offset": 84,
+							"end_offset": 89
+						},
+						{
+							"position": 43,
+							"start_offset": 254,
+							"end_offset": 259
+						}
+					]
+				},
+				"suscripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 297,
+							"start_offset": 1959,
+							"end_offset": 1968
+						}
+					]
+				},
+				"tamen": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 91,
+							"start_offset": 538,
+							"end_offset": 543
+						}
+					]
+				},
+				"tempore": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 191,
+							"start_offset": 1186,
+							"end_offset": 1193
+						}
+					]
+				},
+				"temtare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 176,
+							"start_offset": 1092,
+							"end_offset": 1099
+						}
+					]
+				},
+				"terrola": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 78,
+							"start_offset": 453,
+							"end_offset": 460
+						}
+					]
+				},
+				"testes": {
+					"term_freq": 8,
+					"tokens": [
+						{
+							"position": 257,
+							"start_offset": 1645,
+							"end_offset": 1651
+						},
+						{
+							"position": 262,
+							"start_offset": 1685,
+							"end_offset": 1691
+						},
+						{
+							"position": 266,
+							"start_offset": 1720,
+							"end_offset": 1726
+						},
+						{
+							"position": 271,
+							"start_offset": 1760,
+							"end_offset": 1766
+						},
+						{
+							"position": 274,
+							"start_offset": 1788,
+							"end_offset": 1794
+						},
+						{
+							"position": 277,
+							"start_offset": 1814,
+							"end_offset": 1820
+						},
+						{
+							"position": 280,
+							"start_offset": 1836,
+							"end_offset": 1842
+						},
+						{
+							"position": 283,
+							"start_offset": 1860,
+							"end_offset": 1866
+						}
+					]
+				},
+				"testibus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 63,
+							"start_offset": 362,
+							"end_offset": 370
+						}
+					]
+				},
+				"testium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 233,
+							"start_offset": 1492,
+							"end_offset": 1499
+						}
+					]
+				},
+				"uia": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 16,
+							"start_offset": 93,
+							"end_offset": 96
+						},
+						{
+							"position": 40,
+							"start_offset": 238,
+							"end_offset": 241
+						}
+					]
+				},
+				"una": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 49,
+							"start_offset": 284,
+							"end_offset": 287
+						}
+					]
+				},
+				"ut": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 64,
+							"start_offset": 372,
+							"end_offset": 374
+						},
+						{
+							"position": 93,
+							"start_offset": 556,
+							"end_offset": 558
+						}
+					]
+				},
+				"uuiliarentis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 273,
+							"start_offset": 1775,
+							"end_offset": 1787
+						}
+					]
+				},
+				"uxor": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 99,
+							"start_offset": 587,
+							"end_offset": 591
+						}
+					]
+				},
+				"vel": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 98,
+							"start_offset": 583,
+							"end_offset": 586
+						},
+						{
+							"position": 164,
+							"start_offset": 1012,
+							"end_offset": 1015
+						},
+						{
+							"position": 168,
+							"start_offset": 1035,
+							"end_offset": 1038
+						},
+						{
+							"position": 177,
+							"start_offset": 1100,
+							"end_offset": 1103
+						},
+						{
+							"position": 239,
+							"start_offset": 1527,
+							"end_offset": 1530
+						}
+					]
+				},
+				"venerunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 238,
+							"start_offset": 1518,
+							"end_offset": 1526
+						}
+					]
+				},
+				"vero": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 119,
+							"start_offset": 721,
+							"end_offset": 725
+						}
+					]
+				},
+				"vice": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 292,
+							"start_offset": 1923,
+							"end_offset": 1927
+						}
+					]
+				},
+				"viii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 34,
+							"start_offset": 205,
+							"end_offset": 209
+						}
+					]
+				},
+				"virorum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 232,
+							"start_offset": 1484,
+							"end_offset": 1491
+						}
+					]
+				},
+				"vocatus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 289,
+							"start_offset": 1902,
+							"end_offset": 1909
+						}
+					]
+				},
+				"voluerit": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 75,
+							"start_offset": 435,
+							"end_offset": 443
+						},
+						{
+							"position": 179,
+							"start_offset": 1114,
+							"end_offset": 1122
+						}
+					]
+				},
+				"voluero": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 141,
+							"start_offset": 862,
+							"end_offset": 869
+						}
+					]
+				},
+				"xv": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 226,
+							"start_offset": 1445,
+							"end_offset": 1447
+						}
+					]
+				}
+			}
+		},
+		"lemmas": {
+			"field_statistics": {
+				"sum_doc_freq": 5170,
+				"doc_count": 24,
+				"sum_ttf": 8616
+			},
+			"terms": {
+				"a": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 0,
+							"start_offset": 4,
+							"end_offset": 5
+						}
+					]
+				},
+				"ab": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 65,
+							"start_offset": 375,
+							"end_offset": 377
+						},
+						{
+							"position": 182,
+							"start_offset": 1141,
+							"end_offset": 1143
+						},
+						{
+							"position": 235,
+							"start_offset": 1505,
+							"end_offset": 1507
+						}
+					]
+				},
+				"absit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 138,
+							"start_offset": 837,
+							"end_offset": 842
+						}
+					]
+				},
+				"actor": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 102,
+							"start_offset": 606,
+							"end_offset": 611
+						}
+					]
+				},
+				"ad": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 124,
+							"start_offset": 756,
+							"end_offset": 758
+						},
+						{
+							"position": 291,
+							"start_offset": 1920,
+							"end_offset": 1922
+						}
+					]
+				},
+				"adcommodat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 208,
+							"start_offset": 1318,
+							"end_offset": 1328
+						}
+					]
+				},
+				"advivo": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 95,
+							"start_offset": 563,
+							"end_offset": 569
+						}
+					]
+				},
+				"agrum": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 7,
+							"start_offset": 39,
+							"end_offset": 44
+						},
+						{
+							"position": 30,
+							"start_offset": 176,
+							"end_offset": 181
+						}
+					]
+				},
+				"alia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 55,
+							"start_offset": 316,
+							"end_offset": 320
+						}
+					]
+				},
+				"aliquando": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 161,
+							"start_offset": 989,
+							"end_offset": 998
+						}
+					]
+				},
+				"aliquis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 72,
+							"start_offset": 412,
+							"end_offset": 419
+						},
+						{
+							"position": 160,
+							"start_offset": 981,
+							"end_offset": 988
+						}
+					]
+				},
+				"aliter": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 139,
+							"start_offset": 844,
+							"end_offset": 850
+						}
+					]
+				},
+				"alium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 29,
+							"start_offset": 170,
+							"end_offset": 175
+						}
+					]
+				},
+				"anime": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 130,
+							"start_offset": 795,
+							"end_offset": 800
+						}
+					]
+				},
+				"aquiliani": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 200,
+							"start_offset": 1248,
+							"end_offset": 1257
+						}
+					]
+				},
+				"archaciani": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 201,
+							"start_offset": 1258,
+							"end_offset": 1268
+						}
+					]
+				},
+				"aurelii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 45,
+							"start_offset": 263,
+							"end_offset": 270
+						}
+					]
+				},
+				"baseli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 28,
+							"start_offset": 162,
+							"end_offset": 168
+						}
+					]
+				},
+				"baselii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 248,
+							"start_offset": 1590,
+							"end_offset": 1597
+						}
+					]
+				},
+				"baselius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 97,
+							"start_offset": 574,
+							"end_offset": 582
+						}
+					]
+				},
+				"benediccione": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 106,
+							"start_offset": 631,
+							"end_offset": 643
+						}
+					]
+				},
+				"bonorum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 231,
+							"start_offset": 1476,
+							"end_offset": 1483
+						}
+					]
+				},
+				"cartarum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 207,
+							"start_offset": 1309,
+							"end_offset": 1317
+						}
+					]
+				},
+				"cartula": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 148,
+							"start_offset": 909,
+							"end_offset": 916
+						},
+						{
+							"position": 173,
+							"start_offset": 1069,
+							"end_offset": 1076
+						},
+						{
+							"position": 196,
+							"start_offset": 1219,
+							"end_offset": 1226
+						},
+						{
+							"position": 211,
+							"start_offset": 1347,
+							"end_offset": 1354
+						}
+					]
+				},
+				"charoli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 219,
+							"start_offset": 1398,
+							"end_offset": 1405
+						}
+					]
+				},
+				"civitate": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 213,
+							"start_offset": 1358,
+							"end_offset": 1366
+						}
+					]
+				},
+				"coloni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 46,
+							"start_offset": 271,
+							"end_offset": 277
+						}
+					]
+				},
+				"condicione": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 92,
+							"start_offset": 544,
+							"end_offset": 554
+						}
+					]
+				},
+				"confinat": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 12,
+							"start_offset": 72,
+							"end_offset": 80
+						},
+						{
+							"position": 35,
+							"start_offset": 211,
+							"end_offset": 219
+						}
+					]
+				},
+				"conpellet": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 89,
+							"start_offset": 524,
+							"end_offset": 533
+						}
+					]
+				},
+				"contra": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 171,
+							"start_offset": 1057,
+							"end_offset": 1063
+						}
+					]
+				},
+				"coram": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 62,
+							"start_offset": 356,
+							"end_offset": 361
+						}
+					]
+				},
+				"credimus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 158,
+							"start_offset": 968,
+							"end_offset": 976
+						}
+					]
+				},
+				"crespionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 276,
+							"start_offset": 1803,
+							"end_offset": 1813
+						}
+					]
+				},
+				"curia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 214,
+							"start_offset": 1367,
+							"end_offset": 1372
+						}
+					]
+				},
+				"da": {
+					"term_freq": 6,
+					"tokens": [
+						{
+							"position": 13,
+							"start_offset": 81,
+							"end_offset": 83
+						},
+						{
+							"position": 18,
+							"start_offset": 106,
+							"end_offset": 108
+						},
+						{
+							"position": 36,
+							"start_offset": 220,
+							"end_offset": 222
+						},
+						{
+							"position": 42,
+							"start_offset": 251,
+							"end_offset": 253
+						},
+						{
+							"position": 48,
+							"start_offset": 281,
+							"end_offset": 283
+						},
+						{
+							"position": 54,
+							"start_offset": 313,
+							"end_offset": 315
+						}
+					]
+				},
+				"de": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 82,
+							"start_offset": 485,
+							"end_offset": 487
+						},
+						{
+							"position": 115,
+							"start_offset": 699,
+							"end_offset": 701
+						},
+						{
+							"position": 162,
+							"start_offset": 999,
+							"end_offset": 1001
+						}
+					]
+				},
+				"debeat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 107,
+							"start_offset": 644,
+							"end_offset": 650
+						}
+					]
+				},
+				"defendere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 79,
+							"start_offset": 461,
+							"end_offset": 470
+						}
+					]
+				},
+				"defensatum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 68,
+							"start_offset": 390,
+							"end_offset": 400
+						}
+					]
+				},
+				"dei": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 288,
+							"start_offset": 1898,
+							"end_offset": 1901
+						}
+					]
+				},
+				"die": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 223,
+							"start_offset": 1431,
+							"end_offset": 1434
+						}
+					]
+				},
+				"diem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 243,
+							"start_offset": 1554,
+							"end_offset": 1558
+						}
+					]
+				},
+				"dimisit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 2,
+							"start_offset": 11,
+							"end_offset": 18
+						}
+					]
+				},
+				"domni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 217,
+							"start_offset": 1385,
+							"end_offset": 1390
+						}
+					]
+				},
+				"donacionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 174,
+							"start_offset": 1077,
+							"end_offset": 1087
+						}
+					]
+				},
+				"donare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 109,
+							"start_offset": 657,
+							"end_offset": 663
+						}
+					]
+				},
+				"donati": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 279,
+							"start_offset": 1829,
+							"end_offset": 1835
+						}
+					]
+				},
+				"dubla": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 193,
+							"start_offset": 1201,
+							"end_offset": 1206
+						}
+					]
+				},
+				"dum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 94,
+							"start_offset": 559,
+							"end_offset": 562
+						}
+					]
+				},
+				"ea": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 90,
+							"start_offset": 535,
+							"end_offset": 537
+						}
+					]
+				},
+				"ego": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 96,
+							"start_offset": 570,
+							"end_offset": 573
+						},
+						{
+							"position": 284,
+							"start_offset": 1868,
+							"end_offset": 1871
+						}
+					]
+				},
+				"eo": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 190,
+							"start_offset": 1183,
+							"end_offset": 1185
+						},
+						{
+							"position": 236,
+							"start_offset": 1508,
+							"end_offset": 1510
+						}
+					]
+				},
+				"est": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 225,
+							"start_offset": 1441,
+							"end_offset": 1444
+						}
+					]
+				},
+				"et": {
+					"term_freq": 12,
+					"tokens": [
+						{
+							"position": 6,
+							"start_offset": 36,
+							"end_offset": 38
+						},
+						{
+							"position": 24,
+							"start_offset": 142,
+							"end_offset": 144
+						},
+						{
+							"position": 47,
+							"start_offset": 278,
+							"end_offset": 280
+						},
+						{
+							"position": 59,
+							"start_offset": 341,
+							"end_offset": 343
+						},
+						{
+							"position": 70,
+							"start_offset": 406,
+							"end_offset": 408
+						},
+						{
+							"position": 135,
+							"start_offset": 825,
+							"end_offset": 827
+						},
+						{
+							"position": 152,
+							"start_offset": 941,
+							"end_offset": 943
+						},
+						{
+							"position": 186,
+							"start_offset": 1161,
+							"end_offset": 1163
+						},
+						{
+							"position": 195,
+							"start_offset": 1216,
+							"end_offset": 1218
+						},
+						{
+							"position": 244,
+							"start_offset": 1559,
+							"end_offset": 1561
+						},
+						{
+							"position": 249,
+							"start_offset": 1598,
+							"end_offset": 1600
+						},
+						{
+							"position": 296,
+							"start_offset": 1956,
+							"end_offset": 1958
+						}
+					]
+				},
+				"eum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 88,
+							"start_offset": 520,
+							"end_offset": 523
+						}
+					]
+				},
+				"exinde": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 73,
+							"start_offset": 420,
+							"end_offset": 426
+						}
+					]
+				},
+				"facta": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 210,
+							"start_offset": 1341,
+							"end_offset": 1346
+						}
+					]
+				},
+				"factus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 145,
+							"start_offset": 892,
+							"end_offset": 898
+						}
+					]
+				},
+				"fecerunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 241,
+							"start_offset": 1537,
+							"end_offset": 1545
+						}
+					]
+				},
+				"fieri": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 156,
+							"start_offset": 958,
+							"end_offset": 963
+						},
+						{
+							"position": 255,
+							"start_offset": 1628,
+							"end_offset": 1633
+						}
+					]
+				},
+				"filii": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 250,
+							"start_offset": 1601,
+							"end_offset": 1606
+						},
+						{
+							"position": 260,
+							"start_offset": 1669,
+							"end_offset": 1674
+						}
+					]
+				},
+				"filio": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 3,
+							"start_offset": 19,
+							"end_offset": 24
+						}
+					]
+				},
+				"firma": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 198,
+							"start_offset": 1232,
+							"end_offset": 1237
+						}
+					]
+				},
+				"firmitatem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 209,
+							"start_offset": 1329,
+							"end_offset": 1339
+						}
+					]
+				},
+				"fratris": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 269,
+							"start_offset": 1744,
+							"end_offset": 1751
+						}
+					]
+				},
+				"fuerit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 192,
+							"start_offset": 1194,
+							"end_offset": 1200
+						}
+					]
+				},
+				"gauuenti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 282,
+							"start_offset": 1851,
+							"end_offset": 1859
+						}
+					]
+				},
+				"gloriosissimi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 220,
+							"start_offset": 1406,
+							"end_offset": 1419
+						}
+					]
+				},
+				"grano": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 116,
+							"start_offset": 702,
+							"end_offset": 707
+						}
+					]
+				},
+				"haec": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 254,
+							"start_offset": 1623,
+							"end_offset": 1627
+						}
+					]
+				},
+				"hanc": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 172,
+							"start_offset": 1064,
+							"end_offset": 1068
+						}
+					]
+				},
+				"helarii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 104,
+							"start_offset": 619,
+							"end_offset": 626
+						}
+					]
+				},
+				"heredibus": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 163,
+							"start_offset": 1002,
+							"end_offset": 1011
+						},
+						{
+							"position": 166,
+							"start_offset": 1020,
+							"end_offset": 1029
+						}
+					]
+				},
+				"homine": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 67,
+							"start_offset": 383,
+							"end_offset": 389
+						}
+					]
+				},
+				"iiii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 11,
+							"start_offset": 66,
+							"end_offset": 70
+						}
+					]
+				},
+				"illi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 85,
+							"start_offset": 500,
+							"end_offset": 504
+						}
+					]
+				},
+				"in": {
+					"term_freq": 10,
+					"tokens": [
+						{
+							"position": 8,
+							"start_offset": 45,
+							"end_offset": 47
+						},
+						{
+							"position": 15,
+							"start_offset": 90,
+							"end_offset": 92
+						},
+						{
+							"position": 21,
+							"start_offset": 123,
+							"end_offset": 125
+						},
+						{
+							"position": 26,
+							"start_offset": 152,
+							"end_offset": 154
+						},
+						{
+							"position": 38,
+							"start_offset": 230,
+							"end_offset": 232
+						},
+						{
+							"position": 44,
+							"start_offset": 260,
+							"end_offset": 262
+						},
+						{
+							"position": 51,
+							"start_offset": 294,
+							"end_offset": 296
+						},
+						{
+							"position": 56,
+							"start_offset": 321,
+							"end_offset": 323
+						},
+						{
+							"position": 133,
+							"start_offset": 812,
+							"end_offset": 814
+						},
+						{
+							"position": 212,
+							"start_offset": 1355,
+							"end_offset": 1357
+						}
+					]
+				},
+				"inanis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 142,
+							"start_offset": 871,
+							"end_offset": 877
+						}
+					]
+				},
+				"inconvulsa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 151,
+							"start_offset": 929,
+							"end_offset": 939
+						}
+					]
+				},
+				"inrumpere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 178,
+							"start_offset": 1104,
+							"end_offset": 1113
+						}
+					]
+				},
+				"intuli": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 123,
+							"start_offset": 749,
+							"end_offset": 755
+						}
+					]
+				},
+				"iohannis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 23,
+							"start_offset": 133,
+							"end_offset": 141
+						},
+						{
+							"position": 58,
+							"start_offset": 331,
+							"end_offset": 339
+						}
+					]
+				},
+				"ipsa": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 39,
+							"start_offset": 233,
+							"end_offset": 237
+						},
+						{
+							"position": 77,
+							"start_offset": 448,
+							"end_offset": 452
+						},
+						{
+							"position": 183,
+							"start_offset": 1144,
+							"end_offset": 1148
+						}
+					]
+				},
+				"ipsius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 27,
+							"start_offset": 155,
+							"end_offset": 161
+						}
+					]
+				},
+				"ire": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 175,
+							"start_offset": 1088,
+							"end_offset": 1091
+						}
+					]
+				},
+				"ista": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 149,
+							"start_offset": 917,
+							"end_offset": 921
+						},
+						{
+							"position": 197,
+							"start_offset": 1227,
+							"end_offset": 1231
+						}
+					]
+				},
+				"iudici": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 188,
+							"start_offset": 1171,
+							"end_offset": 1177
+						}
+					]
+				},
+				"kalendas": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 112,
+							"start_offset": 677,
+							"end_offset": 685
+						}
+					]
+				},
+				"kl": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 227,
+							"start_offset": 1448,
+							"end_offset": 1450
+						}
+					]
+				},
+				"laurencia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 101,
+							"start_offset": 595,
+							"end_offset": 604
+						}
+					]
+				},
+				"legis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 202,
+							"start_offset": 1269,
+							"end_offset": 1274
+						}
+					]
+				},
+				"lobicini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 264,
+							"start_offset": 1700,
+							"end_offset": 1708
+						}
+					]
+				},
+				"loca": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 184,
+							"start_offset": 1149,
+							"end_offset": 1153
+						}
+					]
+				},
+				"locum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 127,
+							"start_offset": 776,
+							"end_offset": 781
+						}
+					]
+				},
+				"madii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 228,
+							"start_offset": 1452,
+							"end_offset": 1457
+						}
+					]
+				},
+				"maneat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 150,
+							"start_offset": 922,
+							"end_offset": 928
+						}
+					]
+				},
+				"martini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 53,
+							"start_offset": 304,
+							"end_offset": 311
+						}
+					]
+				},
+				"me": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 100,
+							"start_offset": 592,
+							"end_offset": 594
+						}
+					]
+				},
+				"mediana": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 17,
+							"start_offset": 97,
+							"end_offset": 104
+						},
+						{
+							"position": 41,
+							"start_offset": 242,
+							"end_offset": 249
+						}
+					]
+				},
+				"medium": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 20,
+							"start_offset": 116,
+							"end_offset": 122
+						},
+						{
+							"position": 25,
+							"start_offset": 145,
+							"end_offset": 151
+						}
+					]
+				},
+				"meis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 167,
+							"start_offset": 1030,
+							"end_offset": 1034
+						}
+					]
+				},
+				"meus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 146,
+							"start_offset": 899,
+							"end_offset": 903
+						}
+					]
+				},
+				"minuere": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 74,
+							"start_offset": 427,
+							"end_offset": 434
+						}
+					]
+				},
+				"misericordia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 287,
+							"start_offset": 1885,
+							"end_offset": 1897
+						}
+					]
+				},
+				"modios": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 10,
+							"start_offset": 59,
+							"end_offset": 65
+						},
+						{
+							"position": 33,
+							"start_offset": 198,
+							"end_offset": 204
+						}
+					]
+				},
+				"modium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 113,
+							"start_offset": 686,
+							"end_offset": 692
+						}
+					]
+				},
+				"nobis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 108,
+							"start_offset": 651,
+							"end_offset": 656
+						}
+					]
+				},
+				"non": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 80,
+							"start_offset": 471,
+							"end_offset": 474
+						},
+						{
+							"position": 157,
+							"start_offset": 964,
+							"end_offset": 967
+						}
+					]
+				},
+				"nostre": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 131,
+							"start_offset": 801,
+							"end_offset": 807
+						}
+					]
+				},
+				"nostri": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 218,
+							"start_offset": 1391,
+							"end_offset": 1397
+						}
+					]
+				},
+				"nostrum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 120,
+							"start_offset": 726,
+							"end_offset": 733
+						}
+					]
+				},
+				"notavi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 242,
+							"start_offset": 1547,
+							"end_offset": 1553
+						}
+					]
+				},
+				"obitum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 118,
+							"start_offset": 714,
+							"end_offset": 720
+						}
+					]
+				},
+				"omni": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 66,
+							"start_offset": 378,
+							"end_offset": 382
+						}
+					]
+				},
+				"omnium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 206,
+							"start_offset": 1302,
+							"end_offset": 1308
+						}
+					]
+				},
+				"orsacius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 285,
+							"start_offset": 1872,
+							"end_offset": 1880
+						}
+					]
+				},
+				"parte": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 50,
+							"start_offset": 288,
+							"end_offset": 293
+						}
+					]
+				},
+				"pecunia": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 194,
+							"start_offset": 1207,
+							"end_offset": 1214
+						}
+					]
+				},
+				"per": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 110,
+							"start_offset": 664,
+							"end_offset": 667
+						}
+					]
+				},
+				"permaneat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 199,
+							"start_offset": 1238,
+							"end_offset": 1247
+						}
+					]
+				},
+				"perpetuo": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 134,
+							"start_offset": 815,
+							"end_offset": 823
+						}
+					]
+				},
+				"persona": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 170,
+							"start_offset": 1049,
+							"end_offset": 1056
+						}
+					]
+				},
+				"pettonis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 293,
+							"start_offset": 1928,
+							"end_offset": 1936
+						}
+					]
+				},
+				"post": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 117,
+							"start_offset": 709,
+							"end_offset": 713
+						}
+					]
+				},
+				"posterior": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 144,
+							"start_offset": 882,
+							"end_offset": 891
+						}
+					]
+				},
+				"potuerit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 81,
+							"start_offset": 475,
+							"end_offset": 483
+						}
+					]
+				},
+				"prefatum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 125,
+							"start_offset": 759,
+							"end_offset": 767
+						}
+					]
+				},
+				"presbiter": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 290,
+							"start_offset": 1910,
+							"end_offset": 1919
+						}
+					]
+				},
+				"presbiteri": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 265,
+							"start_offset": 1709,
+							"end_offset": 1719
+						},
+						{
+							"position": 294,
+							"start_offset": 1937,
+							"end_offset": 1947
+						}
+					]
+				},
+				"presenciarum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 230,
+							"start_offset": 1463,
+							"end_offset": 1475
+						}
+					]
+				},
+				"prestanti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 261,
+							"start_offset": 1675,
+							"end_offset": 1684
+						}
+					]
+				},
+				"pro": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 105,
+							"start_offset": 627,
+							"end_offset": 630
+						},
+						{
+							"position": 128,
+							"start_offset": 782,
+							"end_offset": 785
+						},
+						{
+							"position": 165,
+							"start_offset": 1016,
+							"end_offset": 1019
+						},
+						{
+							"position": 286,
+							"start_offset": 1881,
+							"end_offset": 1884
+						}
+					]
+				},
+				"proprio": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 84,
+							"start_offset": 492,
+							"end_offset": 499
+						}
+					]
+				},
+				"pulueraria": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 9,
+							"start_offset": 48,
+							"end_offset": 58
+						}
+					]
+				},
+				"quem": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 1,
+							"start_offset": 6,
+							"end_offset": 10
+						}
+					]
+				},
+				"qui": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 87,
+							"start_offset": 516,
+							"end_offset": 519
+						},
+						{
+							"position": 189,
+							"start_offset": 1179,
+							"end_offset": 1182
+						},
+						{
+							"position": 205,
+							"start_offset": 1298,
+							"end_offset": 1301
+						},
+						{
+							"position": 234,
+							"start_offset": 1501,
+							"end_offset": 1504
+						},
+						{
+							"position": 253,
+							"start_offset": 1619,
+							"end_offset": 1622
+						}
+					]
+				},
+				"quis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 154,
+							"start_offset": 947,
+							"end_offset": 951
+						}
+					]
+				},
+				"quod": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 121,
+							"start_offset": 735,
+							"end_offset": 739
+						},
+						{
+							"position": 137,
+							"start_offset": 832,
+							"end_offset": 836
+						},
+						{
+							"position": 155,
+							"start_offset": 953,
+							"end_offset": 957
+						},
+						{
+							"position": 224,
+							"start_offset": 1436,
+							"end_offset": 1440
+						}
+					]
+				},
+				"quodlibet": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 169,
+							"start_offset": 1039,
+							"end_offset": 1048
+						}
+					]
+				},
+				"regis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 221,
+							"start_offset": 1420,
+							"end_offset": 1425
+						}
+					]
+				},
+				"regnum": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 216,
+							"start_offset": 1378,
+							"end_offset": 1384
+						},
+						{
+							"position": 245,
+							"start_offset": 1562,
+							"end_offset": 1568
+						}
+					]
+				},
+				"reiudicare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 140,
+							"start_offset": 851,
+							"end_offset": 861
+						}
+					]
+				},
+				"remedii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 270,
+							"start_offset": 1752,
+							"end_offset": 1759
+						}
+					]
+				},
+				"remedium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 129,
+							"start_offset": 786,
+							"end_offset": 794
+						}
+					]
+				},
+				"restituat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 86,
+							"start_offset": 505,
+							"end_offset": 514
+						}
+					]
+				},
+				"rofini": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 252,
+							"start_offset": 1611,
+							"end_offset": 1617
+						}
+					]
+				},
+				"rofino": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 5,
+							"start_offset": 29,
+							"end_offset": 35
+						}
+					]
+				},
+				"rogaverunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 256,
+							"start_offset": 1634,
+							"end_offset": 1644
+						}
+					]
+				},
+				"rogiti": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 237,
+							"start_offset": 1511,
+							"end_offset": 1517
+						}
+					]
+				},
+				"salubrium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 32,
+							"start_offset": 188,
+							"end_offset": 197
+						}
+					]
+				},
+				"sancta": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 185,
+							"start_offset": 1154,
+							"end_offset": 1160
+						}
+					]
+				},
+				"sancti": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 22,
+							"start_offset": 126,
+							"end_offset": 132
+						},
+						{
+							"position": 52,
+							"start_offset": 297,
+							"end_offset": 303
+						},
+						{
+							"position": 57,
+							"start_offset": 324,
+							"end_offset": 330
+						},
+						{
+							"position": 103,
+							"start_offset": 612,
+							"end_offset": 618
+						}
+					]
+				},
+				"sanctum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 126,
+							"start_offset": 768,
+							"end_offset": 775
+						}
+					]
+				},
+				"scripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 295,
+							"start_offset": 1948,
+							"end_offset": 1955
+						}
+					]
+				},
+				"scumunicatus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 181,
+							"start_offset": 1128,
+							"end_offset": 1140
+						}
+					]
+				},
+				"sed": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 147,
+							"start_offset": 905,
+							"end_offset": 908
+						}
+					]
+				},
+				"seffonis": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 259,
+							"start_offset": 1660,
+							"end_offset": 1668
+						},
+						{
+							"position": 268,
+							"start_offset": 1735,
+							"end_offset": 1743
+						}
+					]
+				},
+				"semis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 114,
+							"start_offset": 693,
+							"end_offset": 698
+						}
+					]
+				},
+				"si": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 71,
+							"start_offset": 409,
+							"end_offset": 411
+						},
+						{
+							"position": 76,
+							"start_offset": 445,
+							"end_offset": 447
+						},
+						{
+							"position": 136,
+							"start_offset": 828,
+							"end_offset": 830
+						},
+						{
+							"position": 153,
+							"start_offset": 944,
+							"end_offset": 946
+						},
+						{
+							"position": 159,
+							"start_offset": 978,
+							"end_offset": 980
+						}
+					]
+				},
+				"sic": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 60,
+							"start_offset": 344,
+							"end_offset": 347
+						}
+					]
+				},
+				"signa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 240,
+							"start_offset": 1531,
+							"end_offset": 1536
+						}
+					]
+				},
+				"signum": {
+					"term_freq": 8,
+					"tokens": [
+						{
+							"position": 247,
+							"start_offset": 1583,
+							"end_offset": 1589
+						},
+						{
+							"position": 258,
+							"start_offset": 1653,
+							"end_offset": 1659
+						},
+						{
+							"position": 263,
+							"start_offset": 1693,
+							"end_offset": 1699
+						},
+						{
+							"position": 267,
+							"start_offset": 1728,
+							"end_offset": 1734
+						},
+						{
+							"position": 272,
+							"start_offset": 1768,
+							"end_offset": 1774
+						},
+						{
+							"position": 275,
+							"start_offset": 1796,
+							"end_offset": 1802
+						},
+						{
+							"position": 278,
+							"start_offset": 1822,
+							"end_offset": 1828
+						},
+						{
+							"position": 281,
+							"start_offset": 1844,
+							"end_offset": 1850
+						}
+					]
+				},
+				"singulas": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 111,
+							"start_offset": 668,
+							"end_offset": 676
+						}
+					]
+				},
+				"sit": {
+					"term_freq": 4,
+					"tokens": [
+						{
+							"position": 69,
+							"start_offset": 401,
+							"end_offset": 404
+						},
+						{
+							"position": 132,
+							"start_offset": 808,
+							"end_offset": 811
+						},
+						{
+							"position": 143,
+							"start_offset": 878,
+							"end_offset": 881
+						},
+						{
+							"position": 180,
+							"start_offset": 1124,
+							"end_offset": 1127
+						}
+					]
+				},
+				"solvat": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 187,
+							"start_offset": 1164,
+							"end_offset": 1170
+						}
+					]
+				},
+				"statuit": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 61,
+							"start_offset": 348,
+							"end_offset": 355
+						}
+					]
+				},
+				"stipulacionis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 203,
+							"start_offset": 1275,
+							"end_offset": 1288
+						}
+					]
+				},
+				"sub": {
+					"term_freq": 3,
+					"tokens": [
+						{
+							"position": 215,
+							"start_offset": 1374,
+							"end_offset": 1377
+						},
+						{
+							"position": 222,
+							"start_offset": 1427,
+							"end_offset": 1430
+						},
+						{
+							"position": 229,
+							"start_offset": 1459,
+							"end_offset": 1462
+						}
+					]
+				},
+				"subnixa": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 204,
+							"start_offset": 1289,
+							"end_offset": 1296
+						}
+					]
+				},
+				"subtus": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 19,
+							"start_offset": 109,
+							"end_offset": 115
+						},
+						{
+							"position": 37,
+							"start_offset": 223,
+							"end_offset": 229
+						}
+					]
+				},
+				"sui": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 251,
+							"start_offset": 1607,
+							"end_offset": 1610
+						}
+					]
+				},
+				"suo": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 4,
+							"start_offset": 25,
+							"end_offset": 28
+						},
+						{
+							"position": 83,
+							"start_offset": 488,
+							"end_offset": 491
+						}
+					]
+				},
+				"super": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 31,
+							"start_offset": 182,
+							"end_offset": 187
+						}
+					]
+				},
+				"superius": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 122,
+							"start_offset": 740,
+							"end_offset": 748
+						}
+					]
+				},
+				"superscripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 246,
+							"start_offset": 1569,
+							"end_offset": 1581
+						}
+					]
+				},
+				"supra": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 14,
+							"start_offset": 84,
+							"end_offset": 89
+						},
+						{
+							"position": 43,
+							"start_offset": 254,
+							"end_offset": 259
+						}
+					]
+				},
+				"suscripsi": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 297,
+							"start_offset": 1959,
+							"end_offset": 1968
+						}
+					]
+				},
+				"tamen": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 91,
+							"start_offset": 538,
+							"end_offset": 543
+						}
+					]
+				},
+				"tempore": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 191,
+							"start_offset": 1186,
+							"end_offset": 1193
+						}
+					]
+				},
+				"temtare": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 176,
+							"start_offset": 1092,
+							"end_offset": 1099
+						}
+					]
+				},
+				"terrola": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 78,
+							"start_offset": 453,
+							"end_offset": 460
+						}
+					]
+				},
+				"testes": {
+					"term_freq": 8,
+					"tokens": [
+						{
+							"position": 257,
+							"start_offset": 1645,
+							"end_offset": 1651
+						},
+						{
+							"position": 262,
+							"start_offset": 1685,
+							"end_offset": 1691
+						},
+						{
+							"position": 266,
+							"start_offset": 1720,
+							"end_offset": 1726
+						},
+						{
+							"position": 271,
+							"start_offset": 1760,
+							"end_offset": 1766
+						},
+						{
+							"position": 274,
+							"start_offset": 1788,
+							"end_offset": 1794
+						},
+						{
+							"position": 277,
+							"start_offset": 1814,
+							"end_offset": 1820
+						},
+						{
+							"position": 280,
+							"start_offset": 1836,
+							"end_offset": 1842
+						},
+						{
+							"position": 283,
+							"start_offset": 1860,
+							"end_offset": 1866
+						}
+					]
+				},
+				"testibus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 63,
+							"start_offset": 362,
+							"end_offset": 370
+						}
+					]
+				},
+				"testium": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 233,
+							"start_offset": 1492,
+							"end_offset": 1499
+						}
+					]
+				},
+				"uia": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 16,
+							"start_offset": 93,
+							"end_offset": 96
+						},
+						{
+							"position": 40,
+							"start_offset": 238,
+							"end_offset": 241
+						}
+					]
+				},
+				"una": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 49,
+							"start_offset": 284,
+							"end_offset": 287
+						}
+					]
+				},
+				"ut": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 64,
+							"start_offset": 372,
+							"end_offset": 374
+						},
+						{
+							"position": 93,
+							"start_offset": 556,
+							"end_offset": 558
+						}
+					]
+				},
+				"uuiliarentis": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 273,
+							"start_offset": 1775,
+							"end_offset": 1787
+						}
+					]
+				},
+				"uxor": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 99,
+							"start_offset": 587,
+							"end_offset": 591
+						}
+					]
+				},
+				"vel": {
+					"term_freq": 5,
+					"tokens": [
+						{
+							"position": 98,
+							"start_offset": 583,
+							"end_offset": 586
+						},
+						{
+							"position": 164,
+							"start_offset": 1012,
+							"end_offset": 1015
+						},
+						{
+							"position": 168,
+							"start_offset": 1035,
+							"end_offset": 1038
+						},
+						{
+							"position": 177,
+							"start_offset": 1100,
+							"end_offset": 1103
+						},
+						{
+							"position": 239,
+							"start_offset": 1527,
+							"end_offset": 1530
+						}
+					]
+				},
+				"venerunt": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 238,
+							"start_offset": 1518,
+							"end_offset": 1526
+						}
+					]
+				},
+				"vero": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 119,
+							"start_offset": 721,
+							"end_offset": 725
+						}
+					]
+				},
+				"vice": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 292,
+							"start_offset": 1923,
+							"end_offset": 1927
+						}
+					]
+				},
+				"viii": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 34,
+							"start_offset": 205,
+							"end_offset": 209
+						}
+					]
+				},
+				"virorum": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 232,
+							"start_offset": 1484,
+							"end_offset": 1491
+						}
+					]
+				},
+				"vocatus": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 289,
+							"start_offset": 1902,
+							"end_offset": 1909
+						}
+					]
+				},
+				"voluerit": {
+					"term_freq": 2,
+					"tokens": [
+						{
+							"position": 75,
+							"start_offset": 435,
+							"end_offset": 443
+						},
+						{
+							"position": 179,
+							"start_offset": 1114,
+							"end_offset": 1122
+						}
+					]
+				},
+				"voluero": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 141,
+							"start_offset": 862,
+							"end_offset": 869
+						}
+					]
+				},
+				"xv": {
+					"term_freq": 1,
+					"tokens": [
+						{
+							"position": 226,
+							"start_offset": 1445,
+							"end_offset": 1447
+						}
+					]
+				}
+			}
+		}
+	}
+}

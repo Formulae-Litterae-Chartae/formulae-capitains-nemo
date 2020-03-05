@@ -306,14 +306,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
             "Easter",
-            "Friday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "highlight": {
