@@ -2,8 +2,8 @@
   "took": 3,
   "timed_out": false,
   "_shards": {
-    "total": 24,
-    "successful": 24,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
@@ -14,7 +14,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 5018,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -42,7 +42,7 @@
             "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
             "doc_count": 254
@@ -153,7 +153,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 338
+        "doc_count": 2585
       }
     },
     "corpus": {

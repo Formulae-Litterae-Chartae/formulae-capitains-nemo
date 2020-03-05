@@ -1,0 +1,387 @@
+{
+  "took": 9,
+  "timed_out": false,
+  "_shards": {
+    "total": 24,
+    "successful": 24,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "andecavensis_v1",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Angers 1",
+          "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false
+        },
+        "highlight": {
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form001.lat001"
+        ]
+      },
+      {
+        "_index": "andecavensis_v1",
+        "_type": "andecavensis",
+        "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Angers 34",
+          "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false
+        },
+        "highlight": {
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:andecavensis.form034.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 5018,
+      "corpus": {
+        "buckets": {
+          "Angers": {
+            "doc_count": 62
+          },
+          "Arnulfinger": {
+            "doc_count": 24
+          },
+          "B\u00fcnden": {
+            "doc_count": 24
+          },
+          "Echternach": {
+            "doc_count": 152
+          },
+          "Freising": {
+            "doc_count": 1383
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "Hersfeld": {
+            "doc_count": 121
+          },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 254
+          },
+          "Luzern": {
+            "doc_count": 6
+          },
+          "Marculf": {
+            "doc_count": 41
+          },
+          "Merowinger": {
+            "doc_count": 196
+          },
+          "Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Passau": {
+            "doc_count": 102
+          },
+          "Regensburg": {
+            "doc_count": 269
+          },
+          "Rheinisch": {
+            "doc_count": 78
+          },
+          "R\u00e4tien": {
+            "doc_count": 60
+          },
+          "Salzburg": {
+            "doc_count": 229
+          },
+          "Sch\u00e4ftlarn": {
+            "doc_count": 37
+          },
+          "St. Gallen": {
+            "doc_count": 779
+          },
+          "Wei\u00dfenburg": {
+            "doc_count": 276
+          },
+          "Werden": {
+            "doc_count": 66
+          },
+          "Z\u00fcrich": {
+            "doc_count": 53
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 7
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 23
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 143
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 1435
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 2071
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 847
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 117
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 338
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Angers": {
+          "doc_count": 2
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "B\u00fcnden": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "R\u00e4tien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Sch\u00e4ftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Wei\u00dfenburg": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Z\u00fcrich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 0
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 2
+    }
+  }
+}

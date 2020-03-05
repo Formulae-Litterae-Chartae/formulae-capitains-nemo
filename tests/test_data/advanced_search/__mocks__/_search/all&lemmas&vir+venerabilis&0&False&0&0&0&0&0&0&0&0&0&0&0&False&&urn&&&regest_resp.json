@@ -1,14 +1,14 @@
 {
-  "took": 4,
+  "took": 5,
   "timed_out": false,
   "_shards": {
-    "total": 24,
-    "successful": 24,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 11,
+    "total": 5,
     "max_score": null,
     "hits": [
       {
@@ -57,92 +57,6 @@
       {
         "_index": "andecavensis_v1",
         "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form004.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 4",
-          "urn": "urn:cts:formulae:andecavensis.form004.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form004.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v1",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form007.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 7",
-          "urn": "urn:cts:formulae:andecavensis.form007.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form007.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v1",
-        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
         "_source": {
@@ -186,49 +100,6 @@
       {
         "_index": "andecavensis_v1",
         "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form027.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 27",
-          "urn": "urn:cts:formulae:andecavensis.form027.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form027.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v1",
-        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
         "_source": {
@@ -267,92 +138,6 @@
         },
         "sort": [
           "urn:cts:formulae:andecavensis.form029.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v1",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form032.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 32",
-          "urn": "urn:cts:formulae:andecavensis.form032.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form032.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v1",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form037.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 37",
-          "urn": "urn:cts:formulae:andecavensis.form037.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form037.lat001"
         ]
       },
       {
@@ -445,7 +230,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 5018,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -473,7 +258,7 @@
             "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
             "doc_count": 254
@@ -584,13 +369,13 @@
         ]
       },
       "no_date": {
-        "doc_count": 338
+        "doc_count": 2585
       }
     },
     "corpus": {
       "buckets": {
         "Angers": {
-          "doc_count": 11
+          "doc_count": 5
         },
         "Arnulfinger": {
           "doc_count": 0
@@ -725,7 +510,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 11
+      "doc_count": 5
     }
   }
 }

@@ -1,9 +1,9 @@
 {
-  "took": 6,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 24,
-    "successful": 24,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
@@ -306,14 +306,14 @@
           "min_date": "0769-04-20",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
             "Easter",
-            "Friday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -543,14 +543,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
             "Easter",
-            "Friday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -655,12 +655,12 @@
           "min_date": "0758-03-15",
           "days": [
             "Lent",
-            "Tuesday",
-            "Thursday",
-            "Wednesday",
-            "Sunday",
             "Saturday",
-            "Monday"
+            "Wednesday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -745,13 +745,13 @@
           ],
           "min_date": "0769-08-01",
           "days": [
-            "Tuesday",
-            "Thursday",
+            "Saturday",
             "Wednesday",
             "Friday",
+            "Monday",
             "Sunday",
-            "Saturday",
-            "Monday"
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -948,7 +948,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 5018,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -976,7 +976,7 @@
             "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
             "doc_count": 254
@@ -1087,7 +1087,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 338
+        "doc_count": 2585
       }
     },
     "corpus": {
