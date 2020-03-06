@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Tuesday",
-            "Easter",
             "Lent",
+            "Easter",
             "Saturday",
-            "Thursday",
-            "Friday",
             "Wednesday",
-            "Sunday"
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "highlight": {
@@ -326,7 +326,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -547,15 +547,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Monday",
-            "Tuesday",
+            "Lent",
             "Easter",
             "Saturday",
-            "Lent",
-            "Thursday",
-            "Friday",
             "Wednesday",
-            "Sunday"
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "highlight": {
@@ -598,10 +598,16 @@
           "Hersfeld": {
             "doc_count": 0
           },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 0
           },
-          "Markulf": {
+          "Marculf": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -733,10 +739,16 @@
         "Hersfeld": {
           "doc_count": 0
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
         "Luzern": {
           "doc_count": 0
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {

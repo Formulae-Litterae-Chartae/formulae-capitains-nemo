@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:fulda_stengel.stengel0015</identifier>
+   <parent>urn:cts:formulae:fulda_stengel</parent>
+   <dc:title xml:lang="deu">Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 15</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./fulda_stengel.stengel0015.lat001.xml">
+         <identifier>urn:cts:formulae:fulda_stengel.stengel0015.lat001</identifier>
+         <parent>urn:cts:formulae:fulda_stengel.stengel0015</parent>
+         <dc:title xml:lang="deu">Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 15</dc:title>
+         <dc:description xml:lang="deu">Papst Zacharias verleiht dem Kloster auf Bitten des [Erz]bischofs Bonifatius die Exemtion von aller geistlichen Gerichtsbarkeit und unterstellt es unmittelbar der römischen Kirche.</dc:description>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Your Name (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Urkundenbuch des Klosters Fulda; Teil: Bd. 1., Nr. 15, in: Edmund E. Stengel, Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf), Marburg 1958, [URI: http://d-nb.info/454869509], S. 25-32.</dc:source>
+         <structured-metadata>
+            <dct:abstract xml:lang="deu"/>
+            <bib:editor>Edmund E. Stengel</bib:editor>
+            <dct:dateCopyrighted>1958</dct:dateCopyrighted>
+            <dct:created/>
+            <dct:bibliographicCitation>Urkundenbuch des Klosters Fulda; Teil: Bd. 1., Nr. 15, in: Edmund E. Stengel, Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf), Marburg 1958, [URI: http://d-nb.info/454869509], S. 25-32.</dct:bibliographicCitation>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

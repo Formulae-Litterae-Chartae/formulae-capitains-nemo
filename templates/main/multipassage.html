@@ -43,12 +43,12 @@
             {% endif %}
         {% endfor %}
         {% if 'manifest' in object.objectId %}
-            <div class="entry-title text-center">{{object.title|safe}}</div>
-            <span></span>
-            <a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a>
+            <div class="col-12 entry-title text-center">{{object.title|safe}}</div>
+            <div class="col-12 text-center"><a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a></div>
         {% else %}
             {% if object.prev_version %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
+                {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}"><i class="fas fa-step-backward"></i></a>
                 </div>
@@ -59,6 +59,7 @@
             {% endif %}
             {% if ns.hit_index != -1 and ns.hit_index > 0 %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index - 1]['id']) %}
+                {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-chevron-up"></i></a>
                 </div>
@@ -70,6 +71,7 @@
             <div class="col entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
             {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['id']) %}
+                {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-chevron-down"></i></a>
                 </div>
@@ -80,6 +82,7 @@
             {% endif %}
             {% if object.next_version %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
+                {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}"><i class="fas fa-step-forward"></i></a>
                 </div>
@@ -191,6 +194,11 @@
     {% if session['reading_format'] == 'rows' %}
 
         {% for text in objects %}
+        {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+            {% set copy_class = ' no-copy' %}
+        {% else %}
+            {% set copy_class = '' %}
+        {% endif %}
         <article class="hentry entry white col-sm-12">
             <!-- <nav>
                 {{ navigation }}
@@ -202,24 +210,20 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if not current_user.project_team and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
-                <section class="row no-copy text-section text-row">
-            {% else %}
-                <section class="row text-section text-row">
+            <section class="row text-section text-row{{ copy_class }}">
+            {% if  text.text_passage %}
+                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                <div class="d-flex flex-row">{{ navigation }}</div>
+                    {{ text.text_passage }}
+                <footer>{% include "main::passage_footer.html" %}</footer>
+            </section>
+                {% else %}
+                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                {% with manifest = text.manifest, div_v = text.div_v %}
+                {% include "viewer::embededmirador.html" %}
+                {% endwith %}
+            </section>
             {% endif %}
-                {% if  text.text_passage %}
-                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                    <div class="d-flex flex-row">{{ navigation }}</div>
-                        {{ text.text_passage }}
-                    <footer>{% include "main::passage_footer.html" %}</footer>
-                </section>
-                 {% else %}
-                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                    {% with manifest = text.manifest, div_v = text.div_v %}
-                    {% include "viewer::embededmirador.html" %}
-                    {% endwith %}
-                </section>
-                {% endif %}
         </article>
         {% endfor %}
         
@@ -232,23 +236,20 @@
             <div class="row pt-3">
                 <section class="col-sm with-border" id="viewer" style="display:none;"></section>
             {% for text in objects %}
+            {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+                {% set copy_class = ' no-copy' %}
+            {% else %}
+                {% set copy_class = '' %}
+            {% endif %}
             {%set all_texts = objects|map(attribute='objectId')|list %}
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            {% if not current_user.project_team and text.collections.parents[-1]['id'] == 'formulae_collection'  %}
                 {% if loop.last %}
-                <section class="col-sm no-copy text-section">
+                <section class="col-sm text-section{{ copy_class }}">
                 {% else %}
-                <section class="col-sm with-border no-copy text-section">
+                <section class="col-sm with-border text-section{{ copy_class }}">
                 {% endif %}
-            {% else %}
-                {% if loop.last %}
-                <section class="col-sm text-section">
-                {% else %}
-                <section class="col-sm with-border text-section">
-                {% endif %}
-            {% endif %}
                 {% if  text.text_passage %}
                     {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                     <div class="d-flex flex-row">{{ navigation }}</div>

@@ -99,14 +99,24 @@
               "_type": "hersfeld"
             }
           },
+          "Katalonien": {
+            "match": {
+              "_type": "katalonien"
+            }
+          },
+          "Lorsch": {
+            "match": {
+              "_type": "lorsch"
+            }
+          },
           "Luzern": {
             "match": {
               "_type": "luzern"
             }
           },
-          "Markulf": {
+          "Marculf": {
             "match": {
-              "_type": "markulf"
+              "_type": "marculf"
             }
           },
           "Merowinger": {
@@ -270,14 +280,24 @@
                   "_type": "hersfeld"
                 }
               },
+              "Katalonien": {
+                "match": {
+                  "_type": "katalonien"
+                }
+              },
+              "Lorsch": {
+                "match": {
+                  "_type": "lorsch"
+                }
+              },
               "Luzern": {
                 "match": {
                   "_type": "luzern"
                 }
               },
-              "Markulf": {
+              "Marculf": {
                 "match": {
-                  "_type": "markulf"
+                  "_type": "marculf"
                 }
               },
               "Merowinger": {

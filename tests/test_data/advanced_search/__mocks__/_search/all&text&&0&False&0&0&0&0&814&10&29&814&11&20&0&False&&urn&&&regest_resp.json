@@ -1,18 +1,18 @@
 {
-  "took": 85,
+  "took": 14,
   "timed_out": false,
   "_shards": {
-    "total": 23,
-    "successful": 23,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 50,
+    "total": 60,
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -114,7 +114,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -148,7 +148,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -182,7 +182,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
         "_score": null,
@@ -216,7 +216,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -290,7 +290,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v3",
+        "_index": "hersfeld_v1",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -361,11 +361,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -388,11 +388,17 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 254
+          },
           "Luzern": {
             "doc_count": 6
           },
-          "Markulf": {
-            "doc_count": 22
+          "Marculf": {
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -431,7 +437,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -467,7 +473,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1412
+            "doc_count": 1435
           },
           {
             "key": "800-899",
@@ -475,7 +481,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2071
           },
           {
             "key": "900-999",
@@ -483,18 +489,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 816
+            "doc_count": 847
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 92
+            "doc_count": 117
           }
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 2585
       }
     },
     "corpus": {
@@ -523,10 +529,16 @@
         "Hersfeld": {
           "doc_count": 2
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 10
+        },
         "Luzern": {
           "doc_count": 6
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {
@@ -602,7 +614,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 24
+          "doc_count": 26
         },
         {
           "key": "800-899",
@@ -610,7 +622,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 25
+          "doc_count": 33
         },
         {
           "key": "900-999",

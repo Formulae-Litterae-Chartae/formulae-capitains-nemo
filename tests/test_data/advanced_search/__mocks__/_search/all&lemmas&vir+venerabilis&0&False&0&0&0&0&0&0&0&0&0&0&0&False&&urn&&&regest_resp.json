@@ -1,18 +1,18 @@
 {
-  "took": 15,
+  "took": 5,
   "timed_out": false,
   "_shards": {
-    "total": 23,
-    "successful": 23,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 11,
+    "total": 5,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,93 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form004.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 4",
-          "urn": "urn:cts:formulae:andecavensis.form004.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form004.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v3",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form007.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 7",
-          "urn": "urn:cts:formulae:andecavensis.form007.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form007.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -184,50 +98,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form027.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 27",
-          "urn": "urn:cts:formulae:andecavensis.form027.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form027.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -270,93 +141,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form032.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 32",
-          "urn": "urn:cts:formulae:andecavensis.form032.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form032.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v3",
-        "_type": "andecavensis",
-        "_id": "urn:cts:formulae:andecavensis.form037.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Angers 37",
-          "urn": "urn:cts:formulae:andecavensis.form037.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:andecavensis.form037.lat001"
-        ]
-      },
-      {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -399,7 +184,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -445,11 +230,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -472,11 +257,17 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 254
+          },
           "Luzern": {
             "doc_count": 6
           },
-          "Markulf": {
-            "doc_count": 22
+          "Marculf": {
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -515,7 +306,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -551,7 +342,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1412
+            "doc_count": 1435
           },
           {
             "key": "800-899",
@@ -559,7 +350,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2071
           },
           {
             "key": "900-999",
@@ -567,24 +358,24 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 816
+            "doc_count": 847
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 92
+            "doc_count": 117
           }
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 2585
       }
     },
     "corpus": {
       "buckets": {
         "Angers": {
-          "doc_count": 11
+          "doc_count": 5
         },
         "Arnulfinger": {
           "doc_count": 0
@@ -607,10 +398,16 @@
         "Hersfeld": {
           "doc_count": 0
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
         "Luzern": {
           "doc_count": 0
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {
@@ -713,7 +510,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 11
+      "doc_count": 5
     }
   }
 }

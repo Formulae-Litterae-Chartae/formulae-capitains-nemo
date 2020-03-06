@@ -1,18 +1,18 @@
 {
-  "took": 32,
+  "took": 4,
   "timed_out": false,
   "_shards": {
-    "total": 23,
-    "successful": 23,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 422,
+    "total": 428,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Tuesday",
-            "Easter",
             "Lent",
+            "Easter",
             "Saturday",
-            "Thursday",
-            "Friday",
             "Wednesday",
-            "Sunday"
+            "Friday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0121.lat001",
         "_score": null,
@@ -617,7 +617,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0122.lat001",
         "_score": null,
@@ -654,11 +654,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -681,11 +681,17 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 254
+          },
           "Luzern": {
             "doc_count": 6
           },
-          "Markulf": {
-            "doc_count": 22
+          "Marculf": {
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -724,7 +730,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -760,7 +766,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1412
+            "doc_count": 1435
           },
           {
             "key": "800-899",
@@ -768,7 +774,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2071
           },
           {
             "key": "900-999",
@@ -776,18 +782,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 816
+            "doc_count": 847
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 92
+            "doc_count": 117
           }
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 2585
       }
     },
     "corpus": {
@@ -816,10 +822,16 @@
         "Hersfeld": {
           "doc_count": 2
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 6
+        },
         "Luzern": {
           "doc_count": 6
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {
@@ -895,7 +907,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 369
+          "doc_count": 371
         },
         {
           "key": "800-899",
@@ -903,7 +915,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 45
+          "doc_count": 48
         },
         {
           "key": "900-999",

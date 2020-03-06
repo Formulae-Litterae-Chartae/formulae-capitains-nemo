@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:cts="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:foaf="http://xmlns.com/foaf/0.1/"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:lorsch.gloeckner0002</identifier>
+   <parent>urn:cts:formulae:lorsch</parent>
+   <dc:title xml:lang="deu">Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 1 (Reg. 2)</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./lorsch.gloeckner0002.lat001.xml">
+         <identifier>urn:cts:formulae:lorsch.gloeckner0002.lat001</identifier>
+         <parent>urn:cts:formulae:lorsch.gloeckner0002</parent>
+         <dc:title xml:lang="deu">Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik, Nr. 1 (Reg. 2)</dc:title>
+         <dc:description xml:lang="deu"/>
+         <dc:language>lat</dc:language>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Tabea Henn (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>http://d-nb.info/36545527X</dc:source>
+         <structured-metadata>
+            <dct:abstract/>
+            <bib:editor>Karl Glöckner</bib:editor>
+            <dct:dateCopyrighted>1929</dct:dateCopyrighted>
+            <dct:created>2019</dct:created>
+            <dct:bibliographicCitation>Karl &lt;span class="surname"&gt;Glöckner&lt;/span&gt;, Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik, Darmstadt 1929, [URI: &lt;a target="_blank" href="http://d-nb.info/36545527X"&gt;http://d-nb.info/36545527X&lt;/a&gt;], S. 267 – 268..</dct:bibliographicCitation>
+            <dct:temporal>764 07 12</dct:temporal>
+            <dct:spatial>Butthesheim iuxta Lobetdenburc</dct:spatial>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

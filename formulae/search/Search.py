@@ -29,8 +29,10 @@ AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
                                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                                                    'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
                                                    'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                   'Katalonien': {'match': {'_type': 'katalonien'}},
+                                                   'Lorsch': {'match': {'_type': 'lorsch'}},
                                                    'Luzern': {'match': {'_type': 'luzern'}},
-                                                   'Markulf': {'match': {'_type': 'markulf'}},
+                                                   'Marculf': {'match': {'_type': 'marculf'}},
                                                    'Merowinger': {'match': {'_type': 'merowinger1'}},
                                                    'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                                    'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -50,7 +52,7 @@ AGGREGATIONS['all_docs']['aggs']['range'] = AGGREGATIONS['range']
 AGGREGATIONS['all_docs']['aggs']['corpus'] = AGGREGATIONS['corpus']
 AGGREGATIONS['all_docs']['aggs']['no_date'] = AGGREGATIONS['no_date']
 HITS_TO_READER = 10000
-LEMMA_INDICES = ['lemmas']
+LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 
 def build_sort_list(sort_str):
@@ -218,32 +220,68 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     """
     ids = []
     for hit in search['hits']['hits']:
+        text = hit['_source']['text']
         sentences = []
-        start = 0
-        lem_index = list(hit['highlight'].keys())[0]
-        lems = hit['_source'][lem_index].split()
-        inflected = hit['_source']['text'].split()
-        ratio = len(inflected)/len(lems)
+        vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
+        inflected_offsets = dict()
+        lemma_positions = dict()
+        for v in vectors['term_vectors']['text']['terms'].values():
+            for o in v['tokens']:
+                inflected_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+        for k, v in vectors['term_vectors']['lemmas']['terms'].items():
+            for o in v['tokens']:
+                lemma_positions[o['position']] = k
         if ' ' in q:
-            addend = 0 if ordered_terms else 1
-            query_words = q.split()
-            for i, w in enumerate(lems):
-                if w == query_words[0] and set(query_words).issubset(lems[max(i - (int(slop) + addend), 0):min(i + (int(slop) + len(query_words)), len(lems))]):
-                    if ratio == 1.0:
-                        start_i, end_i = max(i - (int(slop) + addend), 0), min(i + (int(slop) + len(query_words)), len(lems))
-                        for lem_i, lem_word in enumerate(lems[start_i:end_i]):
-                            if lem_word in query_words:
-                                inflected[start_i + lem_i] = PRE_TAGS + inflected[start_i + lem_i] + POST_TAGS
-                    rounded = round(i * ratio)
-                    sentences.append(Markup(' '.join(inflected[max(rounded - 15, 0):min(rounded + 15, len(inflected))])))
+            q_words = q.split()
+            positions = {k: [] for k in q_words}
+            for w in q_words:
+                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+            search_range_start = int(slop) + len(q_words)
+            search_range_end = int(slop) + len(q_words) + 1
+            if ordered_terms:
+                search_range_start = -1
+            for pos in positions[q_words[0]]:
+                index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
+                used_q_words = {q_words[0]}
+                span = {pos}
+                for w in q_words[1:]:
+                    for next_pos in positions[w]:
+                        if next_pos in index_range:
+                            span.add(next_pos)
+                            used_q_words.add(w)
+                if set(q_words) == used_q_words:
+                    ordered_span = sorted(span)
+                    if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
+                        start_offsets = [inflected_offsets[x][0] for x in ordered_span]
+                        end_offsets = [inflected_offsets[x][1] for x in ordered_span]
+                        start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
+                        end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                        sentence = ''
+                        for i, x in enumerate(text[start_index:end_index]):
+                            if i + start_index in start_offsets:
+                                sentence += PRE_TAGS + x
+                            elif i + start_index in end_offsets:
+                                sentence += x + POST_TAGS
+                            else:
+                                sentence += x
+                        sentences.append(Markup(sentence))
+        # I need to change the highlight clause in search to get this to return the correct stuff
         else:
-            while q in lems[start:]:
-                i = lems.index(q, start)
-                start = i + 1
-                if ratio == 1.0:
-                    inflected[i] = PRE_TAGS + inflected[i] + POST_TAGS
-                rounded = round(i * ratio)
-                sentences.append(Markup(' '.join(inflected[max(rounded - 10, 0):min(rounded + 10, len(inflected))])))
+            positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
+            for pos in positions:
+                start_offset = inflected_offsets[pos][0]
+                end_offset = inflected_offsets[pos][1]
+                start_index = inflected_offsets[max(0, pos - 10)][0]
+                end_index = inflected_offsets[min(len(inflected_offsets) - 1, pos + 10)][1] + 1
+                sentence = ''
+                for i, x in enumerate(text[start_index:end_index]):
+                    if i + start_index == start_offset:
+                        sentence += PRE_TAGS + x
+                    elif i + start_index == end_offset:
+                        sentence += x + POST_TAGS
+                    else:
+                        sentence += x
+                sentences.append(Markup(sentence))
         ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'title': hit['_source']['title'],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []})
@@ -263,6 +301,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                      'from': (page - 1) * per_page, 'size': per_page,
                      'aggs': AGGREGATIONS
                      }
+
     body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
                                   'pre_tags': [PRE_TAGS],
@@ -287,22 +326,14 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         # To implement multiple lemma fields, create a 'span_near' statement for each of the lemma indices
         # and wrap them all in {'bool': {'should': [{'span_near'...
         clauses = []
-        if field == 'lemmas':
-            for lem_field in LEMMA_INDICES:
-                span_clauses = []
-                for term in q.split():
-                    span_clauses.append({'span_multi': {'match': {'fuzzy': {lem_field: {"value": term, "fuzziness": fuzz}}}}})
-                clauses.append({'span_near': {'clauses': span_clauses, 'slop': slop, 'in_order': ordered_terms}})
-            body_template['query']['bool']['must'].append({'bool': {'should': span_clauses}})
-        else:
-            for term in q.split():
-                if '*' in term or '?' in term:
-                    clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
-                else:
-                    clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
+        for term in q.split():
+            if '*' in term or '?' in term:
+                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+            else:
+                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
 
-            body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
-                                                                 'in_order': ordered_terms}})
+        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
+                                                                     'in_order': ordered_terms}})
 
     if regest_q:
         clauses = []
@@ -376,8 +407,9 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                      regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
+    if field not in ['autocomplete_lemmas', 'autocomplete']:
+        set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
@@ -387,7 +419,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]],
+                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]] if 'highlight' in hit else [],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []}
                    for hit in search['hits']['hits']]

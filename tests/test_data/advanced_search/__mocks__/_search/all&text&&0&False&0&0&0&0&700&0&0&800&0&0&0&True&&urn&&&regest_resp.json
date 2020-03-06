@@ -1,18 +1,18 @@
 {
-  "took": 27,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 23,
-    "successful": 23,
+    "total": 25,
+    "successful": 25,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 741,
+    "total": 753,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -59,7 +59,7 @@
           "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 4",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
-          "date_string": "706 05 13(Christi Himmelfahrt)",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
           "comp_ort": "Gaimundas",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -152,8 +152,8 @@
           ],
           "min_date": "0714-03-02",
           "days": [
-            "Friday",
-            "Lent"
+            "Lent",
+            "Friday"
           ]
         },
         "sort": [
@@ -161,7 +161,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -196,8 +196,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -205,7 +205,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -243,7 +243,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
@@ -280,7 +280,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
@@ -315,8 +315,8 @@
           ],
           "min_date": "0726-06-09",
           "days": [
-            "Tuesday",
-            "Sunday"
+            "Sunday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
@@ -396,8 +396,8 @@
           ],
           "min_date": "0746-06-06",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -408,11 +408,11 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 4743,
+      "doc_count": 7265,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 61
+            "doc_count": 62
           },
           "Arnulfinger": {
             "doc_count": 24
@@ -435,11 +435,17 @@
           "Hersfeld": {
             "doc_count": 121
           },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 254
+          },
           "Luzern": {
             "doc_count": 6
           },
-          "Markulf": {
-            "doc_count": 22
+          "Marculf": {
+            "doc_count": 41
           },
           "Merowinger": {
             "doc_count": 196
@@ -478,7 +484,7 @@
             "doc_count": 66
           },
           "Z\u00fcrich": {
-            "doc_count": 52
+            "doc_count": 53
           }
         }
       },
@@ -514,7 +520,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1412
+            "doc_count": 1435
           },
           {
             "key": "800-899",
@@ -522,7 +528,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2020
+            "doc_count": 2071
           },
           {
             "key": "900-999",
@@ -530,18 +536,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 816
+            "doc_count": 847
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 92
+            "doc_count": 117
           }
         ]
       },
       "no_date": {
-        "doc_count": 195
+        "doc_count": 2585
       }
     },
     "corpus": {
@@ -570,10 +576,16 @@
         "Hersfeld": {
           "doc_count": 18
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 12
+        },
         "Luzern": {
           "doc_count": 0
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {
@@ -649,7 +661,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 708
+          "doc_count": 720
         },
         {
           "key": "800-899",

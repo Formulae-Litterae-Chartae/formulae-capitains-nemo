@@ -10,14 +10,16 @@
 {% endif %}
 <header>
         <h1>
-        {{collections.current.label}}
+        {{collections.current.label|striptags}}
         </h1>
-    </h1>
     </header>
     </div>
     <div class="row py-0">
-    <div class="col-auto">
+    <div class="col-auto mb-4">
     <ul class="list-group">
+    {% if collections.current.id == 'urn:cts:formulae:katalonien' %}
+    <li class="list-group-item list-group-item-secondary lead">{{ _('Empfänger') }}</li>
+    {% endif %}
     {% for coll in collections.members|sort(attribute="id") %}
         <li class="list-group-item py-0">
             <a href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">

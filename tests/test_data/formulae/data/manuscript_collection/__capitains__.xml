@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns="http://purl.org/capitains/ns/1.0#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:bib="http://bibliotek-o.org/1.0/ontology/"
+    xmlns:cts="http://chs.harvard.edu/xmlns/cts"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/">
+    <identifier>manuscript_collection</identifier>
+    <dc:title xml:lang="deu">Manuskripte</dc:title>
+    <dc:title xml:lang="eng">Manuscripts</dc:title>
+    <dc:type>collected_collection</dc:type>
+    <members>
+        <collection identifier="urn:cts:formulae:fu2" path="../fu2/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:ko2" path="../ko2/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:le1" path="../le1/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:m4" path="../m4/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:p3" path="../p3/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:p12" path="../p12/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:p16" path="../p16/__capitains__.xml"/>
+    </members>
+</collection>
+

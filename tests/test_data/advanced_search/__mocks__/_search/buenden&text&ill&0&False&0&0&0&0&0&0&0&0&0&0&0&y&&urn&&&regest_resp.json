@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 0,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -41,10 +41,16 @@
           "Hersfeld": {
             "doc_count": 0
           },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 0
+          },
           "Luzern": {
             "doc_count": 0
           },
-          "Markulf": {
+          "Marculf": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -176,10 +182,16 @@
         "Hersfeld": {
           "doc_count": 0
         },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
         "Luzern": {
           "doc_count": 0
         },
-        "Markulf": {
+        "Marculf": {
           "doc_count": 0
         },
         "Merowinger": {

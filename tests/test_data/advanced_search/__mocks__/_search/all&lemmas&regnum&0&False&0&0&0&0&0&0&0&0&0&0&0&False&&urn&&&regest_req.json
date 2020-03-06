@@ -3,8 +3,8 @@
     "bool": {
       "must": [
         {
-          "bool": {
-            "should": [
+          "span_near": {
+            "clauses": [
               {
                 "span_multi": {
                   "match": {
@@ -17,7 +17,9 @@
                   }
                 }
               }
-            ]
+            ],
+            "slop": "0",
+            "in_order": false
           }
         }
       ]
@@ -112,14 +114,24 @@
               "_type": "hersfeld"
             }
           },
+          "Katalonien": {
+            "match": {
+              "_type": "katalonien"
+            }
+          },
+          "Lorsch": {
+            "match": {
+              "_type": "lorsch"
+            }
+          },
           "Luzern": {
             "match": {
               "_type": "luzern"
             }
           },
-          "Markulf": {
+          "Marculf": {
             "match": {
-              "_type": "markulf"
+              "_type": "marculf"
             }
           },
           "Merowinger": {
@@ -283,14 +295,24 @@
                   "_type": "hersfeld"
                 }
               },
+              "Katalonien": {
+                "match": {
+                  "_type": "katalonien"
+                }
+              },
+              "Lorsch": {
+                "match": {
+                  "_type": "lorsch"
+                }
+              },
               "Luzern": {
                 "match": {
                   "_type": "luzern"
                 }
               },
-              "Markulf": {
+              "Marculf": {
                 "match": {
-                  "_type": "markulf"
+                  "_type": "marculf"
                 }
               },
               "Merowinger": {

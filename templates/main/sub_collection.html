@@ -1,5 +1,7 @@
 {% extends "main::container.html" %}
 
+{% include "main::no_copy_modal.html" %}
+
 {% macro make_dates(values) %}
 
 {% if values['dating'] not in ['None', ''] %}
@@ -31,7 +33,7 @@
 {% if collections.readable %}
     <h4>{{ _('Gehe zu (Text):') }}</h4>
     {% for number, values in collections.readable|dictsort %}
-        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']}}</a>
+        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
     {% endfor %}
     <div class="row">
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
@@ -39,9 +41,9 @@
             {% for number, values in collections.readable|dictsort %}
                 <li id="N{{number}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if values['name'] != _('(Titel)') and values['name'] != _('(Computus)') %}{{ _('Nummer') }} {% endif %}{{values['name']}}: </h5>
+                        <h5>{% if 'manuscript_collection' in collections.parent_ids %}Folia {% elif values['name']|int != 0 %}{{ _('Nummer') }} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
                         <span>
-                            {% if 'andecavensis' in collections.current.id or 'markulf' in collections.current.id %}
+                            {% if 'andecavensis' in collections.current.id or 'marculf' in collections.current.id %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
                                         [{{ _('Edition') }}]
@@ -70,20 +72,33 @@
                                         </div>
                                     </div>
                                 {% endif %}
+                            {% elif 'manuscript_collection' in collections.parent_ids %}
+                                {% for urn, lang, version, source in values['versions']['transcriptions'] %}
+                                    {% if source[1] == True %}
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn, 'manifest:' + urn]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                    {% else %}
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                    {% endif %}
+                                {% endfor %}
                             {% else %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
-                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{_('Version') + ' ' + loop.index|string}}</a>
-                                    {% endfor %}
+                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{% if values['versions']['editions']|length > 1 %}{{_('Version') + ' ' + loop.index|string}}{% else %}{{ _('Lesen') }}{% endif %}</a>
+                                {% endfor %}
                             {% endif %}
                         </span>
                         </div>
                         {% if current_user.project_team or collections.current.open_regesten %}
+                            {% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
+                                {% set copy_class = ' no-copy' %}
+                            {% else %}
+                                {% set copy_class = '' %}
+                            {% endif %}
                             {% if values['short_regest'] %}
-                                <p class="mb-1">{{ values['short_regest'] }}</p>
+                                <p class="mb-1{{ copy_class }}">{{ values['short_regest'] }}</p>
                             {% endif %}
                             {{ make_dates(values) }}
                             {% for p in values['regest'] %}
-                                <p><small>{{ p }}</small></p>
+                                <p class="{{ copy_class }}"><small>{{ p }}</small></p>
                             {% endfor %}
                             <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% else %}

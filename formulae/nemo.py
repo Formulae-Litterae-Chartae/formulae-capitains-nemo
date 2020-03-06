@@ -4,11 +4,10 @@ from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
 from babel.core import UnknownLocaleError
 from werkzeug.utils import redirect
-from flask_nemo import Nemo
+from flask_nemo import Nemo, filters
 from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
-from MyCapytain.resources.prototypes.cts.inventory import CtsWorkMetadata, CtsEditionMetadata, CtsTextInventoryMetadata
-from MyCapytain.resources.collections.cts import XmlCtsTextgroupMetadata
+from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from lxml import etree
@@ -26,6 +25,7 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
+from typing import List, Tuple, Union, Match
 
 
 class NemoFormulae(Nemo):
@@ -82,19 +82,21 @@ class NemoFormulae(Nemo):
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon',
-                        'urn:cts:formulae:echternach', 'urn:cts:formulae:freising', 'urn:cts:formulae:fulda_dronke',
-                        'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld', 'urn:cts:formulae:luzern',
-                        'urn:cts:formulae:mittelrheinisch', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau',
-                        'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg',
-                        'urn:cts:formulae:schaeftlarn', 'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg',
-                        'urn:cts:formulae:werden', 'urn:cts:formulae:zuerich']
+                        'urn:cts:formulae:echternach', 'urn:cts:formulae:freising', 'urn:cts:formulae:fu2',
+                        'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
+                        'urn:cts:formulae:lorsch', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch',
+                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg',
+                        'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden',
+                        'urn:cts:formulae:zuerich']
 
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:echternach', 'urn:cts:formulae:fulda_stengel',
-                             'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg', 'urn:cts:formulae:rheinisch',
-                             'urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden']
+                             'urn:cts:formulae:lorsch', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
+                             'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg',
+                             'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
-                        "eng": _l("Englisch")}
+                        "eng": _l("Englisch"), "cat": _l("Katalanisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 
@@ -139,18 +141,28 @@ class NemoFormulae(Nemo):
             for m in members:
                 m.update({'short_title':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
-            colls[member['id']] = members
+            colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
         return colls
 
-    def ordered_corpora(self, m):
+    def sort_folia(self, matchobj: Match) -> str:
+        """Sets up the folia ranges of manuscripts for better sorting"""
+        groups = []
+        sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
+        groups.append('{:04}{}'.format(int(sub_groups[0]), sub_groups[1]))
+        if matchobj.group(2):
+            groups.append(matchobj.group(2))
+        return '-'.join(groups)
+
+    def ordered_corpora(self, m, collection):
         """ Sets up the readable descendants in each corpus to be correctly ordered
 
         :param m: the metadata for the descendant
+        :param collection: the collection to which readable collection belongs
         :return: a tuple that will be put in the correct place in the ordered list when sorted
         """
         version = m.id.split('.')[-1]
         if "salzburg" in m.id:
-            par = m.parent.id.split('-')[1:]
+            par = list(m.parent)[0].split('-')[1:]
             if len(par) == 2:
                 full_par = (self.SALZBURG_MAPPING[par[0]], 'Einleitung' if par[1] == 'intro' else 'Vorrede')
             else:
@@ -167,12 +179,43 @@ class NemoFormulae(Nemo):
             par = (par, full_par)
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
-            par = m.parent.id.split('.')[-1][0].capitalize()
-            metadata = [m.id, m.parent.id.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+            parent_0 = list(m.parent)[0]
+            par = parent_0.split('.')[-1][0].capitalize()
+            metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+        elif 'transcription' in m.subtype:
+            if 'andecavensis' in m.id:
+                if collection in m.id:
+                    form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
+                    par = re.sub(r'.*?(\d+\D?)\Z', r'\1', form_num)
+                    if par.lstrip('0') == '':
+                        par = _('(Titel)')
+                    elif 'computus' in par:
+                        par = '057(Computus)'
+                else:
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            else:
+                if collection in m.id:
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                    manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+                else:
+                    form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
+                    par = re.sub(r'.*?(\d+\D?)\Z', r'\1', form_num)
+                    if par.lstrip('0') == '':
+                        par = _('(Prolog)')
+                    manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        elif 'katalonien' in m.id:
+            par = list(m.parent)[0].split('_')[-1]
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
-            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', m.parent.id)
+            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':
-                par = _('(Titel)')
+                if 'andecavensis' in m.id:
+                    par = _('(Titel)')
+                else:
+                    par = _('(Prolog)')
             elif 'computus' in par:
                 par = '057(Computus)'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
@@ -187,8 +230,10 @@ class NemoFormulae(Nemo):
         """
         open_texts = []
         half_open_texts = []
-        all_texts = {m['id']: sorted([self.ordered_corpora(r) for r in self.resolver.getMetadata(m['id']).readableDescendants])
-                     for l in self.sub_colls.values() for m in l}
+        all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
+                     for l in self.sub_colls.values() for m in l if m['id'] != 'urn:cts:formulae:katalonien'}
+        all_texts.update({m: sorted([self.ordered_corpora(r, m) for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:katalonien']})
         for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -338,6 +383,22 @@ class NemoFormulae(Nemo):
             route = login_required(route)
         return route
 
+    def semantic(self, collection, parent=None):
+        """ Generates a SEO friendly string for given collection
+
+        :param collection: Collection object to generate string for
+        :param parent: Current collection parent
+        :return: SEO/URL Friendly string
+         """
+        # The order of the ancestors isn't kept in MyCap v3 (ancestors is a dictionary)
+        #  So the reversing of the list of parent values probably doesn't make much sense here.
+        if parent is not None:
+            collections = list(parent.ancestors.values())[::-1] + [parent, collection]
+        else:
+            collections = list(collection.ancestors.values())[::-1] + [collection]
+
+        return filters.slugify("--".join([item.get_label() for item in collections if item.get_label()]))
+
     def make_coins(self, collection, text, subreference="", lang=None):
         """ Creates a CoINS Title string from information
 
@@ -365,11 +426,41 @@ class NemoFormulae(Nemo):
                     language=collection.lang, pages=quote(subreference), edition=quote(str(text.get_description(lang)))
                  )
 
+    def sort_parents(self, d):
+        """ Sort parents from closest to furthest"""
+        if d['id'] in ['formulae_collection', 'other_collection', 'lexicon_entries']:
+            return 3
+        if len(d['id'].split('.')) == 1:
+            return 2
+        return 1
+
+    def make_parents(self, collection, lang=None):
+        """ Build parents list for given collection
+
+        :param collection: Collection to build dict view of for its members
+        :param lang: Language to express data in
+        :return: List of basic objects
+        """
+        parents = [
+            {
+                "id": member.id,
+                "label": str(member.get_label(lang)),
+                "model": str(member.model),
+                "type": str(member.type),
+                "size": member.size,
+                "subtype": member.subtype
+            }
+            for member in collection.ancestors.values()
+            if member.get_label()
+        ]
+        parents = sorted(parents, key=self.sort_parents)
+        return  parents
+
     def r_collection(self, objectId, lang=None):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if type(self.resolver.getMetadata(objectId)) == XmlCtsTextgroupMetadata:
+        if 'katalonien' not in objectId and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -388,22 +479,22 @@ class NemoFormulae(Nemo):
         """
         collection = self.resolver.getMetadata(objectId)
         r = {}
+        template = "main::sub_collection.html"
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        else:
-            template = "main::sub_collection.html"
+        elif objectId == "urn:cts:formulae:katalonien":
+            return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 manuscript_data = [m.metadata.get_single(DC.source) or
                                    '{}<seg class="manuscript-number">{}</seg>'.format(metadata[2][0].title(),
                                                                                       metadata[2][1]),
                                    "manifest:" + m.id in self.app.picture_file]
-                version = m.id.split('.')[-1]
-                if 'lat' in version:
+                if 'cts:edition' in m.subtype:
                     key = 'editions'
-                elif 'deu' in version:
+                elif 'cts:translation' in m.subtype:
                     key = 'translations'
                 else:
                     key = 'transcriptions'
@@ -413,10 +504,16 @@ class NemoFormulae(Nemo):
                     work_name = par.lstrip('0') if type(par) is str else ''
                     if 'Computus' in work_name:
                         work_name = '(Computus)'
+                    elif 'Titel' in work_name:
+                        work_name = _('(Titel)')
+                    elif 'Prolog' in work_name:
+                        work_name = _('(Prolog)')
+                    elif 'urn:cts:formulae:lorsch' in m.ancestors:
+                        name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
+                        if name_part:
+                            work_name = name_part.group(0)
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
-                              # short_regest will change to str(m.get_cts_property('short-regest')) and
-                              # regest will change to str(m.get_description()) once I have reconverted the texts
-                              "regest": [str(m.get_description())] if 'andecavensis' in m.id else str(m.get_description()).split('***'),
+                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else str(m.metadata.get_single(DC.description)).split('***'),
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
@@ -426,8 +523,14 @@ class NemoFormulae(Nemo):
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
+
         if len(r) == 0:
-            flash(_('Diese Sammlung steht unter Copyright und darf hier nicht gezeigt werden.'))
+            if 'manuscript_collection' in collection.ancestors:
+                flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
+            else:
+                flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+
+        current_parents = self.make_parents(collection, lang=lang)
 
         return_value = {
             "template": template,
@@ -440,7 +543,8 @@ class NemoFormulae(Nemo):
                     "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
                 },
                 "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": current_parents,
+                "parent_ids": [x['id'] for x in current_parents]
             }
         }
         return return_value
@@ -468,14 +572,17 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = self.all_texts[collection.id]
 
-        if 'markulf' in objectId or 'andecavensis' in objectId:
+        if 'marculf' in objectId or 'andecavensis' in objectId:
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
-                    title = str(list(m.parent.get_cts_property('title').values())[0])  # " ".join([m.metadata.get_single(DC.title).__str__().split(" ")[0], m.metadata.get_single(DC.title).__str__().split(" ")[1]])
-                    form = str(m.id).split(".")[-2]
+                    if 'marculf' in objectId and 'marculf' not in m.id:
+                        edition = str(m.id).split(':')[-1].split('.')[0]
+                    ed_parent = sorted([(k, v) for k, v in m.ancestors.items() if objectId in k])[-1][-1]
+                    title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
+                    form = ed_parent.id
                     edition_name = ed_trans_mapping.get(edition, edition).title()
-                    full_edition_name = " ".join(m.metadata.get_single(DC.title).__str__().split(" ")[2:])
+                    full_edition_name = re.sub(r'{}|\(lat\)|\(deu\)'.format(title), '', str(m.metadata.get_single(DC.title))).strip()
                     regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
@@ -526,7 +633,12 @@ class NemoFormulae(Nemo):
         else:
 
             r = {'editions': [], 'translations': [], 'transcriptions': []}
-            flash(_('Diese View ist nur für MARKULF und ANDECAVENSIS verfuegbar'))
+            flash(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
+
+        if r == {'editions': [], 'translations': [], 'transcriptions': []}:
+            flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+
+        current_parents = self.make_parents(collection, lang=lang)
 
         return_value = {
             "template": template,
@@ -539,7 +651,8 @@ class NemoFormulae(Nemo):
                     "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
                 },
                 "readable": r,
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": current_parents,
+                "parent_ids": [x['id'] for x in current_parents]
             }
         }
         return return_value
@@ -574,7 +687,7 @@ class NemoFormulae(Nemo):
         :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
-        if type(collection) == XmlCtsTextgroupMetadata:
+        if 'defaultTic' not in collection.parent:
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
@@ -624,22 +737,55 @@ class NemoFormulae(Nemo):
         first, _ = reffs[0]
         return str(first)
 
-    def get_prev_next_texts(self, objId, collection):
+    def get_prev_next_texts(self, objId):
         """ Get the previous and next texts in a collection
 
         :param objId: the ID of the current object
-        :param collection: the grandparent of the current object (should be the collection, e.g., Freising or Markulf)
         :return: the IDs of the previous and next text in the same collection
         """
-        if re.search(r'lat\d\d\d', objId.split('.')[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'lat\d\d\d', x[1][0].split('.')[-1])]
-        elif re.search(r'deu\d\d\d', objId.split('.')[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if re.search(r'deu\d\d\d', x[1][0].split('.')[-1])]
+        id_parts = objId.split('.')
+        if re.search(r'lat\d\d\d', id_parts[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
+        elif re.search(r'deu\d\d\d', id_parts[-1]):
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*deu\d\d\d'.format(id_parts[0]), x[1][0])]
         else:
-            sibling_texts = [x[1][0] for x in self.all_texts[collection['id']] if x[1][0].split('.')[-1] == objId.split('.')[-1]]
+            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if x[1][0].split('.')[-1] == id_parts[-1]]
         orig_index = sibling_texts.index(objId)
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
+
+    def get_readable_siblings(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
+        """ Returns the readable children of every ancestor.
+        This assumes that any direct readable descendants that an ancestor has will also be readable siblings to the
+        collection.
+
+        :param obj: the collection for which to find siblings
+        :return: the list of siblings
+        """
+        siblings = []
+        for ancestor in obj.ancestors.values():
+            siblings += [x for x in ancestor.children.values() if x.readable]
+        return siblings
+
+    def sort_transcriptions(self, obj: Union[XmlCapitainsReadableMetadata,
+                                      XmlCapitainsCollectionMetadata]) -> Tuple[str, int]:
+        """ Return sortable tuple for the transcriptions of an object """
+        identifier = obj.id
+        manuscript_id = identifier.split(':')[-1].split('.')[0]
+        parts = re.search(r'(\D+)?(\d+)?', manuscript_id).groups('0')
+        return parts[0], int(parts[1])
+
+    def get_transcriptions(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
+        """ Returns any manuscript transcriptions that are associated with this text
+
+        :param obj: the readable collection for which to find transcriptions
+        :return: the list of transcriptions
+        """
+        transcriptions = []
+        for parent in obj.parent:
+            parent_obj = self.resolver.id_to_coll[parent]
+            transcriptions += [v for v in parent_obj.descendants.values() if 'transcription' in v.subtype]
+        return sorted(transcriptions, key=self.sort_transcriptions)
 
     def r_passage(self, objectId, subreference, lang=None):
         """ Retrieve the text of the passage
@@ -653,23 +799,23 @@ class NemoFormulae(Nemo):
         :return: Template, collections metadata and Markup object representing the text
         :rtype: {str: Any}
         """
-        collection = self.get_collection(objectId)
-        if isinstance(collection, CtsWorkMetadata):
-            editions = [t for t in collection.children.values() if isinstance(t, CtsEditionMetadata)]
+        metadata = self.get_collection(objectId)
+        if isinstance(metadata, XmlCapitainsCollectionMetadata):
+            editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and 'cts:edition' in t.subtype]
             if len(editions) == 0:
-                raise UnknownCollection('{}.{}'.format(collection.get_label(lang), subreference) + _l(' hat keine Edition.'),
+                raise UnknownCollection('{}.{}'.format(metadata.get_label(lang), subreference) + _l(' hat keine Edition.'),
                                         objectId)
             objectId = str(editions[0].id)
-            collection = self.get_collection(objectId)
+            metadata = self.get_collection(objectId)
         try:
             text = self.get_passage(objectId=objectId, subreference=subreference)
         except IndexError:
             new_subref = self.get_reffs(objectId)[0][0]
             text = self.get_passage(objectId=objectId, subreference=new_subref)
-            flash('{}.{}'.format(collection.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
+            flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
-        metadata = self.resolver.getMetadata(objectId=objectId)
+        # metadata1 = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
         else:
@@ -686,30 +832,36 @@ class NemoFormulae(Nemo):
                     inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
+        translations = [(m, m.metadata.get_single(DC.title)) for m in self.get_readable_siblings(metadata)] + \
+                       [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
+                        for x in metadata.metadata.get(DCTERMS.hasVersion)]
+        transcriptions = [(m, m.metadata.get_single(DC.title)) for m in self.get_transcriptions(metadata)]
+        current_parents = self.make_parents(metadata, lang=lang)
         return {
             "template": "main::text.html",
             "objectId": objectId,
             "subreference": subreference,
             "collections": {
                 "current": {
-                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or collection.get_label(lang),
-                    "id": collection.id,
-                    "model": str(collection.model),
-                    "type": str(collection.type),
+                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang),
+                    "id": metadata.id,
+                    "model": str(metadata.model),
+                    "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": str(text.get_description(lang)) or '',
-                    "coins": self.make_coins(collection, text, subreference, lang=lang),
+                    "description": str(metadata.metadata.get_single(DC.description)) or '',
+                    "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
-                    'lang': collection.lang,
+                    'lang': metadata.lang,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
-                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in collection.id else '',
+                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or '')
                 },
-                "parents": self.make_parents(collection, lang=lang)
+                "parents": current_parents,
+                "parent_ids": [x['id'] for x in current_parents]
             },
             "text_passage": Markup(passage),
             "notes": Markup(notes),
@@ -717,7 +869,9 @@ class NemoFormulae(Nemo):
             "next": next,
             "open_regest": objectId not in self.half_open_texts,
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
-            "isReferencedBy": inRefs
+            "isReferencedBy": inRefs,
+            "translations": translations + transcriptions,
+            "transcriptions": [x[0] for x in transcriptions]
         }
 
     def r_multipassage(self, objectIds, subreferences, lang=None):
@@ -741,15 +895,7 @@ class NemoFormulae(Nemo):
         ids = objectIds.split('+')
         translations = {}
         view = 1
-        for i in ids:
-            if "manifest" in i:
-                i = re.sub(r'^manifest:', '', i)
-            p = self.resolver.getMetadata(self.resolver.getMetadata(i).parent.id)
-            translations[i] = [(m, m.metadata.get_single(DC.title)) for m in p.readableDescendants if m.id not in ids] + \
-                              [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
-                               for x in self.resolver.getMetadata(objectId=i).metadata.get(DCTERMS.hasVersion)
-                               if str(x) not in ids]
-        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": translations}
+        passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
@@ -762,8 +908,9 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
-                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'], d['collections']['parents'][1])
+                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
+                translations[id] = [x for x in d.pop('translations', None) if x[0].id not in ids]
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
@@ -771,9 +918,6 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
-                    if type(formulae) == list:
-                        formulae = self.app.picture_file[formulae[0]]
-                        flash(_('Diese Edition hat mehrere möglichen Manusckriptbilder. Nur ein Bild wird hier gezeigt.'))
                     # This should no longer be necessary since all manifests should be linked to a specific version id
                     # This is when there is a single manuscript for the transcription, edition, and translation
                     # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
@@ -802,15 +946,13 @@ class NemoFormulae(Nemo):
                                                                     this_manifest['sequences'][0]['canvases'][-1]['label']
                                                                     if
                                                                     len(this_manifest['sequences'][0]['canvases']) > 1
-                                                                    else '') + ' (' + d['collections']['current']['title'] + ')'
+                                                                    else '')
                 else:
                     d["IIIFviewer"] = []
-                    if "manifest:" + d['collections']['current']['id'] in self.app.picture_file:
-                        manifests = self.app.picture_file["manifest:" + d['collections']['current']['id']]
-                        if type(manifests) == dict:
-                            d["IIIFviewer"] = [("manifest:" + d['collections']['current']['id'], manifests['title'])]
-                        elif type(manifests) == list:
-                            d["IIIFviewer"] = [(link, self.app.picture_file[link]['title']) for link in manifests]
+                    for transcription in d['transcriptions']:
+                        if "manifest:" + transcription.id in self.app.picture_file:
+                            manifests = self.app.picture_file["manifest:" + transcription.id]
+                            d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
                         result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
@@ -820,6 +962,7 @@ class NemoFormulae(Nemo):
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+        passage_data['translation'] = translations
         return passage_data
 
     def convert_result_sents(self, result_sents):
@@ -940,7 +1083,7 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        is_formula = re.search(r'markulf|andecavensis|elexicon', objectId) is not None
+        is_formula = re.search(r'marculf|andecavensis|elexicon', objectId) is not None
 
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
