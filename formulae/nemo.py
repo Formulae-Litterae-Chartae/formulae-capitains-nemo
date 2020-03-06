@@ -955,10 +955,9 @@ class NemoFormulae(Nemo):
                             d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
-                        result_sents = [x['sents'] for x in session['previous_search'] if x['id'] == id]
+                        result_sents = [x for x in session['previous_search'] if x['id'] == id]
                         if result_sents:
-                            d['text_passage'] = self.highlight_found_sents(d['text_passage'],
-                                                                           self.convert_result_sents(result_sents))
+                            d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_sents[0])
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
@@ -980,7 +979,7 @@ class NemoFormulae(Nemo):
             intermediate.append(sent)
         return [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
 
-    def highlight_found_sents(self, html, sents):
+    def highlight_found_sents(self, html, results):
         """ Adds "searched" to the classList of words in "sents" from elasticsearch results
 
         :param html: the marked-up text to be searched
@@ -989,22 +988,20 @@ class NemoFormulae(Nemo):
         """
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
-        texts = [re.sub('[{}„“…]'.format(punctuation), '', re.sub(r'&[lg]t;', '', x.text)) for x in spans if re.sub('[{}„“…]'.format(punctuation), '', x.text) != '']
-        for sent in sents:
-            words = sent.split()
-            for i in range(len(spans)):
-                if words == texts[i:i + len(words)]:
+        for sent_index, sent in enumerate(results['sents']):
+            for span_index, i in enumerate(results['sentence_spans'][sent_index]):
+                if span_index == 0 and 'searched-start' not in spans[i].get('class'):
                     spans[i].set('class', spans[i].get('class') + ' searched-start')
-                    spans[i + len(words) - 1].set('class', spans[i + len(words) - 1].get('class') + ' searched-end')
-                    for span in spans[i:i + len(words)]:
-                        if span.getparent().index(span) == 0 and 'searched-start' not in span.get('class'):
-                            span.set('class', span.get('class') + ' searched-start')
-                        if span == span.getparent().findall('span')[-1] and 'searched-end' not in span.get('class'):
-                            span.set('class', span.get('class') + ' searched-end')
-                    break
+                elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
+                    spans[i].set('class', spans[i].get('class') + ' searched-start')
+                if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
+                    if 'searched-end' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-end')
+            if 'searched-end' not in spans[i].get('class'):
+                spans[i].set('class', spans[i].get('class') + ' searched-end')
         xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                     with_tail=True, standalone=None)
-        span_pattern = re.compile(r'(<span class="w \w*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+        span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
         xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 
