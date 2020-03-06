@@ -222,6 +222,7 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     for hit in search['hits']['hits']:
         text = hit['_source']['text']
         sentences = []
+        sentence_spans = []
         vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
         inflected_offsets = dict()
         lemma_positions = dict()
@@ -265,6 +266,8 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
                             else:
                                 sentence += x
                         sentences.append(Markup(sentence))
+                        sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                    min(len(inflected_offsets), ordered_span[-1] + 11)))
         # I need to change the highlight clause in search to get this to return the correct stuff
         else:
             positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
@@ -282,7 +285,9 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
                     else:
                         sentence += x
                 sentences.append(Markup(sentence))
-        ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'title': hit['_source']['title'],
+                sentence_spans.append(range(max(0, pos - 10), min(len(inflected_offsets), pos + 11)))
+        ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'sentence_spans': sentence_spans,
+                    'title': hit['_source']['title'],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []})
     return ids

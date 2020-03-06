@@ -571,7 +571,8 @@ class TestIndividualRoutes(Formulae_Testing):
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
-        result = self.nemo.highlight_found_sents(html_input, search_string)
+        search_results = {'sents': search_string, 'sentence_spans': [range(0, 6)]}
+        result = self.nemo.highlight_found_sents(html_input, search_results)
         self.assertIn(expected, result)
         # Should be able to deal with editorial punctuation in the text
         search_string = ['Text with special editorial signs in it']
@@ -579,10 +580,14 @@ class TestIndividualRoutes(Formulae_Testing):
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
-        result = self.nemo.highlight_found_sents(html_input, search_string)
+        search_results = {'sents': search_string, 'sentence_spans': [range(6, 13)]}
+        result = self.nemo.highlight_found_sents(html_input, search_results)
         self.assertIn(expected, result)
         # Should return the same result when passed in the session variable to r_multipassage
-        session['previous_search'] = [{'id': obj_id, 'title': 'Salzburg A1', 'sents': search_string}]
+        session['previous_search'] = [{'id': obj_id,
+                                       'title': 'Salzburg A1',
+                                       'sents': search_string,
+                                       'sentence_spans': [range(6, 13)]}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         self.assertIn(expected, passage_data['objects'][0]['text_passage'])
 
@@ -644,6 +649,7 @@ class TestIndividualRoutes(Formulae_Testing):
                            'title': hit['_source']['title'],
                            'info': hit['_source'],
                            'regest_sents': [Markup('regest text')],
+                           'sentence_spans': [range(0, 3)],
                            'sents': [Markup('some real </small><strong>text</strong><small>')]}
                           for hit in resp['hits']['hits']])
 
