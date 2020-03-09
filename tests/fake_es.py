@@ -19,28 +19,28 @@ class FakeElasticsearch(object):
             endpoint
         )
 
-    def buildPath(self, suffix):
+    def build_path(self, suffix: str) -> str:
         return os.path.join(
             self.path, self.short_name + suffix
         )
 
-    def load_request(self):
-        fileName = self.buildPath('_req.json')
-        with open(fileName, 'r') as f:
+    def load_request(self) -> dict:
+        file_name = self.build_path('_req.json')
+        with open(file_name, 'r') as f:
             return json.load(f)
 
-    def load_response(self):
-        fileName = self.buildPath('_resp.json')
-        with open(fileName, 'r') as f:
+    def load_response(self) -> dict:
+        file_name = self.build_path('_resp.json')
+        with open(file_name, 'r') as f:
             return json.load(f)
 
-    def save_request(self, body):
-        fileName = self.buildPath('_req.json')
-        with open(fileName, 'w') as f:
-            return json.dump(body, f, indent=2)
+    def save_request(self, body: dict):
+        file_name = self.build_path('_req.json')
+        with open(file_name, 'w') as f:
+            json.dump(body, f, indent=2, ensure_ascii=False)
 
-    def save_response(self, resp):
-        fileName = self.buildPath('_resp.json')
+    def save_response(self, resp: dict):
+        file_name = self.build_path('_resp.json')
         for i, h in enumerate(resp['hits']['hits']):
             if 'buenden' not in h['_id']:
                 resp['hits']['hits'][i]['_source']['text'] = 'some real text'
@@ -56,15 +56,15 @@ class FakeElasticsearch(object):
                     resp['hits']['hits'][i]['highlight']['autocomplete_lemmas'] = ['autocomplete lemma text']
                     resp['hits']['hits'][i]['highlight']['regest'] = ['regest text']
                     resp['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
-        with open(fileName, 'w') as f:
-            return json.dump(resp, f, indent=2)
+        with open(file_name, 'w') as f:
+            json.dump(resp, f, indent=2, ensure_ascii=False)
 
-    def save_ids(self, ids):
-        fileName = self.buildPath('_ids.json')
-        with open(fileName, 'w') as f:
-            return json.dump(ids, f, indent=2)
+    def save_ids(self, ids: list):
+        file_name = self.build_path('_ids.json')
+        with open(file_name, 'w') as f:
+            json.dump(ids, f, indent=2, ensure_ascii=False)
 
-    def load_ids(self):
-        fileName = self.buildPath('_ids.json')
-        with open(fileName, 'r') as f:
+    def load_ids(self) -> dict:
+        file_name = self.build_path('_ids.json')
+        with open(file_name, 'r') as f:
             return json.load(f)

@@ -591,13 +591,6 @@ class TestIndividualRoutes(Formulae_Testing):
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         self.assertIn(expected, passage_data['objects'][0]['text_passage'])
 
-    def test_convert_result_sents(self):
-        """ Make sure that search result_sents are converted correctly"""
-        input_str = [['Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in', 'Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone']]
-        output = self.nemo.convert_result_sents(input_str)
-        expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
-        self.assertEqual(output, expected)
-
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
     def test_session_previous_results_set(self, mock_vectors, mock_search):
@@ -2698,9 +2691,9 @@ class TestES(Formulae_Testing):
         with patch('builtins.open', new_callable=mock_open()) as m:
             with patch('json.dump') as mock_dump:
                 actual, _, _ = advanced_query_index(**test_args)
-                mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2)
-                mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2)
-                mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2)
+                mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
+                mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
+                mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
 
     @patch.object(Elasticsearch, "search")
     def test_specific_day_advanced_search(self, mock_search):
@@ -2766,7 +2759,6 @@ class TestErrors(Formulae_Testing):
             response = c.get('/corpus_m/urn:cts:formulae:buendner', follow_redirects=True)
             self.assert404(response, 'An Unknown Collection Error should also return 404.')
             self.assertTemplateUsed("errors::unknown_collection.html")
-
 
     def test_UnknownCollection_error(self):
         with self.client as c:

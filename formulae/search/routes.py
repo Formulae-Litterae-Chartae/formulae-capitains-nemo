@@ -16,7 +16,6 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 
 
 @bp.route("/simple", methods=["GET"])
-# @login_required
 def r_simple_search():
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
@@ -32,7 +31,6 @@ def r_simple_search():
 
 
 @bp.route("/results", methods=["GET"])
-# @login_required
 def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
@@ -129,7 +127,6 @@ def r_results():
 
 
 @bp.route("/advanced_search", methods=["GET"])
-# @login_required
 def r_advanced_search():
     form = AdvancedSearchForm()
     colls = g.sub_colls
@@ -164,7 +161,7 @@ def r_search_docs():
 
 
 @bp.route("/suggest/<word>", methods=["GET"])
-def word_search_suggester(word):
+def word_search_suggester(word: str):
     qSource = request.args.get('qSource', 'text')
     words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
                                 field=request.args.get('field', 'autocomplete'),
@@ -192,7 +189,7 @@ def word_search_suggester(word):
 
 
 @bp.route('/download', methods=["GET"])
-def download_search_results():
+def download_search_results() -> Response:
     if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
