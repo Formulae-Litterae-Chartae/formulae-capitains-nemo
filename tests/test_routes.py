@@ -19,7 +19,7 @@ from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for, abort
-from json import dumps, load
+from json import dumps, load, JSONDecodeError
 import re
 from math import ceil
 from datetime import date
@@ -30,6 +30,7 @@ class TestConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
+    INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -988,6 +989,16 @@ class TestFunctions(Formulae_Testing):
         for k, v in test_strings.items():
             par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
+
+    def test_load_inflected_to_lem_mapping(self):
+        """ Ensure that the json mapping file is correctly loaded."""
+        self.assertEqual(self.nemo.inflected_to_lemma_mapping['domni'],
+                         {'dominus'},
+                         'Mapping files should have loaded correctly.')
+        self.app.config['INFLECTED_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_inflected_to_lem_mapping()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma mapping from it.')
 
 
 class TestForms(Formulae_Testing):

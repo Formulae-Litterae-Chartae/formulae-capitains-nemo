@@ -15,7 +15,7 @@ from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_coll
 import re
 from datetime import date
 from urllib.parse import quote
-from json import load as json_load, loads as json_loads
+from json import load as json_load, loads as json_loads, JSONDecodeError
 from io import BytesIO
 from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate, Frame
 from reportlab.lib.pdfencrypt import EncryptionFlowable
@@ -25,6 +25,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
+from collections import defaultdict
 
 
 class NemoFormulae(Nemo):
@@ -119,6 +120,20 @@ class NemoFormulae(Nemo):
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
+        self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
+
+    def make_inflected_to_lem_mapping(self):
+        lem_mapping = defaultdict(set)
+        for j in self.app.config['INFLECTED_LEM_JSONS']:
+            with open(j) as f:
+                try:
+                    inf_to_lem = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma mapping from it.')
+                    continue
+            for k, v in inf_to_lem.items():
+                lem_mapping[k].update(v)
+        return lem_mapping
 
     @staticmethod
     def register_font():
@@ -773,7 +788,8 @@ class NemoFormulae(Nemo):
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
 
-    def get_readable_siblings(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
+    @staticmethod
+    def get_readable_siblings(obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
         """ Returns the readable children of every ancestor.
         This assumes that any direct readable descendants that an ancestor has will also be readable siblings to the
         collection.
@@ -786,7 +802,8 @@ class NemoFormulae(Nemo):
             siblings += [x for x in ancestor.children.values() if x.readable]
         return siblings
 
-    def sort_transcriptions(self, obj: Union[XmlCapitainsReadableMetadata,
+    @staticmethod
+    def sort_transcriptions(obj: Union[XmlCapitainsReadableMetadata,
                                              XmlCapitainsCollectionMetadata]) -> Tuple[str, int]:
         """ Return sortable tuple for the transcriptions of an object """
         identifier = obj.id

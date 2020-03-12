@@ -1,0 +1,5 @@
+regnum  regnum
+vir vir
+venerabilis venerabilis
+et  et
+domni   dominus
