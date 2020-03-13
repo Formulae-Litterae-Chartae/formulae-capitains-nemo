@@ -19,7 +19,7 @@ from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for, abort
-from json import dumps, load
+from json import dumps, load, JSONDecodeError
 import re
 from math import ceil
 from datetime import date
@@ -30,6 +30,7 @@ class TestConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
+    INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -532,6 +533,28 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=[''], regest_q='')
+            self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
+            # Check searched_lems return values
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [{'regnum'}],
+                                'When a query word matches a lemma, it should be returned.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [],
+                                'When a query word does not match a lemma, "searched_lems" should be empty.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum+domni+ad&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}],
+                                'When all query words match a lemma, all should be returned.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum+word+ad&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [],
+                                'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
             self.assertIn(('andecavensis', 'Angers'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
@@ -590,13 +613,6 @@ class TestIndividualRoutes(Formulae_Testing):
                                        'sentence_spans': [range(6, 13)]}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         self.assertIn(expected, passage_data['objects'][0]['text_passage'])
-
-    def test_convert_result_sents(self):
-        """ Make sure that search result_sents are converted correctly"""
-        input_str = [['Anno+XXV+pos+<%2Fsmall><strong>regnum<%2Fstrong><small>+domni+nistri+Lodoici+regis+in', 'Notavimus+die+et+<%2Fsmall><strong>regnum<%2Fstrong><small>%2C+superscripsi.+Signum+Petrone']]
-        output = self.nemo.convert_result_sents(input_str)
-        expected = ['Anno XXV pos regnum domni nistri Lodoici regis in', 'Notavimus die et regnum superscripsi Signum Petrone']
-        self.assertEqual(output, expected)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
@@ -995,6 +1011,16 @@ class TestFunctions(Formulae_Testing):
         for k, v in test_strings.items():
             par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
+
+    def test_load_inflected_to_lem_mapping(self):
+        """ Ensure that the json mapping file is correctly loaded."""
+        self.assertEqual(self.nemo.inflected_to_lemma_mapping['domni'],
+                         {'dominus'},
+                         'Mapping files should have loaded correctly.')
+        self.app.config['INFLECTED_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_inflected_to_lem_mapping()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma mapping from it.')
 
 
 class TestForms(Formulae_Testing):
@@ -1538,6 +1564,12 @@ class TestES(Formulae_Testing):
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'schenk*'),
+                                 ("regest_field", "regest")]),
+                 'test_no_corpus_given': OrderedDict([("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
                  }
 
@@ -1663,7 +1695,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_end_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1673,6 +1705,18 @@ class TestES(Formulae_Testing):
         actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_no_corpus_given(self, mock_search):
+        fake_args = self.TEST_ARGS['test_date_range_search_only_end_year']
+        fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args = self.TEST_ARGS['test_no_corpus_given']
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['all'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
@@ -2698,9 +2742,9 @@ class TestES(Formulae_Testing):
         with patch('builtins.open', new_callable=mock_open()) as m:
             with patch('json.dump') as mock_dump:
                 actual, _, _ = advanced_query_index(**test_args)
-                mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2)
-                mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2)
-                mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2)
+                mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
+                mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
+                mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
 
     @patch.object(Elasticsearch, "search")
     def test_specific_day_advanced_search(self, mock_search):
@@ -2766,7 +2810,6 @@ class TestErrors(Formulae_Testing):
             response = c.get('/corpus_m/urn:cts:formulae:buendner', follow_redirects=True)
             self.assert404(response, 'An Unknown Collection Error should also return 404.')
             self.assertTemplateUsed("errors::unknown_collection.html")
-
 
     def test_UnknownCollection_error(self):
         with self.client as c:

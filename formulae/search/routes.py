@@ -16,7 +16,6 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 
 
 @bp.route("/simple", methods=["GET"])
-# @login_required
 def r_simple_search():
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
@@ -32,7 +31,6 @@ def r_simple_search():
 
 
 @bp.route("/results", methods=["GET"])
-# @login_required
 def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
@@ -121,15 +119,22 @@ def r_results():
             session['previous_search_args']['corpus'] = '+'.join(corps)
     if 'previous_search_args' in session:
         g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
+    search_terms = search_args['q'].split()
+    inf_to_lemmas = []
+    if field == 'text':
+        try:
+            inf_to_lemmas = [current_app.config['nemo_app'].inflected_to_lemma_mapping[t] for t in search_terms]
+        except KeyError:
+            inf_to_lemmas = []
     return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
                                                  next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                                                  first_url=first_url, last_url=last_url, current_page=page,
                                                  search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
-                                                 sort_urls=sort_urls, total_results=total, aggs=aggs)
+                                                 sort_urls=sort_urls, total_results=total, aggs=aggs,
+                                                 searched_lems=inf_to_lemmas)
 
 
 @bp.route("/advanced_search", methods=["GET"])
-# @login_required
 def r_advanced_search():
     form = AdvancedSearchForm()
     colls = g.sub_colls
@@ -164,7 +169,7 @@ def r_search_docs():
 
 
 @bp.route("/suggest/<word>", methods=["GET"])
-def word_search_suggester(word):
+def word_search_suggester(word: str):
     qSource = request.args.get('qSource', 'text')
     words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
                                 field=request.args.get('field', 'autocomplete'),
@@ -192,7 +197,7 @@ def word_search_suggester(word):
 
 
 @bp.route('/download', methods=["GET"])
-def download_search_results():
+def download_search_results() -> Response:
     if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))

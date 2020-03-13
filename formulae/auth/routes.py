@@ -33,7 +33,7 @@ def r_login():
 
 
 @bp.route('/logout')
-def r_logout():
+def r_logout() -> redirect:
     """ user logout
 
     :return: redirect to login page
@@ -44,7 +44,7 @@ def r_logout():
 
 @bp.route('/user/<username>', methods=["GET", "POST"])
 @login_required
-def r_user(username):
+def r_user(username: str):
     """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
 
     :return: template, page title, forms

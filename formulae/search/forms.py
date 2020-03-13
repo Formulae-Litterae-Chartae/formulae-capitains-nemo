@@ -8,7 +8,7 @@ from wtforms.fields.html5 import IntegerField
 from wtforms.widgets import CheckboxInput
 
 
-def validate_optional_number_range(min=-1, max=-1, message=None):
+def validate_optional_number_range(min: int=-1, max: int=-1, message: str=None):
     """ Allows the validation of integer fields with a required number range but that are also optional
         I could not get WTForms to invalidate an integer field where the value was not within the range if it had the
         Optional() validator. I think this must have seen this as an empty field and thus erased all previous validation

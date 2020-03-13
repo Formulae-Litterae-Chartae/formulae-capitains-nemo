@@ -1,61 +1,64 @@
 from flask import current_app, Markup, flash, session
 from flask_babel import _
-from flask_login import current_user
-# This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
 import re
 from copy import copy
+from typing import Dict, List, Union, Tuple
 
 
 PRE_TAGS = "</small><strong>"
 POST_TAGS = "</strong><small>"
 HIGHLIGHT_CHARS_BEFORE = 30
 HIGHLIGHT_CHARS_AFTER = 30
-AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
-                                         'format': 'yyyy',
-                                         'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                                    {'key': '>1000', 'from': '1000'}]}},
-                'corpus': {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
-                                                   'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                                   'Bünden': {'match': {'_type': 'buenden'}},
-                                                   'Echternach': {'match': {'_type': 'echternach'}},
-                                                   'Freising': {'match': {'_type': 'freising'}},
-                                                   'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                                   'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                                   'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                                   'Katalonien': {'match': {'_type': 'katalonien'}},
-                                                   'Lorsch': {'match': {'_type': 'lorsch'}},
-                                                   'Luzern': {'match': {'_type': 'luzern'}},
-                                                   'Marculf': {'match': {'_type': 'marculf'}},
-                                                   'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                                   'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                                   'Mondsee': {'match': {'_type': 'mondsee'}},
-                                                   'Passau': {'match': {'_type': 'passau'}},
-                                                   'Rätien': {'match': {'_type': 'raetien'}},
-                                                   'Regensburg': {'match': {'_type': 'regensburg'}},
-                                                   'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                                   'Salzburg': {'match': {'_type': 'salzburg'}},
-                                                   'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                                   'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                                   'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                                   'Werden': {'match': {'_type': 'werden'}},
-                                                   'Zürich': {'match': {'_type': 'zuerich'}}}}},
-                'no_date': {'missing': {'field': 'min_date'}},
-                'all_docs': {'global': {}, 'aggs': {}}}
-AGGREGATIONS['all_docs']['aggs']['range'] = AGGREGATIONS['range']
-AGGREGATIONS['all_docs']['aggs']['corpus'] = AGGREGATIONS['corpus']
-AGGREGATIONS['all_docs']['aggs']['no_date'] = AGGREGATIONS['no_date']
+range_agg = {'date_range': {'field': 'min_date', 'format': 'yyyy',
+                            'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                       {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                       {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                       {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                       {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                       {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                       {'key': '>1000', 'from': '1000'}]}}
+corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
+                                      'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                      'Bünden': {'match': {'_type': 'buenden'}},
+                                      'Echternach': {'match': {'_type': 'echternach'}},
+                                      'Freising': {'match': {'_type': 'freising'}},
+                                      'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                      'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                      'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                      'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Lorsch': {'match': {'_type': 'lorsch'}},
+                                      'Luzern': {'match': {'_type': 'luzern'}},
+                                      'Marculf': {'match': {'_type': 'marculf'}},
+                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                      'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                      'Mondsee': {'match': {'_type': 'mondsee'}},
+                                      'Passau': {'match': {'_type': 'passau'}},
+                                      'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Regensburg': {'match': {'_type': 'regensburg'}},
+                                      'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                      'Salzburg': {'match': {'_type': 'salzburg'}},
+                                      'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                      'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                      'Werden': {'match': {'_type': 'werden'}},
+                                      'Zürich': {'match': {'_type': 'zuerich'}}}}}
+no_date_agg = {'missing': {'field': 'min_date'}}
+AGGREGATIONS = {'range': range_agg,
+                'corpus': corpus_agg,
+                'no_date': no_date_agg,
+                'all_docs': {'global': {},
+                             'aggs': {
+                                 'range': range_agg,
+                                 'corpus': corpus_agg,
+                                 'no_date': no_date_agg
+                             }}}
 HITS_TO_READER = 10000
 LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 
-def build_sort_list(sort_str):
+def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
         return 'urn'
     if sort_str == 'min_date_asc':
@@ -70,7 +73,8 @@ def build_sort_list(sort_str):
         return [{'urn': {'order': 'desc'}}]
 
 
-def query_index(index, field, query, page, per_page, sort='urn'):
+def query_index(index: list, field: str, query: str, page: int, per_page: int,
+                sort: str='urn') -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
     if not current_app.elasticsearch:
         return [], 0, {}
     if index in ['', ['']]:
@@ -94,9 +98,7 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                    "sort": sort,
                    'from': (page - 1) * per_page, 'size': per_page,
                    'highlight':
-                       {'fields':
-                            {field: {"fragment_size": 1000}
-                             },
+                       {'fields': {field: {"fragment_size": 1000}},
                         'pre_tags': [PRE_TAGS],
                         'post_tags': [POST_TAGS],
                         'encoder': 'html'
@@ -108,11 +110,16 @@ def query_index(index, field, query, page, per_page, sort='urn'):
     if field == 'lemmas':
         ids = lem_highlight_to_text(search, query, False, 0, 'regest')
     else:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
+        ids = [{'id': hit['_id'],
+                'info': hit['_source'],
+                'sents':
+                    [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']
+               ]
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index, orig_template, field, q, regest_q=None, ordered_terms=False, slop=0, regest_field='regest'):
+def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str=None,
+                      ordered_terms: bool=False, slop: int=0, regest_field: str='regest'):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -137,7 +144,7 @@ def set_session_token(index, orig_template, field, q, regest_q=None, ordered_ter
     session['previous_search'] = search_hits
 
 
-def suggest_composition_places():
+def suggest_composition_places() -> List[str]:
     """ To enable search-as-you-type for the place of composition field
 
     :return: sorted set of results
@@ -149,7 +156,7 @@ def suggest_composition_places():
     return sorted(list(set(results)))
 
 
-def suggest_word_search(**kwargs):
+def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """ To enable search-as-you-type for the text search
 
     :return: sorted set of results
@@ -184,15 +191,11 @@ def suggest_word_search(**kwargs):
     return [term] + sorted(list(set(results)), key=str.lower)[:10]
 
 
-def highlight_segment(orig_str):
+def highlight_segment(orig_str: str) -> str:
     """ returns only a section of the highlighting returned by Elasticsearch. This should keep highlighted phrases
         from breaking over lines
 
     :param orig_str: the original highlight string that should be shortened
-    :param chars_before: the number of characters to include before the pre_tag
-    :param chars_after: the number of characters to include after the post_tag
-    :param pre_tag: the tag(s) that mark the beginning of the highlighted section
-    :param post_tag: the tag(s) that mark the end of the highlighted section
     :return: the string to show in the search results
     """
     init_index = 0
@@ -208,7 +211,8 @@ def highlight_segment(orig_str):
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
+def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
+                          regest_field: str) -> List[Dict[str, Union[str, list]]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -293,19 +297,22 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     return ids
 
 
-def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
-                         year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         composition_place='', sort='urn', special_days=[], regest_q='', regest_field='regest',
-                         **kwargs):
+def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: int=1, per_page: int=10,
+                         fuzziness: str='0', year: int=0, month: int=0, day: int=0, year_start: int=0,
+                         month_start: int=0, day_start: int=0, year_end: int=0, month_end: int=0, day_end: int=0,
+                         date_plus_minus: int=0, exclusive_date_range: str="False", slop: int=4, in_order: str='False',
+                         composition_place: str='', sort: str='urn', special_days: list=None, regest_q: str='',
+                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    if corpus is None:
+        corpus = ['all']
+    if special_days is None:
+        special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
     session.pop('previous_search', None)
-    body_template = {"query": {"bool": {"must": []}}, "sort": sort,
-                     'from': (page - 1) * per_page, 'size': per_page,
-                     'aggs': AGGREGATIONS
-                     }
+    body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
+                          'size': per_page, 'aggs': AGGREGATIONS})
 
     body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
@@ -361,11 +368,10 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                 date_template['bool']['must'].append({"match": {"specific_date.day": day}})
         else:
             if year:
-                date_template['bool']['must'].append({"range": {"specific_date.year":
-                                                                                       {"gte": year - date_plus_minus,
-                                                                                        "lte": year + date_plus_minus}
-                                                                                   }
-                                                                         })
+                date_template['bool']['must'].append({"range": {"specific_date.year": {"gte": year - date_plus_minus,
+                                                                                       "lte": year + date_plus_minus}
+                                                                }
+                                                      })
             if month:
                 date_template['bool']['must'].append({"match": {"specific_date.month": month}})
             if day:
@@ -392,11 +398,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                                                              'lte': '{:04}{}{}'.format(year + date_plus_minus,
                                                                                        '-{:02}'.format(month) if month else '',
                                                                                        '-{:02}'.format(day) if month and day else '')}}})
-        date_template['bool']['should'].append({"nested":
-                                                    {"path": "specific_date",
-                                                     "query":
-                                                         {"bool":
-                                                              {"should": should_clause}}}})
+        date_template['bool']['should'].append({"nested": {"path": "specific_date",
+                                                           "query": {"bool": {"should": should_clause}}}})
         body_template["query"]["bool"]["must"].append(date_template)
     elif year_start or month_start or day_start or year_end or month_end or year_end:
         if exclusive_date_range != 'False':
@@ -437,8 +440,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"]:# and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
+    if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
@@ -488,12 +490,11 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
     spec_month_end = spec_month_end or 12
     spec_day_start = spec_day_start or 1
     spec_day_end = spec_day_end or 31
-    date_template.append({'range': {'specific_date.year':
-                                                 {"gte": spec_year_start, 'lte': spec_year_end}
-                                             }})
+    date_template.append({'range': {'specific_date.year': {"gte": spec_year_start, 'lte': spec_year_end}}})
     if spec_month_start != spec_month_end:
         day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_start}},
-                                                           {"range": {"specific_date.day": {'gte': spec_day_start}}}]}},
+                                                               {"range":  {"specific_date.day": {
+                                                                   'gte': spec_day_start}}}]}},
                                             {"range": {"specific_date.month": {"gt": spec_month_start,
                                                                                "lt": spec_month_end}}},
                                             {'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
@@ -504,11 +505,7 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
                                                                                                 'gte': spec_day_start}}}]}}]}}
     date_template.append(day_template)
     should_clause.append({"bool": {"must": date_template}})
-    date_template = [{"nested":
-                         {'path': "specific_date",
-                          "query":
-                              {"bool":
-                                   {"should": should_clause}}}}]
+    date_template = [{"nested": {'path': "specific_date",  "query": {"bool": {"should": should_clause}}}}]
     return date_template
 
 
