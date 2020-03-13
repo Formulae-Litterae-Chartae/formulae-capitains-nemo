@@ -383,7 +383,15 @@ nav .dropdown:hover .dropdown-menu {
 .searched {
     background-color: yellow;
 }
-    
+
+#lemma-search-table {
+    margin: auto;
+}
+
+#lemma-search-table th, #lemma-search-table td {
+    text-align: center;
+}
+
 #results-sort-table {
     width: 300px; 
     margin: auto;
@@ -495,6 +503,7 @@ button.close {
 
 .search-subtitle-row {
     padding-top: 0rem;
+    padding-bottom: 0rem;
 }
 
 .corpora-search-results-dropdown .dropdown-item {

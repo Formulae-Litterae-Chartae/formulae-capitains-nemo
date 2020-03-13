@@ -533,6 +533,28 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=[''], regest_q='')
+            self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
+            # Check searched_lems return values
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [{'regnum'}],
+                                'When a query word matches a lemma, it should be returned.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [],
+                                'When a query word does not match a lemma, "searched_lems" should be empty.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum+domni+ad&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}],
+                                'When all query words match a lemma, all should be returned.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=regnum+word+ad&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [],
+                                'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
             self.assertIn(('andecavensis', 'Angers'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')

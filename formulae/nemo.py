@@ -133,7 +133,7 @@ class NemoFormulae(Nemo):
                     continue
             for k, v in inf_to_lem.items():
                 lem_mapping[k].update(v)
-        return lem_mapping
+        return dict(lem_mapping)
 
     @staticmethod
     def register_font():
