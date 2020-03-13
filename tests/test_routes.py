@@ -1564,6 +1564,12 @@ class TestES(Formulae_Testing):
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'schenk*'),
+                                 ("regest_field", "regest")]),
+                 'test_no_corpus_given': OrderedDict([("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
+                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
+                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
+                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
                  }
 
@@ -1689,7 +1695,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_end_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1699,6 +1705,18 @@ class TestES(Formulae_Testing):
         actual, _, _  = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_no_corpus_given(self, mock_search):
+        fake_args = self.TEST_ARGS['test_date_range_search_only_end_year']
+        fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args = self.TEST_ARGS['test_no_corpus_given']
+        actual, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['all'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
