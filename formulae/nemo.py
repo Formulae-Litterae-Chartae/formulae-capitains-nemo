@@ -121,6 +121,7 @@ class NemoFormulae(Nemo):
         self.app.after_request(self.after_request)
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
+        self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
 
     def make_inflected_to_lem_mapping(self):
         lem_mapping = defaultdict(set)
@@ -132,6 +133,19 @@ class NemoFormulae(Nemo):
                     self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma mapping from it.')
                     continue
             for k, v in inf_to_lem.items():
+                lem_mapping[k].update(v)
+        return dict(lem_mapping)
+
+    def make_lem_to_lem_mapping(self):
+        lem_mapping = defaultdict(set)
+        for j in self.app.config['LEM_TO_LEM_JSONS']:
+            with open(j) as f:
+                try:
+                    lem_to_lem = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma mapping from it.')
+                    continue
+            for k, v in lem_to_lem.items():
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
 

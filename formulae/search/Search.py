@@ -5,6 +5,7 @@ from string import punctuation
 import re
 from copy import copy
 from typing import Dict, List, Union, Tuple
+from itertools import product
 
 
 PRE_TAGS = "</small><strong>"
@@ -74,7 +75,7 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
 
 
 def query_index(index: list, field: str, query: str, page: int, per_page: int,
-                sort: str='urn') -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
+                sort: str = 'urn') -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
     if not current_app.elasticsearch:
         return [], 0, {}
     if index in ['', ['']]:
@@ -91,10 +92,19 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
             return [], 0, {}
     for term in query_terms:
         if '*' in term or '?' in term:
-            clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+            clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
         else:
-            clauses.append({"span_term": {field: term}})
-    search_body = {'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
+            if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                sub_clauses = [{'span_term': {field: term}}]
+                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                    sub_clauses.append({'span_term': {field: other_lem}})
+                clauses.append(sub_clauses)
+            else:
+                clauses.append([{'span_term': {field: term}}])
+    bool_clauses = []
+    for clause in product(*clauses):
+        bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': 0, 'in_order': True}})
+    search_body = {'query': {'bool': {'should': bool_clauses, 'minimum_should_match': 1}},
                    "sort": sort,
                    'from': (page - 1) * per_page, 'size': per_page,
                    'highlight':
@@ -118,8 +128,8 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
     return ids, search['hits']['total'], search['aggregations']
 
 
-def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str=None,
-                      ordered_terms: bool=False, slop: int=0, regest_field: str='regest'):
+def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
+                      ordered_terms: bool = False, slop: int = 0, regest_field: str = 'regest'):
     """ Sets session['previous_search'] to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -240,7 +250,12 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
             q_words = q.split()
             positions = {k: [] for k in q_words}
             for w in q_words:
-                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                if w in vectors['term_vectors']['lemmas']['terms']:
+                    positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                    if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                        positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                positions[w] = sorted(positions[w])
             search_range_start = int(slop) + len(q_words)
             search_range_end = int(slop) + len(q_words) + 1
             if ordered_terms:
@@ -274,8 +289,13 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
                                                     min(len(inflected_offsets), ordered_span[-1] + 11)))
         # I need to change the highlight clause in search to get this to return the correct stuff
         else:
-            positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
-            for pos in positions:
+            positions = []
+            if q in vectors['term_vectors']['lemmas']['terms']:
+                positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
+            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(q, {}):
+                if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                    positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+            for pos in sorted(positions):
                 start_offset = inflected_offsets[pos][0]
                 end_offset = inflected_offsets[pos][1]
                 start_index = inflected_offsets[max(0, pos - 10)][0]
@@ -297,12 +317,12 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
     return ids
 
 
-def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: int=1, per_page: int=10,
-                         fuzziness: str='0', year: int=0, month: int=0, day: int=0, year_start: int=0,
-                         month_start: int=0, day_start: int=0, year_end: int=0, month_end: int=0, day_end: int=0,
-                         date_plus_minus: int=0, exclusive_date_range: str="False", slop: int=4, in_order: str='False',
-                         composition_place: str='', sort: str='urn', special_days: list=None, regest_q: str='',
-                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
+def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', page: int = 1, per_page: int = 10,
+                         fuzziness: str = '0', year: int = 0, month: int = 0, day: int = 0, year_start: int = 0,
+                         month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
+                         date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
+                         composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
+                         regest_field: str = 'regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     if corpus is None:
         corpus = ['all']
@@ -340,12 +360,19 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
-                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+                clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
             else:
-                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
-
-        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
-                                                                     'in_order': ordered_terms}})
+                if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}]
+                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                    clauses.append(sub_clauses)
+                else:
+                    clauses.append([{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}])
+        bool_clauses = []
+        for clause in product(*clauses):
+            bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+        body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
     if regest_q:
         clauses = []
