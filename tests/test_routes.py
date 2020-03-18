@@ -31,6 +31,7 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
     INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
+    LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -1570,7 +1571,21 @@ class TestES(Formulae_Testing):
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ("regest_field", "regest")]),
+                 'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'gero'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ('lemma_search', 'y')]),
+                 'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'facio+gero'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ('lemma_search', 'y')]),
                  }
 
     def build_file_name(self, fake_args):
@@ -1597,7 +1612,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_same_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_same_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1610,7 +1625,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_month(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_same_month']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_same_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1623,7 +1638,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_different_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_different_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_different_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1636,7 +1651,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1649,7 +1664,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year_and_month_same_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_year_and_month_same_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_year_and_month_same_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1662,7 +1677,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_year_and_month_different_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_year_and_month_different_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_year_and_month_different_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1675,7 +1690,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_start_year']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_start_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1708,7 +1723,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_no_corpus_given(self, mock_search):
-        fake_args = self.TEST_ARGS['test_date_range_search_only_end_year']
+        fake_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1720,7 +1735,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_start_year_and_month']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_start_year_and_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1733,7 +1748,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year_and_month(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_range_search_only_end_year_and_month']
+        test_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year_and_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1746,7 +1761,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_normal_date_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_normal_date_search']
+        test_args = copy(self.TEST_ARGS['test_normal_date_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1759,7 +1774,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_normal_date_only_year_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_normal_date_only_year_search']
+        test_args = copy(self.TEST_ARGS['test_normal_date_only_year_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1772,7 +1787,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_date_plus_minus_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_date_plus_minus_search']
+        test_args = copy(self.TEST_ARGS['test_date_plus_minus_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1785,7 +1800,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_exclusive_date_range_search']
+        test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1798,7 +1813,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search_only_year(self, mock_search):
-        test_args = self.TEST_ARGS['test_exclusive_date_range_search_only_year']
+        test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search_only_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1811,7 +1826,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_exclusive_date_range_search_same_month_and_day(self, mock_search):
-        test_args = self.TEST_ARGS['test_exclusive_date_range_search_same_month_and_day']
+        test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search_same_month_and_day'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1824,7 +1839,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multi_corpus_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_multi_corpus_search']
+        test_args = copy(self.TEST_ARGS['test_multi_corpus_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1837,7 +1852,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multiword_wildcard_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_multiword_wildcard_search']
+        test_args = copy(self.TEST_ARGS['test_multiword_wildcard_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -1899,19 +1914,117 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
+    def test_mapped_lemma_advanced_search(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
+        test_args.pop('lemma_search')
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.return_value = {'_index': 'andecavensis_v1',
+                                     '_type': 'andecavensis',
+                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
+                                     '_version': 1,
+                                     'found': True,
+                                     'took': 0,
+                                     'term_vectors': {'text': {'terms':
+                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      },
+                                                      'lemmas': {'terms':
+                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      }
+                                     }}
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
+        # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
+        test_args.pop('lemma_search')
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.return_value = {'_index': 'andecavensis_v1',
+                                     '_type': 'andecavensis',
+                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
+                                     '_version': 1,
+                                     'found': True,
+                                     'took': 0,
+                                     'term_vectors': {'text': {'terms':
+                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      },
+                                                      'lemmas': {'terms':
+                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      }
+                                     }}
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
+        # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
     def test_lemma_simple_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         orig_args = self.TEST_ARGS['test_lemma_advanced_search']
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = {'query':
+        body = {'query': {'bool': {'should': [
                     {'span_near':
                          {'clauses':
                               [{'span_term':
                                     {'lemmas': 'regnum'}}
                                ],
                           'slop': 0,
-                          'in_order': True}},
+                          'in_order': True}}],
+            'minimum_should_match': 1}},
                 'sort': 'urn', 'from': 0, 'size': 10,
                 'highlight':
                     {'fields':
@@ -2045,11 +2158,10 @@ class TestES(Formulae_Testing):
         actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        self.TEST_ARGS['test_lemma_advanced_search'] = orig_args
 
     @patch.object(Elasticsearch, "search")
     def test_regest_advanced_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_regest_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_regest_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2062,7 +2174,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_regest_and_word_advanced_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_regest_and_word_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2075,7 +2187,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_regest_advanced_search_with_wildcard(self, mock_search):
-        test_args = self.TEST_ARGS['test_regest_advanced_search_with_wildcard']
+        test_args = copy(self.TEST_ARGS['test_regest_advanced_search_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2089,7 +2201,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
     def test_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
-        test_args = self.TEST_ARGS['test_multiword_lemma_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_multiword_lemma_advanced_search'])
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -2139,7 +2251,7 @@ class TestES(Formulae_Testing):
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
         """
-        test_args = self.TEST_ARGS['test_single_word_highlighting']
+        test_args = copy(self.TEST_ARGS['test_single_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         sents = [{'sents': [Markup(' dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
@@ -2153,7 +2265,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_multi_word_highlighting(self, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        test_args = self.TEST_ARGS['test_multi_word_highlighting']
+        test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         sents = [{'sents': [Markup(' presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
@@ -2184,7 +2296,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_single_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2226,7 +2338,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2264,7 +2376,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2302,7 +2414,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2334,7 +2446,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2370,7 +2482,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")])
-        fake_args = self.TEST_ARGS['test_multi_lemma_highlighting']
+        fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
         for i, h in enumerate(resp['hits']['hits']):
@@ -2389,7 +2501,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search_with_wildcard(self, mock_search):
-        test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
+        test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
             ids, hits, agg = advanced_query_index(**test_args)
@@ -2399,7 +2511,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_simple_search_with_wildcard(self, mock_search):
-        test_args = self.TEST_ARGS['test_lemma_advanced_search_with_wildcard']
+        test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
             ids, hits, agg = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
@@ -2409,7 +2521,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_composition_place_advanced_search(self, mock_search):
-        test_args =self.TEST_ARGS['test_composition_place_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_composition_place_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2507,9 +2619,10 @@ class TestES(Formulae_Testing):
                                                         }
                                                       }
                                                     }}}
-        body = {'query':
+        body = {'query': {'bool': {'should': [
                     {'span_near':
-                         {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}},
+                         {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}}],
+            'minimum_should_match': 1}},
                 'sort': 'urn', 'from': 0, 'size': 10,
                 'highlight': {'fields': {'text': {'fragment_size': 1000}},
                               'pre_tags': ['</small><strong>'],
@@ -2603,11 +2716,11 @@ class TestES(Formulae_Testing):
         query_index(**test_args)
         mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 'regnum domni'
-        body['query']['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
+        body['query']['bool']['should'][0]['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
         query_index(**test_args)
         mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['query'] = 're?num'
-        body['query']['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
+        body['query']['bool']['should'][0]['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
         query_index(**test_args)
         mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['index'] = ['']
@@ -2639,7 +2752,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):
-        test_args = self.TEST_ARGS['test_suggest_composition_places']
+        test_args = copy(self.TEST_ARGS['test_suggest_composition_places'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
@@ -2649,7 +2762,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion(self, mock_search):
-        test_args = self.TEST_ARGS['test_suggest_word_search_completion']
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = ['ill',
@@ -2683,7 +2796,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_regest_word_search_completion(self, mock_search):
-        test_args = self.TEST_ARGS['test_suggest_regest_word_search_completion']
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = ['sche',
@@ -2715,7 +2828,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion_no_qSource(self, mock_search):
         """ Make sure that None is returned if qSource is not an accepted value"""
-        test_args = self.TEST_ARGS['test_suggest_word_search_completion_no_qSource']
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion_no_qSource'])
         results = suggest_word_search(**test_args)
         self.assertIsNone(results)
 
@@ -2730,7 +2843,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_save_requests(self, mock_search):
         self.app.config['SAVE_REQUESTS'] = True
-        test_args = self.TEST_ARGS['test_save_requests']
+        test_args = copy(self.TEST_ARGS['test_save_requests'])
         file_name_base = self.build_file_name(test_args)
         fake = FakeElasticsearch(file_name_base, 'advanced_search')
         body = fake.load_request()
@@ -2748,7 +2861,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_specific_day_advanced_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_specific_day_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_specific_day_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2762,7 +2875,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_multiple_specific_day_advanced_search(self, mock_search):
-        test_args = self.TEST_ARGS['test_multiple_specific_day_advanced_search']
+        test_args = copy(self.TEST_ARGS['test_multiple_specific_day_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
@@ -2780,7 +2893,7 @@ class TestES(Formulae_Testing):
             c.get('/search/download', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
             self.assertTemplateUsed('main::index.html')
-        test_args = self.TEST_ARGS['test_download_search_results']
+        test_args = copy(self.TEST_ARGS['test_download_search_results'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
