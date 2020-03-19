@@ -1021,7 +1021,17 @@ class TestFunctions(Formulae_Testing):
         self.app.config['INFLECTED_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_inflected_to_lem_mapping()
-            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma mapping from it.')
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid inflected to lemma mapping from it.')
+
+    def test_load_lem_to_lem_mapping(self):
+        """ Ensure that the json mapping file is correctly loaded."""
+        self.assertEqual(self.nemo.lem_to_lem_mapping['gero'],
+                         {'gerere', 'gesta'},
+                         'Mapping files should have loaded correctly.')
+        self.app.config['LEM_TO_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_lem_to_lem_mapping()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
 
 
 class TestForms(Formulae_Testing):
@@ -1868,7 +1878,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_lemma_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
-        orig_args = self.TEST_ARGS['test_lemma_advanced_search']
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -1910,7 +1919,6 @@ class TestES(Formulae_Testing):
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        self.TEST_ARGS['test_lemma_advanced_search'] = orig_args
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
@@ -1941,10 +1949,10 @@ class TestES(Formulae_Testing):
                                                                     }
                                                       },
                                                       'lemmas': {'terms':
-                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                   {'gerere': {'term_freq': 1, 'tokens': [{'position': 0,
                                                                                                          'start_offset': 0,
                                                                                                          'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                    'gesta': {'term_freq': 1, 'tokens': [{'position': 1,
                                                                                                          'start_offset': 5,
                                                                                                          'end_offset': 8}]},
                                                                     'text': {'term_freq': 1, 'tokens': [{'position': 2,
@@ -1957,7 +1965,6 @@ class TestES(Formulae_Testing):
         actual, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
-        # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -1989,10 +1996,10 @@ class TestES(Formulae_Testing):
                                                                     }
                                                       },
                                                       'lemmas': {'terms':
-                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                   {'gerere': {'term_freq': 1, 'tokens': [{'position': 0,
                                                                                                          'start_offset': 0,
                                                                                                          'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                    'gesta': {'term_freq': 1, 'tokens': [{'position': 1,
                                                                                                          'start_offset': 5,
                                                                                                          'end_offset': 8}]},
                                                                     'text': {'term_freq': 1, 'tokens': [{'position': 2,
@@ -2006,14 +2013,12 @@ class TestES(Formulae_Testing):
         actual, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
-        # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
     def test_lemma_simple_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
-        orig_args = self.TEST_ARGS['test_lemma_advanced_search']
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = {'query': {'bool': {'should': [
@@ -2157,6 +2162,153 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_mapped_lemma_simple_search(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
+        test_args.pop('lemma_search')
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = {'query': {'bool': {'should': [
+            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gero'}}], 'slop': 0, 'in_order': True}},
+            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gesta'}}], 'slop': 0, 'in_order': True}},
+            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gerere'}}], 'slop': 0, 'in_order': True}}],
+            'minimum_should_match': 1}},
+                'sort': 'urn', 'from': 0, 'size': 10,
+                'highlight':
+                    {'fields':
+                         {'lemmas':
+                              {'fragment_size': 1000}
+                          },
+                     'pre_tags': ['</small><strong>'],
+                     'post_tags': ['</strong><small>'],
+                     'encoder': 'html'},
+                'aggs':
+                    {
+                        'range': {
+                            'date_range': {
+                                'field': 'min_date',
+                                'format': 'yyyy',
+                                'ranges':
+                                    [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                     {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                     {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                     {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                     {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                     {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                     {'key': '>1000', 'from': '1000'}]}},
+                        'corpus': {
+                            'filters': {
+                                'filters': {
+                                    'Angers': {'match': {'_type': 'andecavensis'}},
+                                    'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                    'Bünden': {'match': {'_type': 'buenden'}},
+                                    'Echternach': {'match': {'_type': 'echternach'}},
+                                    'Freising': {'match': {'_type': 'freising'}},
+                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                    'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                    'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                    'Katalonien': {'match': {'_type': 'katalonien'}},
+                                    'Lorsch': {'match': {'_type': 'lorsch'}},
+                                    'Luzern': {'match': {'_type': 'luzern'}},
+                                    'Marculf': {'match': {'_type': 'marculf'}},
+                                    'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                    'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                    'Mondsee': {'match': {'_type': 'mondsee'}},
+                                    'Passau': {'match': {'_type': 'passau'}},
+                                    'Rätien': {'match': {'_type': 'raetien'}},
+                                    'Regensburg': {'match': {'_type': 'regensburg'}},
+                                    'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                    'Salzburg': {'match': {'_type': 'salzburg'}},
+                                    'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                    'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                    'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                    'Werden': {'match': {'_type': 'werden'}},
+                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                        'no_date': {'missing': {'field': 'min_date'}},
+                        'all_docs': {
+                            'global': {},
+                            'aggs': {'range':
+                                         {'date_range':
+                                              {'field': 'min_date',
+                                               'format': 'yyyy',
+                                               'ranges': [
+                                                   {'key': '<499', 'from': '0002', 'to': '0499'},
+                                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                                   {'key': '>1000', 'from': '1000'}]}},
+                                     'corpus': {'filters':
+                                                    {'filters':
+                                                         {'Angers': {'match': {'_type': 'andecavensis'}},
+                                                          'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                                          'Bünden': {'match': {'_type': 'buenden'}},
+                                                          'Echternach': {'match': {'_type': 'echternach'}},
+                                                          'Freising': {'match': {'_type': 'freising'}},
+                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                                          'Katalonien': {'match': {'_type': 'katalonien'}},
+                                                          'Lorsch': {'match': {'_type': 'lorsch'}},
+                                                          'Luzern': {'match': {'_type': 'luzern'}},
+                                                          'Marculf': {'match': {'_type': 'marculf'}},
+                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
+                                                          'Passau': {'match': {'_type': 'passau'}},
+                                                          'Rätien': {'match': {'_type': 'raetien'}},
+                                                          'Regensburg': {'match': {'_type': 'regensburg'}},
+                                                          'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                                          'Salzburg': {'match': {'_type': 'salzburg'}},
+                                                          'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                                          'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                                          'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                                          'Werden': {'match': {'_type': 'werden'}},
+                                                          'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                     'no_date': {'missing': {'field': 'min_date'}}}}}}
+
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.return_value = {'_index': 'andecavensis_v1',
+                                     '_type': 'andecavensis',
+                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
+                                     '_version': 1,
+                                     'found': True,
+                                     'took': 0,
+                                     'term_vectors': {'text': {'terms':
+                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      },
+                                                      'lemmas': {'terms':
+                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                         'start_offset': 0,
+                                                                                                         'end_offset': 3}]},
+                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                         'start_offset': 5,
+                                                                                                         'end_offset': 8}]},
+                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
+                                                                    }
+                                                      }
+                                     }}
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+        self.assertCountEqual(body['query']['bool']['should'],
+                              mock_search.call_args[1]['body']['query']['bool']['should'])
+        # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")

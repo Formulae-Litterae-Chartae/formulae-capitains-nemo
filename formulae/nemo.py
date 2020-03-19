@@ -130,7 +130,7 @@ class NemoFormulae(Nemo):
                 try:
                     inf_to_lem = json_load(f)
                 except JSONDecodeError:
-                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma mapping from it.')
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid inflected to lemma mapping from it.')
                     continue
             for k, v in inf_to_lem.items():
                 lem_mapping[k].update(v)
@@ -143,7 +143,7 @@ class NemoFormulae(Nemo):
                 try:
                     lem_to_lem = json_load(f)
                 except JSONDecodeError:
-                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma mapping from it.')
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
                     continue
             for k, v in lem_to_lem.items():
                 lem_mapping[k].update(v)
