@@ -10,6 +10,8 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 10
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    ES_CLIENT_CERT = os.environ.get('ES_CLIENT_CERT', '')
+    ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
     LANGUAGES = ['en', 'de', 'fr']
     BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["/home/matt/results/formulae"]
