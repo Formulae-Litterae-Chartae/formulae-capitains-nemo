@@ -16,7 +16,7 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 
 
 @bp.route("/simple", methods=["GET"])
-def r_simple_search():
+def r_simple_search() -> redirect:
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
             if k == 'corpus':

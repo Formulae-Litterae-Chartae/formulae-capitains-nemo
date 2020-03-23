@@ -14,7 +14,6 @@ def r_login():
     """ login form
 
     :return: template, page title, forms
-    :rtype: {str: Any}
     """
     if current_user.is_authenticated:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -48,7 +47,6 @@ def r_user(username: str):
     """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
 
     :return: template, page title, forms
-    :rtype: {str: Any}
     """
     password_form = PasswordChangeForm()
     if password_form.validate_on_submit():

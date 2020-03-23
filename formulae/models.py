@@ -20,10 +20,10 @@ class User(UserMixin, db.Model):
     def set_password(self, password: str):
         self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password: str):
+    def check_password(self, password: str) -> bool:
         return check_password_hash(self.password_hash, password)
 
-    def get_reset_password_token(self, expires_in: int=600):
+    def get_reset_password_token(self, expires_in: int = 600):
         return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in},
                           current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
 
@@ -34,6 +34,7 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
 
 @login.user_loader
 def load_user(id):
