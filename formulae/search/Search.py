@@ -161,7 +161,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
 
     :return: sorted set of results
     """
-    results = []
+    results = set()
     kwargs['fragment_size'] = 1000
     if kwargs['qSource'] == 'text':
         term = kwargs.get('q', '')
@@ -179,16 +179,17 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
         return None
     for post in posts:
         for sent in post[highlight]:
+            print(sent)
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
             end_index = r.find(' ', len(term) + 30)
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
+            results.add(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
             """ind = 0
             while w in r[ind:]:
                 i = r.find(w, ind)
                 results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
                 ind = r.find(w, ind) + 1"""
-    return sorted(list(set(results)), key=str.lower)[:10]
+    return sorted(results, key=str.lower)[:10]
 
 
 def highlight_segment(orig_str: str) -> str:
