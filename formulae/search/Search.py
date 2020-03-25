@@ -188,7 +188,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
                 i = r.find(w, ind)
                 results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
                 ind = r.find(w, ind) + 1"""
-    return [term] + sorted(list(set(results)), key=str.lower)[:10]
+    return sorted(list(set(results)), key=str.lower)[:10]
 
 
 def highlight_segment(orig_str: str) -> str:
