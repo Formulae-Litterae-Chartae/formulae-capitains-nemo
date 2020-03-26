@@ -179,7 +179,6 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
         return None
     for post in posts:
         for sent in post[highlight]:
-            print(sent)
             r = str(sent[sent.find('</small><strong>'):])
             r = r.replace('</small><strong>', '').replace('</strong><small>', '')
             end_index = r.find(' ', len(term) + 30)
@@ -425,6 +424,8 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
         # match up 1-to-1.
         if field == 'lemmas':
             ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
+        elif field == "text":
+            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'text', 'text')
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
