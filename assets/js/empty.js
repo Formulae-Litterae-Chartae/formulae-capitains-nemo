@@ -24,7 +24,7 @@ function makeLemmaSearch() {
     var oldUrl = button.getAttribute('href');
     var newQ = new Array();
     for (let lemma of lemmas){
-        if (lemma.checked) {
+        if (lemma.checked || lemma.getAttribute('checked') == 'True') {
             newQ.push(lemma.getAttribute('value'));
         }
     };
