@@ -5,6 +5,7 @@ from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
     set_session_token, suggest_word_search
+from formulae.search import Search
 from flask_nemo.filters import slugify
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
@@ -2551,7 +2552,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_regest_word_search_completion(self, mock_search):
-        test_args = self.TEST_ARGS['test_suggest_regest_word_search_completion']
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = ['schenkt dem kloster disentis auf ableben',
@@ -2578,6 +2579,24 @@ class TestES(Formulae_Testing):
         test_args['regest_q'] = 'tau?'
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_word_search_highlighting(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
+                    {'regest_sents': [Markup('Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der')]},
+                    {'regest_sents': [Markup('Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der')]},
+                    {'regest_sents': [Markup('Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche')]},
+                    {'regest_sents': [Markup('Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum')]},
+                    {'regest_sents': [Markup('Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen')]},
+                    {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
+        mock_search.return_value = resp
+        Search.HIGHLIGHT_CHARS_AFTER = 50
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
+        Search.HIGHLIGHT_CHARS_AFTER = 30
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion_no_qSource(self, mock_search):
