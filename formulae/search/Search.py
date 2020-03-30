@@ -163,31 +163,34 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """
     results = set()
     kwargs['fragment_size'] = 1000
+    field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
     if kwargs['qSource'] == 'text':
+        highlight_field = field_mapping[kwargs.get('field', 'autocomplete')]
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
         posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'sents'
     elif kwargs['qSource'] == 'regest':
+        highlight_field = 'regest'
         term = kwargs.get('regest_q', '')
         if '*' in term or '?' in term:
             return None
         posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'regest_sents'
     else:
         return None
     for post in posts:
-        for sent in post[highlight]:
-            r = str(sent[sent.find('</small><strong>'):])
-            r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            end_index = r.find(' ', len(term) + 30)
-            results.add(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
-            """ind = 0
-            while w in r[ind:]:
-                i = r.find(w, ind)
-                results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
-                ind = r.find(w, ind) + 1"""
+        r = re.sub(r'[{}]'.format(punctuation), '', post['info'][highlight_field]).lower()
+        ind = 0
+        sep = ''
+        while term in r[ind:]:
+            if ind > 0:
+                sep = ' '
+            i = r.find(sep + term, ind)
+            if i == -1:
+                ind = i
+                continue
+            results.add(r[i:min(r.find(' ', i + len(term) + 30), len(r))].strip())
+            ind = i + len(sep + term)
     return sorted(results, key=str.lower)[:10]
 
 
@@ -302,7 +305,7 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
                          month_start: int=0, day_start: int=0, year_end: int=0, month_end: int=0, day_end: int=0,
                          date_plus_minus: int=0, exclusive_date_range: str="False", slop: int=4, in_order: str='False',
                          composition_place: str='', sort: str='urn', special_days: list=None, regest_q: str='',
-                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
+                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]], int, dict]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     if corpus is None:
         corpus = ['all']
@@ -424,7 +427,7 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
         # match up 1-to-1.
         if field == 'lemmas':
             ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
-        elif field == "text":
+        elif field == "text" and '*' not in q and '?' not in q:
             ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'text', 'text')
         else:
             ids = [{'id': hit['_id'],
