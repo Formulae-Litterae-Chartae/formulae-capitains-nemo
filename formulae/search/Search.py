@@ -108,7 +108,7 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
     set_session_token(index, search_body, field, query)
     if field == 'lemmas':
-        ids = lem_highlight_to_text(search, query, False, 0, 'regest')
+        ids = lem_highlight_to_text(search, query, False, 0, 'regest', 'lemmas', 'text')
     else:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
@@ -126,7 +126,7 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
     if field == 'lemmas':
-        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field)
+        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
     else:
         for hit in session_search['hits']['hits']:
             d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
@@ -161,34 +161,37 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
 
     :return: sorted set of results
     """
-    results = []
+    results = set()
     kwargs['fragment_size'] = 1000
+    field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
     if kwargs['qSource'] == 'text':
+        highlight_field = field_mapping[kwargs.get('field', 'autocomplete')]
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
         posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'sents'
     elif kwargs['qSource'] == 'regest':
+        highlight_field = 'regest'
         term = kwargs.get('regest_q', '')
         if '*' in term or '?' in term:
             return None
         posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'regest_sents'
     else:
         return None
     for post in posts:
-        for sent in post[highlight]:
-            r = str(sent[sent.find('</small><strong>'):])
-            r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            end_index = r.find(' ', len(term) + 30)
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
-            """ind = 0
-            while w in r[ind:]:
-                i = r.find(w, ind)
-                results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
-                ind = r.find(w, ind) + 1"""
-    return [term] + sorted(list(set(results)), key=str.lower)[:10]
+        r = re.sub(r'[{}]'.format(punctuation), '', post['info'][highlight_field]).lower()
+        ind = 0
+        sep = ''
+        while term in r[ind:]:
+            if ind > 0:
+                sep = ' '
+            i = r.find(sep + term, ind)
+            if i == -1:
+                ind = i
+                continue
+            results.add(r[i:min(r.find(' ', i + len(term) + 30), len(r))].strip())
+            ind = i + len(sep + term)
+    return sorted(results, key=str.lower)[:10]
 
 
 def highlight_segment(orig_str: str) -> str:
@@ -211,8 +214,8 @@ def highlight_segment(orig_str: str) -> str:
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
-                          regest_field: str) -> List[Dict[str, Union[str, list]]]:
+def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
+                          highlight_field: str) -> List[Dict[str, Union[str, list]]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -224,23 +227,23 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
     """
     ids = []
     for hit in search['hits']['hits']:
-        text = hit['_source']['text']
+        text = hit['_source'][highlight_field]
         sentences = []
         sentence_spans = []
         vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
-        inflected_offsets = dict()
-        lemma_positions = dict()
-        for v in vectors['term_vectors']['text']['terms'].values():
+        highlight_offsets = dict()
+        searched_positions = dict()
+        for v in vectors['term_vectors'][highlight_field]['terms'].values():
             for o in v['tokens']:
-                inflected_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-        for k, v in vectors['term_vectors']['lemmas']['terms'].items():
+                highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+        for k, v in vectors['term_vectors'][search_field]['terms'].items():
             for o in v['tokens']:
-                lemma_positions[o['position']] = k
+                searched_positions[o['position']] = k
         if ' ' in q:
             q_words = q.split()
             positions = {k: [] for k in q_words}
             for w in q_words:
-                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                positions[w] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
             search_range_start = int(slop) + len(q_words)
             search_range_end = int(slop) + len(q_words) + 1
             if ordered_terms:
@@ -257,10 +260,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
                 if set(q_words) == used_q_words:
                     ordered_span = sorted(span)
                     if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                        start_offsets = [inflected_offsets[x][0] for x in ordered_span]
-                        end_offsets = [inflected_offsets[x][1] for x in ordered_span]
-                        start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
-                        end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                        start_offsets = [highlight_offsets[x][0] for x in ordered_span]
+                        end_offsets = [highlight_offsets[x][1] for x in ordered_span]
+                        start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
+                        end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
                         sentence = ''
                         for i, x in enumerate(text[start_index:end_index]):
                             if i + start_index in start_offsets:
@@ -271,15 +274,15 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
                                 sentence += x
                         sentences.append(Markup(sentence))
                         sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                    min(len(inflected_offsets), ordered_span[-1] + 11)))
+                                                    min(len(highlight_offsets), ordered_span[-1] + 11)))
         # I need to change the highlight clause in search to get this to return the correct stuff
         else:
-            positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
+            positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][q]['tokens']]
             for pos in positions:
-                start_offset = inflected_offsets[pos][0]
-                end_offset = inflected_offsets[pos][1]
-                start_index = inflected_offsets[max(0, pos - 10)][0]
-                end_index = inflected_offsets[min(len(inflected_offsets) - 1, pos + 10)][1] + 1
+                start_offset = highlight_offsets[pos][0]
+                end_offset = highlight_offsets[pos][1]
+                start_index = highlight_offsets[max(0, pos - 10)][0]
+                end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
                 sentence = ''
                 for i, x in enumerate(text[start_index:end_index]):
                     if i + start_index == start_offset:
@@ -289,7 +292,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int,
                     else:
                         sentence += x
                 sentences.append(Markup(sentence))
-                sentence_spans.append(range(max(0, pos - 10), min(len(inflected_offsets), pos + 11)))
+                sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
         ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'sentence_spans': sentence_spans,
                     'title': hit['_source']['title'],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
@@ -302,7 +305,7 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
                          month_start: int=0, day_start: int=0, year_end: int=0, month_end: int=0, day_end: int=0,
                          date_plus_minus: int=0, exclusive_date_range: str="False", slop: int=4, in_order: str='False',
                          composition_place: str='', sort: str='urn', special_days: list=None, regest_q: str='',
-                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
+                         regest_field: str='regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]], int, dict]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     if corpus is None:
         corpus = ['all']
@@ -423,7 +426,9 @@ def advanced_query_index(corpus: list=None, field: str="text", q: str='', page: 
         # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
         # match up 1-to-1.
         if field == 'lemmas':
-            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field)
+            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
+        elif field == "text" and '*' not in q and '?' not in q:
+            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'text', 'text')
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],

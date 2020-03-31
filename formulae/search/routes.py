@@ -54,7 +54,7 @@ def r_results():
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
-                       'sort': request.args.get('sort', 'urn')}
+                       'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search')}
         if request.args.get('old_search', None):
             search_args.update({'old_search': True})
     else:
