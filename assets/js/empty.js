@@ -32,6 +32,7 @@ function makeLemmaSearch() {
     button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
 }
 
+
 // I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
 // I don't think it is needed any more so I am commenting it out and testing, just to make sure.
 // function getSubElements(coll) {
