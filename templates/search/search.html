@@ -80,7 +80,7 @@
                         {% for lem in searched_lems %}
                             {% set outer_loop = loop %}
                             {% if lem|length == 1 %}
-                                <td class="align-middle lem-to-search" value="{{ lem|list|first }}" checked>
+                                <td class="align-middle lem-to-search" value="{{ lem|list|first }}" checked="True">
                                 {{ lem|list|first }}
                             {% else %}
                                 <td class="align-middle">

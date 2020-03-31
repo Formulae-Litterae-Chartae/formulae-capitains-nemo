@@ -24,13 +24,14 @@ function makeLemmaSearch() {
     var oldUrl = button.getAttribute('href');
     var newQ = new Array();
     for (let lemma of lemmas){
-        if (lemma.hasAttribute('checked')) {
+        if (lemma.checked || lemma.getAttribute('checked') == 'True') {
             newQ.push(lemma.getAttribute('value'));
         }
     };
-    oldUrl = oldUrl.replace(reField, '&lemma_search=True');
-    button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')));
+    oldUrl = oldUrl.replace(reField, '');
+    button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
 }
+
 
 // I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
 // I don't think it is needed any more so I am commenting it out and testing, just to make sure.

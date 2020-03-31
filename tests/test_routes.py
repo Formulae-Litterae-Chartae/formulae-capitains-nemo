@@ -5,6 +5,7 @@ from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
     set_session_token, suggest_word_search
+from formulae.search import Search
 from flask_nemo.filters import slugify
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
@@ -629,44 +630,14 @@ class TestIndividualRoutes(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         mock_search.return_value = resp
-        mock_vectors.return_value = {'_index': 'andecavensis_v1',
-                                     '_type': 'andecavensis',
-                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
-                                     '_version': 1,
-                                     'found': True,
-                                     'took': 0,
-                                     'term_vectors': {'text': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      },
-                                                      'lemmas': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      }
-                                     }}
+        mock_vectors.return_value = TestES.MOCK_VECTOR_RETURN_VALUE
         set_session_token('all', body, field=test_args['field'], q='text')
         self.assertEqual(session['previous_search'],
                          [{'id': hit['_id'],
                            'title': hit['_source']['title'],
                            'info': hit['_source'],
                            'regest_sents': [Markup('regest text')],
-                           'sentence_spans': [range(0, 3)],
+                           'sentence_spans': [range(0, 4)],
                            'sents': [Markup('some real </small><strong>text</strong><small>')]}
                           for hit in resp['hits']['hits']])
 
@@ -710,37 +681,7 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
-        mock_vectors.return_value = {'_index': 'andecavensis_v1',
-                                     '_type': 'andecavensis',
-                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
-                                     '_version': 1,
-                                     'found': True,
-                                     'took': 0,
-                                     'term_vectors': {'text': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      },
-                                                      'lemmas': {'terms':
-                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      }
-                                     }}
+        mock_vectors.return_value = TestES.MOCK_VECTOR_RETURN_VALUE
         with self.client as c:
             session['previous_search_args'] = previous_args
             c.get(search_url, follow_redirects=True)
@@ -1598,6 +1539,59 @@ class TestES(Formulae_Testing):
                                  ("regest_field", "regest"), ('lemma_search', 'y')]),
                  }
 
+    MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
+                                '_type': 'andecavensis',
+                                '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
+                                '_version': 1,
+                                'found': True,
+                                'took': 0,
+                                'term_vectors': {'text': {'terms':
+                                                              {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                      'start_offset': 0,
+                                                                                                      'end_offset': 3}]},
+                                                               'domni': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                     'start_offset': 5,
+                                                                                                     'end_offset': 8}]},
+                                                               'text': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                    'start_offset': 10,
+                                                                                                    'end_offset': 13}]},
+                                                               'other': {'term_freq': 1, 'tokens': [{'position': 3,
+                                                                                                     'start_offset': 10,
+                                                                                                     'end_offset': 13}]}
+                                                               }
+                                                          },
+                                                 'lemmas': {'terms':
+                                                                {'vir': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                     'start_offset': 0,
+                                                                                                     'end_offset': 3}]},
+                                                                 'venerabilis': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                             'start_offset': 5,
+                                                                                                             'end_offset': 8}]},
+                                                                 'regnum': {'term_freq': 1, 'tokens': [{'position': 2,
+                                                                                                        'start_offset': 10,
+                                                                                                        'end_offset': 13}]},
+                                                                 'text': {'term_freq': 1, 'tokens': [{'position': 3,
+                                                                                                      'start_offset': 10,
+                                                                                                      'end_offset': 13}]}
+                                                                 }
+                                                            }
+                                                 }}
+
+    def my_side_effect(self, index, doc_type, id):
+        if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
+            with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
+                return load(f)
+        if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
+            with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
+                return load(f)
+        if id == "urn:cts:formulae:buenden.meyer-marthaler0025.lat001":
+            with open('tests/test_data/advanced_search/buenden25_term_vectors.json') as f:
+                return load(f)
+        if id == "urn:cts:formulae:buenden.meyer-marthaler0028.lat001":
+            with open('tests/test_data/advanced_search/buenden28_term_vectors.json') as f:
+                return load(f)
+        return
+
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
 
@@ -1861,13 +1855,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multiword_wildcard_search(self, mock_search):
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multiword_wildcard_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_multiword_wildcard_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -1884,37 +1880,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_vectors.return_value = {'_index': 'andecavensis_v1',
-                                     '_type': 'andecavensis',
-                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
-                                     '_version': 1,
-                                     'found': True,
-                                     'took': 0,
-                                     'term_vectors': {'text': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      },
-                                                      'lemmas': {'terms':
-                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      }
-                                     }}
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2128,37 +2094,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_vectors.return_value = {'_index': 'andecavensis_v1',
-                                     '_type': 'andecavensis',
-                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
-                                     '_version': 1,
-                                     'found': True,
-                                     'took': 0,
-                                     'term_vectors': {'text': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      },
-                                                      'lemmas': {'terms':
-                                                                   {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      }
-                                     }}
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2325,13 +2261,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_regest_and_word_advanced_search(self, mock_search):
+    @patch.object(Elasticsearch, "termvectors")
+    def test_regest_and_word_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2360,37 +2298,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_vectors.return_value = {'_index': 'andecavensis_v1',
-                                     '_type': 'andecavensis',
-                                     '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
-                                     '_version': 1,
-                                     'found': True,
-                                     'took': 0,
-                                     'term_vectors': {'text': {'terms':
-                                                                   {'some': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'real': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      },
-                                                      'lemmas': {'terms':
-                                                                   {'vir': {'term_freq': 1, 'tokens': [{'position': 0,
-                                                                                                         'start_offset': 0,
-                                                                                                         'end_offset': 3}]},
-                                                                    'venerabilis': {'term_freq': 1, 'tokens': [{'position': 1,
-                                                                                                         'start_offset': 5,
-                                                                                                         'end_offset': 8}]},
-                                                                    'text': {'term_freq': 1, 'tokens': [{'position': 2,
-                                                                                                         'start_offset': 10,
-                                                                                                         'end_offset': 13}]}
-                                                                    }
-                                                      }
-                                     }}
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2398,7 +2306,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_single_word_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "termvectors")
+    def test_single_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -2406,25 +2315,28 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup(' dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': [Markup(' licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
+        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]}]
         mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup(' presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup(' presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup(' presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup(' presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
+        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]}]
         mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2434,13 +2346,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_single_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "all"), ("field", "lemmas"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2466,7 +2371,7 @@ class TestES(Formulae_Testing):
                                    '</small><strong>regnum </strong><small>superscripsi. Signum Uictorini et '
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2476,13 +2381,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_multi_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'regnum+domni'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2504,7 +2402,7 @@ class TestES(Formulae_Testing):
                                    '</small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2514,13 +2412,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_multi_lemma_highlighting_terms_out_of_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'domni+regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2542,7 +2433,7 @@ class TestES(Formulae_Testing):
                                    '</small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2552,13 +2443,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_multi_lemma_highlighting_terms_out_of_order_ordered_terms_True(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'domni+regnum'), ("fuzziness", "0"),
                                  ("in_order", "True"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2574,7 +2458,7 @@ class TestES(Formulae_Testing):
         sents = [{'sents': []},
                  {'sents': []}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2584,13 +2468,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_multi_lemma_highlighting_terms_with_slop(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'domni+regnum+regis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "2"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2610,7 +2487,7 @@ class TestES(Formulae_Testing):
                                    '</small><strong>regis,</strong><small> Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2620,13 +2497,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_multi_lemma_highlighting_terms_with_slop_in_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        def my_side_effect(index, doc_type, id):
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
-                with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
-                    return load(f)
-            if id == "urn:cts:formulae:buenden.meyer-marthaler0027.lat001":
-                with open('tests/test_data/advanced_search/buenden27_term_vectors.json') as f:
-                    return load(f)
         test_args = OrderedDict([("corpus", "buenden"), ("field", "lemmas"), ("q", 'sub+regis'), ("fuzziness", "0"),
                                  ("in_order", "True"), ("year", 0), ("slop", "4"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2645,7 +2515,7 @@ class TestES(Formulae_Testing):
                                    'domni nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
-        mock_vectors.side_effect = my_side_effect
+        mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _ = advanced_query_index(**test_args)
@@ -2917,17 +2787,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['ill',
-                    'illa curiensis esset distructa et ',
-                    'illa qui possit nobis prestare solatium ',
-                    'illa testimonia qui de ipso pago ',
-                    'illam audire desiderabilem „euge ',
-                    'illam divisionem quam bonae memoriae ',
-                    'illam divisionem vel ordinationem ',
-                    'illam indictionem ducatum tibi cedimus ',
-                    'ille sicut illi semetipsum hiato terrae ',
-                    'illi et mihi econtra donaretur et ',
-                    'illi licui set habere']
+        expected = ['illa curiensis esset distructa et',
+                    'illa dua mansa cernebant sed et plurimi',
+                    'illa edificia desursum coniungunt',
+                    'illa qui possit nobis prestare solatium',
+                    'illa remansit res vel familia amplius',
+                    'illa testimonia qui de ipso pago erant',
+                    'illam audire desiderabilem „euge serve',
+                    'illam beatissimam visionem domini',
+                    'illam divisionem quam bonae memoriae',
+                    'illam divisionem vel ordinationem']
         mock_search.return_value = resp
         test_args['qSource'] = 'text'
         results = suggest_word_search(**test_args)
@@ -2951,13 +2820,12 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['sche',
-                    'schenkt dem kloster disentis auf ableben',
-                    'schenkt dem kloster disentis güter ',
-                    'schenkt der kirche st hilarius zu ',
+        expected = ['schenkt dem kloster disentis auf ableben',
+                    'schenkt dem kloster disentis güter',
+                    'schenkt der kirche st hilarius zu seinem',
                     'schenkt seinem neffen priectus seinen',
-                    'schenkt zu seinem und seiner eltern ',
-                    'schenkt zu seinem und seiner gattin ',
+                    'schenkt zu seinem und seiner eltern',
+                    'schenkt zu seinem und seiner gattin',
                     'schenkt zum seelenheil seines bruders']
         mock_search.return_value = resp
         test_args['qSource'] = 'regest'
@@ -2976,6 +2844,24 @@ class TestES(Formulae_Testing):
         test_args['regest_q'] = 'tau?'
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_word_search_highlighting(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
+                    {'regest_sents': [Markup('Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der')]},
+                    {'regest_sents': [Markup('Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der')]},
+                    {'regest_sents': [Markup('Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche')]},
+                    {'regest_sents': [Markup('Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum')]},
+                    {'regest_sents': [Markup('Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen')]},
+                    {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
+        mock_search.return_value = resp
+        Search.HIGHLIGHT_CHARS_AFTER = 50
+        actual, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
+        Search.HIGHLIGHT_CHARS_AFTER = 30
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion_no_qSource(self, mock_search):
@@ -3040,7 +2926,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_download_search_results(self, mock_search):
+    @patch.object(Elasticsearch, "termvectors")
+    def test_download_search_results(self, mock_vectors, mock_search):
         with self.client as c:
             c.get('/search/download', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
@@ -3049,6 +2936,7 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
+        mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
         self.nemo.open_texts.append('urn:cts:formulae:buenden.meyer-marthaler0027.lat001')
