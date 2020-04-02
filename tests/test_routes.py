@@ -15,6 +15,7 @@ from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
+from unittest import TestCase
 from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
@@ -25,6 +26,7 @@ import re
 from math import ceil
 from datetime import date
 from copy import copy
+from io import StringIO
 
 
 class TestConfig(Config):
@@ -38,6 +40,32 @@ class TestConfig(Config):
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
+
+
+class NoESConfig(TestConfig):
+    ELASTICSEARCH_URL = None
+
+
+class SSLESConfig(TestConfig):
+    ELASTICSEARCH_URL = "https://some.secure.server/elasticsearch"
+    ES_CLIENT_CERT = "SomeFile"
+    ES_CLIENT_KEY = "SomeOtherFile"
+
+
+class NormalESConfig(TestConfig):
+    ELASTICSEARCH_URL = "Normal ES Server"
+
+
+class InvalidIIIFMappingConfig(TestConfig):
+    IIIF_MAPPING = "tests/test_data/formulae/data/mapping_error"
+
+
+class NoIIIFMappingConfig(TestConfig):
+    IIIF_MAPPING = ""
+
+
+class NoIIIFServerConfig(TestConfig):
+    IIIF_SERVER = None
 
 
 class Formulae_Testing(flask_testing.TestCase):
@@ -91,6 +119,48 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+
+
+class TestInit(TestCase):
+
+    def test_non_secure_es_server(self):
+        """ Make sure that an ES server with no SSL security is correctly initiated"""
+        app = create_app(NormalESConfig)
+        self.assertEqual(app.elasticsearch.transport.hosts[0]['host'], NormalESConfig.ELASTICSEARCH_URL.lower())
+
+    def test_secure_es_server(self):
+        """ Make sure that an ES server with no SSL security is correctly initiated"""
+        app = create_app(SSLESConfig)
+        self.assertEqual(app.elasticsearch.transport.hosts[0]['host'],
+                         'some.secure.server',
+                         'Host server name should be correct.')
+        self.assertTrue(app.elasticsearch.transport.hosts[0]['use_ssl'], 'SSL should be enabled.')
+
+    def test_no_es_server(self):
+        """ Make sure that the app is initiated correctly when no ES server is given"""
+        app = create_app(NoESConfig)
+        self.assertIsNone(app.elasticsearch)
+
+    def test_with_bad_iiif_mapping(self):
+        """ Make sure that app initiates correctly when the IIIF mapping file is not valid"""
+        with patch('sys.stderr', new=StringIO()) as fake_err:
+            app = create_app(InvalidIIIFMappingConfig)
+            self.assertIn('WARNING in __init__: Der Viewer konnte nicht gestartet werden.', fake_err.getvalue())
+        self.assertFalse(app.IIIFviewer, "No IIIF Viewer should be loaded with an invalid mapping file.")
+        self.assertEqual(app.picture_file, "", "picture_file should be an empty string with invalid mapping file.")
+
+    def test_with_no_iiif_mapping(self):
+        """ Make sure that app initiates correctly when no IIIF mapping file is given"""
+        with patch('sys.stderr', new=StringIO()) as fake_err:
+            app = create_app(NoIIIFMappingConfig)
+            self.assertIn('WARNING in __init__: Der Viewer konnte nicht gestartet werden.', fake_err.getvalue())
+        self.assertFalse(app.IIIFviewer, "No IIIF Viewer should be loaded with an invalid mapping file.")
+        self.assertEqual(app.picture_file, "", "picture_file should be an empty string with invalid mapping file.")
+
+    def test_with_no_iiif_server(self):
+        """ Make sure that app initiates correctly when no IIIF server is given"""
+        app = create_app(NoIIIFServerConfig)
+        self.assertIsNone(app.IIIFserver, "IIIFserver value should be none if no IIIF Server is given.")
 
 
 class TestIndividualRoutes(Formulae_Testing):
@@ -2977,76 +3047,6 @@ class TestErrors(Formulae_Testing):
             response = c.get('/500', follow_redirects=True)
             self.assert500(response, 'Should raise 500 error.')
             self.assertIn(expected, response.get_data(as_text=True))
-
-
-class Formulae_Testing_error_mapping(Formulae_Testing):
-    def create_app(self):
-        TestConfig.IIIF_MAPPING="tests/test_data/formulae/data/mapping_error"
-        app = create_app(TestConfig)
-        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
-        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
-                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
-                                                                  "notes": "components/extract_notes.xsl",
-                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
-                                 templates={"main": "templates/main",
-                                            "errors": "templates/errors",
-                                            "auth": "templates/auth",
-                                            "search": "templates/search",
-                                            "viewer":"templates/viewer"},
-                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
-                                 pdf_folder="pdf_folder/")
-
-        app.config['nemo_app'] = self.nemo
-        @app.route('/500', methods=['GET'])
-        def r_500():
-            abort(500)
-        return app
-
-
-class TestNemoSetup_error_mapping(Formulae_Testing_error_mapping):
-    def test_setup_global_app(self):
-        """ Make sure that the instance of Nemo on the server is created correctly"""
-        if os.environ.get('TRAVIS'):
-            # This should only be tested on Travis since I don't want it to run locally
-            from formulae.app import nemo
-            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
-            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
-            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
-
-
-class Formulae_Testing_without_mapping(Formulae_Testing):
-    def create_app(self):
-        TestConfig.IIIF_MAPPING=""
-        app = create_app(TestConfig)
-        resolver = XmlCapitainsLocalResolver(app.config['CORPUS_FOLDERS'])
-        self.nemo = NemoFormulae(name="InstanceNemo", resolver=resolver,
-                                 app=app, base_url="", transform={"default": "components/epidoc.xsl",
-                                                                  "notes": "components/extract_notes.xsl",
-                                                                  "elex_notes": "components/extract_elex_notes.xsl"},
-                                 templates={"main": "templates/main",
-                                            "errors": "templates/errors",
-                                            "auth": "templates/auth",
-                                            "search": "templates/search",
-                                            "viewer":"templates/viewer"},
-                                 css=["assets/css/theme.css"], js=["assets/js/empty.js"], static_folder="./assets/",
-                                 pdf_folder="pdf_folder/")
-
-        app.config['nemo_app'] = self.nemo
-        @app.route('/500', methods=['GET'])
-        def r_500():
-            abort(500)
-        return app
-
-
-class TestNemoSetup_withoutviewer(Formulae_Testing_without_mapping):
-    def test_setup_global_app(self):
-        """ Make sure that the instance of Nemo on the server is created correctly"""
-        if os.environ.get('TRAVIS'):
-            # This should only be tested on Travis since I don't want it to run locally
-            from formulae.app import nemo
-            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
-            self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
-            self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
 
 def rebuild_search_mock_files(url_base="http://127.0.0.1:5000"):
