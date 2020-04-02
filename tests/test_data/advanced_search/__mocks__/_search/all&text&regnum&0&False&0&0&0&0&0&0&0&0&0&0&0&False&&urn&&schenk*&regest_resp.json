@@ -1,5 +1,5 @@
 {
-  "took": 25,
+  "took": 30,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -103,16 +103,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
-          "date_string": "(769\u2013800 [813]) 03 31",
+          "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
-          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -319,20 +319,20 @@
           ],
           "min_date": "0769-03-31",
           "days": [
+            "Tuesday",
             "Lent",
+            "Wednesday",
+            "Monday",
             "Easter",
             "Saturday",
-            "Wednesday",
+            "Thursday",
             "Friday",
-            "Monday",
-            "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Sunday"
           ]
         },
         "highlight": {
           "regest": [
-            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur."
+            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur."
           ],
           "text": [
             "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
@@ -351,9 +351,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 170",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 170",
           "urn": "urn:cts:formulae:echternach.wampach0170.lat001",
-          "date_string": "[915\u2013928?]",
+          "date_string": "[915–928?]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -753,7 +753,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -801,25 +801,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -894,7 +894,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 1
         },
         "Echternach": {
@@ -942,25 +942,25 @@
         "Rheinisch": {
           "doc_count": 0
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 20
         },
         "Salzburg": {
           "doc_count": 0
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 1
         },
         "St. Gallen": {
           "doc_count": 20
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 1
         },
         "Werden": {
           "doc_count": 0
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 0
         }
       }

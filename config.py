@@ -16,6 +16,7 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["/home/matt/results/formulae"]
     INFLECTED_LEM_JSONS = os.environ.get('INFLECTED_LEM_JSONS').split(';') if os.environ.get('INFLECTED_LEM_JSONS') else []
+    LEM_TO_LEM_JSONS = os.environ.get('LEM_TO_LEM_JSONS').split(';') if os.environ.get('LEM_TO_LEM_JSONS') else []
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
@@ -28,5 +29,5 @@ class Config(object):
     IIIF_MAPPING = os.environ.get('IIIF_MAPPING') or ';'.join(['{}/iiif'.format(f) for f in CORPUS_FOLDERS])
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
-    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0 # Only need cache on the server, where this should be set in env
+    CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0  # Only need cache on the server, where this should be set in env
     PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')

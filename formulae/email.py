@@ -9,7 +9,7 @@ def send_async_email(app, msg):
         mail.send(msg)
 
 
-def send_email(subject, sender, recipients, text_body, html_body):
+def send_email(subject: str, sender: str, recipients: list, text_body: str, html_body: str):
     """ Helper function to send email
 
     :param subject: Email subject line

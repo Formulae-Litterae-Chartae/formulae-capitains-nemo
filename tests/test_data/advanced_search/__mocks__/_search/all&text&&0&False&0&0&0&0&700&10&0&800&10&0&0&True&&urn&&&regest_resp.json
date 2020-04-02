@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 560,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -20,7 +20,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 11",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 11",
           "urn": "urn:cts:formulae:echternach.wampach0011.lat001",
           "date_string": "[704] 10 01",
           "comp_ort": "Bettingen",
@@ -57,14 +57,14 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 28",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 28",
           "urn": "urn:cts:formulae:echternach.wampach0028.lat001",
           "date_string": "[718] 10 24",
-          "comp_ort": "S\u00fcstern",
+          "comp_ort": "Süstern",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "S\u00fcstern",
+          "orig_comp_ort": "Süstern",
           "forgery": false,
           "specific_date": [
             {
@@ -94,7 +94,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 34",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 34",
           "urn": "urn:cts:formulae:echternach.wampach0034.lat001",
           "date_string": "[726] 10 20",
           "comp_ort": "Weimodo regia villa",
@@ -331,7 +331,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 33",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 33",
           "urn": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
           "date_string": "759 10 01",
           "comp_ort": " ",
@@ -368,7 +368,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 83",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 83",
           "urn": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
           "date_string": "777 10 08",
           "comp_ort": " ",
@@ -409,7 +409,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -457,25 +457,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -550,7 +550,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 0
         },
         "Echternach": {
@@ -598,25 +598,25 @@
         "Rheinisch": {
           "doc_count": 0
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 3
         },
         "St. Gallen": {
           "doc_count": 9
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 10
         },
         "Werden": {
           "doc_count": 3
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 0
         }
       }

@@ -1,5 +1,5 @@
 {
-  "took": 14,
+  "took": 399,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -20,9 +20,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 130",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 130",
           "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
-          "date_string": "[789\u2013814]",
+          "date_string": "[789–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -54,9 +54,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 132",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 132",
           "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
-          "date_string": "[771\u2013814]",
+          "date_string": "[771–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -88,9 +88,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 133",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 133",
           "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
-          "date_string": "[771\u2013814]",
+          "date_string": "[771–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -122,9 +122,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 134",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 134",
           "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
-          "date_string": "[711\u2013814]",
+          "date_string": "[711–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -156,9 +156,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 135",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 135",
           "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
-          "date_string": "[771\u2013814]",
+          "date_string": "[771–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -190,9 +190,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 136",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 136",
           "urn": "urn:cts:formulae:echternach.wampach0136.lat001",
-          "date_string": "[771\u2013814]",
+          "date_string": "[771–814]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -370,7 +370,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -418,25 +418,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -511,7 +511,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 0
         },
         "Echternach": {
@@ -559,25 +559,25 @@
         "Rheinisch": {
           "doc_count": 4
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 1
         },
         "St. Gallen": {
           "doc_count": 2
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 1
         },
         "Werden": {
           "doc_count": 2
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 0
         }
       }
