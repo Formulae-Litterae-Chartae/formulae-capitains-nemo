@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 8,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -20,7 +20,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
           "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -54,7 +54,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
           "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -88,7 +88,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
           "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -122,7 +122,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
           "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -156,7 +156,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 46",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 46",
           "urn": "urn:cts:formulae:mondsee.rath0046.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -190,7 +190,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
           "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -224,7 +224,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 51",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 51",
           "urn": "urn:cts:formulae:mondsee.rath0051.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -258,7 +258,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
           "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -292,7 +292,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 58",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 58",
           "urn": "urn:cts:formulae:mondsee.rath0058.lat001",
           "date_string": "748-829?",
           "comp_ort": " ",
@@ -326,7 +326,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Das \u00e4lteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 81",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 81",
           "urn": "urn:cts:formulae:mondsee.rath0081.lat001",
           "date_string": "(748-829?)",
           "comp_ort": "Niederfraunleiten",
@@ -364,7 +364,7 @@
           "Arnulfinger": {
             "doc_count": 0
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 0
           },
           "Echternach": {
@@ -412,25 +412,25 @@
           "Rheinisch": {
             "doc_count": 0
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 0
           },
           "Salzburg": {
             "doc_count": 0
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 0
           },
           "St. Gallen": {
             "doc_count": 0
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 0
           },
           "Werden": {
             "doc_count": 0
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 0
           }
         }
@@ -505,7 +505,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 0
         },
         "Echternach": {
@@ -553,25 +553,25 @@
         "Rheinisch": {
           "doc_count": 0
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 0
         },
         "St. Gallen": {
           "doc_count": 0
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 0
         },
         "Werden": {
           "doc_count": 0
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 0
         }
       }

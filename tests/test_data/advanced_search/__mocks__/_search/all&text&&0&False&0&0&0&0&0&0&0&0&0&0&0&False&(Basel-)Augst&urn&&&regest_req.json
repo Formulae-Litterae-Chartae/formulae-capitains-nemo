@@ -69,7 +69,7 @@
               "_type": "arnulfinger"
             }
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "match": {
               "_type": "buenden"
             }
@@ -139,7 +139,7 @@
               "_type": "passau"
             }
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "match": {
               "_type": "raetien"
             }
@@ -159,7 +159,7 @@
               "_type": "salzburg"
             }
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "match": {
               "_type": "schaeftlarn"
             }
@@ -169,7 +169,7 @@
               "_type": "stgallen"
             }
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "match": {
               "_type": "weissenburg"
             }
@@ -179,7 +179,7 @@
               "_type": "werden"
             }
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "match": {
               "_type": "zuerich"
             }
@@ -250,7 +250,7 @@
                   "_type": "arnulfinger"
                 }
               },
-              "B\u00fcnden": {
+              "Bünden": {
                 "match": {
                   "_type": "buenden"
                 }
@@ -320,7 +320,7 @@
                   "_type": "passau"
                 }
               },
-              "R\u00e4tien": {
+              "Rätien": {
                 "match": {
                   "_type": "raetien"
                 }
@@ -340,7 +340,7 @@
                   "_type": "salzburg"
                 }
               },
-              "Sch\u00e4ftlarn": {
+              "Schäftlarn": {
                 "match": {
                   "_type": "schaeftlarn"
                 }
@@ -350,7 +350,7 @@
                   "_type": "stgallen"
                 }
               },
-              "Wei\u00dfenburg": {
+              "Weißenburg": {
                 "match": {
                   "_type": "weissenburg"
                 }
@@ -360,7 +360,7 @@
                   "_type": "werden"
                 }
               },
-              "Z\u00fcrich": {
+              "Zürich": {
                 "match": {
                   "_type": "zuerich"
                 }

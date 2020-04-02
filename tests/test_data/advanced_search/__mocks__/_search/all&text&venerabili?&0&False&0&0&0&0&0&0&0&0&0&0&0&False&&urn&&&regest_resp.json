@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 179,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -84,8 +84,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -288,15 +288,15 @@
         "_source": {
           "text": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
           "lemmas": null,
-          "regest": "Himiltrud \u00fcbertr\u00e4gt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des R\u00fcckkaufes.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 82",
+          "regest": "Himiltrud überträgt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des Rückkaufes.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 82",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
-          "date_string": "890 05 20\u2013890 11 25",
-          "comp_ort": "R\u00f6tis",
+          "date_string": "890 05 20–890 11 25",
+          "comp_ort": "Rötis",
           "autocomplete": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Himiltrud \u00fcbertr\u00e4gt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des R\u00fcckkaufes.",
-          "orig_comp_ort": "R\u00f6tis",
+          "autocomplete_regest": "Himiltrud überträgt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des Rückkaufes.",
+          "orig_comp_ort": "Rötis",
           "forgery": false,
           "dating": [
             {
@@ -328,9 +328,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 23",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 23",
           "urn": "urn:cts:formulae:echternach.wampach0023.lat001",
-          "date_string": "[698\u2013714]",
+          "date_string": "[698–714]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -382,9 +382,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 79",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 79",
           "urn": "urn:cts:formulae:echternach.wampach0079.lat001",
-          "date_string": "[775 10 09\u2013776 10 08]",
+          "date_string": "[775 10 09–776 10 08]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -436,9 +436,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 88",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 88",
           "urn": "urn:cts:formulae:echternach.wampach0088.lat001",
-          "date_string": "[783 10 09\u2013784 10 08]",
+          "date_string": "[783 10 09–784 10 08]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -490,9 +490,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 94",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 94",
           "urn": "urn:cts:formulae:echternach.wampach0094.lat001",
-          "date_string": "[785 10 09\u2013786 10 08]",
+          "date_string": "[785 10 09–786 10 08]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -548,7 +548,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -596,25 +596,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -689,7 +689,7 @@
         "Arnulfinger": {
           "doc_count": 4
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 1
         },
         "Echternach": {
@@ -737,25 +737,25 @@
         "Rheinisch": {
           "doc_count": 13
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 38
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 6
         },
         "St. Gallen": {
           "doc_count": 178
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 89
         },
         "Werden": {
           "doc_count": 0
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 3
         }
       }

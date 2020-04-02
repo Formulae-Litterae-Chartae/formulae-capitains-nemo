@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 126,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -119,14 +119,14 @@
         "_source": {
           "text": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
           "lemmas": null,
-          "regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten G\u00fcter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubeh\u00f6r gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 86",
+          "regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 86",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
           "date_string": "904 06 14",
           "comp_ort": "Ingelheim",
           "autocomplete": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten G\u00fcter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubeh\u00f6r gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "autocomplete_regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
           "orig_comp_ort": "Ingelheim",
           "forgery": false,
           "specific_date": [
@@ -146,7 +146,7 @@
         },
         "highlight": {
           "regest": [
-            "Ruotpertus </small><strong>tauscht</strong><small> mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten G\u00fcter zu Riom sowie die dortige </small><strong>Taufkirche</strong><small> mit Zehnt und Zubeh\u00f6r gegen Besitzungen zu Weilheim, Bissingen und. Jesingen."
+            "Ruotpertus </small><strong>tauscht</strong><small> mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige </small><strong>Taufkirche</strong><small> mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen."
           ]
         },
         "sort": [
@@ -162,9 +162,9 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 152",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 152",
           "urn": "urn:cts:formulae:echternach.wampach0152.lat001",
-          "date_string": "[876 08\u2013 877 08]",
+          "date_string": "[876 08– 877 08]",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
@@ -556,7 +556,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -604,25 +604,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -697,7 +697,7 @@
         "Arnulfinger": {
           "doc_count": 1
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 1
         },
         "Echternach": {
@@ -745,25 +745,25 @@
         "Rheinisch": {
           "doc_count": 2
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 4
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 1
         },
         "St. Gallen": {
           "doc_count": 11
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 4
         },
         "Werden": {
           "doc_count": 0
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 4
         }
       }

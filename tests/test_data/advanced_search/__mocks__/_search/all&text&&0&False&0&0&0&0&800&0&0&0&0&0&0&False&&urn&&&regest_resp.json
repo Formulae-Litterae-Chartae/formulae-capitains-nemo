@@ -1,5 +1,5 @@
 {
-  "took": 4,
+  "took": 163,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -17,16 +17,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "text": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
-          "date_string": "(769\u2013813 [813]) 04 20",
+          "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
-          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "autocomplete": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
+          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Monday",
             "Lent",
+            "Tuesday",
+            "Wednesday",
             "Easter",
             "Saturday",
-            "Wednesday",
+            "Thursday",
             "Friday",
-            "Monday",
-            "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Sunday"
           ]
         },
         "sort": [
@@ -329,9 +329,9 @@
           "text": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": null,
           "regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
-          "date_string": "769\u2013800 [814]",
+          "date_string": "769–800 [814]",
           "comp_ort": " ",
           "autocomplete": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": null,
@@ -369,9 +369,9 @@
           "text": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "lemmas": null,
           "regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
-          "date_string": "769\u2013800 [814]",
+          "date_string": "769–800 [814]",
           "comp_ort": " ",
           "autocomplete": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
           "autocomplete_lemmas": null,
@@ -406,16 +406,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
-          "date_string": "(769\u2013800 [813]) 03 31",
+          "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
-          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -622,15 +622,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
+            "Tuesday",
             "Lent",
+            "Wednesday",
+            "Monday",
             "Easter",
             "Saturday",
-            "Wednesday",
+            "Thursday",
             "Friday",
-            "Monday",
-            "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Sunday"
           ]
         },
         "sort": [
@@ -645,14 +645,14 @@
         "_source": {
           "text": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Ged\u00e4chtnis seines Namens eine Wiese in Tesquene.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
-          "date_string": "768\u2013800 [814]",
+          "date_string": "768–800 [814]",
           "comp_ort": " ",
           "autocomplete": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Ged\u00e4chtnis seines Namens eine Wiese in Tesquene.",
+          "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -683,14 +683,14 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
         "_source": {
-          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
+          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in ––.",
           "lemmas": null,
           "regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
-          "date_string": "768\u2013800 [814]",
+          "date_string": "768–800 [814]",
           "comp_ort": " ",
-          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in \u2013\u2013.",
+          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in ––.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
           "orig_comp_ort": " ",
@@ -723,14 +723,14 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
         "_source": {
-          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201ePer me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: „Per me si quis intraverit, salvabitur, ingredietur et egredietur“, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "lemmas": null,
           "regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
           "date_string": "801-803",
           "comp_ort": " ",
-          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: \u201ePer me si quis intraverit, salvabitur, ingredietur et egredietur\u201c, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: „Per me si quis intraverit, salvabitur, ingredietur et egredietur“, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
           "orig_comp_ort": " ",
@@ -757,16 +757,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
         "_source": {
-          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201eUbi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201eEcce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201eEuge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: „Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum“. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: „Ecce sacerdos magnus, qui in diebus suis placuit deo?“; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: „Euge serve bone et fidelis, intra in gaudium domini dei tui“. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "lemmas": null,
-          "regest": "Alkuin dankt Bischof Remedius f\u00fcr seine Briefe und sein Gebet und ermahnt ihn.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
+          "regest": "Alkuin dankt Bischof Remedius für seine Briefe und sein Gebet und ermahnt ihn.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
           "date_string": "801-804",
           "comp_ort": " ",
-          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: \u201eUbi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum\u201c. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: \u201eEcce sacerdos magnus, qui in diebus suis placuit deo?\u201c; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: \u201eEuge serve bone et fidelis, intra in gaudium domini dei tui\u201c. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: „Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum“. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: „Ecce sacerdos magnus, qui in diebus suis placuit deo?“; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: „Euge serve bone et fidelis, intra in gaudium domini dei tui“. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Alkuin dankt Bischof Remedius f\u00fcr seine Briefe und sein Gebet und ermahnt ihn.",
+          "autocomplete_regest": "Alkuin dankt Bischof Remedius für seine Briefe und sein Gebet und ermahnt ihn.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -793,14 +793,14 @@
         "_source": {
           "text": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "lemmas": null,
-          "regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius \u00fcber ein strittiges Grundst\u00fcck.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
-          "date_string": "ca. 791\u2013806",
+          "date_string": "ca. 791–806",
           "comp_ort": " ",
           "autocomplete": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius \u00fcber ein strittiges Grundst\u00fcck.",
+          "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -827,14 +827,14 @@
         "_source": {
           "text": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
           "lemmas": null,
-          "regest": "Vor Hunfrid, Graf von R\u00e4tien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundst\u00fcck zur\u00fcck.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 35",
+          "regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 35",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
           "date_string": "807 02 07",
           "comp_ort": "Rankweil",
           "autocomplete": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Vor Hunfrid, Graf von R\u00e4tien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundst\u00fcck zur\u00fcck.",
+          "autocomplete_regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
           "orig_comp_ort": "Rankweil",
           "forgery": false,
           "specific_date": [
@@ -869,7 +869,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -917,25 +917,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -1010,7 +1010,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 19
         },
         "Echternach": {
@@ -1058,25 +1058,25 @@
         "Rheinisch": {
           "doc_count": 71
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 58
         },
         "Salzburg": {
           "doc_count": 197
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 28
         },
         "St. Gallen": {
           "doc_count": 613
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 57
         },
         "Werden": {
           "doc_count": 49
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 53
         }
       }
