@@ -304,6 +304,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
             else:
                 positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][q]['tokens']]
+            positions = sorted(positions)
             for pos in positions:
                 start_offset = highlight_offsets[pos][0]
                 end_offset = highlight_offsets[pos][1]
