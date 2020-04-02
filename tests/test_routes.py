@@ -61,7 +61,7 @@ class InvalidIIIFMappingConfig(TestConfig):
 
 
 class NoIIIFMappingConfig(TestConfig):
-    IIIF_MAPPING = "tests/test_data/formulae/data/mapping_error"
+    IIIF_MAPPING = ""
 
 
 class NoIIIFServerConfig(TestConfig):
