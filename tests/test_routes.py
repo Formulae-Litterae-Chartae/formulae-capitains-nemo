@@ -15,6 +15,7 @@ from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
+from unittest import TestCase
 from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict
 import os
@@ -38,6 +39,20 @@ class TestConfig(Config):
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
+
+
+class NoESConfig(TestConfig):
+    ELASTICSEARCH_URL = None
+
+
+class SSLESConfig(TestConfig):
+    ELASTICSEARCH_URL = "https://some.secure.server/elasticsearch"
+    ES_CLIENT_CERT = "SomeFile"
+    ES_CLIENT_KEY = "SomeOtherFile"
+
+
+class NormalESConfig(TestConfig):
+    ELASTICSEARCH_URL = "Normal ES Server"
 
 
 class Formulae_Testing(flask_testing.TestCase):
@@ -91,6 +106,27 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts, self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+
+
+class TestInitES(TestCase):
+
+    def test_non_secure_es_server(self):
+        """ Make sure that an ES server with no SSL security is correctly initiated"""
+        app = create_app(NormalESConfig)
+        self.assertEqual(app.elasticsearch.transport.hosts[0]['host'], NormalESConfig.ELASTICSEARCH_URL.lower())
+
+    def test_secure_es_server(self):
+        """ Make sure that an ES server with no SSL security is correctly initiated"""
+        app = create_app(SSLESConfig)
+        self.assertEqual(app.elasticsearch.transport.hosts[0]['host'],
+                         'some.secure.server',
+                         'Host server name should be correct.')
+        self.assertTrue(app.elasticsearch.transport.hosts[0]['use_ssl'], 'SSL should be enabled.')
+
+    def test_no_es_server(self):
+        """ Make sure that the app is initiated correctly when no ES server is given"""
+        app = create_app(NoESConfig)
+        self.assertIsNone(app.elasticsearch)
 
 
 class TestIndividualRoutes(Formulae_Testing):
