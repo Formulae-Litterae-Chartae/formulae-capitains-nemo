@@ -796,13 +796,23 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/1', follow_redirects=True)
             self.assertRegex(response.get_data(as_text=True), expected)
 
-    def test_cache_max_age_header_set(self):
-        """ Make sure that the cache max age header is set correctly with each request"""
+    def test_cache_control_header_set(self):
+        """ Make sure that the Cache-Control header is set correctly with each request"""
         with self.client as c:
-            with c.get('/assets/nemo/css/theme.min.css') as response:
-                self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
+            response = c.get('/assets/nemo/css/theme.min.css')
+            self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
             response = c.get('/', follow_redirects=True)
-            self.assertEqual(response.cache_control['max-age'], '0', 'normal pages should not be cached')
+            self.assertEqual(response.cache_control['max-age'], str(self.app.config['CACHE_MAX_AGE']),
+                             'normal pages should be cached according to the default rule.')
+            self.assertNotIn('no-cache', response.cache_control,
+                             'Normal pages should not have "no-cache" in their Cache-Control header.')
+            response = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1')
+            self.assertIn('no-cache', response.cache_control, 'Reading pages should not be cached')
+            response = c.get('/lang/de')
+            self.assertIn('no-cache', response.cache_control,
+                          'The response to changing the language should not be cached.')
+            response = c.get('/auth/login')
+            self.assertIn('no-cache', response.cache_control, 'The login page should not be cached.')
 
     def test_rendering_from_texts_without_notes_transformation(self):
         """ Make sure that the multipassage template is rendered correctly without a transformation of the notes"""
