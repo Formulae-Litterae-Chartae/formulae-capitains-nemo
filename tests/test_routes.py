@@ -797,7 +797,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertRegex(response.get_data(as_text=True), expected)
 
     def test_cache_control_header_set(self):
-        """ Make sure that the cache-control header is set correctly with each request"""
+        """ Make sure that the Cache-Control header is set correctly with each request"""
         with self.client as c:
             response = c.get('/assets/nemo/css/theme.min.css')
             self.assertEqual(response.cache_control['max-age'], '86400', 'static files should be cached')
