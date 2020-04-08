@@ -355,13 +355,13 @@ class NemoFormulae(Nemo):
         if not re.search('texts|search|assets|favicon|reading_format', request.url):
             session.pop('previous_search', None)
 
-    def after_request(self, response):
+    def after_request(self, response: Response) -> Response:
         """ Currently used only for the Cache-Control header.
 
         """
         max_age = self.app.config['CACHE_MAX_AGE']
-        if re.search('/(lang|auth)/', request.url):
-            max_age = 0
+        if re.search('/(lang|auth|texts)/', request.url):
+            response.cache_control.no_cache = True
         elif re.search('/assets/', request.url):
             max_age = 60 * 60 * 24
         response.cache_control.max_age = max_age
