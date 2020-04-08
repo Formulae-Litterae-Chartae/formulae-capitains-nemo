@@ -275,9 +275,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::lexicon_modal.html')
             c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
-            # An authenicated user who surfs to the login page should be redirected to index
+            # An authenicated user who surfs to the login page should be redirected to their user page
             c.get('/auth/login', follow_redirects=True)
-            self.assertTemplateUsed('main::index.html')
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             # The following tests are to make sure that non-open texts are available to project members
             c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
@@ -364,9 +365,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
             c.get('/auth/reset_password_request', follow_redirects=True)
-            self.assertTemplateUsed('main::index.html')
-            c.get('/auth/register', follow_redirects=True)
-            self.assertTemplateUsed('main::index.html')
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
+            c.get('/auth/login', follow_redirects=True)
+            self.assertTemplateUsed('auth::login.html')
             self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             c.get('/collections', follow_redirects=True)
             self.assertTemplateUsed('main::collection.html')
@@ -407,7 +409,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::elex_collection.html')
             # An authenicated user who surfs to the login page should be redirected to index
             c.get('/auth/login', follow_redirects=True)
-            self.assertTemplateUsed('main::index.html')
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_('Sie sind schon eingeloggt.'))
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
@@ -1168,7 +1171,7 @@ class TestAuth(Formulae_Testing):
             self.assertTrue(current_user.email == "project.member@uni-hamburg.de")
             self.assertTrue(current_user.is_active)
             self.assertTrue(current_user.is_authenticated)
-            self.assertTemplateUsed('main::index.html')
+            self.assertTemplateUsed('auth::login.html')
 
     def test_incorrect_login(self):
         """ Ensure that login does not work with incorrect credentials"""
@@ -1279,7 +1282,8 @@ class TestAuth(Formulae_Testing):
                    follow_redirects=True)
             self.assertTrue(User.query.filter_by(username='project.member').first().check_password('some_new_password'),
                             'User should have a new password: "some_new_password".')
-            self.assertTemplateUsed('main::index.html')
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_("Sie haben Ihr Passwort erfolgreich geändert."))
 
     def test_user_change_prefs_incorrect(self):
         """ Make sure that a user who gives the false old password is not able to change their password"""
