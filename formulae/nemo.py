@@ -410,6 +410,8 @@ class NemoFormulae(Nemo):
             response.cache_control.no_cache = True
         elif re.search('/assets/', request.url):
             max_age = 60 * 60 * 24
+        else:
+            response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
         return response

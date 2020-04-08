@@ -16,7 +16,8 @@ def r_login():
     :return: template, page title, forms
     """
     if current_user.is_authenticated:
-        return redirect(url_for('InstanceNemo.r_index'))
+        flash(_('Sie sind schon eingeloggt.'))
+        return redirect(url_for('auth.r_user'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -26,7 +27,7 @@ def r_login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            return redirect(url_for('InstanceNemo.r_index'))
+            return redirect(url_for('auth.r_user'))
         return redirect(next_page)
     return current_app.config['nemo_app'].render(template='auth::login.html', title=_('Einloggen'), forms=[form], purpose='login', url=dict())
 
@@ -42,18 +43,20 @@ def r_logout() -> redirect:
 
 
 @bp.route('/user/<username>', methods=["GET", "POST"])
+@bp.route('/user', methods=["GET", "POST"])
 @login_required
-def r_user(username: str):
+def r_user(username: str = None):
     """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
 
     :return: template, page title, forms
     """
+    username = current_user.username
     password_form = PasswordChangeForm()
     if password_form.validate_on_submit():
         user = User.query.filter_by(username=username).first_or_404()
         if not user.check_password(password_form.old_password.data):
             flash(_("Das ist nicht Ihr aktuelles Passwort."))
-            return redirect(url_for('auth.r_user', username=username))
+            return redirect(url_for('auth.r_user'))
         user.set_password(password_form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -65,7 +68,7 @@ def r_user(username: str):
         db.session.commit()
         refresh()
         flash(_("Sie haben Ihre Benutzersprache erfolgreich geändert."))
-        return redirect(url_for('auth.r_user', username=username))
+        return redirect(url_for('auth.r_user'))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
     return current_app.config['nemo_app'].render(template="auth::login.html", title=_("Benutzerprofil ändern"),
@@ -78,7 +81,8 @@ def r_reset_password_request():
 
     """
     if current_user.is_authenticated:
-        return redirect(url_for('InstanceNemo.r_index'))
+        flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
+        return redirect(url_for('auth.r_user'))
     form = ResetPasswordRequestForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -98,7 +102,7 @@ def r_reset_password(token):
     """
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
-        return redirect(url_for('auth.r_user', username=current_user.username))
+        return redirect(url_for('auth.r_user'))
     user = User.verify_reset_password_token(token)
     if not user:
         return redirect(url_for('InstanceNemo.r_index'))
@@ -119,7 +123,7 @@ def r_register():
     """
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt.'))
-        return redirect(url_for('InstanceNemo.r_index'))
+        return redirect(url_for('auth.r_user'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data, default_locale=form.default_locale.data)
