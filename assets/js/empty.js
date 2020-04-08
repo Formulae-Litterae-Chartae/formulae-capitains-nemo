@@ -16,6 +16,23 @@ function restrictSearch() {
     button.setAttribute('href', oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B') + '&old_search=True'));
 }
 
+function makeLemmaSearch() {
+    var button = document.getElementById('lemmaSearchButton');
+    var reQ = new RegExp('&q=[^&]*');
+    var reField = new RegExp('&lemma_search=[^&]*');
+    var lemmas = document.getElementsByClassName('lem-to-search');
+    var oldUrl = button.getAttribute('href');
+    var newQ = new Array();
+    for (let lemma of lemmas){
+        if (lemma.checked || lemma.getAttribute('checked') == 'True') {
+            newQ.push(lemma.getAttribute('value'));
+        }
+    };
+    oldUrl = oldUrl.replace(reField, '');
+    button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
+}
+
+
 // I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
 // I don't think it is needed any more so I am commenting it out and testing, just to make sure.
 // function getSubElements(coll) {

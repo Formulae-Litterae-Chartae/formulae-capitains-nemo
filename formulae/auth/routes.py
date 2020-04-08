@@ -14,7 +14,6 @@ def r_login():
     """ login form
 
     :return: template, page title, forms
-    :rtype: {str: Any}
     """
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt.'))
@@ -34,7 +33,7 @@ def r_login():
 
 
 @bp.route('/logout')
-def r_logout():
+def r_logout() -> redirect:
     """ user logout
 
     :return: redirect to login page
@@ -50,7 +49,6 @@ def r_user(username: str = None):
     """ profile page for user. Initially used to change user information (e.g., password, email, etc.)
 
     :return: template, page title, forms
-    :rtype: {str: Any}
     """
     username = current_user.username
     password_form = PasswordChangeForm()

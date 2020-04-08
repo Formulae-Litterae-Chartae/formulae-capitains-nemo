@@ -66,7 +66,46 @@
         </div>
     </div>
     
-    {% if total_results > 0 %}<p>
+    {% if searched_lems|length > 0 %}
+    <div class="row py-1 justify-content-center" id="lemma-search-row">
+        <div class="col-auto ml-auto pr-1">
+            <table id="lemma-search-table" class="table table-sm w-auto align-middle">
+                <thead>
+                    <tr class="table-secondary">
+                        <th colspan="{{ searched_lems|length }}">{{ _('Nach folgenden Lemmata Suchen') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-secondary">
+                        {% for lem in searched_lems %}
+                            {% set outer_loop = loop %}
+                            {% if lem|length == 1 %}
+                                <td class="align-middle lem-to-search" value="{{ lem|list|first }}" checked="True">
+                                {{ lem|list|first }}
+                            {% else %}
+                                <td class="align-middle">
+                                {% for l in lem|sort %}
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="choice{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ outer_loop.index }}" class="custom-control-input lem-to-search" value="{{ l }}" {% if loop.first %}checked{% endif %}>
+                                    <label class="custom-control-label" for="choice{{ outer_loop.index }}-{{ loop.index }}">{{ l }}</label>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-auto mr-auto my-auto pl-1">
+            <a href="{{ request.url }}" onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#">{{ _('Suchen') }}</a>
+        </div>
+    </div>
+    {% endif %}
+    
+    
+    {% if total_results > 0 %}
+    <div class="row py-1" id="results-sort-row">
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>
                 <tr>
@@ -88,7 +127,7 @@
                 </tr>
             </tbody>
         </table>
-    </p>
+    </div>
     {% endif %}
     {% for post in posts %}
         <div class="card">
