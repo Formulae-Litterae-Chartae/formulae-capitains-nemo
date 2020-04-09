@@ -1012,17 +1012,18 @@ class NemoFormulae(Nemo):
         """
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
-        for sent_index, sent in enumerate(results['sents']):
-            for span_index, i in enumerate(results['sentence_spans'][sent_index]):
-                if span_index == 0 and 'searched-start' not in spans[i].get('class'):
-                    spans[i].set('class', spans[i].get('class') + ' searched-start')
-                elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
-                    spans[i].set('class', spans[i].get('class') + ' searched-start')
-                if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
-                    if 'searched-end' not in spans[i].get('class'):
-                        spans[i].set('class', spans[i].get('class') + ' searched-end')
-            if 'searched-end' not in spans[i].get('class'):
-                spans[i].set('class', spans[i].get('class') + ' searched-end')
+        if 'sentence_spans' in results:
+            for sent_index, sent in enumerate(results['sents']):
+                for span_index, i in enumerate(results['sentence_spans'][sent_index]):
+                    if span_index == 0 and 'searched-start' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-start')
+                    elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-start')
+                    if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
+                        if 'searched-end' not in spans[i].get('class'):
+                            spans[i].set('class', spans[i].get('class') + ' searched-end')
+                if 'searched-end' not in spans[i].get('class'):
+                    spans[i].set('class', spans[i].get('class') + ' searched-end')
         xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                     with_tail=True, standalone=None)
         span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
