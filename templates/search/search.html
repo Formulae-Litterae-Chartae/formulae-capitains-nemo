@@ -45,7 +45,7 @@
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
     <div class="row search-subtitle-row">
-        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if 'previous_search_args' in session %}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if 'previous_search_args' in g %}?{% for arg, val in g['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
         <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.download_search_results') }}" id="searchDownload">{{ _('Suchergebnisse herunterladen') }}</a></div>
         <div class="col-auto">
             <div class="dropdown">
@@ -53,10 +53,10 @@
                     {{ _('Zeig nur Resultate aus:') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
-                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in g['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ g['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
                     {% for corp in g.corpora %}
-                        {% if 'corpus' in session['previous_aggregations'] and session['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                        {% if 'corpus' in g['previous_aggregations'] and g['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
                         <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}"> {{ corp[1] }}</input></span>
                         {% endif %}
                     {% endfor %}

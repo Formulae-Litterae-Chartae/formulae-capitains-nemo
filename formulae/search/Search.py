@@ -1,4 +1,4 @@
-from flask import current_app, Markup, flash, session
+from flask import current_app, Markup, flash
 from flask_babel import _
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
@@ -75,14 +75,19 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
 
 
 def query_index(index: list, field: str, query: str, page: int, per_page: int,
-                sort: str = 'urn') -> Tuple[List[Dict[str, Union[str, list]]], int, dict]:
+                sort: str = 'urn') -> Tuple[List[Dict[str,
+                                                      Union[str, list]]],
+                                            int,
+                                            dict,
+                                            List[Dict[str,
+                                                      Union[str,
+                                                            List[str]]]]]:
     if not current_app.elasticsearch:
-        return [], 0, {}
+        return [], 0, {}, []
     if index in ['', ['']]:
-        return [], 0, {}
+        return [], 0, {}, []
     if not query:
-        return [], 0, {}
-    session.pop('previous_search', None)
+        return [], 0, {}, []
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
@@ -116,7 +121,7 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    set_session_token(index, search_body, field, query)
+    prev_search = set_session_token(index, search_body, field, query)
     if field == 'lemmas':
         ids = lem_highlight_to_text(search, query, False, 0, 'regest', 'lemmas', 'text')
     else:
@@ -125,12 +130,13 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                 'sents':
                     [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']
                ]
-    return ids, search['hits']['total'], search['aggregations']
+    return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
 def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
-                      ordered_terms: bool = False, slop: int = 0, regest_field: str = 'regest'):
-    """ Sets session['previous_search'] to include the first X search results"""
+                      ordered_terms: bool = False, slop: int = 0,
+                      regest_field: str = 'regest') -> List[Dict[str, Union[str, List[str]]]]:
+    """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
@@ -151,7 +157,7 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
                 if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
                     d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
             search_hits.append(d)
-    session['previous_search'] = search_hits
+    return search_hits
 
 
 def suggest_composition_places() -> List[str]:
@@ -179,13 +185,13 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
-        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
+        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     elif kwargs['qSource'] == 'regest':
         highlight_field = 'regest'
         term = kwargs.get('regest_q', '')
         if '*' in term or '?' in term:
             return None
-        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
+        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     else:
         return None
     for post in posts:
@@ -332,15 +338,18 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
-                         regest_field: str = 'regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]], int, dict]:
+                         regest_field: str = 'regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
+                                                                          int,
+                                                                          dict,
+                                                                          List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    prev_search = dict()
     if corpus is None:
         corpus = ['all']
     if special_days is None:
         special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
-    session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
@@ -453,7 +462,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if field not in ['autocomplete_lemmas', 'autocomplete']:
-        set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
                           regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
@@ -501,7 +510,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         # Remove the textual parts from the results
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
-    return ids, search['hits']['total'], search['aggregations']
+    return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,

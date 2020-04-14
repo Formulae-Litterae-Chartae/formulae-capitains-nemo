@@ -414,6 +414,12 @@ class NemoFormulae(Nemo):
             response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
+        if getattr(g, 'previous_search', None):
+            session['previous_search'] = g.previous_search
+        if getattr(g, 'previous_search_args', None):
+            session['previous_search_args'] = g.previous_search_args
+        if getattr(g, 'previous_aggregations', None):
+            session['previous_aggregations'] = g.previous_aggregations
         return response
 
     def view_maker(self, name: str, instance=None) -> Callable:

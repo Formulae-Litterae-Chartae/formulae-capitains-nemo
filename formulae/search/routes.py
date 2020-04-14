@@ -49,7 +49,7 @@ def r_results():
         field = 'text'
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total, aggs = query_index(corpus, field,
+        posts, total, aggs, g.previous_search = query_index(corpus, field,
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
                                    sort=request.args.get('sort', 'urn'))
@@ -58,7 +58,7 @@ def r_results():
         if request.args.get('old_search', None):
             search_args.update({'old_search': True})
     else:
-        posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
+        posts, total, aggs, g.previous_search = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
                                                   q=request.args.get('q'),
                                                   fuzziness=request.args.get("fuzziness", "0"), page=page,
                                                   in_order=request.args.get('in_order', 'False'),
@@ -106,19 +106,19 @@ def r_results():
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
     search_args['sort'] = orig_sort
     if old_search is None:
-        session['previous_search_args'] = search_args
-        session['previous_aggregations'] = aggs
-        if session['previous_search_args']['corpus'] in ['all', 'formulae+chartae']:
+        g.previous_search_args = search_args
+        g.previous_aggregations = aggs
+        if g.previous_search_args['corpus'] in ['all', 'formulae+chartae']:
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-        elif session['previous_search_args']['corpus'] == 'formulae':
+            g.previous_search_args['corpus'] = '+'.join(corps)
+        elif g.previous_search_args['corpus'] == 'formulae':
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-        elif session['previous_search_args']['corpus'] == 'chartae':
+            g.previous_search_args['corpus'] = '+'.join(corps)
+        elif g['previous_search_args']['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-    if 'previous_search_args' in session:
-        g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
+            g.previous_search_args['corpus'] = '+'.join(corps)
+    if 'previous_search_args' in g:
+        g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
     search_terms = search_args['q'].split()
     inf_to_lemmas = []
     if field == 'text':
