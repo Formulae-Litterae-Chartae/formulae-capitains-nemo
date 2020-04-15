@@ -91,7 +91,7 @@ class Formulae_Testing(flask_testing.TestCase):
         self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
-                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001', ]
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001']
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -120,7 +120,10 @@ class TestNemoSetup(Formulae_Testing):
         if os.environ.get('TRAVIS'):
             # This should only be tested on Travis since I don't want it to run locally
             from formulae.app import nemo
-            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.open_texts + ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
 
