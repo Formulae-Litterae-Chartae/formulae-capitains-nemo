@@ -1,4 +1,4 @@
-from flask import current_app, Markup, flash
+from flask import current_app, Markup, flash, session
 from flask_babel import _
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
@@ -88,13 +88,14 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
         return [], 0, {}, []
     if not query:
         return [], 0, {}, []
+    session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
     if field == 'lemmas':
         if '*' in query or '?' in query:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0, {}
+            return [], 0, {}, []
     for term in query_terms:
         if '*' in term or '?' in term:
             clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
@@ -141,8 +142,8 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
-    if field == 'lemmas':
-        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
+    if q and '?' not in q and '*' not in q:
+        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
     else:
         for hit in session_search['hits']['hits']:
             d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
@@ -243,93 +244,102 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     """
     ids = []
     for hit in search['hits']['hits']:
-        text = hit['_source'][highlight_field]
-        sentences = []
+        sentences = [_('Text nicht zugänglich.')]
         sentence_spans = []
-        vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
-        highlight_offsets = dict()
-        searched_positions = dict()
-        for v in vectors['term_vectors'][highlight_field]['terms'].values():
-            for o in v['tokens']:
-                highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-        for k, v in vectors['term_vectors'][search_field]['terms'].items():
-            for o in v['tokens']:
-                searched_positions[o['position']] = k
-        if ' ' in q:
-            q_words = q.split()
-            positions = {k: [] for k in q_words}
-            for w in q_words:
-                if search_field == 'lemmas':
-                    if w in vectors['term_vectors']['lemmas']['terms']:
-                        positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
-                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                        if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                            positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
-                    positions[w] = sorted(positions[w])
-                else:
-                    positions[w] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
-            search_range_start = int(slop) + len(q_words)
-            search_range_end = int(slop) + len(q_words) + 1
-            if ordered_terms:
-                search_range_start = -1
-            for pos in positions[q_words[0]]:
-                index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
-                used_q_words = {q_words[0]}
-                span = {pos}
-                for w in q_words[1:]:
-                    for next_pos in positions[w]:
-                        if next_pos in index_range:
-                            span.add(next_pos)
-                            used_q_words.add(w)
-                if set(q_words) == used_q_words:
-                    ordered_span = sorted(span)
-                    if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                        start_offsets = [highlight_offsets[x][0] for x in ordered_span]
-                        end_offsets = [highlight_offsets[x][1] for x in ordered_span]
-                        start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
-                        end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
-                        sentence = ''
-                        for i, x in enumerate(text[start_index:end_index]):
-                            if i + start_index in start_offsets:
-                                sentence += PRE_TAGS + x
-                            elif i + start_index in end_offsets:
-                                sentence += x + POST_TAGS
-                            else:
-                                sentence += x
-                        sentences.append(Markup(sentence))
-                        sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                    min(len(highlight_offsets), ordered_span[-1] + 11)))
-        # I need to change the highlight clause in search to get this to return the correct stuff
-        else:
-            if search_field == 'lemmas':
-                positions = []
-                if q in vectors['term_vectors']['lemmas']['terms']:
-                    positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
-                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(q, {}):
-                    if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                        positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
-            else:
-                positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][q]['tokens']]
-            positions = sorted(positions)
-            for pos in positions:
-                start_offset = highlight_offsets[pos][0]
-                end_offset = highlight_offsets[pos][1]
-                start_index = highlight_offsets[max(0, pos - 10)][0]
-                end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
-                sentence = ''
-                for i, x in enumerate(text[start_index:end_index]):
-                    if i + start_index == start_offset:
-                        sentence += PRE_TAGS + x
-                    elif i + start_index == end_offset:
-                        sentence += x + POST_TAGS
+        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+        if current_app.config['nemo_app'].check_project_team() is True or hit['_id'] in current_app.config['nemo_app'].open_texts:
+            text = hit['_source'][highlight_field]
+            sentences = []
+            vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
+            highlight_offsets = dict()
+            searched_positions = dict()
+            for v in vectors['term_vectors'][highlight_field]['terms'].values():
+                for o in v['tokens']:
+                    highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+            for k, v in vectors['term_vectors'][search_field]['terms'].items():
+                for o in v['tokens']:
+                    searched_positions[o['position']] = k
+            if ' ' in q:
+                q_words = q.split()
+                positions = {k: [] for k in q_words}
+                for w in q_words:
+                    if search_field == 'lemmas':
+                        if w in vectors['term_vectors']['lemmas']['terms']:
+                            positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                            if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                        positions[w] = sorted(positions[w])
                     else:
-                        sentence += x
-                sentences.append(Markup(sentence))
-                sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+                        positions[w] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                search_range_start = int(slop) + len(q_words)
+                search_range_end = int(slop) + len(q_words) + 1
+                if ordered_terms:
+                    search_range_start = -1
+                for pos in positions[q_words[0]]:
+                    index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
+                    used_q_words = {q_words[0]}
+                    span = {pos}
+                    for w in q_words[1:]:
+                        for next_pos in positions[w]:
+                            if next_pos in index_range:
+                                span.add(next_pos)
+                                used_q_words.add(w)
+                    if set(q_words) == used_q_words:
+                        ordered_span = sorted(span)
+                        if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
+                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[x][1] for x in ordered_span]
+                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
+                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                            sentence = ''
+                            for i, x in enumerate(text[start_index:end_index]):
+                                if i + start_index in start_offsets:
+                                    sentence += PRE_TAGS + x
+                                elif i + start_index in end_offsets:
+                                    sentence += x + POST_TAGS
+                                else:
+                                    sentence += x
+                            sentences.append(Markup(sentence))
+                            sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                        min(len(highlight_offsets), ordered_span[-1] + 11)))
+            else:
+                if search_field == 'lemmas':
+                    positions = []
+                    if q in vectors['term_vectors']['lemmas']['terms']:
+                        positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
+                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(q, {}):
+                        if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                            positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                else:
+                    positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][q]['tokens']]
+                positions = sorted(positions)
+                for pos in positions:
+                    start_offset = highlight_offsets[pos][0]
+                    end_offset = highlight_offsets[pos][1]
+                    start_index = highlight_offsets[max(0, pos - 10)][0]
+                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
+                    sentence = ''
+                    for i, x in enumerate(text[start_index:end_index]):
+                        if i + start_index == start_offset:
+                            sentence += PRE_TAGS + x
+                        elif i + start_index == end_offset:
+                            sentence += x + POST_TAGS
+                        else:
+                            sentence += x
+                    sentences.append(Markup(sentence))
+                    sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+        regest_sents = []
+        show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+        if 'highlight' in hit and regest_field in hit['highlight']:
+            if show_regest is False:
+                regest_sents = [_('Regest nicht zugänglich.')]
+            else:
+                regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
         ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'sentence_spans': sentence_spans,
                     'title': hit['_source']['title'],
-                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                    if 'highlight' in hit and regest_field in hit['highlight'] else []})
+                    'regest_sents': regest_sents})
     return ids
 
 
@@ -350,6 +360,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
+    session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
@@ -360,7 +371,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                                   'encoder': 'html'
                                   }
     if not current_app.elasticsearch:
-        return [], 0, {}
+        return [], 0, {}, []
     ordered_terms = True
     if in_order == 'False':
         ordered_terms = False
@@ -368,14 +379,12 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0, {}
+            return [], 0, {}, []
     else:
         fuzz = fuzziness
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
-        # To implement multiple lemma fields, create a 'span_near' statement for each of the lemma indices
-        # and wrap them all in {'bool': {'should': [{'span_near'...
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
@@ -466,8 +475,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                           regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
-        # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
-        # match up 1-to-1.
+        # a series of lemmata.
         if field == 'lemmas':
             ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
         elif field == "text" and '*' not in q and '?' not in q:

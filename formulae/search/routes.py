@@ -114,10 +114,10 @@ def r_results():
         elif g.previous_search_args['corpus'] == 'formulae':
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
             g.previous_search_args['corpus'] = '+'.join(corps)
-        elif g['previous_search_args']['corpus'] == 'chartae':
+        elif g.previous_search_args['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             g.previous_search_args['corpus'] = '+'.join(corps)
-    if 'previous_search_args' in g:
+    if getattr(g, 'previous_search_args', None):
         g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
     search_terms = search_args['q'].split()
     inf_to_lemmas = []
