@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token, suggest_word_search
+    set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
 import flask_testing
@@ -17,7 +17,7 @@ from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
 from unittest import TestCase
 from tests.fake_es import FakeElasticsearch
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for, abort
@@ -68,6 +68,10 @@ class NoIIIFServerConfig(TestConfig):
     IIIF_SERVER = None
 
 
+def term_vector_default_value():
+    return TestES.MOCK_VECTOR_RETURN_VALUE
+
+
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
@@ -92,6 +96,9 @@ class Formulae_Testing(flask_testing.TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001']
+        self.nemo.all_term_vectors = defaultdict(term_vector_default_value)
+        with open('tests/test_data/advanced_search/all_term_vectors.json') as f:
+            self.nemo.all_term_vectors.update(load(f))
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -712,11 +719,14 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['text'][0] = PRE_TAGS + hit['highlight']['text'][0] + POST_TAGS
         mock_search.return_value = resp
         mock_vectors.return_value = TestES.MOCK_VECTOR_RETURN_VALUE
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
+            print(self.nemo.all_term_vectors.keys())
             results = set_session_token('all', body, field=test_args['field'], q='text')
             self.assertEqual(results,
                              [{'id': hit['_id'],
@@ -2474,6 +2484,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
@@ -2509,6 +2521,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
@@ -2540,6 +2554,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
@@ -2571,6 +2587,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
@@ -2596,6 +2614,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
@@ -2625,6 +2645,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},

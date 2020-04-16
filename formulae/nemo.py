@@ -125,7 +125,8 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
-        self.all_term_vectors = self.get_all_term_vectors()
+        if not self.app.testing:
+            self.all_term_vectors = self.get_all_term_vectors()
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""

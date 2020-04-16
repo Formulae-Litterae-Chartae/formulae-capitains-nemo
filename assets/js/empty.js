@@ -20,6 +20,7 @@ function makeLemmaSearch() {
     var button = document.getElementById('lemmaSearchButton');
     var reQ = new RegExp('&q=[^&]*');
     var reField = new RegExp('&lemma_search=[^&]*');
+    var rePage = new RegExp('&page=[^&]*');
     var lemmas = document.getElementsByClassName('lem-to-search');
     var oldUrl = button.getAttribute('href');
     var newQ = new Array();
@@ -29,6 +30,7 @@ function makeLemmaSearch() {
         }
     };
     oldUrl = oldUrl.replace(reField, '');
+    oldUrl = oldUrl.replace(rePage, '');
     button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
 }
 
