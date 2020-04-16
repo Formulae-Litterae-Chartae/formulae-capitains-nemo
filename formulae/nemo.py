@@ -744,7 +744,15 @@ class NemoFormulae(Nemo):
         :return: the IDs of the previous and next text in the same collection
         """
         id_parts = objId.split('.')
-        if re.search(r'lat\d\d\d', id_parts[-1]):
+        if 'katalonien' in objId:
+            grandparents = set()
+            readable_cousins = set()
+            for x in self.resolver.getMetadata(objId).parent:
+                grandparents.update(self.resolver.getMetadata(x).parent)
+            for x in grandparents:
+                readable_cousins.update(self.resolver.getMetadata(x).readableDescendants.keys())
+            sibling_texts = sorted(readable_cousins)
+        elif re.search(r'lat\d\d\d', id_parts[-1]):
             sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
         elif re.search(r'deu\d\d\d', id_parts[-1]):
             sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*deu\d\d\d'.format(id_parts[0]), x[1][0])]

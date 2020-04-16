@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:cts="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:foaf="http://xmlns.com/foaf/0.1/"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:katalonien.vinyals_amermonestirgenís_0002</identifier>
+   <parent>urn:cts:formulae:katalonien</parent>
+   <dc:title xml:lang="cat">Catalunya Carolingia (Ed. D’Abadal y Vinyals) 2</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true"
+                  path="./katalonien.vinyals_amermonestirgenís_0002.lat001.xml">
+         <identifier>urn:cts:formulae:katalonien.vinyals_amermonestirgenís_0002.lat001</identifier>
+         <parent>urn:cts:formulae:katalonien.vinyals_amermonestirgenís_0002</parent>
+         <dc:title xml:lang="cat">Catalunya Carolingia, 2</dc:title>
+         <dc:description xml:lang="cat"></dc:description>
+         <dc:language>lat</dc:language>
+         <dc:language>cat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>N. A. Paul (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source/>
+         <structured-metadata>
+            <dct:abstract/>
+            <bib:editor>Ramón D’Abadal y Vinyals</bib:editor>
+            <dct:dateCopyrighted>1950</dct:dateCopyrighted>
+            <dct:created>2019</dct:created>
+            <dct:bibliographicCitation>Ramón D’Abadal y &lt;span class="surname"&gt;Vinyals&lt;/span&gt;, Catalunya Carolingia: Bd. 2,1, Barcelona 1950, S. 11-13.</dct:bibliographicCitation>
+            <dct:temporal>844.05.14</dct:temporal>
+            <dct:spatial>Amer, Monestir de Sant Medir i de Sant Genís</dct:spatial>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>
