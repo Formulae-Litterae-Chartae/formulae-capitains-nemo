@@ -125,6 +125,7 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        self.all_term_vectors = self.get_all_term_vectors()
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -281,6 +282,18 @@ class NemoFormulae(Nemo):
             if c in self.HALF_OPEN_COLLECTIONS:
                 half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
+
+    def get_all_term_vectors(self):
+        all_vectors = dict()
+        for k, v in self.all_texts.items():
+            index = k.split(':')[-1]
+            if 'katalonien' in index:
+                index = 'katalonien'
+            ids = [x[1][0] for x in v]
+            all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
+                                                                                         doc_type=index,
+                                                                                         body={'ids': ids})['docs']})
+        return all_vectors
 
     @staticmethod
     def check_project_team() -> bool:

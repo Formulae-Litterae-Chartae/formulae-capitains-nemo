@@ -6,6 +6,7 @@ import re
 from copy import copy
 from typing import Dict, List, Union, Tuple
 from itertools import product
+from collections import defaultdict
 
 
 PRE_TAGS = "</small><strong>"
@@ -142,22 +143,8 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
-    if q and '?' not in q and '*' not in q:
+    if q:
         search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
-    else:
-        for hit in session_search['hits']['hits']:
-            d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
-            open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-            half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-            if q:
-                d['sents'] = [_('Text nicht zugänglich.')]
-                if current_app.config['nemo_app'].check_project_team() is True or open_text:
-                    d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
-            if regest_q:
-                d['regest_sents'] = [_('Regest nicht zugänglich.')]
-                if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
-                    d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
-            search_hits.append(d)
     return search_hits
 
 
@@ -251,7 +238,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
         if current_app.config['nemo_app'].check_project_team() is True or hit['_id'] in current_app.config['nemo_app'].open_texts:
             text = hit['_source'][highlight_field]
             sentences = []
-            vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
+            vectors = current_app.config['nemo_app'].all_term_vectors[hit['_id']]
             highlight_offsets = dict()
             searched_positions = dict()
             for v in vectors['term_vectors'][highlight_field]['terms'].values():
@@ -260,19 +247,31 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             for k, v in vectors['term_vectors'][search_field]['terms'].items():
                 for o in v['tokens']:
                     searched_positions[o['position']] = k
+            highlighted_words = set()
+            for highlight in hit['highlight'][search_field]:
+                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                    highlighted_words.add(m.group(1).lower())
             if ' ' in q:
                 q_words = q.split()
                 positions = {k: [] for k in q_words}
-                for w in q_words:
-                    if search_field == 'lemmas':
-                        if w in vectors['term_vectors']['lemmas']['terms']:
-                            positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
-                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                            if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
-                        positions[w] = sorted(positions[w])
-                    else:
-                        positions[w] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                for token in q_words:
+                    terms = {token}
+                    if re.search(r'[?*]', token):
+                        terms = set()
+                        new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                        for term in highlighted_words:
+                            if re.fullmatch(r'{}'.format(new_token), term):
+                                terms.add(term)
+                    for w in terms:
+                        if search_field == 'lemmas':
+                            if w in vectors['term_vectors']['lemmas']['terms']:
+                                positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                                if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                                    positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                            positions[token] = sorted(positions[w])
+                        else:
+                            positions[token] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
                 search_range_start = int(slop) + len(q_words)
                 search_range_end = int(slop) + len(q_words) + 1
                 if ordered_terms:
@@ -305,15 +304,23 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence_spans.append(range(max(0, ordered_span[0] - 10),
                                                         min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
-                if search_field == 'lemmas':
-                    positions = []
-                    if q in vectors['term_vectors']['lemmas']['terms']:
-                        positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
-                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(q, {}):
-                        if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                            positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
-                else:
-                    positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][q]['tokens']]
+                terms = {q}
+                if re.search(r'[?*]', q):
+                    terms = set()
+                    new_token = q.replace('?', '\\w').replace('*', '\\w*')
+                    for term in highlighted_words:
+                        if re.fullmatch(r'{}'.format(new_token), term):
+                            terms.add(term)
+                for w in terms:
+                    if search_field == 'lemmas':
+                        positions = []
+                        if w in vectors['term_vectors']['lemmas']['terms']:
+                            positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                            if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                                positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                    else:
+                        positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
@@ -476,10 +483,8 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        if field == 'lemmas':
-            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'lemmas', 'text')
-        elif field == "text" and '*' not in q and '?' not in q:
-            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, 'text', 'text')
+        if field in ('lemmas', 'text'):
+            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text')
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],

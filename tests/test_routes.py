@@ -727,7 +727,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                'regest_sents': [Markup('regest text')]}
                               for hit in resp['hits']['hits']])
             updated_args = copy(test_args)
-            updated_args['q'] = 'text'
+            updated_args['q'] = 'tex?'
             url = '/search/results?source=advanced&' + '&'.join(['{}={}'.format(x, y) for x, y in updated_args.items()])
             c.get(url)
             self.assertEqual(g.previous_search, results)
