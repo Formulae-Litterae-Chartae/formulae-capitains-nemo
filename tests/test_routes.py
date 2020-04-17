@@ -126,6 +126,7 @@ class TestNemoSetup(Formulae_Testing):
         """ Make sure that the instance of Nemo on the server is created correctly"""
         if os.environ.get('TRAVIS'):
             # This should only be tested on Travis since I don't want it to run locally
+            os.environ.update({'FLASK_TESTING': 'True'})
             from formulae.app import nemo
             self.assertEqual(nemo.open_texts + ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',

@@ -31,3 +31,4 @@ class Config(object):
     SAVE_REQUESTS = False
     CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0  # Only need cache on the server, where this should be set in env
     PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')
+    TESTING = os.environ.get('FLASK_TESTING') is 'True'
