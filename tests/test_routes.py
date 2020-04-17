@@ -1709,7 +1709,13 @@ class TestES(Formulae_Testing):
                                                                                                         'end_offset': 13}]},
                                                                  'text': {'term_freq': 1, 'tokens': [{'position': 3,
                                                                                                       'start_offset': 10,
-                                                                                                      'end_offset': 13}]}
+                                                                                                      'end_offset': 13}]},
+                                                                 'gerere': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                        'start_offset': 14,
+                                                                                                        'end_offset': 19}]},
+                                                                 'gesta': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                       'start_offset': 20,
+                                                                                                       'end_offset': 24}]}
                                                                  }
                                                             }
                                                  }}
