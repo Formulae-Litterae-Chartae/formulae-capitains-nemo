@@ -123,10 +123,10 @@ class Formulae_Testing(flask_testing.TestCase):
 
 class TestNemoSetup(Formulae_Testing):
 
-    @patch.object(Elasticsearch, "termvectors")
+    @patch("elasticsearch.Elasticsearch.mtermvectors")
     def test_setup_global_app(self, mock_vectors):
         """ Make sure that the instance of Nemo on the server is created correctly"""
-        mock_vectors.return_value = TestES.MOCK_VECTOR_RETURN_VALUE
+        mock_vectors.return_value = {'docs': [TestES.MOCK_VECTOR_RETURN_VALUE]}
         if os.environ.get('TRAVIS'):
             # This should only be tested on Travis since I don't want it to run locally
             from formulae.app import nemo
