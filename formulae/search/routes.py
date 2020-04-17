@@ -119,12 +119,25 @@ def r_results():
             g.previous_search_args['corpus'] = '+'.join(corps)
     if getattr(g, 'previous_search_args', None):
         g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
-    search_terms = search_args['q'].split()
     inf_to_lemmas = []
     if field == 'text':
-        try:
-            inf_to_lemmas = [current_app.config['nemo_app'].inflected_to_lemma_mapping[t] for t in search_terms]
-        except KeyError:
+        search_terms = search_args['q'].split()
+        for token in search_terms:
+            terms = {token}
+            if re.search(r'[?*]', token):
+                terms = set()
+                new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                for term in getattr(g, 'highlighted_words', session.get('highlighted_words', [])):
+                    if re.fullmatch(r'{}'.format(new_token), term):
+                        terms.add(term)
+            lem_possibilites = set()
+            for inflected in terms:
+                try:
+                    lem_possibilites.update(current_app.config['nemo_app'].inflected_to_lemma_mapping[inflected])
+                except KeyError:
+                    continue
+            inf_to_lemmas.append(lem_possibilites)
+        if not all(inf_to_lemmas):
             inf_to_lemmas = []
     return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
                                                  next_url=next_url, prev_url=prev_url, page_urls=page_urls,

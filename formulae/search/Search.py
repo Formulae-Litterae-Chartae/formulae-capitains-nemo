@@ -1,10 +1,10 @@
-from flask import current_app, Markup, flash, session
+from flask import current_app, Markup, flash, session, g
 from flask_babel import _
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
 import re
 from copy import copy
-from typing import Dict, List, Union, Tuple
+from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from collections import defaultdict
 
@@ -124,14 +124,7 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
     prev_search = set_session_token(index, search_body, field, query)
-    if field == 'lemmas':
-        ids = lem_highlight_to_text(search, query, False, 0, 'regest', 'lemmas', 'text')
-    else:
-        ids = [{'id': hit['_id'],
-                'info': hit['_source'],
-                'sents':
-                    [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']
-               ]
+    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text')
     return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
@@ -143,8 +136,10 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
+    highlighted_terms = set()
     if q:
-        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
+        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
+    g.highlighted_words = highlighted_terms
     return search_hits
 
 
@@ -219,7 +214,7 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str) -> List[Dict[str, Union[str, list]]]:
+                          highlight_field: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -230,14 +225,16 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     :return:
     """
     ids = []
+    all_highlighted_terms = set()
     for hit in search['hits']['hits']:
         sentences = [_('Text nicht zugänglich.')]
-        sentence_spans = []
+        sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
         if current_app.config['nemo_app'].check_project_team() is True or hit['_id'] in current_app.config['nemo_app'].open_texts:
             text = hit['_source'][highlight_field]
             sentences = []
+            sentence_spans = []
             vectors = current_app.config['nemo_app'].all_term_vectors[hit['_id']]
             highlight_offsets = dict()
             searched_positions = dict()
@@ -251,6 +248,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             for highlight in hit['highlight'][search_field]:
                 for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
                     highlighted_words.add(m.group(1).lower())
+            all_highlighted_terms.update(highlighted_words)
             if ' ' in q:
                 q_words = q.split()
                 positions = {k: [] for k in q_words}
@@ -344,10 +342,18 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 regest_sents = [_('Regest nicht zugänglich.')]
             else:
                 regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-        ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'sentence_spans': sentence_spans,
+        ordered_sentences = list()
+        ordered_sentence_spans = list()
+        for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
+            ordered_sentences.append(x)
+            ordered_sentence_spans.append(y)
+        ids.append({'id': hit['_id'],
+                    'info': hit['_source'], 
+                    'sents': ordered_sentences,
+                    'sentence_spans': ordered_sentence_spans,
                     'title': hit['_source']['title'],
                     'regest_sents': regest_sents})
-    return ids
+    return ids, all_highlighted_terms
 
 
 def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', page: int = 1, per_page: int = 10,
@@ -477,14 +483,11 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    if field not in ['autocomplete_lemmas', 'autocomplete']:
-        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
         if field in ('lemmas', 'text'):
-            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text')
+            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text')
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
@@ -501,6 +504,9 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
+    if field not in ['autocomplete_lemmas', 'autocomplete']:
+        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \

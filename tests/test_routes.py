@@ -726,7 +726,6 @@ class TestIndividualRoutes(Formulae_Testing):
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            print(self.nemo.all_term_vectors.keys())
             results = set_session_token('all', body, field=test_args['field'], q='text')
             self.assertEqual(results,
                              [{'id': hit['_id'],
@@ -750,7 +749,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              [{'id': hit['_id'],
                                'info': hit['_source'],
                                'sents': [Markup('some real </small><strong>text</strong><small>')] if hit['_id'] in self.nemo.open_texts else [_('Text nicht zugänglich.')],
-                               'sentence_spans': [range(0, 4)] if hit['_id'] in self.nemo.open_texts else [],
+                               'sentence_spans': [range(0, 4)] if hit['_id'] in self.nemo.open_texts else [range(0, 1)],
                                'title': hit['_source']['title'],
                                'regest_sents': [Markup('regest text')] if hit['_id'] in self.nemo.open_texts and hit['_id'] not in self.nemo.half_open_texts else [_('Regest nicht zugänglich.')]}
                               for hit in resp['hits']['hits']],

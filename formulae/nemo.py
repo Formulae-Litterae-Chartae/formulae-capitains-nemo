@@ -434,6 +434,8 @@ class NemoFormulae(Nemo):
             session['previous_search_args'] = g.previous_search_args
         if getattr(g, 'previous_aggregations', None):
             session['previous_aggregations'] = g.previous_aggregations
+        if getattr(g, 'highlighted_words', None):
+            session['highlighted_words'] = g.highlighted_words
         return response
 
     def view_maker(self, name: str, instance=None) -> Callable:
