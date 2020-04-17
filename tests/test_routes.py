@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
-    set_session_token, suggest_word_search
+    set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
 import flask_testing
@@ -17,7 +17,7 @@ from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
 from unittest import TestCase
 from tests.fake_es import FakeElasticsearch
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 import os
 from MyCapytain.common.constants import Mimetypes
 from flask import Markup, session, g, url_for, abort
@@ -68,6 +68,10 @@ class NoIIIFServerConfig(TestConfig):
     IIIF_SERVER = None
 
 
+def term_vector_default_value():
+    return TestES.MOCK_VECTOR_RETURN_VALUE
+
+
 class Formulae_Testing(flask_testing.TestCase):
     def create_app(self):
 
@@ -88,6 +92,13 @@ class Formulae_Testing(flask_testing.TestCase):
                                  pdf_folder="pdf_folder/")
 
         app.config['nemo_app'] = self.nemo
+        self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001']
+        self.nemo.all_term_vectors = defaultdict(term_vector_default_value)
+        with open('tests/test_data/advanced_search/all_term_vectors.json') as f:
+            self.nemo.all_term_vectors.update(load(f))
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -111,14 +122,22 @@ class Formulae_Testing(flask_testing.TestCase):
 
 
 class TestNemoSetup(Formulae_Testing):
-    def test_setup_global_app(self):
+
+    @patch("elasticsearch.Elasticsearch.mtermvectors")
+    def test_setup_global_app(self, mock_vectors):
         """ Make sure that the instance of Nemo on the server is created correctly"""
+        mock_vectors.return_value = {'docs': [TestES.MOCK_VECTOR_RETURN_VALUE]}
         if os.environ.get('TRAVIS'):
             # This should only be tested on Travis since I don't want it to run locally
             from formulae.app import nemo
-            self.assertEqual(nemo.open_texts, self.nemo.open_texts)
+            self.assertEqual(nemo.open_texts + ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
+            self.assertEqual(self.nemo.all_term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
+                             TestES.MOCK_VECTOR_RETURN_VALUE)
 
 
 class TestInit(TestCase):
@@ -587,7 +606,7 @@ class TestIndividualRoutes(Formulae_Testing):
                     }
                   }
                 }}
-        mock_search.return_value = [[], 0, aggs]
+        mock_search.return_value = [[], 0, aggs, []]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -705,17 +724,41 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['text'][0] = PRE_TAGS + hit['highlight']['text'][0] + POST_TAGS
         mock_search.return_value = resp
         mock_vectors.return_value = TestES.MOCK_VECTOR_RETURN_VALUE
-        set_session_token('all', body, field=test_args['field'], q='text')
-        self.assertEqual(session['previous_search'],
-                         [{'id': hit['_id'],
-                           'title': hit['_source']['title'],
-                           'info': hit['_source'],
-                           'regest_sents': [Markup('regest text')],
-                           'sentence_spans': [range(0, 4)],
-                           'sents': [Markup('some real </small><strong>text</strong><small>')]}
-                          for hit in resp['hits']['hits']])
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            results = set_session_token('all', body, field=test_args['field'], q='text')
+            self.assertEqual(results,
+                             [{'id': hit['_id'],
+                               'info': hit['_source'],
+                               'sents': [Markup('some real </small><strong>text</strong><small>')],
+                               'sentence_spans': [range(0, 4)],
+                               'title': hit['_source']['title'],
+                               'regest_sents': [Markup('regest text')]}
+                              for hit in resp['hits']['hits']])
+            updated_args = copy(test_args)
+            updated_args['q'] = 'tex?'
+            url = '/search/results?source=advanced&' + '&'.join(['{}={}'.format(x, y) for x, y in updated_args.items()])
+            c.get(url)
+            self.assertEqual(g.previous_search, results)
+            self.assertEqual(session['previous_search'], results)
+            c.get('/auth/logout', follow_redirects=True)
+            c.get(url)
+            self.assertEqual(g.previous_search, session['previous_search'],
+                             'Value of g.previous_search should be transferred to session')
+            self.assertEqual(session['previous_search'],
+                             [{'id': hit['_id'],
+                               'info': hit['_source'],
+                               'sents': [Markup('some real </small><strong>text</strong><small>')] if hit['_id'] in self.nemo.open_texts else [_('Text nicht zugänglich.')],
+                               'sentence_spans': [range(0, 4)] if hit['_id'] in self.nemo.open_texts else [range(0, 1)],
+                               'title': hit['_source']['title'],
+                               'regest_sents': [Markup('regest text')] if hit['_id'] in self.nemo.open_texts and hit['_id'] not in self.nemo.half_open_texts else [_('Regest nicht zugänglich.')]}
+                              for hit in resp['hits']['hits']],
+                             'Session should reflect whether a text can be shown or not.')
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -1668,7 +1711,13 @@ class TestES(Formulae_Testing):
                                                                                                         'end_offset': 13}]},
                                                                  'text': {'term_freq': 1, 'tokens': [{'position': 3,
                                                                                                       'start_offset': 10,
-                                                                                                      'end_offset': 13}]}
+                                                                                                      'end_offset': 13}]},
+                                                                 'gerere': {'term_freq': 1, 'tokens': [{'position': 0,
+                                                                                                        'start_offset': 14,
+                                                                                                        'end_offset': 19}]},
+                                                                 'gesta': {'term_freq': 1, 'tokens': [{'position': 1,
+                                                                                                       'start_offset': 20,
+                                                                                                       'end_offset': 24}]}
                                                                  }
                                                             }
                                                  }}
@@ -1696,19 +1745,21 @@ class TestES(Formulae_Testing):
         self.app.elasticsearch = None
         simple_test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
                                         ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
-        hits, total, aggs = query_index(**simple_test_args)
+        hits, total, aggs, prev = query_index(**simple_test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
+        self.assertEqual(prev, [], 'Previous results should be an empty list.')
         test_args = OrderedDict([("corpus", "all"), ("field", "text"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 814),
                                  ("month_start", 10), ("day_start", 29), ("year_end", 814), ("month_end", 11),
                                  ("day_end", 20), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn')])
-        hits, total, aggs = advanced_query_index(**test_args)
+        hits, total, aggs, prev = advanced_query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
+        self.assertEqual(prev, [], 'Previous results should be an empty list.')
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_year(self, mock_search):
@@ -1719,7 +1770,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1732,7 +1783,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1745,7 +1796,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1758,7 +1809,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1771,7 +1822,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1784,7 +1835,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1797,7 +1848,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, total, _  = advanced_query_index(**test_args)
+        actual, total, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
@@ -1817,7 +1868,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1830,7 +1881,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args = self.TEST_ARGS['test_no_corpus_given']
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['all'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
@@ -1842,7 +1893,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1855,7 +1906,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1868,7 +1919,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1881,7 +1932,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1894,7 +1945,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1907,7 +1958,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1920,7 +1971,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1933,7 +1984,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _  = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1946,7 +1997,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1962,7 +2013,7 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -1978,7 +2029,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2024,7 +2075,7 @@ class TestES(Formulae_Testing):
                                                       }
                                      }}
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -2072,7 +2123,7 @@ class TestES(Formulae_Testing):
                                      }}
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -2192,7 +2243,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+        actual, _, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2337,7 +2388,7 @@ class TestES(Formulae_Testing):
                                                       }
                                      }}
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+        actual, _, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
         self.assertCountEqual(body['query']['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['should'])
         # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2352,7 +2403,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2367,7 +2418,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2380,7 +2431,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2397,7 +2448,7 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2417,7 +2468,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2435,7 +2486,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2452,6 +2503,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
@@ -2470,7 +2523,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2487,6 +2540,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
@@ -2501,7 +2556,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2518,6 +2573,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
@@ -2532,7 +2589,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2549,6 +2606,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
@@ -2557,7 +2616,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2574,6 +2633,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
@@ -2586,7 +2647,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2603,6 +2664,8 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        for hit in resp['hits']['hits']:
+            hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
@@ -2614,7 +2677,7 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -2622,9 +2685,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
-            ids, hits, agg = advanced_query_index(**test_args)
+            ids, hits, agg, prev = advanced_query_index(**test_args)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
+            self.assertEqual(prev, [])
             self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
 
     @patch.object(Elasticsearch, "search")
@@ -2632,9 +2696,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
-            ids, hits, agg = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+            ids, hits, agg, prev = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
+            self.assertEqual(prev, [])
             self.assertMessageFlashed(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
 
     @patch.object(Elasticsearch, "search")
@@ -2647,7 +2712,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2842,13 +2907,13 @@ class TestES(Formulae_Testing):
         query_index(**test_args)
         mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
         test_args['index'] = ['']
-        hits, total, aggs = query_index(**test_args)
+        hits, total, aggs, prev = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         test_args['index'] = ['formulae', 'chartae']
         test_args['query'] = ''
-        hits, total, aggs = query_index(**test_args)
+        hits, total, aggs, prev = query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
@@ -2955,7 +3020,7 @@ class TestES(Formulae_Testing):
                     {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
         mock_search.return_value = resp
         Search.HIGHLIGHT_CHARS_AFTER = 50
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
         Search.HIGHLIGHT_CHARS_AFTER = 30
 
@@ -2988,7 +3053,7 @@ class TestES(Formulae_Testing):
         test_args['q'] = test_args['q'].replace('+', ' ')
         with patch('builtins.open', new_callable=mock_open()) as m:
             with patch('json.dump') as mock_dump:
-                actual, _, _ = advanced_query_index(**test_args)
+                actual, _, _, _ = advanced_query_index(**test_args)
                 mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
                 mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
                 mock_dump.assert_any_call(ids, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
@@ -3003,7 +3068,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -3017,7 +3082,7 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
-        actual, _, _ = advanced_query_index(**test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 

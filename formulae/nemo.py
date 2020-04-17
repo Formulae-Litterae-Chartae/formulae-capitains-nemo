@@ -125,6 +125,8 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        if not self.app.testing:
+            self.all_term_vectors = self.get_all_term_vectors()
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -282,6 +284,18 @@ class NemoFormulae(Nemo):
                 half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
 
+    def get_all_term_vectors(self):
+        all_vectors = dict()
+        for k, v in self.all_texts.items():
+            index = k.split(':')[-1]
+            if 'katalonien' in index:
+                index = 'katalonien'
+            ids = [x[1][0] for x in v]
+            all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
+                                                                                         doc_type=index,
+                                                                                         body={'ids': ids})['docs']})
+        return all_vectors
+
     @staticmethod
     def check_project_team() -> bool:
         """ A convenience function that checks if the current user is a part of the project team"""
@@ -414,6 +428,14 @@ class NemoFormulae(Nemo):
             response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
+        if getattr(g, 'previous_search', None):
+            session['previous_search'] = g.previous_search
+        if getattr(g, 'previous_search_args', None):
+            session['previous_search_args'] = g.previous_search_args
+        if getattr(g, 'previous_aggregations', None):
+            session['previous_aggregations'] = g.previous_aggregations
+        if getattr(g, 'highlighted_words', None):
+            session['highlighted_words'] = g.highlighted_words
         return response
 
     def view_maker(self, name: str, instance=None) -> Callable:
