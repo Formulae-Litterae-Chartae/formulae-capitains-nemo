@@ -25,7 +25,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 
 
 class NemoFormulae(Nemo):
@@ -106,6 +106,17 @@ class NemoFormulae(Nemo):
     SALZBURG_MAPPING = {'a': 'Codex Odalberti', 'b': 'Codex Fridarici', 'c': 'Codex Hartuuici', 'd': 'Codex Tietmari II',
                         'e': 'Codex Balduuini', 'bn': 'Breves Notitiae', 'na': 'Notitia Arnonis',
                         'bna': 'Breves Notitiae Anhang'}
+
+    ROMAN_NUMERAL_SORTING = {'I': 'a01',
+                             'II': 'a02',
+                             'III': 'a03',
+                             'IV': 'a04',
+                             'V': 'a05',
+                             'VI': 'a06',
+                             'VII': 'a07',
+                             'VIII': 'a08',
+                             'IX': 'a09',
+                             'X': 'a10'}
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -275,7 +286,9 @@ class NemoFormulae(Nemo):
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
                      for l in self.sub_colls.values() for m in l if m['id'] != 'urn:cts:formulae:katalonien'}
-        all_texts.update({m: sorted([self.ordered_corpora(r, m) for r in self.resolver.getMetadata(m).readableDescendants.values()])
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()],
+                                    key=self.sort_katalonien)
                           for m in self.resolver.children['urn:cts:formulae:katalonien']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
@@ -283,6 +296,10 @@ class NemoFormulae(Nemo):
             if c in self.HALF_OPEN_COLLECTIONS:
                 half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
+
+    def sort_katalonien(self, t: tuple):
+        """ Correctly sort the Katalonien documents with mixed number and Roman numerals"""
+        return re.sub(r'[IVX]+\Z', lambda x: self.ROMAN_NUMERAL_SORTING[x.group(0)], t[0])
 
     def get_all_term_vectors(self):
         all_vectors = dict()
@@ -558,7 +575,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         """
         collection = self.resolver.getMetadata(objectId)
-        r = {}
+        r = OrderedDict()
         template = "main::sub_collection.html"
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
@@ -819,12 +836,9 @@ class NemoFormulae(Nemo):
         id_parts = objectId.split('.')
         if 'katalonien' in objectId:
             grandparents = set()
-            readable_cousins = set()
             for x in self.resolver.getMetadata(objectId).parent:
                 grandparents.update(self.resolver.getMetadata(x).parent)
-            for x in grandparents:
-                readable_cousins.update(self.resolver.getMetadata(x).readableDescendants.keys())
-            sibling_texts = sorted(readable_cousins)
+            sibling_texts = [x[1][0] for gp in grandparents for x in self.all_texts[gp]]
         elif re.search(r'lat\d\d\d', id_parts[-1]):
             sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
         elif re.search(r'deu\d\d\d', id_parts[-1]):
