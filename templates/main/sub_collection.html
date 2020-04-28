@@ -32,13 +32,13 @@
 </div>
 {% if collections.readable %}
     <h4>{{ _('Gehe zu (Text):') }}</h4>
-    {% for number, values in collections.readable|dictsort %}
+    {% for number, values in collections.readable.items() %}
         <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
     {% endfor %}
     <div class="row">
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
             <ul class="list-group list-group-flush">
-            {% for number, values in collections.readable|dictsort %}
+            {% for number, values in collections.readable.items() %}
                 <li id="N{{number}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
                         <h5>{% if 'manuscript_collection' in collections.parent_ids %}Folia {% elif values['name']|int != 0 %}{{ _('Nummer') }} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
