@@ -309,16 +309,16 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     for term in highlighted_words:
                         if re.fullmatch(r'{}'.format(new_token), term):
                             terms.add(term)
+                positions = []
                 for w in terms:
                     if search_field == 'lemmas':
-                        positions = []
                         if w in vectors['term_vectors']['lemmas']['terms']:
                             positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
                         for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
                             if other_lem in vectors['term_vectors']['lemmas']['terms']:
                                 positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        positions = [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                        positions += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
