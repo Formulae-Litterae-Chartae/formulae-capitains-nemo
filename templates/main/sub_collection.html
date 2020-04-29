@@ -1,7 +1,5 @@
 {% extends "main::container.html" %}
 
-{% include "main::no_copy_modal.html" %}
-
 {% macro make_dates(values) %}
 
 {% if values['dating'] not in ['None', ''] %}
@@ -111,4 +109,5 @@
         </div>
 {% endif %}
 </div>
+{% include "main::no_copy_modal.html" %}
 {% endblock %}
