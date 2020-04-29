@@ -834,17 +834,20 @@ class NemoFormulae(Nemo):
         :return: the IDs of the previous and next text in the same collection
         """
         id_parts = objectId.split('.')
-        if 'katalonien' in objectId:
-            grandparents = set()
-            for x in self.resolver.getMetadata(objectId).parent:
-                grandparents.update(self.resolver.getMetadata(x).parent)
-            sibling_texts = [x[1][0] for gp in grandparents for x in self.all_texts[gp]]
-        elif re.search(r'lat\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
-        elif re.search(r'deu\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*deu\d\d\d'.format(id_parts[0]), x[1][0])]
+        text = self.resolver.getMetadata(objectId)
+        grandparents = set()
+        for x in text.parent:
+            grandparents.update(self.resolver.getMetadata(x).parent)
+        if text.subtype & {'cts:translation', 'cts:edition'}:
+            language = re.search(r'(\w\w\w)\d\d\d\Z', objectId).group(1)
+            sibling_texts = [x[1][0] for gp in grandparents
+                             for x in self.all_texts[gp]
+                             if re.search(r'{}\d\d\d\Z'.format(language), x[1][0])]
         else:
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if x[1][0].split('.')[-1] == id_parts[-1]]
+            sibling_texts = []
+            for gp in grandparents:
+                if gp in self.all_texts:
+                    sibling_texts += [x[1][0] for x in self.all_texts[gp] if x[1][0].split('.')[-1] == id_parts[-1]]
         orig_index = sibling_texts.index(objectId)
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
