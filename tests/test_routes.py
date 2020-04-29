@@ -2476,6 +2476,34 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
+    def test_single_word_highlighting_wildcard(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        for i1, hit in enumerate(resp['hits']['hits']):
+            for i2, t in enumerate(hit['highlight']['text']):
+                resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
+        sents = [{'sents':
+                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small>domni nostri Charoli gloriosissimi regis, sub die, quod est XV '),
+                       Markup('cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi </small><strong>regis,</strong><small> sub die, quod est XV kl. madii, sub presenciarum bonorum '),
+                       Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et </small><strong>regnum </strong><small>superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri ')]},
+                 {'sents':
+                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum </strong><small>domni nostri Caroli regis, Sub die, quod est pridie kl.'),
+                       Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est pridie kl. aprilis. Notavi diem et '),
+                       Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum </strong><small>superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = 'reg*'
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
     def test_multi_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
@@ -2489,6 +2517,33 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_single_word_highlighting_wildcard(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        for i1, hit in enumerate(resp['hits']['hits']):
+            for i2, t in enumerate(hit['highlight']['text']):
+                resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
+        sents = [{'sents':
+                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small></small><strong>domni </strong><small>nostri Charoli gloriosissimi regis, sub die, quod est XV kl.'),
+                       Markup('cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum </small><strong>domni </strong><small>nostri Charoli gloriosissimi </small><strong>regis,</strong><small> sub die, quod est XV kl. madii, sub presenciarum bonorum ')]},
+                 {'sents':
+                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum </strong><small></small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
+                       Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni </strong><small>nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = 'reg* domni'
+        test_args['slop'] = '3'
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
