@@ -1067,6 +1067,9 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:katalonien.vinyals_amermonestirgenís_0003.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:katalonien.vinyals_amermonestirgenís_0002.lat001')
             self.assertEqual(data['objects'][0]['next_version'], None)
+            data = self.nemo.r_multipassage('urn:cts:formulae:p3.105va106rb.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], None)
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.128vb129rb.lat001')
 
     def test_semantic(self):
         """ Make sure that the correct SEO-friendly strings are returned by semantic"""
