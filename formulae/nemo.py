@@ -842,7 +842,7 @@ class NemoFormulae(Nemo):
             language = re.search(r'(\w\w\w)\d\d\d\Z', objectId).group(1)
             sibling_texts = [x[1][0] for gp in grandparents
                              for x in self.all_texts[gp]
-                             if re.search(r'{}\d\d\d\Z'.format(language), x[1][0])]
+                             if x[2].subtype & text.subtype and re.search(r'{}\d\d\d\Z'.format(language), x[1][0])]
         else:
             sibling_texts = []
             for gp in grandparents:
