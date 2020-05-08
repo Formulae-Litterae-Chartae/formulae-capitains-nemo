@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from time import time
 import jwt
+from typing import Tuple
 
 
 class User(UserMixin, db.Model):
@@ -27,8 +28,24 @@ class User(UserMixin, db.Model):
         return jwt.encode({'reset_password': self.id, 'exp': time() + expires_in},
                           current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
 
+    def get_reset_email_token(self, new_email: str, expires_in: int = 600):
+        return jwt.encode({'user_id': self.id, 'old_email': self.email, 'new_email': new_email,
+                           'exp': time() + expires_in},
+                          current_app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+
     @staticmethod
-    def verify_reset_password_token(token: str):
+    def verify_reset_email_token(token: str) -> Tuple['User', str, str]:
+        try:
+            decoded_token = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])
+            id = decoded_token['user_id']
+            old_email = decoded_token['old_email']
+            new_email = decoded_token['new_email']
+        except:
+            return
+        return User.query.get(id), old_email, new_email
+
+    @staticmethod
+    def verify_reset_password_token(token: str) -> 'User':
         try:
             id = jwt.decode(token, current_app.config['SECRET_KEY'], algorithms=['HS256'])['reset_password']
         except:
