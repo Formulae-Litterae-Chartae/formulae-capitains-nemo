@@ -5,7 +5,7 @@ from werkzeug.urls import url_parse
 from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, \
     RegistrationForm, EmailChangeForm
 from formulae.models import User
-from .email import send_password_reset_email
+from .email import send_password_reset_email, send_email_reset_email
 from formulae.auth import bp
 from formulae import db
 
@@ -72,6 +72,7 @@ def r_user(username: str = None):
         return redirect(url_for('auth.r_user'))
     email_form = EmailChangeForm()
     if email_form.validate_on_submit():
+        send_email_reset_email(current_user, email_form.email.data)
         flash(_("Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt"))
         return redirect(url_for('auth.r_user'))
     elif request.method == 'GET':
@@ -130,7 +131,11 @@ def r_reset_email(token):
     :param token: the token that was previously sent to the user through the r_reset_password_request route
     :return: template, form
     """
-    user, old_email, new_email = User.verify_reset_email_token(token)
+    try:
+        user, old_email, new_email = User.verify_reset_email_token(token)
+    except TypeError:
+        flash(_('Der Token ist nicht gültig. Versuchen Sie es erneut.'))
+        return redirect(url_for('auth.r_user'))
     if not user or user.id != current_user.id or current_user.email != old_email:
         flash(_('Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut.'))
         return redirect(url_for('auth.r_user'))

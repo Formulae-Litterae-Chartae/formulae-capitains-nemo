@@ -18,8 +18,8 @@ def send_password_reset_email(user: 'User'):
 
 def send_email_reset_email(user: 'User', new_email: str):
     token = user.get_reset_email_token(new_email)
-    send_email(_('[Formulae - Litterae - Chartae] Passwort zurücksetzen'),
+    send_email(_('[Formulae - Litterae - Chartae] Emailadresse ändern'),
                sender=current_app.config['ADMINS'][0],
                recipients=[new_email],
-               text_body=render_template('email/reset_password.txt', user=user, token=token),
-               html_body=render_template('email/reset_password.html', user=user, token=token))
+               text_body=render_template('email/reset_email.txt', user=user, token=token),
+               html_body=render_template('email/reset_email.html', user=user, token=token))

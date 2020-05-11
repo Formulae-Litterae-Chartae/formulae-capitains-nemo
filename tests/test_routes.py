@@ -10,7 +10,7 @@ from flask_nemo.filters import slugify
 import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
-    ResetPasswordRequestForm, RegistrationForm, ValidationError
+    ResetPasswordRequestForm, RegistrationForm, ValidationError, EmailChangeForm
 from flask_login import current_user
 from flask_babel import _
 from elasticsearch import Elasticsearch
@@ -1168,6 +1168,24 @@ class TestForms(Formulae_Testing):
         form = PasswordChangeForm(old_password='old_one', password='new', password2='wrong')
         self.assertFalse(form.validate())
 
+    def test_validate_success_change_email_form(self):
+        """ Ensure that correct data in the Email Change form validates
+
+        """
+        form = EmailChangeForm(email='a_new_email@email.com', email2='a_new_email@email.com')
+        self.assertTrue(form.validate())
+
+    def test_validate_invalid_change_email_form(self):
+        """ Ensure that Email Change form does not validate when emails don't match or one of them is invalid
+
+        """
+        form = EmailChangeForm(email='a_new_email@email.com', email2='a_different_email@email.com')
+        self.assertFalse(form.validate(), "Should not validate when email addresses differ.")
+        form = EmailChangeForm(email='an_invalid_email', email2='a_different_email@email.com')
+        self.assertFalse(form.validate(), "Should not validate when the first email address is invalid.")
+        form = EmailChangeForm(email='a_new_email@email.com', email2='some weird email')
+        self.assertFalse(form.validate(), "Should not validate when the second email address is invalid.")
+
     def test_validate_success_password_reset_request_form(self):
         """ Ensure that the password reset request form validates with a valid email address"""
         form = ResetPasswordRequestForm(email='some@email.com')
@@ -1309,6 +1327,21 @@ class TestAuth(Formulae_Testing):
         token = user.get_reset_password_token()
         self.assertFalse(user2 == user.verify_reset_password_token(token))
 
+    def test_confirm_email_change_token(self):
+        """ Confirm that a valid jwt token is created when a user requests an email change"""
+        user = User.query.filter_by(username='project.member').first()
+        token = user.get_reset_email_token('new_email@email.com')
+        self.assertEqual(user, user.verify_reset_email_token(token)[0])
+        self.assertEqual(user.email, user.verify_reset_email_token(token)[1])
+
+    def test_confirm_invalid_email_change_token(self):
+        """ Confirm that a valid jwt token created for one user does not work for another"""
+        user = User.query.filter_by(username='project.member').first()
+        user2 = User.query.filter_by(username='not.project').first()
+        token = user.get_reset_email_token('new_email@email.com')
+        self.assertNotEqual(user2, user.verify_reset_email_token(token)[0])
+        self.assertNotEqual(user2.email, user.verify_reset_email_token(token)[1])
+
     def test_correct_registration(self):
         """ Ensure that new user registration works with correct credentials"""
         with self.client as c:
@@ -1337,9 +1370,23 @@ class TestAuth(Formulae_Testing):
                 self.assertEqual(outbox[0].sender, 'no-reply@example.com',
                                  'The email should come from the correct sender.')
                 self.assertMessageFlashed(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
+                c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                       follow_redirects=True)
+                c.post('/auth/user', data={'email': 'new_email@email.com', 'email2': 'new_email@email.com'},
+                       follow_redirects=True)
+                self.assertEqual(len(outbox), 2, 'There should now be a second email in the outbox.')
+                self.assertEqual(outbox[1].recipients, ["new_email@email.com"],
+                                 'The recipient email address should be correct.')
+                self.assertEqual(outbox[1].subject, _('[Formulae - Litterae - Chartae] Emailadresse ändern'),
+                                 'The Email should have the correct subject.')
+                self.assertIn(_('Sehr geehrte(r)') + ' project.member', outbox[1].html,
+                              'The email text should be addressed to the correct user.')
+                self.assertEqual(outbox[1].sender, 'no-reply@example.com',
+                                 'The email should come from the correct sender.')
+                self.assertMessageFlashed(_('Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt'))
 
     def test_send_email_not_existing_user(self):
-        """ Ensure that emails are constructed correctly"""
+        """ Ensure that no email is sent to a non-registered email address"""
         with self.client as c:
             with mail.record_messages() as outbox:
                 c.post('/auth/reset_password_request', data=dict(email="pirate.user@uni-hamburg.de"),
@@ -1370,6 +1417,29 @@ class TestAuth(Formulae_Testing):
             self.assertTemplateUsed('auth::login.html')
             self.assertMessageFlashed(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
             self.assertEqual(repr(user), '<User project.member>')
+
+    def test_reset_email_from_email_token(self):
+        """ Make sure that a correct email token changes the user's email address while an incorrect one doesn't"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            user = User.query.filter_by(username='project.member').first()
+            token = user.get_reset_email_token('another_new_email@email.com')
+            # Make sure that the template renders correctly with correct token
+            c.post(url_for('auth.r_reset_email', token=token, _external=True))
+            self.assertTemplateUsed('auth::login.html')
+            # Make sure the correct token allows the user to change their password
+            self.assertEqual(user.email, 'another_new_email@email.com', 'User\'s email should be changed.')
+            self.assertMessageFlashed(_('Ihr Email wurde erfolgreich geändert. Sie lautet jetzt') + ' another_new_email@email.com.')
+            # Trying to use the same token twice should not work.
+            c.post(url_for('auth.r_reset_email', token=token, _external=True))
+            self.assertTemplateUsed('auth::login.html')
+            self.assertMessageFlashed(_('Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut.'))
+            # Using an invalid token should not work.
+            c.post(url_for('auth.r_reset_email', token='some_weird_token', _external=True), follow_redirects=True)
+            self.assertMessageFlashed(_('Der Token ist nicht gültig. Versuchen Sie es erneut.'))
+            self.assertTemplateUsed('auth::login.html')
+            self.assertEqual(user.email, 'another_new_email@email.com', 'User\'s email should not have changed.')
 
     def test_user_logout(self):
         """ Make sure that the user is correctly logged out and redirected"""
