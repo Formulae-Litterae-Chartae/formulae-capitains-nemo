@@ -27,6 +27,13 @@ class LanguageChangeForm(FlaskForm):
     submit = SubmitField(_l("Sprache ändern"))
 
 
+class EmailChangeForm(FlaskForm):
+    title = _l('Emailadresse ändern')
+    email = StringField(_l('Neue Emailadresse'), validators=[DataRequired(), Email()])
+    email2 = StringField(_l('Neue Emailadresse wiederholen'), validators=[DataRequired(), Email(), EqualTo("email")])
+    submit = SubmitField(_l("Emailadresse ändern"))
+
+
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     submit = SubmitField(_l('Email zum Zurücksetzen Ihres Passworts anfordern'))

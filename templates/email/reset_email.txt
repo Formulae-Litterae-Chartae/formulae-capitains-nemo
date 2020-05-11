@@ -1,0 +1,11 @@
+{{ _('Sehr geehrte(r)') }} {{ user.username }},
+
+{{ _('Um die Änderung Ihrer Emailadresse durchzuführen, klicken Sie bitte hier;') }}
+
+{{ url_for('auth.r_reset_email', token=token, _external=True) }}
+
+{{ _('Wenn Sie ihr Emailadresse nicht ändern möchten, ignorieren Sie diese Nachricht bitte.') }}
+
+{{ _('Mit freundlichen Grüßen,') }}
+
+{{ _('Ihr Formulae - Litterae - Chartae Team') }}

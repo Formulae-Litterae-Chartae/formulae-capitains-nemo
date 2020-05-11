@@ -2,9 +2,10 @@ from flask import flash, url_for, request, redirect, current_app
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
 from werkzeug.urls import url_parse
-from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, RegistrationForm
+from .forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordRequestForm, ResetPasswordForm, \
+    RegistrationForm, EmailChangeForm
 from formulae.models import User
-from .email import send_password_reset_email
+from .email import send_password_reset_email, send_email_reset_email
 from formulae.auth import bp
 from formulae import db
 
@@ -69,28 +70,16 @@ def r_user(username: str = None):
         refresh()
         flash(_("Sie haben Ihre Benutzersprache erfolgreich geändert."))
         return redirect(url_for('auth.r_user'))
+    email_form = EmailChangeForm()
+    if email_form.validate_on_submit():
+        send_email_reset_email(current_user, email_form.email.data)
+        flash(_("Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt"))
+        return redirect(url_for('auth.r_user'))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
     return current_app.config['nemo_app'].render(template="auth::login.html", title=_("Benutzerprofil ändern"),
-                       forms=[password_form, language_form], username=username, purpose='user', url=dict())
-
-
-@bp.route("/reset_password_request", methods=["GET", "POST"])
-def r_reset_password_request():
-    """ Route for password reset request
-
-    """
-    if current_user.is_authenticated:
-        flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
-        return redirect(url_for('auth.r_user'))
-    form = ResetPasswordRequestForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user:
-            send_password_reset_email(user)
-        flash(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
-        return redirect(url_for('auth.r_login'))
-    return current_app.config['nemo_app'].render(template='auth::reset_password_request.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+                                                 forms=[password_form, language_form, email_form], username=username,
+                                                 purpose='user', url=dict())
 
 
 @bp.route("/reset_password/<token>", methods=["GET", "POST"])
@@ -113,6 +102,48 @@ def r_reset_password(token):
         flash(_('Ihr Passwort wurde erfolgreich zurückgesetzt.'))
         return redirect(url_for('auth.r_login'))
     return current_app.config['nemo_app'].render(template='auth::reset_password.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+
+
+@bp.route("/reset_password_request", methods=["GET", "POST"])
+def r_reset_password_request():
+    """ Route for password reset request
+
+    """
+    if current_user.is_authenticated:
+        flash(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'))
+        return redirect(url_for('auth.r_user'))
+    form = ResetPasswordRequestForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash(_('Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail zugeschickt'))
+        return redirect(url_for('auth.r_login'))
+    return current_app.config['nemo_app'].render(template='auth::reset_password_request.html', title=_('Passwort zurücksetzen'), form=form, url=dict())
+
+
+@bp.route("/reset_email/<token>", methods=["GET", "POST"])
+@login_required
+def r_reset_email(token):
+    """ Route to confirm that the email should be reset
+    I don't think I need an email reset route since this will be done on the User's user page.
+
+    :param token: the token that was previously sent to the user through the r_reset_password_request route
+    :return: template, form
+    """
+    try:
+        user, old_email, new_email = User.verify_reset_email_token(token)
+    except TypeError:
+        flash(_('Der Token ist nicht gültig. Versuchen Sie es erneut.'))
+        return redirect(url_for('auth.r_user'))
+    if not user or user.id != current_user.id or current_user.email != old_email:
+        flash(_('Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut.'))
+        return redirect(url_for('auth.r_user'))
+    else:
+        user.email = new_email
+        db.session.commit()
+        flash(_('Ihr Email wurde erfolgreich geändert. Sie lautet jetzt') + ' {}.'.format(new_email))
+        return redirect(url_for('auth.r_user'))
 
 
 @bp.route("/register", methods=['GET', 'POST'])
