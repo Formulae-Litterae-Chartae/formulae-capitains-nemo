@@ -1384,6 +1384,8 @@ class TestAuth(Formulae_Testing):
                 self.assertEqual(outbox[1].sender, 'no-reply@example.com',
                                  'The email should come from the correct sender.')
                 self.assertMessageFlashed(_('Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt'))
+                self.assertEqual(current_user.email, "project.member@uni-hamburg.de",
+                                 "The email address should not be changed only by requesting the token.")
 
     def test_send_email_not_existing_user(self):
         """ Ensure that no email is sent to a non-registered email address"""
@@ -1425,6 +1427,8 @@ class TestAuth(Formulae_Testing):
                    follow_redirects=True)
             user = User.query.filter_by(username='project.member').first()
             token = user.get_reset_email_token('another_new_email@email.com')
+            self.assertEqual(user.email, "project.member@uni-hamburg.de",
+                             "The email address should not be changed only by requesting the token.")
             # Make sure that the template renders correctly with correct token
             c.post(url_for('auth.r_reset_email', token=token, _external=True))
             self.assertTemplateUsed('auth::login.html')
