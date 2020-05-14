@@ -6,6 +6,7 @@ import re
 from copy import copy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
+from jellyfish import levenshtein_distance
 from collections import defaultdict
 
 
@@ -123,14 +124,14 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    prev_search = set_session_token(index, search_body, field, query)
-    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text')
+    prev_search = set_session_token(index, search_body, field, query, fuzz='0')
+    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text', fuzz=0)
     return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
 def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
                       ordered_terms: bool = False, slop: int = 0,
-                      regest_field: str = 'regest') -> List[Dict[str, Union[str, List[str]]]]:
+                      regest_field: str = 'regest', fuzz: str = '0') -> List[Dict[str, Union[str, List[str]]]]:
     """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -138,7 +139,8 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     search_hits = list()
     highlighted_terms = set()
     if q:
-        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
+        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field,
+                                                               field, 'text', fuzz)
     g.highlighted_words = highlighted_terms
     return search_hits
 
@@ -214,7 +216,7 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -260,6 +262,15 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         for term in highlighted_words:
                             if re.fullmatch(r'{}'.format(new_token), term):
                                 terms.add(term)
+                    elif fuzz != '0':
+                        terms = set()
+                        if fuzz == 'AUTO':
+                            fuzz = min(len(token) // 3, 2)
+                        else:
+                            fuzz = int(fuzz)
+                        for term in highlighted_words:
+                            if levenshtein_distance(term, token) <= fuzz:
+                                terms.add(term)
                     for w in terms:
                         if search_field == 'lemmas':
                             if w in vectors['term_vectors']['lemmas']['terms']:
@@ -302,13 +313,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence_spans.append(range(max(0, ordered_span[0] - 10),
                                                         min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
-                terms = {q}
-                if re.search(r'[?*]', q):
-                    terms = set()
-                    new_token = q.replace('?', '\\w').replace('*', '\\w*')
-                    for term in highlighted_words:
-                        if re.fullmatch(r'{}'.format(new_token), term):
-                            terms.add(term)
+                terms = highlighted_words
                 positions = []
                 for w in terms:
                     if search_field == 'lemmas':
@@ -487,7 +492,8 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
         if field in ('lemmas', 'text'):
-            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text')
+            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text',
+                                                           fuzz)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
@@ -506,7 +512,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                for hit in search['hits']['hits']]
     if field not in ['autocomplete_lemmas', 'autocomplete']:
         prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field, fuzz=fuzz)
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
