@@ -1,5 +1,5 @@
 {
-  "took": 64,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 753,
+    "total": 755,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -152,8 +152,8 @@
           ],
           "min_date": "0714-03-02",
           "days": [
-            "Friday",
-            "Lent"
+            "Lent",
+            "Friday"
           ]
         },
         "sort": [
@@ -161,7 +161,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -196,8 +196,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Monday",
-            "Tuesday"
+            "Tuesday",
+            "Monday"
           ]
         },
         "sort": [
@@ -205,7 +205,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -234,8 +234,8 @@
           ],
           "min_date": "0718-02-23",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -243,7 +243,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
@@ -280,7 +280,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
@@ -315,8 +315,8 @@
           ],
           "min_date": "0726-06-09",
           "days": [
-            "Sunday",
-            "Tuesday"
+            "Tuesday",
+            "Sunday"
           ]
         },
         "sort": [
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
@@ -396,8 +396,8 @@
           ],
           "min_date": "0746-06-06",
           "days": [
-            "Monday",
-            "Tuesday"
+            "Tuesday",
+            "Monday"
           ]
         },
         "sort": [
@@ -512,7 +512,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -520,7 +520,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1437
           },
           {
             "key": "800-899",
@@ -528,7 +528,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2284
           },
           {
             "key": "900-999",
@@ -536,18 +536,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2782
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 157
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 367
       }
     },
     "corpus": {
@@ -577,7 +577,7 @@
           "doc_count": 18
         },
         "Katalonien": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Lorsch": {
           "doc_count": 12
@@ -661,7 +661,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 720
+          "doc_count": 722
         },
         {
           "key": "800-899",

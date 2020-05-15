@@ -291,10 +291,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     span = {pos}
                     for w in q_words[1:]:
                         for next_pos in positions[w]:
-                            if next_pos in index_range:
+                            if next_pos in index_range and next_pos not in span:
                                 span.add(next_pos)
                                 used_q_words.add(w)
-                    if set(q_words) == used_q_words:
+                                break
+                    if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
                             start_offsets = [highlight_offsets[x][0] for x in ordered_span]
@@ -309,9 +310,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                     sentence += x + POST_TAGS
                                 else:
                                     sentence += x
-                            sentences.append(Markup(sentence))
-                            sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                        min(len(highlight_offsets), ordered_span[-1] + 11)))
+                            marked_sent = Markup(sentence)
+                            if marked_sent not in sentences:
+                                sentences.append(marked_sent)
+                                sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                            min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
                 terms = highlighted_words
                 positions = []

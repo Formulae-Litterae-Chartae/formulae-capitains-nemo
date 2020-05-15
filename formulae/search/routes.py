@@ -108,7 +108,7 @@ def r_results():
     if old_search is None:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
-        if g.previous_search_args['corpus'] in ['all', 'formulae+chartae']:
+        if g.previous_search_args['corpus'] in ['all', 'formulae+chartae', '']:
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             g.previous_search_args['corpus'] = '+'.join(corps)
         elif g.previous_search_args['corpus'] == 'formulae':

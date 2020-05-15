@@ -1,5 +1,5 @@
 {
-  "took": 689,
+  "took": 7,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form001.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form002.lat001",
         "_score": null,
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form003.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form004.lat001",
         "_score": null,
@@ -270,7 +270,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -313,7 +313,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form016.lat001",
         "_score": null,
@@ -356,7 +356,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form017.lat001",
         "_score": null,
@@ -399,7 +399,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form021.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -557,7 +557,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1437
           },
           {
             "key": "800-899",
@@ -565,7 +565,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2284
           },
           {
             "key": "900-999",
@@ -573,18 +573,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2782
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 157
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 367
       }
     },
     "corpus": {

@@ -1,5 +1,5 @@
 {
-  "took": 24,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -118,7 +118,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -126,7 +126,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1437
           },
           {
             "key": "800-899",
@@ -134,7 +134,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2284
           },
           {
             "key": "900-999",
@@ -142,18 +142,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2782
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 157
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 367
       }
     },
     "corpus": {
