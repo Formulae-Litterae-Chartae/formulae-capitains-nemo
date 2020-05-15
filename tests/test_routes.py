@@ -629,7 +629,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=[''], regest_q='')
+                                           special_days=[''], regest_q='', old_search=False)
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
@@ -747,7 +747,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(g.previous_search, results)
             self.assertEqual(session['previous_search'], results)
             c.get('/auth/logout', follow_redirects=True)
-            c.get(url)
+            c.get(url + '&old_search=True')
+            self.assertEqual(results, session['previous_search'],
+                             "With old_search set to True, session['previous_searcH'] should not be changed.")
+            c.get(url + '&old_search=False')
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
             self.assertEqual(session['previous_search'],

@@ -47,65 +47,69 @@ def r_results():
         field = 'lemmas'
     else:
         field = 'text'
+    old_search = False
+    if request.args.get('old_search', None) == 'True':
+        old_search = True
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
         posts, total, aggs, g.previous_search = query_index(corpus, field,
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
-                                   sort=request.args.get('sort', 'urn'))
+                                   sort=request.args.get('sort', 'urn'), old_search=old_search)
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
-                       'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search')}
-        if request.args.get('old_search', None):
-            search_args.update({'old_search': True})
+                       'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search'),}
     else:
-        posts, total, aggs, g.previous_search = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                                  q=request.args.get('q'),
-                                                  fuzziness=request.args.get("fuzziness", "0"), page=page,
-                                                  in_order=request.args.get('in_order', 'False'),
-                                                  slop=request.args.get('slop', '0'),
-                                                  regest_q=request.args.get('regest_q'),
-                                                  year=request.args.get('year', 0, type=int),
-                                                  month=request.args.get('month', 0, type=int),
-                                                  day=request.args.get('day', 0, type=int),
-                                                  year_start=request.args.get('year_start', 0, type=int),
-                                                  month_start=request.args.get('month_start', 0, type=int),
-                                                  day_start=request.args.get('day_start', 0, type=int),
-                                                  year_end=request.args.get('year_end', 0, type=int),
-                                                  month_end=request.args.get('month_end', 0, type=int),
-                                                  day_end=request.args.get('day_end', 0, type=int),
-                                                  date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                                  corpus=corpus or ['all'],
-                                                  exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                                  composition_place=request.args.get('composition_place', ''),
-                                                  sort=request.args.get('sort', 'urn'),
-                                                  special_days=special_days)
+        posts, total, aggs, g.previous_search = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'],
+                                                                     field=field,
+                                                                     q=request.args.get('q'),
+                                                                     fuzziness=request.args.get("fuzziness", "0"),
+                                                                     page=page,
+                                                                     in_order=request.args.get('in_order', 'False'),
+                                                                     slop=request.args.get('slop', '0'),
+                                                                     regest_q=request.args.get('regest_q'),
+                                                                     year=request.args.get('year', 0, type=int),
+                                                                     month=request.args.get('month', 0, type=int),
+                                                                     day=request.args.get('day', 0, type=int),
+                                                                     year_start=request.args.get('year_start', 0, type=int),
+                                                                     month_start=request.args.get('month_start', 0, type=int),
+                                                                     day_start=request.args.get('day_start', 0, type=int),
+                                                                     year_end=request.args.get('year_end', 0, type=int),
+                                                                     month_end=request.args.get('month_end', 0, type=int),
+                                                                     day_end=request.args.get('day_end', 0, type=int),
+                                                                     date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                                                     corpus=corpus or ['all'],
+                                                                     exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                                                     composition_place=request.args.get('composition_place', ''),
+                                                                     sort=request.args.get('sort', 'urn'),
+                                                                     special_days=special_days,
+                                                                     old_search=old_search)
         search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
-    old_search = search_args.pop('old_search', None)
-    first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
-    next_url = url_for('.r_results', **search_args, page=page + 1) \
+        search_args.pop('old_search', None)
+    first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
+    next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('.r_results', **search_args, page=page - 1) if page > 1 else None
+    prev_url = url_for('.r_results', **search_args, page=page - 1, old_search=True) if page > 1 else None
     total_pages = int(ceil(total / current_app.config['POSTS_PER_PAGE']))
     page_urls = []
     if total_pages > 12:
-        page_urls.append((1, url_for('.r_results', **search_args, page=1)))
+        page_urls.append((1, url_for('.r_results', **search_args, page=1, old_search=True)))
         # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
         for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
-        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages)))
+            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
+        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages, old_search=True)))
     else:
         for page_num in range(1, total_pages + 1):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
-    last_url = url_for('.r_results', **search_args, page=total_pages) \
+            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
+    last_url = url_for('.r_results', **search_args, page=total_pages, old_search=True) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     orig_sort = search_args.pop('sort', '')
     sort_urls = dict()
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
-        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
+        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1, old_search=True)
     search_args['sort'] = orig_sort
-    if old_search is None:
+    if old_search is False:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
         if g.previous_search_args['corpus'] in ['all', 'formulae+chartae', '']:

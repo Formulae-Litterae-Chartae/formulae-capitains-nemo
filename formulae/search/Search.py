@@ -77,20 +77,21 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
 
 
 def query_index(index: list, field: str, query: str, page: int, per_page: int,
-                sort: str = 'urn') -> Tuple[List[Dict[str,
-                                                      Union[str, list]]],
-                                            int,
-                                            dict,
-                                            List[Dict[str,
-                                                      Union[str,
-                                                            List[str]]]]]:
+                sort: str = 'urn', old_search: bool = False) -> Tuple[List[Dict[str,
+                                                                                Union[str, list]]],
+                                                                      int,
+                                                                      dict,
+                                                                      List[Dict[str,
+                                                                                Union[str,
+                                                                                      List[str]]]]]:
     if not current_app.elasticsearch:
         return [], 0, {}, []
     if index in ['', ['']]:
         return [], 0, {}, []
     if not query:
         return [], 0, {}, []
-    session.pop('previous_search', None)
+    if old_search is False:
+        session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
@@ -124,7 +125,8 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    prev_search = set_session_token(index, search_body, field, query, fuzz='0')
+    if old_search is False:
+        prev_search = set_session_token(index, search_body, field, query, fuzz='0')
     ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text', fuzz=0)
     return ids, search['hits']['total'], search['aggregations'], prev_search
 
@@ -371,10 +373,11 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
-                         regest_field: str = 'regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
-                                                                          int,
-                                                                          dict,
-                                                                          List[Dict[str, Union[str, List[str]]]]]:
+                         regest_field: str = 'regest', old_search: bool = False,
+                         **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
+                                            int,
+                                            dict,
+                                            List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     prev_search = dict()
     if corpus is None:
@@ -383,7 +386,8 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
-    session.pop('previous_search', None)
+    if old_search is False:
+        session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
@@ -515,7 +519,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    if field not in ['autocomplete_lemmas', 'autocomplete']:
+    if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
         prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
                           regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field, fuzz=fuzz)
     if current_app.config["SAVE_REQUESTS"]:
