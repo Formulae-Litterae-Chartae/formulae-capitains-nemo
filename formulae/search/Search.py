@@ -316,7 +316,9 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                 sentence_spans.append(range(max(0, ordered_span[0] - 10),
                                                             min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
-                terms = highlighted_words
+                terms = {q}
+                if re.search(r'[?*]', q):
+                    terms = highlighted_words
                 positions = []
                 for w in terms:
                     if search_field == 'lemmas':
