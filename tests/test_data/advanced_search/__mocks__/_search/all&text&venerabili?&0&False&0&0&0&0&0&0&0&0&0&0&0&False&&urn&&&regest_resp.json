@@ -1,5 +1,5 @@
 {
-  "took": 179,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -84,8 +84,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -281,7 +281,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -320,7 +320,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -428,7 +428,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
@@ -482,7 +482,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
@@ -643,7 +643,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -651,7 +651,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1437
           },
           {
             "key": "800-899",
@@ -659,7 +659,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2284
           },
           {
             "key": "900-999",
@@ -667,18 +667,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2782
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 157
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 367
       }
     },
     "corpus": {
@@ -800,7 +800,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 568
+          "doc_count": 598
         },
         {
           "key": "900-999",
@@ -808,7 +808,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 200
+          "doc_count": 219
         },
         {
           "key": ">1000",
@@ -819,7 +819,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 89
+      "doc_count": 37
     }
   }
 }

@@ -6,6 +6,7 @@ import re
 from copy import copy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
+from jellyfish import levenshtein_distance
 from collections import defaultdict
 
 
@@ -76,20 +77,21 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
 
 
 def query_index(index: list, field: str, query: str, page: int, per_page: int,
-                sort: str = 'urn') -> Tuple[List[Dict[str,
-                                                      Union[str, list]]],
-                                            int,
-                                            dict,
-                                            List[Dict[str,
-                                                      Union[str,
-                                                            List[str]]]]]:
+                sort: str = 'urn', old_search: bool = False) -> Tuple[List[Dict[str,
+                                                                                Union[str, list]]],
+                                                                      int,
+                                                                      dict,
+                                                                      List[Dict[str,
+                                                                                Union[str,
+                                                                                      List[str]]]]]:
     if not current_app.elasticsearch:
         return [], 0, {}, []
     if index in ['', ['']]:
         return [], 0, {}, []
     if not query:
         return [], 0, {}, []
-    session.pop('previous_search', None)
+    if old_search is False:
+        session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
@@ -123,14 +125,15 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    prev_search = set_session_token(index, search_body, field, query)
-    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text')
+    if old_search is False:
+        prev_search = set_session_token(index, search_body, field, query, fuzz='0')
+    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text', fuzz=0)
     return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
 def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
                       ordered_terms: bool = False, slop: int = 0,
-                      regest_field: str = 'regest') -> List[Dict[str, Union[str, List[str]]]]:
+                      regest_field: str = 'regest', fuzz: str = '0') -> List[Dict[str, Union[str, List[str]]]]:
     """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -138,7 +141,8 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str, rege
     search_hits = list()
     highlighted_terms = set()
     if q:
-        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field, field, 'text')
+        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field,
+                                                               field, 'text', fuzz)
     g.highlighted_words = highlighted_terms
     return search_hits
 
@@ -214,7 +218,7 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -260,6 +264,15 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         for term in highlighted_words:
                             if re.fullmatch(r'{}'.format(new_token), term):
                                 terms.add(term)
+                    elif fuzz != '0':
+                        terms = set()
+                        if fuzz == 'AUTO':
+                            fuzz = min(len(token) // 3, 2)
+                        else:
+                            fuzz = int(fuzz)
+                        for term in highlighted_words:
+                            if levenshtein_distance(term, token) <= fuzz:
+                                terms.add(term)
                     for w in terms:
                         if search_field == 'lemmas':
                             if w in vectors['term_vectors']['lemmas']['terms']:
@@ -280,10 +293,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     span = {pos}
                     for w in q_words[1:]:
                         for next_pos in positions[w]:
-                            if next_pos in index_range:
+                            if next_pos in index_range and next_pos not in span:
                                 span.add(next_pos)
                                 used_q_words.add(w)
-                    if set(q_words) == used_q_words:
+                                break
+                    if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
                             start_offsets = [highlight_offsets[x][0] for x in ordered_span]
@@ -298,17 +312,15 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                     sentence += x + POST_TAGS
                                 else:
                                     sentence += x
-                            sentences.append(Markup(sentence))
-                            sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                        min(len(highlight_offsets), ordered_span[-1] + 11)))
+                            marked_sent = Markup(sentence)
+                            if marked_sent not in sentences:
+                                sentences.append(marked_sent)
+                                sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                            min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
                 terms = {q}
                 if re.search(r'[?*]', q):
-                    terms = set()
-                    new_token = q.replace('?', '\\w').replace('*', '\\w*')
-                    for term in highlighted_words:
-                        if re.fullmatch(r'{}'.format(new_token), term):
-                            terms.add(term)
+                    terms = highlighted_words
                 positions = []
                 for w in terms:
                     if search_field == 'lemmas':
@@ -361,10 +373,11 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
-                         regest_field: str = 'regest', **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
-                                                                          int,
-                                                                          dict,
-                                                                          List[Dict[str, Union[str, List[str]]]]]:
+                         regest_field: str = 'regest', old_search: bool = False,
+                         **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
+                                            int,
+                                            dict,
+                                            List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     prev_search = dict()
     if corpus is None:
@@ -373,7 +386,8 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
-    session.pop('previous_search', None)
+    if old_search is False:
+        session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
@@ -487,7 +501,8 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
         if field in ('lemmas', 'text'):
-            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text')
+            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text',
+                                                           fuzz)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
@@ -504,9 +519,9 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    if field not in ['autocomplete_lemmas', 'autocomplete']:
+    if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
         prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field, fuzz=fuzz)
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \

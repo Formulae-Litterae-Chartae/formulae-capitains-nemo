@@ -629,7 +629,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=[''], regest_q='')
+                                           special_days=[''], regest_q='', old_search=False)
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
@@ -731,7 +731,7 @@ class TestIndividualRoutes(Formulae_Testing):
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            results = set_session_token('all', body, field=test_args['field'], q='text')
+            results = set_session_token(['all'], body, field='text', q='text')
             self.assertEqual(results,
                              [{'id': hit['_id'],
                                'info': hit['_source'],
@@ -747,7 +747,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(g.previous_search, results)
             self.assertEqual(session['previous_search'], results)
             c.get('/auth/logout', follow_redirects=True)
-            c.get(url)
+            c.get(url + '&old_search=True')
+            self.assertEqual(results, session['previous_search'],
+                             "With old_search set to True, session['previous_searcH'] should not be changed.")
+            c.get(url + '&old_search=False')
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
             self.assertEqual(session['previous_search'],
@@ -1759,6 +1762,35 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"), ('lemma_search', 'y')]),
+                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'pettonis'), ("fuzziness", "AUTO"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "AUTO"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"), ("field", "text"), ("q", 'scripsi+et+suscr*'), ("fuzziness", "AUTO"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")]),
+                 'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"), ("field", "text"),
+                                 ("q", 'signum+uuiliarentis+testes+signum+crespionis+testes'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest")])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -2593,6 +2625,84 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_word_highlighting_repeated_words(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
+        test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes.</strong><small> </small><strong>Signum </strong><small></small><strong>Uuiliarentis </strong><small></small><strong>testes.</strong><small> </small><strong>Signum </strong><small></small><strong>Crespionis </strong><small>testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_single_word_fuzzy_highlighting(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': ['Text nicht zugänglich.']},
+                 {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
+                 {'sents': ['Text nicht zugänglich.']}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_word_fuzzy_highlighting_with_wildcard(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when doing fuzzy searches with wildcards"""
+        test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_with_wildcard'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]}]
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.my_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "termvectors")
+    def test_multi_word_fuzzy_highlighting(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when doing fuzzy searches"""
+        test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': ['Text nicht zugänglich.']},
+                 {'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': ['Text nicht zugänglich.']}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')

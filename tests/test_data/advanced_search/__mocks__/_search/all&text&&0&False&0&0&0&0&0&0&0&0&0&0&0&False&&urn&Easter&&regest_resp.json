@@ -1,5 +1,5 @@
 {
-  "took": 14,
+  "took": 18,
   "timed_out": false,
   "_shards": {
     "total": 25,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 13,
+    "total": 21,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Lent",
-            "Tuesday",
-            "Wednesday",
-            "Easter",
-            "Saturday",
             "Thursday",
+            "Sunday",
+            "Monday",
+            "Easter",
+            "Lent",
             "Friday",
-            "Sunday"
+            "Saturday",
+            "Tuesday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Tuesday",
-            "Lent",
-            "Wednesday",
+            "Sunday",
+            "Thursday",
             "Monday",
             "Easter",
-            "Saturday",
-            "Thursday",
+            "Lent",
             "Friday",
-            "Sunday"
+            "Saturday",
+            "Tuesday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -587,8 +587,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -596,269 +596,422 @@
         ]
       },
       {
-        "_index": "merowinger1_v1",
-        "_type": "merowinger1",
-        "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 38",
-          "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
-          "date_string": "(630) 04 08 (Ostern)",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 110",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
+          "date_string": "912.12-01.10/12",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
-              "year": 630,
+              "year": 912,
+              "month": 1,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 1,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 2,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 2,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 3,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 3,
+              "day": 12
+            },
+            {
+              "year": 912,
               "month": 4,
-              "day": 8
-            }
-          ],
-          "all_dates": [
-            "0630-04-08"
-          ],
-          "min_date": "0630-04-08",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:merowinger1.koelzer0038.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 6",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
-          "date_string": "(- 927 Ostern -)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
+              "day": 10
+            },
             {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0006.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 40",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0040.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 45",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0045.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 46",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0046.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 47",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0047.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 72",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
-          "date_string": "(930 Ostern c.)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 930,
+              "year": 912,
               "month": 4,
-              "day": 18
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 5,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 5,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 6,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 6,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 7,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 7,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 8,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 8,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 9,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 9,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 10,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 10,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 11,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 11,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 12,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 12,
+              "day": 12
             }
           ],
           "all_dates": [
-            "0930-04-18"
+            "0912-01-10",
+            "0912-01-12",
+            "0912-02-10",
+            "0912-02-12",
+            "0912-03-10",
+            "0912-03-12",
+            "0912-04-10",
+            "0912-04-12",
+            "0912-05-10",
+            "0912-05-12",
+            "0912-06-10",
+            "0912-06-12",
+            "0912-07-10",
+            "0912-07-12",
+            "0912-08-10",
+            "0912-08-12",
+            "0912-09-10",
+            "0912-09-12",
+            "0912-10-10",
+            "0912-10-12",
+            "0912-11-10",
+            "0912-11-12",
+            "0912-12-10",
+            "0912-12-12"
           ],
-          "min_date": "0930-04-18",
+          "min_date": "0912-01-10",
           "days": [
             "Sunday",
-            "Easter"
+            "Thursday",
+            "Monday",
+            "Easter",
+            "Lent",
+            "Friday",
+            "Saturday",
+            "Tuesday",
+            "Wednesday"
           ]
         },
         "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0072.lat001"
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 193",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
+          "date_string": "919.04.25 or 19",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 919,
+              "month": 4,
+              "day": 19
+            },
+            {
+              "year": 919,
+              "month": 4,
+              "day": 25
+            }
+          ],
+          "all_dates": [
+            "0919-04-19",
+            "0919-04-25"
+          ],
+          "min_date": "0919-04-19",
+          "days": [
+            "Easter",
+            "Lent",
+            "Sunday",
+            "Monday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 857",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
+          "date_string": "960.04.22",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 960,
+              "month": 4,
+              "day": 22
+            }
+          ],
+          "all_dates": [
+            "0960-04-22"
+          ],
+          "min_date": "0960-04-22",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1131",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
+          "date_string": "973.03.23",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 973,
+              "month": 3,
+              "day": 23
+            }
+          ],
+          "all_dates": [
+            "0973-03-23"
+          ],
+          "min_date": "0973-03-23",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1189",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
+          "date_string": "975.04.04",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 975,
+              "month": 4,
+              "day": 4
+            }
+          ],
+          "all_dates": [
+            "0975-04-04"
+          ],
+          "min_date": "0975-04-04",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1340",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
+          "date_string": "981.03.27",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 981,
+              "month": 3,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0981-03-27"
+          ],
+          "min_date": "0981-03-27",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v3",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1488",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
+          "date_string": "985.04.12",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 985,
+              "month": 4,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0985-04-12"
+          ],
+          "min_date": "0985-04-12",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001"
         ]
       }
     ]
@@ -969,7 +1122,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -977,7 +1130,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1437
           },
           {
             "key": "800-899",
@@ -985,7 +1138,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2284
           },
           {
             "key": "900-999",
@@ -993,18 +1146,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2782
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 157
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 367
       }
     },
     "corpus": {
@@ -1034,7 +1187,7 @@
           "doc_count": 0
         },
         "Katalonien": {
-          "doc_count": 0
+          "doc_count": 8
         },
         "Lorsch": {
           "doc_count": 0
@@ -1134,7 +1287,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 6
+          "doc_count": 14
         },
         {
           "key": ">1000",
