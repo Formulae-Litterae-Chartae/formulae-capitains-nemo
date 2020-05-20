@@ -84,6 +84,7 @@ def query_index(index: list, field: str, query: str, page: int, per_page: int,
                                                                       List[Dict[str,
                                                                                 Union[str,
                                                                                       List[str]]]]]:
+    prev_search = dict()
     if not current_app.elasticsearch:
         return [], 0, {}, []
     if index in ['', ['']]:
