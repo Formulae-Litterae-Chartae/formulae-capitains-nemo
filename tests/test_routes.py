@@ -750,6 +750,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(url + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
                              "With old_search set to True, session['previous_searcH'] should not be changed.")
+            c.get(url.replace('source=advanced', 'source=simple') + '&old_search=True')
+            self.assertEqual(results, session['previous_search'],
+                             "With old_search set to True, session['previous_searcH'] should not be changed.")
             c.get(url + '&old_search=False')
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
