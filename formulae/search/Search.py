@@ -35,6 +35,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Luzern': {'match': {'_type': 'luzern'}},
                                       'Marculf': {'match': {'_type': 'marculf'}},
                                       'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                      'Marmoutier': {'match': {'_type': 'marmoutier'}},
                                       'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                       'Mondsee': {'match': {'_type': 'mondsee'}},
                                       'Passau': {'match': {'_type': 'passau'}},
