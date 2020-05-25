@@ -2,17 +2,17 @@
   "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 25,
-    "successful": 25,
+    "total": 26,
+    "successful": 26,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 423,
+    "total": 424,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Monday",
+            "Friday",
+            "Tuesday",
             "Thursday",
             "Sunday",
-            "Monday",
             "Easter",
-            "Lent",
-            "Friday",
             "Saturday",
-            "Tuesday",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v4",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0121.lat001",
         "_score": null,
@@ -617,7 +617,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v4",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0122.lat001",
         "_score": null,
@@ -654,7 +654,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7265,
+      "doc_count": 7351,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -692,6 +692,9 @@
           },
           "Marculf": {
             "doc_count": 41
+          },
+          "Marmoutier": {
+            "doc_count": 86
           },
           "Merowinger": {
             "doc_count": 196
@@ -774,7 +777,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2284
+            "doc_count": 2285
           },
           {
             "key": "900-999",
@@ -788,12 +791,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 157
+            "doc_count": 241
           }
         ]
       },
       "no_date": {
-        "doc_count": 367
+        "doc_count": 368
       }
     },
     "corpus": {
@@ -833,6 +836,9 @@
         },
         "Marculf": {
           "doc_count": 0
+        },
+        "Marmoutier": {
+          "doc_count": 1
         },
         "Merowinger": {
           "doc_count": 0
@@ -929,7 +935,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 0
+          "doc_count": 1
         }
       ]
     },

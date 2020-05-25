@@ -34,8 +34,8 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Lorsch': {'match': {'_type': 'lorsch'}},
                                       'Luzern': {'match': {'_type': 'luzern'}},
                                       'Marculf': {'match': {'_type': 'marculf'}},
-                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
                                       'Marmoutier': {'match': {'_type': 'marmoutier'}},
+                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
                                       'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                       'Mondsee': {'match': {'_type': 'mondsee'}},
                                       'Passau': {'match': {'_type': 'passau'}},
@@ -321,7 +321,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                                             min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
                 terms = {q}
-                if re.search(r'[?*]', q):
+                if re.search(r'[?*]', q) or fuzz != '0':
                     terms = highlighted_words
                 positions = []
                 for w in terms:

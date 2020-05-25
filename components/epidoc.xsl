@@ -445,7 +445,7 @@
     
     <xsl:template match="t:table">
         <xsl:element name="table">
-            <xsl:attribute name="class">table table-borderless</xsl:attribute>
+            <xsl:attribute name="class">table table-borderless table-sm</xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>

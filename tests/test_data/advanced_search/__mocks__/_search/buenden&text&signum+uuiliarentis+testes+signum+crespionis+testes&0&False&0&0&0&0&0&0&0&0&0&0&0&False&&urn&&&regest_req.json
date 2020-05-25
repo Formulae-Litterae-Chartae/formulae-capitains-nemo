@@ -201,6 +201,11 @@
               "_type": "marculf"
             }
           },
+          "Marmoutier": {
+            "match": {
+              "_type": "marmoutier"
+            }
+          },
           "Merowinger": {
             "match": {
               "_type": "merowinger1"
@@ -380,6 +385,11 @@
               "Marculf": {
                 "match": {
                   "_type": "marculf"
+                }
+              },
+              "Marmoutier": {
+                "match": {
+                  "_type": "marmoutier"
                 }
               },
               "Merowinger": {

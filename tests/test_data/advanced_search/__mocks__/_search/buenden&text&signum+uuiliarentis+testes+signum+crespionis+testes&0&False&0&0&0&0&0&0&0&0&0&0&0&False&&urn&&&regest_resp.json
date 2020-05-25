@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Monday",
+            "Friday",
+            "Tuesday",
             "Thursday",
             "Sunday",
-            "Monday",
             "Easter",
-            "Lent",
-            "Friday",
             "Saturday",
-            "Tuesday",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -366,6 +366,9 @@
             "doc_count": 0
           },
           "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -507,6 +510,9 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier": {
           "doc_count": 0
         },
         "Merowinger": {
