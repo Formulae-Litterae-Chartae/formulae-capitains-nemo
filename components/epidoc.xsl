@@ -443,4 +443,23 @@
     
     <xsl:template match="t:teiHeader"/>
     
+    <xsl:template match="t:table">
+        <xsl:element name="table">
+            <xsl:attribute name="class">table table-borderless table-sm</xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:row">
+        <xsl:element name="tr">
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:cell">
+        <xsl:element name="td">
+            <xsl:value-of select="."/>
+        </xsl:element>
+    </xsl:template>
+    
 </xsl:stylesheet>

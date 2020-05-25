@@ -1,9 +1,9 @@
 {
-  "took": 18,
+  "took": 7,
   "timed_out": false,
   "_shards": {
-    "total": 25,
-    "successful": 25,
+    "total": 26,
+    "successful": 26,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Monday",
+            "Friday",
+            "Tuesday",
             "Thursday",
             "Sunday",
-            "Monday",
             "Easter",
-            "Lent",
-            "Friday",
             "Saturday",
-            "Tuesday",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
+            "Monday",
+            "Friday",
+            "Tuesday",
             "Sunday",
             "Thursday",
-            "Monday",
             "Easter",
-            "Lent",
-            "Friday",
             "Saturday",
-            "Tuesday",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v3",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -587,8 +587,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -596,7 +596,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
@@ -763,15 +763,15 @@
           ],
           "min_date": "0912-01-10",
           "days": [
+            "Monday",
+            "Friday",
+            "Tuesday",
             "Sunday",
             "Thursday",
-            "Monday",
             "Easter",
-            "Lent",
-            "Friday",
             "Saturday",
-            "Tuesday",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "sort": [
@@ -779,7 +779,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
@@ -814,10 +814,10 @@
           ],
           "min_date": "0919-04-19",
           "days": [
-            "Easter",
-            "Lent",
+            "Monday",
             "Sunday",
-            "Monday"
+            "Lent",
+            "Easter"
           ]
         },
         "sort": [
@@ -825,7 +825,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
@@ -854,8 +854,8 @@
           ],
           "min_date": "0960-04-22",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -863,7 +863,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
@@ -892,8 +892,8 @@
           ],
           "min_date": "0973-03-23",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -901,7 +901,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
@@ -930,8 +930,8 @@
           ],
           "min_date": "0975-04-04",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
@@ -968,8 +968,8 @@
           ],
           "min_date": "0981-03-27",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "_index": "katalonien_v3",
+        "_index": "katalonien_v4",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
@@ -1006,8 +1006,8 @@
           ],
           "min_date": "0985-04-12",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ]
         },
         "sort": [
@@ -1018,7 +1018,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7265,
+      "doc_count": 7351,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -1056,6 +1056,9 @@
           },
           "Marculf": {
             "doc_count": 41
+          },
+          "Marmoutier": {
+            "doc_count": 86
           },
           "Merowinger": {
             "doc_count": 196
@@ -1138,7 +1141,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2284
+            "doc_count": 2285
           },
           {
             "key": "900-999",
@@ -1152,12 +1155,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 157
+            "doc_count": 241
           }
         ]
       },
       "no_date": {
-        "doc_count": 367
+        "doc_count": 368
       }
     },
     "corpus": {
@@ -1196,6 +1199,9 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier": {
           "doc_count": 0
         },
         "Merowinger": {

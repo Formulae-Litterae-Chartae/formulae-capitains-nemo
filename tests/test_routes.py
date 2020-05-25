@@ -1840,6 +1840,33 @@ class TestES(Formulae_Testing):
                                                             }
                                                  }}
 
+    SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
+                              'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                              'Bünden': {'match': {'_type': 'buenden'}},
+                              'Echternach': {'match': {'_type': 'echternach'}},
+                              'Freising': {'match': {'_type': 'freising'}},
+                              'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                              'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                              'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                              'Katalonien': {'match': {'_type': 'katalonien'}},
+                              'Lorsch': {'match': {'_type': 'lorsch'}},
+                              'Luzern': {'match': {'_type': 'luzern'}},
+                              'Marculf': {'match': {'_type': 'marculf'}},
+                              'Marmoutier': {'match': {'_type': 'marmoutier'}},
+                              'Merowinger': {'match': {'_type': 'merowinger1'}},
+                              'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                              'Mondsee': {'match': {'_type': 'mondsee'}},
+                              'Passau': {'match': {'_type': 'passau'}},
+                              'Rätien': {'match': {'_type': 'raetien'}},
+                              'Regensburg': {'match': {'_type': 'regensburg'}},
+                              'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                              'Salzburg': {'match': {'_type': 'salzburg'}},
+                              'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                              'St. Gallen': {'match': {'_type': 'stgallen'}},
+                              'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                              'Werden': {'match': {'_type': 'werden'}},
+                              'Zürich': {'match': {'_type': 'zuerich'}}}
+
     def my_side_effect(self, index, doc_type, id):
         if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
             with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
@@ -2286,32 +2313,7 @@ class TestES(Formulae_Testing):
                                      {'key': '>1000', 'from': '1000'}]}},
                         'corpus': {
                             'filters': {
-                                'filters': {
-                                    'Angers': {'match': {'_type': 'andecavensis'}},
-                                    'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                    'Bünden': {'match': {'_type': 'buenden'}},
-                                    'Echternach': {'match': {'_type': 'echternach'}},
-                                    'Freising': {'match': {'_type': 'freising'}},
-                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                    'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                    'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                    'Katalonien': {'match': {'_type': 'katalonien'}},
-                                    'Lorsch': {'match': {'_type': 'lorsch'}},
-                                    'Luzern': {'match': {'_type': 'luzern'}},
-                                    'Marculf': {'match': {'_type': 'marculf'}},
-                                    'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                    'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                    'Mondsee': {'match': {'_type': 'mondsee'}},
-                                    'Passau': {'match': {'_type': 'passau'}},
-                                    'Rätien': {'match': {'_type': 'raetien'}},
-                                    'Regensburg': {'match': {'_type': 'regensburg'}},
-                                    'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                    'Salzburg': {'match': {'_type': 'salzburg'}},
-                                    'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                    'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                    'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                    'Werden': {'match': {'_type': 'werden'}},
-                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                'filters': self.SEARCH_FILTERS_CORPORA}},
                         'no_date': {'missing': {'field': 'min_date'}},
                         'all_docs': {
                             'global': {},
@@ -2328,32 +2330,7 @@ class TestES(Formulae_Testing):
                                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
                                                    {'key': '>1000', 'from': '1000'}]}},
                                      'corpus': {'filters':
-                                                    {'filters':
-                                                         {'Angers': {'match': {'_type': 'andecavensis'}},
-                                                          'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                                          'Bünden': {'match': {'_type': 'buenden'}},
-                                                          'Echternach': {'match': {'_type': 'echternach'}},
-                                                          'Freising': {'match': {'_type': 'freising'}},
-                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                                          'Katalonien': {'match': {'_type': 'katalonien'}},
-                                                          'Lorsch': {'match': {'_type': 'lorsch'}},
-                                                          'Luzern': {'match': {'_type': 'luzern'}},
-                                                          'Marculf': {'match': {'_type': 'marculf'}},
-                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
-                                                          'Passau': {'match': {'_type': 'passau'}},
-                                                          'Rätien': {'match': {'_type': 'raetien'}},
-                                                          'Regensburg': {'match': {'_type': 'regensburg'}},
-                                                          'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                                          'Salzburg': {'match': {'_type': 'salzburg'}},
-                                                          'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                                          'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                                          'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                                          'Werden': {'match': {'_type': 'werden'}},
-                                                          'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                                    {'filters': self.SEARCH_FILTERS_CORPORA}},
                                      'no_date': {'missing': {'field': 'min_date'}}}}}}
 
         resp = fake.load_response()
@@ -2401,32 +2378,7 @@ class TestES(Formulae_Testing):
                                      {'key': '>1000', 'from': '1000'}]}},
                         'corpus': {
                             'filters': {
-                                'filters': {
-                                    'Angers': {'match': {'_type': 'andecavensis'}},
-                                    'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                    'Bünden': {'match': {'_type': 'buenden'}},
-                                    'Echternach': {'match': {'_type': 'echternach'}},
-                                    'Freising': {'match': {'_type': 'freising'}},
-                                    'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                    'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                    'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                    'Katalonien': {'match': {'_type': 'katalonien'}},
-                                    'Lorsch': {'match': {'_type': 'lorsch'}},
-                                    'Luzern': {'match': {'_type': 'luzern'}},
-                                    'Marculf': {'match': {'_type': 'marculf'}},
-                                    'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                    'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                    'Mondsee': {'match': {'_type': 'mondsee'}},
-                                    'Passau': {'match': {'_type': 'passau'}},
-                                    'Rätien': {'match': {'_type': 'raetien'}},
-                                    'Regensburg': {'match': {'_type': 'regensburg'}},
-                                    'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                    'Salzburg': {'match': {'_type': 'salzburg'}},
-                                    'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                    'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                    'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                    'Werden': {'match': {'_type': 'werden'}},
-                                    'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                'filters': self.SEARCH_FILTERS_CORPORA}},
                         'no_date': {'missing': {'field': 'min_date'}},
                         'all_docs': {
                             'global': {},
@@ -2443,32 +2395,7 @@ class TestES(Formulae_Testing):
                                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
                                                    {'key': '>1000', 'from': '1000'}]}},
                                      'corpus': {'filters':
-                                                    {'filters':
-                                                         {'Angers': {'match': {'_type': 'andecavensis'}},
-                                                          'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                                          'Bünden': {'match': {'_type': 'buenden'}},
-                                                          'Echternach': {'match': {'_type': 'echternach'}},
-                                                          'Freising': {'match': {'_type': 'freising'}},
-                                                          'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                                          'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                                          'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                                          'Katalonien': {'match': {'_type': 'katalonien'}},
-                                                          'Lorsch': {'match': {'_type': 'lorsch'}},
-                                                          'Luzern': {'match': {'_type': 'luzern'}},
-                                                          'Marculf': {'match': {'_type': 'marculf'}},
-                                                          'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                                          'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                                          'Mondsee': {'match': {'_type': 'mondsee'}},
-                                                          'Passau': {'match': {'_type': 'passau'}},
-                                                          'Rätien': {'match': {'_type': 'raetien'}},
-                                                          'Regensburg': {'match': {'_type': 'regensburg'}},
-                                                          'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                                          'Salzburg': {'match': {'_type': 'salzburg'}},
-                                                          'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                                          'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                                          'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                                          'Werden': {'match': {'_type': 'werden'}},
-                                                          'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                                    {'filters': self.SEARCH_FILTERS_CORPORA}},
                                      'no_date': {'missing': {'field': 'min_date'}}}}}}
 
         resp = fake.load_response()
@@ -3012,6 +2939,9 @@ class TestES(Formulae_Testing):
                                                         "Marculf": {
                                                             "doc_count": 0
                                                         },
+                                                        "Marmoutier": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Merowinger": {
                                                             "doc_count": 0
                                                         },
@@ -3074,32 +3004,7 @@ class TestES(Formulae_Testing):
                                               {'key': '>1000', 'from': '1000'}]}},
                          'corpus':
                              {'filters':
-                                  {'filters':
-                                       {'Angers': {'match': {'_type': 'andecavensis'}},
-                                        'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                        'Bünden': {'match': {'_type': 'buenden'}},
-                                        'Echternach': {'match': {'_type': 'echternach'}},
-                                        'Freising': {'match': {'_type': 'freising'}},
-                                        'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                        'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                        'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                        'Katalonien': {'match': {'_type': 'katalonien'}},
-                                        'Lorsch': {'match': {'_type': 'lorsch'}},
-                                        'Luzern': {'match': {'_type': 'luzern'}},
-                                        'Marculf': {'match': {'_type': 'marculf'}},
-                                        'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                        'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                        'Mondsee': {'match': {'_type': 'mondsee'}},
-                                        'Passau': {'match': {'_type': 'passau'}},
-                                        'Rätien': {'match': {'_type': 'raetien'}},
-                                        'Regensburg': {'match': {'_type': 'regensburg'}},
-                                        'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                        'Salzburg': {'match': {'_type': 'salzburg'}},
-                                        'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                        'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                        'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                        'Werden': {'match': {'_type': 'werden'}},
-                                        'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                  {'filters': self.SEARCH_FILTERS_CORPORA}},
                          'no_date': {'missing': {'field': 'min_date'}},
                          'all_docs': {'global': {},
                                       'aggs': {
@@ -3116,32 +3021,7 @@ class TestES(Formulae_Testing):
                                                                {'key': '>1000', 'from': '1000'}]}},
                                           'corpus':
                                               {'filters':
-                                                   {'filters':
-                                                        {'Angers': {'match': {'_type': 'andecavensis'}},
-                                                         'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                                         'Bünden': {'match': {'_type': 'buenden'}},
-                                                         'Echternach': {'match': {'_type': 'echternach'}},
-                                                         'Freising': {'match': {'_type': 'freising'}},
-                                                         'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                                         'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                                         'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                                         'Katalonien': {'match': {'_type': 'katalonien'}},
-                                                         'Lorsch': {'match': {'_type': 'lorsch'}},
-                                                         'Luzern': {'match': {'_type': 'luzern'}},
-                                                         'Marculf': {'match': {'_type': 'marculf'}},
-                                                         'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                                         'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                                         'Mondsee': {'match': {'_type': 'mondsee'}},
-                                                         'Passau': {'match': {'_type': 'passau'}},
-                                                         'Rätien': {'match': {'_type': 'raetien'}},
-                                                         'Regensburg': {'match': {'_type': 'regensburg'}},
-                                                         'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                                         'Salzburg': {'match': {'_type': 'salzburg'}},
-                                                         'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                                         'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                                         'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                                         'Werden': {'match': {'_type': 'werden'}},
-                                                         'Zürich': {'match': {'_type': 'zuerich'}}}}},
+                                                   {'filters': self.SEARCH_FILTERS_CORPORA}},
                                           'no_date': {'missing': {'field': 'min_date'}}
                                       }
                                       }
