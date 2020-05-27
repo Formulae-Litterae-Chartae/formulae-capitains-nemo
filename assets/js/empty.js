@@ -22,16 +22,21 @@ function makeLemmaSearch() {
     var reField = new RegExp('&lemma_search=[^&]*');
     var rePage = new RegExp('&page=[^&]*');
     var lemmas = document.getElementsByClassName('lem-to-search');
-    var oldUrl = button.getAttribute('href');
+    var oldUrl = window.location.href;
     var newQ = new Array();
     for (let lemma of lemmas){
         if (lemma.checked || lemma.getAttribute('checked') == 'True') {
             newQ.push(lemma.getAttribute('value'));
         }
     };
-    oldUrl = oldUrl.replace(reField, '');
-    oldUrl = oldUrl.replace(rePage, '');
-    button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
+    if (Array.isArray(newQ) && newQ.length) {
+        oldUrl = oldUrl.replace(reField, '');
+        oldUrl = oldUrl.replace(rePage, '');
+        button.setAttribute('href', oldUrl.replace(reQ, '&q=' + newQ.join('+')) + '&lemma_search=True');
+    } else {
+        $('#lemmaSearchButton').popover();
+        $('#lemmaSearchButton').popover('toggle');
+    }
 }
 
 

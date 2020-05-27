@@ -88,7 +88,7 @@
                                 <td class="align-middle">
                                 {% for l in lem|sort %}
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="choice{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ outer_loop.index }}" class="custom-control-input lem-to-search" value="{{ l }}" {% if loop.first %}checked{% endif %}>
+                                    <input type="radio" id="choice{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ outer_loop.index }}" class="custom-control-input lem-to-search" value="{{ l }}">
                                     <label class="custom-control-label" for="choice{{ outer_loop.index }}-{{ loop.index }}">{{ l }}</label>
                                 </div>
                                 {% endfor %}
@@ -100,7 +100,7 @@
             </table>
         </div>
         <div class="col-auto mr-auto my-auto pl-1">
-            <a href="{{ request.url }}" onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#">{{ _('Suchen') }}</a>
+            <a onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
         </div>
     </div>
     {% endif %}
