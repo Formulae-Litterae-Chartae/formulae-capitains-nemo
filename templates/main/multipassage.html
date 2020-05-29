@@ -176,7 +176,6 @@
 {% endmacro %}
 
 {% macro show_passage(objects, navigation) %}
-    <div class="">
     <!-- The Modal container for the eLexicon entries. -->
     <div class="modal" id="lexicon-modal" message="{{ _('Es gibt derzeit noch keinen Lexikoneintrag zu') }} " tabindex="-1" role="dialog" aria-labelledby="lexicon-modalLabel" aria-hidden="true">
     </div>
@@ -199,7 +198,7 @@
         {% else %}
             {% set copy_class = '' %}
         {% endif %}
-        <article class="hentry entry white col-sm-12">
+        <article class="hentry entry white col-sm-12{% if not loop.last %} middle-reading-row{% endif %}">
             <!-- <nav>
                 {{ navigation }}
             </nav> -->
@@ -223,6 +222,9 @@
                 {% include "viewer::embededmirador.html" %}
                 {% endwith %}
             </section>
+            {% endif %}
+            {% if not loop.last %}
+                    <!--<img class="img-fluid ui-resizable-handle ui-resizable-s" src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle">-->
             {% endif %}
         </article>
         {% endfor %}
@@ -267,7 +269,6 @@
             </div>
         </article>
     {% endif %}
-    </div>
 
 
 {% endmacro %}

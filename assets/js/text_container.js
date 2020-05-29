@@ -42,3 +42,10 @@ Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
         'flex-basis':  `${gutterSize}px`,
     }),
 })
+
+// Allow texts when in rows reading format to be expanded and contracted by the user
+$( function() {
+    $('article.hentry').resizable({
+        handles: "s"
+    });
+    } );
