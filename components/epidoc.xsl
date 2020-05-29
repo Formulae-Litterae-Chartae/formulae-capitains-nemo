@@ -233,8 +233,14 @@
     </xsl:template>
     
     <xsl:template match="t:head">
-        <div class="head"><xsl:apply-templates />
-            <xsl:apply-templates select="@urn" /></div>
+        <xsl:element name="div">
+            <xsl:attribute name="class">
+                <xsl:text>head</xsl:text>
+                <xsl:if test="contains(@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+            </xsl:attribute>
+            <xsl:apply-templates />
+            <xsl:apply-templates select="@urn" />
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:title">
@@ -420,6 +426,10 @@
     
     <xsl:template match="t:seg[@type='lex-title']">
         <strong><xsl:apply-templates/></strong>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@type='foreign-text']">
+        <span class="foreign-text"><xsl:apply-templates/></span>
     </xsl:template>
     
     <xsl:template match="t:list">

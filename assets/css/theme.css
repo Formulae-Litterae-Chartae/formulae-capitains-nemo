@@ -591,7 +591,15 @@ img[id$="-flag-navbar"] {
     text-decoration: underline;
 }
 
-.latin-word,.italic {
+.latin-word {
+  font-style: italic;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.foreign-text {
   font-style: italic;
 }
 
