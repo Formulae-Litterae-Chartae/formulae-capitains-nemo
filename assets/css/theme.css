@@ -736,3 +736,15 @@ p.flash-grey {
 .related-text {
     margin-left: 1em;
 }
+
+.ui-resizable-s {
+    width: 20%;
+    height: 20px;
+    bottom: -5px;
+    left: 40%;
+}
+
+.middle-reading-row {
+    border-bottom-style: double;
+    border-bottom-width: 5px;
+}
