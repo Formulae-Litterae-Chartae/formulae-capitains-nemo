@@ -1,9 +1,9 @@
 {
-  "took": 13,
+  "took": 35,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 27,
+    "successful": 27,
     "skipped": 0,
     "failed": 0
   },
@@ -539,7 +539,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7353,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -579,7 +579,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
           },
           "Merowinger": {
             "doc_count": 196
@@ -654,7 +660,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -670,18 +676,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2796
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 244
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 346
       }
     },
     "corpus": {
@@ -724,6 +730,12 @@
         },
         "Marmoutier": {
           "doc_count": 3
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
         },
         "Merowinger": {
           "doc_count": 57
@@ -814,7 +826,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 219
+          "doc_count": 220
         },
         {
           "key": ">1000",
@@ -825,7 +837,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 37
+      "doc_count": 36
     }
   }
 }

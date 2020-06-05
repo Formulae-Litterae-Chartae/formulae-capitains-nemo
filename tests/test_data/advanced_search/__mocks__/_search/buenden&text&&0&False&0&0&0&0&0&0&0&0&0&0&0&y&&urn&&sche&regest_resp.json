@@ -56,6 +56,12 @@
           "Marmoutier": {
             "doc_count": 0
           },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
           "Merowinger": {
             "doc_count": 0
           },
@@ -198,6 +204,12 @@
           "doc_count": 0
         },
         "Marmoutier": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
           "doc_count": 0
         },
         "Merowinger": {

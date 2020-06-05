@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Friday",
-            "Tuesday",
-            "Thursday",
-            "Sunday",
-            "Easter",
             "Saturday",
+            "Monday",
+            "Lent",
             "Wednesday",
-            "Lent"
+            "Friday",
+            "Sunday",
+            "Thursday",
+            "Easter",
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -369,6 +369,12 @@
             "doc_count": 0
           },
           "Marmoutier": {
+            "doc_count": 0
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -513,6 +519,12 @@
           "doc_count": 0
         },
         "Marmoutier": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
           "doc_count": 0
         },
         "Merowinger": {

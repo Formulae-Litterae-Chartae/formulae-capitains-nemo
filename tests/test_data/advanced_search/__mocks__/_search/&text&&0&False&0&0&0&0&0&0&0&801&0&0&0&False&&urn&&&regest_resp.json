@@ -1,14 +1,14 @@
 {
-  "took": 67,
+  "took": 48,
   "timed_out": false,
   "_shards": {
-    "total": 101,
-    "successful": 101,
+    "total": 106,
+    "successful": 106,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 6797,
+    "total": 6825,
     "max_score": null,
     "hits": [
       {
@@ -253,8 +253,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "sort": [
@@ -377,7 +377,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 29146,
+      "doc_count": 29588,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -417,7 +417,13 @@
             "doc_count": 164
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 334
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
           },
           "Merowinger": {
             "doc_count": 784
@@ -484,7 +490,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 575
+            "doc_count": 576
           },
           {
             "key": "700-799",
@@ -492,7 +498,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 5746
+            "doc_count": 5769
           },
           {
             "key": "800-899",
@@ -500,7 +506,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 8924
+            "doc_count": 9140
           },
           {
             "key": "900-999",
@@ -508,18 +514,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 9193
+            "doc_count": 11176
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 672
+            "doc_count": 1143
           }
         ]
       },
       "no_date": {
-        "doc_count": 3687
+        "doc_count": 1408
       }
     },
     "corpus": {
@@ -549,7 +555,7 @@
           "doc_count": 88
         },
         "Katalonien": {
-          "doc_count": 12
+          "doc_count": 37
         },
         "Lorsch": {
           "doc_count": 108
@@ -561,7 +567,13 @@
           "doc_count": 0
         },
         "Marmoutier": {
-          "doc_count": 1
+          "doc_count": 4
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
         },
         "Merowinger": {
           "doc_count": 780
@@ -628,7 +640,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 575
+          "doc_count": 576
         },
         {
           "key": "700-799",
@@ -636,7 +648,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 5746
+          "doc_count": 5769
         },
         {
           "key": "800-899",
@@ -644,7 +656,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 243
+          "doc_count": 244
         },
         {
           "key": "900-999",
@@ -658,7 +670,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 1
+          "doc_count": 4
         }
       ]
     },
