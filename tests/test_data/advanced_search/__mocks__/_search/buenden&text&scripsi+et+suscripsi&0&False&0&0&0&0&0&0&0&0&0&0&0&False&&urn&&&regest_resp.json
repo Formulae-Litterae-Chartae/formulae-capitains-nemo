@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
-            "Friday",
-            "Tuesday",
-            "Thursday",
-            "Sunday",
-            "Easter",
             "Saturday",
+            "Monday",
+            "Lent",
             "Wednesday",
-            "Lent"
+            "Friday",
+            "Sunday",
+            "Thursday",
+            "Easter",
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -346,7 +346,7 @@
           "dating": [
             {
               "gte": "0769",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -356,7 +356,7 @@
           ],
           "all_dates": [
             "0769",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0769"
@@ -592,15 +592,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
+            "Saturday",
             "Monday",
+            "Lent",
+            "Wednesday",
             "Friday",
-            "Tuesday",
             "Sunday",
             "Thursday",
             "Easter",
-            "Saturday",
-            "Wednesday",
-            "Lent"
+            "Tuesday"
           ]
         },
         "highlight": {
@@ -633,7 +633,7 @@
           "dating": [
             {
               "gte": "0768",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -643,7 +643,7 @@
           ],
           "all_dates": [
             "0768",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0768"
@@ -701,6 +701,12 @@
             "doc_count": 0
           },
           "Marmoutier": {
+            "doc_count": 0
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -845,6 +851,12 @@
           "doc_count": 0
         },
         "Marmoutier": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
           "doc_count": 0
         },
         "Merowinger": {

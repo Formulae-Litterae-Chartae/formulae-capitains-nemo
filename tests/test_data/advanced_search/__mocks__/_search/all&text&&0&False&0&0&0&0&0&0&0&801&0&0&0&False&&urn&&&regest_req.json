@@ -160,6 +160,16 @@
               "_type": "marmoutier"
             }
           },
+          "Marmoutier - Fougères": {
+            "match": {
+              "_type": "marmoutier_fougères"
+            }
+          },
+          "Marmoutier - Serfs": {
+            "match": {
+              "_type": "marmoutier_serfs"
+            }
+          },
           "Merowinger": {
             "match": {
               "_type": "merowinger1"
@@ -344,6 +354,16 @@
               "Marmoutier": {
                 "match": {
                   "_type": "marmoutier"
+                }
+              },
+              "Marmoutier - Fougères": {
+                "match": {
+                  "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Serfs": {
+                "match": {
+                  "_type": "marmoutier_serfs"
                 }
               },
               "Merowinger": {

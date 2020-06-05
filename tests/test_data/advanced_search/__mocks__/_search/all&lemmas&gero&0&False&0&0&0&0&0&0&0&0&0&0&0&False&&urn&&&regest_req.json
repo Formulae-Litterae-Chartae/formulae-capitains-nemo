@@ -33,7 +33,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -53,7 +53,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -184,6 +184,16 @@
           "Marmoutier": {
             "match": {
               "_type": "marmoutier"
+            }
+          },
+          "Marmoutier - Fougères": {
+            "match": {
+              "_type": "marmoutier_fougères"
+            }
+          },
+          "Marmoutier - Serfs": {
+            "match": {
+              "_type": "marmoutier_serfs"
             }
           },
           "Merowinger": {
@@ -370,6 +380,16 @@
               "Marmoutier": {
                 "match": {
                   "_type": "marmoutier"
+                }
+              },
+              "Marmoutier - Fougères": {
+                "match": {
+                  "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Serfs": {
+                "match": {
+                  "_type": "marmoutier_serfs"
                 }
               },
               "Merowinger": {

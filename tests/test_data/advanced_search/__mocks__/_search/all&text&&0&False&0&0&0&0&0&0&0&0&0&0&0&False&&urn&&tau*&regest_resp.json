@@ -1,9 +1,9 @@
 {
-  "took": 13,
+  "took": 19,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 27,
+    "successful": 27,
     "skipped": 0,
     "failed": 0
   },
@@ -228,12 +228,12 @@
           "dating": [
             {
               "gte": "0783",
-              "lte": "0794"
+              "lte": "0793-12-31"
             }
           ],
           "all_dates": [
             "0783",
-            "0794"
+            "0793-12-31"
           ],
           "min_date": "0783"
         },
@@ -282,12 +282,12 @@
           "dating": [
             {
               "gte": "0807",
-              "lte": "0809"
+              "lte": "0808-12-31"
             }
           ],
           "all_dates": [
             "0807",
-            "0809"
+            "0808-12-31"
           ],
           "min_date": "0807"
         },
@@ -547,7 +547,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7353,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -587,7 +587,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
           },
           "Merowinger": {
             "doc_count": 196
@@ -662,7 +668,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -678,18 +684,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2796
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 244
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 346
       }
     },
     "corpus": {
@@ -731,6 +737,12 @@
           "doc_count": 0
         },
         "Marmoutier": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
           "doc_count": 0
         },
         "Merowinger": {

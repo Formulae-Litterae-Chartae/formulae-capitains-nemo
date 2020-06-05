@@ -1,14 +1,14 @@
 {
-  "took": 14,
+  "took": 24,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 27,
+    "successful": 27,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1701,
+    "total": 1708,
     "max_score": null,
     "hits": [
       {
@@ -302,8 +302,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -386,7 +386,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7353,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -426,7 +426,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
           },
           "Merowinger": {
             "doc_count": 196
@@ -501,7 +507,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -517,18 +523,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2796
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 244
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 346
       }
     },
     "corpus": {
@@ -558,7 +564,7 @@
           "doc_count": 22
         },
         "Katalonien": {
-          "doc_count": 4
+          "doc_count": 11
         },
         "Lorsch": {
           "doc_count": 27
@@ -571,6 +577,12 @@
         },
         "Marmoutier": {
           "doc_count": 1
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
         },
         "Merowinger": {
           "doc_count": 195
@@ -645,7 +657,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 1437
+          "doc_count": 1444
         },
         {
           "key": "800-899",
