@@ -738,13 +738,16 @@ p.flash-grey {
 }
 
 .ui-resizable-s {
-    width: 20%;
+    width: 100%;
     height: 20px;
     bottom: -5px;
-    left: 40%;
 }
 
 .middle-reading-row {
     border-bottom-style: double;
     border-bottom-width: 5px;
+}
+
+.ui-resizable {
+    overflow-y: auto;
 }
