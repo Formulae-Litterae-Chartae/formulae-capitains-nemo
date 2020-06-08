@@ -33,7 +33,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -53,7 +53,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -209,6 +209,11 @@
           "Mondsee": {
             "match": {
               "_type": "mondsee"
+            }
+          },
+          "Papsturkunden Frankreich": {
+            "match": {
+              "_type": "papsturkunden_frankreich"
             }
           },
           "Passau": {
@@ -405,6 +410,11 @@
               "Mondsee": {
                 "match": {
                   "_type": "mondsee"
+                }
+              },
+              "Papsturkunden Frankreich": {
+                "match": {
+                  "_type": "papsturkunden_frankreich"
                 }
               },
               "Passau": {

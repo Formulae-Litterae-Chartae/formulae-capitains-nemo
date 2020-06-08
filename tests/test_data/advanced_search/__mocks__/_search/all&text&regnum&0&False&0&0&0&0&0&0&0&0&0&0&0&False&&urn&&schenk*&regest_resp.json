@@ -1,9 +1,9 @@
 {
-  "took": 26,
+  "took": 27,
   "timed_out": false,
   "_shards": {
-    "total": 27,
-    "successful": 27,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -320,14 +320,14 @@
           "min_date": "0769-03-31",
           "days": [
             "Saturday",
-            "Monday",
+            "Friday",
+            "Tuesday",
+            "Thursday",
             "Lent",
             "Wednesday",
-            "Friday",
             "Sunday",
-            "Thursday",
             "Easter",
-            "Tuesday"
+            "Monday"
           ]
         },
         "highlight": {
@@ -343,7 +343,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
         "_score": null,
@@ -397,7 +397,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -449,7 +449,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -501,7 +501,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -615,7 +615,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -683,7 +683,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -712,8 +712,8 @@
           ],
           "min_date": "0819-04-14",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -744,7 +744,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7353,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -790,7 +790,7 @@
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
-            "doc_count": 0
+            "doc_count": 187
           },
           "Merowinger": {
             "doc_count": 196
@@ -800,6 +800,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -873,7 +876,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2285
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -881,18 +884,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2796
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 244
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 346
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -949,6 +952,9 @@
           "doc_count": 0
         },
         "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "Passau": {

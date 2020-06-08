@@ -171,6 +171,11 @@
               "_type": "mondsee"
             }
           },
+          "Papsturkunden Frankreich": {
+            "match": {
+              "_type": "papsturkunden_frankreich"
+            }
+          },
           "Passau": {
             "match": {
               "_type": "passau"
@@ -365,6 +370,11 @@
               "Mondsee": {
                 "match": {
                   "_type": "mondsee"
+                }
+              },
+              "Papsturkunden Frankreich": {
+                "match": {
+                  "_type": "papsturkunden_frankreich"
                 }
               },
               "Passau": {

@@ -586,6 +586,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Mondsee": {
                       "doc_count": 0
                     },
+                    "Papsturkunden Frankreich": {
+                      "doc_count": 0
+                    },
                     "Passau": {
                       "doc_count": 0
                     },
@@ -1870,6 +1873,7 @@ class TestES(Formulae_Testing):
                               'Merowinger': {'match': {'_type': 'merowinger1'}},
                               'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                               'Mondsee': {'match': {'_type': 'mondsee'}},
+                              'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
                               'Passau': {'match': {'_type': 'passau'}},
                               'Rätien': {'match': {'_type': 'raetien'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
@@ -2969,6 +2973,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Mondsee": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Papsturkunden Frankreich": {
                                                           "doc_count": 0
                                                         },
                                                         "Passau": {
