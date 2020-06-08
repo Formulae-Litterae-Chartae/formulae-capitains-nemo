@@ -162,6 +162,16 @@
               "_type": "marmoutier"
             }
           },
+          "Marmoutier - Fougères": {
+            "match": {
+              "_type": "marmoutier_fougères"
+            }
+          },
+          "Marmoutier - Serfs": {
+            "match": {
+              "_type": "marmoutier_serfs"
+            }
+          },
           "Merowinger": {
             "match": {
               "_type": "merowinger1"
@@ -175,6 +185,11 @@
           "Mondsee": {
             "match": {
               "_type": "mondsee"
+            }
+          },
+          "Papsturkunden Frankreich": {
+            "match": {
+              "_type": "papsturkunden_frankreich"
             }
           },
           "Passau": {
@@ -348,6 +363,16 @@
                   "_type": "marmoutier"
                 }
               },
+              "Marmoutier - Fougères": {
+                "match": {
+                  "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Serfs": {
+                "match": {
+                  "_type": "marmoutier_serfs"
+                }
+              },
               "Merowinger": {
                 "match": {
                   "_type": "merowinger1"
@@ -361,6 +386,11 @@
               "Mondsee": {
                 "match": {
                   "_type": "mondsee"
+                }
+              },
+              "Papsturkunden Frankreich": {
+                "match": {
+                  "_type": "papsturkunden_frankreich"
                 }
               },
               "Passau": {

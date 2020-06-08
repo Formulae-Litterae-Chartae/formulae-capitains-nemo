@@ -568,6 +568,15 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Marculf": {
                       "doc_count": 0
                     },
+                    "Marmoutier": {
+                      "doc_count": 0
+                    },
+                    "Marmoutier - Serfs": {
+                      "doc_count": 0
+                    },
+                    "Marmoutier - Fougères": {
+                      "doc_count": 0
+                    },
                     "Merowinger": {
                       "doc_count": 0
                     },
@@ -575,6 +584,9 @@ class TestIndividualRoutes(Formulae_Testing):
                       "doc_count": 0
                     },
                     "Mondsee": {
+                      "doc_count": 0
+                    },
+                    "Papsturkunden Frankreich": {
                       "doc_count": 0
                     },
                     "Passau": {
@@ -1082,6 +1094,9 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form003.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.form000.lat001')
             self.assertEqual(data['objects'][0]['next_version'], None)
+            data = self.nemo.r_multipassage('urn:cts:formulae:marmoutier_serfs.salmon0002.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], None)
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marmoutier_serfs.salmon0001app.lat001')
 
     def test_semantic(self):
         """ Make sure that the correct SEO-friendly strings are returned by semantic"""
@@ -1853,9 +1868,12 @@ class TestES(Formulae_Testing):
                               'Luzern': {'match': {'_type': 'luzern'}},
                               'Marculf': {'match': {'_type': 'marculf'}},
                               'Marmoutier': {'match': {'_type': 'marmoutier'}},
+                              'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                              'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
                               'Merowinger': {'match': {'_type': 'merowinger1'}},
                               'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                               'Mondsee': {'match': {'_type': 'mondsee'}},
+                              'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
                               'Passau': {'match': {'_type': 'passau'}},
                               'Rätien': {'match': {'_type': 'raetien'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
@@ -2942,6 +2960,12 @@ class TestES(Formulae_Testing):
                                                         "Marmoutier": {
                                                             "doc_count": 0
                                                         },
+                                                        "Marmoutier - Serfs": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Marmoutier - Fougères": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Merowinger": {
                                                             "doc_count": 0
                                                         },
@@ -2949,6 +2973,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Mondsee": {
+                                                          "doc_count": 0
+                                                        },
+                                                        "Papsturkunden Frankreich": {
                                                           "doc_count": 0
                                                         },
                                                         "Passau": {

@@ -1,18 +1,18 @@
 {
-  "took": 11,
+  "took": 16,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 5733,
+    "total": 6201,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
             "Thursday",
+            "Lent",
+            "Wednesday",
             "Sunday",
             "Easter",
-            "Saturday",
-            "Wednesday",
-            "Lent"
+            "Monday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -341,7 +341,7 @@
           "dating": [
             {
               "gte": "0769",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -351,7 +351,7 @@
           ],
           "all_dates": [
             "0769",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0769"
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -381,7 +381,7 @@
           "dating": [
             {
               "gte": "0769",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -391,7 +391,7 @@
           ],
           "all_dates": [
             "0769",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0769"
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -622,15 +622,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
-            "Sunday",
             "Thursday",
-            "Easter",
-            "Saturday",
+            "Lent",
             "Wednesday",
-            "Lent"
+            "Sunday",
+            "Easter",
+            "Monday"
           ]
         },
         "sort": [
@@ -638,7 +638,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -658,7 +658,7 @@
           "dating": [
             {
               "gte": "0768",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -668,7 +668,7 @@
           ],
           "all_dates": [
             "0768",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0768"
@@ -678,7 +678,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -698,7 +698,7 @@
           "dating": [
             {
               "gte": "0768",
-              "lte": "0801"
+              "lte": "0800-12-31"
             }
           ],
           "specific_date": [
@@ -708,7 +708,7 @@
           ],
           "all_dates": [
             "0768",
-            "0801",
+            "0800-12-31",
             "0814"
           ],
           "min_date": "0768"
@@ -718,7 +718,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -738,12 +738,12 @@
           "dating": [
             {
               "gte": "0801",
-              "lte": "0804"
+              "lte": "0803-12-31"
             }
           ],
           "all_dates": [
             "0801",
-            "0804"
+            "0803-12-31"
           ],
           "min_date": "0801"
         },
@@ -752,7 +752,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -772,12 +772,12 @@
           "dating": [
             {
               "gte": "0801",
-              "lte": "0805"
+              "lte": "0804-12-31"
             }
           ],
           "all_dates": [
             "0801",
-            "0805"
+            "0804-12-31"
           ],
           "min_date": "0801"
         },
@@ -786,7 +786,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -806,12 +806,12 @@
           "dating": [
             {
               "gte": "0791",
-              "lte": "0807"
+              "lte": "0806-12-31"
             }
           ],
           "all_dates": [
             "0791",
-            "0807"
+            "0806-12-31"
           ],
           "min_date": "0791"
         },
@@ -820,7 +820,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
         "_score": null,
@@ -860,7 +860,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -900,7 +900,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
           },
           "Merowinger": {
             "doc_count": 196
@@ -910,6 +916,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -975,7 +984,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -983,7 +992,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2285
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -991,18 +1000,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -1032,7 +1041,7 @@
           "doc_count": 101
         },
         "Katalonien": {
-          "doc_count": 2215
+          "doc_count": 2237
         },
         "Lorsch": {
           "doc_count": 110
@@ -1044,7 +1053,13 @@
           "doc_count": 0
         },
         "Marmoutier": {
-          "doc_count": 85
+          "doc_count": 80
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 7
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 185
         },
         "Merowinger": {
           "doc_count": 0
@@ -1054,6 +1069,9 @@
         },
         "Mondsee": {
           "doc_count": 102
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 259
         },
         "Passau": {
           "doc_count": 71
@@ -1119,7 +1137,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 378
+          "doc_count": 385
         },
         {
           "key": "800-899",
@@ -1127,7 +1145,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2285
+          "doc_count": 2286
         },
         {
           "key": "900-999",
@@ -1135,13 +1153,13 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 2782
+          "doc_count": 2803
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 241
+          "doc_count": 680
         }
       ]
     },

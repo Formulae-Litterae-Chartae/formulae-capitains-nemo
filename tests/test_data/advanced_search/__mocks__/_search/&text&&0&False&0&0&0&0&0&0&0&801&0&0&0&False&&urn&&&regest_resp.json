@@ -1,14 +1,14 @@
 {
-  "took": 67,
+  "took": 36,
   "timed_out": false,
   "_shards": {
-    "total": 101,
-    "successful": 101,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 6797,
+    "total": 3416,
     "max_score": null,
     "hits": [
       {
@@ -80,74 +80,6 @@
         ]
       },
       {
-        "_index": "arnulfinger_v3",
-        "_type": "arnulfinger",
-        "_id": "urn:cts:formulae:arnulfinger.heidrich0001.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 1",
-          "urn": "urn:cts:formulae:arnulfinger.heidrich0001.lat001",
-          "date_string": "(um 650, Abschrift 741 08 01)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0640-01-01",
-              "lte": "0660-12-31"
-            }
-          ],
-          "all_dates": [
-            "0640-01-01",
-            "0660-12-31"
-          ],
-          "min_date": "0640-01-01"
-        },
-        "sort": [
-          "urn:cts:formulae:arnulfinger.heidrich0001.lat001"
-        ]
-      },
-      {
-        "_index": "arnulfinger_v4",
-        "_type": "arnulfinger",
-        "_id": "urn:cts:formulae:arnulfinger.heidrich0001.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 1",
-          "urn": "urn:cts:formulae:arnulfinger.heidrich0001.lat001",
-          "date_string": "(um 650, Abschrift 741 08 01)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0640-01-01",
-              "lte": "0660-12-31"
-            }
-          ],
-          "all_dates": [
-            "0640-01-01",
-            "0660-12-31"
-          ],
-          "min_date": "0640-01-01"
-        },
-        "sort": [
-          "urn:cts:formulae:arnulfinger.heidrich0001.lat001"
-        ]
-      },
-      {
         "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
@@ -187,44 +119,6 @@
       },
       {
         "_index": "arnulfinger_v2",
-        "_type": "arnulfinger",
-        "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 2",
-          "urn": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
-          "date_string": "687 02 20",
-          "comp_ort": "Villa Nielsio",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Villa Nielsio",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 687,
-              "month": 2,
-              "day": 20
-            }
-          ],
-          "all_dates": [
-            "0687-02-20"
-          ],
-          "min_date": "0687-02-20",
-          "days": [
-            "Wednesday",
-            "Lent"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
-        ]
-      },
-      {
-        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -262,44 +156,6 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
-        "_type": "arnulfinger",
-        "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 2",
-          "urn": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
-          "date_string": "687 02 20",
-          "comp_ort": "Villa Nielsio",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Villa Nielsio",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 687,
-              "month": 2,
-              "day": 20
-            }
-          ],
-          "all_dates": [
-            "0687-02-20"
-          ],
-          "min_date": "0687-02-20",
-          "days": [
-            "Wednesday",
-            "Lent"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
-        ]
-      },
-      {
         "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
@@ -372,91 +228,248 @@
         "sort": [
           "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
         ]
+      },
+      {
+        "_index": "arnulfinger_v1",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 4",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
+          "comp_ort": "Gaimundas",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Gaimundas",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 706,
+              "month": 5,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0706-05-13"
+          ],
+          "min_date": "0706-05-13",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0004.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v2",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 4",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
+          "comp_ort": "Gaimundas",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Gaimundas",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 706,
+              "month": 5,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0706-05-13"
+          ],
+          "min_date": "0706-05-13",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0004.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v1",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 5",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
+          "comp_ort": "Gamundias",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Gamundias",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 706,
+              "month": 5,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0706-05-13"
+          ],
+          "min_date": "0706-05-13",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0005.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v2",
+        "_type": "arnulfinger",
+        "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 5",
+          "urn": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
+          "date_string": "706 05 13 (Christi Himmelfahrt)",
+          "comp_ort": "Gamundias",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Gamundias",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 706,
+              "month": 5,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0706-05-13"
+          ],
+          "min_date": "0706-05-13",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:arnulfinger.heidrich0005.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 29146,
+      "doc_count": 15339,
       "corpus": {
         "buckets": {
           "Angers": {
-            "doc_count": 248
+            "doc_count": 124
           },
           "Arnulfinger": {
-            "doc_count": 96
+            "doc_count": 48
           },
           "Bünden": {
-            "doc_count": 96
+            "doc_count": 48
           },
           "Echternach": {
-            "doc_count": 608
+            "doc_count": 304
           },
           "Freising": {
-            "doc_count": 5532
+            "doc_count": 2766
           },
           "Fulda (Dronke)": {
-            "doc_count": 32
+            "doc_count": 16
           },
           "Fulda (Stengel)": {
-            "doc_count": 2252
+            "doc_count": 1126
           },
           "Hersfeld": {
-            "doc_count": 484
+            "doc_count": 242
           },
           "Katalonien": {
-            "doc_count": 8988
+            "doc_count": 4494
           },
           "Lorsch": {
-            "doc_count": 1016
+            "doc_count": 508
           },
           "Luzern": {
-            "doc_count": 24
+            "doc_count": 12
           },
           "Marculf": {
-            "doc_count": 164
+            "doc_count": 82
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 162
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 14
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 374
           },
           "Merowinger": {
-            "doc_count": 784
-          },
-          "Mittelrheinisch": {
             "doc_count": 392
           },
+          "Mittelrheinisch": {
+            "doc_count": 196
+          },
           "Mondsee": {
-            "doc_count": 548
+            "doc_count": 274
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
-            "doc_count": 408
+            "doc_count": 204
           },
           "Regensburg": {
-            "doc_count": 1076
+            "doc_count": 538
           },
           "Rheinisch": {
-            "doc_count": 312
+            "doc_count": 156
           },
           "Rätien": {
-            "doc_count": 240
+            "doc_count": 120
           },
           "Salzburg": {
-            "doc_count": 916
+            "doc_count": 458
           },
           "Schäftlarn": {
-            "doc_count": 148
+            "doc_count": 74
           },
           "St. Gallen": {
-            "doc_count": 3116
+            "doc_count": 1558
           },
           "Weißenburg": {
-            "doc_count": 1104
+            "doc_count": 552
           },
           "Werden": {
-            "doc_count": 264
+            "doc_count": 132
           },
           "Zürich": {
-            "doc_count": 212
+            "doc_count": 106
           }
         }
       },
@@ -468,7 +481,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 28
+            "doc_count": 14
           },
           {
             "key": "500-599",
@@ -476,7 +489,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 92
+            "doc_count": 46
           },
           {
             "key": "600-699",
@@ -484,7 +497,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 575
+            "doc_count": 288
           },
           {
             "key": "700-799",
@@ -492,7 +505,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 5746
+            "doc_count": 2888
           },
           {
             "key": "800-899",
@@ -500,7 +513,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 8924
+            "doc_count": 4571
           },
           {
             "key": "900-999",
@@ -508,18 +521,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 9193
+            "doc_count": 5605
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 672
+            "doc_count": 1103
           }
         ]
       },
       "no_date": {
-        "doc_count": 3687
+        "doc_count": 696
       }
     },
     "corpus": {
@@ -528,76 +541,85 @@
           "doc_count": 0
         },
         "Arnulfinger": {
-          "doc_count": 96
+          "doc_count": 48
         },
         "Bünden": {
-          "doc_count": 60
+          "doc_count": 30
         },
         "Echternach": {
-          "doc_count": 444
+          "doc_count": 222
         },
         "Freising": {
-          "doc_count": 744
+          "doc_count": 372
         },
         "Fulda (Dronke)": {
           "doc_count": 0
         },
         "Fulda (Stengel)": {
-          "doc_count": 2064
+          "doc_count": 1032
         },
         "Hersfeld": {
-          "doc_count": 88
+          "doc_count": 44
         },
         "Katalonien": {
-          "doc_count": 12
+          "doc_count": 22
         },
         "Lorsch": {
-          "doc_count": 108
+          "doc_count": 54
         },
         "Luzern": {
-          "doc_count": 24
+          "doc_count": 12
         },
         "Marculf": {
           "doc_count": 0
         },
         "Marmoutier": {
-          "doc_count": 1
+          "doc_count": 2
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
         },
         "Merowinger": {
-          "doc_count": 780
+          "doc_count": 390
         },
         "Mittelrheinisch": {
-          "doc_count": 60
+          "doc_count": 30
         },
         "Mondsee": {
-          "doc_count": 252
+          "doc_count": 126
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
         },
         "Passau": {
-          "doc_count": 224
+          "doc_count": 112
         },
         "Regensburg": {
-          "doc_count": 40
+          "doc_count": 20
         },
         "Rheinisch": {
-          "doc_count": 52
+          "doc_count": 26
         },
         "Rätien": {
-          "doc_count": 40
+          "doc_count": 20
         },
         "Salzburg": {
           "doc_count": 0
         },
         "Schäftlarn": {
-          "doc_count": 76
+          "doc_count": 38
         },
         "St. Gallen": {
-          "doc_count": 636
+          "doc_count": 318
         },
         "Weißenburg": {
-          "doc_count": 904
+          "doc_count": 452
         },
         "Werden": {
-          "doc_count": 92
+          "doc_count": 46
         },
         "Zürich": {
           "doc_count": 0
@@ -612,7 +634,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 28
+          "doc_count": 14
         },
         {
           "key": "500-599",
@@ -620,7 +642,7 @@
           "from_as_string": "0500",
           "to": -43264540800000.0,
           "to_as_string": "0599",
-          "doc_count": 92
+          "doc_count": 46
         },
         {
           "key": "600-699",
@@ -628,7 +650,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 575
+          "doc_count": 288
         },
         {
           "key": "700-799",
@@ -636,7 +658,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 5746
+          "doc_count": 2888
         },
         {
           "key": "800-899",
@@ -644,7 +666,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 243
+          "doc_count": 122
         },
         {
           "key": "900-999",
@@ -658,7 +680,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 1
+          "doc_count": 2
         }
       ]
     },

@@ -1,9 +1,9 @@
 {
-  "took": 7,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
             "Thursday",
+            "Lent",
+            "Wednesday",
             "Sunday",
             "Easter",
-            "Saturday",
-            "Wednesday",
-            "Lent"
+            "Monday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
-            "Sunday",
             "Thursday",
-            "Easter",
-            "Saturday",
+            "Lent",
             "Wednesday",
-            "Lent"
+            "Sunday",
+            "Easter",
+            "Monday"
           ]
         },
         "sort": [
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -596,7 +596,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
@@ -604,7 +604,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 110",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 110",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
           "date_string": "912.12-01.10/12",
           "comp_ort": " ",
@@ -763,15 +763,15 @@
           ],
           "min_date": "0912-01-10",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
-            "Sunday",
             "Thursday",
-            "Easter",
-            "Saturday",
+            "Lent",
             "Wednesday",
-            "Lent"
+            "Sunday",
+            "Easter",
+            "Monday"
           ]
         },
         "sort": [
@@ -779,7 +779,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
@@ -787,7 +787,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 193",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 193",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
           "date_string": "919.04.25 or 19",
           "comp_ort": " ",
@@ -815,8 +815,8 @@
           "min_date": "0919-04-19",
           "days": [
             "Monday",
-            "Sunday",
             "Lent",
+            "Sunday",
             "Easter"
           ]
         },
@@ -825,7 +825,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
@@ -833,7 +833,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 857",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 857",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
           "date_string": "960.04.22",
           "comp_ort": " ",
@@ -863,7 +863,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
@@ -871,7 +871,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1131",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1131",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
           "date_string": "973.03.23",
           "comp_ort": " ",
@@ -901,7 +901,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
@@ -909,7 +909,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1189",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1189",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
           "date_string": "975.04.04",
           "comp_ort": " ",
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
@@ -947,7 +947,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1340",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1340",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
           "date_string": "981.03.27",
           "comp_ort": " ",
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "_index": "katalonien_v4",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
@@ -985,7 +985,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals) Nr. 1488",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1488",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
           "date_string": "985.04.12",
           "comp_ort": " ",
@@ -1018,7 +1018,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -1058,7 +1058,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
           },
           "Merowinger": {
             "doc_count": 196
@@ -1068,6 +1074,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -1133,7 +1142,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -1141,7 +1150,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2285
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -1149,18 +1158,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -1204,6 +1213,12 @@
         "Marmoutier": {
           "doc_count": 0
         },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
         "Merowinger": {
           "doc_count": 1
         },
@@ -1211,6 +1226,9 @@
           "doc_count": 0
         },
         "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "Passau": {

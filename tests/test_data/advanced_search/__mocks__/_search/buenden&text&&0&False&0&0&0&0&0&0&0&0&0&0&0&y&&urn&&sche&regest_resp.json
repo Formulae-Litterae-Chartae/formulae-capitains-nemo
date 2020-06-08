@@ -56,6 +56,12 @@
           "Marmoutier": {
             "doc_count": 0
           },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
           "Merowinger": {
             "doc_count": 0
           },
@@ -63,6 +69,9 @@
             "doc_count": 0
           },
           "Mondsee": {
+            "doc_count": 0
+          },
+          "Papsturkunden Frankreich": {
             "doc_count": 0
           },
           "Passau": {
@@ -200,6 +209,12 @@
         "Marmoutier": {
           "doc_count": 0
         },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
         "Merowinger": {
           "doc_count": 0
         },
@@ -207,6 +222,9 @@
           "doc_count": 0
         },
         "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "Passau": {

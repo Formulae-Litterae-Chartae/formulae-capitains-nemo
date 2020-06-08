@@ -1,18 +1,18 @@
 {
-  "took": 13,
+  "took": 21,
   "timed_out": false,
   "_shards": {
-    "total": 26,
-    "successful": 26,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1163,
+    "total": 1169,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -84,8 +84,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -281,7 +281,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -320,7 +320,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -428,7 +428,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
@@ -482,7 +482,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
@@ -539,7 +539,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7351,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -579,7 +579,13 @@
             "doc_count": 41
           },
           "Marmoutier": {
-            "doc_count": 86
+            "doc_count": 81
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
           },
           "Merowinger": {
             "doc_count": 196
@@ -589,6 +595,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -654,7 +663,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1437
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -662,7 +671,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2285
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -670,18 +679,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2782
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 241
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 368
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -725,6 +734,12 @@
         "Marmoutier": {
           "doc_count": 3
         },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 2
+        },
         "Merowinger": {
           "doc_count": 57
         },
@@ -733,6 +748,9 @@
         },
         "Mondsee": {
           "doc_count": 36
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 4
         },
         "Passau": {
           "doc_count": 16
@@ -814,18 +832,18 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 219
+          "doc_count": 220
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 26
+          "doc_count": 32
         }
       ]
     },
     "no_date": {
-      "doc_count": 37
+      "doc_count": 36
     }
   }
 }

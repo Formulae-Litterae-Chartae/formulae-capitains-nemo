@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Monday",
+            "Saturday",
             "Friday",
             "Tuesday",
             "Thursday",
+            "Lent",
+            "Wednesday",
             "Sunday",
             "Easter",
-            "Saturday",
-            "Wednesday",
-            "Lent"
+            "Monday"
           ]
         },
         "highlight": {
@@ -371,6 +371,12 @@
           "Marmoutier": {
             "doc_count": 0
           },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
           "Merowinger": {
             "doc_count": 0
           },
@@ -378,6 +384,9 @@
             "doc_count": 0
           },
           "Mondsee": {
+            "doc_count": 0
+          },
+          "Papsturkunden Frankreich": {
             "doc_count": 0
           },
           "Passau": {
@@ -515,6 +524,12 @@
         "Marmoutier": {
           "doc_count": 0
         },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
         "Merowinger": {
           "doc_count": 0
         },
@@ -522,6 +537,9 @@
           "doc_count": 0
         },
         "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "Passau": {

@@ -94,8 +94,10 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:marmoutier',
+                        'urn:cts:formulae:marmoutier_serfs',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
@@ -113,6 +115,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:fulda_stengel',
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
+                             'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
                              'urn:cts:formulae:salzburg',
@@ -254,6 +257,10 @@ class NemoFormulae(Nemo):
             parent_0 = list(m.parent)[0]
             par = parent_0.split('.')[-1][0].capitalize()
             metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+        elif "marmoutier_serfs" in m.id:
+            par = re.sub(r'.*?(\d+)(app)?\Z', r'\2\1', list(m.parent)[0])
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif 'transcription' in m.subtype:
             if 'andecavensis' in m.id:
                 if collection in m.id:
@@ -542,11 +549,7 @@ class NemoFormulae(Nemo):
         :param d: The dictionary to be sorted
         :return: integer representing how deep in the collection a collection stands from lowest (i.e., text) to highest
         """
-        if d['id'] in ['formulae_collection', 'other_collection', 'lexicon_entries']:
-            return 3
-        if len(d['id'].split('.')) == 1:
-            return 2
-        return 1
+        return 10 - len(d['ancestors'])
 
     def make_parents(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
                      lang: str=None) -> List[Dict[str, Union[str, int]]]:
@@ -559,11 +562,12 @@ class NemoFormulae(Nemo):
         parents = [
             {
                 "id": member.id,
-                "label": str(member.get_label(lang)),
+                "label": str(member.metadata.get_single(DC.title)),
                 "model": str(member.model),
                 "type": str(member.type),
                 "size": member.size,
-                "subtype": member.subtype
+                "subtype": member.subtype,
+                "ancestors": member.ancestors
             }
             for member in collection.ancestors.values()
             if member.get_label()
@@ -598,6 +602,7 @@ class NemoFormulae(Nemo):
         collection = self.resolver.getMetadata(objectId)
         r = OrderedDict()
         template = "main::sub_collection.html"
+        current_parents = self.make_parents(collection, lang=lang)
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
@@ -620,6 +625,12 @@ class NemoFormulae(Nemo):
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
                     work_name = par.lstrip('0') if type(par) is str else ''
+                    parents = self.make_parents(m)
+                    parent_title = parents[0]['label']
+                    if 'manuscript_collection' in collection.ancestors:
+                        parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
+                    elif 'formulae_collection' in collection.ancestors:
+                        parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
                     if 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
@@ -635,7 +646,7 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': work_name}
+                              'name': work_name, 'title': str(parent_title)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
@@ -647,8 +658,6 @@ class NemoFormulae(Nemo):
                 flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
             else:
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
-
-        current_parents = self.make_parents(collection, lang=lang)
 
         return_value = {
             "template": template,
