@@ -549,7 +549,7 @@ class NemoFormulae(Nemo):
         :param d: The dictionary to be sorted
         :return: integer representing how deep in the collection a collection stands from lowest (i.e., text) to highest
         """
-        return 100 - len(d['ancestors'])
+        return 10 - len(d['ancestors'])
 
     def make_parents(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
                      lang: str=None) -> List[Dict[str, Union[str, int]]]:
