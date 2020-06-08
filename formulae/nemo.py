@@ -97,6 +97,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:marmoutier_serfs',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
@@ -114,6 +115,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:fulda_stengel',
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
+                             'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
                              'urn:cts:formulae:salzburg',
@@ -547,11 +549,7 @@ class NemoFormulae(Nemo):
         :param d: The dictionary to be sorted
         :return: integer representing how deep in the collection a collection stands from lowest (i.e., text) to highest
         """
-        if d['id'] in ['formulae_collection', 'other_collection', 'lexicon_entries', 'manuscript_collection']:
-            return 3
-        if len(d['id'].split('.')) == 1:
-            return 2
-        return 1
+        return 10 - len(d['ancestors'])
 
     def make_parents(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
                      lang: str=None) -> List[Dict[str, Union[str, int]]]:
@@ -564,11 +562,12 @@ class NemoFormulae(Nemo):
         parents = [
             {
                 "id": member.id,
-                "label": str(member.get_label(lang)),
+                "label": str(member.metadata.get_single(DC.title)),
                 "model": str(member.model),
                 "type": str(member.type),
                 "size": member.size,
-                "subtype": member.subtype
+                "subtype": member.subtype,
+                "ancestors": member.ancestors
             }
             for member in collection.ancestors.values()
             if member.get_label()

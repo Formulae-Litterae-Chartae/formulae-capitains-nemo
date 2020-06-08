@@ -40,6 +40,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Merowinger': {'match': {'_type': 'merowinger1'}},
                                       'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                                       'Mondsee': {'match': {'_type': 'mondsee'}},
+                                      'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
                                       'Passau': {'match': {'_type': 'passau'}},
                                       'Rätien': {'match': {'_type': 'raetien'}},
                                       'Regensburg': {'match': {'_type': 'regensburg'}},
