@@ -301,5 +301,4 @@ function goToLinkedParagraph(h, t) {
     target.scrollIntoView();
     target.onanimationend =  function() {this.classList.remove('flash-grey')};
     target.classList.add( 'flash-grey' );
-    console.log(target);
 };

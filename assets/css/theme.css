@@ -738,9 +738,10 @@ p.flash-grey {
 }
 
 .ui-resizable-s {
-    width: 100%;
-    height: 20px;
+    width: 40px;
+    height: 10px;
     bottom: -5px;
+    left: 47%;
 }
 
 .middle-reading-row {

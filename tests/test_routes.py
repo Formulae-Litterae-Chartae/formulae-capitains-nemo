@@ -568,13 +568,13 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Marculf": {
                       "doc_count": 0
                     },
-                    "Marmoutier": {
+                    "Marmoutier - Fougères": {
                       "doc_count": 0
                     },
                     "Marmoutier - Serfs": {
                       "doc_count": 0
                     },
-                    "Marmoutier - Fougères": {
+                    "Marmoutier - Vendômois, Saint-Marc": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -1867,9 +1867,9 @@ class TestES(Formulae_Testing):
                               'Lorsch': {'match': {'_type': 'lorsch'}},
                               'Luzern': {'match': {'_type': 'luzern'}},
                               'Marculf': {'match': {'_type': 'marculf'}},
-                              'Marmoutier': {'match': {'_type': 'marmoutier'}},
                               'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
                               'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
+                              'Marmoutier - Vendômois, Saint-Marc': {'match': {'_type': 'marmoutier_vendomois_saintmarc'}},
                               'Merowinger': {'match': {'_type': 'merowinger1'}},
                               'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
                               'Mondsee': {'match': {'_type': 'mondsee'}},
@@ -2957,13 +2957,13 @@ class TestES(Formulae_Testing):
                                                         "Marculf": {
                                                             "doc_count": 0
                                                         },
-                                                        "Marmoutier": {
+                                                        "Marmoutier - Fougères": {
                                                             "doc_count": 0
                                                         },
                                                         "Marmoutier - Serfs": {
                                                             "doc_count": 0
                                                         },
-                                                        "Marmoutier - Fougères": {
+                                                        "Marmoutier - Vendômois, Saint-Marc": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
