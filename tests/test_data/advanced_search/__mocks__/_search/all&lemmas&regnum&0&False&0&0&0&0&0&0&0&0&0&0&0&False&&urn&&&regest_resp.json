@@ -1,5 +1,5 @@
 {
-  "took": 11,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 29,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form001.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form002.lat001",
         "_score": null,
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form003.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form004.lat001",
         "_score": null,
@@ -270,7 +270,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -313,7 +313,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form016.lat001",
         "_score": null,
@@ -356,7 +356,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form017.lat001",
         "_score": null,
@@ -399,7 +399,7 @@
         ]
       },
       {
-        "_index": "marculf_v2",
+        "_index": "marculf_v1",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form021.lat001",
         "_score": null,
@@ -484,14 +484,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -637,13 +637,13 @@
         "Marculf": {
           "doc_count": 8
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {

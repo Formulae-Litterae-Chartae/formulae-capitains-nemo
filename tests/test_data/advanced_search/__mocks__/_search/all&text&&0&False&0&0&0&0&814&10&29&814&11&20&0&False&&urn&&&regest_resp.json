@@ -1,5 +1,5 @@
 {
-  "took": 20,
+  "took": 106,
   "timed_out": false,
   "_shards": {
     "total": 29,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -114,7 +114,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -148,7 +148,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -182,7 +182,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
         "_score": null,
@@ -216,7 +216,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -290,7 +290,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -324,7 +324,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v2",
+        "_index": "hersfeld_v1",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -400,14 +400,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -553,14 +553,14 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 1
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
           "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
+          "doc_count": 1
         },
         "Merowinger": {
           "doc_count": 0

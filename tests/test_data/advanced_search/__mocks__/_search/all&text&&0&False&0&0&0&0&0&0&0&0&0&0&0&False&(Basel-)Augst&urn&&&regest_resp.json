@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v2",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -91,14 +91,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -244,13 +244,13 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {
