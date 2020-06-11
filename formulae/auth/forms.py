@@ -27,6 +27,13 @@ class LanguageChangeForm(FlaskForm):
     submit = SubmitField(_l("Sprache ändern"))
 
 
+class EmailChangeForm(FlaskForm):
+    title = _l('Emailadresse ändern')
+    email = StringField(_l('Neue Emailadresse'), validators=[DataRequired(), Email()])
+    email2 = StringField(_l('Neue Emailadresse wiederholen'), validators=[DataRequired(), Email(), EqualTo("email")])
+    submit = SubmitField(_l("Emailadresse ändern"))
+
+
 class ResetPasswordRequestForm(FlaskForm):
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     submit = SubmitField(_l('Email zum Zurücksetzen Ihres Passworts anfordern'))
@@ -47,12 +54,12 @@ class RegistrationForm(FlaskForm):
                                 validators=[DataRequired()], default='de')
     submit = SubmitField(_l('Anmelden'))
 
-    def validate_username(self, username):
+    def validate_username(self, username: StringField):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError(_l('Bitte wählen Sie einen anderen Benutzername.'))
 
-    def validate_email(self, email):
+    def validate_email(self, email: StringField):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError(_l('Bitte wählen Sie eine andere Emailaddresse.'))

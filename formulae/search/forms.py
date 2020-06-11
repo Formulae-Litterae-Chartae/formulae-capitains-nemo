@@ -8,7 +8,7 @@ from wtforms.fields.html5 import IntegerField
 from wtforms.widgets import CheckboxInput
 
 
-def validate_optional_number_range(min=-1, max=-1, message=None):
+def validate_optional_number_range(minimum: int = -1, maximum: int = -1, message: str = None):
     """ Allows the validation of integer fields with a required number range but that are also optional
         I could not get WTForms to invalidate an integer field where the value was not within the range if it had the
         Optional() validator. I think this must have seen this as an empty field and thus erased all previous validation
@@ -17,8 +17,8 @@ def validate_optional_number_range(min=-1, max=-1, message=None):
 
     def _length(form, field):
         if field.data:
-            if int(field.data) < min or max != -1 and int(field.data) > max:
-                raise ValidationError(message or "Field value must between between %i and %i." % (min, max))
+            if int(field.data) < minimum or maximum != -1 and int(field.data) > maximum:
+                raise ValidationError(message or "Field value must between between %i and %i." % (minimum, maximum))
 
     return _length
 
@@ -51,7 +51,7 @@ class AdvancedSearchForm(SearchForm):
     regest_q = StringField(_l('Regestensuche'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln'))])
-    year = StringField(_l('Jahr'), validators=[validate_optional_number_range(min=500, max=1000,
+    year = StringField(_l('Jahr'), validators=[validate_optional_number_range(minimum=500, maximum=1000,
                                                                               message=_l('Die Jahreszahl muss zwischen 500 und 1000 liegen'))],
                        default="")
     month = SelectField(_l('Monat'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mär')),
@@ -59,10 +59,10 @@ class AdvancedSearchForm(SearchForm):
                                               (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
                                               (10, _l('Okt')), (11, _l('Nov')), (12, _l('Dez'))],
                         default=0, coerce=int)
-    day = StringField(_l('Tag'), validators=[validate_optional_number_range(min=1, max=31,
+    day = StringField(_l('Tag'), validators=[validate_optional_number_range(minimum=1, maximum=31,
                                                                             message=_l('Das Datum muss zwischen 1 und 31 liegen'))],
                       default="")
-    year_start = StringField(_l('Jahr'), validators=[validate_optional_number_range(min=500, max=1000,
+    year_start = StringField(_l('Jahr'), validators=[validate_optional_number_range(minimum=500, maximum=1000,
                                                                                     message=_l('Die Jahreszahl muss zwischen 500 und 1000 liegen'))],
                              default="")
     month_start = SelectField(_l('Monat'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mär')),
@@ -71,11 +71,11 @@ class AdvancedSearchForm(SearchForm):
                                               (10, _l('Okt')), (11, _l('Nov')), (12, _l('Dez'))],
                               default=0, coerce=int)
     day_start = StringField(_l('Tag'),
-                            validators=[validate_optional_number_range(min=1, max=31,
+                            validators=[validate_optional_number_range(minimum=1, maximum=31,
                                                                        message=_l('Das Datum muss zwischen 1 und 31 liegen'))],
                             default="")
     year_end = StringField(_l('Jahr'),
-                           validators=[validate_optional_number_range(min=500, max=1000,
+                           validators=[validate_optional_number_range(minimum=500, maximum=1000,
                                                                       message=_l('Die Jahreszahl muss zwischen 500 und 1000 liegen'))],
                            default="")
     month_end = SelectField(_l('Monat'), choices=[(0, '...'), (1, _l('Jan')), (2, _l('Feb')), (3, _l('Mär')),
@@ -83,11 +83,11 @@ class AdvancedSearchForm(SearchForm):
                                               (7, _l('Jul')), (8, _l('Aug')), (9, _l('Sep')),
                                               (10, _l('Okt')), (11, _l('Nov')), (12, _l('Dez'))],
                             default=0, coerce=int)
-    day_end = StringField(_l('Tag'), validators=[validate_optional_number_range(min=1, max=31,
+    day_end = StringField(_l('Tag'), validators=[validate_optional_number_range(minimum=1, maximum=31,
                                                                                 message=_l('Das Datum muss zwischen 1 und 31 liegen'))],
                           default="")
     date_plus_minus = IntegerField(_l('Datum Plus-Minus'),
-                                   validators=[validate_optional_number_range(min=0, max=100,
+                                   validators=[validate_optional_number_range(minimum=0, maximum=100,
                                                                               message=_l('Plus-Minus muss zwischen 0 und 100 Jahren liegen'))],
                                    default=0)
     exclusive_date_range = BooleanField(_l('Exklusiv'))

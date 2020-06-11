@@ -1,7 +1,5 @@
 {% extends "main::container.html" %}
 
-{% include "main::no_copy_modal.html" %}
-
 {% macro make_dates(values) %}
 
 {% if values['dating'] not in ['None', ''] %}
@@ -32,16 +30,27 @@
 </div>
 {% if collections.readable %}
     <h4>{{ _('Gehe zu (Text):') }}</h4>
-    {% for number, values in collections.readable|dictsort %}
-        <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
-    {% endfor %}
+    {% if 'marmoutier_serfs' in collections.current.id %}
+        {% set ns = namespace(appendix = 'no') %}
+        {% for number, values in collections.readable.items() %}
+            {% if ns.appendix == "no" and 'app' in values['name'] %}
+                {% set ns.appendix = 'yes' %}
+                <h5 class="mt-1">Appendix</h5>
+            {% endif %}
+            <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{{values['name']|replace('app', '')|int}}</a>
+        {% endfor %}
+    {% else %}
+        {% for number, values in collections.readable.items() %}
+            <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
+        {% endfor %}
+    {% endif %}
     <div class="row">
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
             <ul class="list-group list-group-flush">
-            {% for number, values in collections.readable|dictsort %}
+            {% for number, values in collections.readable.items() %}
                 <li id="N{{number}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if 'manuscript_collection' in collections.parent_ids %}Folia {% elif values['name']|int != 0 %}{{ _('Nummer') }} {% endif %}{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}: </h5>
+                        <h5>{{values['title']}}: </h5>
                         <span>
                             {% if 'andecavensis' in collections.current.id or 'marculf' in collections.current.id %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
@@ -75,9 +84,9 @@
                             {% elif 'manuscript_collection' in collections.parent_ids %}
                                 {% for urn, lang, version, source in values['versions']['transcriptions'] %}
                                     {% if source[1] == True %}
-                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn, 'manifest:' + urn]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn, 'manifest:' + urn]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">{% if values['versions']['transcriptions']|length > 1 %}{{ source[0]|safe }}{% else %}{{ _('Lesen') }}{% endif %}</a>
                                     {% else %}
-                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ source[0]|safe }}</a>
+                                        <a class="card-link " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{% if values['versions']['transcriptions']|length > 1 %}{{ source[0]|safe }}{% else %}{{ _('Lesen') }}{% endif %}</a>
                                     {% endif %}
                                 {% endfor %}
                             {% else %}
@@ -98,7 +107,7 @@
                             {% endif %}
                             {{ make_dates(values) }}
                             {% for p in values['regest'] %}
-                                <p class="{{ copy_class }}"><small>{{ p }}</small></p>
+                                <p class="{{ copy_class }}"><small>{% if p != 'None' %}{{ p }}{% endif %}</small></p>
                             {% endfor %}
                             <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% else %}
@@ -111,4 +120,5 @@
         </div>
 {% endif %}
 </div>
+{% include "main::no_copy_modal.html" %}
 {% endblock %}

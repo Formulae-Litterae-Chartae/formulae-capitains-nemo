@@ -233,8 +233,14 @@
     </xsl:template>
     
     <xsl:template match="t:head">
-        <div class="head"><xsl:apply-templates />
-            <xsl:apply-templates select="@urn" /></div>
+        <xsl:element name="div">
+            <xsl:attribute name="class">
+                <xsl:text>head</xsl:text>
+                <xsl:if test="contains(@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+            </xsl:attribute>
+            <xsl:apply-templates />
+            <xsl:apply-templates select="@urn" />
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:title">
@@ -422,6 +428,10 @@
         <strong><xsl:apply-templates/></strong>
     </xsl:template>
     
+    <xsl:template match="t:seg[@type='foreign-text']">
+        <span class="foreign-text"><xsl:apply-templates/></span>
+    </xsl:template>
+    
     <xsl:template match="t:list">
         <ul class="list-unstyled">
             <xsl:apply-templates/>
@@ -442,5 +452,24 @@
     </xsl:template>
     
     <xsl:template match="t:teiHeader"/>
+    
+    <xsl:template match="t:table">
+        <xsl:element name="table">
+            <xsl:attribute name="class">table table-borderless table-sm</xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:row">
+        <xsl:element name="tr">
+            <xsl:apply-templates/>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:cell">
+        <xsl:element name="td">
+            <xsl:value-of select="."/>
+        </xsl:element>
+    </xsl:template>
     
 </xsl:stylesheet>

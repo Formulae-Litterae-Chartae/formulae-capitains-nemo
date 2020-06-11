@@ -1,9 +1,9 @@
 {
-  "took": 6,
+  "took": 14,
   "timed_out": false,
   "_shards": {
-    "total": 25,
-    "successful": 25,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
@@ -20,7 +20,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 11",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 11",
           "urn": "urn:cts:formulae:echternach.wampach0011.lat001",
           "date_string": "[704] 10 01",
           "comp_ort": "Bettingen",
@@ -57,14 +57,14 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 28",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 28",
           "urn": "urn:cts:formulae:echternach.wampach0028.lat001",
           "date_string": "[718] 10 24",
-          "comp_ort": "S\u00fcstern",
+          "comp_ort": "Süstern",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "S\u00fcstern",
+          "orig_comp_ort": "Süstern",
           "forgery": false,
           "specific_date": [
             {
@@ -94,7 +94,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Fr\u00fchmittelalter (Ed. Wampach) Nr. 34",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 34",
           "urn": "urn:cts:formulae:echternach.wampach0034.lat001",
           "date_string": "[726] 10 20",
           "comp_ort": "Weimodo regia villa",
@@ -143,7 +143,7 @@
           "dating": [
             {
               "gte": "0765",
-              "lte": "0768"
+              "lte": "0767-12-31"
             }
           ],
           "specific_date": [
@@ -160,14 +160,14 @@
           ],
           "all_dates": [
             "0765",
-            "0768",
+            "0767-12-31",
             "0765-11-05",
             "0767-10-01"
           ],
           "min_date": "0765",
           "days": [
-            "Tuesday",
-            "Thursday"
+            "Thursday",
+            "Tuesday"
           ]
         },
         "sort": [
@@ -331,7 +331,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 33",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 33",
           "urn": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
           "date_string": "759 10 01",
           "comp_ort": " ",
@@ -368,7 +368,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der \u00c4bte Sturmi und Baugulf) (Ed. Stengel) Nr. 83",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 83",
           "urn": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
           "date_string": "777 10 08",
           "comp_ort": " ",
@@ -400,7 +400,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7265,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -409,7 +409,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -439,6 +439,15 @@
           "Marculf": {
             "doc_count": 41
           },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
+          },
           "Merowinger": {
             "doc_count": 196
           },
@@ -447,6 +456,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -457,25 +469,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -504,7 +516,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -512,7 +524,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -520,7 +532,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -528,18 +540,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -550,7 +562,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 0
         },
         "Echternach": {
@@ -580,6 +592,15 @@
         "Marculf": {
           "doc_count": 0
         },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
+          "doc_count": 0
+        },
         "Merowinger": {
           "doc_count": 1
         },
@@ -587,6 +608,9 @@
           "doc_count": 0
         },
         "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "Passau": {
@@ -598,25 +622,25 @@
         "Rheinisch": {
           "doc_count": 0
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 3
         },
         "St. Gallen": {
           "doc_count": 9
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 10
         },
         "Werden": {
           "doc_count": 3
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 0
         }
       }

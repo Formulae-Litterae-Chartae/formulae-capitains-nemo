@@ -3,23 +3,30 @@
     "bool": {
       "must": [
         {
-          "span_near": {
-            "clauses": [
+          "bool": {
+            "should": [
               {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "text": {
-                        "value": "pettonis",
-                        "fuzziness": "0"
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "text": {
+                              "value": "pettonis",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
                       }
                     }
-                  }
+                  ],
+                  "slop": "0",
+                  "in_order": false
                 }
               }
             ],
-            "slop": "0",
-            "in_order": false
+            "minimum_should_match": 1
           }
         }
       ]
@@ -84,7 +91,7 @@
               "_type": "arnulfinger"
             }
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "match": {
               "_type": "buenden"
             }
@@ -134,6 +141,21 @@
               "_type": "marculf"
             }
           },
+          "Marmoutier - Fougères": {
+            "match": {
+              "_type": "marmoutier_fougères"
+            }
+          },
+          "Marmoutier - Serfs": {
+            "match": {
+              "_type": "marmoutier_serfs"
+            }
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "match": {
+              "_type": "marmoutier_vendomois_saintmarc"
+            }
+          },
           "Merowinger": {
             "match": {
               "_type": "merowinger1"
@@ -149,12 +171,17 @@
               "_type": "mondsee"
             }
           },
+          "Papsturkunden Frankreich": {
+            "match": {
+              "_type": "papsturkunden_frankreich"
+            }
+          },
           "Passau": {
             "match": {
               "_type": "passau"
             }
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "match": {
               "_type": "raetien"
             }
@@ -174,7 +201,7 @@
               "_type": "salzburg"
             }
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "match": {
               "_type": "schaeftlarn"
             }
@@ -184,7 +211,7 @@
               "_type": "stgallen"
             }
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "match": {
               "_type": "weissenburg"
             }
@@ -194,7 +221,7 @@
               "_type": "werden"
             }
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "match": {
               "_type": "zuerich"
             }
@@ -265,7 +292,7 @@
                   "_type": "arnulfinger"
                 }
               },
-              "B\u00fcnden": {
+              "Bünden": {
                 "match": {
                   "_type": "buenden"
                 }
@@ -315,6 +342,21 @@
                   "_type": "marculf"
                 }
               },
+              "Marmoutier - Fougères": {
+                "match": {
+                  "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Serfs": {
+                "match": {
+                  "_type": "marmoutier_serfs"
+                }
+              },
+              "Marmoutier - Vendômois, Saint-Marc": {
+                "match": {
+                  "_type": "marmoutier_vendomois_saintmarc"
+                }
+              },
               "Merowinger": {
                 "match": {
                   "_type": "merowinger1"
@@ -330,12 +372,17 @@
                   "_type": "mondsee"
                 }
               },
+              "Papsturkunden Frankreich": {
+                "match": {
+                  "_type": "papsturkunden_frankreich"
+                }
+              },
               "Passau": {
                 "match": {
                   "_type": "passau"
                 }
               },
-              "R\u00e4tien": {
+              "Rätien": {
                 "match": {
                   "_type": "raetien"
                 }
@@ -355,7 +402,7 @@
                   "_type": "salzburg"
                 }
               },
-              "Sch\u00e4ftlarn": {
+              "Schäftlarn": {
                 "match": {
                   "_type": "schaeftlarn"
                 }
@@ -365,7 +412,7 @@
                   "_type": "stgallen"
                 }
               },
-              "Wei\u00dfenburg": {
+              "Weißenburg": {
                 "match": {
                   "_type": "weissenburg"
                 }
@@ -375,7 +422,7 @@
                   "_type": "werden"
                 }
               },
-              "Z\u00fcrich": {
+              "Zürich": {
                 "match": {
                   "_type": "zuerich"
                 }

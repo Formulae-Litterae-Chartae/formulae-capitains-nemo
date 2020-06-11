@@ -1,4 +1,6 @@
 {% extends "main::container.html" %}
+{% set previous_search_args = g.previous_search_args|default(session['previous_search_args']) %}
+{% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
 
 {% block article %}
     <article>
@@ -45,7 +47,7 @@
     <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
     {% endif %}
     <div class="row search-subtitle-row">
-        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if 'previous_search_args' in session %}?{% for arg, val in session['previous_search_args'].items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
         <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.download_search_results') }}" id="searchDownload">{{ _('Suchergebnisse herunterladen') }}</a></div>
         <div class="col-auto">
             <div class="dropdown">
@@ -53,10 +55,10 @@
                     {{ _('Zeig nur Resultate aus:') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
-                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in session['previous_search_args'].items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ session['previous_search_args']['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
                     {% for corp in g.corpora %}
-                        {% if 'corpus' in session['previous_aggregations'] and session['previous_aggregations']['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                        {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
                         <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}"> {{ corp[1] }}</input></span>
                         {% endif %}
                     {% endfor %}
@@ -66,7 +68,46 @@
         </div>
     </div>
     
-    {% if total_results > 0 %}<p>
+    {% if searched_lems|length > 0 %}
+    <div class="row py-1 justify-content-center" id="lemma-search-row">
+        <div class="col-auto ml-auto pr-1">
+            <table id="lemma-search-table" class="table table-sm w-auto align-middle table-bordered">
+                <thead>
+                    <tr class="table-secondary">
+                        <th colspan="{{ searched_lems|length }}">{{ _('Nach folgenden Lemmata Suchen') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-secondary">
+                        {% for lem in searched_lems %}
+                            {% set outer_loop = loop %}
+                            {% if lem|length == 1 %}
+                                <td class="align-middle lem-to-search" value="{{ lem|list|first }}" checked="True">
+                                {{ lem|list|first }}
+                            {% else %}
+                                <td class="align-middle">
+                                {% for l in lem|sort %}
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="choice{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ outer_loop.index }}" class="custom-control-input lem-to-search" value="{{ l }}">
+                                    <label class="custom-control-label" for="choice{{ outer_loop.index }}-{{ loop.index }}">{{ l }}</label>
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-auto mr-auto my-auto pl-1">
+            <a onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
+        </div>
+    </div>
+    {% endif %}
+    
+    
+    {% if total_results > 0 %}
+    <div class="row py-1" id="results-sort-row">
         <table id="results-sort-table" class="table table-sm table-bordered">
             <thead>
                 <tr>
@@ -88,7 +129,7 @@
                 </tr>
             </tbody>
         </table>
-    </p>
+    </div>
     {% endif %}
     {% for post in posts %}
         <div class="card">

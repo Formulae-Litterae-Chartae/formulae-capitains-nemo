@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash, request, Response
+from flask import url_for, Markup, g, session, flash, request, Response, Blueprint
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -14,9 +14,8 @@ from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
 from datetime import date
-from string import punctuation
 from urllib.parse import quote
-from json import load as json_load, loads as json_loads
+from json import load as json_load, loads as json_loads, JSONDecodeError
 from io import BytesIO
 from reportlab.platypus import Paragraph, HRFlowable, Spacer, SimpleDocTemplate, Frame
 from reportlab.lib.pdfencrypt import EncryptionFlowable
@@ -25,7 +24,8 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
-from typing import List, Tuple, Union, Match
+from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
+from collections import defaultdict, OrderedDict
 
 
 class NemoFormulae(Nemo):
@@ -50,6 +50,7 @@ class NemoFormulae(Nemo):
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"])
     ]
+
     SEMANTIC_ROUTES = [
         "r_collection", "r_collection_mv", "r_references", "r_multipassage"
     ]
@@ -67,10 +68,10 @@ class NemoFormulae(Nemo):
 
     CACHED = [
         # Routes
-        "r_index", # "r_collection", "r_collections", "r_references", "r_assets", "r_multipassage",
+        "r_index",
         # Controllers
         "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts", "get_all_corpora",
-        # Translater
+        # Translator
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
         # Business logic
         # "view_maker", "route", #"render",
@@ -81,18 +82,44 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis', 'urn:cts:formulae:buenden', 'urn:cts:formulae:elexicon',
-                        'urn:cts:formulae:echternach', 'urn:cts:formulae:freising', 'urn:cts:formulae:fu2',
-                        'urn:cts:formulae:fulda_dronke', 'urn:cts:formulae:fulda_stengel', 'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:lorsch', 'urn:cts:formulae:luzern', 'urn:cts:formulae:mittelrheinisch',
-                        'urn:cts:formulae:mondsee', 'urn:cts:formulae:passau', 'urn:cts:formulae:regensburg',
-                        'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:schaeftlarn',
-                        'urn:cts:formulae:stgallen', 'urn:cts:formulae:weissenburg', 'urn:cts:formulae:werden',
+    OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
+                        'urn:cts:formulae:buenden',
+                        'urn:cts:formulae:elexicon',
+                        'urn:cts:formulae:echternach',
+                        'urn:cts:formulae:freising',
+                        'urn:cts:formulae:fu2',
+                        'urn:cts:formulae:fulda_dronke',
+                        'urn:cts:formulae:fulda_stengel',
+                        'urn:cts:formulae:hersfeld',
+                        'urn:cts:formulae:lorsch',
+                        'urn:cts:formulae:luzern',
+                        # 'urn:cts:formulae:marmoutier_serfs',
+                        # 'urn:cts:formulae:marmoutier_vendomois_saintmarc',
+                        'urn:cts:formulae:mittelrheinisch',
+                        'urn:cts:formulae:mondsee',
+                        # 'urn:cts:formulae:papsturkunden_frankreich',
+                        'urn:cts:formulae:passau',
+                        'urn:cts:formulae:regensburg',
+                        'urn:cts:formulae:rheinisch',
+                        'urn:cts:formulae:salzburg',
+                        'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:stgallen',
+                        'urn:cts:formulae:weissenburg',
+                        'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']
 
-    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden', 'urn:cts:formulae:echternach', 'urn:cts:formulae:fulda_stengel',
-                             'urn:cts:formulae:lorsch', 'urn:cts:formulae:mondsee', 'urn:cts:formulae:regensburg',
-                             'urn:cts:formulae:rheinisch', 'urn:cts:formulae:salzburg', 'urn:cts:formulae:weissenburg',
+    # Half-open collections are those that are newer than death-of-editor plus 70 years.
+    # We do not show the regesten for these collections since those are still protected under copyright.
+    HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
+                             'urn:cts:formulae:echternach',
+                             'urn:cts:formulae:fulda_stengel',
+                             'urn:cts:formulae:lorsch',
+                             'urn:cts:formulae:mondsee',
+                             # 'urn:cts:formulae:papsturkunden_frankreich',
+                             'urn:cts:formulae:regensburg',
+                             'urn:cts:formulae:rheinisch',
+                             'urn:cts:formulae:salzburg',
+                             'urn:cts:formulae:weissenburg',
                              'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
@@ -103,6 +130,17 @@ class NemoFormulae(Nemo):
     SALZBURG_MAPPING = {'a': 'Codex Odalberti', 'b': 'Codex Fridarici', 'c': 'Codex Hartuuici', 'd': 'Codex Tietmari II',
                         'e': 'Codex Balduuini', 'bn': 'Breves Notitiae', 'na': 'Notitia Arnonis',
                         'bna': 'Breves Notitiae Anhang'}
+
+    ROMAN_NUMERAL_SORTING = {'I': 'a01',
+                             'II': 'a02',
+                             'III': 'a03',
+                             'IV': 'a04',
+                             'V': 'a05',
+                             'VI': 'a06',
+                             'VII': 'a07',
+                             'VIII': 'a08',
+                             'IX': 'a09',
+                             'X': 'a10'}
 
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
@@ -120,8 +158,41 @@ class NemoFormulae(Nemo):
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
+        self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
+        self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        if not self.app.testing:
+            self.all_term_vectors = self.get_all_term_vectors()
 
-    def register_font(self):
+    def make_inflected_to_lem_mapping(self):
+        """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
+        lem_mapping = defaultdict(set)
+        for j in self.app.config['INFLECTED_LEM_JSONS']:
+            with open(j) as f:
+                try:
+                    inf_to_lem = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid inflected to lemma mapping from it.')
+                    continue
+            for k, v in inf_to_lem.items():
+                lem_mapping[k].update(v)
+        return dict(lem_mapping)
+
+    def make_lem_to_lem_mapping(self):
+        """ Ingests an existing JSON file that maps theoretical lemmas onto the used lemmas, e.g., gero -> gerere"""
+        lem_mapping = defaultdict(set)
+        for j in self.app.config['LEM_TO_LEM_JSONS']:
+            with open(j) as f:
+                try:
+                    lem_to_lem = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
+                    continue
+            for k, v in lem_to_lem.items():
+                lem_mapping[k].update(v)
+        return dict(lem_mapping)
+
+    @staticmethod
+    def register_font():
         """ Registers the LiberationSerif font to be used in producing PDFs"""
         pdfmetrics.registerFont(TTFont('Liberation', 'LiberationSerif-Regular.ttf'))
         pdfmetrics.registerFont(TTFont('LiberationBd', 'LiberationSerif-Bold.ttf'))
@@ -130,7 +201,7 @@ class NemoFormulae(Nemo):
         pdfmetrics.registerFontFamily('Liberation', normal='Liberation', bold='LiberationBd', italic='LiberationIt',
                                       boldItalic='LiberationBI')
 
-    def get_all_corpora(self):
+    def get_all_corpora(self) -> Dict[str, List[XmlCapitainsCollectionMetadata]]:
         """ A convenience function to return all sub-corpora in all collections
 
         :return: dictionary with all the collections as keys and a list of the corpora in the collection as values
@@ -144,7 +215,8 @@ class NemoFormulae(Nemo):
             colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
         return colls
 
-    def sort_folia(self, matchobj: Match) -> str:
+    @staticmethod
+    def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
         groups = []
         sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
@@ -153,7 +225,10 @@ class NemoFormulae(Nemo):
             groups.append(matchobj.group(2))
         return '-'.join(groups)
 
-    def ordered_corpora(self, m, collection):
+    def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: XmlCapitainsCollectionMetadata)\
+            -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
+                     Union[List[Sequence[str]], list],
+                     XmlCapitainsReadableMetadata]:
         """ Sets up the readable descendants in each corpus to be correctly ordered
 
         :param m: the metadata for the descendant
@@ -182,6 +257,10 @@ class NemoFormulae(Nemo):
             parent_0 = list(m.parent)[0]
             par = parent_0.split('.')[-1][0].capitalize()
             metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
+        elif "marmoutier_serfs" in m.id:
+            par = re.sub(r'.*?(\d+)(app)?\Z', r'\2\1', list(m.parent)[0])
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif 'transcription' in m.subtype:
             if 'andecavensis' in m.id:
                 if collection in m.id:
@@ -222,47 +301,69 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
 
-    def get_open_texts(self):
-        """ Creates the lists of open and half-open texts to be used later. I have moved this to a function to try to
-            cache it.
+    def get_open_texts(self) -> Tuple[Dict[str, Tuple[Union[str, Tuple[str, Tuple[str, str]]],
+                                                      Union[List[Sequence[str]], list],
+                                                      XmlCapitainsReadableMetadata]],
+                                      List[str],
+                                      List[str]]:
+        """ Creates the lists of open and half-open texts to be used later.
 
-        :return: dictionary of all texts {collection: [readableDescendants]}, list of open texts, and half-open texts
+        :return: dictionary of all texts {collection: [readableDescendants]}, list of open texts, list of half-open texts
         """
         open_texts = []
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
                      for l in self.sub_colls.values() for m in l if m['id'] != 'urn:cts:formulae:katalonien'}
-        all_texts.update({m: sorted([self.ordered_corpora(r, m) for r in self.resolver.getMetadata(m).readableDescendants.values()])
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()],
+                                    key=self.sort_katalonien)
                           for m in self.resolver.children['urn:cts:formulae:katalonien']})
-        for c in all_texts.keys(): # [-1]: Add this once andecavensis is added back into OPEN_COLLECTIONS
+        for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
             if c in self.HALF_OPEN_COLLECTIONS:
                 half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
 
-    def check_project_team(self):
+    def sort_katalonien(self, t: tuple):
+        """ Correctly sort the Katalonien documents with mixed number and Roman numerals"""
+        return re.sub(r'[IVX]+\Z', lambda x: self.ROMAN_NUMERAL_SORTING[x.group(0)], t[0])
+
+    def get_all_term_vectors(self):
+        all_vectors = dict()
+        for k, v in self.all_texts.items():
+            index = k.split(':')[-1]
+            if 'katalonien' in index:
+                index = 'katalonien'
+            ids = [x[1][0] for x in v]
+            all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
+                                                                                         doc_type=index,
+                                                                                         body={'ids': ids})['docs']})
+        return all_vectors
+
+    @staticmethod
+    def check_project_team() -> bool:
         """ A convenience function that checks if the current user is a part of the project team"""
         try:
             return current_user.project_team is True
         except AttributeError:
             return False
 
-    def create_blueprint(self):
+    def create_blueprint(self) -> Blueprint:
         """ Enhance original blueprint creation with error handling
 
-        :rtype: flask.Blueprint
+        :return: flask.Blueprint
         """
         blueprint = super(NemoFormulae, self).create_blueprint()
         blueprint.register_error_handler(UnknownCollection, e_unknown_collection_error)
         return blueprint
 
-    def get_locale(self):
+    def get_locale(self) -> str:
         """ Retrieve the best matching locale using request headers
 
         .. note:: Probably one of the thing to enhance quickly.
 
-        :rtype: str
+        :return: the 3-letter language code
         """
         try:
             best_match = str(get_locale())
@@ -277,8 +378,9 @@ class NemoFormulae(Nemo):
             lang = "eng"
         return lang
 
-    def f_remove_from_list(self, l, i):
-        """ remove item "i" from list "l"
+    @staticmethod
+    def f_remove_from_list(l: list, i: Any) -> list:
+        """ A Jinja filter to remove item "i" from list "l"
 
         :param l: the list
         :param i: the item
@@ -287,18 +389,20 @@ class NemoFormulae(Nemo):
         l.remove(i)
         return l
 
-    def f_join_list_values(self, l, s):
-        """ join the values of "l" user the separator "s"
+    @staticmethod
+    def f_join_list_values(l: list, s: str) -> str:
+        """ A Jinja filter to join the values of a list "l" into a string using the separator "s"
 
         :param l: the list of values
         :param s: the separator
         :return: a string of the values joined by the separator
         """
-        l = [str(x) for x in l]
-        return s.join(l).strip(s)
+        new_list = [str(x) for x in l]
+        return s.join(new_list).strip(s)
 
-    def f_replace_indexed_item(self, l, i, v):
-        """
+    @staticmethod
+    def f_replace_indexed_item(l: list, i: int, v: Any) -> list:
+        """ A Jinja filter to replace an item at 'i' with the value of 'v'
 
         :param l: the list of values
         :param i: the index to be replace
@@ -308,8 +412,9 @@ class NemoFormulae(Nemo):
         l[i] = v
         return l
 
-    def f_insert_in_list(self, l, i, v):
-        """
+    @staticmethod
+    def f_insert_in_list(l: list, i: int, v: Any) -> list:
+        """ A Jinja filter to insert a value 'v' into an existing list 'l' at a given index 'i'
 
         :param l: the list of values
         :param i: the index at which the item should be inserted
@@ -319,11 +424,11 @@ class NemoFormulae(Nemo):
         l.insert(i, v)
         return l
 
-    def r_set_language(self, code):
+    @staticmethod
+    def r_set_language(code: str) -> Union[str, redirect]:
         """ Sets the session's language code which will be used for all requests
 
         :param code: The 2-letter language code
-        :type code: str
         """
         session['locale'] = code
         refresh()
@@ -333,18 +438,18 @@ class NemoFormulae(Nemo):
             flash('Language Changed. You may need to refresh the page in your browser.')
             return redirect(request.referrer)
 
-    def r_reading_format(self, direction):
-        """ Sets the session's language code which will be used for all requests
+    @staticmethod
+    def r_reading_format(direction: str) -> Union[str, redirect]:
+        """ Sets the reading direction of the texts in the multipassage view
 
-        :param code: The 2-letter language code
-        :type code: str
+        :param direction: a string representing whether the texts are listed in 'rows' or 'columns'
         """
         session['reading_format'] = direction
         refresh()
         if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
         else:
-            flash('Language Changed. You may need to refresh the page in your browser.')
+            flash(_('Reading direction changed. You may need to refresh the page in your browser.'))
             return redirect(request.referrer)
 
     def before_request(self):
@@ -364,17 +469,26 @@ class NemoFormulae(Nemo):
             response.cache_control.no_cache = True
         elif re.search('/assets/', request.url):
             max_age = 60 * 60 * 24
+        else:
+            response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
+        if getattr(g, 'previous_search', None):
+            session['previous_search'] = g.previous_search
+        if getattr(g, 'previous_search_args', None):
+            session['previous_search_args'] = g.previous_search_args
+        if getattr(g, 'previous_aggregations', None):
+            session['previous_aggregations'] = g.previous_aggregations
+        if getattr(g, 'highlighted_words', None):
+            session['highlighted_words'] = g.highlighted_words
         return response
 
-    def view_maker(self, name, instance=None):
+    def view_maker(self, name: str, instance=None) -> Callable:
         """ Create a view
 
         :param name: Name of the route function to use for the view.
-        :type name: str
+        :param instance: The Flask instance for which to create the view function
         :return: Route function which makes use of Nemo context (such as menu informations)
-        :rtype: function
         """
         # Avoid copy-pasta and breaking upon Nemo inside code changes by reusing the original view_maker function
         # Super will go to the parent class and you will use it's "view_maker" function
@@ -383,7 +497,8 @@ class NemoFormulae(Nemo):
             route = login_required(route)
         return route
 
-    def semantic(self, collection, parent=None):
+    def semantic(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
+                 parent: XmlCapitainsCollectionMetadata = None) -> str:
         """ Generates a SEO friendly string for given collection
 
         :param collection: Collection object to generate string for
@@ -399,7 +514,8 @@ class NemoFormulae(Nemo):
 
         return filters.slugify("--".join([item.get_label() for item in collections if item.get_label()]))
 
-    def make_coins(self, collection, text, subreference="", lang=None):
+    def make_coins(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
+                   text: XmlCapitainsReadableMetadata, subreference: str = "", lang: str = None) -> str:
         """ Creates a CoINS Title string from information
 
         :param collection: Collection to create coins from
@@ -410,31 +526,33 @@ class NemoFormulae(Nemo):
         """
         if lang is None:
             lang = self.__default_lang__
-        return "url_ver=Z39.88-2004"\
-                 "&ctx_ver=Z39.88-2004"\
-                 "&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook"\
-                 "&rft_id={cid}"\
-                 "&rft.genre=bookitem"\
-                 "&rft.btitle={title}"\
-                 "&rft.edition={edition}"\
-                 "&rft.au={author}"\
-                 "&rft.atitle={pages}"\
-                 "&rft.language={language}"\
-                 "&rft.pages={pages}".format(
+        return "url_ver=Z39.88-2004" \
+               "&ctx_ver=Z39.88-2004" \
+               "&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" \
+               "&rft_id={cid}" \
+               "&rft.genre=bookitem" \
+               "&rft.btitle={title}" \
+               "&rft.edition={edition}"\
+               "&rft.au={author}" \
+               "&rft.atitle={pages}" \
+               "&rft.language={language}" \
+               "&rft.pages={pages}".format(
                     title=quote(str(text.get_title(lang))), author=quote(str(text.get_creator(lang))),
                     cid=url_for("InstanceNemo.r_collection", objectId=collection.id, _external=True),
                     language=collection.lang, pages=quote(subreference), edition=quote(str(text.get_description(lang)))
                  )
 
-    def sort_parents(self, d):
-        """ Sort parents from closest to furthest"""
-        if d['id'] in ['formulae_collection', 'other_collection', 'lexicon_entries']:
-            return 3
-        if len(d['id'].split('.')) == 1:
-            return 2
-        return 1
+    @staticmethod
+    def sort_parents(d: Dict[str, Union[str, int]]) -> int:
+        """ Sort parents from closest to furthest
 
-    def make_parents(self, collection, lang=None):
+        :param d: The dictionary to be sorted
+        :return: integer representing how deep in the collection a collection stands from lowest (i.e., text) to highest
+        """
+        return 10 - len(d['ancestors'])
+
+    def make_parents(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
+                     lang: str=None) -> List[Dict[str, Union[str, int]]]:
         """ Build parents list for given collection
 
         :param collection: Collection to build dict view of for its members
@@ -444,19 +562,26 @@ class NemoFormulae(Nemo):
         parents = [
             {
                 "id": member.id,
-                "label": str(member.get_label(lang)),
+                "label": str(member.metadata.get_single(DC.title)),
                 "model": str(member.model),
                 "type": str(member.type),
                 "size": member.size,
-                "subtype": member.subtype
+                "subtype": member.subtype,
+                "ancestors": member.ancestors
             }
             for member in collection.ancestors.values()
             if member.get_label()
         ]
         parents = sorted(parents, key=self.sort_parents)
-        return  parents
+        return parents
 
-    def r_collection(self, objectId, lang=None):
+    def r_collection(self, objectId: str, lang: str = None) -> Dict[str, Any]:
+        """ Route to show a collection of different corpora, e.g., all formulae collections
+
+        :param objectId: The id of the collection to be shown
+        :param lang: Language in which to show the collection's metadata
+        :return: Template and collections contained in a given collection
+        """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
@@ -467,19 +592,17 @@ class NemoFormulae(Nemo):
         data['template'] = "main::sub_collections.html"
         return data
 
-    def r_corpus(self, objectId, lang=None):
+    def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
-        :type objectId: str
         :param lang: Lang in which to express main data
-        :type lang: str
         :return: Template and collections contained in given collection
-        :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
-        r = {}
+        r = OrderedDict()
         template = "main::sub_collection.html"
+        current_parents = self.make_parents(collection, lang=lang)
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
@@ -502,6 +625,12 @@ class NemoFormulae(Nemo):
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
                     work_name = par.lstrip('0') if type(par) is str else ''
+                    parents = self.make_parents(m)
+                    parent_title = parents[0]['label']
+                    if 'manuscript_collection' in collection.ancestors:
+                        parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
+                    elif 'formulae_collection' in collection.ancestors:
+                        parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
                     if 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
@@ -517,7 +646,7 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': work_name}
+                              'name': work_name, 'title': str(parent_title)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
@@ -529,8 +658,6 @@ class NemoFormulae(Nemo):
                 flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
             else:
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
-
-        current_parents = self.make_parents(collection, lang=lang)
 
         return_value = {
             "template": template,
@@ -549,15 +676,12 @@ class NemoFormulae(Nemo):
         }
         return return_value
 
-    def r_corpus_mv(self, objectId, lang=None):
+    def r_corpus_mv(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
-        :type objectId: str
         :param lang: Lang in which to express main data
-        :type lang: str
         :return: Template and collections contained in given collection
-        :rtype: {str: Any}
         """
 
         collection = self.resolver.getMetadata(objectId)
@@ -629,7 +753,6 @@ class NemoFormulae(Nemo):
             r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
                                          key=lambda x: re.search(r'\D+', x['name']).group(0))
 
-
         else:
 
             r = {'editions': [], 'translations': [], 'transcriptions': []}
@@ -657,13 +780,13 @@ class NemoFormulae(Nemo):
         }
         return return_value
 
-    def r_add_text_collections(self, objectIds, reffs, lang=None):
+    def r_add_text_collections(self, objectIds: str, reffs: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the top collections of the inventory
 
+        :param objectIds: the object ids from the previous view separated by '+'
+        :param reffs: the citation references from the objects in the previous view seperated by '+'
         :param lang: Lang in which to express main data
-        :type lang: str
         :return: Collections information and template
-        :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata()
         return {
@@ -676,15 +799,14 @@ class NemoFormulae(Nemo):
             "prev_reffs": reffs
         }
 
-    def r_add_text_collection(self, objectId, objectIds, reffs, lang=None):
+    def r_add_text_collection(self, objectId: str, objectIds: str, reffs: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse a top-level collection and add another text to the view
 
-        :param objectId: Collection identifier
-        :type objectId: str
+        :param objectId: the id of the collection from which the new text for the reading view should be added
+        :param objectIds: the object ids from the previous view separated by '+'
+        :param reffs: the citation references from the objects in the previous view seperated by '+'
         :param lang: Lang in which to express main data
-        :type lang: str
         :return: Template and collections contained in given collection
-        :rtype: {str: Any}
         """
         collection = self.resolver.getMetadata(objectId)
         if 'defaultTic' not in collection.parent:
@@ -712,57 +834,56 @@ class NemoFormulae(Nemo):
             "prev_reffs": reffs
         }
 
-    def r_add_text_corpus(self, objectId, objectIds, reffs, lang=None):
+    def r_add_text_corpus(self, objectId: str, objectIds: str, reffs: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse collections and add another text to the view
 
         :param objectId: Collection identifier
-        :type objectId: str
+        :param objectIds: the ids of the documents in the previous view separated by '+'
+        :param reffs: the references for the documents in the previous view separated by '+'
         :param lang: Lang in which to express main data
-        :type lang: str
         :return: Template and collections contained in given collection
-        :rtype: {str: Any}
         """
         initial = self.r_corpus(objectId, lang=lang)
         initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
         return initial
 
-    def get_first_passage(self, objectId):
+    def get_first_passage(self, objectId: str) -> str:
         """ Provides a redirect to the first passage of given objectId
 
         :param objectId: Collection identifier
-        :type objectId: str
         :return: Redirection to the first passage of given text
         """
         collection, reffs = self.get_reffs(objectId=objectId, export_collection=True)
         first, _ = reffs[0]
         return str(first)
 
-    def get_prev_next_texts(self, objId):
+    def get_prev_next_texts(self, objectId: str) -> Tuple[str, str]:
         """ Get the previous and next texts in a collection
 
-        :param objId: the ID of the current object
+        :param objectId: the ID of the current object
         :return: the IDs of the previous and next text in the same collection
         """
-        id_parts = objId.split('.')
-        if 'katalonien' in objId:
-            grandparents = set()
-            readable_cousins = set()
-            for x in self.resolver.getMetadata(objId).parent:
-                grandparents.update(self.resolver.getMetadata(x).parent)
-            for x in grandparents:
-                readable_cousins.update(self.resolver.getMetadata(x).readableDescendants.keys())
-            sibling_texts = sorted(readable_cousins)
-        elif re.search(r'lat\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*lat\d\d\d'.format(id_parts[0]), x[1][0])]
-        elif re.search(r'deu\d\d\d', id_parts[-1]):
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if re.search(r'{}.*deu\d\d\d'.format(id_parts[0]), x[1][0])]
+        id_parts = objectId.split('.')
+        text = self.resolver.getMetadata(objectId)
+        grandparents = set()
+        for x in text.parent:
+            grandparents.update(self.resolver.getMetadata(x).parent)
+        if text.subtype & {'cts:translation', 'cts:edition'}:
+            language = re.search(r'(\w\w\w)\d\d\d\Z', objectId).group(1)
+            sibling_texts = [x[1][0] for gp in grandparents
+                             for x in self.all_texts[gp]
+                             if x[2].subtype & text.subtype and re.search(r'{}\d\d\d\Z'.format(language), x[1][0])]
         else:
-            sibling_texts = [x[1][0] for x in self.all_texts[id_parts[0]] if x[1][0].split('.')[-1] == id_parts[-1]]
-        orig_index = sibling_texts.index(objId)
+            sibling_texts = []
+            for gp in grandparents:
+                if gp in self.all_texts:
+                    sibling_texts += [x[1][0] for x in self.all_texts[gp] if x[1][0].split('.')[-1] == id_parts[-1]]
+        orig_index = sibling_texts.index(objectId)
         return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
                sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
 
-    def get_readable_siblings(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
+    @staticmethod
+    def get_readable_siblings(obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
         """ Returns the readable children of every ancestor.
         This assumes that any direct readable descendants that an ancestor has will also be readable siblings to the
         collection.
@@ -775,8 +896,9 @@ class NemoFormulae(Nemo):
             siblings += [x for x in ancestor.children.values() if x.readable]
         return siblings
 
-    def sort_transcriptions(self, obj: Union[XmlCapitainsReadableMetadata,
-                                      XmlCapitainsCollectionMetadata]) -> Tuple[str, int]:
+    @staticmethod
+    def sort_transcriptions(obj: Union[XmlCapitainsReadableMetadata,
+                                       XmlCapitainsCollectionMetadata]) -> Tuple[str, int]:
         """ Return sortable tuple for the transcriptions of an object """
         identifier = obj.id
         manuscript_id = identifier.split(':')[-1].split('.')[0]
@@ -795,17 +917,13 @@ class NemoFormulae(Nemo):
             transcriptions += [v for v in parent_obj.descendants.values() if 'transcription' in v.subtype]
         return sorted(transcriptions, key=self.sort_transcriptions)
 
-    def r_passage(self, objectId, subreference, lang=None):
+    def r_passage(self, objectId: str, subreference: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the text of the passage
 
         :param objectId: Collection identifier
-        :type objectId: str
         :param lang: Lang in which to express main data
-        :type lang: str
         :param subreference: Reference identifier
-        :type subreference: str
         :return: Template, collections metadata and Markup object representing the text
-        :rtype: {str: Any}
         """
         metadata = self.get_collection(objectId)
         if isinstance(metadata, XmlCapitainsCollectionMetadata):
@@ -840,7 +958,8 @@ class NemoFormulae(Nemo):
                     inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
-        translations = [(m, m.metadata.get_single(DC.title)) for m in self.get_readable_siblings(metadata)] + \
+        translations = [(m, m.metadata.get_single(DC.title))
+                        for m in self.get_readable_siblings(metadata)] + \
                        [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
         transcriptions = [(m, m.metadata.get_single(DC.title)) for m in self.get_transcriptions(metadata)]
@@ -882,21 +1001,13 @@ class NemoFormulae(Nemo):
             "transcriptions": [x[0] for x in transcriptions]
         }
 
-    def r_multipassage(self, objectIds, subreferences, lang=None):
+    def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
-        :type objectIds: str
         :param lang: Lang in which to express main data
-        :type lang: str
         :param subreferences: Reference identifiers separated by '+'
-        :type subreferences: str
-        :param result_sents: The list of sentences from elasticsearch results
-        :type result_sents: str
-        :param reading_format: The format to display multiple texts on the reading page: 'columns' or 'rows'
-        :type reading_format: str
         :return: Template, collections metadata and Markup object representing the text
-        :rtype: {str: Any}
         """
         if 'reading_format' not in session:
             session['reading_format'] = 'columns'
@@ -926,10 +1037,6 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
-                    # This should no longer be necessary since all manifests should be linked to a specific version id
-                    # This is when there is a single manuscript for the transcription, edition, and translation
-                    # elif 'manifest:' + d['collections']['parents'][0]['id'] in self.app.picture_file:
-                    #    formulae = self.app.picture_file['manifest:' + d['collections']['parents'][0]['id']]
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
@@ -972,26 +1079,12 @@ class NemoFormulae(Nemo):
         passage_data['translation'] = translations
         return passage_data
 
-    def convert_result_sents(self, result_sents):
-        """ Remove extraneous markup and punctuation from the result_sents returned from the search page
-
-        :param sents: the original 'result_sents' request argument
-        :return: list of the individual sents with extraneous markup and punctuation removed
-        """
-        intermediate = []
-        sents = result_sents[0]
-        for sent in sents:
-            sent = sent.replace('+', ' ').replace('%2C', '').replace('%2F', '').replace('%24', '$')
-            sent = re.sub('strong|small', '', sent)
-            sent = re.sub('\s+', ' ', sent)
-            intermediate.append(sent)
-        return [re.sub('[{}„“…]'.format(punctuation), '', x) for x in intermediate]
-
-    def highlight_found_sents(self, html, results):
+    @staticmethod
+    def highlight_found_sents(html: str, results: Dict[str, Union[List[str], str]]) -> str:
         """ Adds "searched" to the classList of words in "sents" from elasticsearch results
 
         :param html: the marked-up text to be searched
-        :param sents: list of the "sents" strings
+        :param results: the previous search session information from the session
         :return: transformed html
         """
         root = etree.fromstring(html)
@@ -1014,7 +1107,7 @@ class NemoFormulae(Nemo):
         xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 
-    def r_lexicon(self, objectId, lang=None):
+    def r_lexicon(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the eLexicon entry for a word
 
         :param objectId: Collection identifiers separated by '+'
@@ -1032,7 +1125,8 @@ class NemoFormulae(Nemo):
         d['prev_reffs'] = m.group(2).replace('%2B', '+') if "texts" in request.referrer else "all"
         return d
 
-    def r_impressum(self):
+    @staticmethod
+    def r_impressum() -> Dict[str, str]:
         """ Impressum route function
 
         :return: Template to use for Impressum page
@@ -1040,7 +1134,8 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::impressum.html"}
 
-    def r_bibliography(self):
+    @staticmethod
+    def r_bibliography() -> Dict[str, str]:
         """ Bibliography route function
 
         :return: Template to use for Bibliography page
@@ -1048,7 +1143,8 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::bibliography.html"}
 
-    def r_contact(self):
+    @staticmethod
+    def r_contact() -> Dict[str, str]:
         """ Contact route function
 
         :return: Template to use for Bibliography page
@@ -1056,7 +1152,8 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::contact.html"}
 
-    def r_man_desc(self, manuscript):
+    @staticmethod
+    def r_man_desc(manuscript: str) -> Dict[str, str]:
         """ Route for manuscript descriptions
 
         :return: Template to use for Bibliography page
@@ -1064,7 +1161,7 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::{}_desc.html".format(manuscript)}
 
-    def extract_notes(self, text):
+    def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
         rendered anywhere on the page and not only where they occur in the text.
 
@@ -1080,7 +1177,7 @@ class NemoFormulae(Nemo):
 
         return str(xslt(etree.fromstring(text)))
 
-    def r_pdf(self, objectId):
+    def r_pdf(self, objectId: str) -> Response:
         """Produces a PDF from the objectId for download and then delivers it
 
         :param objectId: the URN of the text to transform
@@ -1094,7 +1191,7 @@ class NemoFormulae(Nemo):
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
             cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
-            cit_string += '<font color="grey">' + ('Heruntergeladen: ') + date.today().isoformat() + '</font>'
+            cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
             cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
             cit_flowables = [Paragraph(cit_string, cit_style)]
@@ -1120,8 +1217,8 @@ class NemoFormulae(Nemo):
         new_subref = self.get_reffs(objectId)[0][0]
         text = self.get_passage(objectId=objectId, subreference=new_subref)
         metadata = self.resolver.getMetadata(objectId=objectId)
-        with open(self._transform['pdf']) as f:
-            xslt = etree.XSLT(etree.parse(f))
+        with open(self._transform['pdf']) as xml_file:
+            xslt = etree.XSLT(etree.parse(xml_file))
         d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))

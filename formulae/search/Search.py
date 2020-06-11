@@ -1,61 +1,71 @@
-from flask import current_app, Markup, flash, session
+from flask import current_app, Markup, flash, session, g
 from flask_babel import _
-from flask_login import current_user
-# This import is only needed for capturing the ES request. I could perhaps comment it out when it is not needed.
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
 import re
 from copy import copy
+from typing import Dict, List, Union, Tuple, Set
+from itertools import product
+from jellyfish import levenshtein_distance
+from collections import defaultdict
 
 
 PRE_TAGS = "</small><strong>"
 POST_TAGS = "</strong><small>"
 HIGHLIGHT_CHARS_BEFORE = 30
 HIGHLIGHT_CHARS_AFTER = 30
-AGGREGATIONS = {'range': {'date_range': {'field': 'min_date',
-                                         'format': 'yyyy',
-                                         'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                                    {'key': '>1000', 'from': '1000'}]}},
-                'corpus': {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
-                                                   'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                                                   'Bünden': {'match': {'_type': 'buenden'}},
-                                                   'Echternach': {'match': {'_type': 'echternach'}},
-                                                   'Freising': {'match': {'_type': 'freising'}},
-                                                   'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                                                   'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                                                   'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                                                   'Katalonien': {'match': {'_type': 'katalonien'}},
-                                                   'Lorsch': {'match': {'_type': 'lorsch'}},
-                                                   'Luzern': {'match': {'_type': 'luzern'}},
-                                                   'Marculf': {'match': {'_type': 'marculf'}},
-                                                   'Merowinger': {'match': {'_type': 'merowinger1'}},
-                                                   'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                                                   'Mondsee': {'match': {'_type': 'mondsee'}},
-                                                   'Passau': {'match': {'_type': 'passau'}},
-                                                   'Rätien': {'match': {'_type': 'raetien'}},
-                                                   'Regensburg': {'match': {'_type': 'regensburg'}},
-                                                   'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                                                   'Salzburg': {'match': {'_type': 'salzburg'}},
-                                                   'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                                                   'St. Gallen': {'match': {'_type': 'stgallen'}},
-                                                   'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                                                   'Werden': {'match': {'_type': 'werden'}},
-                                                   'Zürich': {'match': {'_type': 'zuerich'}}}}},
-                'no_date': {'missing': {'field': 'min_date'}},
-                'all_docs': {'global': {}, 'aggs': {}}}
-AGGREGATIONS['all_docs']['aggs']['range'] = AGGREGATIONS['range']
-AGGREGATIONS['all_docs']['aggs']['corpus'] = AGGREGATIONS['corpus']
-AGGREGATIONS['all_docs']['aggs']['no_date'] = AGGREGATIONS['no_date']
+range_agg = {'date_range': {'field': 'min_date', 'format': 'yyyy',
+                            'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                       {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                       {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                       {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                       {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                       {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                       {'key': '>1000', 'from': '1000'}]}}
+corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
+                                      'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                      'Bünden': {'match': {'_type': 'buenden'}},
+                                      'Echternach': {'match': {'_type': 'echternach'}},
+                                      'Freising': {'match': {'_type': 'freising'}},
+                                      'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                      'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                      'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                      'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Lorsch': {'match': {'_type': 'lorsch'}},
+                                      'Luzern': {'match': {'_type': 'luzern'}},
+                                      'Marculf': {'match': {'_type': 'marculf'}},
+                                      'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                                      'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
+                                      'Marmoutier - Vendômois, Saint-Marc': {'match': {'_type': 'marmoutier_vendomois_saintmarc'}},
+                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                      'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                      'Mondsee': {'match': {'_type': 'mondsee'}},
+                                      'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
+                                      'Passau': {'match': {'_type': 'passau'}},
+                                      'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Regensburg': {'match': {'_type': 'regensburg'}},
+                                      'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                      'Salzburg': {'match': {'_type': 'salzburg'}},
+                                      'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                      'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                      'Werden': {'match': {'_type': 'werden'}},
+                                      'Zürich': {'match': {'_type': 'zuerich'}}}}}
+no_date_agg = {'missing': {'field': 'min_date'}}
+AGGREGATIONS = {'range': range_agg,
+                'corpus': corpus_agg,
+                'no_date': no_date_agg,
+                'all_docs': {'global': {},
+                             'aggs': {
+                                 'range': range_agg,
+                                 'corpus': corpus_agg,
+                                 'no_date': no_date_agg
+                             }}}
 HITS_TO_READER = 10000
 LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 
-def build_sort_list(sort_str):
+def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
         return 'urn'
     if sort_str == 'min_date_asc':
@@ -70,33 +80,49 @@ def build_sort_list(sort_str):
         return [{'urn': {'order': 'desc'}}]
 
 
-def query_index(index, field, query, page, per_page, sort='urn'):
+def query_index(index: list, field: str, query: str, page: int, per_page: int,
+                sort: str = 'urn', old_search: bool = False) -> Tuple[List[Dict[str,
+                                                                                Union[str, list]]],
+                                                                      int,
+                                                                      dict,
+                                                                      List[Dict[str,
+                                                                                Union[str,
+                                                                                      List[str]]]]]:
+    prev_search = dict()
     if not current_app.elasticsearch:
-        return [], 0, {}
+        return [], 0, {}, []
     if index in ['', ['']]:
-        return [], 0, {}
+        return [], 0, {}, []
     if not query:
-        return [], 0, {}
-    session.pop('previous_search', None)
+        return [], 0, {}, []
+    if old_search is False:
+        session.pop('previous_search', None)
     query_terms = query.split()
     clauses = []
     sort = build_sort_list(sort)
     if field == 'lemmas':
         if '*' in query or '?' in query:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0, {}
+            return [], 0, {}, []
     for term in query_terms:
         if '*' in term or '?' in term:
-            clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+            clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
         else:
-            clauses.append({"span_term": {field: term}})
-    search_body = {'query': {'span_near': {'clauses': clauses, "slop": 0, 'in_order': True}},
+            if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                sub_clauses = [{'span_term': {field: term}}]
+                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                    sub_clauses.append({'span_term': {field: other_lem}})
+                clauses.append(sub_clauses)
+            else:
+                clauses.append([{'span_term': {field: term}}])
+    bool_clauses = []
+    for clause in product(*clauses):
+        bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': 0, 'in_order': True}})
+    search_body = {'query': {'bool': {'should': bool_clauses, 'minimum_should_match': 1}},
                    "sort": sort,
                    'from': (page - 1) * per_page, 'size': per_page,
                    'highlight':
-                       {'fields':
-                            {field: {"fragment_size": 1000}
-                             },
+                       {'fields': {field: {"fragment_size": 1000}},
                         'pre_tags': [PRE_TAGS],
                         'post_tags': [POST_TAGS],
                         'encoder': 'html'
@@ -104,40 +130,29 @@ def query_index(index, field, query, page, per_page, sort='urn'):
                    'aggs': AGGREGATIONS
                    }
     search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    set_session_token(index, search_body, field, query)
-    if field == 'lemmas':
-        ids = lem_highlight_to_text(search, query, False, 0, 'regest')
-    else:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]]} for hit in search['hits']['hits']]
-    return ids, search['hits']['total'], search['aggregations']
+    if old_search is False:
+        prev_search = set_session_token(index, search_body, field, query, fuzz='0')
+    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text', fuzz=0)
+    return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
-def set_session_token(index, orig_template, field, q, regest_q=None, ordered_terms=False, slop=0, regest_field='regest'):
-    """ Sets session['previous_search'] to include the first X search results"""
+def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
+                      ordered_terms: bool = False, slop: int = 0,
+                      regest_field: str = 'regest', fuzz: str = '0') -> List[Dict[str, Union[str, List[str]]]]:
+    """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
     search_hits = list()
-    if field == 'lemmas':
-        search_hits = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field)
-    else:
-        for hit in session_search['hits']['hits']:
-            d = {'id': hit['_id'], 'title': hit['_source']['title'], 'sents': [], 'regest_sents': []}
-            open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-            half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-            if q:
-                d['sents'] = [_('Text nicht zugänglich.')]
-                if current_app.config['nemo_app'].check_project_team() is True or open_text:
-                    d['sents'] = [Markup(highlight_segment(x)) for x in hit['highlight'][field]]
-            if regest_q:
-                d['regest_sents'] = [_('Regest nicht zugänglich.')]
-                if current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text):
-                    d['regest_sents'] = [Markup(highlight_segment(x)) for x in hit['highlight']['regest']]
-            search_hits.append(d)
-    session['previous_search'] = search_hits
+    highlighted_terms = set()
+    if q:
+        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field,
+                                                               field, 'text', fuzz)
+    g.highlighted_words = highlighted_terms
+    return search_hits
 
 
-def suggest_composition_places():
+def suggest_composition_places() -> List[str]:
     """ To enable search-as-you-type for the place of composition field
 
     :return: sorted set of results
@@ -149,50 +164,49 @@ def suggest_composition_places():
     return sorted(list(set(results)))
 
 
-def suggest_word_search(**kwargs):
+def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """ To enable search-as-you-type for the text search
 
     :return: sorted set of results
     """
-    results = []
+    results = set()
     kwargs['fragment_size'] = 1000
+    field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
     if kwargs['qSource'] == 'text':
+        highlight_field = field_mapping[kwargs.get('field', 'autocomplete')]
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
-        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'sents'
+        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     elif kwargs['qSource'] == 'regest':
+        highlight_field = 'regest'
         term = kwargs.get('regest_q', '')
         if '*' in term or '?' in term:
             return None
-        posts, total, aggs = advanced_query_index(per_page=1000, **kwargs)
-        highlight = 'regest_sents'
+        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     else:
         return None
     for post in posts:
-        for sent in post[highlight]:
-            r = str(sent[sent.find('</small><strong>'):])
-            r = r.replace('</small><strong>', '').replace('</strong><small>', '')
-            end_index = r.find(' ', len(term) + 30)
-            results.append(re.sub(r'[{}]'.format(punctuation), '', r[:end_index] + r[end_index]).lower())
-            """ind = 0
-            while w in r[ind:]:
-                i = r.find(w, ind)
-                results.append(re.sub(r'[{}]'.format(punctuation), '', r[i:min(r.find(' ', i + len(word) + 30), len(r))]))
-                ind = r.find(w, ind) + 1"""
-    return [term] + sorted(list(set(results)), key=str.lower)[:10]
+        r = re.sub(r'[{}]'.format(punctuation), '', post['info'][highlight_field]).lower()
+        ind = 0
+        sep = ''
+        while term in r[ind:]:
+            if ind > 0:
+                sep = ' '
+            i = r.find(sep + term, ind)
+            if i == -1:
+                ind = i
+                continue
+            results.add(r[i:min(r.find(' ', i + len(term) + 30), len(r))].strip())
+            ind = i + len(sep + term)
+    return sorted(results, key=str.lower)[:10]
 
 
-def highlight_segment(orig_str):
+def highlight_segment(orig_str: str) -> str:
     """ returns only a section of the highlighting returned by Elasticsearch. This should keep highlighted phrases
         from breaking over lines
 
     :param orig_str: the original highlight string that should be shortened
-    :param chars_before: the number of characters to include before the pre_tag
-    :param chars_after: the number of characters to include after the post_tag
-    :param pre_tag: the tag(s) that mark the beginning of the highlighted section
-    :param post_tag: the tag(s) that mark the end of the highlighted section
     :return: the string to show in the search results
     """
     init_index = 0
@@ -208,7 +222,8 @@ def highlight_segment(orig_str):
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
+def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
+                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -219,93 +234,167 @@ def lem_highlight_to_text(search, q, ordered_terms, slop, regest_field):
     :return:
     """
     ids = []
+    all_highlighted_terms = set()
     for hit in search['hits']['hits']:
-        text = hit['_source']['text']
-        sentences = []
-        sentence_spans = []
-        vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
-        inflected_offsets = dict()
-        lemma_positions = dict()
-        for v in vectors['term_vectors']['text']['terms'].values():
-            for o in v['tokens']:
-                inflected_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-        for k, v in vectors['term_vectors']['lemmas']['terms'].items():
-            for o in v['tokens']:
-                lemma_positions[o['position']] = k
-        if ' ' in q:
-            q_words = q.split()
-            positions = {k: [] for k in q_words}
-            for w in q_words:
-                positions[w] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
-            search_range_start = int(slop) + len(q_words)
-            search_range_end = int(slop) + len(q_words) + 1
-            if ordered_terms:
-                search_range_start = -1
-            for pos in positions[q_words[0]]:
-                index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
-                used_q_words = {q_words[0]}
-                span = {pos}
-                for w in q_words[1:]:
-                    for next_pos in positions[w]:
-                        if next_pos in index_range:
-                            span.add(next_pos)
-                            used_q_words.add(w)
-                if set(q_words) == used_q_words:
-                    ordered_span = sorted(span)
-                    if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                        start_offsets = [inflected_offsets[x][0] for x in ordered_span]
-                        end_offsets = [inflected_offsets[x][1] for x in ordered_span]
-                        start_index = inflected_offsets[max(0, ordered_span[0] - 10)][0]
-                        end_index = inflected_offsets[min(len(inflected_offsets) - 1, ordered_span[-1] + 10)][1] + 1
-                        sentence = ''
-                        for i, x in enumerate(text[start_index:end_index]):
-                            if i + start_index in start_offsets:
-                                sentence += PRE_TAGS + x
-                            elif i + start_index in end_offsets:
-                                sentence += x + POST_TAGS
-                            else:
-                                sentence += x
-                        sentences.append(Markup(sentence))
-                        sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                    min(len(inflected_offsets), ordered_span[-1] + 11)))
-        # I need to change the highlight clause in search to get this to return the correct stuff
-        else:
-            positions = [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][q]['tokens']]
-            for pos in positions:
-                start_offset = inflected_offsets[pos][0]
-                end_offset = inflected_offsets[pos][1]
-                start_index = inflected_offsets[max(0, pos - 10)][0]
-                end_index = inflected_offsets[min(len(inflected_offsets) - 1, pos + 10)][1] + 1
-                sentence = ''
-                for i, x in enumerate(text[start_index:end_index]):
-                    if i + start_index == start_offset:
-                        sentence += PRE_TAGS + x
-                    elif i + start_index == end_offset:
-                        sentence += x + POST_TAGS
+        sentences = [_('Text nicht zugänglich.')]
+        sentence_spans = [range(0, 1)]
+        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+        if current_app.config['nemo_app'].check_project_team() is True or hit['_id'] in current_app.config['nemo_app'].open_texts:
+            text = hit['_source'][highlight_field]
+            sentences = []
+            sentence_spans = []
+            vectors = current_app.config['nemo_app'].all_term_vectors[hit['_id']]
+            highlight_offsets = dict()
+            searched_positions = dict()
+            for v in vectors['term_vectors'][highlight_field]['terms'].values():
+                for o in v['tokens']:
+                    highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+            for k, v in vectors['term_vectors'][search_field]['terms'].items():
+                for o in v['tokens']:
+                    searched_positions[o['position']] = k
+            highlighted_words = set()
+            for highlight in hit['highlight'][search_field]:
+                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                    highlighted_words.add(m.group(1).lower())
+            all_highlighted_terms.update(highlighted_words)
+            if ' ' in q:
+                q_words = q.split()
+                positions = {k: [] for k in q_words}
+                for token in q_words:
+                    terms = {token}
+                    if re.search(r'[?*]', token):
+                        terms = set()
+                        new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                        for term in highlighted_words:
+                            if re.fullmatch(r'{}'.format(new_token), term):
+                                terms.add(term)
+                    elif fuzz != '0':
+                        terms = set()
+                        if fuzz == 'AUTO':
+                            fuzz = min(len(token) // 3, 2)
+                        else:
+                            fuzz = int(fuzz)
+                        for term in highlighted_words:
+                            if levenshtein_distance(term, token) <= fuzz:
+                                terms.add(term)
+                    for w in terms:
+                        if search_field == 'lemmas':
+                            if w in vectors['term_vectors']['lemmas']['terms']:
+                                positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                                if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                                    positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                            positions[token] = sorted(positions[w])
+                        else:
+                            positions[token] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                search_range_start = int(slop) + len(q_words)
+                search_range_end = int(slop) + len(q_words) + 1
+                if ordered_terms:
+                    search_range_start = -1
+                for pos in positions[q_words[0]]:
+                    index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
+                    used_q_words = {q_words[0]}
+                    span = {pos}
+                    for w in q_words[1:]:
+                        for next_pos in positions[w]:
+                            if next_pos in index_range and next_pos not in span:
+                                span.add(next_pos)
+                                used_q_words.add(w)
+                                break
+                    if set(q_words) == used_q_words and len(span) == len(q_words):
+                        ordered_span = sorted(span)
+                        if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
+                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[x][1] for x in ordered_span]
+                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
+                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                            sentence = ''
+                            for i, x in enumerate(text[start_index:end_index]):
+                                if i + start_index in start_offsets:
+                                    sentence += PRE_TAGS + x
+                                elif i + start_index in end_offsets:
+                                    sentence += x + POST_TAGS
+                                else:
+                                    sentence += x
+                            marked_sent = Markup(sentence)
+                            if marked_sent not in sentences:
+                                sentences.append(marked_sent)
+                                sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                            min(len(highlight_offsets), ordered_span[-1] + 11)))
+            else:
+                terms = {q}
+                if re.search(r'[?*]', q) or fuzz != '0':
+                    terms = highlighted_words
+                positions = []
+                for w in terms:
+                    if search_field == 'lemmas':
+                        if w in vectors['term_vectors']['lemmas']['terms']:
+                            positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                            if other_lem in vectors['term_vectors']['lemmas']['terms']:
+                                positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        sentence += x
-                sentences.append(Markup(sentence))
-                sentence_spans.append(range(max(0, pos - 10), min(len(inflected_offsets), pos + 11)))
-        ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sentences, 'sentence_spans': sentence_spans,
+                        positions += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                positions = sorted(positions)
+                for pos in positions:
+                    start_offset = highlight_offsets[pos][0]
+                    end_offset = highlight_offsets[pos][1]
+                    start_index = highlight_offsets[max(0, pos - 10)][0]
+                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
+                    sentence = ''
+                    for i, x in enumerate(text[start_index:end_index]):
+                        if i + start_index == start_offset:
+                            sentence += PRE_TAGS + x
+                        elif i + start_index == end_offset:
+                            sentence += x + POST_TAGS
+                        else:
+                            sentence += x
+                    sentences.append(Markup(sentence))
+                    sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+        regest_sents = []
+        show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+        if 'highlight' in hit and regest_field in hit['highlight']:
+            if show_regest is False:
+                regest_sents = [_('Regest nicht zugänglich.')]
+            else:
+                regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+        ordered_sentences = list()
+        ordered_sentence_spans = list()
+        for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
+            ordered_sentences.append(x)
+            ordered_sentence_spans.append(y)
+        ids.append({'id': hit['_id'],
+                    'info': hit['_source'], 
+                    'sents': ordered_sentences,
+                    'sentence_spans': ordered_sentence_spans,
                     'title': hit['_source']['title'],
-                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                    if 'highlight' in hit and regest_field in hit['highlight'] else []})
-    return ids
+                    'regest_sents': regest_sents})
+    return ids, all_highlighted_terms
 
 
-def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10, fuzziness='0', phrase_search=False,
-                         year=0, month=0, day=0, year_start=0, month_start=0, day_start=0, year_end=0, month_end=0,
-                         day_end=0, date_plus_minus=0, exclusive_date_range="False", slop=4, in_order='False',
-                         composition_place='', sort='urn', special_days=[], regest_q='', regest_field='regest',
-                         **kwargs):
+def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', page: int = 1, per_page: int = 10,
+                         fuzziness: str = '0', year: int = 0, month: int = 0, day: int = 0, year_start: int = 0,
+                         month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
+                         date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
+                         composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
+                         regest_field: str = 'regest', old_search: bool = False,
+                         **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
+                                            int,
+                                            dict,
+                                            List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    prev_search = dict()
+    if corpus is None:
+        corpus = ['all']
+    if special_days is None:
+        special_days = []
     old_sort = sort
     sort = build_sort_list(sort)
-    session.pop('previous_search', None)
-    body_template = {"query": {"bool": {"must": []}}, "sort": sort,
-                     'from': (page - 1) * per_page, 'size': per_page,
-                     'aggs': AGGREGATIONS
-                     }
+    if old_search is False:
+        session.pop('previous_search', None)
+    body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
+                          'size': per_page, 'aggs': AGGREGATIONS})
 
     body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
@@ -314,7 +403,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                                   'encoder': 'html'
                                   }
     if not current_app.elasticsearch:
-        return [], 0, {}
+        return [], 0, {}, []
     ordered_terms = True
     if in_order == 'False':
         ordered_terms = False
@@ -322,23 +411,28 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0, {}
+            return [], 0, {}, []
     else:
         fuzz = fuzziness
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
-        # To implement multiple lemma fields, create a 'span_near' statement for each of the lemma indices
-        # and wrap them all in {'bool': {'should': [{'span_near'...
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
-                clauses.append({'span_multi': {'match': {'wildcard': {field: term}}}})
+                clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
             else:
-                clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}})
-
-        body_template['query']['bool']['must'].append({'span_near': {'clauses': clauses, 'slop': slop,
-                                                                     'in_order': ordered_terms}})
+                if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}]
+                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                    clauses.append(sub_clauses)
+                else:
+                    clauses.append([{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}])
+        bool_clauses = []
+        for clause in product(*clauses):
+            bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+        body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
     if regest_q:
         clauses = []
@@ -361,11 +455,10 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                 date_template['bool']['must'].append({"match": {"specific_date.day": day}})
         else:
             if year:
-                date_template['bool']['must'].append({"range": {"specific_date.year":
-                                                                                       {"gte": year - date_plus_minus,
-                                                                                        "lte": year + date_plus_minus}
-                                                                                   }
-                                                                         })
+                date_template['bool']['must'].append({"range": {"specific_date.year": {"gte": year - date_plus_minus,
+                                                                                       "lte": year + date_plus_minus}
+                                                                }
+                                                      })
             if month:
                 date_template['bool']['must'].append({"match": {"specific_date.month": month}})
             if day:
@@ -392,11 +485,8 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
                                                              'lte': '{:04}{}{}'.format(year + date_plus_minus,
                                                                                        '-{:02}'.format(month) if month else '',
                                                                                        '-{:02}'.format(day) if month and day else '')}}})
-        date_template['bool']['should'].append({"nested":
-                                                    {"path": "specific_date",
-                                                     "query":
-                                                         {"bool":
-                                                              {"should": should_clause}}}})
+        date_template['bool']['should'].append({"nested": {"path": "specific_date",
+                                                           "query": {"bool": {"should": should_clause}}}})
         body_template["query"]["bool"]["must"].append(date_template)
     elif year_start or month_start or day_start or year_end or month_end or year_end:
         if exclusive_date_range != 'False':
@@ -412,15 +502,12 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    if field not in ['autocomplete_lemmas', 'autocomplete']:
-        set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field)
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
-        # a series of lemmata. The problem is that there is no real highlighting since the text and lemmas fields don't
-        # match up 1-to-1.
-        if field == 'lemmas':
-            ids = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field)
+        # a series of lemmata.
+        if field in ('lemmas', 'text'):
+            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text',
+                                                           fuzz)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
@@ -437,8 +524,10 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    # It may be good to comment this block out when I am not saving requests, though it probably won't affect performance.
-    if current_app.config["SAVE_REQUESTS"]:# and 'autocomplete' not in field and 'autocomplete_regest' not in regest_field:
+    if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
+        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
+                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field, fuzz=fuzz)
+    if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
@@ -460,7 +549,7 @@ def advanced_query_index(corpus=['all'], field="text", q='', page=1, per_page=10
         # Remove the textual parts from the results
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
-    return ids, search['hits']['total'], search['aggregations']
+    return ids, search['hits']['total'], search['aggregations'], prev_search
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,
@@ -488,12 +577,11 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
     spec_month_end = spec_month_end or 12
     spec_day_start = spec_day_start or 1
     spec_day_end = spec_day_end or 31
-    date_template.append({'range': {'specific_date.year':
-                                                 {"gte": spec_year_start, 'lte': spec_year_end}
-                                             }})
+    date_template.append({'range': {'specific_date.year': {"gte": spec_year_start, 'lte': spec_year_end}}})
     if spec_month_start != spec_month_end:
         day_template = {"bool": {"should": [{'bool': {'must': [{"match": {"specific_date.month": spec_month_start}},
-                                                           {"range": {"specific_date.day": {'gte': spec_day_start}}}]}},
+                                                               {"range":  {"specific_date.day": {
+                                                                   'gte': spec_day_start}}}]}},
                                             {"range": {"specific_date.month": {"gt": spec_month_start,
                                                                                "lt": spec_month_end}}},
                                             {'bool': {'must': [{"match": {"specific_date.month": spec_month_end}},
@@ -504,11 +592,7 @@ def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_s
                                                                                                 'gte': spec_day_start}}}]}}]}}
     date_template.append(day_template)
     should_clause.append({"bool": {"must": date_template}})
-    date_template = [{"nested":
-                         {'path': "specific_date",
-                          "query":
-                              {"bool":
-                                   {"should": should_clause}}}}]
+    date_template = [{"nested": {'path': "specific_date",  "query": {"bool": {"should": should_clause}}}}]
     return date_template
 
 

@@ -16,8 +16,7 @@ CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters'][
 
 
 @bp.route("/simple", methods=["GET"])
-# @login_required
-def r_simple_search():
+def r_simple_search() -> redirect:
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
             if k == 'corpus':
@@ -32,7 +31,6 @@ def r_simple_search():
 
 
 @bp.route("/results", methods=["GET"])
-# @login_required
 def r_results():
     source = request.args.get('source', None)
     corpus = request.args.get('corpus', '').split('+')
@@ -49,87 +47,111 @@ def r_results():
         field = 'lemmas'
     else:
         field = 'text'
+    old_search = False
+    if request.args.get('old_search', None) == 'True':
+        old_search = True
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total, aggs = query_index(corpus, field,
+        posts, total, aggs, g.previous_search = query_index(corpus, field,
                                    g.search_form.q.data,
                                    page, current_app.config['POSTS_PER_PAGE'],
-                                   sort=request.args.get('sort', 'urn'))
+                                   sort=request.args.get('sort', 'urn'), old_search=old_search)
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
-                       'sort': request.args.get('sort', 'urn')}
-        if request.args.get('old_search', None):
-            search_args.update({'old_search': True})
+                       'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search'),}
     else:
-        posts, total, aggs = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'], field=field,
-                                                  q=request.args.get('q'),
-                                                  fuzziness=request.args.get("fuzziness", "0"), page=page,
-                                                  in_order=request.args.get('in_order', 'False'),
-                                                  slop=request.args.get('slop', '0'),
-                                                  regest_q=request.args.get('regest_q'),
-                                                  year=request.args.get('year', 0, type=int),
-                                                  month=request.args.get('month', 0, type=int),
-                                                  day=request.args.get('day', 0, type=int),
-                                                  year_start=request.args.get('year_start', 0, type=int),
-                                                  month_start=request.args.get('month_start', 0, type=int),
-                                                  day_start=request.args.get('day_start', 0, type=int),
-                                                  year_end=request.args.get('year_end', 0, type=int),
-                                                  month_end=request.args.get('month_end', 0, type=int),
-                                                  day_end=request.args.get('day_end', 0, type=int),
-                                                  date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                                  corpus=corpus or ['all'],
-                                                  exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                                  composition_place=request.args.get('composition_place', ''),
-                                                  sort=request.args.get('sort', 'urn'),
-                                                  special_days=special_days)
+        posts, total, aggs, g.previous_search = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'],
+                                                                     field=field,
+                                                                     q=request.args.get('q'),
+                                                                     fuzziness=request.args.get("fuzziness", "0"),
+                                                                     page=page,
+                                                                     in_order=request.args.get('in_order', 'False'),
+                                                                     slop=request.args.get('slop', '0'),
+                                                                     regest_q=request.args.get('regest_q'),
+                                                                     year=request.args.get('year', 0, type=int),
+                                                                     month=request.args.get('month', 0, type=int),
+                                                                     day=request.args.get('day', 0, type=int),
+                                                                     year_start=request.args.get('year_start', 0, type=int),
+                                                                     month_start=request.args.get('month_start', 0, type=int),
+                                                                     day_start=request.args.get('day_start', 0, type=int),
+                                                                     year_end=request.args.get('year_end', 0, type=int),
+                                                                     month_end=request.args.get('month_end', 0, type=int),
+                                                                     day_end=request.args.get('day_end', 0, type=int),
+                                                                     date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                                                                     corpus=corpus or ['all'],
+                                                                     exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                                                                     composition_place=request.args.get('composition_place', ''),
+                                                                     sort=request.args.get('sort', 'urn'),
+                                                                     special_days=special_days,
+                                                                     old_search=old_search)
         search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)
-    old_search = search_args.pop('old_search', None)
-    first_url = url_for('.r_results', **search_args, page=1) if page > 1 else None
-    next_url = url_for('.r_results', **search_args, page=page + 1) \
+        search_args.pop('old_search', None)
+    first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
+    next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('.r_results', **search_args, page=page - 1) if page > 1 else None
+    prev_url = url_for('.r_results', **search_args, page=page - 1, old_search=True) if page > 1 else None
     total_pages = int(ceil(total / current_app.config['POSTS_PER_PAGE']))
     page_urls = []
     if total_pages > 12:
-        page_urls.append((1, url_for('.r_results', **search_args, page=1)))
+        page_urls.append((1, url_for('.r_results', **search_args, page=1, old_search=True)))
         # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
         for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
-        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages)))
+            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
+        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages, old_search=True)))
     else:
         for page_num in range(1, total_pages + 1):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num)))
-    last_url = url_for('.r_results', **search_args, page=total_pages) \
+            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
+    last_url = url_for('.r_results', **search_args, page=total_pages, old_search=True) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
     orig_sort = search_args.pop('sort', '')
     sort_urls = dict()
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
-        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1)
+        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1, old_search=True)
     search_args['sort'] = orig_sort
-    if old_search is None:
-        session['previous_search_args'] = search_args
-        session['previous_aggregations'] = aggs
-        if session['previous_search_args']['corpus'] in ['all', 'formulae+chartae']:
+    if old_search is False:
+        g.previous_search_args = search_args
+        g.previous_aggregations = aggs
+        if g.previous_search_args['corpus'] in ['all', 'formulae+chartae', '']:
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-        elif session['previous_search_args']['corpus'] == 'formulae':
+            g.previous_search_args['corpus'] = '+'.join(corps)
+        elif g.previous_search_args['corpus'] == 'formulae':
             corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-        elif session['previous_search_args']['corpus'] == 'chartae':
+            g.previous_search_args['corpus'] = '+'.join(corps)
+        elif g.previous_search_args['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            session['previous_search_args']['corpus'] = '+'.join(corps)
-    if 'previous_search_args' in session:
-        g.corpora = [(x, CORP_MAP[x]) for x in session['previous_search_args']['corpus'].split('+')]
+            g.previous_search_args['corpus'] = '+'.join(corps)
+    if getattr(g, 'previous_search_args', None):
+        g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
+    inf_to_lemmas = []
+    if field == 'text':
+        search_terms = search_args['q'].split()
+        for token in search_terms:
+            terms = {token}
+            if re.search(r'[?*]', token):
+                terms = set()
+                new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                for term in getattr(g, 'highlighted_words', session.get('highlighted_words', [])):
+                    if re.fullmatch(r'{}'.format(new_token), term):
+                        terms.add(term)
+            lem_possibilites = set()
+            for inflected in terms:
+                try:
+                    lem_possibilites.update(current_app.config['nemo_app'].inflected_to_lemma_mapping[inflected])
+                except KeyError:
+                    continue
+            inf_to_lemmas.append(lem_possibilites)
+        if not all(inf_to_lemmas):
+            inf_to_lemmas = []
     return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
                                                  next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                                                  first_url=first_url, last_url=last_url, current_page=page,
                                                  search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
-                                                 sort_urls=sort_urls, total_results=total, aggs=aggs)
+                                                 sort_urls=sort_urls, total_results=total, aggs=aggs,
+                                                 searched_lems=inf_to_lemmas)
 
 
 @bp.route("/advanced_search", methods=["GET"])
-# @login_required
 def r_advanced_search():
     form = AdvancedSearchForm()
     colls = g.sub_colls
@@ -164,7 +186,7 @@ def r_search_docs():
 
 
 @bp.route("/suggest/<word>", methods=["GET"])
-def word_search_suggester(word):
+def word_search_suggester(word: str):
     qSource = request.args.get('qSource', 'text')
     words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
                                 field=request.args.get('field', 'autocomplete'),
@@ -192,7 +214,7 @@ def word_search_suggester(word):
 
 
 @bp.route('/download', methods=["GET"])
-def download_search_results():
+def download_search_results() -> Response:
     if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))

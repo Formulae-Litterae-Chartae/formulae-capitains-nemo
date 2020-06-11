@@ -1,14 +1,14 @@
 {
-  "took": 8,
+  "took": 36,
   "timed_out": false,
   "_shards": {
-    "total": 25,
-    "successful": 25,
+    "total": 29,
+    "successful": 29,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 13,
+    "total": 21,
     "max_score": null,
     "hits": [
       {
@@ -17,16 +17,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "text": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
-          "date_string": "(769\u2013813 [813]) 04 20",
+          "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
-          "autocomplete": "\u2013 \u2013 a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "autocomplete": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges f\u00fcr sich und seine Gattin Laurentia.",
+          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Lent",
+            "Tuesday",
             "Easter",
-            "Saturday",
-            "Wednesday",
+            "Thursday",
             "Friday",
+            "Wednesday",
+            "Lent",
             "Monday",
             "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -326,16 +326,16 @@
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
-          "text": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "lemmas": null,
-          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
-          "title": "B\u00fcndner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
-          "date_string": "(769\u2013800 [813]) 03 31",
+          "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
-          "autocomplete": "\u2013\u2013 ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
           "autocomplete_lemmas": null,
-          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius G\u00fcter bei Chur.",
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Lent",
+            "Tuesday",
             "Easter",
-            "Saturday",
-            "Wednesday",
             "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
             "Monday",
             "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Saturday"
           ]
         },
         "sort": [
@@ -587,8 +587,8 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ]
         },
         "sort": [
@@ -596,276 +596,429 @@
         ]
       },
       {
-        "_index": "merowinger1_v1",
-        "_type": "merowinger1",
-        "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Die Urkunden der Merowinger (Eds. K\u00f6lzer/Br\u00fchl) Nr. 38",
-          "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
-          "date_string": "(630) 04 08 (Ostern)",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 110",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
+          "date_string": "912.12-01.10/12",
           "comp_ort": " ",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
-              "year": 630,
+              "year": 912,
+              "month": 1,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 1,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 2,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 2,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 3,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 3,
+              "day": 12
+            },
+            {
+              "year": 912,
               "month": 4,
-              "day": 8
-            }
-          ],
-          "all_dates": [
-            "0630-04-08"
-          ],
-          "min_date": "0630-04-08",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:merowinger1.koelzer0038.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 6",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
-          "date_string": "(- 927 Ostern -)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
+              "day": 10
+            },
             {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0006.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 40",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0040.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 45",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0045.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 46",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0046.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 47",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
-          "date_string": "(927 Ostern)",
-          "comp_ort": "Salzburg",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Salzburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 927,
-              "month": 3,
-              "day": 25
-            }
-          ],
-          "all_dates": [
-            "0927-03-25"
-          ],
-          "min_date": "0927-03-25",
-          "days": [
-            "Sunday",
-            "Easter"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0047.lat001"
-        ]
-      },
-      {
-        "_index": "salzburg_v1",
-        "_type": "salzburg",
-        "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 72",
-          "urn": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
-          "date_string": "(930 Ostern c.)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 930,
+              "year": 912,
               "month": 4,
-              "day": 18
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 5,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 5,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 6,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 6,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 7,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 7,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 8,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 8,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 9,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 9,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 10,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 10,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 11,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 11,
+              "day": 12
+            },
+            {
+              "year": 912,
+              "month": 12,
+              "day": 10
+            },
+            {
+              "year": 912,
+              "month": 12,
+              "day": 12
             }
           ],
           "all_dates": [
-            "0930-04-18"
+            "0912-01-10",
+            "0912-01-12",
+            "0912-02-10",
+            "0912-02-12",
+            "0912-03-10",
+            "0912-03-12",
+            "0912-04-10",
+            "0912-04-12",
+            "0912-05-10",
+            "0912-05-12",
+            "0912-06-10",
+            "0912-06-12",
+            "0912-07-10",
+            "0912-07-12",
+            "0912-08-10",
+            "0912-08-12",
+            "0912-09-10",
+            "0912-09-12",
+            "0912-10-10",
+            "0912-10-12",
+            "0912-11-10",
+            "0912-11-12",
+            "0912-12-10",
+            "0912-12-12"
           ],
-          "min_date": "0930-04-18",
+          "min_date": "0912-01-10",
           "days": [
-            "Sunday",
-            "Easter"
+            "Tuesday",
+            "Easter",
+            "Friday",
+            "Thursday",
+            "Saturday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Sunday"
           ]
         },
         "sort": [
-          "urn:cts:formulae:salzburg.hauthaler-a0072.lat001"
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 193",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
+          "date_string": "919.04.25 or 19",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 919,
+              "month": 4,
+              "day": 19
+            },
+            {
+              "year": 919,
+              "month": 4,
+              "day": 25
+            }
+          ],
+          "all_dates": [
+            "0919-04-19",
+            "0919-04-25"
+          ],
+          "min_date": "0919-04-19",
+          "days": [
+            "Monday",
+            "Sunday",
+            "Easter",
+            "Lent"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 857",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
+          "date_string": "960.04.22",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 960,
+              "month": 4,
+              "day": 22
+            }
+          ],
+          "all_dates": [
+            "0960-04-22"
+          ],
+          "min_date": "0960-04-22",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1131",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
+          "date_string": "973.03.23",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 973,
+              "month": 3,
+              "day": 23
+            }
+          ],
+          "all_dates": [
+            "0973-03-23"
+          ],
+          "min_date": "0973-03-23",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1189",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
+          "date_string": "975.04.04",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 975,
+              "month": 4,
+              "day": 4
+            }
+          ],
+          "all_dates": [
+            "0975-04-04"
+          ],
+          "min_date": "0975-04-04",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1340",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
+          "date_string": "981.03.27",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 981,
+              "month": 3,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0981-03-27"
+          ],
+          "min_date": "0981-03-27",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v1",
+        "_type": "katalonien",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1488",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
+          "date_string": "985.04.12",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 985,
+              "month": 4,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0985-04-12"
+          ],
+          "min_date": "0985-04-12",
+          "days": [
+            "Easter",
+            "Sunday"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001"
         ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7265,
+      "doc_count": 7799,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -874,7 +1027,7 @@
           "Arnulfinger": {
             "doc_count": 24
           },
-          "B\u00fcnden": {
+          "Bünden": {
             "doc_count": 24
           },
           "Echternach": {
@@ -904,6 +1057,15 @@
           "Marculf": {
             "doc_count": 41
           },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
+          },
           "Merowinger": {
             "doc_count": 196
           },
@@ -912,6 +1074,9 @@
           },
           "Mondsee": {
             "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
           },
           "Passau": {
             "doc_count": 102
@@ -922,25 +1087,25 @@
           "Rheinisch": {
             "doc_count": 78
           },
-          "R\u00e4tien": {
+          "Rätien": {
             "doc_count": 60
           },
           "Salzburg": {
             "doc_count": 229
           },
-          "Sch\u00e4ftlarn": {
+          "Schäftlarn": {
             "doc_count": 37
           },
           "St. Gallen": {
             "doc_count": 779
           },
-          "Wei\u00dfenburg": {
+          "Weißenburg": {
             "doc_count": 276
           },
           "Werden": {
             "doc_count": 66
           },
-          "Z\u00fcrich": {
+          "Zürich": {
             "doc_count": 53
           }
         }
@@ -969,7 +1134,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 143
+            "doc_count": 144
           },
           {
             "key": "700-799",
@@ -977,7 +1142,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1435
+            "doc_count": 1444
           },
           {
             "key": "800-899",
@@ -985,7 +1150,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2071
+            "doc_count": 2286
           },
           {
             "key": "900-999",
@@ -993,18 +1158,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 847
+            "doc_count": 2803
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 117
+            "doc_count": 680
           }
         ]
       },
       "no_date": {
-        "doc_count": 2585
+        "doc_count": 348
       }
     },
     "corpus": {
@@ -1015,7 +1180,7 @@
         "Arnulfinger": {
           "doc_count": 0
         },
-        "B\u00fcnden": {
+        "Bünden": {
           "doc_count": 2
         },
         "Echternach": {
@@ -1034,7 +1199,7 @@
           "doc_count": 0
         },
         "Katalonien": {
-          "doc_count": 0
+          "doc_count": 8
         },
         "Lorsch": {
           "doc_count": 0
@@ -1043,6 +1208,15 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {
@@ -1054,6 +1228,9 @@
         "Mondsee": {
           "doc_count": 0
         },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
         "Passau": {
           "doc_count": 0
         },
@@ -1063,25 +1240,25 @@
         "Rheinisch": {
           "doc_count": 0
         },
-        "R\u00e4tien": {
+        "Rätien": {
           "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 6
         },
-        "Sch\u00e4ftlarn": {
+        "Schäftlarn": {
           "doc_count": 0
         },
         "St. Gallen": {
           "doc_count": 1
         },
-        "Wei\u00dfenburg": {
+        "Weißenburg": {
           "doc_count": 1
         },
         "Werden": {
           "doc_count": 0
         },
-        "Z\u00fcrich": {
+        "Zürich": {
           "doc_count": 1
         }
       }
@@ -1134,7 +1311,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 6
+          "doc_count": 14
         },
         {
           "key": ">1000",
