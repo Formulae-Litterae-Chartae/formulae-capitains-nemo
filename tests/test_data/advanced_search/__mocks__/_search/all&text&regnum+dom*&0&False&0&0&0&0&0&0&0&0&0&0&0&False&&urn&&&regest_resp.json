@@ -1,5 +1,5 @@
 {
-  "took": 31,
+  "took": 160,
   "timed_out": false,
   "_shards": {
     "total": 29,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -391,15 +391,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Saturday",
-            "Friday",
             "Tuesday",
-            "Thursday",
-            "Lent",
-            "Wednesday",
-            "Sunday",
             "Easter",
-            "Monday"
+            "Thursday",
+            "Friday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Sunday",
+            "Saturday"
           ]
         },
         "highlight": {
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -633,15 +633,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Saturday",
-            "Friday",
             "Tuesday",
-            "Thursday",
-            "Lent",
-            "Wednesday",
-            "Sunday",
             "Easter",
-            "Monday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Sunday",
+            "Saturday"
           ]
         },
         "highlight": {
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -714,7 +714,7 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -774,7 +774,7 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "raetien_v1",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -838,7 +838,7 @@
         ]
       },
       {
-        "_index": "stgallen_v2",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -895,7 +895,7 @@
         ]
       },
       {
-        "_index": "stgallen_v2",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -1001,14 +1001,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -1154,13 +1154,13 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {

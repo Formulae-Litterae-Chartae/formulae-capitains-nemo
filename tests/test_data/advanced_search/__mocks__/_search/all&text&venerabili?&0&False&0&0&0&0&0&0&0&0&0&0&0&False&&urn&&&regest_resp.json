@@ -1,5 +1,5 @@
 {
-  "took": 21,
+  "took": 16,
   "timed_out": false,
   "_shards": {
     "total": 29,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -84,8 +84,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ]
         },
         "highlight": {
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -281,7 +281,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -320,7 +320,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -428,7 +428,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
@@ -482,7 +482,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
@@ -578,14 +578,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -731,14 +731,14 @@
         "Marculf": {
           "doc_count": 2
         },
-        "Marmoutier": {
-          "doc_count": 3
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
           "doc_count": 2
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
+          "doc_count": 3
         },
         "Merowinger": {
           "doc_count": 57

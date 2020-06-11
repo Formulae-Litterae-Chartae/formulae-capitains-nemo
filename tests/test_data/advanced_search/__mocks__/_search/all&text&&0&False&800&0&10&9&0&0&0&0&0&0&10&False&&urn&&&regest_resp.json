@@ -1,5 +1,5 @@
 {
-  "took": 16,
+  "took": 21,
   "timed_out": false,
   "_shards": {
     "total": 29,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
@@ -46,7 +46,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -120,7 +120,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -160,7 +160,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -200,7 +200,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -240,7 +240,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -274,7 +274,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -308,7 +308,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -342,7 +342,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
         "_score": null,
@@ -418,14 +418,14 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -571,14 +571,14 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 1
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
           "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
+          "doc_count": 1
         },
         "Merowinger": {
           "doc_count": 0

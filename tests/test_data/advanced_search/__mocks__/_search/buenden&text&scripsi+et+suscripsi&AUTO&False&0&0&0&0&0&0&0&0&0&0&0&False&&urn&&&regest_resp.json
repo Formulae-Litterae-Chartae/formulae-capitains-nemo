@@ -1,5 +1,5 @@
 {
-  "took": 49,
+  "took": 52,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -347,15 +347,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Saturday",
-            "Friday",
             "Tuesday",
-            "Thursday",
-            "Lent",
-            "Wednesday",
-            "Sunday",
             "Easter",
-            "Monday"
+            "Thursday",
+            "Friday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Sunday",
+            "Saturday"
           ]
         },
         "highlight": {
@@ -368,7 +368,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -413,7 +413,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -634,15 +634,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Saturday",
-            "Friday",
             "Tuesday",
-            "Thursday",
-            "Lent",
-            "Wednesday",
-            "Sunday",
             "Easter",
-            "Monday"
+            "Friday",
+            "Thursday",
+            "Wednesday",
+            "Lent",
+            "Monday",
+            "Sunday",
+            "Saturday"
           ]
         },
         "highlight": {
@@ -655,7 +655,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -700,7 +700,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -739,7 +739,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
         "_score": null,
@@ -781,7 +781,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -820,7 +820,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -862,7 +862,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
         "_score": null,
@@ -946,13 +946,13 @@
           "Marculf": {
             "doc_count": 0
           },
-          "Marmoutier": {
-            "doc_count": 0
-          },
           "Marmoutier - Fougères": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -1099,13 +1099,13 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {
