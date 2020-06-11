@@ -244,7 +244,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
-            vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
+            vectors = current_app.config['nemo_app'].all_term_vectors[hit['_id']]
             highlight_offsets = dict()
             searched_positions = dict()
             for v in vectors['term_vectors'][highlight_field]['terms'].values():
