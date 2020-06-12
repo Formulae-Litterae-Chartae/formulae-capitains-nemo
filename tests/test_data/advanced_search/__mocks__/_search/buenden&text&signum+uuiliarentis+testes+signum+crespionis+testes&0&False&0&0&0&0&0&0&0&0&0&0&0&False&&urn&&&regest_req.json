@@ -211,6 +211,11 @@
               "_type": "marmoutier_serfs"
             }
           },
+          "Marmoutier - Vendômois": {
+            "match": {
+              "_type": "marmoutier_vendomois"
+            }
+          },
           "Marmoutier - Vendômois, Saint-Marc": {
             "match": {
               "_type": "marmoutier_vendomois_saintmarc"
@@ -410,6 +415,11 @@
               "Marmoutier - Serfs": {
                 "match": {
                   "_type": "marmoutier_serfs"
+                }
+              },
+              "Marmoutier - Vendômois": {
+                "match": {
+                  "_type": "marmoutier_vendomois"
                 }
               },
               "Marmoutier - Vendômois, Saint-Marc": {

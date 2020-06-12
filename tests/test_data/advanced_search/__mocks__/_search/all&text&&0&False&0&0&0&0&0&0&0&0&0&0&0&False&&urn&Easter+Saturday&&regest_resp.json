@@ -1,9 +1,9 @@
 {
-  "took": 16,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 29,
-    "successful": 29,
+    "total": 30,
+    "successful": 30,
     "skipped": 0,
     "failed": 0
   },
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Wednesday",
+            "Friday",
+            "Thursday",
             "Tuesday",
             "Easter",
-            "Thursday",
-            "Friday",
-            "Wednesday",
             "Lent",
+            "Saturday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Sunday"
           ]
         },
         "sort": [
@@ -542,15 +542,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Tuesday",
-            "Easter",
+            "Wednesday",
             "Friday",
             "Thursday",
-            "Wednesday",
+            "Tuesday",
+            "Easter",
             "Lent",
+            "Saturday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Sunday"
           ]
         },
         "sort": [
@@ -654,13 +654,13 @@
           ],
           "min_date": "0758-03-15",
           "days": [
-            "Tuesday",
-            "Thursday",
             "Wednesday",
+            "Thursday",
+            "Tuesday",
             "Lent",
+            "Saturday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Sunday"
           ]
         },
         "sort": [
@@ -745,11 +745,11 @@
           ],
           "min_date": "0769-08-01",
           "days": [
-            "Tuesday",
-            "Thursday",
-            "Saturday",
-            "Friday",
             "Wednesday",
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Saturday",
             "Monday",
             "Sunday"
           ]
@@ -948,7 +948,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7799,
+      "doc_count": 7962,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -992,6 +992,9 @@
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
           },
           "Marmoutier - Vendômois, Saint-Marc": {
             "doc_count": 81
@@ -1094,12 +1097,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 680
+            "doc_count": 796
           }
         ]
       },
       "no_date": {
-        "doc_count": 348
+        "doc_count": 358
       }
     },
     "corpus": {
@@ -1144,6 +1147,9 @@
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
           "doc_count": 0
         },
         "Marmoutier - Vendômois, Saint-Marc": {

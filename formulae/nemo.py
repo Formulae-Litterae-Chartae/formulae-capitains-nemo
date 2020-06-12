@@ -94,6 +94,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         # 'urn:cts:formulae:marmoutier_serfs',
+                        # 'urn:cts:formulae:marmoutier_vendomois',
                         # 'urn:cts:formulae:marmoutier_vendomois_saintmarc',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
@@ -289,7 +290,7 @@ class NemoFormulae(Nemo):
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
-            par = re.sub(r'.*?(\d+\D?)\Z', r'\1', list(m.parent)[0])
+            par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(m.parent)[0])
             if par.lstrip('0') == '':
                 if 'andecavensis' in m.id:
                     par = _('(Titel)')

@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -57,6 +57,9 @@
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
             "doc_count": 0
           },
           "Marmoutier - Vendômois, Saint-Marc": {
@@ -210,6 +213,9 @@
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
           "doc_count": 0
         },
         "Marmoutier - Vendômois, Saint-Marc": {
