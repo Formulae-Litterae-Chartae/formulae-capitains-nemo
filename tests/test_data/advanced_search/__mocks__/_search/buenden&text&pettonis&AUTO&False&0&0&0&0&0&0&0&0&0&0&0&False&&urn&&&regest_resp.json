@@ -1,5 +1,5 @@
 {
-  "took": 21,
+  "took": 15,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -344,15 +344,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
+            "Wednesday",
+            "Friday",
+            "Thursday",
             "Tuesday",
             "Easter",
-            "Thursday",
-            "Friday",
-            "Wednesday",
             "Lent",
+            "Saturday",
             "Monday",
-            "Sunday",
-            "Saturday"
+            "Sunday"
           ]
         },
         "highlight": {
@@ -494,6 +494,9 @@
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
             "doc_count": 0
           },
           "Marmoutier - Vendômois, Saint-Marc": {
@@ -647,6 +650,9 @@
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
           "doc_count": 0
         },
         "Marmoutier - Vendômois, Saint-Marc": {

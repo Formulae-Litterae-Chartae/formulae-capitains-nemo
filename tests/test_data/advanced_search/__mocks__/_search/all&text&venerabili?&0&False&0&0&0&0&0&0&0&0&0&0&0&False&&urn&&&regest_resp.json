@@ -2,13 +2,13 @@
   "took": 16,
   "timed_out": false,
   "_shards": {
-    "total": 29,
-    "successful": 29,
+    "total": 30,
+    "successful": 30,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1169,
+    "total": 1170,
     "max_score": null,
     "hits": [
       {
@@ -84,8 +84,8 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -539,7 +539,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7799,
+      "doc_count": 7962,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -583,6 +583,9 @@
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
           },
           "Marmoutier - Vendômois, Saint-Marc": {
             "doc_count": 81
@@ -685,12 +688,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 680
+            "doc_count": 796
           }
         ]
       },
       "no_date": {
-        "doc_count": 348
+        "doc_count": 358
       }
     },
     "corpus": {
@@ -736,6 +739,9 @@
         },
         "Marmoutier - Serfs": {
           "doc_count": 2
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 1
         },
         "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 3

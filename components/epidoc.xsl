@@ -319,6 +319,9 @@
                     <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
                 </xsl:element>
             </xsl:element>
+            <xsl:if test="following-sibling::*[1][self::t:note]">
+                <xsl:text>/</xsl:text>
+            </xsl:if>
         </xsl:element>
     </xsl:template>
     
