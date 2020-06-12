@@ -36,6 +36,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Marculf': {'match': {'_type': 'marculf'}},
                                       'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
                                       'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
+                                      'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
                                       'Marmoutier - Vendômois, Saint-Marc': {'match': {'_type': 'marmoutier_vendomois_saintmarc'}},
                                       'Merowinger': {'match': {'_type': 'merowinger1'}},
                                       'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
