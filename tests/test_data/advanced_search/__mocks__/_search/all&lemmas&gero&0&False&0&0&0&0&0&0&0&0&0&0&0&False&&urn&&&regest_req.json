@@ -33,7 +33,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -53,7 +53,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -181,11 +181,6 @@
               "_type": "marculf"
             }
           },
-          "Marmoutier": {
-            "match": {
-              "_type": "marmoutier"
-            }
-          },
           "Marmoutier - Fougères": {
             "match": {
               "_type": "marmoutier_fougères"
@@ -194,6 +189,16 @@
           "Marmoutier - Serfs": {
             "match": {
               "_type": "marmoutier_serfs"
+            }
+          },
+          "Marmoutier - Vendômois": {
+            "match": {
+              "_type": "marmoutier_vendomois"
+            }
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "match": {
+              "_type": "marmoutier_vendomois_saintmarc"
             }
           },
           "Merowinger": {
@@ -382,11 +387,6 @@
                   "_type": "marculf"
                 }
               },
-              "Marmoutier": {
-                "match": {
-                  "_type": "marmoutier"
-                }
-              },
               "Marmoutier - Fougères": {
                 "match": {
                   "_type": "marmoutier_fougères"
@@ -395,6 +395,16 @@
               "Marmoutier - Serfs": {
                 "match": {
                   "_type": "marmoutier_serfs"
+                }
+              },
+              "Marmoutier - Vendômois": {
+                "match": {
+                  "_type": "marmoutier_vendomois"
+                }
+              },
+              "Marmoutier - Vendômois, Saint-Marc": {
+                "match": {
+                  "_type": "marmoutier_vendomois_saintmarc"
                 }
               },
               "Merowinger": {

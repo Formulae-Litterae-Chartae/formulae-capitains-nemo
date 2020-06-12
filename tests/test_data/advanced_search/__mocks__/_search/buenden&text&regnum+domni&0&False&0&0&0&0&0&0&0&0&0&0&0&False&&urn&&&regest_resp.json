@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Saturday",
-            "Friday",
-            "Tuesday",
-            "Thursday",
-            "Lent",
             "Wednesday",
-            "Sunday",
+            "Friday",
+            "Thursday",
+            "Tuesday",
             "Easter",
-            "Monday"
+            "Lent",
+            "Saturday",
+            "Monday",
+            "Sunday"
           ]
         },
         "highlight": {
@@ -326,7 +326,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -547,15 +547,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Saturday",
-            "Friday",
-            "Tuesday",
-            "Thursday",
-            "Lent",
             "Wednesday",
-            "Sunday",
+            "Friday",
+            "Thursday",
+            "Tuesday",
             "Easter",
-            "Monday"
+            "Lent",
+            "Saturday",
+            "Monday",
+            "Sunday"
           ]
         },
         "highlight": {
@@ -610,13 +610,16 @@
           "Marculf": {
             "doc_count": 0
           },
-          "Marmoutier": {
-            "doc_count": 0
-          },
           "Marmoutier - Fougères": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -763,13 +766,16 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {

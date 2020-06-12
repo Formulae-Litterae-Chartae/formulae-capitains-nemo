@@ -1,9 +1,9 @@
 {
-  "took": 14,
+  "took": 11,
   "timed_out": false,
   "_shards": {
-    "total": 29,
-    "successful": 29,
+    "total": 30,
+    "successful": 30,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -112,7 +112,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -154,7 +154,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0152.lat001",
         "_score": null,
@@ -208,7 +208,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0116.lat001",
         "_score": null,
@@ -262,7 +262,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0267.lat001",
         "_score": null,
@@ -316,7 +316,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0283.lat001",
         "_score": null,
@@ -373,7 +373,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0298.lat001",
         "_score": null,
@@ -430,7 +430,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0671.lat001",
         "_score": null,
@@ -487,7 +487,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0726.lat001",
         "_score": null,
@@ -547,7 +547,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7799,
+      "doc_count": 7962,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -586,14 +586,17 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -693,12 +696,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 680
+            "doc_count": 796
           }
         ]
       },
       "no_date": {
-        "doc_count": 348
+        "doc_count": 358
       }
     },
     "corpus": {
@@ -739,13 +742,16 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {

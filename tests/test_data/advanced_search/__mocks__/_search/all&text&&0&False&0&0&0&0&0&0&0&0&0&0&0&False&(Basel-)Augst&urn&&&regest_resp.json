@@ -1,9 +1,9 @@
 {
-  "took": 10,
+  "took": 8,
   "timed_out": false,
   "_shards": {
-    "total": 29,
-    "successful": 29,
+    "total": 30,
+    "successful": 30,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v2",
+        "_index": "stgallen_v1",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -52,7 +52,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7799,
+      "doc_count": 7962,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -91,14 +91,17 @@
           "Marculf": {
             "doc_count": 41
           },
-          "Marmoutier": {
-            "doc_count": 81
-          },
           "Marmoutier - Fougères": {
             "doc_count": 7
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "Marmoutier - Vendômois, Saint-Marc": {
+            "doc_count": 81
           },
           "Merowinger": {
             "doc_count": 196
@@ -198,12 +201,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 680
+            "doc_count": 796
           }
         ]
       },
       "no_date": {
-        "doc_count": 348
+        "doc_count": 358
       }
     },
     "corpus": {
@@ -244,13 +247,16 @@
         "Marculf": {
           "doc_count": 0
         },
-        "Marmoutier": {
-          "doc_count": 0
-        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Saint-Marc": {
           "doc_count": 0
         },
         "Merowinger": {
