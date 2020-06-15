@@ -1,9 +1,9 @@
 {
-  "took": 11,
+  "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 30,
-    "successful": 30,
+    "total": 31,
+    "successful": 31,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -166,8 +166,8 @@
           ],
           "min_date": "0765",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ]
         },
         "sort": [
@@ -175,7 +175,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -249,7 +249,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -286,7 +286,7 @@
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v1",
+        "_index": "fulda_stengel_v2",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v1",
+        "_index": "fulda_stengel_v2",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -400,7 +400,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7962,
+      "doc_count": 8045,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -441,6 +441,9 @@
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 83
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -549,7 +552,7 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 796
+            "doc_count": 878
           }
         ]
       },
@@ -596,6 +599,9 @@
           "doc_count": 0
         },
         "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {

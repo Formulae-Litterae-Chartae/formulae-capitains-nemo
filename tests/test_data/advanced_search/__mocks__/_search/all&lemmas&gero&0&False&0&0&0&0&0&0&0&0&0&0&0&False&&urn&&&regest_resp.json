@@ -2,8 +2,8 @@
   "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 30,
-    "successful": 30,
+    "total": 31,
+    "successful": 31,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form041.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form048.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form051.lat001",
         "_score": null,
@@ -184,7 +184,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form052.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v2",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form000.lat001",
         "_score": null,
@@ -273,7 +273,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7962,
+      "doc_count": 8045,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -314,6 +314,9 @@
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 83
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -422,7 +425,7 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 796
+            "doc_count": 878
           }
         ]
       },
@@ -469,6 +472,9 @@
           "doc_count": 1
         },
         "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
