@@ -166,6 +166,11 @@
               "_type": "marmoutier_fougères"
             }
           },
+          "Marmoutier - Manceau": {
+            "match": {
+              "_type": "marmoutier_manceau"
+            }
+          },
           "Marmoutier - Serfs": {
             "match": {
               "_type": "marmoutier_serfs"
@@ -370,6 +375,11 @@
               "Marmoutier - Fougères": {
                 "match": {
                   "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Manceau": {
+                "match": {
+                  "_type": "marmoutier_manceau"
                 }
               },
               "Marmoutier - Serfs": {
