@@ -1,0 +1,35 @@
+<?xml-model href="../../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#" xmlns:cts="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001</identifier>
+   <parent>urn:cts:formulae:marmoutier_manceau.laurain_ballée</parent>
+   <dc:title xml:lang="fre">Cartulaire manceau de Marmoutier (Ed. Laurain), Ballée, Nr. 1</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./marmoutier_manceau.laurain_ballée_0001.lat001.xml">
+         <identifier>urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001.lat001</identifier>
+         <parent>urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001</parent>
+         <dc:title xml:lang="fre">Cartulaire manceau de Marmoutier, Ballée, Nr. 1</dc:title>
+         <dc:description xml:lang="fre">Donation par Hardouin, curé de Ballée, de l’église du dit lieu et de ses dépendances avec les droits de dîme et de sépulture y afférents, et consentement à la dite donation par Hamelin d’Anthenaise, sa femme Domula et son frère Bordin.</dc:description>
+         <dc:language>lat</dc:language>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Franziska Quaas (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Mafalda Ertsen (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source/>
+         <structured-metadata>
+            <dct:abstract/>
+            <bib:editor>Ernest Laurain</bib:editor>
+            <dct:dateCopyrighted/>
+            <dct:created>2020</dct:created>
+            <dct:bibliographicCitation>Ernest &lt;span class="surname"&gt;Laurain&lt;/span&gt;, Cartulaire manceau de Marmoutier, Laval 1911-1945, S. 41-42.</dct:bibliographicCitation>
+            <dct:temporal>1090</dct:temporal>
+            <dct:spatial/>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

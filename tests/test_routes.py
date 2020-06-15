@@ -138,6 +138,8 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
             self.assertEqual(self.nemo.all_term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
                              TestES.MOCK_VECTOR_RETURN_VALUE)
+            self.assertEqual(self.nemo.all_term_vectors['urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001.lat001'],
+                             TestES.MOCK_VECTOR_RETURN_VALUE)
 
 
 class TestInit(TestCase):
@@ -566,6 +568,9 @@ class TestIndividualRoutes(Formulae_Testing):
                       "doc_count": 0
                     },
                     "Marculf": {
+                      "doc_count": 0
+                    },
+                    "Marmoutier - Manceau": {
                       "doc_count": 0
                     },
                     "Marmoutier - Vendômois": {
@@ -2960,6 +2965,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Marculf": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Marmoutier - Manceau": {
                                                             "doc_count": 0
                                                         },
                                                         "Marmoutier - Vendômois": {
