@@ -1,18 +1,18 @@
 {
-  "took": 16,
+  "took": 17,
   "timed_out": false,
   "_shards": {
-    "total": 30,
-    "successful": 30,
+    "total": 31,
+    "successful": 31,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1170,
+    "total": 1177,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -170,7 +170,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -281,7 +281,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -320,7 +320,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -428,7 +428,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
         "_score": null,
@@ -482,7 +482,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
         "_score": null,
@@ -539,7 +539,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7962,
+      "doc_count": 8045,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -580,6 +580,9 @@
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 83
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -688,7 +691,7 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 796
+            "doc_count": 878
           }
         ]
       },
@@ -736,6 +739,9 @@
         },
         "Marmoutier - Fougères": {
           "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 7
         },
         "Marmoutier - Serfs": {
           "doc_count": 2
@@ -844,7 +850,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 32
+          "doc_count": 39
         }
       ]
     },

@@ -1,9 +1,9 @@
 {
-  "took": 24,
+  "took": 29,
   "timed_out": false,
   "_shards": {
-    "total": 30,
-    "successful": 30,
+    "total": 31,
+    "successful": 31,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -391,15 +391,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Wednesday",
-            "Friday",
             "Thursday",
-            "Tuesday",
             "Easter",
-            "Lent",
             "Saturday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Friday",
+            "Lent",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -633,15 +633,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Wednesday",
-            "Friday",
             "Thursday",
-            "Tuesday",
             "Easter",
-            "Lent",
+            "Tuesday",
             "Saturday",
             "Monday",
-            "Sunday"
+            "Friday",
+            "Lent",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -714,7 +714,7 @@
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -774,7 +774,7 @@
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -809,8 +809,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -838,7 +838,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -895,7 +895,7 @@
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -930,8 +930,8 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ]
         },
         "highlight": {
@@ -962,7 +962,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7962,
+      "doc_count": 8045,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -1003,6 +1003,9 @@
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 83
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -1111,7 +1114,7 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 796
+            "doc_count": 878
           }
         ]
       },
@@ -1158,6 +1161,9 @@
           "doc_count": 0
         },
         "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {

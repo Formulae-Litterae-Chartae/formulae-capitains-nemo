@@ -17,7 +17,7 @@
     <div class="row py-0">
     <div class="col-auto mb-4">
     <ul class="list-group">
-    {% if collections.current.id == 'urn:cts:formulae:katalonien' %}
+    {% if collections.current.id in ['urn:cts:formulae:katalonien'] %}
     <li class="list-group-item list-group-item-secondary lead">{{ _('Empfänger') }}</li>
     {% endif %}
     {% for coll in collections.members|sort(attribute="id") %}

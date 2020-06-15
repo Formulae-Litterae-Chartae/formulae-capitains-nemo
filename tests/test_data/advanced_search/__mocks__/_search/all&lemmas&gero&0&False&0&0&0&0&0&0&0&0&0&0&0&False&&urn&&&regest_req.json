@@ -33,7 +33,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -53,7 +53,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -184,6 +184,11 @@
           "Marmoutier - Fougères": {
             "match": {
               "_type": "marmoutier_fougères"
+            }
+          },
+          "Marmoutier - Manceau": {
+            "match": {
+              "_type": "marmoutier_manceau"
             }
           },
           "Marmoutier - Serfs": {
@@ -390,6 +395,11 @@
               "Marmoutier - Fougères": {
                 "match": {
                   "_type": "marmoutier_fougères"
+                }
+              },
+              "Marmoutier - Manceau": {
+                "match": {
+                  "_type": "marmoutier_manceau"
                 }
               },
               "Marmoutier - Serfs": {

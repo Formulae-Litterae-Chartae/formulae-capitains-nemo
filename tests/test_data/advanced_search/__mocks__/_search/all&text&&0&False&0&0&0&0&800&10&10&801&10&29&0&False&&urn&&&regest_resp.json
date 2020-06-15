@@ -1,18 +1,18 @@
 {
-  "took": 22,
+  "took": 23,
   "timed_out": false,
   "_shards": {
-    "total": 30,
-    "successful": 30,
+    "total": 31,
+    "successful": 31,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 438,
+    "total": 439,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Wednesday",
-            "Friday",
             "Thursday",
-            "Tuesday",
             "Easter",
-            "Lent",
             "Saturday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Friday",
+            "Lent",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "sort": [
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0121.lat001",
         "_score": null,
@@ -617,7 +617,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0122.lat001",
         "_score": null,
@@ -654,7 +654,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 7962,
+      "doc_count": 8045,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -695,6 +695,9 @@
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 83
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -803,7 +806,7 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 796
+            "doc_count": 878
           }
         ]
       },
@@ -851,6 +854,9 @@
         },
         "Marmoutier - Fougères": {
           "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 1
         },
         "Marmoutier - Serfs": {
           "doc_count": 0
@@ -959,7 +965,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 8
+          "doc_count": 9
         }
       ]
     },
