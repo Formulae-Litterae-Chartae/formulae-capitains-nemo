@@ -198,7 +198,7 @@
         {% else %}
             {% set copy_class = '' %}
         {% endif %}
-        <article class="hentry entry white col-sm-12{% if not loop.last %} middle-reading-row{% endif %}">
+        <article class="hentry entry white row{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
             <!-- <nav>
                 {{ navigation }}
             </nav> -->
@@ -209,22 +209,19 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            <section class="row text-section text-row{{ copy_class }}">
             {% if  text.text_passage %}
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 <div class="d-flex flex-row">{{ navigation }}</div>
                     {{ text.text_passage }}
                 <footer>{% include "main::passage_footer.html" %}</footer>
-            </section>
                 {% else %}
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 {% with manifest = text.manifest, div_v = text.div_v %}
                 {% include "viewer::embededmirador.html" %}
                 {% endwith %}
-            </section>
             {% endif %}
-            {% if not loop.last %}
-                <span class="ui-resizable-handle ui-resizable-s"><img src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle"></span>
+            {% if loop.length > 1 %}
+                <!--<span class="ui-resizable-handle ui-resizable-s"><img src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle"></span>-->
                     <!--<img class="img-fluid ui-resizable-handle ui-resizable-s" src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle">-->
             {% endif %}
         </article>

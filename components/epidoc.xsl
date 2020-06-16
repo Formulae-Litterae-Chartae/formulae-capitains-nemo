@@ -26,14 +26,9 @@
 
     <xsl:template match="//t:div[@type = 'translation']">
     <div>
-      <xsl:attribute name="id">
-        <xsl:text>translation</xsl:text>
-        <xsl:if test="@xml:lang"><xsl:text>_</xsl:text></xsl:if>
-        <xsl:value-of select="@xml:lang"/>
-      </xsl:attribute>
       
       <xsl:attribute name="class">
-        <xsl:text>translation lang_</xsl:text>
+        <xsl:text>text translation lang_</xsl:text>
         <xsl:value-of select="@xml:lang"/>
       </xsl:attribute>
       
@@ -86,14 +81,9 @@
 
     <xsl:template match="//t:div[@type = 'commentary']">
     <div>
-      <xsl:attribute name="id">
-        <xsl:text>commentary</xsl:text>
-        <xsl:if test="@xml:lang"><xsl:text>_</xsl:text></xsl:if>
-        <xsl:value-of select="@xml:lang"/>
-      </xsl:attribute>
       
       <xsl:attribute name="class">
-        <xsl:text>commentary lang_</xsl:text>
+        <xsl:text>text commentary lang_</xsl:text>
         <xsl:value-of select="@xml:lang"/>
       </xsl:attribute>
       
@@ -104,9 +94,9 @@
   </xsl:template>
     
     <xsl:template match="t:div[@type = 'edition']">
-        <div id="edition">
+        <div>
             <xsl:attribute name="class">
-                <xsl:text>edition lang_</xsl:text>
+                <xsl:text>text edition lang_</xsl:text>
                 <xsl:value-of select="@xml:lang"/>
                 <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
             </xsl:attribute>

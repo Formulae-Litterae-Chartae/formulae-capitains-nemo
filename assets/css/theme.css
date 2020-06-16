@@ -738,16 +738,16 @@ p.flash-grey {
 }
 
 .ui-resizable-s {
-    left: 48%;
-    width: 16px;
-    bottom: 1px;
-    
+    bottom: 0px;
 }
 
-/*.middle-reading-row {
-    border-bottom-style: double;
-    border-bottom-width: 5px;
-}*/
+.ui-resizable-s:hover {
+    background: grey;
+}
+
+.multi-reading-row {
+    min-height: 30vh;
+}
 
 .ui-resizable {
     overflow-y: auto;
