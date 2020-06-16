@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Wednesday",
-            "Friday",
             "Thursday",
-            "Tuesday",
             "Easter",
-            "Lent",
             "Saturday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Friday",
+            "Lent",
+            "Sunday",
+            "Wednesday"
           ]
         },
         "highlight": {
@@ -369,6 +369,9 @@
             "doc_count": 0
           },
           "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Manceau": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
@@ -525,6 +528,9 @@
           "doc_count": 0
         },
         "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {

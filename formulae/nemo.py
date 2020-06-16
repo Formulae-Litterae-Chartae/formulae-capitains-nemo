@@ -93,6 +93,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
+                        # 'urn:cts:formulae:marmoutier_manceau',
                         # 'urn:cts:formulae:marmoutier_serfs',
                         # 'urn:cts:formulae:marmoutier_vendomois',
                         # 'urn:cts:formulae:marmoutier_vendomois_saintmarc',
@@ -285,7 +286,7 @@ class NemoFormulae(Nemo):
                         par = _('(Prolog)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
-        elif 'katalonien' in m.id:
+        elif 'katalonien' in m.id or 'marmoutier_manceau' in m.id:
             par = list(m.parent)[0].split('_')[-1]
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
@@ -314,11 +315,15 @@ class NemoFormulae(Nemo):
         open_texts = []
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
-                     for l in self.sub_colls.values() for m in l if m['id'] != 'urn:cts:formulae:katalonien'}
+                     for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:katalonien',
+                                                                                    'urn:cts:formulae:marmoutier_manceau']}
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()],
                                     key=self.sort_katalonien)
                           for m in self.resolver.children['urn:cts:formulae:katalonien']})
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:marmoutier_manceau']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -336,6 +341,8 @@ class NemoFormulae(Nemo):
             index = k.split(':')[-1]
             if 'katalonien' in index:
                 index = 'katalonien'
+            elif 'marmoutier_manceau' in index:
+                index = 'marmoutier_manceau'
             ids = [x[1][0] for x in v]
             all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
                                                                                          doc_type=index,
@@ -586,7 +593,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if 'katalonien' not in objectId and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if 'katalonien' not in objectId and 'marmoutier_manceau' not in objectId and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -608,7 +615,7 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        elif objectId == "urn:cts:formulae:katalonien":
+        elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau"]:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:

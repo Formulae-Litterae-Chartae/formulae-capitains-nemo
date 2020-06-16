@@ -56,6 +56,9 @@
           "Marmoutier - Fougères": {
             "doc_count": 0
           },
+          "Marmoutier - Manceau": {
+            "doc_count": 0
+          },
           "Marmoutier - Serfs": {
             "doc_count": 0
           },
@@ -210,6 +213,9 @@
           "doc_count": 0
         },
         "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
