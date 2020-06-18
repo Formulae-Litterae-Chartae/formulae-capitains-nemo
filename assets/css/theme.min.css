@@ -126,6 +126,11 @@ ul.menu li a.active {
     -o-box-shadow: 1px 2px 0px 0px #656565;
     box-shadow: 1px 2px 0px 0px #656565;
 }
+
+#reading-container article.multi-reading-row { 
+    padding-right: 30px;
+}
+
 #reading-container article.reffs {
     max-width:90%;
 }

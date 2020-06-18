@@ -209,17 +209,22 @@
             {%set all_reffs = objects|map(attribute='subreference')|list %}
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
+            
             {% if  text.text_passage %}
+            <div class="text-row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 <div class="d-flex flex-row">{{ navigation }}</div>
                     {{ text.text_passage }}
                 <footer>{% include "main::passage_footer.html" %}</footer>
-                {% else %}
+            {% else %}
+            <div class="image-row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 {% with manifest = text.manifest, div_v = text.div_v %}
                 {% include "viewer::embededmirador.html" %}
                 {% endwith %}
             {% endif %}
+            </div>
+            <span class="text-row-handle"><img src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle"></span>
         </article>
         {% endfor %}
         
