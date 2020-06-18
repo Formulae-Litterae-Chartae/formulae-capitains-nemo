@@ -736,3 +736,38 @@ p.flash-grey {
 .related-text {
     margin-left: 1em;
 }
+
+.ui-resizable-s:hover {
+    background: lightgrey;
+}
+
+.multi-reading-row {
+    min-height: 30vh;
+    height: 40vh;
+}
+
+.multi-reading-row .text-row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.multi-reading-row .image-row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+
+.ui-resizable {
+    overflow: hidden;
+}
+
+.text-row-handle {
+    left: 48%;
+    position: relative;
+    bottom: -8px;
+    z-index: 100;
+}

@@ -570,6 +570,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Marculf": {
                       "doc_count": 0
                     },
+                    "Marmoutier - Fougères": {
+                      "doc_count": 0
+                    },
                     "Marmoutier - Manceau": {
                       "doc_count": 0
                     },
@@ -582,7 +585,7 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Marmoutier - Serfs": {
                       "doc_count": 0
                     },
-                    "Marmoutier - Fougères": {
+                    "Marmoutier - Vendômois, Saint-Marc": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -2967,6 +2970,9 @@ class TestES(Formulae_Testing):
                                                         "Marculf": {
                                                             "doc_count": 0
                                                         },
+                                                        "Marmoutier - Fougères": {
+                                                            "doc_count": 0
+                                                        },
                                                         "Marmoutier - Manceau": {
                                                             "doc_count": 0
                                                         },
@@ -2979,7 +2985,7 @@ class TestES(Formulae_Testing):
                                                         "Marmoutier - Serfs": {
                                                             "doc_count": 0
                                                         },
-                                                        "Marmoutier - Fougères": {
+                                                        "Marmoutier - Vendômois, Saint-Marc": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
