@@ -737,6 +737,10 @@ p.flash-grey {
     margin-left: 1em;
 }
 
+.ui-resizable-s {
+    bottom: 0px;
+}
+
 .ui-resizable-s:hover {
     background: lightgrey;
 }
@@ -768,6 +772,5 @@ p.flash-grey {
 .text-row-handle {
     left: 48%;
     position: relative;
-    bottom: -8px;
-    z-index: 100;
+    bottom: -3px;
 }
