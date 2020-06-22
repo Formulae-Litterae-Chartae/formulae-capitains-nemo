@@ -21,6 +21,10 @@ $(document).ready(function () {
             'z-index': 1000
         });
     });
+    
+    $('.multi-reading-row').each(function() {
+        $( this ).css("height", "40vh")
+    });
 });
 
 Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
@@ -49,3 +53,13 @@ $( function() {
         handles: "s",
     });
     } );
+
+// Allow user to automatically maximize the window for a text
+$('.maximize-column-link').click(function() {
+    $( this ).closest('article').css('height', 'auto');
+});
+
+// Allow user to automatically minimize the window for a text
+$('.minimize-column-link').click(function() {
+    $( this ).closest('article').css('height', '40vh');
+});

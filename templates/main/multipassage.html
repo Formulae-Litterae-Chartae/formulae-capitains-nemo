@@ -23,18 +23,6 @@
             {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
         </div>
-        <div class="row justify-content-center pt-0 pb-0">
-            {% if objects|length > 1 %}
-            <div class="col col-auto">
-                <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(object.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(object.subreference)|join_list_values('+')) }}">{{ _('Spalte ausblenden') }}</a>
-            </div>
-            {% set all_texts = all_texts|insert_in_list(index - 1, object.objectId) %}
-            {% set all_reffs = all_reffs|insert_in_list(index - 1, object.subreference) %}
-            {% endif %}
-            <div class="col col-auto">
-                {{ version_menu(object.objectId|replace('manifest:', ''), object.isReferencedBy, object, index) }}
-            </div>
-        </div>
         <div class="row py-1 align-items-center">
         {% set ns = namespace(hit_index=-1) %}
         {% for hit in session['previous_search'] %}
@@ -105,9 +93,9 @@
 {% endmacro %}
 {% macro version_menu(objId, inRefs, object, index) %}
 <div class="dropdown">
-    <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ _('Eine Spalte hinzufügen') }}
-    </button>
+    <a class="dropdown-toggle add-text-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Eine Spalte hinzufügen') }}">
+        <img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Eine Spalte hinzufügen') }}">
+    </a>
     <div class="dropdown-menu version-dropdown">
         {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
             {% if loop.first %}
@@ -210,6 +198,26 @@
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
             
+            <div class="row ml-auto pt-0 pb-0">
+                <div class="col col-auto add-window-icon">
+                    {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
+                </div>
+                {% if loop.length > 1 %}
+                <div class="col col-auto maximize-window-icon">
+                    <a class="maximize-column-link" title="{{ _('Spalte maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Spalte maximieren') }}"></a>
+                </div>
+                <div class="col col-auto minimize-window-icon">
+                    <a class="minimize-column-link" title="{{ _('Spalte minimieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/minimize_window.png')}}" alt="{{ _('Spalte minimieren') }}"></a>
+                </div>
+                {% endif %}
+                {% if objects|length > 1 %}
+                <div class="col col-auto close-window-icon">
+                    <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
+                </div>
+                {% set all_texts = all_texts|insert_in_list(loop.index - 1, text.objectId) %}
+                {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
+                {% endif %}
+            </div>
             {% if  text.text_passage %}
             <div class="text-row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
@@ -224,7 +232,9 @@
                 {% endwith %}
             {% endif %}
             </div>
+            {% if loop.length > 1 %}
             <span class="text-row-handle"><img src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle"></span>
+            {% endif %}
         </article>
         {% endfor %}
         

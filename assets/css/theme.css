@@ -754,23 +754,35 @@ p.flash-grey {
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    height: 100%;
+    height: calc(100% - 24px);
+    width: 100%;
 }
 
 .multi-reading-row .image-row {
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    height: 100%;
-    width: 100%
-}
-
-.ui-resizable {
-    overflow: hidden;
+    height: calc(100% - 24px);
+    width: 100%;
 }
 
 .text-row-handle {
     left: 48%;
     position: relative;
     bottom: -3px;
+}
+
+.close-window-icon {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.maximize-window-icon,.minimize-window-icon,.add-window-icon {
+    padding-left: 3px;
+    padding-right: 3px;
+    bottom: -.5px;
+}
+
+.add-text-toggle::after {
+    content: none;
 }
