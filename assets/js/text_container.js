@@ -25,6 +25,30 @@ $(document).ready(function () {
     $('.multi-reading-row').each(function() {
         $( this ).css("height", "40vh")
     });
+
+    // Allow user to automatically maximize the window for a text
+    $('.maximize-column-link').click(function() {
+        $( this ).closest('article').css('height', 'auto');
+    });
+
+    // Allow user to automatically minimize the window for a text
+    $('.minimize-column-link').click(function() {
+        $( this ).closest('article').css('height', '40vh');
+    });
+    
+    // Allow user to maximize all reading rows at once
+    $('#max-rows-image').click(function() {
+        $('.multi-reading-row').each(function() {
+            $( this ).css('height', 'auto');
+        });
+    });
+    
+    // Allow user to minimize all reading rows at once
+    $('#min-rows-image').click(function() {
+        $('.multi-reading-row').each(function() {
+            $( this ).css('height', '40vh');
+        });
+    });
 });
 
 Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
@@ -53,13 +77,3 @@ $( function() {
         handles: "s",
     });
     } );
-
-// Allow user to automatically maximize the window for a text
-$('.maximize-column-link').click(function() {
-    $( this ).closest('article').css('height', 'auto');
-});
-
-// Allow user to automatically minimize the window for a text
-$('.minimize-column-link').click(function() {
-    $( this ).closest('article').css('height', '40vh');
-});

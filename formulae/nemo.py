@@ -1037,7 +1037,10 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
-                translations[id] = [x for x in d.pop('translations', None) if x[0].id not in ids]
+                translations[id] = []
+                for x in d.pop('translations', None):
+                    if x[0].id not in ids and x not in translations[id]:
+                        translations[id].append(x)
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
