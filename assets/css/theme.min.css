@@ -131,6 +131,18 @@ ul.menu li a.active {
     padding-right: 30px;
 }
 
+#reading-container article.multi-reading-row[style*="height: auto"] {
+    padding-bottom: 0px;
+}
+
+#reading-container article.multi-reading-row[style*="height: auto"] .maximize-window-icon {
+    display: none;
+}
+
+#reading-container article.multi-reading-row[style*="height: 40vh"] .minimize-window-icon {
+    display: none;
+}
+
 #reading-container article.reffs {
     max-width:90%;
 }

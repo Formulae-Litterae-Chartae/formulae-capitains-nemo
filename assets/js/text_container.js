@@ -21,6 +21,39 @@ $(document).ready(function () {
             'z-index': 1000
         });
     });
+    
+    // Allow texts when in rows reading format to be expanded and contracted by the user
+    $('.multi-reading-row').resizable({
+        handles: "s",
+    });
+    
+    $('.multi-reading-row').each(function() {
+        $( this ).css("height", "40vh")
+    });
+
+    // Allow user to automatically maximize the window for a text
+    $('.maximize-column-link').click(function() {
+        $( this ).closest('article').css('height', 'auto');
+    });
+
+    // Allow user to automatically minimize the window for a text
+    $('.minimize-column-link').click(function() {
+        $( this ).closest('article').css('height', '40vh');
+    });
+    
+    // Allow user to maximize all reading rows at once
+    $('#max-rows-image').click(function() {
+        $('.multi-reading-row').each(function() {
+            $( this ).css('height', 'auto');
+        });
+    });
+    
+    // Allow user to minimize all reading rows at once
+    $('#min-rows-image').click(function() {
+        $('.multi-reading-row').each(function() {
+            $( this ).css('height', '40vh');
+        });
+    });
 });
 
 Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
@@ -42,10 +75,3 @@ Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
         'flex-basis':  `${gutterSize}px`,
     }),
 })
-
-// Allow texts when in rows reading format to be expanded and contracted by the user
-$( function() {
-    $('.multi-reading-row').resizable({
-        handles: "s",
-    });
-    } );
