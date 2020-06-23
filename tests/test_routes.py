@@ -1415,7 +1415,7 @@ class TestAuth(Formulae_Testing):
                               'The email text should be addressed to the correct user.')
                 self.assertEqual(outbox[1].sender, 'no-reply@example.com',
                                  'The email should come from the correct sender.')
-                self.assertMessageFlashed(_('Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt'))
+                self.assertMessageFlashed(_('Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt'))
                 self.assertEqual(current_user.email, "project.member@uni-hamburg.de",
                                  "The email address should not be changed only by requesting the token.")
 
