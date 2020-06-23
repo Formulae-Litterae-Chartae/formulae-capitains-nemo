@@ -785,3 +785,7 @@ p.flash-grey {
 .add-text-toggle::after {
     content: none;
 }
+
+.dropleft .add-text-toggle::before {
+    content: none;
+}
