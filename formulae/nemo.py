@@ -457,7 +457,7 @@ class NemoFormulae(Nemo):
         if request.headers.get('X-Requested-With') == "XMLHttpRequest":
             return 'OK'
         else:
-            flash(_('Reading direction changed. You may need to refresh the page in your browser.'))
+            flash(_('Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt wird, dann laden Sie die Seite neu.'))
             return redirect(request.referrer)
 
     def before_request(self):
