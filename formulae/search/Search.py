@@ -82,62 +82,6 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
         return [{'urn': {'order': 'desc'}}]
 
 
-def query_index(index: list, field: str, query: str, page: int, per_page: int,
-                sort: str = 'urn', old_search: bool = False) -> Tuple[List[Dict[str,
-                                                                                Union[str, list]]],
-                                                                      int,
-                                                                      dict,
-                                                                      List[Dict[str,
-                                                                                Union[str,
-                                                                                      List[str]]]]]:
-    prev_search = dict()
-    if not current_app.elasticsearch:
-        return [], 0, {}, []
-    if index in ['', ['']]:
-        return [], 0, {}, []
-    if not query:
-        return [], 0, {}, []
-    if old_search is False:
-        session.pop('previous_search', None)
-    query_terms = query.split()
-    clauses = []
-    sort = build_sort_list(sort)
-    if field == 'lemmas':
-        if '*' in query or '?' in query:
-            flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-            return [], 0, {}, []
-    for term in query_terms:
-        if '*' in term or '?' in term:
-            clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
-        else:
-            if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                sub_clauses = [{'span_term': {field: term}}]
-                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                    sub_clauses.append({'span_term': {field: other_lem}})
-                clauses.append(sub_clauses)
-            else:
-                clauses.append([{'span_term': {field: term}}])
-    bool_clauses = []
-    for clause in product(*clauses):
-        bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': 0, 'in_order': True}})
-    search_body = {'query': {'bool': {'should': bool_clauses, 'minimum_should_match': 1}},
-                   "sort": sort,
-                   'from': (page - 1) * per_page, 'size': per_page,
-                   'highlight':
-                       {'fields': {field: {"fragment_size": 1000}},
-                        'pre_tags': [PRE_TAGS],
-                        'post_tags': [POST_TAGS],
-                        'encoder': 'html'
-                        },
-                   'aggs': AGGREGATIONS
-                   }
-    search = current_app.elasticsearch.search(index=index, doc_type="", body=search_body)
-    if old_search is False:
-        prev_search = set_session_token(index, search_body, field, query, fuzz='0')
-    ids, highlighted_terms = lem_highlight_to_text(search, query, False, 0, 'regest', field, 'text', fuzz=0)
-    return ids, search['hits']['total'], search['aggregations'], prev_search
-
-
 def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
                       ordered_terms: bool = False, slop: int = 0,
                       regest_field: str = 'regest', fuzz: str = '0') -> List[Dict[str, Union[str, List[str]]]]:
@@ -380,14 +324,16 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
-                         regest_field: str = 'regest', old_search: bool = False,
+                         regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
                                             List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     prev_search = dict()
-    if corpus is None:
+    if q == '' and source == 'simple':
+        return [], 0, {}, []
+    if corpus is None or not any(corpus):
         corpus = ['all']
     if special_days is None:
         special_days = []

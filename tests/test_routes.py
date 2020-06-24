@@ -3,7 +3,7 @@ from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
-from formulae.search.Search import advanced_query_index, query_index, suggest_composition_places, build_sort_list, \
+from formulae.search.Search import advanced_query_index, suggest_composition_places, build_sort_list, \
     set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
@@ -652,7 +652,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            month_start=12, page=1, per_page=10, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=[''], regest_q='', old_search=False)
+                                           special_days=[''], regest_q='', old_search=False, source='advanced')
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
@@ -694,10 +694,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
 
-    @patch("formulae.search.routes.query_index")
+    @patch("formulae.search.routes.advanced_query_index")
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', q='regnum', sort='urn')
+        params = dict(corpus='formulae%2Bchartae', q='regnum', sort='urn', source='simple')
         mock_search.return_value = [[], 0]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -1921,7 +1921,7 @@ class TestES(Formulae_Testing):
         self.app.elasticsearch = None
         simple_test_args = OrderedDict([("index", ['formulae', "chartae"]), ("query", 'regnum'), ("field", "text"),
                                         ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
-        hits, total, aggs, prev = query_index(**simple_test_args)
+        hits, total, aggs, prev = advanced_query_index(**simple_test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
@@ -2310,66 +2310,96 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = {'query': {'bool': {'should': [
-                    {'span_near':
-                         {'clauses':
-                              [{'span_term':
-                                    {'lemmas': 'regnum'}}
-                               ],
-                          'slop': 0,
-                          'in_order': True}}],
-            'minimum_should_match': 1}},
-                'sort': 'urn', 'from': 0, 'size': 10,
+        body = {'query':
+                    {'bool':
+                        {'must':
+                            [{'bool':
+                                {'should':
+                                    [{'span_near':
+                                        {'clauses':
+                                             [{'span_multi':
+                                                   {'match':
+                                                        {'fuzzy':
+                                                             {'lemmas':
+                                                                  {'value': 'regnum', 'fuzziness': '0'}
+                                                              }
+                                                         }
+                                                    }
+                                               }
+                                              ],
+                                         'slop': 4,
+                                         'in_order': False
+                                         }
+                                      }
+                                     ],
+                                 'minimum_should_match': 1
+                                 }
+                              }
+                             ]
+                         }
+                     },
+                'sort': 'urn',
+                'from': 0,
+                'size': 10,
+                'aggs':
+                    {'range':
+                         {'date_range':
+                              {'field': 'min_date',
+                               'format': 'yyyy',
+                               'ranges': [
+                                   {'key': '<499', 'from': '0002', 'to': '0499'},
+                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                   {'key': '>1000', 'from': '1000'}
+                               ]
+                               }
+                          },
+                     'corpus':
+                         {'filters':
+                              {'filters': self.SEARCH_FILTERS_CORPORA}
+                          },
+                     'no_date':
+                         {'missing': {'field': 'min_date'}},
+                     'all_docs':
+                         {'global': {},
+                          'aggs':
+                              {'range':
+                                   {'date_range':
+                                        {'field': 'min_date',
+                                         'format': 'yyyy',
+                                         'ranges': [
+                                             {'key': '<499', 'from': '0002', 'to': '0499'},
+                                             {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                             {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                             {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                             {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                             {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                             {'key': '>1000', 'from': '1000'}
+                                         ]
+                                         }
+                                    },
+                               'corpus': {'filters':
+                                              {'filters': self.SEARCH_FILTERS_CORPORA}},
+                               'no_date': {'missing': {'field': 'min_date'}}}}},
                 'highlight':
                     {'fields':
-                         {'lemmas':
-                              {'fragment_size': 1000}
-                          },
+                         {'lemmas': {'fragment_size': 1000},
+                          'regest': {'fragment_size': 1000}},
                      'pre_tags': ['</small><strong>'],
                      'post_tags': ['</strong><small>'],
-                     'encoder': 'html'},
-                'aggs':
-                    {
-                        'range': {
-                            'date_range': {
-                                'field': 'min_date',
-                                'format': 'yyyy',
-                                'ranges':
-                                    [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                     {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                     {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                     {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                     {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                     {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                     {'key': '>1000', 'from': '1000'}]}},
-                        'corpus': {
-                            'filters': {
-                                'filters': self.SEARCH_FILTERS_CORPORA}},
-                        'no_date': {'missing': {'field': 'min_date'}},
-                        'all_docs': {
-                            'global': {},
-                            'aggs': {'range':
-                                         {'date_range':
-                                              {'field': 'min_date',
-                                               'format': 'yyyy',
-                                               'ranges': [
-                                                   {'key': '<499', 'from': '0002', 'to': '0499'},
-                                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                                   {'key': '>1000', 'from': '1000'}]}},
-                                     'corpus': {'filters':
-                                                    {'filters': self.SEARCH_FILTERS_CORPORA}},
-                                     'no_date': {'missing': {'field': 'min_date'}}}}}}
+                     'encoder': 'html'}
+                }
 
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+        actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], field='lemmas', q=test_args['q'], page=1,
+                                               per_page=10)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2379,55 +2409,127 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
         test_args.pop('lemma_search')
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = {'query': {'bool': {'should': [
-            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gero'}}], 'slop': 0, 'in_order': True}},
-            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gesta'}}], 'slop': 0, 'in_order': True}},
-            {'span_near': {'clauses': [{'span_term': {'lemmas': 'gerere'}}], 'slop': 0, 'in_order': True}}],
-            'minimum_should_match': 1}},
-                'sort': 'urn', 'from': 0, 'size': 10,
+        body = {'query':
+                    {'bool':
+                         {'must':
+                              [{'bool':
+                                    {'should':
+                                         [{'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gero', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
+                                           },
+                                          {'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gerere', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
+                                           },
+                                          {'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gesta', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
+                                           }
+                                          ],
+                                     'minimum_should_match': 1
+                                     }
+                                }
+                               ]
+                          }
+                     },
+                'sort': 'urn',
+                'from': 0,
+                'size': 10,
+                'aggs':
+                    {'range':
+                         {'date_range':
+                              {'field': 'min_date',
+                               'format': 'yyyy',
+                               'ranges':
+                                   [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                    {'key': '>1000', 'from': '1000'}
+                                    ]
+                               }
+                          },
+                     'corpus':
+                         {'filters':
+                              {'filters': self.SEARCH_FILTERS_CORPORA}
+                          },
+                     'no_date':
+                         {'missing': {'field': 'min_date'}},
+                     'all_docs':
+                         {'global': {},
+                          'aggs':
+                              {'range':
+                                   {'date_range':
+                                        {'field': 'min_date',
+                                         'format': 'yyyy',
+                                         'ranges':
+                                             [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                              {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                              {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                              {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                              {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                              {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                              {'key': '>1000', 'from': '1000'}
+                                              ]
+                                         }
+                                    },
+                               'corpus':
+                                   {'filters':
+                                        {'filters': self.SEARCH_FILTERS_CORPORA}
+                                    },
+                               'no_date':
+                                   {'missing': {'field': 'min_date'}}
+                               }
+                          }
+                     },
                 'highlight':
                     {'fields':
-                         {'lemmas':
-                              {'fragment_size': 1000}
+                         {'lemmas': {'fragment_size': 1000},
+                          'regest': {'fragment_size': 1000}
                           },
                      'pre_tags': ['</small><strong>'],
                      'post_tags': ['</strong><small>'],
-                     'encoder': 'html'},
-                'aggs':
-                    {
-                        'range': {
-                            'date_range': {
-                                'field': 'min_date',
-                                'format': 'yyyy',
-                                'ranges':
-                                    [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                     {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                     {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                     {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                     {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                     {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                     {'key': '>1000', 'from': '1000'}]}},
-                        'corpus': {
-                            'filters': {
-                                'filters': self.SEARCH_FILTERS_CORPORA}},
-                        'no_date': {'missing': {'field': 'min_date'}},
-                        'all_docs': {
-                            'global': {},
-                            'aggs': {'range':
-                                         {'date_range':
-                                              {'field': 'min_date',
-                                               'format': 'yyyy',
-                                               'ranges': [
-                                                   {'key': '<499', 'from': '0002', 'to': '0499'},
-                                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                                   {'key': '>1000', 'from': '1000'}]}},
-                                     'corpus': {'filters':
-                                                    {'filters': self.SEARCH_FILTERS_CORPORA}},
-                                     'no_date': {'missing': {'field': 'min_date'}}}}}}
+                     'encoder': 'html'}
+                }
 
         resp = fake.load_response()
         ids = fake.load_ids()
@@ -2464,9 +2566,10 @@ class TestES(Formulae_Testing):
                                                       }
                                      }}
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
-        self.assertCountEqual(body['query']['bool']['should'],
-                              mock_search.call_args[1]['body']['query']['bool']['should'])
+        actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], field='lemmas', q=test_args['q'], page=1,
+                                               per_page=10)
+        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -2905,7 +3008,8 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
-            ids, hits, agg, prev = query_index(test_args['corpus'], 'lemmas', test_args['q'], 1, 10)
+            ids, hits, agg, prev = advanced_query_index(corpus=test_args['corpus'], field='lemmas',
+                                                        q=test_args['q'], page=1, per_page=10, source='simple')
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
             self.assertEqual(prev, [])
@@ -2927,8 +3031,9 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_simple_multi_corpus_search(self, mock_search):
-        test_args = OrderedDict([("index", 'formulae+chartae'), ("query", 'regnum'), ("field", "text"),
-                                 ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn')])
+        test_args = OrderedDict([("corpus", ['formulae', 'chartae']), ("q", 'regnum'), ("field", "text"),
+                                 ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn'),
+                                 ('source', 'simple')])
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                                 'title': 'St. Gallen 259'},
@@ -3032,68 +3137,143 @@ class TestES(Formulae_Testing):
                                                         }
                                                       }
                                                     }}}
-        body = {'query': {'bool': {'should': [
-                    {'span_near':
-                         {'clauses': [{'span_term': {'text': 'regnum'}}], 'slop': 0, 'in_order': True}}],
-            'minimum_should_match': 1}},
-                'sort': 'urn', 'from': 0, 'size': 10,
-                'highlight': {'fields': {'text': {'fragment_size': 1000}},
-                              'pre_tags': ['</small><strong>'],
-                              'post_tags': ['</strong><small>'], 'encoder': 'html'},
-                'aggs': {'range':
-                             {'date_range':
-                                  {'field': 'min_date',
-                                   'format': 'yyyy',
-                                   'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
+        body = {'query':
+                    {'bool':
+                         {'must':
+                              [{'bool':
+                                    {'should':
+                                         [{'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'text':
+                                                                         {'value': 'regnum', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
+                                           }
+                                          ],
+                                     'minimum_should_match': 1
+                                     }
+                                }
+                               ]
+                          }
+                     },
+                'sort': 'urn',
+                'from': 0,
+                'size': 10,
+                'aggs':
+                    {'range':
+                         {'date_range':
+                              {'field': 'min_date',
+                               'format': 'yyyy',
+                               'ranges':
+                                   [{'key': '<499', 'from': '0002', 'to': '0499'},
+                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
+                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
+                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
+                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
+                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
+                                    {'key': '>1000', 'from': '1000'}
+                                    ]
+                               }
+                          },
+                     'corpus':
+                         {'filters':
+                              {'filters': self.SEARCH_FILTERS_CORPORA}
+                          },
+                     'no_date':
+                         {'missing': {'field': 'min_date'}},
+                     'all_docs':
+                         {'global': {},
+                          'aggs':
+                              {'range':
+                                   {'date_range':
+                                        {'field': 'min_date',
+                                         'format': 'yyyy',
+                                         'ranges':
+                                             [{'key': '<499', 'from': '0002', 'to': '0499'},
                                               {'key': '500-599', 'from': '0500', 'to': '0599'},
                                               {'key': '600-699', 'from': '0600', 'to': '0699'},
                                               {'key': '700-799', 'from': '0700', 'to': '0799'},
                                               {'key': '800-899', 'from': '0800', 'to': '0899'},
                                               {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                              {'key': '>1000', 'from': '1000'}]}},
-                         'corpus':
-                             {'filters':
-                                  {'filters': self.SEARCH_FILTERS_CORPORA}},
-                         'no_date': {'missing': {'field': 'min_date'}},
-                         'all_docs': {'global': {},
-                                      'aggs': {
-                                          'range':
-                                              {'date_range':
-                                                   {'field': 'min_date',
-                                                    'format': 'yyyy',
-                                                    'ranges': [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                                               {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                                               {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                                               {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                                               {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                                               {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                                               {'key': '>1000', 'from': '1000'}]}},
-                                          'corpus':
-                                              {'filters':
-                                                   {'filters': self.SEARCH_FILTERS_CORPORA}},
-                                          'no_date': {'missing': {'field': 'min_date'}}
-                                      }
-                                      }
-                         }
+                                              {'key': '>1000', 'from': '1000'}
+                                              ]
+                                         }
+                                    },
+                               'corpus':
+                                   {'filters':
+                                        {'filters': self.SEARCH_FILTERS_CORPORA}
+                                    },
+                               'no_date':
+                                   {'missing': {'field': 'min_date'}}
+                               }
+                          }
+                     },
+                'highlight':
+                    {'fields':
+                         {'text': {'fragment_size': 1000},
+                          'regest': {'fragment_size': 1000}
+                          },
+                     'pre_tags': ['</small><strong>'],
+                     'post_tags': ['</strong><small>'],
+                     'encoder': 'html'
+                     }
                 }
-        query_index(**test_args)
-        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
-        test_args['query'] = 'regnum domni'
-        body['query']['bool']['should'][0]['span_near']['clauses'] = [{'span_term': {'text': 'regnum'}}, {'span_term': {'text': 'domni'}}]
-        query_index(**test_args)
-        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
-        test_args['query'] = 're?num'
-        body['query']['bool']['should'][0]['span_near']['clauses'] = [{'span_multi': {'match': {'wildcard': {'text': 're?num'}}}}]
-        query_index(**test_args)
-        mock_search.assert_any_call(index='formulae+chartae', doc_type="", body=body)
-        test_args['index'] = ['']
-        hits, total, aggs, prev = query_index(**test_args)
-        self.assertEqual(hits, [], 'Hits should be an empty list.')
-        self.assertEqual(total, 0, 'Total should be 0')
-        self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
-        test_args['index'] = ['formulae', 'chartae']
-        test_args['query'] = ''
-        hits, total, aggs, prev = query_index(**test_args)
+        advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        test_args['q'] = 'regnum domni'
+        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
+                                                                                              {'match':
+                                                                                                   {'fuzzy':
+                                                                                     {'text':
+                                                                                          {'value': 'regnum',
+                                                                                           'fuzziness': '0'
+                                                                                           }
+                                                                                      }
+                                                                                 }
+                                                                            }
+                                                                       },
+                                                                      {'span_multi':
+                                                                           {'match':
+                                                                                {'fuzzy':
+                                                                                     {'text':
+                                                                                          {'value': 'domni',
+                                                                                           'fuzziness': '0'
+                                                                                           }
+                                                                                      }
+                                                                                 }
+                                                                            }
+                                                                       }
+                                                                      ]
+        advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
+        test_args['q'] = 're?num'
+        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
+                                                                                              {'match':
+                                                                                                   {'wildcard':
+                                                                                                        {'text': 're?num'}
+                                                                                                    }
+                                                                                               }
+                                                                                          }
+                                                                                         ]
+        advanced_query_index(**test_args)
+        self.assertCountEqual({'index': ['formulae', 'chartae'], 'doc_type': "", 'body': body},
+                              mock_search.call_args[1])
+        test_args['corpus'] = ['']
+        hits, total, aggs, prev = advanced_query_index(**test_args)
+        self.assertEqual(mock_search.call_args[1]['index'], ['all'],
+                         'Empty string for corpus input should default to ["all"]')
+        test_args['corpus'] = ['formulae', 'chartae']
+        test_args['q'] = ''
+        hits, total, aggs, prev = advanced_query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
