@@ -1265,7 +1265,7 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
-                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
+                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\").'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_invalid_query_simple_search_form(self):
@@ -3279,7 +3279,7 @@ class TestES(Formulae_Testing):
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
-            self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
+            self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             old_search_args = session['previous_search_args']
             self.assertIn('fulda_dronke', old_search_args['corpus'],
