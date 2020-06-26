@@ -126,6 +126,23 @@ ul.menu li a.active {
     -o-box-shadow: 1px 2px 0px 0px #656565;
     box-shadow: 1px 2px 0px 0px #656565;
 }
+
+#reading-container article.multi-reading-row { 
+    padding-right: 30px;
+}
+
+#reading-container article.multi-reading-row[style*="height: auto"] {
+    padding-bottom: 0px;
+}
+
+#reading-container article.multi-reading-row[style*="height: auto"] .maximize-window-icon {
+    display: none;
+}
+
+#reading-container article.multi-reading-row[style*="height: 40vh"] .minimize-window-icon {
+    display: none;
+}
+
 #reading-container article.reffs {
     max-width:90%;
 }

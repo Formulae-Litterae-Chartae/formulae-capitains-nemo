@@ -1,7 +1,7 @@
 from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
-from .Search import query_index, advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
+from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
@@ -52,10 +52,14 @@ def r_results():
         old_search = True
     # Unlike in the Flask Megatutorial, I need to specifically pass the field name
     if source == 'simple':
-        posts, total, aggs, g.previous_search = query_index(corpus, field,
-                                   g.search_form.q.data,
-                                   page, current_app.config['POSTS_PER_PAGE'],
-                                   sort=request.args.get('sort', 'urn'), old_search=old_search)
+        posts, total, aggs, g.previous_search = advanced_query_index(corpus=corpus,
+                                                                     field=field,
+                                                                     q=g.search_form.q.data,
+                                                                     page=page,
+                                                                     per_page=current_app.config['POSTS_PER_PAGE'],
+                                                                     sort=request.args.get('sort', 'urn'),
+                                                                     old_search=old_search,
+                                                                     source='simple')
         search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
                        'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search'),}
     else:
@@ -82,7 +86,8 @@ def r_results():
                                                                      composition_place=request.args.get('composition_place', ''),
                                                                      sort=request.args.get('sort', 'urn'),
                                                                      special_days=special_days,
-                                                                     old_search=old_search)
+                                                                     old_search=old_search,
+                                                                     source='advanced')
         search_args = {x:y for x, y in request.args.items()}
         search_args.pop('page', None)
         search_args['corpus'] = '+'.join(corpus)

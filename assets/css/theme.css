@@ -180,10 +180,9 @@ a.lex:active {
     visibility: visible;
 }
 
-.row {
+#sub-container {
     padding-top: 30px;
     padding-bottom: 30px;
-
 }
 
 .row_mv {
@@ -209,11 +208,11 @@ a.lex:active {
   text-align: center;
 }
 
-#reading-container article section.with-border {
+#reading-container article .with-border {
     border-right: 1px solid;
 }
 
-#reading-container article section.bottom-border {
+#reading-container article .bottom-border {
     border-bottom: 1px solid;
 }
 
@@ -686,7 +685,7 @@ div.transcription p {
     height: 30px;
 }
 
-#scroll-control-image {
+.scroll-control-image {
     border-left: 1px solid;
     padding-left: 10px;
     margin-left: 10px;
@@ -735,4 +734,58 @@ p.flash-grey {
 
 .related-text {
     margin-left: 1em;
+}
+
+.ui-resizable-s {
+    bottom: 0px;
+}
+
+.ui-resizable-s:hover {
+    background: lightgrey;
+}
+
+.multi-reading-row {
+    min-height: 30vh;
+    height: 40vh;
+}
+
+.multi-reading-row .text-row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: calc(100% - 24px);
+    width: 100%;
+}
+
+.multi-reading-row .image-row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: calc(100% - 24px);
+    width: 100%;
+}
+
+.text-row-handle {
+    left: 48%;
+    position: relative;
+    bottom: -3px;
+}
+
+.close-window-icon {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.maximize-window-icon,.minimize-window-icon,.add-window-icon {
+    padding-left: 3px;
+    padding-right: 3px;
+    bottom: -.5px;
+}
+
+.add-text-toggle::after {
+    content: none;
+}
+
+.dropleft .add-text-toggle::before {
+    content: none;
 }

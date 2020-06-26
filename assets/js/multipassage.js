@@ -286,7 +286,7 @@ $('.reading-format-setter').bind('click', function(event) {
 
 function goToLinkedParagraph(h, t) {
     el = document.getElementById(t);
-    if (scrollControl.getAttribute('title') == toScrollingTexts) {
+    if (scrollControl && scrollControl.getAttribute('title') == toScrollingTexts) {
         scrollControl.setAttribute('title', fromScrollingTexts);
         scrollControl.setAttribute('src', scrollTogetherSrc);
         var textSections = document.querySelectorAll('.text-section');
@@ -301,5 +301,4 @@ function goToLinkedParagraph(h, t) {
     target.scrollIntoView();
     target.onanimationend =  function() {this.classList.remove('flash-grey')};
     target.classList.add( 'flash-grey' );
-    console.log(target);
 };

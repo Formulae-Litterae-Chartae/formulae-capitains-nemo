@@ -73,7 +73,7 @@ def r_user(username: str = None):
     email_form = EmailChangeForm()
     if email_form.validate_on_submit():
         send_email_reset_email(current_user, email_form.email.data)
-        flash(_("Ein Link zur Bestätitung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt"))
+        flash(_("Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse zugeschickt"))
         return redirect(url_for('auth.r_user'))
     elif request.method == 'GET':
         language_form.new_locale.data = current_user.default_locale
