@@ -1,5 +1,5 @@
 {
-  "took": 20,
+  "took": 15,
   "timed_out": false,
   "_shards": {
     "total": 31,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form048.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form051.lat001",
         "_score": null,
@@ -141,7 +141,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form052.lat001",
         "_score": null,
@@ -187,7 +187,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 8045,
+      "doc_count": 10179,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -218,7 +218,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 254
+            "doc_count": 2282
           },
           "Luzern": {
             "doc_count": 6
@@ -230,7 +230,7 @@
             "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 83
+            "doc_count": 189
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -301,7 +301,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 23
+            "doc_count": 25
           },
           {
             "key": "600-699",
@@ -317,7 +317,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1444
+            "doc_count": 3056
           },
           {
             "key": "800-899",
@@ -325,7 +325,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2286
+            "doc_count": 2598
           },
           {
             "key": "900-999",
@@ -333,18 +333,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2803
+            "doc_count": 2811
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 878
+            "doc_count": 984
           }
         ]
       },
       "no_date": {
-        "doc_count": 358
+        "doc_count": 434
       }
     },
     "corpus": {

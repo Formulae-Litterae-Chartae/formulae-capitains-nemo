@@ -82,18 +82,18 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
         return [{'urn': {'order': 'desc'}}]
 
 
-def set_session_token(index: list, orig_template: dict, field: str, q: str, regest_q: str = None,
-                      ordered_terms: bool = False, slop: int = 0,
-                      regest_field: str = 'regest', fuzz: str = '0') -> List[Dict[str, Union[str, List[str]]]]:
+def set_session_token(index: list, orig_template: dict, field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
     """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
     session_search = current_app.elasticsearch.search(index=index, doc_type="", body=template)
-    search_hits = list()
+    search_hits = session_search['hits']['hits']
     highlighted_terms = set()
     if q:
-        search_hits, highlighted_terms = lem_highlight_to_text(session_search, q, ordered_terms, slop, regest_field,
-                                                               field, 'text', fuzz)
+        for hit in search_hits:
+            for highlight in hit['highlight'][field]:
+                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                    highlighted_terms.add(m.group(1).lower())
     g.highlighted_words = highlighted_terms
     return search_hits
 
@@ -190,7 +190,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
-            vectors = current_app.config['nemo_app'].all_term_vectors[hit['_id']]
+            vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
             highlight_offsets = dict()
             searched_positions = dict()
             for v in vectors['term_vectors'][highlight_field]['terms'].values():
@@ -252,7 +252,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
                             start_offsets = [highlight_offsets[x][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[x][1] for x in ordered_span]
+                            end_offsets = [highlight_offsets[x][1] - 1 for x in ordered_span]
                             start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
                             end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
                             sentence = ''
@@ -285,7 +285,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
-                    end_offset = highlight_offsets[pos][1]
+                    end_offset = highlight_offsets[pos][1] - 1
                     start_index = highlight_offsets[max(0, pos - 10)][0]
                     end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
                     sentence = ''
@@ -473,8 +473,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
     if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '',
-                          regest_q if regest_field == 'regest' else '', ordered_terms, slop, regest_field, fuzz=fuzz)
+        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '')
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \

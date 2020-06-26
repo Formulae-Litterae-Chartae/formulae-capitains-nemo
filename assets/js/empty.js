@@ -108,6 +108,7 @@ $(document).ready(function () {
         }
     };
 
+    // from http://jsfiddle.net/zpkKv/2/
     $('#simple-search-q').on('change invalid', function() {
         var textfield = $(this).get(0);
         

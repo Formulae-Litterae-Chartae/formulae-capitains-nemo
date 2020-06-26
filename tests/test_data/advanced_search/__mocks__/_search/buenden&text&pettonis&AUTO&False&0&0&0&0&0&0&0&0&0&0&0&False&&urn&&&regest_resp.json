@@ -1,5 +1,5 @@
 {
-  "took": 17,
+  "took": 22,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -51,7 +51,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -344,14 +344,14 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Friday",
             "Lent",
+            "Thursday",
             "Sunday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -365,7 +365,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -410,7 +410,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,

@@ -1,5 +1,5 @@
 {
-  "took": 14,
+  "took": 42,
   "timed_out": false,
   "_shards": {
     "total": 31,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 638,
+    "total": 944,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,14 +305,14 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Friday",
             "Lent",
+            "Thursday",
             "Sunday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,14 +542,14 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Thursday",
             "Easter",
-            "Tuesday",
-            "Saturday",
-            "Monday",
+            "Sunday",
             "Friday",
             "Lent",
-            "Sunday",
+            "Tuesday",
+            "Thursday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0001.lat001",
         "_score": null,
@@ -595,7 +595,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0012.lat001",
         "_score": null,
@@ -654,12 +654,12 @@
           ],
           "min_date": "0758-03-15",
           "days": [
-            "Thursday",
-            "Saturday",
-            "Monday",
-            "Tuesday",
-            "Lent",
             "Sunday",
+            "Lent",
+            "Tuesday",
+            "Thursday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -668,7 +668,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0037.lat001",
         "_score": null,
@@ -745,12 +745,12 @@
           ],
           "min_date": "0769-08-01",
           "days": [
-            "Thursday",
-            "Saturday",
             "Tuesday",
-            "Monday",
-            "Friday",
             "Sunday",
+            "Friday",
+            "Thursday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -759,7 +759,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0038.lat001",
         "_score": null,
@@ -796,7 +796,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0047.lat001",
         "_score": null,
@@ -833,7 +833,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0055.lat001",
         "_score": null,
@@ -871,7 +871,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0060.lat001",
         "_score": null,
@@ -908,7 +908,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v4",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0062.lat001",
         "_score": null,
@@ -948,7 +948,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 8045,
+      "doc_count": 10179,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -979,7 +979,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 254
+            "doc_count": 2282
           },
           "Luzern": {
             "doc_count": 6
@@ -991,7 +991,7 @@
             "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 83
+            "doc_count": 189
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -1062,7 +1062,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 23
+            "doc_count": 25
           },
           {
             "key": "600-699",
@@ -1078,7 +1078,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1444
+            "doc_count": 3056
           },
           {
             "key": "800-899",
@@ -1086,7 +1086,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2286
+            "doc_count": 2598
           },
           {
             "key": "900-999",
@@ -1094,18 +1094,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2803
+            "doc_count": 2811
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 878
+            "doc_count": 984
           }
         ]
       },
       "no_date": {
-        "doc_count": 358
+        "doc_count": 434
       }
     },
     "corpus": {
@@ -1138,7 +1138,7 @@
           "doc_count": 230
         },
         "Lorsch": {
-          "doc_count": 13
+          "doc_count": 319
         },
         "Luzern": {
           "doc_count": 0
@@ -1237,7 +1237,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 130
+          "doc_count": 375
         },
         {
           "key": "800-899",
@@ -1245,7 +1245,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 240
+          "doc_count": 299
         },
         {
           "key": "900-999",
@@ -1253,7 +1253,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 237
+          "doc_count": 238
         },
         {
           "key": ">1000",

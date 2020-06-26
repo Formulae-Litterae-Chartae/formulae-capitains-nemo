@@ -1,5 +1,5 @@
 {
-  "took": 23,
+  "took": 40,
   "timed_out": false,
   "_shards": {
     "total": 31,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 439,
+    "total": 518,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,14 +305,14 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Friday",
             "Lent",
+            "Thursday",
             "Sunday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -361,7 +361,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -401,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -441,7 +441,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -481,7 +481,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -549,7 +549,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -583,7 +583,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v4",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0121.lat001",
         "_score": null,
@@ -617,7 +617,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v4",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0122.lat001",
         "_score": null,
@@ -654,7 +654,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 8045,
+      "doc_count": 10179,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -685,7 +685,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 254
+            "doc_count": 2282
           },
           "Luzern": {
             "doc_count": 6
@@ -697,7 +697,7 @@
             "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 83
+            "doc_count": 189
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -768,7 +768,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 23
+            "doc_count": 25
           },
           {
             "key": "600-699",
@@ -784,7 +784,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1444
+            "doc_count": 3056
           },
           {
             "key": "800-899",
@@ -792,7 +792,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2286
+            "doc_count": 2598
           },
           {
             "key": "900-999",
@@ -800,18 +800,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2803
+            "doc_count": 2811
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 878
+            "doc_count": 984
           }
         ]
       },
       "no_date": {
-        "doc_count": 358
+        "doc_count": 434
       }
     },
     "corpus": {
@@ -844,7 +844,7 @@
           "doc_count": 8
         },
         "Lorsch": {
-          "doc_count": 5
+          "doc_count": 82
         },
         "Luzern": {
           "doc_count": 6
@@ -856,7 +856,7 @@
           "doc_count": 0
         },
         "Marmoutier - Manceau": {
-          "doc_count": 1
+          "doc_count": 3
         },
         "Marmoutier - Serfs": {
           "doc_count": 0
@@ -943,7 +943,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 375
+          "doc_count": 421
         },
         {
           "key": "800-899",
@@ -951,7 +951,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 49
+          "doc_count": 80
         },
         {
           "key": "900-999",
@@ -965,7 +965,7 @@
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 9
+          "doc_count": 11
         }
       ]
     },

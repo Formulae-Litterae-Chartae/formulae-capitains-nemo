@@ -1,5 +1,5 @@
 {
-  "took": 29,
+  "took": 273,
   "timed_out": false,
   "_shards": {
     "total": 31,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 9,
+    "total": 11,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -98,7 +98,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -391,14 +391,14 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Thursday",
             "Easter",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Friday",
             "Lent",
+            "Thursday",
             "Sunday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -633,14 +633,14 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Thursday",
             "Easter",
-            "Tuesday",
-            "Saturday",
-            "Monday",
+            "Sunday",
             "Friday",
             "Lent",
-            "Sunday",
+            "Tuesday",
+            "Thursday",
+            "Monday",
+            "Saturday",
             "Wednesday"
           ]
         },
@@ -654,7 +654,121 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "lorsch_v4",
+        "_type": "lorsch",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "CodesLaureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 966 (Reg. 1045)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
+          "date_string": "774 06 29",
+          "comp_ort": "Lorsch",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lorsch",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 774,
+              "month": 6,
+              "day": 29
+            }
+          ],
+          "all_dates": [
+            "0774-06-29"
+          ],
+          "min_date": "0774-06-29",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:lorsch.gloeckner1074.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v4",
+        "_type": "lorsch",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "CodesLaureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 967 (Reg. 926)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
+          "date_string": "773 07 07",
+          "comp_ort": "Lorsch",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lorsch",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 773,
+              "month": 7,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0773-07-07"
+          ],
+          "min_date": "0773-07-07",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          "urn:cts:formulae:lorsch.gloeckner1075.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -714,7 +828,7 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -774,7 +888,7 @@
         ]
       },
       {
-        "_index": "raetien_v2",
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -838,7 +952,7 @@
         ]
       },
       {
-        "_index": "stgallen_v2",
+        "_index": "stgallen_v4",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -893,76 +1007,12 @@
         "sort": [
           "urn:cts:formulae:stgallen.wartmann0026.lat001"
         ]
-      },
-      {
-        "_index": "stgallen_v2",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
-          "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
-          "date_string": "858 (865) 02 12",
-          "comp_ort": "Grabs",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Grabs",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 858,
-              "month": 2,
-              "day": 12
-            },
-            {
-              "year": 865,
-              "month": 2,
-              "day": 12
-            }
-          ],
-          "all_dates": [
-            "0858-02-12",
-            "0865-02-12"
-          ],
-          "min_date": "0858-02-12",
-          "days": [
-            "Saturday",
-            "Monday"
-          ]
-        },
-        "highlight": {
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:stgallen.wartmann0458.lat001"
-        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 8045,
+      "doc_count": 10179,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -993,7 +1043,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 254
+            "doc_count": 2282
           },
           "Luzern": {
             "doc_count": 6
@@ -1005,7 +1055,7 @@
             "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 83
+            "doc_count": 189
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -1076,7 +1126,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 23
+            "doc_count": 25
           },
           {
             "key": "600-699",
@@ -1092,7 +1142,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 1444
+            "doc_count": 3056
           },
           {
             "key": "800-899",
@@ -1100,7 +1150,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2286
+            "doc_count": 2598
           },
           {
             "key": "900-999",
@@ -1108,18 +1158,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2803
+            "doc_count": 2811
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 878
+            "doc_count": 984
           }
         ]
       },
       "no_date": {
-        "doc_count": 358
+        "doc_count": 434
       }
     },
     "corpus": {
@@ -1152,7 +1202,7 @@
           "doc_count": 0
         },
         "Lorsch": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Luzern": {
           "doc_count": 0
@@ -1251,7 +1301,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 5
+          "doc_count": 7
         },
         {
           "key": "800-899",
