@@ -10,6 +10,7 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
+from formulae.search.Search import lem_highlight_to_text
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -162,8 +163,6 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
-        if not self.app.testing:
-            self.all_term_vectors = self.get_all_term_vectors()
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -334,20 +333,6 @@ class NemoFormulae(Nemo):
     def sort_katalonien(self, t: tuple):
         """ Correctly sort the Katalonien documents with mixed number and Roman numerals"""
         return re.sub(r'[IVX]+\Z', lambda x: self.ROMAN_NUMERAL_SORTING[x.group(0)], t[0])
-
-    def get_all_term_vectors(self):
-        all_vectors = dict()
-        for k, v in self.all_texts.items():
-            index = k.split(':')[-1]
-            if 'katalonien' in index:
-                index = 'katalonien'
-            elif 'marmoutier_manceau' in index:
-                index = 'marmoutier_manceau'
-            ids = [x[1][0] for x in v]
-            all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
-                                                                                         doc_type=index,
-                                                                                         body={'ids': ids})['docs']})
-        return all_vectors
 
     @staticmethod
     def check_project_team() -> bool:
@@ -1081,9 +1066,9 @@ class NemoFormulae(Nemo):
                             d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
-                        result_sents = [x for x in session['previous_search'] if x['id'] == id]
-                        if result_sents:
-                            d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_sents[0])
+                        result_ids = [x for x in session['previous_search'] if x['_id'] == id]
+                        if result_ids:
+                            d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
@@ -1091,7 +1076,7 @@ class NemoFormulae(Nemo):
         return passage_data
 
     @staticmethod
-    def highlight_found_sents(html: str, results: Dict[str, Union[List[str], str]]) -> str:
+    def highlight_found_sents(html: str, results: List[Dict[str, Union[List[str], str]]]) -> str:
         """ Adds "searched" to the classList of words in "sents" from elasticsearch results
 
         :param html: the marked-up text to be searched
@@ -1100,9 +1085,20 @@ class NemoFormulae(Nemo):
         """
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
-        if 'sentence_spans' in results:
-            for sent_index, sent in enumerate(results['sents']):
-                for span_index, i in enumerate(results['sentence_spans'][sent_index]):
+        prev_args = session['previous_search_args']
+        ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
+                                           q=prev_args.get('q', ''),
+                                           ordered_terms=prev_args.get('ordered_terms', False),
+                                           slop=prev_args.get('slop', 0),
+                                           regest_field=prev_args.get('regest_field', 'regest'),
+                                           search_field=prev_args.get('search_field', 'text'),
+                                           highlight_field='text',
+                                           fuzz=prev_args.get('fuzz', '0'))
+        if not any(ids):
+            return html
+        if 'sentence_spans' in ids[0]:
+            for sent_index, sent in enumerate(ids[0]['sents']):
+                for span_index, i in enumerate(ids[0]['sentence_spans'][sent_index]):
                     if span_index == 0 and 'searched-start' not in spans[i].get('class'):
                         spans[i].set('class', spans[i].get('class') + ' searched-start')
                     elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):

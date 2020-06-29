@@ -28,7 +28,7 @@ class SearchForm(FlaskForm):
     corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
-                                     message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")'))]
+                                     message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").'))]
                                  )
     lemma_search = BooleanField(_l('Lemma'))
 

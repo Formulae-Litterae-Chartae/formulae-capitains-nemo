@@ -88,6 +88,9 @@
     {% endfor %}
 
   {% block additionalscript %}
+  <script>
+    var simpleSearchQMessage="{{ _('Ein Suchterminus ist erforderlich.') }}"; 
+  </script>
   {% endblock %}
   {% block footer %}
   {% endblock %}

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-23 14:45+0200\n"
+"POT-Creation-Date: 2020-06-25 17:14+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -55,7 +55,9 @@ msgstr "(Prologue)"
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
-msgstr "Reading direction changed. You may need to refresh the page in your browser."
+msgstr ""
+"Reading direction changed. You may need to refresh the page in your "
+"browser."
 
 #: formulae/nemo.py:666 tests/test_routes.py:227 tests/test_routes.py:489
 msgid ""
@@ -277,12 +279,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:3316
+#: tests/test_routes.py:3496
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:3317
+#: tests/test_routes.py:3497
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -292,28 +294,28 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:107 formulae/search/Search.py:415
-#: tests/test_routes.py:2901 tests/test_routes.py:2912
+#: formulae/search/Search.py:185 tests/test_routes.py:785
+msgid "Text nicht zugänglich."
+msgstr "Text not available"
+
+#: formulae/search/Search.py:305 tests/test_routes.py:788
+msgid "Regest nicht zugänglich."
+msgstr "Regest not available"
+
+#: formulae/search/Search.py:361 tests/test_routes.py:3004
+#: tests/test_routes.py:3016
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr "Wildcard characters (\"*\" and \"?\") are not allowed in lemma searches."
 
-#: formulae/search/Search.py:241 tests/test_routes.py:785
-msgid "Text nicht zugänglich."
-msgstr "Text not available"
-
-#: formulae/search/Search.py:361 tests/test_routes.py:788
-msgid "Regest nicht zugänglich."
-msgstr "Regest not available"
-
 #: formulae/search/forms.py:27 formulae/search/forms.py:44
-#: formulae/search/forms.py:106 formulae/search/routes.py:146
+#: formulae/search/forms.py:106 formulae/search/routes.py:151
 msgid "Suche"
 msgstr "Search"
 
 #: formulae/search/forms.py:28 formulae/search/forms.py:52
-#: formulae/search/routes.py:231 templates/search/documentation.html:11
+#: formulae/search/routes.py:236 templates/search/documentation.html:11
 msgid "Corpora"
 msgstr ""
 
@@ -327,13 +329,14 @@ msgid "Urkunden"
 msgstr "Charters"
 
 #: formulae/search/forms.py:31 tests/test_routes.py:1268
-#: tests/test_routes.py:3102
+#: tests/test_routes.py:3282
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
-"und/oder \"Urkunden\")"
+"und/oder \"Urkunden\")."
 msgstr ""
-"You must select at least one collection to search (\"Formulae\" and/or "
-"\"Charters\")"
+"You must select at least one "
+"collection to search (\"Formulae\" and/or "
+"\"Charters\")."
 
 #: formulae/search/forms.py:33 formulae/search/forms.py:45
 #: templates/main/lexicon.html:5 templates/main/lexicon.html:9
@@ -341,7 +344,7 @@ msgstr ""
 msgid "Lemma"
 msgstr "Lemma"
 
-#: formulae/search/forms.py:46 formulae/search/routes.py:225
+#: formulae/search/forms.py:46 formulae/search/routes.py:230
 #: templates/search/documentation.html:21
 msgid "Unschärfegrad"
 msgstr "Fuzziness Level"
@@ -350,12 +353,12 @@ msgstr "Fuzziness Level"
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:49 formulae/search/routes.py:226
+#: formulae/search/forms.py:49 formulae/search/routes.py:231
 #: templates/search/documentation.html:23
 msgid "Suchradius"
 msgstr "Search Radius"
 
-#: formulae/search/forms.py:50 formulae/search/routes.py:226
+#: formulae/search/forms.py:50 formulae/search/routes.py:231
 msgid "Wortreihenfolge beachten?"
 msgstr "Keep Word Order?"
 
@@ -368,7 +371,7 @@ msgid "Alle"
 msgstr "All"
 
 #: formulae/search/forms.py:54 formulae/search/forms.py:65
-#: formulae/search/forms.py:77 formulae/search/routes.py:226
+#: formulae/search/forms.py:77 formulae/search/routes.py:231
 msgid "Jahr"
 msgstr "Year"
 
@@ -378,7 +381,7 @@ msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "The year must be between 500 and 1000"
 
 #: formulae/search/forms.py:57 formulae/search/forms.py:68
-#: formulae/search/forms.py:81 formulae/search/routes.py:227
+#: formulae/search/forms.py:81 formulae/search/routes.py:232
 msgid "Monat"
 msgstr "Month"
 
@@ -443,7 +446,7 @@ msgid "Dez"
 msgstr "Dec"
 
 #: formulae/search/forms.py:62 formulae/search/forms.py:73
-#: formulae/search/forms.py:86 formulae/search/routes.py:227
+#: formulae/search/forms.py:86 formulae/search/routes.py:232
 msgid "Tag"
 msgstr "Day"
 
@@ -452,7 +455,7 @@ msgstr "Day"
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "Day must be between 1 and 31"
 
-#: formulae/search/forms.py:89 formulae/search/routes.py:229
+#: formulae/search/forms.py:89 formulae/search/routes.py:234
 #: templates/search/documentation.html:31
 msgid "Datum Plus-Minus"
 msgstr "Date Plus-Minus"
@@ -461,12 +464,12 @@ msgstr "Date Plus-Minus"
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Plus-Minus must be between 0 and 100 years"
 
-#: formulae/search/forms.py:93 formulae/search/routes.py:230
+#: formulae/search/forms.py:93 formulae/search/routes.py:235
 #: templates/search/documentation.html:35
 msgid "Exklusiv"
 msgstr "Exclusive"
 
-#: formulae/search/forms.py:94 formulae/search/routes.py:230
+#: formulae/search/forms.py:94 formulae/search/routes.py:235
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Ausstellungsort"
@@ -516,67 +519,67 @@ msgstr ""
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:23 tests/test_routes.py:3103
+#: formulae/search/routes.py:23 tests/test_routes.py:3283
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:25 tests/test_routes.py:3114
+#: formulae/search/routes.py:25 tests/test_routes.py:3294
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr " The simple search requires a search term."
 
-#: formulae/search/routes.py:175 tests/test_routes.py:852
+#: formulae/search/routes.py:180 tests/test_routes.py:852
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
-#: formulae/search/routes.py:219 tests/test_routes.py:3274
+#: formulae/search/routes.py:224 tests/test_routes.py:3454
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr "There are no search results to download."
 
-#: formulae/search/routes.py:224
+#: formulae/search/routes.py:229
 msgid "Suchbegriff"
 msgstr "Search string"
 
-#: formulae/search/routes.py:224
+#: formulae/search/routes.py:229
 msgid "Lemma?"
 msgstr ""
 
-#: formulae/search/routes.py:225
+#: formulae/search/routes.py:230
 msgid "Regesten Suchbegriff"
 msgstr "Regest search string"
 
-#: formulae/search/routes.py:227
+#: formulae/search/routes.py:232
 msgid "Anfangsjahr"
 msgstr "Start Year"
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Anfangsmonat"
 msgstr "Start Month"
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Anfangstag"
 msgstr "Start Day"
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Endjahr"
 msgstr "End Year"
 
-#: formulae/search/routes.py:229
+#: formulae/search/routes.py:234
 msgid "Endmonat"
 msgstr "End Month"
 
-#: formulae/search/routes.py:229
+#: formulae/search/routes.py:234
 msgid "Endtag"
 msgstr "End Day"
 
-#: formulae/search/routes.py:243
+#: formulae/search/routes.py:248
 msgid "Aus dem Regest"
 msgstr "From the Regest"
 
-#: formulae/search/routes.py:252
+#: formulae/search/routes.py:257
 msgid "Suchparameter"
 msgstr "Search parameters"
 
-#: formulae/search/routes.py:255 templates/search/search.html:9
+#: formulae/search/routes.py:260 templates/search/search.html:9
 #: templates/search/search.html:43
 msgid "Suchergebnisse"
 msgstr "Search Results"
@@ -742,6 +745,10 @@ msgstr ""
 "URL, the complete title of the text, as well as a detailed description of"
 " the problem you have found along with your suggestion to correct this "
 "problem."
+
+#: templates/main/container.html:92
+msgid "Ein Suchterminus ist erforderlich."
+msgstr "A search term is required."
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
@@ -1698,7 +1705,7 @@ msgstr "There are no manuscript images for Angers 3 (deu)"
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' is not valid input for this field."
 
-#: tests/test_routes.py:1277 tests/test_routes.py:3113
+#: tests/test_routes.py:1277 tests/test_routes.py:3293
 msgid "Dieses Feld wird benötigt."
 msgstr "This is a required field."
 
@@ -3266,4 +3273,13 @@ msgstr "This is a required field."
 #~ " wurde an Ihre neue Emailadresse "
 #~ "zugeschickt"
 #~ msgstr ""
+
+#~ msgid ""
+#~ "Sie müssen mindestens eine Sammlung für"
+#~ " die Suche auswählen (\"Formeln\" und/oder"
+#~ " \"Urkunden\")"
+#~ msgstr ""
+#~ "You must select at least one "
+#~ "collection to search (\"Formulae\" and/or "
+#~ "\"Charters\")"
 
