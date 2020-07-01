@@ -213,7 +213,13 @@ class NemoFormulae(Nemo):
             for m in members:
                 m.update({'short_title':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
-            colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
+                m.update({'coverage':
+                              str(self.resolver.getMetadata(m['id']).metadata.get_single(DC.coverage))})
+            if member['id'] != 'other_collection':
+                colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
+            else:
+                colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
+                                                                     x['label']))
         return colls
 
     @staticmethod
