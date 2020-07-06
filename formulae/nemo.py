@@ -97,7 +97,7 @@ class NemoFormulae(Nemo):
                         # 'urn:cts:formulae:marmoutier_manceau',
                         # 'urn:cts:formulae:marmoutier_serfs',
                         # 'urn:cts:formulae:marmoutier_vendomois',
-                        # 'urn:cts:formulae:marmoutier_vendomois_saintmarc',
+                        # 'urn:cts:formulae:marmoutier_vendomois_appendix',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         # 'urn:cts:formulae:papsturkunden_frankreich',
@@ -322,7 +322,7 @@ class NemoFormulae(Nemo):
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
                      for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:katalonien',
                                                                                     'urn:cts:formulae:marmoutier_manceau',
-                                                                                    'urn:cts:formulae:marmoutier_vedomois_saintmarc']}
+                                                                                    'urn:cts:formulae:marmoutier_vedomois_appendix']}
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()],
                                     key=self.sort_katalonien)
@@ -332,7 +332,7 @@ class NemoFormulae(Nemo):
                           for m in self.resolver.children['urn:cts:formulae:marmoutier_manceau']})
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
-                          for m in self.resolver.children['urn:cts:formulae:marmoutier_vendomois_saintmarc']})
+                          for m in self.resolver.children['urn:cts:formulae:marmoutier_vendomois_appendix']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -588,7 +588,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_saintmarc', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
