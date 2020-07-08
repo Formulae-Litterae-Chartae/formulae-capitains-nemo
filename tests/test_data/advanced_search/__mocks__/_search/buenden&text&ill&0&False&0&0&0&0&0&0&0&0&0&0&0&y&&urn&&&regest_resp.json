@@ -38,6 +38,9 @@
           "Fulda (Stengel)": {
             "doc_count": 0
           },
+          "Gorze": {
+            "doc_count": 0
+          },
           "Hersfeld": {
             "doc_count": 0
           },
@@ -53,6 +56,9 @@
           "Marculf": {
             "doc_count": 0
           },
+          "Marmoutier - Dunois": {
+            "doc_count": 0
+          },
           "Marmoutier - Fougères": {
             "doc_count": 0
           },
@@ -65,7 +71,7 @@
           "Marmoutier - Vendômois": {
             "doc_count": 0
           },
-          "Marmoutier - Vendômois, Saint-Marc": {
+          "Marmoutier - Vendômois, Appendix": {
             "doc_count": 0
           },
           "Merowinger": {
@@ -197,6 +203,9 @@
         "Fulda (Stengel)": {
           "doc_count": 0
         },
+        "Gorze": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 0
         },
@@ -212,6 +221,9 @@
         "Marculf": {
           "doc_count": 0
         },
+        "Marmoutier - Dunois": {
+          "doc_count": 0
+        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
@@ -224,7 +236,7 @@
         "Marmoutier - Vendômois": {
           "doc_count": 0
         },
-        "Marmoutier - Vendômois, Saint-Marc": {
+        "Marmoutier - Vendômois, Appendix": {
           "doc_count": 0
         },
         "Merowinger": {

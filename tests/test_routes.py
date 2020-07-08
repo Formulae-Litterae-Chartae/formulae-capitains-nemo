@@ -1861,36 +1861,38 @@ class TestES(Formulae_Testing):
                                                  }}
 
     SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
-                              'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                              'Bünden': {'match': {'_type': 'buenden'}},
-                              'Echternach': {'match': {'_type': 'echternach'}},
-                              'Freising': {'match': {'_type': 'freising'}},
-                              'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                              'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                              'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                              'Katalonien': {'match': {'_type': 'katalonien'}},
-                              'Lorsch': {'match': {'_type': 'lorsch'}},
-                              'Luzern': {'match': {'_type': 'luzern'}},
-                              'Marculf': {'match': {'_type': 'marculf'}},
-                              'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
-                              'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
-                              'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
-                              'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
-                              'Marmoutier - Vendômois, Saint-Marc': {'match': {'_type': 'marmoutier_vendomois_saintmarc'}},
-                              'Merowinger': {'match': {'_type': 'merowinger1'}},
-                              'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                              'Mondsee': {'match': {'_type': 'mondsee'}},
-                              'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
-                              'Passau': {'match': {'_type': 'passau'}},
-                              'Rätien': {'match': {'_type': 'raetien'}},
-                              'Regensburg': {'match': {'_type': 'regensburg'}},
-                              'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                              'Salzburg': {'match': {'_type': 'salzburg'}},
-                              'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                              'St. Gallen': {'match': {'_type': 'stgallen'}},
-                              'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                              'Werden': {'match': {'_type': 'werden'}},
-                              'Zürich': {'match': {'_type': 'zuerich'}}}
+                                      'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                      'Bünden': {'match': {'_type': 'buenden'}},
+                                      'Echternach': {'match': {'_type': 'echternach'}},
+                                      'Freising': {'match': {'_type': 'freising'}},
+                                      'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                      'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                      'Gorze': {'match': {'_type': 'gorze'}},
+                                      'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                      'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Lorsch': {'match': {'_type': 'lorsch'}},
+                                      'Luzern': {'match': {'_type': 'luzern'}},
+                                      'Marculf': {'match': {'_type': 'marculf'}},
+                                      'Marmoutier - Dunois': {'match': {'_type': 'marmoutier_dunois'}},
+                                      'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                                      'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
+                                      'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
+                                      'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
+                                      'Marmoutier - Vendômois, Appendix': {'match': {'_type': 'marmoutier_vendomois_appendix'}},
+                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                      'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                      'Mondsee': {'match': {'_type': 'mondsee'}},
+                                      'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
+                                      'Passau': {'match': {'_type': 'passau'}},
+                                      'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Regensburg': {'match': {'_type': 'regensburg'}},
+                                      'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                      'Salzburg': {'match': {'_type': 'salzburg'}},
+                                      'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                      'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                      'Werden': {'match': {'_type': 'werden'}},
+                                      'Zürich': {'match': {'_type': 'zuerich'}}}
 
     def my_side_effect(self, index, doc_type, id):
         if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
@@ -3078,13 +3080,10 @@ class TestES(Formulae_Testing):
                                                         "Marmoutier - Vendômois": {
                                                             "doc_count": 0
                                                         },
-                                                        "Marmoutier - Vendômois, Saint-Marc": {
+                                                        "Marmoutier - Vendômois, Appendix": {
                                                             "doc_count": 0
                                                         },
                                                         "Marmoutier - Serfs": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Vendômois, Saint-Marc": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
