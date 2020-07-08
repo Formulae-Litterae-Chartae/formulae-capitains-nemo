@@ -1,9 +1,9 @@
 {
-  "took": 15,
+  "took": 24,
   "timed_out": false,
   "_shards": {
-    "total": 31,
-    "successful": 31,
+    "total": 33,
+    "successful": 33,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v1",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v4",
+        "_index": "arnulfinger_v1",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -112,7 +112,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v1",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -154,7 +154,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v1",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0152.lat001",
         "_score": null,
@@ -208,7 +208,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0116.lat001",
         "_score": null,
@@ -262,7 +262,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0267.lat001",
         "_score": null,
@@ -316,7 +316,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0283.lat001",
         "_score": null,
@@ -373,7 +373,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0298.lat001",
         "_score": null,
@@ -430,7 +430,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0671.lat001",
         "_score": null,
@@ -487,7 +487,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v1",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0726.lat001",
         "_score": null,
@@ -547,7 +547,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 10179,
+      "doc_count": 10554,
       "corpus": {
         "buckets": {
           "Angers": {
@@ -571,6 +571,9 @@
           "Fulda (Stengel)": {
             "doc_count": 563
           },
+          "Gorze": {
+            "doc_count": 121
+          },
           "Hersfeld": {
             "doc_count": 121
           },
@@ -578,13 +581,16 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2282
+            "doc_count": 2286
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
             "doc_count": 41
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 281
           },
           "Marmoutier - Fougères": {
             "doc_count": 7
@@ -598,8 +604,8 @@
           "Marmoutier - Vendômois": {
             "doc_count": 163
           },
-          "Marmoutier - Vendômois, Saint-Marc": {
-            "doc_count": 81
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
           },
           "Merowinger": {
             "doc_count": 196
@@ -653,7 +659,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 7
+            "doc_count": 8
           },
           {
             "key": "500-599",
@@ -677,7 +683,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3056
+            "doc_count": 3099
           },
           {
             "key": "800-899",
@@ -685,7 +691,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2598
+            "doc_count": 2644
           },
           {
             "key": "900-999",
@@ -693,18 +699,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2811
+            "doc_count": 2849
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 984
+            "doc_count": 1229
           }
         ]
       },
       "no_date": {
-        "doc_count": 434
+        "doc_count": 436
       }
     },
     "corpus": {
@@ -730,6 +736,9 @@
         "Fulda (Stengel)": {
           "doc_count": 4
         },
+        "Gorze": {
+          "doc_count": 0
+        },
         "Hersfeld": {
           "doc_count": 19
         },
@@ -745,6 +754,9 @@
         "Marculf": {
           "doc_count": 0
         },
+        "Marmoutier - Dunois": {
+          "doc_count": 0
+        },
         "Marmoutier - Fougères": {
           "doc_count": 0
         },
@@ -757,7 +769,7 @@
         "Marmoutier - Vendômois": {
           "doc_count": 0
         },
-        "Marmoutier - Vendômois, Saint-Marc": {
+        "Marmoutier - Vendômois, Appendix": {
           "doc_count": 0
         },
         "Merowinger": {
