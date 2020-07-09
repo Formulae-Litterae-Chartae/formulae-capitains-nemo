@@ -12,6 +12,12 @@
     "id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
   },
   {
+    "id": "urn:cts:formulae:lorsch.gloeckner1074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner1075.lat001"
+  },
+  {
     "id": "urn:cts:formulae:raetien.erhart0003.lat001"
   },
   {
@@ -22,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:stgallen.wartmann0026.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0458.lat001"
   }
 ]

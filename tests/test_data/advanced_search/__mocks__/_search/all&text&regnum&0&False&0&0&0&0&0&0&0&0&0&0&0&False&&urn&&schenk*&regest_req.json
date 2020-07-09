@@ -133,6 +133,11 @@
               "_type": "fulda_stengel"
             }
           },
+          "Gorze": {
+            "match": {
+              "_type": "gorze"
+            }
+          },
           "Hersfeld": {
             "match": {
               "_type": "hersfeld"
@@ -158,6 +163,11 @@
               "_type": "marculf"
             }
           },
+          "Marmoutier - Dunois": {
+            "match": {
+              "_type": "marmoutier_dunois"
+            }
+          },
           "Marmoutier - Fougères": {
             "match": {
               "_type": "marmoutier_fougères"
@@ -178,9 +188,9 @@
               "_type": "marmoutier_vendomois"
             }
           },
-          "Marmoutier - Vendômois, Saint-Marc": {
+          "Marmoutier - Vendômois, Appendix": {
             "match": {
-              "_type": "marmoutier_vendomois_saintmarc"
+              "_type": "marmoutier_vendomois_appendix"
             }
           },
           "Merowinger": {
@@ -344,6 +354,11 @@
                   "_type": "fulda_stengel"
                 }
               },
+              "Gorze": {
+                "match": {
+                  "_type": "gorze"
+                }
+              },
               "Hersfeld": {
                 "match": {
                   "_type": "hersfeld"
@@ -369,6 +384,11 @@
                   "_type": "marculf"
                 }
               },
+              "Marmoutier - Dunois": {
+                "match": {
+                  "_type": "marmoutier_dunois"
+                }
+              },
               "Marmoutier - Fougères": {
                 "match": {
                   "_type": "marmoutier_fougères"
@@ -389,9 +409,9 @@
                   "_type": "marmoutier_vendomois"
                 }
               },
-              "Marmoutier - Vendômois, Saint-Marc": {
+              "Marmoutier - Vendômois, Appendix": {
                 "match": {
-                  "_type": "marmoutier_vendomois_saintmarc"
+                  "_type": "marmoutier_vendomois_appendix"
                 }
               },
               "Merowinger": {

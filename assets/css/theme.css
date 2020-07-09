@@ -789,3 +789,7 @@ p.flash-grey {
 .dropleft .add-text-toggle::before {
     content: none;
 }
+
+span.corpus_coverage {
+    font-weight: bold;
+}

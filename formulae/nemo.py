@@ -10,6 +10,7 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
+from formulae.search.Search import lem_highlight_to_text
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -90,13 +91,15 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:fu2',
                         'urn:cts:formulae:fulda_dronke',
                         'urn:cts:formulae:fulda_stengel',
+                        # 'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
+                        # 'urn:cts:formulae:marmoutier_dunois',
                         # 'urn:cts:formulae:marmoutier_manceau',
                         # 'urn:cts:formulae:marmoutier_serfs',
                         # 'urn:cts:formulae:marmoutier_vendomois',
-                        # 'urn:cts:formulae:marmoutier_vendomois_saintmarc',
+                        # 'urn:cts:formulae:marmoutier_vendomois_appendix',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         # 'urn:cts:formulae:papsturkunden_frankreich',
@@ -162,8 +165,6 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
-        if not self.app.testing:
-            self.all_term_vectors = self.get_all_term_vectors()
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -214,7 +215,13 @@ class NemoFormulae(Nemo):
             for m in members:
                 m.update({'short_title':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
-            colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
+                m.update({'coverage':
+                              str(self.resolver.getMetadata(m['id']).metadata.get_single(DC.coverage))})
+            if member['id'] != 'other_collection':
+                colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
+            else:
+                colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
+                                                                     x['label']))
         return colls
 
     @staticmethod
@@ -316,7 +323,9 @@ class NemoFormulae(Nemo):
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
                      for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:katalonien',
-                                                                                    'urn:cts:formulae:marmoutier_manceau']}
+                                                                                    'urn:cts:formulae:marmoutier_manceau',
+                                                                                    'urn:cts:formulae:marmoutier_vendomois_appendix',
+                                                                                    'urn:cts:formulae:marmoutier_dunois']}
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()],
                                     key=self.sort_katalonien)
@@ -324,6 +333,12 @@ class NemoFormulae(Nemo):
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:marmoutier_manceau']})
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:marmoutier_vendomois_appendix']})
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:marmoutier_dunois']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -334,20 +349,6 @@ class NemoFormulae(Nemo):
     def sort_katalonien(self, t: tuple):
         """ Correctly sort the Katalonien documents with mixed number and Roman numerals"""
         return re.sub(r'[IVX]+\Z', lambda x: self.ROMAN_NUMERAL_SORTING[x.group(0)], t[0])
-
-    def get_all_term_vectors(self):
-        all_vectors = dict()
-        for k, v in self.all_texts.items():
-            index = k.split(':')[-1]
-            if 'katalonien' in index:
-                index = 'katalonien'
-            elif 'marmoutier_manceau' in index:
-                index = 'marmoutier_manceau'
-            ids = [x[1][0] for x in v]
-            all_vectors.update({x['_id']: x for x in self.app.elasticsearch.mtermvectors(index=index,
-                                                                                         doc_type=index,
-                                                                                         body={'ids': ids})['docs']})
-        return all_vectors
 
     @staticmethod
     def check_project_team() -> bool:
@@ -593,7 +594,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if 'katalonien' not in objectId and 'marmoutier_manceau' not in objectId and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -615,7 +616,8 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau"]:
+        elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau", 
+                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois"]:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
@@ -1081,9 +1083,9 @@ class NemoFormulae(Nemo):
                             d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
 
                     if 'previous_search' in session:
-                        result_sents = [x for x in session['previous_search'] if x['id'] == id]
-                        if result_sents:
-                            d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_sents[0])
+                        result_ids = [x for x in session['previous_search'] if x['_id'] == id]
+                        if result_ids:
+                            d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
@@ -1091,7 +1093,7 @@ class NemoFormulae(Nemo):
         return passage_data
 
     @staticmethod
-    def highlight_found_sents(html: str, results: Dict[str, Union[List[str], str]]) -> str:
+    def highlight_found_sents(html: str, results: List[Dict[str, Union[List[str], str]]]) -> str:
         """ Adds "searched" to the classList of words in "sents" from elasticsearch results
 
         :param html: the marked-up text to be searched
@@ -1100,9 +1102,20 @@ class NemoFormulae(Nemo):
         """
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
-        if 'sentence_spans' in results:
-            for sent_index, sent in enumerate(results['sents']):
-                for span_index, i in enumerate(results['sentence_spans'][sent_index]):
+        prev_args = session['previous_search_args']
+        ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
+                                           q=prev_args.get('q', ''),
+                                           ordered_terms=prev_args.get('ordered_terms', False),
+                                           slop=prev_args.get('slop', 0),
+                                           regest_field=prev_args.get('regest_field', 'regest'),
+                                           search_field=prev_args.get('search_field', 'text'),
+                                           highlight_field='text',
+                                           fuzz=prev_args.get('fuzz', '0'))
+        if not any(ids):
+            return html
+        if 'sentence_spans' in ids[0]:
+            for sent_index, sent in enumerate(ids[0]['sents']):
+                for span_index, i in enumerate(ids[0]['sentence_spans'][sent_index]):
                     if span_index == 0 and 'searched-start' not in spans[i].get('class'):
                         spans[i].set('class', spans[i].get('class') + ' searched-start')
                     elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):

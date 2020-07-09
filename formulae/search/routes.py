@@ -1,7 +1,8 @@
 from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
-from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS
+from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS, \
+    lem_highlight_to_text
 from .forms import AdvancedSearchForm
 from formulae.search import bp
 from json import dumps
@@ -239,14 +240,25 @@ def download_search_results() -> Response:
             if arg == 'corpus':
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
-        for d in session['previous_search']:
+        prev_args = session['previous_search_args']
+        ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
+                                           q=prev_args.get('q', ''),
+                                           ordered_terms=prev_args.get('ordered_terms', False),
+                                           slop=prev_args.get('slop', 0),
+                                           regest_field=prev_args.get('regest_field', 'regest'),
+                                           search_field=prev_args.get('search_field', 'text'),
+                                           highlight_field='text',
+                                           fuzz=prev_args.get('fuzz', '0'))
+        for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
-                r['sents'] = ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>', str(s)))
+                r['sents'] = ['- {}'.format(re.sub(r'(?:</small>)?<strong>(.*?)</strong>(?:<small>)?', r'<b>\1</b>',
+                                                   str(s)))
                               for s in d['sents']]
             if 'regest_sents' in d and d['regest_sents'] != []:
                 r['regest_sents'] = ['<u>' + _('Aus dem Regest') + '</u>']
-                r['regest_sents'] += ['- {}'.format(re.sub(r'</small><strong>(.*?)</strong><small>', r'<b>\1</b>',
+                r['regest_sents'] += ['- {}'.format(re.sub(r'(?:</small>)?<strong>(.*?)</strong>(?:<small>)?',
+                                                           r'<b>\1</b>',
                                                            str(s)))
                                       for s in d['regest_sents']]
             resp.append(r)

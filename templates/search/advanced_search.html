@@ -58,6 +58,9 @@
                         </div>
                         <div><input id="firstLetter" name="placeSearch" type="checkbox" checked> <span class="smallfont align-top">{{ _("Anfangsbuchstaben") }}<a tabindex="0" type="button" class="btn btn-link px-1 py-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.firstLetterPlaceSearchMessage }}"><i class="fas fa-question-circle" ></i></a></span></input></div>
                     </div>
+                    <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+                    <br>
+                    <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Zurücksetzen') }}</a></div>
                 </div>
                 <div class="col-auto date-search">
                     <div class="text-center"><strong>{{ _('Datumssuche') }}</strong><a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}"><i class="fas fa-question-circle" ></i></a></div>
@@ -197,9 +200,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
-            <br>
-            <div class="row justify-content-center py-0"><a class="btn btn-sm btn-secondary" href="{{ url_for('search.r_advanced_search') }}" role=button>{{ _('Zurücksetzen') }}</a></div>
         </form>
 {% endblock %}
 

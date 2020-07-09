@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-23 14:45+0200\n"
+"POT-Creation-Date: 2020-06-25 17:14+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -275,12 +275,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:3316
+#: tests/test_routes.py:3496
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:3317
+#: tests/test_routes.py:3497
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -292,8 +292,16 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page principale"
 
-#: formulae/search/Search.py:107 formulae/search/Search.py:415
-#: tests/test_routes.py:2901 tests/test_routes.py:2912
+#: formulae/search/Search.py:185 tests/test_routes.py:785
+msgid "Text nicht zugänglich."
+msgstr ""
+
+#: formulae/search/Search.py:305 tests/test_routes.py:788
+msgid "Regest nicht zugänglich."
+msgstr ""
+
+#: formulae/search/Search.py:361 tests/test_routes.py:3004
+#: tests/test_routes.py:3016
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -301,21 +309,13 @@ msgstr ""
 "Les caractères spéciaux (\"*\" and \"?\") ne sont pas possibles lors de "
 "la recherche de lemmes."
 
-#: formulae/search/Search.py:241 tests/test_routes.py:785
-msgid "Text nicht zugänglich."
-msgstr ""
-
-#: formulae/search/Search.py:361 tests/test_routes.py:788
-msgid "Regest nicht zugänglich."
-msgstr ""
-
 #: formulae/search/forms.py:27 formulae/search/forms.py:44
-#: formulae/search/forms.py:106 formulae/search/routes.py:146
+#: formulae/search/forms.py:106 formulae/search/routes.py:151
 msgid "Suche"
 msgstr "Recherche"
 
 #: formulae/search/forms.py:28 formulae/search/forms.py:52
-#: formulae/search/routes.py:231 templates/search/documentation.html:11
+#: formulae/search/routes.py:236 templates/search/documentation.html:11
 msgid "Corpora"
 msgstr "Corpus"
 
@@ -329,13 +329,11 @@ msgid "Urkunden"
 msgstr "Chartes"
 
 #: formulae/search/forms.py:31 tests/test_routes.py:1268
-#: tests/test_routes.py:3102
+#: tests/test_routes.py:3282
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
-"und/oder \"Urkunden\")"
+"und/oder \"Urkunden\")."
 msgstr ""
-"Vous devez sélectionner au moins une collection (\"Formules\" et/ou "
-"\"Chartes\") pour la recherche."
 
 #: formulae/search/forms.py:33 formulae/search/forms.py:45
 #: templates/main/lexicon.html:5 templates/main/lexicon.html:9
@@ -343,7 +341,7 @@ msgstr ""
 msgid "Lemma"
 msgstr "Lemmes"
 
-#: formulae/search/forms.py:46 formulae/search/routes.py:225
+#: formulae/search/forms.py:46 formulae/search/routes.py:230
 #: templates/search/documentation.html:21
 msgid "Unschärfegrad"
 msgstr "Niveau de flou"
@@ -352,12 +350,12 @@ msgstr "Niveau de flou"
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:49 formulae/search/routes.py:226
+#: formulae/search/forms.py:49 formulae/search/routes.py:231
 #: templates/search/documentation.html:23
 msgid "Suchradius"
 msgstr "Étendue de la recherche"
 
-#: formulae/search/forms.py:50 formulae/search/routes.py:226
+#: formulae/search/forms.py:50 formulae/search/routes.py:231
 msgid "Wortreihenfolge beachten?"
 msgstr "Garder l’ordre des mots ?"
 
@@ -370,7 +368,7 @@ msgid "Alle"
 msgstr "Tous"
 
 #: formulae/search/forms.py:54 formulae/search/forms.py:65
-#: formulae/search/forms.py:77 formulae/search/routes.py:226
+#: formulae/search/forms.py:77 formulae/search/routes.py:231
 msgid "Jahr"
 msgstr "Année"
 
@@ -380,7 +378,7 @@ msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit se situer entre 500 et 1000."
 
 #: formulae/search/forms.py:57 formulae/search/forms.py:68
-#: formulae/search/forms.py:81 formulae/search/routes.py:227
+#: formulae/search/forms.py:81 formulae/search/routes.py:232
 msgid "Monat"
 msgstr "Mois"
 
@@ -445,7 +443,7 @@ msgid "Dez"
 msgstr "Déc"
 
 #: formulae/search/forms.py:62 formulae/search/forms.py:73
-#: formulae/search/forms.py:86 formulae/search/routes.py:227
+#: formulae/search/forms.py:86 formulae/search/routes.py:232
 msgid "Tag"
 msgstr "Jour"
 
@@ -454,7 +452,7 @@ msgstr "Jour"
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "La date doit se situer entre 1 et 31."
 
-#: formulae/search/forms.py:89 formulae/search/routes.py:229
+#: formulae/search/forms.py:89 formulae/search/routes.py:234
 #: templates/search/documentation.html:31
 msgid "Datum Plus-Minus"
 msgstr "Date à plus-ou-moins "
@@ -463,12 +461,12 @@ msgstr "Date à plus-ou-moins "
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Le plus-ou-moins doit se situer entre 0 et 100 ans."
 
-#: formulae/search/forms.py:93 formulae/search/routes.py:230
+#: formulae/search/forms.py:93 formulae/search/routes.py:235
 #: templates/search/documentation.html:35
 msgid "Exklusiv"
 msgstr "Exclusif"
 
-#: formulae/search/forms.py:94 formulae/search/routes.py:230
+#: formulae/search/forms.py:94 formulae/search/routes.py:235
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Ausstellungsort"
@@ -518,67 +516,67 @@ msgstr "Ven"
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/routes.py:23 tests/test_routes.py:3103
+#: formulae/search/routes.py:23 tests/test_routes.py:3283
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:25 tests/test_routes.py:3114
+#: formulae/search/routes.py:25 tests/test_routes.py:3294
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
-#: formulae/search/routes.py:175 tests/test_routes.py:852
+#: formulae/search/routes.py:180 tests/test_routes.py:852
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins un champ."
 
-#: formulae/search/routes.py:219 tests/test_routes.py:3274
+#: formulae/search/routes.py:224 tests/test_routes.py:3454
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr ""
 
-#: formulae/search/routes.py:224
+#: formulae/search/routes.py:229
 msgid "Suchbegriff"
 msgstr ""
 
-#: formulae/search/routes.py:224
+#: formulae/search/routes.py:229
 msgid "Lemma?"
 msgstr ""
 
-#: formulae/search/routes.py:225
+#: formulae/search/routes.py:230
 msgid "Regesten Suchbegriff"
 msgstr ""
 
-#: formulae/search/routes.py:227
+#: formulae/search/routes.py:232
 msgid "Anfangsjahr"
 msgstr ""
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Anfangsmonat"
 msgstr ""
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Anfangstag"
 msgstr ""
 
-#: formulae/search/routes.py:228
+#: formulae/search/routes.py:233
 msgid "Endjahr"
 msgstr ""
 
-#: formulae/search/routes.py:229
+#: formulae/search/routes.py:234
 msgid "Endmonat"
 msgstr ""
 
-#: formulae/search/routes.py:229
+#: formulae/search/routes.py:234
 msgid "Endtag"
 msgstr ""
 
-#: formulae/search/routes.py:243
+#: formulae/search/routes.py:248
 msgid "Aus dem Regest"
 msgstr ""
 
-#: formulae/search/routes.py:252
+#: formulae/search/routes.py:257
 msgid "Suchparameter"
 msgstr ""
 
-#: formulae/search/routes.py:255 templates/search/search.html:9
+#: formulae/search/routes.py:260 templates/search/search.html:9
 #: templates/search/search.html:43
 msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
@@ -742,6 +740,10 @@ msgstr ""
 " particulier, veuillez copier l'URL complète et préciser le titre complet"
 " du texte,ainsi qu'une description précise du problème et de la solution "
 "que vous proposez."
+
+#: templates/main/container.html:92
+msgid "Ein Suchterminus ist erforderlich."
+msgstr ""
 
 #: templates/main/elex_collection.html:18
 msgid "Gehe zu Buchstabe:"
@@ -1682,7 +1684,7 @@ msgstr ""
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' n'est pas valable pour ce champ de recherche."
 
-#: tests/test_routes.py:1277 tests/test_routes.py:3113
+#: tests/test_routes.py:1277 tests/test_routes.py:3293
 msgid "Dieses Feld wird benötigt."
 msgstr "Ce champ est nécessaire."
 
@@ -2737,4 +2739,13 @@ msgstr "Ce champ est nécessaire."
 #~ " wurde an Ihre neue Emailadresse "
 #~ "zugeschickt"
 #~ msgstr ""
+
+#~ msgid ""
+#~ "Sie müssen mindestens eine Sammlung für"
+#~ " die Suche auswählen (\"Formeln\" und/oder"
+#~ " \"Urkunden\")"
+#~ msgstr ""
+#~ "Vous devez sélectionner au moins une "
+#~ "collection (\"Formules\" et/ou \"Chartes\") "
+#~ "pour la recherche."
 

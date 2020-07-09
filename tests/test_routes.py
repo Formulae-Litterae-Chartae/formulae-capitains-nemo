@@ -706,16 +706,18 @@ class TestIndividualRoutes(Formulae_Testing):
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
 
-    def test_search_result_highlighting(self):
+    @patch("formulae.nemo.lem_highlight_to_text")
+    def test_search_result_highlighting(self, mock_highlight):
         """ Make sure that highlighting of search results works correctly"""
         # Highlighting should cross boundary of parent nodes
+        session['previous_search_args'] = dict()
         search_string = ['Text that I want to search']
         expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w searched-end">that</span></span></p><p><span class="searched"><span class="w searched-start searched-end">I</span></span></p><p><span class="searched"><span class="w searched-start">want</span><span class="w">to</span><span class="w searched-end">search</span></span>'
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
-        search_results = {'sents': search_string, 'sentence_spans': [range(0, 6)]}
-        result = self.nemo.highlight_found_sents(html_input, search_results)
+        mock_highlight.return_value = [[{'sents': search_string, 'sentence_spans': [range(0, 6)]}], []]
+        result = self.nemo.highlight_found_sents(html_input, [])
         self.assertIn(expected, result)
         # Should be able to deal with editorial punctuation in the text
         search_string = ['Text with special editorial signs in it']
@@ -723,16 +725,20 @@ class TestIndividualRoutes(Formulae_Testing):
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
-        search_results = {'sents': search_string, 'sentence_spans': [range(6, 13)]}
-        result = self.nemo.highlight_found_sents(html_input, search_results)
+        mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
+        result = self.nemo.highlight_found_sents(html_input, [])
         self.assertIn(expected, result)
         # Should return the same result when passed in the session variable to r_multipassage
-        session['previous_search'] = [{'id': obj_id,
+        session['previous_search'] = [{'_id': obj_id,
                                        'title': 'Salzburg A1',
                                        'sents': search_string,
                                        'sentence_spans': [range(6, 13)]}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         self.assertIn(expected, passage_data['objects'][0]['text_passage'])
+        #Make sure that when no sentences are highlighted, the original HTML is returned
+        mock_highlight.return_value = ([], [])
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertEqual(html_input, result)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
@@ -756,13 +762,7 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True)
             results = set_session_token(['all'], body, field='text', q='text')
             self.assertEqual(results,
-                             [{'id': hit['_id'],
-                               'info': hit['_source'],
-                               'sents': [Markup('some real </small><strong>text</strong><small>')],
-                               'sentence_spans': [range(0, 4)],
-                               'title': hit['_source']['title'],
-                               'regest_sents': [Markup('regest text')]}
-                              for hit in resp['hits']['hits']])
+                             [hit for hit in resp['hits']['hits']])
             updated_args = copy(test_args)
             updated_args['q'] = 'tex?'
             url = '/search/results?source=advanced&' + '&'.join(['{}={}'.format(x, y) for x, y in updated_args.items()])
@@ -780,13 +780,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
             self.assertEqual(session['previous_search'],
-                             [{'id': hit['_id'],
-                               'info': hit['_source'],
-                               'sents': [Markup('some real </small><strong>text</strong><small>')] if hit['_id'] in self.nemo.open_texts else [_('Text nicht zugänglich.')],
-                               'sentence_spans': [range(0, 4)] if hit['_id'] in self.nemo.open_texts else [range(0, 1)],
-                               'title': hit['_source']['title'],
-                               'regest_sents': [Markup('regest text')] if hit['_id'] in self.nemo.open_texts and hit['_id'] not in self.nemo.half_open_texts else [_('Regest nicht zugänglich.')]}
-                              for hit in resp['hits']['hits']],
+                             [hit for hit in resp['hits']['hits']],
                              'Session should reflect whether a text can be shown or not.')
 
     def test_session_previous_result_unset(self):
@@ -1265,7 +1259,7 @@ class TestForms(Formulae_Testing):
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
         self.assertIn(str(form.corpus.errors[0]),
-                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\")'),
+                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\").'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
     def test_invalid_query_simple_search_form(self):
@@ -1867,36 +1861,38 @@ class TestES(Formulae_Testing):
                                                  }}
 
     SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
-                              'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
-                              'Bünden': {'match': {'_type': 'buenden'}},
-                              'Echternach': {'match': {'_type': 'echternach'}},
-                              'Freising': {'match': {'_type': 'freising'}},
-                              'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
-                              'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
-                              'Hersfeld': {'match': {'_type': 'hersfeld'}},
-                              'Katalonien': {'match': {'_type': 'katalonien'}},
-                              'Lorsch': {'match': {'_type': 'lorsch'}},
-                              'Luzern': {'match': {'_type': 'luzern'}},
-                              'Marculf': {'match': {'_type': 'marculf'}},
-                              'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
-                              'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
-                              'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
-                              'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
-                              'Marmoutier - Vendômois, Saint-Marc': {'match': {'_type': 'marmoutier_vendomois_saintmarc'}},
-                              'Merowinger': {'match': {'_type': 'merowinger1'}},
-                              'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
-                              'Mondsee': {'match': {'_type': 'mondsee'}},
-                              'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
-                              'Passau': {'match': {'_type': 'passau'}},
-                              'Rätien': {'match': {'_type': 'raetien'}},
-                              'Regensburg': {'match': {'_type': 'regensburg'}},
-                              'Rheinisch': {'match': {'_type': 'rheinisch'}},
-                              'Salzburg': {'match': {'_type': 'salzburg'}},
-                              'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
-                              'St. Gallen': {'match': {'_type': 'stgallen'}},
-                              'Weißenburg': {'match': {'_type': 'weissenburg'}},
-                              'Werden': {'match': {'_type': 'werden'}},
-                              'Zürich': {'match': {'_type': 'zuerich'}}}
+                                      'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                      'Bünden': {'match': {'_type': 'buenden'}},
+                                      'Echternach': {'match': {'_type': 'echternach'}},
+                                      'Freising': {'match': {'_type': 'freising'}},
+                                      'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
+                                      'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
+                                      'Gorze': {'match': {'_type': 'gorze'}},
+                                      'Hersfeld': {'match': {'_type': 'hersfeld'}},
+                                      'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Lorsch': {'match': {'_type': 'lorsch'}},
+                                      'Luzern': {'match': {'_type': 'luzern'}},
+                                      'Marculf': {'match': {'_type': 'marculf'}},
+                                      'Marmoutier - Dunois': {'match': {'_type': 'marmoutier_dunois'}},
+                                      'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                                      'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
+                                      'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
+                                      'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
+                                      'Marmoutier - Vendômois, Appendix': {'match': {'_type': 'marmoutier_vendomois_appendix'}},
+                                      'Merowinger': {'match': {'_type': 'merowinger1'}},
+                                      'Mittelrheinisch': {'match': {'_type': 'mittelrheinisch'}},
+                                      'Mondsee': {'match': {'_type': 'mondsee'}},
+                                      'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
+                                      'Passau': {'match': {'_type': 'passau'}},
+                                      'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Regensburg': {'match': {'_type': 'regensburg'}},
+                                      'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                      'Salzburg': {'match': {'_type': 'salzburg'}},
+                                      'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
+                                      'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Weißenburg': {'match': {'_type': 'weissenburg'}},
+                                      'Werden': {'match': {'_type': 'werden'}},
+                                      'Zürich': {'match': {'_type': 'zuerich'}}}
 
     def my_side_effect(self, index, doc_type, id):
         if id == "urn:cts:formulae:buenden.meyer-marthaler0024.lat001":
@@ -2641,8 +2637,8 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
-                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]}]
+        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -2685,10 +2681,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]}]
+        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -2703,7 +2699,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes.</strong><small> </small><strong>Signum </strong><small></small><strong>Uuiliarentis </strong><small></small><strong>testes.</strong><small> </small><strong>Signum </strong><small></small><strong>Crespionis </strong><small>testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
+        sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -2722,8 +2718,8 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
-                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis </strong><small>presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': ['Text nicht zugänglich.']}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -2739,10 +2735,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]}]
+        sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -2758,10 +2754,10 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
-                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi </strong><small></small><strong>et </strong><small></small><strong>suscripsi.</strong><small>')]},
+                 {'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
+                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']},
@@ -2788,11 +2784,11 @@ class TestES(Formulae_Testing):
             for i2, t in enumerate(hit['highlight']['text']):
                 resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
         sents = [{'sents':
-                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small></small><strong>domni </strong><small>nostri Charoli gloriosissimi regis, sub die, quod est XV kl.'),
-                       Markup('cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum </small><strong>domni </strong><small>nostri Charoli gloriosissimi </small><strong>regis,</strong><small> sub die, quod est XV kl. madii, sub presenciarum bonorum ')]},
+                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, quod est XV kl.'),
+                       Markup('cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum </small><strong>domni</strong><small> nostri Charoli gloriosissimi </small><strong>regis</strong><small>, sub die, quod est XV kl. madii, sub presenciarum bonorum ')]},
                  {'sents':
-                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum </strong><small></small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
-                       Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni </strong><small>nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
+                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
+                       Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni</strong><small> nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -2820,16 +2816,16 @@ class TestES(Formulae_Testing):
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
-                                   '</small><strong>regnum </strong><small>domni nostri Charoli gloriosissimi regis, '
+                                   '</small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, '
                                    'sub die, quod est XV '),
                             Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et '
-                                   '</small><strong>regnum </strong><small>superscripsi. Signum Baselii et filii sui '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui '
                                    'Rofini, qui haec fieri ')]},
                  {'sents': [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub '
-                                   '</small><strong>regnum </strong><small>domni nostri Caroli regis, Sub die, quod '
+                                   '</small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod '
                                    'est pridie kl.'),
                             Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et '
-                                   '</small><strong>regnum </strong><small>superscripsi. Signum Uictorini et '
+                                   '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -2857,12 +2853,12 @@ class TestES(Formulae_Testing):
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
-                                   'Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small>'
-                                   '</small><strong>domni </strong><small>nostri Charoli gloriosissimi regis, sub die, '
+                                   'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
                                    'quod est XV kl.')]},
                  {'sents': [Markup('Facta donacio in loco Fortunes, sub '
-                                   'presencia virorum testium sub </small><strong>regnum </strong><small>'
-                                   '</small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est '
+                                   'presencia virorum testium sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -2890,12 +2886,12 @@ class TestES(Formulae_Testing):
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
-                                   'Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small>'
-                                   '</small><strong>domni </strong><small>nostri Charoli gloriosissimi regis, sub die, '
+                                   'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
                                    'quod est XV kl.')]},
                  {'sents': [Markup('Facta donacio in loco Fortunes, sub '
-                                   'presencia virorum testium sub </small><strong>regnum </strong><small>'
-                                   '</small><strong>domni </strong><small>nostri Caroli regis, Sub die, quod est '
+                                   'presencia virorum testium sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -2951,9 +2947,9 @@ class TestES(Formulae_Testing):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
                  {'sents': [Markup('Facta donacio in loco Fortunes, sub '
-                                   'presencia virorum testium sub </small><strong>regnum </strong><small>'
-                                   '</small><strong>domni </strong><small>nostri Caroli '
-                                   '</small><strong>regis,</strong><small> Sub die, quod est '
+                                   'presencia virorum testium sub </small><strong>regnum</strong><small> '
+                                   '</small><strong>domni</strong><small> nostri Caroli '
+                                   '</small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -2982,8 +2978,8 @@ class TestES(Formulae_Testing):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = [{'sents': []},
                  {'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
-                                   'presencia virorum testium </small><strong>sub </strong><small>regnum '
-                                   'domni nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est '
+                                   'presencia virorum testium </small><strong>sub</strong><small> regnum '
+                                   'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -3084,13 +3080,10 @@ class TestES(Formulae_Testing):
                                                         "Marmoutier - Vendômois": {
                                                             "doc_count": 0
                                                         },
-                                                        "Marmoutier - Vendômois, Saint-Marc": {
+                                                        "Marmoutier - Vendômois, Appendix": {
                                                             "doc_count": 0
                                                         },
                                                         "Marmoutier - Serfs": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Vendômois, Saint-Marc": {
                                                             "doc_count": 0
                                                         },
                                                         "Merowinger": {
@@ -3279,7 +3272,7 @@ class TestES(Formulae_Testing):
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
             self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
-            self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden")') +
+            self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             old_search_args = session['previous_search_args']
             self.assertIn('fulda_dronke', old_search_args['corpus'],
