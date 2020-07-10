@@ -1,5 +1,5 @@
 {
-  "took": 23,
+  "took": 15,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -28,7 +28,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "text": [
@@ -51,11 +52,102 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form001.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "marculf_v2",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form035.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf I,35",
+          "urn": "urn:cts:formulae:marculf.form035.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form035.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v2",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form036.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf I,36",
+          "urn": "urn:cts:formulae:marculf.form036.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form036.lat001"
+        ]
+      },
+      {
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -84,9 +176,10 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Wednesday",
-            "Lent"
-          ]
+            "Lent",
+            "Wednesday"
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -109,11 +202,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -143,7 +237,8 @@
           "min_date": "0701-01-20",
           "days": [
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -166,11 +261,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
         "_score": null,
@@ -200,7 +296,8 @@
           "min_date": "0750-08-17",
           "days": [
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -223,11 +320,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0021.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
         "_score": null,
@@ -254,7 +352,8 @@
             "0724-01-01",
             "0751-09-23"
           ],
-          "min_date": "0724-01-01"
+          "min_date": "0724-01-01",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -277,11 +376,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0023.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -308,7 +408,8 @@
             "0890-05-20",
             "0890-11-25"
           ],
-          "min_date": "0890-05-20"
+          "min_date": "0890-05-20",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -316,11 +417,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0082.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0023.lat001",
         "_score": null,
@@ -347,7 +449,8 @@
             "0698-01-01",
             "0714-12-31"
           ],
-          "min_date": "0698-01-01"
+          "min_date": "0698-01-01",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -370,11 +473,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0023.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0079.lat001",
         "_score": null,
@@ -401,7 +505,8 @@
             "0775-10-09",
             "0776-10-08"
           ],
-          "min_date": "0775-10-09"
+          "min_date": "0775-10-09",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -424,115 +529,8 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0079.lat001"
-        ]
-      },
-      {
-        "_index": "echternach_v1",
-        "_type": "echternach",
-        "_id": "urn:cts:formulae:echternach.wampach0088.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 88",
-          "urn": "urn:cts:formulae:echternach.wampach0088.lat001",
-          "date_string": "[783 10 09–784 10 08]",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0783-10-09",
-              "lte": "0784-10-08"
-            }
-          ],
-          "all_dates": [
-            "0783-10-09",
-            "0784-10-08"
-          ],
-          "min_date": "0783-10-09"
-        },
-        "highlight": {
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:echternach.wampach0088.lat001"
-        ]
-      },
-      {
-        "_index": "echternach_v1",
-        "_type": "echternach",
-        "_id": "urn:cts:formulae:echternach.wampach0094.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 94",
-          "urn": "urn:cts:formulae:echternach.wampach0094.lat001",
-          "date_string": "[785 10 09–786 10 08]",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0785-10-09",
-              "lte": "0786-10-08"
-            }
-          ],
-          "all_dates": [
-            "0785-10-09",
-            "0786-10-08"
-          ],
-          "min_date": "0785-10-09"
-        },
-        "highlight": {
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          "urn:cts:formulae:echternach.wampach0094.lat001"
         ]
       }
     ]

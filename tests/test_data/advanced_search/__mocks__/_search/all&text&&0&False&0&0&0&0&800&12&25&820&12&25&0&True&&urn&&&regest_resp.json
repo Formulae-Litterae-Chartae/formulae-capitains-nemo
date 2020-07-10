@@ -1,5 +1,5 @@
 {
-  "took": 18,
+  "took": 31,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
@@ -42,14 +42,16 @@
           "min_date": "0818-12-25",
           "days": [
             "Saturday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0404.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
@@ -79,9 +81,11 @@
           "min_date": "0819-12-25",
           "days": [
             "Sunday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0430.lat001"
         ]
       }

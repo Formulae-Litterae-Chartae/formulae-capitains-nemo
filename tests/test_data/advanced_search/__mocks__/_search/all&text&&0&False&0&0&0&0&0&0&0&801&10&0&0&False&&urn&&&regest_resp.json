@@ -1,5 +1,5 @@
 {
-  "took": 33,
+  "took": 19,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0001.lat001",
         "_score": null,
@@ -39,14 +39,16 @@
             "0640-01-01",
             "0660-12-31"
           ],
-          "min_date": "0640-01-01"
+          "min_date": "0640-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0001.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001",
         "_score": null,
@@ -75,16 +77,18 @@
           ],
           "min_date": "0687-02-20",
           "days": [
-            "Wednesday",
-            "Lent"
-          ]
+            "Lent",
+            "Wednesday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -114,14 +118,16 @@
           "min_date": "0701-01-20",
           "days": [
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -151,14 +157,16 @@
           "min_date": "0706-05-13",
           "days": [
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0004.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -188,14 +196,16 @@
           "min_date": "0706-05-13",
           "days": [
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0005.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -224,16 +234,18 @@
           ],
           "min_date": "0714-03-02",
           "days": [
-            "Lent",
-            "Friday"
-          ]
+            "Friday",
+            "Lent"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0006.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0007.lat001",
         "_score": null,
@@ -260,14 +272,16 @@
             "0715-01-01",
             "0716-12-31"
           ],
-          "min_date": "0715-01-01"
+          "min_date": "0715-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0007.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -304,14 +318,16 @@
           "days": [
             "Tuesday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0008.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -340,16 +356,18 @@
           ],
           "min_date": "0718-02-23",
           "days": [
-            "Wednesday",
-            "Lent"
-          ]
+            "Lent",
+            "Wednesday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0009.lat001"
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0010.lat001",
         "_score": null,
@@ -376,9 +394,11 @@
             "0720-12-01",
             "0720-12-31"
           ],
-          "min_date": "0720-12-01"
+          "min_date": "0720-12-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:arnulfinger.heidrich0010.lat001"
         ]
       }

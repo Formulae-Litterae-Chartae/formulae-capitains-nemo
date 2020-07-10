@@ -2334,7 +2334,7 @@ class TestES(Formulae_Testing):
                              ]
                          }
                      },
-                'sort': 'urn',
+                'sort': ['sort_prefix', 'urn'],
                 'from': 0,
                 'size': 10,
                 'aggs':
@@ -2465,7 +2465,7 @@ class TestES(Formulae_Testing):
                                ]
                           }
                      },
-                'sort': 'urn',
+                'sort': ['sort_prefix', 'urn'],
                 'from': 0,
                 'size': 10,
                 'aggs':
@@ -3158,7 +3158,7 @@ class TestES(Formulae_Testing):
                                ]
                           }
                      },
-                'sort': 'urn',
+                'sort': ['sort_prefix', 'urn'],
                 'from': 0,
                 'size': 10,
                 'aggs':
@@ -3385,12 +3385,12 @@ class TestES(Formulae_Testing):
         self.assertIsNone(results)
 
     def test_results_sort_option(self):
-        self.assertEqual(build_sort_list('urn'), 'urn')
+        self.assertEqual(build_sort_list('urn'), ['sort_prefix', 'urn'])
         self.assertEqual(build_sort_list('min_date_asc'), [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn'])
         self.assertEqual(build_sort_list('max_date_asc'), [{'all_dates': {'order': 'asc', 'mode': 'max'}}, 'urn'])
         self.assertEqual(build_sort_list('min_date_desc'), [{'all_dates': {'order': 'desc', 'mode': 'min'}}, 'urn'])
         self.assertEqual(build_sort_list('max_date_desc'), [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn'])
-        self.assertEqual(build_sort_list('urn_desc'), [{'urn': {'order': 'desc'}}])
+        self.assertEqual(build_sort_list('urn_desc'), ['sort_prefix', {'urn': {'order': 'desc'}}])
 
     @patch.object(Elasticsearch, "search")
     def test_save_requests(self, mock_search):

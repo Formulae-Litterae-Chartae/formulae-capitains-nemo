@@ -1,5 +1,5 @@
 {
-  "took": 16,
+  "took": 11,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
@@ -42,9 +42,11 @@
           "min_date": "0825-05-11",
           "days": [
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:stgallen.wartmann0291.lat001"
         ]
       }

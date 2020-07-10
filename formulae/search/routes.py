@@ -127,8 +127,19 @@ def r_results():
         elif g.previous_search_args['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             g.previous_search_args['corpus'] = '+'.join(corps)
-    if 'corpus' in search_args:
-        g.corpora = [(x, CORP_MAP[x]) for x in search_args['corpus'].split('+')]
+        else:
+            corps = search_args['corpus'].split('+')
+        g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    elif 'corpus' in search_args:
+        if search_args['corpus'] in ['all', 'formulae+chartae', '']:
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
+        elif search_args['corpus'] == 'formulae':
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
+        elif search_args['corpus'] == 'chartae':
+            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
+        else:
+            corps = search_args['corpus'].split('+')
+        g.corpora = [(x, CORP_MAP[x]) for x in corps]
     inf_to_lemmas = []
     if field == 'text':
         search_terms = search_args['q'].split()

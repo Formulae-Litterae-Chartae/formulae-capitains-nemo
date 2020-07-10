@@ -1,5 +1,5 @@
 {
-  "took": 18,
+  "took": 14,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
         "_score": null,
@@ -42,14 +42,16 @@
           "min_date": "0704-10-01",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0011.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
         "_score": null,
@@ -79,14 +81,16 @@
           "min_date": "0718-10-24",
           "days": [
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0028.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
         "_score": null,
@@ -116,14 +120,16 @@
           "min_date": "0726-10-20",
           "days": [
             "Sunday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0034.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
@@ -168,14 +174,16 @@
           "days": [
             "Tuesday",
             "Thursday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0024.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
@@ -205,14 +213,16 @@
           "min_date": "0772-10-07",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0050.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
@@ -242,14 +252,16 @@
           "min_date": "0777-10-05",
           "days": [
             "Sunday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0085.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
@@ -279,14 +291,16 @@
           "min_date": "0788-10-01",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0120.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
@@ -316,14 +330,16 @@
           "min_date": "0799-10-28",
           "days": [
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0177.lat001"
         ]
       },
       {
-        "_index": "fulda_stengel_v1",
+        "_index": "fulda_stengel_v2",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -353,14 +369,16 @@
           "min_date": "0759-10-01",
           "days": [
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:fulda_stengel.stengel0033.lat001"
         ]
       },
       {
-        "_index": "fulda_stengel_v1",
+        "_index": "fulda_stengel_v2",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -390,9 +408,11 @@
           "min_date": "0777-10-08",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:fulda_stengel.stengel0083.lat001"
         ]
       }

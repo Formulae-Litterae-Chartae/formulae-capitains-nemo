@@ -41,7 +41,10 @@
       ]
     }
   },
-  "sort": "urn",
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
   "from": 0,
   "size": 10,
   "aggs": {

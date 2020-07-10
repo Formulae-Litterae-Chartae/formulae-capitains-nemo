@@ -1,5 +1,5 @@
 {
-  "took": 92,
+  "took": 20,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -45,14 +45,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0769"
+          "min_date": "0769",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -85,14 +87,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0769"
+          "min_date": "0769",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -125,14 +129,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -165,14 +171,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -199,14 +207,16 @@
             "0791",
             "0806-12-31"
           ],
-          "min_date": "0791"
+          "min_date": "0791",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -233,14 +243,16 @@
             "0789-01-01",
             "0814-12-31"
           ],
-          "min_date": "0789-01-01"
+          "min_date": "0789-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0130.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -267,14 +279,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0132.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -301,14 +315,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0133.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -335,14 +351,16 @@
             "0711-01-01",
             "0814-12-31"
           ],
-          "min_date": "0711-01-01"
+          "min_date": "0711-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0134.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -369,9 +387,11 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0135.lat001"
         ]
       }

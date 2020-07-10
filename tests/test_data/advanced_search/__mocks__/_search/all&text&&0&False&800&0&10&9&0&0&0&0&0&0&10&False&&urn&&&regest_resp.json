@@ -1,5 +1,5 @@
 {
-  "took": 23,
+  "took": 17,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
         "_score": null,
@@ -39,14 +39,16 @@
             "0790",
             "0796-12-31"
           ],
-          "min_date": "0790"
+          "min_date": "0790",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0021.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
         "_score": null,
@@ -73,14 +75,16 @@
             "0792",
             "0796-12-31"
           ],
-          "min_date": "0792"
+          "min_date": "0792",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0022.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -113,14 +117,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0769"
+          "min_date": "0769",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -153,14 +159,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0769"
+          "min_date": "0769",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -193,14 +201,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -233,14 +243,16 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -267,14 +279,16 @@
             "0801",
             "0803-12-31"
           ],
-          "min_date": "0801"
+          "min_date": "0801",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0031.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -301,14 +315,16 @@
             "0801",
             "0804-12-31"
           ],
-          "min_date": "0801"
+          "min_date": "0801",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0032.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -335,14 +351,16 @@
             "0791",
             "0806-12-31"
           ],
-          "min_date": "0791"
+          "min_date": "0791",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0105.lat001",
         "_score": null,
@@ -369,9 +387,11 @@
             "0790-10-09",
             "0791-10-08"
           ],
-          "min_date": "0790-10-09"
+          "min_date": "0790-10-09",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0105.lat001"
         ]
       }

@@ -71,7 +71,7 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
-        return 'urn'
+        return ['sort_prefix', 'urn']
     if sort_str == 'min_date_asc':
         return [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn']
     if sort_str == 'max_date_asc':
@@ -81,7 +81,7 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
     if sort_str == 'max_date_desc':
         return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
     if sort_str == 'urn_desc':
-        return [{'urn': {'order': 'desc'}}]
+        return ['sort_prefix', {'urn': {'order': 'desc'}}]
 
 
 def set_session_token(index: list, orig_template: dict, field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
