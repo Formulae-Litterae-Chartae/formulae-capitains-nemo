@@ -115,7 +115,6 @@ def r_results():
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
         sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1, old_search=True)
     search_args['sort'] = orig_sort
-    g.previous_search_args = session.get('previous_search_args', None)
     if old_search is False:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
@@ -128,8 +127,8 @@ def r_results():
         elif g.previous_search_args['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             g.previous_search_args['corpus'] = '+'.join(corps)
-    if getattr(g, 'previous_search_args', None):
-        g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
+    if 'corpus' in search_args:
+        g.corpora = [(x, CORP_MAP[x]) for x in search_args['corpus'].split('+')]
     inf_to_lemmas = []
     if field == 'text':
         search_terms = search_args['q'].split()
