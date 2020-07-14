@@ -797,3 +797,8 @@ span.corpus_coverage {
 .header-image {
     max-height: 16vh;
 }
+
+#searchDownloadSpinner {
+    margin-bottom: .25em;
+    visibility: hidden;
+}
