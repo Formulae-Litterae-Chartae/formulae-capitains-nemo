@@ -21,10 +21,9 @@
     {{collections.current.label|striptags}}
     </h1>
     {% if collections.parents[-1].id == 'formulae_collection' %}
-    {% if collections.current.label == 'Formulae Andecavensis' %}
-    <a class="man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
-    {% endif %}
     <a class="ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
+    {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
+    <a class="man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
     {% endif %}
 </header>
 </div>
