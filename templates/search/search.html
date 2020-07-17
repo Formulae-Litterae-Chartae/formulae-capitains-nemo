@@ -49,8 +49,7 @@
     {% if previous_search_args %}
     <div class="row search-subtitle-row">
         <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
-        <div class="col-auto mr-auto search-subtitle"><a href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }}</a>
-            <div class="spinner-border spinner-border-sm" id="searchDownloadSpinner" role="status"><span class="sr-only">Loading...</span></div>
+        <div class="col-auto mr-auto search-subtitle"><a href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
         </div>
         <div class="col-auto">
             <div class="dropdown">
@@ -200,5 +199,6 @@
 {% block additionalscript %}
 <script>
     var downloadId = {{ 1|random_int(10000)|string }};
+    var downloadError = "{{ _('Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später.') }}";
 </script>
 {% endblock %}

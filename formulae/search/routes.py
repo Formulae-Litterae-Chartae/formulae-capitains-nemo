@@ -262,7 +262,7 @@ def download_search_results(download_id: str) -> Response:
                                            highlight_field='text',
                                            fuzz=prev_args.get('fuzz', '0'),
                                            download_id=download_id)
-        session[download_id] = _('Fast fertig')
+        current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
@@ -301,6 +301,4 @@ def download_search_results(download_id: str) -> Response:
 @bp.route('/pdf_progress/<download_id>', methods=["GET"])
 def pdf_download_progress(download_id: str) -> str:
     """ Function periodically called by JS from client to check progress of PDF download"""
-    if 'pdf_download_' + str(download_id) not in session:
-        return ';'.join([k for k in session.keys()]) + '%'
-    return session.get('pdf_download_' + str(download_id), '10%')
+    return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'

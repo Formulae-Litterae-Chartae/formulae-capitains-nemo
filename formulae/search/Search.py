@@ -7,7 +7,6 @@ from copy import copy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
-from collections import defaultdict
 from math import floor
 
 
@@ -302,7 +301,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
-            session[download_id] = str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%'
+            current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+        current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:
@@ -321,8 +321,6 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     'sentence_spans': ordered_sentence_spans,
                     'title': hit['_source']['title'],
                     'regest_sents': regest_sents})
-        session.pop('pdf_download_0', None)
-        session.pop('pdf_progress_0', None)
     return ids, all_highlighted_terms
 
 

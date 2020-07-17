@@ -159,28 +159,26 @@ $(document).ready(function () {
                 }
             })
             .fail(function() {
-                alert( "error" );
+                alert( downloadError );
             })
             .always(function() {
-                $('#searchDownloadSpinner').css("visibility", "hidden");
+                $('#searchDownloadProgress').css("visibility", "hidden").html('...');
             });
         // Replace this with a function that repeatedly calls to the backend to find out the status
         // E.g. from https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
-        $('#searchDownloadSpinner').css("visibility", "visible");
+        $('#searchDownloadProgress').css("visibility", "visible");
         pdfDownloadWorker()
     })
     
 });
 
 function pdfDownloadWorker() {
-    console.log(downloadId);
     $.get('/search/pdf_progress/' + downloadId, function(data) {
-        console.log(data);
-        if (data.includes('%')) {
-            console.log('percent');
+        if (data != '99%') {
+            $('#searchDownloadProgress').html(data);
             setTimeout(pdfDownloadWorker, 1000)
         } else {
-            console.log('finished');
+            $('#searchDownloadProgress').html(data);
         }
     })
 }

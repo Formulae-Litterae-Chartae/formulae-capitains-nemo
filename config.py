@@ -33,3 +33,4 @@ class Config(object):
     PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')
     SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', True)
     REMEMBER_COOKIE_SECURE = os.environ.get('REMEMBER_COOKIE_SECURE', True)
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
