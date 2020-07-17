@@ -3443,7 +3443,7 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "termvectors")
     def test_download_search_results(self, mock_vectors, mock_search):
         with self.client as c:
-            c.get('/search/download', follow_redirects=True)
+            c.get('/search/download/1', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
             self.assertTemplateUsed('main::index.html')
         test_args = copy(self.TEST_ARGS['test_download_search_results'])
@@ -3458,7 +3458,7 @@ class TestES(Formulae_Testing):
             expected = f.read()
         with self.client as c:
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
-            r = c.get('/search/download')
+            r = c.get('/search/download/1')
             # Uncomment this when the mock search download file needs to be recreated
             #with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
             #    f.write(r.get_data())

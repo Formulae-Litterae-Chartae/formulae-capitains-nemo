@@ -22,3 +22,4 @@ python-slugify>=1.2.1
 python-dotenv>=0.8.2
 reportlab>=3.5.23
 SQLAlchemy>=1.2.7
+redis>=3.5.3
