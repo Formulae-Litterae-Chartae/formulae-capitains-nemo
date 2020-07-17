@@ -122,4 +122,65 @@ $(document).ready(function () {
         }
     });
     
+    $('#searchDownload').on('click', function() {
+        var jqxhr = $.ajax( "/search/download/" + downloadId )
+            .done(function (response, status, xhr) {
+                var filename = "";
+                var disposition = xhr.getResponseHeader('Content-Disposition');
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                }
+                var type = xhr.getResponseHeader('Content-Type');
+                var blob = new Blob([response], { type: type });
+                if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                    // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+                    window.navigator.msSaveBlob(blob, filename);
+                } else {
+                    var URL = window.URL || window.webkitURL;
+                    var downloadUrl = URL.createObjectURL(blob);
+
+                    if (filename) {
+                        // use HTML5 a[download] attribute to specify filename
+                        var a = document.createElement("a");
+                        // safari doesn't support this yet
+                        if (typeof a.download === 'undefined') {
+                            window.location = downloadUrl;
+                        } else {
+                            a.href = downloadUrl;
+                            a.download = filename;
+                            document.body.appendChild(a);
+                            a.click();
+                        }
+                    } else {
+                        window.location = downloadUrl;
+                    }
+                }
+            })
+            .fail(function() {
+                alert( "error" );
+            })
+            .always(function() {
+                $('#searchDownloadSpinner').css("visibility", "hidden");
+            });
+        // Replace this with a function that repeatedly calls to the backend to find out the status
+        // E.g. from https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
+        $('#searchDownloadSpinner').css("visibility", "visible");
+        pdfDownloadWorker()
+    })
+    
 });
+
+function pdfDownloadWorker() {
+    console.log(downloadId);
+    $.get('/search/pdf_progress/' + downloadId, function(data) {
+        console.log(data);
+        if (data.includes('%')) {
+            console.log('percent');
+            setTimeout(pdfDownloadWorker, 1000)
+        } else {
+            console.log('finished');
+        }
+    })
+}

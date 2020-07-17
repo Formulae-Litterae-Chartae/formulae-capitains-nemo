@@ -230,12 +230,13 @@ def word_search_suggester(word: str):
     return dumps(words)
 
 
-@bp.route('/download', methods=["GET"])
-def download_search_results() -> Response:
+@bp.route('/download/<download_id>', methods=["GET"])
+def download_search_results(download_id: str) -> Response:
     if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
     else:
+        download_id = 'pdf_download_' + str(download_id)
         resp = list()
         arg_list = list()
         search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
@@ -259,7 +260,9 @@ def download_search_results() -> Response:
                                            regest_field=prev_args.get('regest_field', 'regest'),
                                            search_field=prev_args.get('search_field', 'text'),
                                            highlight_field='text',
-                                           fuzz=prev_args.get('fuzz', '0'))
+                                           fuzz=prev_args.get('fuzz', '0'),
+                                           download_id=download_id)
+        session[download_id] = _('Fast fertig')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
@@ -290,5 +293,14 @@ def download_search_results() -> Response:
         my_doc.build(flowables)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
+        session.pop(download_id, None)
         return Response(pdf_value, mimetype='application/pdf',
                         headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
+
+
+@bp.route('/pdf_progress/<download_id>', methods=["GET"])
+def pdf_download_progress(download_id: str) -> str:
+    """ Function periodically called by JS from client to check progress of PDF download"""
+    if 'pdf_download_' + str(download_id) not in session:
+        return ';'.join([k for k in session.keys()]) + '%'
+    return session.get('pdf_download_' + str(download_id), '10%')

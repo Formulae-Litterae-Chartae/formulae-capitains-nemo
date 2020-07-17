@@ -8,6 +8,7 @@ from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
 from collections import defaultdict
+from math import floor
 
 
 PRE_TAGS = "</small><strong>"
@@ -171,7 +172,8 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          highlight_field: str, fuzz: str,
+                          download_id: str = 'pdf_download_0') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -183,7 +185,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     """
     ids = []
     all_highlighted_terms = set()
-    for hit in search['hits']['hits']:
+    for list_index, hit in enumerate(search['hits']['hits']):
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
@@ -300,6 +302,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+            session[download_id] = str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%'
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:
@@ -318,6 +321,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     'sentence_spans': ordered_sentence_spans,
                     'title': hit['_source']['title'],
                     'regest_sents': regest_sents})
+        session.pop('pdf_download_0', None)
+        session.pop('pdf_progress_0', None)
     return ids, all_highlighted_terms
 
 
