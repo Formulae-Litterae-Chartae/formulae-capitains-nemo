@@ -1,5 +1,5 @@
 {
-  "took": 55,
+  "took": 11,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,23 +305,25 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Wednesday",
-            "Saturday",
-            "Easter",
-            "Thursday",
             "Friday",
-            "Sunday",
+            "Easter",
             "Lent",
+            "Saturday",
+            "Wednesday",
+            "Sunday",
             "Tuesday",
+            "Thursday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -542,23 +544,25 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Wednesday",
-            "Saturday",
-            "Easter",
-            "Thursday",
             "Friday",
-            "Sunday",
+            "Easter",
             "Lent",
+            "Saturday",
+            "Wednesday",
+            "Sunday",
             "Tuesday",
+            "Thursday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -587,16 +591,18 @@
           ],
           "min_date": "0822-04-13",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0465.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
@@ -763,23 +769,25 @@
           ],
           "min_date": "0912-01-10",
           "days": [
-            "Wednesday",
-            "Saturday",
-            "Easter",
-            "Thursday",
             "Friday",
-            "Sunday",
+            "Easter",
             "Lent",
+            "Saturday",
+            "Wednesday",
+            "Sunday",
             "Tuesday",
+            "Thursday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
@@ -814,18 +822,20 @@
           ],
           "min_date": "0919-04-19",
           "days": [
-            "Sunday",
             "Easter",
             "Lent",
+            "Sunday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
@@ -854,16 +864,18 @@
           ],
           "min_date": "0960-04-22",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
@@ -892,16 +904,18 @@
           ],
           "min_date": "0973-03-23",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
@@ -930,16 +944,18 @@
           ],
           "min_date": "0975-04-04",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
@@ -968,16 +984,18 @@
           ],
           "min_date": "0981-03-27",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001"
         ]
       },
       {
-        "_index": "katalonien_v1",
+        "_index": "katalonien_v2",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
@@ -1006,11 +1024,13 @@
           ],
           "min_date": "0985-04-12",
           "days": [
-            "Sunday",
-            "Easter"
-          ]
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001"
         ]
       }

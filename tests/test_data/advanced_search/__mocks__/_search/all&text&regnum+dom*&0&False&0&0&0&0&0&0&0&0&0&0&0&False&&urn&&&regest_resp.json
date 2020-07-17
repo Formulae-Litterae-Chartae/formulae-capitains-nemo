@@ -1,5 +1,5 @@
 {
-  "took": 964,
+  "took": 32,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -28,7 +28,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "text": [
@@ -51,11 +52,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form001.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -71,7 +73,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "text": [
@@ -94,11 +97,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form034.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -391,16 +395,17 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Wednesday",
-            "Saturday",
-            "Easter",
-            "Thursday",
             "Friday",
-            "Sunday",
+            "Easter",
             "Lent",
+            "Saturday",
+            "Wednesday",
+            "Sunday",
             "Tuesday",
+            "Thursday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -408,11 +413,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -633,16 +639,17 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Wednesday",
-            "Saturday",
-            "Easter",
-            "Thursday",
             "Friday",
-            "Sunday",
+            "Easter",
             "Lent",
+            "Saturday",
+            "Wednesday",
+            "Sunday",
             "Tuesday",
+            "Thursday",
             "Monday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -650,11 +657,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
         ]
       },
       {
-        "_index": "lorsch_v1",
+        "_index": "lorsch_v2",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -684,7 +692,8 @@
           "min_date": "0774-06-29",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -707,11 +716,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:lorsch.gloeckner1074.lat001"
         ]
       },
       {
-        "_index": "lorsch_v1",
+        "_index": "lorsch_v2",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -741,7 +751,8 @@
           "min_date": "0773-07-07",
           "days": [
             "Wednesday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -764,11 +775,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:lorsch.gloeckner1075.lat001"
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -801,7 +813,8 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -824,11 +837,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:raetien.erhart0003.lat001"
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -861,7 +875,8 @@
             "0800-12-31",
             "0814"
           ],
-          "min_date": "0768"
+          "min_date": "0768",
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -884,11 +899,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:raetien.erhart0006.lat001"
         ]
       },
       {
-        "_index": "raetien_v1",
+        "_index": "raetien_v2",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -923,9 +939,10 @@
           ],
           "min_date": "0858-02-12",
           "days": [
-            "Monday",
-            "Saturday"
-          ]
+            "Saturday",
+            "Monday"
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -948,11 +965,12 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:raetien.erhart0044.lat001"
         ]
       },
       {
-        "_index": "stgallen_v1",
+        "_index": "stgallen_v2",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -982,7 +1000,8 @@
           "min_date": "0762-08-20",
           "days": [
             "Friday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -1005,6 +1024,7 @@
           ]
         },
         "sort": [
+          1,
           "urn:cts:formulae:stgallen.wartmann0026.lat001"
         ]
       }

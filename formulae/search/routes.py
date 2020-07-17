@@ -127,8 +127,19 @@ def r_results():
         elif g.previous_search_args['corpus'] == 'chartae':
             corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
             g.previous_search_args['corpus'] = '+'.join(corps)
-    if getattr(g, 'previous_search_args', None):
-        g.corpora = [(x, CORP_MAP[x]) for x in g.previous_search_args['corpus'].split('+')]
+        else:
+            corps = search_args['corpus'].split('+')
+        g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    elif 'corpus' in search_args:
+        if search_args['corpus'] in ['all', 'formulae+chartae', '']:
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
+        elif search_args['corpus'] == 'formulae':
+            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
+        elif search_args['corpus'] == 'chartae':
+            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
+        else:
+            corps = search_args['corpus'].split('+')
+        g.corpora = [(x, CORP_MAP[x]) for x in corps]
     inf_to_lemmas = []
     if field == 'text':
         search_terms = search_args['q'].split()
@@ -219,12 +230,13 @@ def word_search_suggester(word: str):
     return dumps(words)
 
 
-@bp.route('/download', methods=["GET"])
-def download_search_results() -> Response:
+@bp.route('/download/<download_id>', methods=["GET"])
+def download_search_results(download_id: str) -> Response:
     if 'previous_search' not in session or 'previous_search_args' not in session:
         flash(_('Keine Suchergebnisse zum Herunterladen.'))
         return redirect(url_for('InstanceNemo.r_index'))
     else:
+        download_id = 'pdf_download_' + str(download_id)
         resp = list()
         arg_list = list()
         search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
@@ -248,7 +260,9 @@ def download_search_results() -> Response:
                                            regest_field=prev_args.get('regest_field', 'regest'),
                                            search_field=prev_args.get('search_field', 'text'),
                                            highlight_field='text',
-                                           fuzz=prev_args.get('fuzz', '0'))
+                                           fuzz=prev_args.get('fuzz', '0'),
+                                           download_id=download_id)
+        current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
@@ -279,5 +293,14 @@ def download_search_results() -> Response:
         my_doc.build(flowables)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
+        session.pop(download_id, None)
         return Response(pdf_value, mimetype='application/pdf',
                         headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(description.replace(' ', '_'))})
+
+
+@bp.route('/pdf_progress/<download_id>', methods=["GET"])
+def pdf_download_progress(download_id: str) -> str:
+    """ Function periodically called by JS from client to check progress of PDF download"""
+    if current_app.redis.get('pdf_download_' + str(download_id)):
+        return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    return '0%'

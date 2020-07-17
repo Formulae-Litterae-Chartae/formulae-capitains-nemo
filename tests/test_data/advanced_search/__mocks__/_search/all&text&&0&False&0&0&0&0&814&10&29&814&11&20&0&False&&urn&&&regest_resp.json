@@ -1,5 +1,5 @@
 {
-  "took": 494,
+  "took": 22,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -39,14 +39,16 @@
             "0789-01-01",
             "0814-12-31"
           ],
-          "min_date": "0789-01-01"
+          "min_date": "0789-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0130.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -73,14 +75,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0132.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -107,14 +111,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0133.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -141,14 +147,16 @@
             "0711-01-01",
             "0814-12-31"
           ],
-          "min_date": "0711-01-01"
+          "min_date": "0711-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0134.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -175,14 +183,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0135.lat001"
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
         "_score": null,
@@ -209,14 +219,16 @@
             "0771-01-01",
             "0814-12-31"
           ],
-          "min_date": "0771-01-01"
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:echternach.wampach0136.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -246,14 +258,16 @@
           "min_date": "0814-11-12",
           "days": [
             "Sunday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0329.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -283,14 +297,16 @@
           "min_date": "0814-11-17",
           "days": [
             "Friday"
-          ]
+          ],
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0330.lat001"
         ]
       },
       {
-        "_index": "freising_v1",
+        "_index": "freising_v2",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -317,14 +333,16 @@
             "0810",
             "0822-09-05"
           ],
-          "min_date": "0810"
+          "min_date": "0810",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:freising.bitterauf0470.lat001"
         ]
       },
       {
-        "_index": "hersfeld_v1",
+        "_index": "hersfeld_v2",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -351,9 +369,11 @@
             "0814-01-01",
             "0814-12-31"
           ],
-          "min_date": "0814-01-01"
+          "min_date": "0814-01-01",
+          "sort_prefix": 1
         },
         "sort": [
+          1,
           "urn:cts:formulae:hersfeld.weirich0025.lat001"
         ]
       }

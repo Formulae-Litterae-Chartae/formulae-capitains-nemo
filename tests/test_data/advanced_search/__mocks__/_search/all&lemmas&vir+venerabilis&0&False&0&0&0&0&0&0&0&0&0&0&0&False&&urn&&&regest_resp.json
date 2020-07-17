@@ -1,5 +1,5 @@
 {
-  "took": 21,
+  "took": 18,
   "timed_out": false,
   "_shards": {
     "total": 33,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -28,7 +28,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -51,11 +52,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form001.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -71,7 +73,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -94,11 +97,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form010.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -114,7 +118,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -137,11 +142,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form029.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -157,7 +163,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -180,11 +187,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form046.lat001"
         ]
       },
       {
-        "_index": "andecavensis_v1",
+        "_index": "andecavensis_v2",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -200,7 +208,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -223,11 +232,12 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:andecavensis.form047.lat001"
         ]
       },
       {
-        "_index": "marculf_v1",
+        "_index": "marculf_v2",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -243,7 +253,8 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": false
+          "forgery": false,
+          "sort_prefix": 0
         },
         "highlight": {
           "lemmas": [
@@ -266,6 +277,7 @@
           ]
         },
         "sort": [
+          0,
           "urn:cts:formulae:marculf.form006.lat001"
         ]
       }

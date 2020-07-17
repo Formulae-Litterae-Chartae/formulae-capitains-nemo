@@ -7,7 +7,7 @@ from copy import copy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
-from collections import defaultdict
+from math import floor
 
 
 PRE_TAGS = "</small><strong>"
@@ -71,7 +71,7 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
-        return 'urn'
+        return ['sort_prefix', 'urn']
     if sort_str == 'min_date_asc':
         return [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn']
     if sort_str == 'max_date_asc':
@@ -81,7 +81,7 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
     if sort_str == 'max_date_desc':
         return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
     if sort_str == 'urn_desc':
-        return [{'urn': {'order': 'desc'}}]
+        return ['sort_prefix', {'urn': {'order': 'desc'}}]
 
 
 def set_session_token(index: list, orig_template: dict, field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
@@ -171,7 +171,8 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          highlight_field: str, fuzz: str,
+                          download_id: str = 'pdf_download_0') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -183,7 +184,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     """
     ids = []
     all_highlighted_terms = set()
-    for hit in search['hits']['hits']:
+    for list_index, hit in enumerate(search['hits']['hits']):
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
@@ -300,6 +301,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+            current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+        current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:

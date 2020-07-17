@@ -793,3 +793,12 @@ p.flash-grey {
 span.corpus_coverage {
     font-weight: bold;
 }
+
+.header-image {
+    max-height: 16vh;
+}
+
+#searchDownloadProgress {
+    visibility: hidden;
+    color: black;
+}

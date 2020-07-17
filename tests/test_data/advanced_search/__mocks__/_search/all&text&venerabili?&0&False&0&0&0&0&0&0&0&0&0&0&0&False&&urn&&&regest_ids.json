@@ -3,6 +3,12 @@
     "id": "urn:cts:formulae:andecavensis.form001.lat001"
   },
   {
+    "id": "urn:cts:formulae:marculf.form035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form036.lat001"
+  },
+  {
     "id": "urn:cts:formulae:arnulfinger.heidrich0002.lat001"
   },
   {
@@ -22,11 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:echternach.wampach0079.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:echternach.wampach0088.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:echternach.wampach0094.lat001"
   }
 ]

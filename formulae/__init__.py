@@ -13,6 +13,7 @@ from flask_babel import lazy_gettext as _l
 from flask_mail import Mail
 from flask_session import Session
 from json import load
+from redis import Redis
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -67,6 +68,7 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     babel.init_app(app)
     sess.init_app(app)
+    app.redis = Redis.from_url(app.config['REDIS_URL'])
 
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):

@@ -31,3 +31,6 @@ class Config(object):
     SAVE_REQUESTS = False
     CACHE_MAX_AGE = os.environ.get('VARNISH_MAX_AGE') or 0  # Only need cache on the server, where this should be set in env
     PDF_ENCRYPTION_PW = os.environ.get('PDF_ENCRYPTION_PW', 'hard_pw')
+    SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', True)
+    REMEMBER_COOKIE_SECURE = os.environ.get('REMEMBER_COOKIE_SECURE', True)
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
