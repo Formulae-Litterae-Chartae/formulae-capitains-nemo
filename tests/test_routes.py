@@ -441,6 +441,13 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
+            # Ensure that the PDF search results progress checker returns the correct value
+            r = c.get('/search/pdf_progress/1000')
+            self.assertEqual(r.get_data(as_text=True), '0%',
+                             'If the key does not exist in Redis, it should return "0%"')
+            self.app.redis.setex('pdf_download_1000', 60, '10%')
+            r = c.get('/search/pdf_progress/1000')
+            self.assertEqual(r.get_data(as_text=True), '10%')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -772,7 +779,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/logout', follow_redirects=True)
             c.get(url + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
-                             "With old_search set to True, session['previous_searcH'] should not be changed.")
+                             "With old_search set to True, session['previous_search'] should not be changed.")
             c.get(url.replace('source=advanced', 'source=simple') + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
                              "With old_search set to True, session['previous_searcH'] should not be changed.")
@@ -806,7 +813,7 @@ class TestIndividualRoutes(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
-    def test_session_previous_search_args_all_corps(self, mock_vectors, mock_search):
+    def test_session_previous_search_args_set_corpora(self, mock_vectors, mock_search):
         """ Make sure that session['previous_search_args'] is set correctly with 'all' corpora"""
         search_url = "/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end=&regest_q="
         previous_args = {'source': 'advanced', 'corpus': 'all', 'q': 'regnum', 'fuzziness': '0', 'slop': '0',
@@ -833,6 +840,21 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(search_url, follow_redirects=True)
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
+            for old_search_arg in ['&old_search=False', '&old_search=True']:
+                c.get(search_url + old_search_arg, follow_redirects=True)
+                self.assertIn(('andecavensis', 'Angers'), g.corpora, 'Angers should be in all.')
+                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in all.')
+                self.assertIn(('marculf', 'Marculf'), g.corpora, 'Marculf should be in all.')
+                c.get(search_url.replace('corpus=all', 'corpus=formulae') + old_search_arg, follow_redirects=True)
+                self.assertIn(('andecavensis', 'Angers'), g.corpora, 'Angers should be in formulae.')
+                self.assertNotIn(('lorsch', 'Lorsch'), g.corpora, 'Bünden should not be in formulae.')
+                c.get(search_url.replace('corpus=all', 'corpus=chartae') + old_search_arg, follow_redirects=True)
+                self.assertNotIn(('andecavensis', 'Angers'), g.corpora, 'Angers should not be in chartae.')
+                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in chartae.')
+                c.get(search_url.replace('corpus=all', 'corpus=marculf+lorsch') + old_search_arg, follow_redirects=True)
+                self.assertNotIn(('andecavensis', 'Angers'), g.corpora, 'Angers should not in marculf+buenden.')
+                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in marculf+lorsch.')
+                self.assertIn(('marculf', 'Marculf'), g.corpora, 'Marculf should be in marculf+lorsch.')
 
     @patch.object(Elasticsearch, "search")
     def test_flashed_search_form_errors(self, mock_search):
@@ -1146,7 +1168,6 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_lem_to_lem_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
-
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):

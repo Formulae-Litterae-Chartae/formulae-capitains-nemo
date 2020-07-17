@@ -301,4 +301,6 @@ def download_search_results(download_id: str) -> Response:
 @bp.route('/pdf_progress/<download_id>', methods=["GET"])
 def pdf_download_progress(download_id: str) -> str:
     """ Function periodically called by JS from client to check progress of PDF download"""
-    return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    if current_app.redis.get('pdf_download_' + str(download_id)):
+        return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    return '0%'

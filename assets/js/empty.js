@@ -1,3 +1,8 @@
+var subdomain = '';
+if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+    subdomain = '/dev'
+}
+
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
@@ -69,10 +74,6 @@ function makeLemmaSearch() {
 $('.lang-link').bind('click', function(event) {
     event.preventDefault();
     e = this;
-    var subdomain = '';
-    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-        subdomain = '/dev'
-    }
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
@@ -89,7 +90,7 @@ $('.lang-link').bind('click', function(event) {
 })
 
 //to disable cut, copy, paste, and mouse right-click
-$(document).ready(function () {    
+$(document).ready(function () {
     //Disable cut, copy, and paste
     $('.no-copy').bind('cut copy paste', function (e) {
         e.preventDefault();
@@ -123,7 +124,7 @@ $(document).ready(function () {
     });
     
     $('#searchDownload').on('click', function() {
-        var jqxhr = $.ajax( "/search/download/" + downloadId )
+        var jqxhr = $.ajax( subdomain + "/search/download/" + downloadId )
             .done(function (response, status, xhr) {
                 var filename = "";
                 var disposition = xhr.getResponseHeader('Content-Disposition');
@@ -173,7 +174,7 @@ $(document).ready(function () {
 });
 
 function pdfDownloadWorker() {
-    $.get('/search/pdf_progress/' + downloadId, function(data) {
+    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
         if (data != '99%') {
             $('#searchDownloadProgress').html(data);
             setTimeout(pdfDownloadWorker, 1000)
