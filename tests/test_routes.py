@@ -769,9 +769,12 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(url)
             self.assertEqual(g.previous_search, results)
             self.assertEqual(session['previous_search'], results)
+            print(results)
+            r = c.get('/texts/urn:cts:formulae:andecavensis.form001.lat001/passage/1', follow_redirects=True)
+            print(r.get_data(as_text=True))
             c.get('/auth/logout', follow_redirects=True)
             c.get(url + '&old_search=True')
-            self.assertEqual(results, session['previous_search'],
+            self.assertNotEqual(results, session['previous_search'],
                              "With old_search set to True, session['previous_searcH'] should not be changed.")
             c.get(url.replace('source=advanced', 'source=simple') + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
