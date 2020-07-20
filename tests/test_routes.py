@@ -735,6 +735,21 @@ class TestIndividualRoutes(Formulae_Testing):
         mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
         result = self.nemo.highlight_found_sents(html_input, [])
         self.assertIn(expected, result)
+        # Make sure that results are also returned whether lemma or text, simple or advanced
+        session['previous_search_args']['search_field'] = 'text'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Advanced with text should work.')
+        session['previous_search_args']['search_field'] = 'lemmas'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Advanced with lemmas should work.')
+        session['previous_search_args'].pop('search_field', None)
+        session['previous_search_args']['lemma_search'] = 'True'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Simple with lemmas should work.')
+        session['previous_search_args'].pop('search_field', None)
+        session['previous_search_args']['lemma_search'] = 'False'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Simple with text should work.')
         # Should return the same result when passed in the session variable to r_multipassage
         session['previous_search'] = [{'_id': obj_id,
                                        'title': 'Salzburg A1',
