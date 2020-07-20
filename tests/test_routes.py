@@ -728,6 +728,21 @@ class TestIndividualRoutes(Formulae_Testing):
         mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
         result = self.nemo.highlight_found_sents(html_input, [])
         self.assertIn(expected, result)
+        # Make sure that results are also returned whether lemma or text, simple or advanced
+        session['previous_search_args']['search_field'] = 'text'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Advanced with text should work.')
+        session['previous_search_args']['search_field'] = 'lemmas'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Advanced with lemmas should work.')
+        session['previous_search_args'].pop('search_field', None)
+        session['previous_search_args']['lemma_search'] = 'True'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Simple with lemmas should work.')
+        session['previous_search_args'].pop('search_field', None)
+        session['previous_search_args']['lemma_search'] = 'False'
+        result = self.nemo.highlight_found_sents(html_input, [])
+        self.assertIn(expected, result, 'Simple with text should work.')
         # Should return the same result when passed in the session variable to r_multipassage
         session['previous_search'] = [{'_id': obj_id,
                                        'title': 'Salzburg A1',
@@ -769,12 +784,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(url)
             self.assertEqual(g.previous_search, results)
             self.assertEqual(session['previous_search'], results)
-            print(results)
-            r = c.get('/texts/urn:cts:formulae:andecavensis.form001.lat001/passage/1', follow_redirects=True)
-            print(r.get_data(as_text=True))
             c.get('/auth/logout', follow_redirects=True)
             c.get(url + '&old_search=True')
-            self.assertNotEqual(results, session['previous_search'],
+            self.assertEqual(results, session['previous_search'],
                              "With old_search set to True, session['previous_searcH'] should not be changed.")
             c.get(url.replace('source=advanced', 'source=simple') + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
