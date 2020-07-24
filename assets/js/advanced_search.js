@@ -1,6 +1,4 @@
 var allCorporaChecks = document.querySelectorAll('input.under-all');
-var formulaeChecks = document.querySelectorAll('input.under-formulae');
-var chartaeChecks = document.querySelectorAll('input.under-chartae');
 var wordSearchData = document.getElementById('word-search-datalist');
 var wordSearchInput = document.getElementById('word-search-box');
 var regestSearchData = document.getElementById('regest-word-search-datalist');
@@ -8,7 +6,6 @@ var regestSearchInput = document.getElementById('regest-word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 var firstLetter = document.getElementById('firstLetter');
-var specialDays = document.querySelectorAll('input[name="special_days"]')
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -16,8 +13,10 @@ function outputUpdate(plusMinus, targetId) {
 }
 
 function checkSubCorpora(tag, category) {
-    var subelements = document.getElementsByClassName(category)
-    for(var i=0; i<subelements.length; i++) {
+    var subelements = document.getElementsByClassName(category);
+    var i = 0;
+    var subelLength = subelements.length;
+    for(i; i < subelLength; i++) {
         subelements[i].checked = tag.checked;
     }
 }
@@ -66,7 +65,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
                         sourceElement.placeholder = "Couldn't load suggestions.";
                     }
                 }
-            };
+            }
             
             sourceElement.placeholder = "Loading options...";
             
@@ -75,7 +74,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
             request.send();
         }
     }, 500);
-};
+}
 
 // *******************************************************************
 // functions to store unsubmitted values from the advanced search page
@@ -83,6 +82,9 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
 
 // build the tail end of the url to submit via AJAX
 function buildUrl(qSource) {
+    var formulaeChecks = document.querySelectorAll('input.under-formulae');
+    var chartaeChecks = document.querySelectorAll('input.under-chartae');
+    var specialDays = document.querySelectorAll('input[name="special_days"]');
     var params = {
         corpus:[],
         field:'autocomplete',
