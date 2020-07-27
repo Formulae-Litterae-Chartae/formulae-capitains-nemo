@@ -653,7 +653,7 @@ class TestIndividualRoutes(Formulae_Testing):
                           'g.corpora should be set when session["previous_search_args"] is set.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10, q='',
@@ -662,12 +662,41 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=None, regest_q='', old_search=False, source='advanced',
                                            regest_field='regest')
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
+            c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday'
+                  '&submit=True', follow_redirects=True)
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
+                                           source='advanced', regest_field='regest')
+            c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday'
+                  '&submit=True', follow_redirects=True)
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
+                                           source='advanced', regest_field='regest')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
             self.assert_context('searched_lems', [{'regnum'}],
                                 'When a query word matches a lemma, it should be returned.')
+            with c.session_transaction() as session:
+                session['highlighted_words'] = ['regnum']
+            c.get('/search/results?source=advanced&corpus=formulae&q=re*num&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+            self.assert_context('searched_lems', [{'regnum'}],
+                                'When a query pattern matches a lemma, it should be returned.')
             c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
@@ -3072,7 +3101,9 @@ class TestES(Formulae_Testing):
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                                 'title': 'St. Gallen 259'},
                                     'highlight': {
-                                        'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']}}],
+                                        'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.'],
+                                        'lemmas': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']
+                                    }}],
                                              'total': 0},
                                     'aggregations': {"corpus": {
                                                       "buckets": {
@@ -3309,7 +3340,7 @@ class TestES(Formulae_Testing):
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
-            self.client.get('/search/simple?index=&q=regnum', follow_redirects=True)
+            self.client.get('/search/simple?corpus=&q=regnum', follow_redirects=True)
             self.assertMessageFlashed(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') +
                                       _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             old_search_args = session['previous_search_args']
@@ -3317,12 +3348,16 @@ class TestES(Formulae_Testing):
                           'Charters should automatically be search when no index is given in simple search.')
             self.assertIn('andecavensis', old_search_args['corpus'],
                           'Formulae should automatically be search when no index is given in simple search.')
-            self.client.get('/search/results?source=simple&index=formulae&q=regnum&old_search=True', follow_redirects=True)
+            self.client.get('/search/results?source=simple&corpus=formulae&q=regnum&old_search=True', follow_redirects=True)
             self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
                              'Searches made with the old_search=True argument should not change the previous_search_args.')
-            self.client.get('/search/simple?index=formulae&q=', follow_redirects=True)
+            self.client.get('/search/simple?corpus=formulae&q=', follow_redirects=True)
             self.assertMessageFlashed(_('Dieses Feld wird benötigt.') +
                                       _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
+            self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=True', follow_redirects=True)
+            self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"True" should remain "True"')
+            self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=y', follow_redirects=True)
+            self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"y" should be converted to "True"')
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_composition_places(self, mock_search):

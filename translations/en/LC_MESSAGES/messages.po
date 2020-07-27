@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-27 12:35+0200\n"
+"POT-Creation-Date: 2020-07-27 16:07+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -47,7 +47,7 @@ msgid "(Titel)"
 msgstr "(Title)"
 
 #: formulae/nemo.py:296 formulae/nemo.py:309 formulae/nemo.py:657
-#: tests/test_routes.py:1087
+#: tests/test_routes.py:1116
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
@@ -114,11 +114,11 @@ msgstr "The PDF for this text is not available."
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
-#: formulae/auth/email.py:9 tests/test_routes.py:1433
+#: formulae/auth/email.py:9 tests/test_routes.py:1462
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Reset Your Password"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:1447
+#: formulae/auth/email.py:18 tests/test_routes.py:1476
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr "[Formulae - Litterae - Chartae] Change Your Email Address"
 
@@ -202,11 +202,11 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:1351
+#: formulae/auth/forms.py:60 tests/test_routes.py:1380
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:1353
+#: formulae/auth/forms.py:65 tests/test_routes.py:1382
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
@@ -216,15 +216,15 @@ msgstr "Please use a different email address."
 msgid "Sie sind schon eingeloggt."
 msgstr "You are already logged in."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:1379
+#: formulae/auth/routes.py:26 tests/test_routes.py:1408
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:1553
+#: formulae/auth/routes.py:59 tests/test_routes.py:1582
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "This is not your current password."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:1539
+#: formulae/auth/routes.py:64 tests/test_routes.py:1568
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "You have successfully changed your password."
 
@@ -232,7 +232,7 @@ msgstr "You have successfully changed your password."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "You have successfully changed your default language."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:1453
+#: formulae/auth/routes.py:76 tests/test_routes.py:1482
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
@@ -243,7 +243,7 @@ msgid "Benutzerprofil ändern"
 msgstr "Edit Profile"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:470 tests/test_routes.py:1487
+#: tests/test_routes.py:470 tests/test_routes.py:1516
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "You are already logged in. You can change your password here."
 
@@ -251,26 +251,26 @@ msgstr "You are already logged in. You can change your password here."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:1439
-#: tests/test_routes.py:1464
+#: formulae/auth/routes.py:120 tests/test_routes.py:1468
+#: tests/test_routes.py:1493
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr "Instructions for resetting your password have been emailed to you."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:1511
+#: formulae/auth/routes.py:137 tests/test_routes.py:1540
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr "This token is not valid. Please try again."
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:1508
+#: formulae/auth/routes.py:140 tests/test_routes.py:1537
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr "Your email address was not changed. Please try again."
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:1504
+#: formulae/auth/routes.py:145 tests/test_routes.py:1533
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr "Your email address was successfully changed. It is now"
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:1420
+#: formulae/auth/routes.py:166 tests/test_routes.py:1449
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -279,12 +279,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:3538
+#: tests/test_routes.py:3573
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:3539
+#: tests/test_routes.py:3574
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -302,8 +302,8 @@ msgstr "Text not available"
 msgid "Regest nicht zugänglich."
 msgstr "Regest not available"
 
-#: formulae/search/Search.py:371 tests/test_routes.py:3038
-#: tests/test_routes.py:3050
+#: formulae/search/Search.py:371 tests/test_routes.py:3067
+#: tests/test_routes.py:3079
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -328,8 +328,8 @@ msgstr "Formulae"
 msgid "Urkunden"
 msgstr "Charters"
 
-#: formulae/search/forms.py:31 tests/test_routes.py:1303
-#: tests/test_routes.py:3313
+#: formulae/search/forms.py:31 formulae/search/routes.py:24
+#: tests/test_routes.py:1332 tests/test_routes.py:3344
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")."
@@ -375,7 +375,7 @@ msgid "Jahr"
 msgstr "Year"
 
 #: formulae/search/forms.py:55 formulae/search/forms.py:66
-#: formulae/search/forms.py:79 tests/test_routes.py:885
+#: formulae/search/forms.py:79 tests/test_routes.py:914
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "The year must be between 500 and 1000"
 
@@ -521,19 +521,19 @@ msgstr ""
 msgid "Sa"
 msgstr ""
 
-#: formulae/search/routes.py:24 tests/test_routes.py:3314
+#: formulae/search/routes.py:24 tests/test_routes.py:3345
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:26 tests/test_routes.py:3325
+#: formulae/search/routes.py:26 tests/test_routes.py:3356
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr " The simple search requires a search term."
 
-#: formulae/search/routes.py:176 tests/test_routes.py:888
+#: formulae/search/routes.py:176 tests/test_routes.py:917
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
-#: formulae/search/routes.py:220 tests/test_routes.py:3485
+#: formulae/search/routes.py:220 tests/test_routes.py:3520
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr "There are no search results to download."
 
@@ -605,19 +605,23 @@ msgstr "End Day"
 msgid "Besondere Tage"
 msgstr "Special Days"
 
-#: formulae/search/routes.py:249
+#: formulae/search/routes.py:245
 msgid "Nein"
 msgstr "No"
 
-#: formulae/search/routes.py:281
+#: formulae/search/routes.py:245
+msgid "Ja"
+msgstr "Yes"
+
+#: formulae/search/routes.py:280
 msgid "Aus dem Regest"
 msgstr "From the Regest"
 
-#: formulae/search/routes.py:291
+#: formulae/search/routes.py:290
 msgid "Suchparameter"
 msgstr "Search parameters"
 
-#: formulae/search/routes.py:294 templates/search/search.html:9
+#: formulae/search/routes.py:293 templates/search/search.html:9
 #: templates/search/search.html:43
 msgid "Suchergebnisse"
 msgstr "Search Results"
@@ -644,7 +648,7 @@ msgid "Klicken Sie hier"
 msgstr "Click to Register"
 
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:1435 tests/test_routes.py:1449
+#: tests/test_routes.py:1464 tests/test_routes.py:1478
 msgid "Sehr geehrte(r)"
 msgstr "Dear"
 
@@ -1756,11 +1760,11 @@ msgstr "Search In:"
 msgid "Es gibt keine Manuskriptbilder für Angers 3 (deu)"
 msgstr "There are no manuscript images for Angers 3 (deu)"
 
-#: tests/test_routes.py:1304 tests/test_routes.py:1313
+#: tests/test_routes.py:1333 tests/test_routes.py:1342
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' is not valid input for this field."
 
-#: tests/test_routes.py:1312 tests/test_routes.py:3324
+#: tests/test_routes.py:1341 tests/test_routes.py:3355
 msgid "Dieses Feld wird benötigt."
 msgstr "This is a required field."
 

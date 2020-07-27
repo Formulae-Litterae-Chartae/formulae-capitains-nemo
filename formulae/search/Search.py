@@ -142,6 +142,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
             if ind > 0:
                 sep = ' '
             i = r.find(sep + term, ind)
+            print(r, i)
             if i == -1:
                 ind = i
                 continue

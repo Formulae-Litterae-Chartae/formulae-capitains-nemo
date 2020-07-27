@@ -21,7 +21,7 @@ def r_simple_search() -> redirect:
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
             if k == 'corpus':
-                flash(m[0] + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+                flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
             elif k == 'q':
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
         return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
@@ -242,11 +242,10 @@ def download_search_results(download_id: str) -> Response:
                               ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
                               ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
                               ('special_days', _('Besondere Tage')), ('corpus', _('Corpora'))]
+        search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
         for arg, s in search_arg_mapping:
             if arg in session['previous_search_args']:
-                value = session['previous_search_args'][arg]
-            elif arg == 'lemma_search':
-                value = _('Nein')
+                value = search_value_dict.get(session['previous_search_args'][arg], session['previous_search_args'][arg])
             else:
                 value = ''
             if arg == 'corpus':
