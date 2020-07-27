@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-07-21 12:00+0200\n"
+"POT-Creation-Date: 2020-07-27 16:07+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -47,7 +47,7 @@ msgid "(Titel)"
 msgstr "(Titre)"
 
 #: formulae/nemo.py:296 formulae/nemo.py:309 formulae/nemo.py:657
-#: tests/test_routes.py:1082
+#: tests/test_routes.py:1116
 msgid "(Prolog)"
 msgstr ""
 
@@ -108,11 +108,11 @@ msgstr ""
 msgid "Heruntergeladen: "
 msgstr ""
 
-#: formulae/auth/email.py:9 tests/test_routes.py:1428
+#: formulae/auth/email.py:9 tests/test_routes.py:1462
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Réinitialiser le mot de passe"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:1442
+#: formulae/auth/email.py:18 tests/test_routes.py:1476
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr ""
 
@@ -196,11 +196,11 @@ msgstr "Langue par défault"
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:1346
+#: formulae/auth/forms.py:60 tests/test_routes.py:1380
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Veuillez choisir un autre nom d'utilisateur."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:1348
+#: formulae/auth/forms.py:65 tests/test_routes.py:1382
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Veuillez choisir une autre adresse e-mail."
 
@@ -210,15 +210,15 @@ msgstr "Veuillez choisir une autre adresse e-mail."
 msgid "Sie sind schon eingeloggt."
 msgstr "Vous êtes déjà connecté(e)."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:1374
+#: formulae/auth/routes.py:26 tests/test_routes.py:1408
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:1548
+#: formulae/auth/routes.py:59 tests/test_routes.py:1582
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:1534
+#: formulae/auth/routes.py:64 tests/test_routes.py:1568
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "Vous avez réussi à changer votre mot de passe."
 
@@ -226,7 +226,7 @@ msgstr "Vous avez réussi à changer votre mot de passe."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "Vous avez réussi à changer la langue par défault."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:1448
+#: formulae/auth/routes.py:76 tests/test_routes.py:1482
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
@@ -237,7 +237,7 @@ msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:470 tests/test_routes.py:1482
+#: tests/test_routes.py:470 tests/test_routes.py:1516
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe ici."
 
@@ -245,8 +245,8 @@ msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe i
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Vous avez réussi à réinitialiser votre mot de passe."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:1434
-#: tests/test_routes.py:1459
+#: formulae/auth/routes.py:120 tests/test_routes.py:1468
+#: tests/test_routes.py:1493
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -254,19 +254,19 @@ msgstr ""
 "L'instruction pour réinitialiser votre mot de passe vous a été envoyée "
 "par e-mail"
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:1506
+#: formulae/auth/routes.py:137 tests/test_routes.py:1540
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:1503
+#: formulae/auth/routes.py:140 tests/test_routes.py:1537
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:1499
+#: formulae/auth/routes.py:145 tests/test_routes.py:1533
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr ""
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:1415
+#: formulae/auth/routes.py:166 tests/test_routes.py:1449
 msgid "Sie sind nun registriert."
 msgstr "Vous êtes désormais enregistré(e)."
 
@@ -275,12 +275,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:3525
+#: tests/test_routes.py:3573
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:3526
+#: tests/test_routes.py:3574
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -300,8 +300,8 @@ msgstr ""
 msgid "Regest nicht zugänglich."
 msgstr ""
 
-#: formulae/search/Search.py:366 tests/test_routes.py:3036
-#: tests/test_routes.py:3048
+#: formulae/search/Search.py:371 tests/test_routes.py:3067
+#: tests/test_routes.py:3079
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -310,12 +310,12 @@ msgstr ""
 "la recherche de lemmes."
 
 #: formulae/search/forms.py:27 formulae/search/forms.py:44
-#: formulae/search/forms.py:106 formulae/search/routes.py:163
+#: formulae/search/forms.py:106 formulae/search/routes.py:144
 msgid "Suche"
 msgstr "Recherche"
 
 #: formulae/search/forms.py:28 formulae/search/forms.py:52
-#: formulae/search/routes.py:249 templates/search/documentation.html:11
+#: formulae/search/routes.py:244 templates/search/documentation.html:11
 msgid "Corpora"
 msgstr "Corpus"
 
@@ -328,8 +328,8 @@ msgstr "Formules"
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:31 tests/test_routes.py:1298
-#: tests/test_routes.py:3311
+#: formulae/search/forms.py:31 formulae/search/routes.py:24
+#: tests/test_routes.py:1332 tests/test_routes.py:3344
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")."
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Lemma"
 msgstr "Lemmes"
 
-#: formulae/search/forms.py:46 formulae/search/routes.py:243
+#: formulae/search/forms.py:46 formulae/search/routes.py:238
 #: templates/search/documentation.html:21
 msgid "Unschärfegrad"
 msgstr "Niveau de flou"
@@ -350,12 +350,12 @@ msgstr "Niveau de flou"
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:49 formulae/search/routes.py:244
+#: formulae/search/forms.py:49 formulae/search/routes.py:239
 #: templates/search/documentation.html:23
 msgid "Suchradius"
 msgstr "Étendue de la recherche"
 
-#: formulae/search/forms.py:50 formulae/search/routes.py:244
+#: formulae/search/forms.py:50 formulae/search/routes.py:239
 msgid "Wortreihenfolge beachten?"
 msgstr "Garder l’ordre des mots ?"
 
@@ -368,17 +368,17 @@ msgid "Alle"
 msgstr "Tous"
 
 #: formulae/search/forms.py:54 formulae/search/forms.py:65
-#: formulae/search/forms.py:77 formulae/search/routes.py:244
+#: formulae/search/forms.py:77 formulae/search/routes.py:239
 msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:55 formulae/search/forms.py:66
-#: formulae/search/forms.py:79 tests/test_routes.py:880
+#: formulae/search/forms.py:79 tests/test_routes.py:914
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit se situer entre 500 et 1000."
 
 #: formulae/search/forms.py:57 formulae/search/forms.py:68
-#: formulae/search/forms.py:81 formulae/search/routes.py:245
+#: formulae/search/forms.py:81 formulae/search/routes.py:240
 msgid "Monat"
 msgstr "Mois"
 
@@ -443,7 +443,7 @@ msgid "Dez"
 msgstr "Déc"
 
 #: formulae/search/forms.py:62 formulae/search/forms.py:73
-#: formulae/search/forms.py:86 formulae/search/routes.py:245
+#: formulae/search/forms.py:86 formulae/search/routes.py:240
 msgid "Tag"
 msgstr "Jour"
 
@@ -452,7 +452,7 @@ msgstr "Jour"
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "La date doit se situer entre 1 et 31."
 
-#: formulae/search/forms.py:89 formulae/search/routes.py:247
+#: formulae/search/forms.py:89 formulae/search/routes.py:242
 #: templates/search/documentation.html:31
 msgid "Datum Plus-Minus"
 msgstr "Date à plus-ou-moins "
@@ -461,12 +461,12 @@ msgstr "Date à plus-ou-moins "
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Le plus-ou-moins doit se situer entre 0 et 100 ans."
 
-#: formulae/search/forms.py:93 formulae/search/routes.py:248
+#: formulae/search/forms.py:93 formulae/search/routes.py:243
 #: templates/search/documentation.html:35
 msgid "Exklusiv"
 msgstr "Exclusif"
 
-#: formulae/search/forms.py:94 formulae/search/routes.py:248
+#: formulae/search/forms.py:94 formulae/search/routes.py:243
 #: templates/main/salzburg_collection.html:6
 #: templates/main/sub_collection.html:6
 msgid "Ausstellungsort"
@@ -476,15 +476,18 @@ msgstr "Lieu d'exposition"
 msgid "Nach bestimmten Tagen suchen"
 msgstr "chercher des jours spécifiques"
 
-#: formulae/search/forms.py:96 templates/search/advanced_search.html:176
+#: formulae/search/forms.py:96 formulae/search/routes.py:227
+#: templates/search/advanced_search.html:176
 msgid "Ostern"
 msgstr "Pâques"
 
-#: formulae/search/forms.py:97 templates/search/advanced_search.html:184
+#: formulae/search/forms.py:97 formulae/search/routes.py:228
+#: templates/search/advanced_search.html:184
 msgid "Fastenzeit"
 msgstr "Carême"
 
-#: formulae/search/forms.py:98 templates/search/advanced_search.html:180
+#: formulae/search/forms.py:98 formulae/search/routes.py:229
+#: templates/search/advanced_search.html:180
 msgid "Pfingsten"
 msgstr "Pentecôte"
 
@@ -516,67 +519,107 @@ msgstr "Ven"
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/routes.py:24 tests/test_routes.py:3312
+#: formulae/search/routes.py:24 tests/test_routes.py:3345
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:26 tests/test_routes.py:3323
+#: formulae/search/routes.py:26 tests/test_routes.py:3356
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
-#: formulae/search/routes.py:192 tests/test_routes.py:883
+#: formulae/search/routes.py:176 tests/test_routes.py:917
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins un champ."
 
-#: formulae/search/routes.py:236 tests/test_routes.py:3483
+#: formulae/search/routes.py:220 tests/test_routes.py:3520
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr ""
 
-#: formulae/search/routes.py:242
+#: formulae/search/routes.py:230
+msgid "Sonntag"
+msgstr ""
+
+#: formulae/search/routes.py:231
+msgid "Montag"
+msgstr ""
+
+#: formulae/search/routes.py:232
+msgid "Dienstag"
+msgstr ""
+
+#: formulae/search/routes.py:233
+msgid "Mittwoch"
+msgstr ""
+
+#: formulae/search/routes.py:234
+msgid "Donnerstag"
+msgstr ""
+
+#: formulae/search/routes.py:235
+msgid "Freitag"
+msgstr ""
+
+#: formulae/search/routes.py:236
+msgid "Samstag"
+msgstr ""
+
+#: formulae/search/routes.py:237
 msgid "Suchbegriff"
 msgstr ""
 
-#: formulae/search/routes.py:242
+#: formulae/search/routes.py:237
 msgid "Lemma?"
 msgstr ""
 
-#: formulae/search/routes.py:243
+#: formulae/search/routes.py:238
 msgid "Regesten Suchbegriff"
 msgstr ""
 
-#: formulae/search/routes.py:245
+#: formulae/search/routes.py:240
 msgid "Anfangsjahr"
 msgstr ""
 
-#: formulae/search/routes.py:246
+#: formulae/search/routes.py:241
 msgid "Anfangsmonat"
 msgstr ""
 
-#: formulae/search/routes.py:246
+#: formulae/search/routes.py:241
 msgid "Anfangstag"
 msgstr ""
 
-#: formulae/search/routes.py:246
+#: formulae/search/routes.py:241
 msgid "Endjahr"
 msgstr ""
 
-#: formulae/search/routes.py:247
+#: formulae/search/routes.py:242
 msgid "Endmonat"
 msgstr ""
 
-#: formulae/search/routes.py:247
+#: formulae/search/routes.py:242
 msgid "Endtag"
 msgstr ""
 
-#: formulae/search/routes.py:273
+#: formulae/search/routes.py:244
+msgid "Besondere Tage"
+msgstr ""
+
+#: formulae/search/routes.py:245
+msgid "Nein"
+msgstr ""
+
+#: formulae/search/routes.py:245
+msgid "Ja"
+msgstr ""
+
+#: formulae/search/routes.py:280
 msgid "Aus dem Regest"
 msgstr ""
 
-#: formulae/search/routes.py:283
+#: formulae/search/routes.py:290
 msgid "Suchparameter"
 msgstr ""
 
-#: formulae/search/routes.py:286 templates/search/search.html:9
+#: formulae/search/routes.py:293 templates/search/search.html:9
 #: templates/search/search.html:43
 msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
@@ -603,7 +646,7 @@ msgid "Klicken Sie hier"
 msgstr "Cliquez ici"
 
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:1430 tests/test_routes.py:1444
+#: tests/test_routes.py:1464 tests/test_routes.py:1478
 msgid "Sehr geehrte(r)"
 msgstr "Cher/Chère"
 
@@ -1136,6 +1179,10 @@ msgstr "Afficher toutes les notes de ce texte"
 
 #: templates/main/prev_search.html:12 templates/search/search.html:52
 msgid "Suchergebnisse herunterladen"
+msgstr ""
+
+#: templates/main/prev_search.html:34 templates/search/search.html:202
+msgid "Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später."
 msgstr ""
 
 #: templates/main/regest_collapse.html:5 templates/main/regest_collapse.html:8
@@ -1683,10 +1730,6 @@ msgstr ""
 "Ce texte est protégé par le droit d'auteur et n'est donc pas disponible "
 "en ligne. Veuillez le consulter au format imprimé."
 
-#: templates/search/search.html:202
-msgid "Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später."
-msgstr ""
-
 #: templates/search/search_box.html:4
 msgid "Suchen in:"
 msgstr "Chercher dans"
@@ -1695,11 +1738,11 @@ msgstr "Chercher dans"
 msgid "Es gibt keine Manuskriptbilder für Angers 3 (deu)"
 msgstr ""
 
-#: tests/test_routes.py:1299 tests/test_routes.py:1308
+#: tests/test_routes.py:1333 tests/test_routes.py:1342
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' n'est pas valable pour ce champ de recherche."
 
-#: tests/test_routes.py:1307 tests/test_routes.py:3322
+#: tests/test_routes.py:1341 tests/test_routes.py:3355
 msgid "Dieses Feld wird benötigt."
 msgstr "Ce champ est nécessaire."
 

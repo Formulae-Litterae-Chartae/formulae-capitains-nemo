@@ -490,7 +490,7 @@ class NemoFormulae(Nemo):
             response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
-        if getattr(g, 'previous_search', None):
+        if getattr(g, 'previous_search', None) is not None:
             session['previous_search'] = g.previous_search
         if getattr(g, 'previous_search_args', None):
             session['previous_search_args'] = g.previous_search_args
@@ -1111,15 +1111,15 @@ class NemoFormulae(Nemo):
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
         prev_args = session['previous_search_args']
-        prev_args['search_field'] = prev_args.get('search_field', 'text')
+        search_field = 'text'
         if prev_args.get('lemma_search', None) == "True":
-            prev_args['search_field'] = 'lemmas'
+            search_field = 'lemmas'
         ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
                                            q=prev_args.get('q', ''),
                                            ordered_terms=prev_args.get('ordered_terms', False),
                                            slop=prev_args.get('slop', 0),
                                            regest_field=prev_args.get('regest_field', 'regest'),
-                                           search_field=prev_args.get('search_field'),
+                                           search_field=search_field,
                                            highlight_field='text',
                                            fuzz=prev_args.get('fuzz', '0'))
         if not any(ids):

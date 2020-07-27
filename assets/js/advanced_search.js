@@ -117,9 +117,9 @@ function buildUrl(qSource) {
         params.regest_field = 'autocomplete_regest';
         var extraField = 'q';
         if (searchLemmas.checked) {
-            params.field = 'lemmas';
+            params.field = 'True';
         } else {
-            params.field = 'text';
+            params.field = 'False';
         }
     }
     formulaeChecks.forEach(function(formula) {
@@ -155,7 +155,7 @@ function buildUrl(qSource) {
     params.month_end = document.getElementById('month_end').value;
     params.day_end = document.getElementById('day_end').value;
     params.day_end = document.getElementById('day_end').value;
-    var urlExt = "?corpus=" + params.corpus.join('+') + "&field=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+') + "&" + extraField + "=" + params.extra_q + "&regest_field=" + params.regest_field + "&qSource=" + qSource;
+    var urlExt = "?corpus=" + params.corpus.join('+') + "&lemma_search=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+') + "&" + extraField + "=" + params.extra_q + "&regest_field=" + params.regest_field + "&qSource=" + qSource;
     return urlExt;
 }
 
