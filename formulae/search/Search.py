@@ -142,11 +142,13 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
             if ind > 0:
                 sep = ' '
             i = r.find(sep + term, ind)
-            print(r, i)
             if i == -1:
                 ind = i
                 continue
-            results.add(r[i:min(r.find(' ', i + len(term) + 30), len(r))].strip())
+            end_index = min(r.find(' ', i + len(term) + 30), len(r))
+            if end_index == -1:
+                end_index = len(r)
+            results.add(r[i:end_index].strip())
             ind = i + len(sep + term)
     return sorted(results, key=str.lower)[:10]
 

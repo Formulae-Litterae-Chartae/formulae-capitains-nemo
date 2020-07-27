@@ -13,7 +13,7 @@
                         "match": {
                           "fuzzy": {
                             "autocomplete": {
-                              "value": "ill",
+                              "value": "scrips",
                               "fuzziness": "0"
                             }
                           }

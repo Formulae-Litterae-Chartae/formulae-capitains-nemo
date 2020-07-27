@@ -1786,7 +1786,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest")]),
-                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"), ("lemma_search", "autocomplete"), ("q", 'ill'), ("fuzziness", "0"),
+                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"), ("lemma_search", "autocomplete"), ("q", 'scrips'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -3374,16 +3374,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['illa dua mansa cernebant sed et plurimi',
-                    'illa edificia desursum coniungunt',
-                    'illa qui possit nobis prestare solatium',
-                    'illa testimonia qui de ipso pago erant',
-                    'illam audire desiderabilem „euge serve',
-                    'illam beatissimam visionem domini',
-                    'illam divisionem quam bonae memoriae',
-                    'illam indictionem ducatum tibi cedimus',
-                    'ille dixerunt secundum istorum hominum',
-                    'ille exercitus nostri quietem debet']
+        expected = ['scripsi diemque et tempus designavi',
+                    'scripsi et manu mea propria subscripsi',
+                    'scripsi et subscri st psi notavi diem',
+                    'scripsi et subscripsi',
+                    'scripsi et subscripsi notavi diem v fer',
+                    'scripsi et suscripsi',
+                    'scripsi et teste me suscripsi',
+                    'scripsi signum baselii et filii sui rofini',
+                    'scripsi signum uictorini et felicianes',
+                    'scripsimus preter quartam quam reliquimus']
         mock_search.return_value = resp
         test_args['qSource'] = 'text'
         results = suggest_word_search(**test_args)
