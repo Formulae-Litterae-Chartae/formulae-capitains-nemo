@@ -13,7 +13,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
 
 
-CORP_MAP = {y['match']['_type']:x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
+CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
 
 
 @bp.route("/simple", methods=["GET"])
@@ -27,6 +27,10 @@ def r_simple_search() -> redirect:
         return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
     data = g.search_form.data
     data['q'] = data['q'].lower()
+    lemma_search = data.pop('lemma_search')
+    data['lemma_search'] = 'False'
+    if lemma_search in ['y', 'True', True]:
+        data['lemma_search'] = 'True'
     corpus = '+'.join(data.pop("corpus"))
     return redirect(url_for('.r_results', source='simple', corpus=corpus, sort="urn", **data))
 
@@ -34,65 +38,63 @@ def r_simple_search() -> redirect:
 @bp.route("/results", methods=["GET"])
 def r_results():
     source = request.args.get('source', None)
-    corpus = request.args.get('corpus', '').split('+')
-    special_days = request.args.get('special_days', '').split('+')
-    if len(corpus) == 1:
-        corpus = corpus[0].split(' ')
-    if len(special_days) == 1:
-        special_days = special_days[0].split(' ')
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
-    page = request.args.get('page', 1, type=int)
-    if request.args.get('lemma_search') in ['y', 'True']:
-        field = 'lemmas'
+    corpus = request.args.get('corpus', '').split('+')
+    if len(corpus) == 1:
+        corpus = corpus[0].split(' ')
+    if corpus in [['all'], ['formulae', 'chartae'], ['']]:
+        corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
+    elif corpus == ['formulae']:
+        corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
+    elif corpus == ['chartae']:
+        corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     else:
-        field = 'text'
+        corps = corpus
+    g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    special_days = request.args.get('special_days')
+    if special_days:
+        special_days = special_days.split('+')
+        if len(special_days) == 1:
+            special_days = special_days[0].split(' ')
+    page = request.args.get('page', 1, type=int)
     old_search = False
     if request.args.get('old_search', None) == 'True':
         old_search = True
-    # Unlike in the Flask Megatutorial, I need to specifically pass the field name
-    if source == 'simple':
-        posts, total, aggs, g.previous_search = advanced_query_index(corpus=corpus,
-                                                                     field=field,
-                                                                     q=g.search_form.q.data,
-                                                                     page=page,
-                                                                     per_page=current_app.config['POSTS_PER_PAGE'],
-                                                                     sort=request.args.get('sort', 'urn'),
-                                                                     old_search=old_search,
-                                                                     source='simple')
-        search_args = {"q": g.search_form.q.data, 'source': 'simple', 'corpus': '+'.join(corpus),
-                       'sort': request.args.get('sort', 'urn'), 'lemma_search': request.args.get('lemma_search'),}
-    else:
-        posts, total, aggs, g.previous_search = advanced_query_index(per_page=current_app.config['POSTS_PER_PAGE'],
-                                                                     field=field,
-                                                                     q=request.args.get('q'),
-                                                                     fuzziness=request.args.get("fuzziness", "0"),
-                                                                     page=page,
-                                                                     in_order=request.args.get('in_order', 'False'),
-                                                                     slop=request.args.get('slop', '0'),
-                                                                     regest_q=request.args.get('regest_q'),
-                                                                     year=request.args.get('year', 0, type=int),
-                                                                     month=request.args.get('month', 0, type=int),
-                                                                     day=request.args.get('day', 0, type=int),
-                                                                     year_start=request.args.get('year_start', 0, type=int),
-                                                                     month_start=request.args.get('month_start', 0, type=int),
-                                                                     day_start=request.args.get('day_start', 0, type=int),
-                                                                     year_end=request.args.get('year_end', 0, type=int),
-                                                                     month_end=request.args.get('month_end', 0, type=int),
-                                                                     day_end=request.args.get('day_end', 0, type=int),
-                                                                     date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                                                     corpus=corpus or ['all'],
-                                                                     exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                                                     composition_place=request.args.get('composition_place', ''),
-                                                                     sort=request.args.get('sort', 'urn'),
-                                                                     special_days=special_days,
-                                                                     old_search=old_search,
-                                                                     source='advanced')
-        search_args = {x:y for x, y in request.args.items()}
-        search_args.pop('page', None)
-        search_args['corpus'] = '+'.join(corpus)
-        search_args.pop('old_search', None)
+    search_args = dict(per_page=current_app.config['POSTS_PER_PAGE'],
+                       lemma_search=request.args.get('lemma_search', 'False'),
+                       q=request.args.get('q'),
+                       fuzziness=request.args.get("fuzziness", "0"),
+                       page=page,
+                       in_order=request.args.get('in_order', 'False'),
+                       slop=request.args.get('slop', '0'),
+                       regest_q=request.args.get('regest_q'),
+                       year=request.args.get('year', 0, type=int),
+                       month=request.args.get('month', 0, type=int),
+                       day=request.args.get('day', 0, type=int),
+                       year_start=request.args.get('year_start', 0, type=int),
+                       month_start=request.args.get('month_start', 0, type=int),
+                       day_start=request.args.get('day_start', 0, type=int),
+                       year_end=request.args.get('year_end', 0, type=int),
+                       month_end=request.args.get('month_end', 0, type=int),
+                       day_end=request.args.get('day_end', 0, type=int),
+                       date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
+                       corpus=corpus or ['all'],
+                       exclusive_date_range=request.args.get('exclusive_date_range', "False"),
+                       composition_place=request.args.get('composition_place', ''),
+                       sort=request.args.get('sort', 'urn'),
+                       special_days=special_days,
+                       old_search=old_search,
+                       source=request.args.get('source', 'advanced'),
+                       regest_field=request.args.get('regest_field', 'regest'))
+    posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
+    search_args = {k: v for k, v in search_args.items() if v}
+    search_args.pop('page', None)
+    search_args['corpus'] = '+'.join(corpus)
+    if 'special_days' in search_args:
+        search_args['special_days'] = '+'.join(special_days)
+    search_args.pop('old_search', None)
     first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
         if total > page * current_app.config['POSTS_PER_PAGE'] else None
@@ -118,31 +120,10 @@ def r_results():
     if old_search is False:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
-        if g.previous_search_args['corpus'] in ['all', 'formulae+chartae', '']:
-            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            g.previous_search_args['corpus'] = '+'.join(corps)
-        elif g.previous_search_args['corpus'] == 'formulae':
-            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
-            g.previous_search_args['corpus'] = '+'.join(corps)
-        elif g.previous_search_args['corpus'] == 'chartae':
-            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-            g.previous_search_args['corpus'] = '+'.join(corps)
-        else:
-            corps = search_args['corpus'].split('+')
-        g.corpora = [(x, CORP_MAP[x]) for x in corps]
-    elif 'corpus' in search_args:
-        if search_args['corpus'] in ['all', 'formulae+chartae', '']:
-            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-        elif search_args['corpus'] == 'formulae':
-            corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
-        elif search_args['corpus'] == 'chartae':
-            corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
-        else:
-            corps = search_args['corpus'].split('+')
-        g.corpora = [(x, CORP_MAP[x]) for x in corps]
+        g.previous_search_args['corpus'] = '+'.join(corps)
     inf_to_lemmas = []
-    if field == 'text':
-        search_terms = search_args['q'].split()
+    if search_args['lemma_search'] != 'True':
+        search_terms = search_args.get('q', '').split()
         for token in search_terms:
             terms = {token}
             if re.search(r'[?*]', token):
@@ -186,7 +167,10 @@ def r_advanced_search():
             data['q'] = data['q'].lower()
             data['regest_q'] = data['regest_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
-            data['lemma_search'] = request.args.get('lemma_search')
+            lemma_search = data.pop('lemma_search')
+            data['lemma_search'] = 'False'
+            if lemma_search in ['y', 'True', True]:
+                data['lemma_search'] = 'True'
             data['special_days'] = '+'.join(data.pop('special_days')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
@@ -206,7 +190,7 @@ def r_search_docs():
 def word_search_suggester(word: str):
     qSource = request.args.get('qSource', 'text')
     words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
-                                field=request.args.get('field', 'autocomplete'),
+                                lemma_search=request.args.get('lemma_search', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
                                 in_order=request.args.get('in_order', 'False'),
                                 slop=request.args.get('slop', '0'),
@@ -239,6 +223,17 @@ def download_search_results(download_id: str) -> Response:
         download_id = 'pdf_download_' + str(download_id)
         resp = list()
         arg_list = list()
+        special_day_dict = dict([('', ''),
+                                 ('Easter', _('Ostern')),
+                                 ('Lent', _('Fastenzeit')),
+                                 ('Pentecost', _('Pfingsten')),
+                                 ('Sunday', _('Sonntag')),
+                                 ('Monday', _('Montag')),
+                                 ('Tuesday', _('Dienstag')),
+                                 ('Wednesday', _('Mittwoch')),
+                                 ('Thursday', _('Donnerstag')),
+                                 ('Friday', _('Freitag')),
+                                 ('Saturday', _('Samstag'))])
         search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
                               ('regest_q', _('Regesten Suchbegriff')), ('fuzziness', _('Unschärfegrad')),
                               ('slop', _('Suchradius')), ('in_order', _('Wortreihenfolge beachten?')), ('year', _('Jahr')),
@@ -246,23 +241,36 @@ def download_search_results(download_id: str) -> Response:
                               ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
                               ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
                               ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
-                              ('corpus', _('Corpora'))]
+                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora'))]
         for arg, s in search_arg_mapping:
-            value = session['previous_search_args'][arg] if arg in session['previous_search_args'] else 'No'
+            if arg in session['previous_search_args']:
+                value = session['previous_search_args'][arg]
+            elif arg == 'lemma_search':
+                value = _('Nein')
+            else:
+                value = ''
             if arg == 'corpus':
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
-            arg_list.append('{}: {}'.format(s, value if value != '0' else ''))
+            if arg == 'special_days':
+                value = ' - '.join([special_day_dict[x] for x in value.split('+')])
+            arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
-        ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
-                                           q=prev_args.get('q', ''),
-                                           ordered_terms=prev_args.get('ordered_terms', False),
-                                           slop=prev_args.get('slop', 0),
-                                           regest_field=prev_args.get('regest_field', 'regest'),
-                                           search_field=prev_args.get('search_field', 'text'),
-                                           highlight_field='text',
-                                           fuzz=prev_args.get('fuzz', '0'),
-                                           download_id=download_id)
-        current_app.redis.setex(download_id, 60, '99%')
+        search_field = 'text'
+        if prev_args.get('lemma_search', None) == "True":
+            search_field = 'lemmas'
+        try:
+            ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
+                                               q=prev_args.get('q', ''),
+                                               ordered_terms=prev_args.get('ordered_terms', False),
+                                               slop=prev_args.get('slop', 0),
+                                               regest_field=prev_args.get('regest_field', 'regest'),
+                                               search_field=search_field,
+                                               highlight_field='text',
+                                               fuzz=prev_args.get('fuzz', '0'),
+                                               download_id=download_id)
+        # This finally statement makes sure that the JS function to get the progress halts on an error.
+        finally:
+            current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:

@@ -84,7 +84,7 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
         return ['sort_prefix', {'urn': {'order': 'desc'}}]
 
 
-def set_session_token(index: list, orig_template: dict, field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
+def set_session_token(index: list, orig_template: dict, search_field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
     """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -93,7 +93,7 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str) -> L
     highlighted_terms = set()
     if q:
         for hit in search_hits:
-            for highlight in hit['highlight'][field]:
+            for highlight in hit['highlight'][search_field]:
                 for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
                     highlighted_terms.add(m.group(1).lower())
     g.highlighted_words = highlighted_terms
@@ -121,7 +121,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     kwargs['fragment_size'] = 1000
     field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
     if kwargs['qSource'] == 'text':
-        highlight_field = field_mapping[kwargs.get('field', 'autocomplete')]
+        highlight_field = field_mapping[kwargs.get('lemma_search', 'autocomplete')]
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
@@ -324,7 +324,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     return ids, all_highlighted_terms
 
 
-def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', page: int = 1, per_page: int = 10,
+def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str = '', page: int = 1, per_page: int = 10,
                          fuzziness: str = '0', year: int = 0, month: int = 0, day: int = 0, year_start: int = 0,
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
@@ -335,13 +335,18 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                                             dict,
                                             List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
-    prev_search = dict()
+    prev_search = None
     if q == '' and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
         corpus = ['all']
     if special_days is None:
         special_days = []
+    search_field = 'text'
+    if lemma_search == 'True':
+        search_field = 'lemmas'
+    elif 'autocomplete' in lemma_search:
+        search_field = lemma_search
     old_sort = sort
     sort = build_sort_list(sort)
     if old_search is False:
@@ -349,7 +354,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
-    body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
+    body_template['highlight'] = {'fields': {search_field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
                                   'pre_tags': [PRE_TAGS],
                                   'post_tags': [POST_TAGS],
@@ -360,7 +365,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     ordered_terms = True
     if in_order == 'False':
         ordered_terms = False
-    if field == 'lemmas':
+    if search_field == 'lemmas':
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
@@ -373,15 +378,15 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
-                clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
+                clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
             else:
-                if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}]
+                if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
                     for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
                     clauses.append(sub_clauses)
                 else:
-                    clauses.append([{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}])
+                    clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
         bool_clauses = []
         for clause in product(*clauses):
             bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
@@ -458,13 +463,19 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        if field in ('lemmas', 'text'):
-            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text',
-                                                           fuzz)
+        if search_field in ('lemmas', 'text'):
+            ids, highlighted_terms = lem_highlight_to_text(search=search,
+                                                           q=q,
+                                                           ordered_terms=ordered_terms,
+                                                           slop=slop,
+                                                           regest_field=regest_field,
+                                                           search_field=search_field,
+                                                           highlight_field='text',
+                                                           fuzz=fuzz)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]] if 'highlight' in hit else [],
+                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []}
                    for hit in search['hits']['hits']]
@@ -477,14 +488,14 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '')
+    if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
+        prev_search = set_session_token(corpus, body_template, search_field, q if search_field in ['text', 'lemmas'] else '')
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=field,
+                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=lemma_search,
                                                                          q=q.replace(' ', '+'), fuzz=fuzziness,
                                                                          in_order=in_order, slop=slop, y=year, m=month,
                                                                          d=day, y_s=year_start,

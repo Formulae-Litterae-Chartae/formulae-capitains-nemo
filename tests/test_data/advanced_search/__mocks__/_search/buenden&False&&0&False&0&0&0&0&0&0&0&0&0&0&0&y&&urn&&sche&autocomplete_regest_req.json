@@ -3,30 +3,23 @@
     "bool": {
       "must": [
         {
-          "bool": {
-            "should": [
+          "span_near": {
+            "clauses": [
               {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "autocomplete": {
-                              "value": "ill",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "autocomplete_regest": {
+                        "value": "sche",
+                        "fuzziness": "0"
                       }
                     }
-                  ],
-                  "slop": "0",
-                  "in_order": false
+                  }
                 }
               }
             ],
-            "minimum_should_match": 1
+            "slop": "0",
+            "in_order": false
           }
         }
       ]
@@ -483,10 +476,10 @@
   },
   "highlight": {
     "fields": {
-      "autocomplete": {
+      "text": {
         "fragment_size": 1000
       },
-      "regest": {
+      "autocomplete_regest": {
         "fragment_size": 1000
       }
     },

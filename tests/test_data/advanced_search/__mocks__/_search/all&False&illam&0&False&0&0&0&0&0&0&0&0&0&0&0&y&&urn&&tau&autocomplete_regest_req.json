@@ -12,8 +12,8 @@
                       "span_multi": {
                         "match": {
                           "fuzzy": {
-                            "autocomplete": {
-                              "value": "ill",
+                            "text": {
+                              "value": "illam",
                               "fuzziness": "0"
                             }
                           }
@@ -27,6 +27,26 @@
               }
             ],
             "minimum_should_match": 1
+          }
+        },
+        {
+          "span_near": {
+            "clauses": [
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "autocomplete_regest": {
+                        "value": "tau",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "slop": "0",
+            "in_order": false
           }
         }
       ]
@@ -483,10 +503,10 @@
   },
   "highlight": {
     "fields": {
-      "autocomplete": {
+      "text": {
         "fragment_size": 1000
       },
-      "regest": {
+      "autocomplete_regest": {
         "fragment_size": 1000
       }
     },

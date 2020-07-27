@@ -12,8 +12,48 @@
                       "span_multi": {
                         "match": {
                           "fuzzy": {
-                            "autocomplete": {
-                              "value": "ill",
+                            "lemmas": {
+                              "value": "gero",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gerere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -483,7 +523,7 @@
   },
   "highlight": {
     "fields": {
-      "autocomplete": {
+      "lemmas": {
         "fragment_size": 1000
       },
       "regest": {
