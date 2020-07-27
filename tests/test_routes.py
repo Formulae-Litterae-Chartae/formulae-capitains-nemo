@@ -662,6 +662,17 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=None, regest_q='', old_search=False, source='advanced',
                                            regest_field='regest')
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
+            c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&special_days=Easter%20Tuesday'
+                  '&submit=Search')
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
+                                           source='advanced', regest_field='regest')
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday'
