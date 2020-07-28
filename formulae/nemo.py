@@ -1092,7 +1092,7 @@ class NemoFormulae(Nemo):
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['_id'] == id]
-                        if result_ids:
+                        if result_ids and session['previous_search_args'].get('q'):
                             d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
@@ -1121,7 +1121,7 @@ class NemoFormulae(Nemo):
                                            regest_field=prev_args.get('regest_field', 'regest'),
                                            search_field=search_field,
                                            highlight_field='text',
-                                           fuzz=prev_args.get('fuzz', '0'))
+                                           fuzz=prev_args.get('fuzziness', '0'))
         if not any(ids):
             return html
         if 'sentence_spans' in ids[0]:

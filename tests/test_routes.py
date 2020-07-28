@@ -758,7 +758,7 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_search_result_highlighting(self, mock_highlight):
         """ Make sure that highlighting of search results works correctly"""
         # Highlighting should cross boundary of parent nodes
-        session['previous_search_args'] = dict()
+        session['previous_search_args'] = {'q': 'Text that I want to search'}
         search_string = ['Text that I want to search']
         expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w searched-end">that</span></span></p><p><span class="searched"><span class="w searched-start searched-end">I</span></span></p><p><span class="searched"><span class="w searched-start">want</span><span class="w">to</span><span class="w searched-end">search</span></span>'
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
