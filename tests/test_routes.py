@@ -1942,6 +1942,7 @@ class TestES(Formulae_Testing):
                                                  }}
 
     SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
+                                      "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
                                       'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                       'Bünden': {'match': {'_type': 'buenden'}},
                                       'Echternach': {'match': {'_type': 'echternach'}},
@@ -1954,8 +1955,11 @@ class TestES(Formulae_Testing):
                                       'Lorsch': {'match': {'_type': 'lorsch'}},
                                       'Luzern': {'match': {'_type': 'luzern'}},
                                       'Marculf': {'match': {'_type': 'marculf'}},
+                                      "Accensement d'une vigne de Marmoutier": {'match': {'_type': 'marmoutier_barthelemy'}},
                                       'Marmoutier - Dunois': {'match': {'_type': 'marmoutier_dunois'}},
                                       'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                                      'Un acte faux de Marmoutier': {'match': {'_type': 'marmoutier_laurain'}},
+                                      'Marmoutier - Trois actes faux ou interpolés': {'match': {'_type': 'marmoutier_leveque'}},
                                       'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
                                       'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
                                       'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
@@ -1966,11 +1970,13 @@ class TestES(Formulae_Testing):
                                       'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
                                       'Passau': {'match': {'_type': 'passau'}},
                                       'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                                       'Regensburg': {'match': {'_type': 'regensburg'}},
                                       'Rheinisch': {'match': {'_type': 'rheinisch'}},
                                       'Salzburg': {'match': {'_type': 'salzburg'}},
                                       'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                       'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Une nouvelle charte de Théotolon': {'match': {'_type': 'tours_gasnault'}},
                                       'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                       'Werden': {'match': {'_type': 'werden'}},
                                       'Zürich': {'match': {'_type': 'zuerich'}}}

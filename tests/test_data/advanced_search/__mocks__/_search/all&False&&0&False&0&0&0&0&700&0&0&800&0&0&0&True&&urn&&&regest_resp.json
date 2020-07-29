@@ -1,18 +1,18 @@
 {
-  "took": 7,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 33,
-    "successful": 33,
+    "total": 39,
+    "successful": 39,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 2127,
+    "total": 2128,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -51,7 +51,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -90,7 +90,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -169,7 +169,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -204,8 +204,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -215,7 +215,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -244,8 +244,8 @@
           ],
           "min_date": "0718-02-23",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -255,7 +255,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
@@ -294,7 +294,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
@@ -329,8 +329,8 @@
           ],
           "min_date": "0726-06-09",
           "days": [
-            "Tuesday",
-            "Sunday"
+            "Sunday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -340,7 +340,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
@@ -379,7 +379,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v1",
+        "_index": "arnulfinger_v2",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
@@ -414,8 +414,8 @@
           ],
           "min_date": "0746-06-06",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -428,17 +428,26 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 10554,
+      "doc_count": 11028,
       "corpus": {
         "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
           "Angers": {
             "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
           },
           "Arnulfinger": {
             "doc_count": 24
           },
           "Bünden": {
             "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
           },
           "Echternach": {
             "doc_count": 152
@@ -482,6 +491,9 @@
           "Marmoutier - Serfs": {
             "doc_count": 187
           },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
           "Marmoutier - Vendômois": {
             "doc_count": 163
           },
@@ -521,6 +533,12 @@
           "St. Gallen": {
             "doc_count": 779
           },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
           "Weißenburg": {
             "doc_count": 276
           },
@@ -556,7 +574,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 144
+            "doc_count": 146
           },
           {
             "key": "700-799",
@@ -564,7 +582,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3099
+            "doc_count": 3100
           },
           {
             "key": "800-899",
@@ -572,7 +590,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2644
+            "doc_count": 2906
           },
           {
             "key": "900-999",
@@ -580,29 +598,38 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2849
+            "doc_count": 2871
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1229
+            "doc_count": 1328
           }
         ]
       },
       "no_date": {
-        "doc_count": 436
+        "doc_count": 524
       }
     },
     "corpus": {
       "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
         "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
           "doc_count": 0
         },
         "Arnulfinger": {
           "doc_count": 15
         },
         "Bünden": {
+          "doc_count": 3
+        },
+        "Cartulaire de Redon": {
           "doc_count": 3
         },
         "Echternach": {
@@ -627,7 +654,7 @@
           "doc_count": 2
         },
         "Lorsch": {
-          "doc_count": 1365
+          "doc_count": 1363
         },
         "Luzern": {
           "doc_count": 0
@@ -645,6 +672,9 @@
           "doc_count": 0
         },
         "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
           "doc_count": 0
         },
         "Marmoutier - Vendômois": {
@@ -686,6 +716,12 @@
         "St. Gallen": {
           "doc_count": 148
         },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
         "Weißenburg": {
           "doc_count": 183
         },
@@ -721,7 +757,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 2
         },
         {
           "key": "700-799",
@@ -729,7 +765,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 2068
+          "doc_count": 2066
         },
         {
           "key": "800-899",
@@ -737,7 +773,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 25
+          "doc_count": 26
         },
         {
           "key": "900-999",

@@ -86,6 +86,7 @@ class NemoFormulae(Nemo):
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
+                        # 'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
@@ -98,6 +99,8 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         # 'urn:cts:formulae:marmoutier_dunois',
+                        # 'urn:cts:formulae:marmoutier_laurain',
+                        # 'urn:cts:formulae:marmoutier_leveque',
                         # 'urn:cts:formulae:marmoutier_manceau',
                         # 'urn:cts:formulae:marmoutier_serfs',
                         # 'urn:cts:formulae:marmoutier_vendomois',
@@ -106,11 +109,13 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mondsee',
                         # 'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
+                        # 'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
+                        # 'urn:cts:formulae:tours_gasnault',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']
@@ -126,6 +131,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
                              'urn:cts:formulae:salzburg',
+                             # 'urn:cts:formulae:tours_gasnault',
                              'urn:cts:formulae:weissenburg',
                              'urn:cts:formulae:werden']
 
@@ -296,7 +302,7 @@ class NemoFormulae(Nemo):
                         par = _('(Prolog)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
-        elif 'katalonien' in m.id or 'marmoutier_manceau' in m.id:
+        elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
             par = list(m.parent)[0].split('_')[-1]
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
@@ -325,7 +331,8 @@ class NemoFormulae(Nemo):
         open_texts = []
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
-                     for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:katalonien',
+                     for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:anjou_archives',
+                                                                                    'urn:cts:formulae:katalonien',
                                                                                     'urn:cts:formulae:marmoutier_manceau',
                                                                                     'urn:cts:formulae:marmoutier_vendomois_appendix',
                                                                                     'urn:cts:formulae:marmoutier_dunois']}
@@ -342,6 +349,9 @@ class NemoFormulae(Nemo):
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:marmoutier_dunois']})
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -602,7 +612,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -625,7 +635,8 @@ class NemoFormulae(Nemo):
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
         elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau", 
-                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois"]:
+                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois",
+                          "urn:cts:formulae:anjou_archives"]:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:

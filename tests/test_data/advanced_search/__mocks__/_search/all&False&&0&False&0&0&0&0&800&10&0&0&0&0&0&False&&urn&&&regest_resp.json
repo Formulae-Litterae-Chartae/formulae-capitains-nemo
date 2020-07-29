@@ -1,18 +1,54 @@
 {
-  "took": 8,
+  "took": 15,
   "timed_out": false,
   "_shards": {
-    "total": 33,
-    "successful": 33,
+    "total": 39,
+    "successful": 39,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 7211,
+    "total": 7597,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "anjou_archives_v1",
+        "_type": "anjou_archives",
+        "_id": "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Archives d’Anjou. Recueil de documents et mémoires inédits sur cette province publié sous les auspices du Conseil général de Maine et Loire (Ed. Marchegay) Appendix Cartis Majoris Monasterii, Nr. 2",
+          "urn": "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001",
+          "date_string": "1060",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": true,
+          "dating": [
+            {
+              "gte": "1060-01-01",
+              "lte": "1060-12-31"
+            }
+          ],
+          "all_dates": [
+            "1060-01-01",
+            "1060-12-31"
+          ],
+          "min_date": "1060-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +341,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Lent",
-            "Monday",
-            "Wednesday",
-            "Easter",
-            "Tuesday",
-            "Saturday",
             "Thursday",
+            "Wednesday",
+            "Monday",
             "Friday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Easter",
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -323,7 +359,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -365,7 +401,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -407,7 +443,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -628,15 +664,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Lent",
+            "Thursday",
             "Wednesday",
             "Monday",
-            "Easter",
             "Tuesday",
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Sunday"
+            "Sunday",
+            "Easter",
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -646,7 +682,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -688,7 +724,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -730,7 +766,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
         "_score": null,
@@ -766,7 +802,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
         "_score": null,
@@ -802,7 +838,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -836,61 +872,31 @@
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
         ]
-      },
-      {
-        "_index": "buenden_v1",
-        "_type": "buenden",
-        "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
-        "_score": null,
-        "_source": {
-          "text": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
-          "lemmas": null,
-          "regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
-          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 35",
-          "urn": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
-          "date_string": "807 02 07",
-          "comp_ort": "Rankweil",
-          "autocomplete": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
-          "orig_comp_ort": "Rankweil",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 807,
-              "month": 2,
-              "day": 7
-            }
-          ],
-          "all_dates": [
-            "0807-02-07"
-          ],
-          "min_date": "0807-02-07",
-          "days": [
-            "Sunday"
-          ],
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:buenden.meyer-marthaler0035.lat001"
-        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 10554,
+      "doc_count": 11028,
       "corpus": {
         "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
           "Angers": {
             "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
           },
           "Arnulfinger": {
             "doc_count": 24
           },
           "Bünden": {
             "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
           },
           "Echternach": {
             "doc_count": 152
@@ -934,6 +940,9 @@
           "Marmoutier - Serfs": {
             "doc_count": 187
           },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
           "Marmoutier - Vendômois": {
             "doc_count": 163
           },
@@ -973,6 +982,12 @@
           "St. Gallen": {
             "doc_count": 779
           },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
           "Weißenburg": {
             "doc_count": 276
           },
@@ -1008,7 +1023,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 144
+            "doc_count": 146
           },
           {
             "key": "700-799",
@@ -1016,7 +1031,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3099
+            "doc_count": 3100
           },
           {
             "key": "800-899",
@@ -1024,7 +1039,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2644
+            "doc_count": 2906
           },
           {
             "key": "900-999",
@@ -1032,30 +1047,39 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2849
+            "doc_count": 2871
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1229
+            "doc_count": 1328
           }
         ]
       },
       "no_date": {
-        "doc_count": 436
+        "doc_count": 524
       }
     },
     "corpus": {
       "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 1
+        },
         "Angers": {
           "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 1
         },
         "Arnulfinger": {
           "doc_count": 0
         },
         "Bünden": {
           "doc_count": 19
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 377
         },
         "Echternach": {
           "doc_count": 43
@@ -1099,6 +1123,9 @@
         "Marmoutier - Serfs": {
           "doc_count": 185
         },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 6
+        },
         "Marmoutier - Vendômois": {
           "doc_count": 153
         },
@@ -1138,6 +1165,12 @@
         "St. Gallen": {
           "doc_count": 610
         },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 1
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
         "Weißenburg": {
           "doc_count": 56
         },
@@ -1173,7 +1206,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 2
         },
         {
           "key": "700-799",
@@ -1181,7 +1214,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 426
+          "doc_count": 427
         },
         {
           "key": "800-899",
@@ -1189,7 +1222,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2620
+          "doc_count": 2882
         },
         {
           "key": "900-999",
@@ -1197,13 +1230,13 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 2849
+          "doc_count": 2871
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 1229
+          "doc_count": 1328
         }
       ]
     },
