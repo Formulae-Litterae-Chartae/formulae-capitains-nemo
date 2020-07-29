@@ -1,18 +1,18 @@
 {
-  "took": 5,
+  "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 33,
-    "successful": 33,
+    "total": 39,
+    "successful": 39,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 506,
+    "total": 510,
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -305,15 +305,15 @@
           ],
           "min_date": "0769-04-20",
           "days": [
-            "Lent",
-            "Monday",
-            "Wednesday",
-            "Easter",
-            "Tuesday",
-            "Saturday",
             "Thursday",
+            "Wednesday",
+            "Monday",
             "Friday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Easter",
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -323,7 +323,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -365,7 +365,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -407,7 +407,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -628,15 +628,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Lent",
+            "Thursday",
             "Wednesday",
             "Monday",
-            "Easter",
             "Tuesday",
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Sunday"
+            "Sunday",
+            "Easter",
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -646,7 +646,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -688,7 +688,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -730,7 +730,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -766,7 +766,7 @@
         ]
       },
       {
-        "_index": "buenden_v1",
+        "_index": "buenden_v2",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
         "_score": null,
@@ -808,7 +808,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -844,7 +844,7 @@
         ]
       },
       {
-        "_index": "echternach_v1",
+        "_index": "echternach_v2",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -883,17 +883,26 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 10554,
+      "doc_count": 11028,
       "corpus": {
         "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
           "Angers": {
             "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
           },
           "Arnulfinger": {
             "doc_count": 24
           },
           "Bünden": {
             "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
           },
           "Echternach": {
             "doc_count": 152
@@ -937,6 +946,9 @@
           "Marmoutier - Serfs": {
             "doc_count": 187
           },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
           "Marmoutier - Vendômois": {
             "doc_count": 163
           },
@@ -976,6 +988,12 @@
           "St. Gallen": {
             "doc_count": 779
           },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
           "Weißenburg": {
             "doc_count": 276
           },
@@ -1011,7 +1029,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 144
+            "doc_count": 146
           },
           {
             "key": "700-799",
@@ -1019,7 +1037,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3099
+            "doc_count": 3100
           },
           {
             "key": "800-899",
@@ -1027,7 +1045,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2644
+            "doc_count": 2906
           },
           {
             "key": "900-999",
@@ -1035,23 +1053,29 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2849
+            "doc_count": 2871
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1229
+            "doc_count": 1328
           }
         ]
       },
       "no_date": {
-        "doc_count": 436
+        "doc_count": 524
       }
     },
     "corpus": {
       "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
         "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
           "doc_count": 0
         },
         "Arnulfinger": {
@@ -1059,6 +1083,9 @@
         },
         "Bünden": {
           "doc_count": 8
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 4
         },
         "Echternach": {
           "doc_count": 6
@@ -1102,6 +1129,9 @@
         "Marmoutier - Serfs": {
           "doc_count": 0
         },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
         "Marmoutier - Vendômois": {
           "doc_count": 7
         },
@@ -1141,6 +1171,12 @@
         "St. Gallen": {
           "doc_count": 3
         },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
         "Weißenburg": {
           "doc_count": 5
         },
@@ -1176,7 +1212,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 0
+          "doc_count": 2
         },
         {
           "key": "700-799",
@@ -1184,7 +1220,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 429
+          "doc_count": 430
         },
         {
           "key": "800-899",
@@ -1192,7 +1228,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 51
+          "doc_count": 52
         },
         {
           "key": "900-999",

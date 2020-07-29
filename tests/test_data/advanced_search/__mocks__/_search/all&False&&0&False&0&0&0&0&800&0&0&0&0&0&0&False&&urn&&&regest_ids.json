@@ -1,5 +1,8 @@
 [
   {
+    "id": "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001"
+  },
+  {
     "id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
   },
   {
@@ -25,8 +28,5 @@
   },
   {
     "id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001"
   }
 ]

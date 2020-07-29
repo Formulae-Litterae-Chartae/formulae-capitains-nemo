@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -48,7 +48,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -84,7 +84,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -120,7 +120,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -156,7 +156,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -228,7 +228,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -264,7 +264,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -300,7 +300,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -336,7 +336,7 @@
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v2",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -378,13 +378,22 @@
       "doc_count": 199,
       "corpus": {
         "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 0
+          },
           "Angers": {
             "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 0
           },
           "Arnulfinger": {
             "doc_count": 0
           },
           "Bünden": {
+            "doc_count": 0
+          },
+          "Cartulaire de Redon": {
             "doc_count": 0
           },
           "Echternach": {
@@ -429,6 +438,9 @@
           "Marmoutier - Serfs": {
             "doc_count": 0
           },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 0
+          },
           "Marmoutier - Vendômois": {
             "doc_count": 0
           },
@@ -466,6 +478,12 @@
             "doc_count": 0
           },
           "St. Gallen": {
+            "doc_count": 0
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 0
+          },
+          "Une nouvelle charte de Théotolon": {
             "doc_count": 0
           },
           "Weißenburg": {
@@ -543,13 +561,22 @@
     },
     "corpus": {
       "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
         "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
           "doc_count": 0
         },
         "Arnulfinger": {
           "doc_count": 0
         },
         "Bünden": {
+          "doc_count": 0
+        },
+        "Cartulaire de Redon": {
           "doc_count": 0
         },
         "Echternach": {
@@ -594,6 +621,9 @@
         "Marmoutier - Serfs": {
           "doc_count": 0
         },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
         "Marmoutier - Vendômois": {
           "doc_count": 0
         },
@@ -631,6 +661,12 @@
           "doc_count": 0
         },
         "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
           "doc_count": 0
         },
         "Weißenburg": {

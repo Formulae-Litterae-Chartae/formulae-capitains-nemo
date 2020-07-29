@@ -255,6 +255,11 @@
               "_type": "andecavensis"
             }
           },
+          "Archives d’Anjou": {
+            "match": {
+              "_type": "anjou_archives"
+            }
+          },
           "Arnulfinger": {
             "match": {
               "_type": "arnulfinger"
@@ -315,6 +320,11 @@
               "_type": "marculf"
             }
           },
+          "Accensement d'une vigne de Marmoutier": {
+            "match": {
+              "_type": "marmoutier_barthelemy"
+            }
+          },
           "Marmoutier - Dunois": {
             "match": {
               "_type": "marmoutier_dunois"
@@ -323,6 +333,16 @@
           "Marmoutier - Fougères": {
             "match": {
               "_type": "marmoutier_fougères"
+            }
+          },
+          "Un acte faux de Marmoutier": {
+            "match": {
+              "_type": "marmoutier_laurain"
+            }
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "match": {
+              "_type": "marmoutier_leveque"
             }
           },
           "Marmoutier - Manceau": {
@@ -375,6 +395,11 @@
               "_type": "raetien"
             }
           },
+          "Cartulaire de Redon": {
+            "match": {
+              "_type": "redon"
+            }
+          },
           "Regensburg": {
             "match": {
               "_type": "regensburg"
@@ -398,6 +423,11 @@
           "St. Gallen": {
             "match": {
               "_type": "stgallen"
+            }
+          },
+          "Une nouvelle charte de Théotolon": {
+            "match": {
+              "_type": "tours_gasnault"
             }
           },
           "Weißenburg": {
@@ -476,6 +506,11 @@
                   "_type": "andecavensis"
                 }
               },
+              "Archives d’Anjou": {
+                "match": {
+                  "_type": "anjou_archives"
+                }
+              },
               "Arnulfinger": {
                 "match": {
                   "_type": "arnulfinger"
@@ -536,6 +571,11 @@
                   "_type": "marculf"
                 }
               },
+              "Accensement d'une vigne de Marmoutier": {
+                "match": {
+                  "_type": "marmoutier_barthelemy"
+                }
+              },
               "Marmoutier - Dunois": {
                 "match": {
                   "_type": "marmoutier_dunois"
@@ -544,6 +584,16 @@
               "Marmoutier - Fougères": {
                 "match": {
                   "_type": "marmoutier_fougères"
+                }
+              },
+              "Un acte faux de Marmoutier": {
+                "match": {
+                  "_type": "marmoutier_laurain"
+                }
+              },
+              "Marmoutier - Trois actes faux ou interpolés": {
+                "match": {
+                  "_type": "marmoutier_leveque"
                 }
               },
               "Marmoutier - Manceau": {
@@ -596,6 +646,11 @@
                   "_type": "raetien"
                 }
               },
+              "Cartulaire de Redon": {
+                "match": {
+                  "_type": "redon"
+                }
+              },
               "Regensburg": {
                 "match": {
                   "_type": "regensburg"
@@ -619,6 +674,11 @@
               "St. Gallen": {
                 "match": {
                   "_type": "stgallen"
+                }
+              },
+              "Une nouvelle charte de Théotolon": {
+                "match": {
+                  "_type": "tours_gasnault"
                 }
               },
               "Weißenburg": {
