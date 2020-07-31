@@ -8,7 +8,8 @@ var regestSearchInput = document.getElementById('regest-word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 var firstLetter = document.getElementById('firstLetter');
-var specialDays = document.querySelectorAll('input[name="special_days"]')
+var specialDays = document.querySelectorAll('input[name="special_days"]');
+document.getElementById('advancedResetButton').addEventListener("click", resetAdvancedSearchForm);
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -205,3 +206,13 @@ $('#slop').on('input', function () {
 $('#slop').on('invalid', function () {
     this.setCustomValidity(slopInvalidMessage);
 });
+
+function resetAdvancedSearchForm() {
+    var form = document.getElementById('advanced-form');
+    form.reset();
+    var args = "";
+    for (f of form) {
+        args += f.name + ': ' + f.value + '\n';
+    }
+    alert(args)
+}
