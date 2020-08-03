@@ -162,6 +162,11 @@
               "_type": "katalonien"
             }
           },
+          "Codice Diplomatico Longobardo": {
+            "match": {
+              "_type": "langobardisch"
+            }
+          },
           "Lorsch": {
             "match": {
               "_type": "lorsch"
@@ -411,6 +416,11 @@
               "Katalonien": {
                 "match": {
                   "_type": "katalonien"
+                }
+              },
+              "Codice Diplomatico Longobardo": {
+                "match": {
+                  "_type": "langobardisch"
                 }
               },
               "Lorsch": {
