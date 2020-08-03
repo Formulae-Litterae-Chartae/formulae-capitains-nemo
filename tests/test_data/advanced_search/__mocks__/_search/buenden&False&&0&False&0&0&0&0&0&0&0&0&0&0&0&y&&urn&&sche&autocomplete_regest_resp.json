@@ -546,6 +546,9 @@
           "Cartulaire de Redon": {
             "doc_count": 0
           },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
           "Echternach": {
             "doc_count": 0
           },
@@ -727,6 +730,9 @@
           "doc_count": 7
         },
         "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
           "doc_count": 0
         },
         "Echternach": {

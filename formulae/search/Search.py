@@ -33,6 +33,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Gorze': {'match': {'_type': 'gorze'}},
                                       'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                       'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Codice Diplomatico Longobardo': {'match': {'_type': 'langobardisch'}},
                                       'Lorsch': {'match': {'_type': 'lorsch'}},
                                       'Luzern': {'match': {'_type': 'luzern'}},
                                       'Marculf': {'match': {'_type': 'marculf'}},

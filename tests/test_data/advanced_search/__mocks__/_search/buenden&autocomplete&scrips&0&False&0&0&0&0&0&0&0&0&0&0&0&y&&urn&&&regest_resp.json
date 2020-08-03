@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 19,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -948,6 +948,9 @@
           "Cartulaire de Redon": {
             "doc_count": 0
           },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
           "Echternach": {
             "doc_count": 0
           },
@@ -1129,6 +1132,9 @@
           "doc_count": 12
         },
         "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
           "doc_count": 0
         },
         "Echternach": {
