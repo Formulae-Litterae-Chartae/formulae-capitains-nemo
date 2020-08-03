@@ -59,6 +59,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                       'St. Gallen': {'match': {'_type': 'stgallen'}},
                                       'Une nouvelle charte de Théotolon': {'match': {'_type': 'tours_gasnault'}},
+                                      'Fragments de Saint-Julien de Tours': {'match': {'_type': 'tours_st_julien_fragments'}},
                                       'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                       'Werden': {'match': {'_type': 'werden'}},
                                       'Zürich': {'match': {'_type': 'zuerich'}}}}}

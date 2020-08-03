@@ -314,6 +314,11 @@
               "_type": "tours_gasnault"
             }
           },
+          "Fragments de Saint-Julien de Tours": {
+            "match": {
+              "_type": "tours_st_julien_fragments"
+            }
+          },
           "Weißenburg": {
             "match": {
               "_type": "weissenburg"
@@ -568,6 +573,11 @@
               "Une nouvelle charte de Théotolon": {
                 "match": {
                   "_type": "tours_gasnault"
+                }
+              },
+              "Fragments de Saint-Julien de Tours": {
+                "match": {
+                  "_type": "tours_st_julien_fragments"
                 }
               },
               "Weißenburg": {

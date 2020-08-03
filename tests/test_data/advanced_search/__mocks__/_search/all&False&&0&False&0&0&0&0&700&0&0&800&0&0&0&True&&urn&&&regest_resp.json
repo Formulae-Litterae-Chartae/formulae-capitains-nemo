@@ -1,18 +1,18 @@
 {
-  "took": 11,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 39,
-    "successful": 39,
+    "total": 41,
+    "successful": 41,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 2128,
+    "total": 2153,
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001",
         "_score": null,
@@ -51,7 +51,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0004.lat001",
         "_score": null,
@@ -90,7 +90,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001",
         "_score": null,
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -169,7 +169,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0008.lat001",
         "_score": null,
@@ -204,8 +204,8 @@
           ],
           "min_date": "0715-06-24",
           "days": [
-            "Monday",
-            "Tuesday"
+            "Tuesday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -215,7 +215,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0009.lat001",
         "_score": null,
@@ -244,8 +244,8 @@
           ],
           "min_date": "0718-02-23",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -255,7 +255,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
         "_score": null,
@@ -294,7 +294,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
         "_score": null,
@@ -340,7 +340,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
         "_score": null,
@@ -379,7 +379,7 @@
         ]
       },
       {
-        "_index": "arnulfinger_v2",
+        "_index": "arnulfinger_v3",
         "_type": "arnulfinger",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
         "_score": null,
@@ -414,8 +414,8 @@
           ],
           "min_date": "0746-06-06",
           "days": [
-            "Monday",
-            "Tuesday"
+            "Tuesday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -428,7 +428,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11028,
+      "doc_count": 11114,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -450,10 +450,13 @@
             "doc_count": 391
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 0
+            "doc_count": 48
           },
           "Echternach": {
             "doc_count": 152
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
           },
           "Freising": {
             "doc_count": 1383
@@ -577,7 +580,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 146
+            "doc_count": 153
           },
           {
             "key": "700-799",
@@ -585,7 +588,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3100
+            "doc_count": 3141
           },
           {
             "key": "800-899",
@@ -593,7 +596,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2906
+            "doc_count": 2907
           },
           {
             "key": "900-999",
@@ -601,7 +604,7 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2871
+            "doc_count": 2908
           },
           {
             "key": ">1000",
@@ -636,10 +639,13 @@
           "doc_count": 3
         },
         "Codice Diplomatico Longobardo": {
-          "doc_count": 0
+          "doc_count": 25
         },
         "Echternach": {
           "doc_count": 16
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
         },
         "Freising": {
           "doc_count": 104
@@ -771,7 +777,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 2066
+          "doc_count": 2091
         },
         {
           "key": "800-899",
