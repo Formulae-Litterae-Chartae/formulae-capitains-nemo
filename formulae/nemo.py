@@ -117,6 +117,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
                         # 'urn:cts:formulae:tours_gasnault',
+                        # 'urn:cts:formulae:tours_st_julien_fragments',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']
