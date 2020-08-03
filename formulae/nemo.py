@@ -136,7 +136,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
-                        "eng": _l("Englisch"), "cat": _l("Katalanisch")}
+                        "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _("Italienisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 

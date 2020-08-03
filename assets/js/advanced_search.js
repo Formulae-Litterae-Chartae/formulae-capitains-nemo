@@ -86,7 +86,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
 function buildUrl(qSource) {
     var params = {
         corpus:[],
-        field:'autocomplete',
+        lemma_search:'autocomplete',
         fuzziness:'0',
         in_order:'False',
         year:'0',
@@ -109,18 +109,18 @@ function buildUrl(qSource) {
         params.extra_q = document.getElementById('regest-word-search-box').value;
         var extraField = 'regest_q';
         if (searchLemmas.checked) {
-            params.field = 'autocomplete_lemmas';
+            params.lemma_search = 'autocomplete_lemmas';
         } else {
-            params.field = 'autocomplete';
+            params.lemma_search = 'autocomplete';
         }
     } else if (qSource == "regest") {
         params.extra_q = document.getElementById('word-search-box').value;
         params.regest_field = 'autocomplete_regest';
         var extraField = 'q';
         if (searchLemmas.checked) {
-            params.field = 'True';
+            params.lemma_search = 'True';
         } else {
-            params.field = 'False';
+            params.lemma_search = 'False';
         }
     }
     formulaeChecks.forEach(function(formula) {
@@ -141,23 +141,22 @@ function buildUrl(qSource) {
     if (document.getElementById('in_order').checked) {
         params.in_order = document.getElementById('in_order').value;
     };
-    params.fuzziness = document.getElementById('fuzziness').value;
-    params.slop = document.getElementById('slop').value;
-    params.composition_place = document.getElementById('place-search').value;
-    params.year = document.getElementById('year').value;
-    params.month = document.getElementById('month').value;
-    params.day = document.getElementById('day').value;
-    params.date_plus_minus = document.getElementById('date_plus_minus').value;
-    params.exclusive_date_range = document.getElementById('exclusive_date_range').value;
-    params.year_start = document.getElementById('year_start').value;
-    params.month_start = document.getElementById('month_start').value;
-    params.day_start = document.getElementById('day_start').value;
-    params.year_end = document.getElementById('year_end').value;
-    params.month_end = document.getElementById('month_end').value;
-    params.day_end = document.getElementById('day_end').value;
-    params.day_end = document.getElementById('day_end').value;
-    var urlExt = "?corpus=" + params.corpus.join('+') + "&lemma_search=" + params.field + "&fuzziness=" + params.fuzziness + "&in_order=" + params.in_order + "&year=" + params.year + "&slop=" + params.slop + "&month=" + params.month + "&day=" + params.day + "&year_start=" + params.year_start + "&month_start=" + params.month_start + "&day_start=" + params.day_start + "&year_end=" + params.year_end + "&month_end=" + params.month_end + "&day_end=" + params.day_end + "&date_plus_minus=" + params.date_plus_minus + "&exclusive_date_range=" + params.exclusive_date_range + "&composition_place=" + params.composition_place + "&special_days=" + params.special_days.join('+') + "&" + extraField + "=" + params.extra_q + "&regest_field=" + params.regest_field + "&qSource=" + qSource;
-    return urlExt;
+    // Transfer the other values from the form to params
+    var advancedForm = document.getElementById('advanced-form');
+    for (f of advancedForm) {
+        if (f.name && !(['corpus', 'special_days', 'in_order', 'regest_field', 'lemma_search'].includes(f.name)) && params[f.name]) {
+            params[f.name] = f.value;
+        }
+    }
+    // Build the URL extension
+    var brandNewUrl = "?";
+    for (f in params) {
+        if (f != 'extra_field' && f != 'extra_q') {
+            brandNewUrl += f + '=' + params[f] + '&';
+        }
+    }
+    brandNewUrl += extraField + "=" + params.extra_q + '&qSource=' + qSource;
+    return brandNewUrl;
 }
 
 function change_lemma_search() {
@@ -208,11 +207,5 @@ $('#slop').on('invalid', function () {
 });
 
 function resetAdvancedSearchForm() {
-    var form = document.getElementById('advanced-form');
-    form.reset();
-    var args = "";
-    for (f of form) {
-        args += f.name + ': ' + f.value + '\n';
-    }
-    alert(args)
+    document.getElementById('advanced-form').reset();
 }
