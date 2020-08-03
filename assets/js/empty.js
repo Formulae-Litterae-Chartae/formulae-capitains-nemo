@@ -89,7 +89,6 @@ $('.lang-link').bind('click', function(event) {
     request.send()
 })
 
-//to disable cut, copy, paste, and mouse right-click
 $(document).ready(function () {
     //Disable cut, copy, and paste
     $('.no-copy').bind('cut copy paste', function (e) {

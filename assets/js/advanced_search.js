@@ -9,7 +9,8 @@ var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 var firstLetter = document.getElementById('firstLetter');
 var specialDays = document.querySelectorAll('input[name="special_days"]');
-document.getElementById('advancedResetButton').addEventListener("click", resetAdvancedSearchForm);
+var datePlusMinusInput = document.getElementById('date_plus_minus');
+var slopInput = document.getElementById('slop');
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -63,7 +64,11 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
                         targetElement.appendChild(docFrag);
                         sourceElement.placeholder = sourceElement.getAttribute('default');
                     } else {
-                        // An error occured
+            '#date_plus_minus').on('invalid', function () {
+    this.setCustomValidity(datePlusMinusInvalidMessage);
+});
+
+$('#slop'            // An error occured
                         sourceElement.placeholder = "Couldn't load suggestions.";
                     }
                 }
@@ -111,7 +116,7 @@ function buildUrl(qSource) {
         if (searchLemmas.checked) {
             params.lemma_search = 'autocomplete_lemmas';
         } else {
-            params.lemma_search = 'autocomplete';
+            params.lemma_search = 'autocompslopInputlete';
         }
     } else if (qSource == "regest") {
         params.extra_q = document.getElementById('word-search-box').value;
@@ -178,7 +183,7 @@ $( "#place-search" ).autocomplete({
             var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
             response( $.grep( tags, function( item ){
                 return matcher.test( item );
-            }) );
+            }) );document.getElementById('advancedResetButton').addEventListener("click", resetAdvancedSearchForm);
     } else {
         var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
         response( $.grep( tags, function( item ){
@@ -188,24 +193,24 @@ $( "#place-search" ).autocomplete({
     }
 });
 
-$('#date_plus_minus').on('input', function () {
-    this.setCustomValidity("");
-    this.checkValidity();
+datePlusMinusInput.addEventListener('input', function () {
+    datePlusMinusInput.setCustomValidity("");
+    datePlusMinusInput.checkValidity();
 });
 
-$('#date_plus_minus').on('invalid', function () {
-    this.setCustomValidity(datePlusMinusInvalidMessage);
+datePlusMinusInput.addEventListener('invalid', function () {
+    datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
 });
 
-$('#slop').on('input', function () {
-    this.setCustomValidity("");
-    this.checkValidity();
+slopInput.addEventListener('input', function () {
+    slopInput.setCustomValidity("");
+    slopInput.checkValidity();
 });
 
-$('#slop').on('invalid', function () {
-    this.setCustomValidity(slopInvalidMessage);
+slopInput.addEventListener('invalid', function () {
+    slopInput.setCustomValidity(slopInvalidMessage);
 });
 
-function resetAdvancedSearchForm() {
+document.getElementById('advancedResetButton').addEventListener("click", function () {
     document.getElementById('advanced-form').reset();
 }
