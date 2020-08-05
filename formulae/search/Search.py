@@ -24,6 +24,7 @@ range_agg = {'date_range': {'field': 'min_date', 'format': 'yyyy',
                                        {'key': '>1000', 'from': '1000'}]}}
 corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
                                       "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
+                                      "Chroniques des comtes d’Anjou": {'match': {'_type': 'anjou_comtes_chroniques'}},
                                       'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                       'Bünden': {'match': {'_type': 'buenden'}},
                                       'Echternach': {'match': {'_type': 'echternach'}},

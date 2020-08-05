@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 11,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -948,6 +948,9 @@
           "Cartulaire de Redon": {
             "doc_count": 0
           },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
           "Codice Diplomatico Longobardo": {
             "doc_count": 0
           },
@@ -1135,6 +1138,9 @@
           "doc_count": 12
         },
         "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Chroniques des comtes d’Anjou": {
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {

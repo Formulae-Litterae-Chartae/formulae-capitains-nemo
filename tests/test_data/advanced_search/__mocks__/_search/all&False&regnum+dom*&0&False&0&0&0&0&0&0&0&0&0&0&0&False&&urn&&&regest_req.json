@@ -103,6 +103,11 @@
               "_type": "anjou_archives"
             }
           },
+          "Chroniques des comtes d’Anjou": {
+            "match": {
+              "_type": "anjou_comtes_chroniques"
+            }
+          },
           "Arnulfinger": {
             "match": {
               "_type": "arnulfinger"
@@ -362,6 +367,11 @@
               "Archives d’Anjou": {
                 "match": {
                   "_type": "anjou_archives"
+                }
+              },
+              "Chroniques des comtes d’Anjou": {
+                "match": {
+                  "_type": "anjou_comtes_chroniques"
                 }
               },
               "Arnulfinger": {
