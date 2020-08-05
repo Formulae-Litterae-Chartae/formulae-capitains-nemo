@@ -1943,6 +1943,7 @@ class TestES(Formulae_Testing):
 
     SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
                               "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
+                              "Chroniques des comtes d’Anjou": {'match': {'_type': 'anjou_comtes_chroniques'}},
                               'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                               'Bünden': {'match': {'_type': 'buenden'}},
                               'Echternach': {'match': {'_type': 'echternach'}},

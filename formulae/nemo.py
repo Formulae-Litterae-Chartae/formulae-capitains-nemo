@@ -87,6 +87,7 @@ class NemoFormulae(Nemo):
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
                         # 'urn:cts:formulae:anjou_archives',
+                        # 'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',

@@ -57,7 +57,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -89,7 +89,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -153,7 +153,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -185,7 +185,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -249,7 +249,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -281,7 +281,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -360,6 +360,11 @@
           "Archives d’Anjou": {
             "match": {
               "_type": "anjou_archives"
+            }
+          },
+          "Chroniques des comtes d’Anjou": {
+            "match": {
+              "_type": "anjou_comtes_chroniques"
             }
           },
           "Arnulfinger": {
@@ -621,6 +626,11 @@
               "Archives d’Anjou": {
                 "match": {
                   "_type": "anjou_archives"
+                }
+              },
+              "Chroniques des comtes d’Anjou": {
+                "match": {
+                  "_type": "anjou_comtes_chroniques"
                 }
               },
               "Arnulfinger": {

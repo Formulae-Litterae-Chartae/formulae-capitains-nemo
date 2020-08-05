@@ -420,6 +420,9 @@
           "Cartulaire de Redon": {
             "doc_count": 391
           },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
           "Codice Diplomatico Longobardo": {
             "doc_count": 48
           },
@@ -608,6 +611,9 @@
         },
         "Cartulaire de Redon": {
           "doc_count": 1
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
           "doc_count": 0
