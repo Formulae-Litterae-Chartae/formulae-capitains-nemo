@@ -87,6 +87,7 @@ class NemoFormulae(Nemo):
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
                         # 'urn:cts:formulae:anjou_archives',
+                        # 'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
@@ -117,6 +118,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
                         # 'urn:cts:formulae:tours_gasnault',
+                        # 'urn:cts:formulae:tours_st_julien_fragments',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']

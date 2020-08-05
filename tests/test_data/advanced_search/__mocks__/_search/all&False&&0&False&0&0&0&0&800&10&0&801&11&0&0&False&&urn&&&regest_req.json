@@ -172,6 +172,11 @@
               "_type": "anjou_archives"
             }
           },
+          "Chroniques des comtes d’Anjou": {
+            "match": {
+              "_type": "anjou_comtes_chroniques"
+            }
+          },
           "Arnulfinger": {
             "match": {
               "_type": "arnulfinger"
@@ -347,6 +352,11 @@
               "_type": "tours_gasnault"
             }
           },
+          "Fragments de Saint-Julien de Tours": {
+            "match": {
+              "_type": "tours_st_julien_fragments"
+            }
+          },
           "Weißenburg": {
             "match": {
               "_type": "weissenburg"
@@ -426,6 +436,11 @@
               "Archives d’Anjou": {
                 "match": {
                   "_type": "anjou_archives"
+                }
+              },
+              "Chroniques des comtes d’Anjou": {
+                "match": {
+                  "_type": "anjou_comtes_chroniques"
                 }
               },
               "Arnulfinger": {
@@ -601,6 +616,11 @@
               "Une nouvelle charte de Théotolon": {
                 "match": {
                   "_type": "tours_gasnault"
+                }
+              },
+              "Fragments de Saint-Julien de Tours": {
+                "match": {
+                  "_type": "tours_st_julien_fragments"
                 }
               },
               "Weißenburg": {

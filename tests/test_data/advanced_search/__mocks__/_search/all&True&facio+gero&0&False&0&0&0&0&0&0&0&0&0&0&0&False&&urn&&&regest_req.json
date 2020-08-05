@@ -57,7 +57,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -89,103 +89,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "facere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gero",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "facere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
                               "value": "gerere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "facere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -249,7 +153,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -281,7 +185,103 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gerere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "facere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gero",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "facere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "facere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -360,6 +360,11 @@
           "Archives d’Anjou": {
             "match": {
               "_type": "anjou_archives"
+            }
+          },
+          "Chroniques des comtes d’Anjou": {
+            "match": {
+              "_type": "anjou_comtes_chroniques"
             }
           },
           "Arnulfinger": {
@@ -537,6 +542,11 @@
               "_type": "tours_gasnault"
             }
           },
+          "Fragments de Saint-Julien de Tours": {
+            "match": {
+              "_type": "tours_st_julien_fragments"
+            }
+          },
           "Weißenburg": {
             "match": {
               "_type": "weissenburg"
@@ -616,6 +626,11 @@
               "Archives d’Anjou": {
                 "match": {
                   "_type": "anjou_archives"
+                }
+              },
+              "Chroniques des comtes d’Anjou": {
+                "match": {
+                  "_type": "anjou_comtes_chroniques"
                 }
               },
               "Arnulfinger": {
@@ -791,6 +806,11 @@
               "Une nouvelle charte de Théotolon": {
                 "match": {
                   "_type": "tours_gasnault"
+                }
+              },
+              "Fragments de Saint-Julien de Tours": {
+                "match": {
+                  "_type": "tours_st_julien_fragments"
                 }
               },
               "Weißenburg": {

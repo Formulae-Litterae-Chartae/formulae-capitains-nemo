@@ -1,9 +1,9 @@
 {
-  "took": 13,
+  "took": 14,
   "timed_out": false,
   "_shards": {
-    "total": 39,
-    "successful": 39,
+    "total": 41,
+    "successful": 41,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v2",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v2",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -323,15 +323,15 @@
           ],
           "min_date": "0769-03-31",
           "days": [
-            "Thursday",
-            "Wednesday",
-            "Monday",
-            "Tuesday",
             "Friday",
             "Sunday",
+            "Monday",
+            "Thursday",
+            "Tuesday",
+            "Saturday",
             "Easter",
             "Lent",
-            "Saturday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -349,7 +349,7 @@
         ]
       },
       {
-        "_index": "echternach_v2",
+        "_index": "echternach_v3",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
         "_score": null,
@@ -405,7 +405,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -459,7 +459,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -513,7 +513,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -572,7 +572,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -631,7 +631,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -701,7 +701,7 @@
         ]
       },
       {
-        "_index": "freising_v2",
+        "_index": "freising_v3",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -730,8 +730,8 @@
           ],
           "min_date": "0819-04-14",
           "days": [
-            "Thursday",
-            "Lent"
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -764,7 +764,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11028,
+      "doc_count": 11114,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -785,11 +785,17 @@
           "Cartulaire de Redon": {
             "doc_count": 391
           },
-          "Codice Diplomatico Longobardo": {
+          "Chroniques des comtes d’Anjou": {
             "doc_count": 0
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 48
           },
           "Echternach": {
             "doc_count": 152
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
           },
           "Freising": {
             "doc_count": 1383
@@ -913,7 +919,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 146
+            "doc_count": 153
           },
           {
             "key": "700-799",
@@ -921,7 +927,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3100
+            "doc_count": 3141
           },
           {
             "key": "800-899",
@@ -929,7 +935,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2906
+            "doc_count": 2907
           },
           {
             "key": "900-999",
@@ -937,7 +943,7 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2871
+            "doc_count": 2908
           },
           {
             "key": ">1000",
@@ -971,11 +977,17 @@
         "Cartulaire de Redon": {
           "doc_count": 0
         },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
         "Codice Diplomatico Longobardo": {
           "doc_count": 0
         },
         "Echternach": {
           "doc_count": 1
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
         },
         "Freising": {
           "doc_count": 9
