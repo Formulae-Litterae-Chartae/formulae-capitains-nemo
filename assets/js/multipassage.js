@@ -1,46 +1,115 @@
 var lexModal = document.getElementById('lexicon-modal');
 var scrollControl = document.getElementById('scroll-control-image');
-$('.apparatus-title').append(appHeading);
-$('.commentary-title').append(comHeading);
-$('[id$="a1-hide-button"]').attr('title', appCloseButton)
-$('[id$="a1-show-button"]').attr('title', appOpenButton)
-$('[id$="n1-hide-button"]').attr('title', comCloseButton)
-$('[id$="n1-show-button"]').attr('title', comOpenButton)
 
-
-// These are the popovers for the notes in the right column of the normal text view.
-$(function () {
-  $('[data-toggle="bibl-popover"]').popover(
+$(document).ready(function(){
+    var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
+    myDefaultWhiteList.button = ['type', 'onclick'];
+    $('.apparatus-title').append(appHeading);
+    $('.commentary-title').append(comHeading);
+    $('[id$="a1-hide-button"]').attr('title', appCloseButton)
+    $('[id$="a1-show-button"]').attr('title', appOpenButton)
+    $('[id$="n1-hide-button"]').attr('title', comCloseButton)
+    $('[id$="n1-show-button"]').attr('title', comOpenButton)
+    
+    // These are the popovers for the notes in the right column of the normal text view.
+    $('[data-toggle="bibl-popover"]').popover(
       {placement: 'left', 
           boundary: 'window',
           template: '<div class="popover bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
           html: true
-    }
-  )
-})
-
-$(function () {
-  $('[data-toggle="charter-bibl-popover"]').popover(
+    })
+    $('[data-toggle="charter-bibl-popover"]').popover(
       {placement: 'right', 
           boundary: 'window',
           template: '<div class="popover charter-bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
           html: true
-    }
-  )
-})
-
-// These are the popups in the elexicon modal notes.
-// This is required to initialize popovers that are not part of the DOM when the document is loaded.
-// https://github.com/twbs/bootstrap/issues/4215
-$(function () {
-  $(document).popover(
+    })
+    
+    // These are the popups in the elexicon modal notes.
+    // This is required to initialize popovers that are not part of the DOM when the document is loaded.
+    // https://github.com/twbs/bootstrap/issues/4215
+    $(document).popover(
       {selector: '.modal-popover',
           placement: 'top', 
           boundary: 'window',
           template: '<div class="popover elex-modal-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
           html: true
+    })
+    
+    // Automatically set the max-height of the note-card for each text depending on the number of texts
+    var noteCardsLeft = $('.noteCardLeft').length;
+    var max = "70vh";
+    if (noteCardsLeft == 2 ) {
+        max = "34vh";
+    } else if (noteCardsLeft > 2) {
+        max = "22vh";
     }
-  )
+    $('.noteCardLeft').css('max-height', max);
+    var noteCardsRight = $('.noteCardRight').length;
+    var max = "70vh";
+    if (noteCardsRight == 2 ) {
+        max = "34vh";
+    } else if (noteCardsRight > 2) {
+        max = "22vh";
+    }
+    $('.noteCardRight').css('max-height', max);
+    
+    // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
+    $('.two-line').each(function(index, element) {
+        var noteHeight = $( element ).height();
+        var textHeight = $( element ).find('.card').height();
+        if (textHeight < noteHeight) {
+            $( element ).find('.expand').hide();
+            $( element ).removeClass('fade-out');
+        }
+    })
+    
+    // Expands and contracts the note when the expand arrow is clicked
+    $('.expand').click(function() {
+        $('#' + $(this).attr('toexpand')).toggleClass('expanded fade-out');
+        if ($('#' + $(this).attr('toexpand')).hasClass('fade-out')) {
+            $(this).attr('title', expMess);
+        } else {
+            $(this).attr('title', conMess);
+        }
+    })
+
+    $('.expand').each(function() {
+        $(this).attr('title', expMess);
+    })
+
+    $('.note').click(function() {
+        var linkTarget = $(this).attr('href');
+        $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
+        $( linkTarget ).addClass( 'flash-yellow' );
+        if ($(linkTarget).hasClass('fade-out')) {
+            $(linkTarget).toggleClass('expanded fade-out');
+            $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
+        }
+    })
+    
+    // AJAX request to change reading format and then refresh the page
+    $('.reading-format-setter').on('click', function(event) {
+        event.preventDefault();
+        e = this;
+        var subdomain = '';
+        if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+            subdomain = '/dev'
+        }
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    location.reload();
+                } else {
+                    alert('Failed to change reading direction')
+                }
+            }
+        };
+        request.open('GET', subdomain + '/reading_format/' + e.getAttribute('value'), true);
+        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        request.send()
+    })
 })
 
 function makePopupNote(id) {
@@ -191,62 +260,6 @@ window.onclick = function(event) {
     }
 }
 
-// Automatically set the max-height of the note-card for each text depending on the number of texts
-$(function(){
-    var noteCardsLeft = $('.noteCardLeft').length;
-    var max = "70vh";
-    if (noteCardsLeft == 2 ) {
-        max = "34vh";
-    } else if (noteCardsLeft > 2) {
-        max = "22vh";
-    }
-    $('.noteCardLeft').css('max-height', max);
-    var noteCardsRight = $('.noteCardRight').length;
-    var max = "70vh";
-    if (noteCardsRight == 2 ) {
-        max = "34vh";
-    } else if (noteCardsRight > 2) {
-        max = "22vh";
-    }
-    $('.noteCardRight').css('max-height', max);
-})
-
-// Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
-$(function() {
-    $('.two-line').each(function(index, element) {
-        var noteHeight = $( element ).height();
-        var textHeight = $( element ).find('.card').height();
-        if (textHeight < noteHeight) {
-            $( element ).find('.expand').hide();
-            $( element ).removeClass('fade-out');
-        }
-    });
-});
-
-// Expands and contracts the note when the expand arrow is clicked
-$('.expand').click(function() {
-    $('#' + $(this).attr('toexpand')).toggleClass('expanded fade-out');
-    if ($('#' + $(this).attr('toexpand')).hasClass('fade-out')) {
-        $(this).attr('title', expMess);
-    } else {
-        $(this).attr('title', conMess);
-    }
-});
-
-$('.expand').each(function() {
-    $(this).attr('title', expMess);
-});
-
-$('.note').click(function() {
-    var linkTarget = $(this).attr('href');
-    $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
-    $( linkTarget ).addClass( 'flash-yellow' );
-    if ($(linkTarget).hasClass('fade-out')) {
-        $(linkTarget).toggleClass('expanded fade-out');
-        $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
-    }
-});
-
 function changeScrollMode(el) {
     if (el.getAttribute('title') == toScrollingTexts) {
         el.setAttribute('title', fromScrollingTexts);
@@ -259,30 +272,7 @@ function changeScrollMode(el) {
     for (let section of textSections) {
         section.classList.toggle('scrolling');
     }
-};
-
-// AJAX request to change reading format and then refresh the page
-$('.reading-format-setter').bind('click', function(event) {
-    event.preventDefault();
-    e = this;
-    var subdomain = '';
-    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-        subdomain = '/dev'
-    }
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                location.reload();
-            } else {
-                alert('Failed to change reading direction')
-            }
-        }
-    };
-    request.open('GET', subdomain + '/reading_format/' + e.getAttribute('value'), true);
-    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    request.send()
-})
+}
 
 function goToLinkedParagraph(h, t) {
     el = document.getElementById(t);

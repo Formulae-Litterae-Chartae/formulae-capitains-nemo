@@ -64,11 +64,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
                         targetElement.appendChild(docFrag);
                         sourceElement.placeholder = sourceElement.getAttribute('default');
                     } else {
-            '#date_plus_minus').on('invalid', function () {
-    this.setCustomValidity(datePlusMinusInvalidMessage);
-});
-
-$('#slop'            // An error occured
+                        // An error occured
                         sourceElement.placeholder = "Couldn't load suggestions.";
                     }
                 }
