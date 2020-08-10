@@ -76,8 +76,8 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
             request.open('GET', subdomain + '/search/suggest/' + word + buildUrl(qSource), true);
             request.send();
         }
-    }, 500);
-};
+    }, 500)
+}
 
 // *******************************************************************
 // functions to store unsubmitted values from the advanced search page
@@ -128,20 +128,20 @@ function buildUrl(qSource) {
         if (formula.checked) {
             params.corpus.push(formula.value);
         }
-    });
+    })
     chartaeChecks.forEach(function(charter) {
         if (charter.checked) {
             params.corpus.push(charter.value);
         }
-    });
+    })
     specialDays.forEach(function(day) {
         if (day.checked) {
             params.special_days.push(day.value);
         }
-    });
+    })
     if (document.getElementById('in_order').checked) {
         params.in_order = document.getElementById('in_order').value;
-    };
+    }
     // Transfer the other values from the form to params
     var advancedForm = document.getElementById('advanced-form');
     for (f of advancedForm) {
@@ -187,25 +187,25 @@ $( "#place-search" ).autocomplete({
         }) );
     }
     }
-});
+})
 
 datePlusMinusInput.addEventListener('input', function () {
     datePlusMinusInput.setCustomValidity("");
     datePlusMinusInput.checkValidity();
-});
+})
 
 datePlusMinusInput.addEventListener('invalid', function () {
     datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
-});
+})
 
 slopInput.addEventListener('input', function () {
     slopInput.setCustomValidity("");
     slopInput.checkValidity();
-});
+})
 
 slopInput.addEventListener('invalid', function () {
     slopInput.setCustomValidity(slopInvalidMessage);
-});
+})
 
 document.getElementById('advancedResetButton').addEventListener("click", function () {
     document.getElementById('advanced-form').reset();
