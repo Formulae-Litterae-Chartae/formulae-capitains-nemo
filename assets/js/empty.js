@@ -5,7 +5,7 @@ if (window.location.host == 'tools.formulae.uni-hamburg.de') {
 
 $(function () {
   $('[data-toggle="popover"]').popover()
-})
+});
   
 function restrictSearch() {
     var button = document.getElementById('restrictSearchButton');
@@ -33,7 +33,7 @@ function makeLemmaSearch() {
         if (lemma.checked || lemma.getAttribute('checked') == 'True') {
             newQ.push(lemma.getAttribute('value'));
         }
-    };
+    }
     if (Array.isArray(newQ) && newQ.length) {
         oldUrl = oldUrl.replace(reField, '');
         oldUrl = oldUrl.replace(rePage, '');
@@ -70,28 +70,10 @@ function makeLemmaSearch() {
 //     }
 // }
 
-// AJAX request to change locale and then refresh the page
-$('.lang-link').bind('click', function(event) {
-    event.preventDefault();
-    e = this;
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                location.reload();
-            } else {
-                alert('Failed to change language')
-            }
-        }
-    };
-    request.open('GET', subdomain + '/lang/' + e.getAttribute('value'), true);
-    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    request.send()
-})
 
 $(document).ready(function () {
     //Disable cut, copy, and paste
-    $('.no-copy').bind('cut copy paste', function (e) {
+    $('.no-copy').on('cut copy paste', function (e) {
         e.preventDefault();
         $('#no-copy-message').modal('show')
     });
@@ -106,7 +88,7 @@ $(document).ready(function () {
         if (document.getElementById(link.getAttribute('link-to'))) {
             link.removeAttribute('hidden');
         }
-    };
+    }
 
     // from http://jsfiddle.net/zpkKv/2/
     $('#simple-search-q').on('change invalid', function() {
@@ -118,7 +100,7 @@ $(document).ready(function () {
         textfield.setCustomValidity('');
         
         if (!textfield.validity.valid) {
-        textfield.setCustomValidity(simpleSearchQMessage);  
+            textfield.setCustomValidity(simpleSearchQMessage);  
         }
     });
     
@@ -157,10 +139,10 @@ $(document).ready(function () {
                         window.location = downloadUrl;
                     }
                 }
-            })
+            });
             .fail(function() {
                 alert( downloadError );
-            })
+            });
             .always(function() {
                 $('#searchDownloadProgress').css("visibility", "hidden").html('...');
             });
@@ -168,9 +150,28 @@ $(document).ready(function () {
         // E.g. from https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
         $('#searchDownloadProgress').css("visibility", "visible");
         pdfDownloadWorker()
+    });
+    
+    // AJAX request to change locale and then refresh the page
+    $('.lang-link').on('click', function(event) {
+        event.preventDefault();
+        e = this;
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    location.reload();
+                } else {
+                    alert('Failed to change language')
+                }
+            }
+        };
+        request.open('GET', subdomain + '/lang/' + e.getAttribute('value'), true);
+        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        request.send()
     })
     
-});
+})
 
 function pdfDownloadWorker() {
     $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
