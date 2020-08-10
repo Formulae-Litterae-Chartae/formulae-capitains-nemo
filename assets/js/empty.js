@@ -19,10 +19,6 @@ if (navigator.language == 'none') {
     request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     request.send()
 }
-
-$(function () {
-  $('[data-toggle="popover"]').popover()
-});
   
 function restrictSearch() {
     var button = document.getElementById('restrictSearchButton');
@@ -61,32 +57,16 @@ function makeLemmaSearch() {
     }
 }
 
-
-// I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
-// I don't think it is needed any more so I am commenting it out and testing, just to make sure.
-// function getSubElements(coll) {
-//         var objectId = coll.getAttribute('sub-element-url');
-//         var targetList = document.getElementById(coll.getAttribute('sub-element-id'));
-//         if (coll.getAttribute('ul-shown') == 'true') {
-//             coll.setAttribute('ul-shown', 'false');
-//             targetList.innerHTML = ''
-//         } else {
-//             var request = new XMLHttpRequest();
-//             request.onreadystatechange = function() {
-//                 if (this.readyState == 4) {
-//                     if (this.status == 200) {
-//                         targetList.innerHTML = this.responseText;
-//                         coll.setAttribute('ul-shown', 'true');
-//                     } else {
-//                         alert("No texts found for collection.")
-//                     }
-//                 }
-//             };
-//             request.open('GET', objectId, true);
-//             request.send()
-//     }
-// }
-
+function pdfDownloadWorker() {
+    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
+        if (data != '99%') {
+            $('#searchDownloadProgress').html(data);
+            setTimeout(pdfDownloadWorker, 1000)
+        } else {
+            $('#searchDownloadProgress').html(data);
+        }
+    })
+}
 
 $(document).ready(function () {
     //Disable cut, copy, and paste
@@ -156,10 +136,10 @@ $(document).ready(function () {
                         window.location = downloadUrl;
                     }
                 }
-            });
+            })
             .fail(function() {
                 alert( downloadError );
-            });
+            })
             .always(function() {
                 $('#searchDownloadProgress').css("visibility", "hidden").html('...');
             });
@@ -172,31 +152,15 @@ $(document).ready(function () {
     // AJAX request to change locale and then refresh the page
     $('.lang-link').on('click', function(event) {
         event.preventDefault();
-        e = this;
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    location.reload();
-                } else {
-                    alert('Failed to change language')
-                }
-            }
-        };
-        request.open('GET', subdomain + '/lang/' + e.getAttribute('value'), true);
-        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        request.send()
+        var request = $.ajax( subdomain + '/lang/' + $( this ).attr('value') )
+            .done( function () {
+                location.reload();
+            })
+            .fail(function() {
+                alert('Failed to change language');
+            });
     })
     
+    $('[data-toggle="popover"]').popover()
+    
 })
-
-function pdfDownloadWorker() {
-    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
-        if (data != '99%') {
-            $('#searchDownloadProgress').html(data);
-            setTimeout(pdfDownloadWorker, 1000)
-        } else {
-            $('#searchDownloadProgress').html(data);
-        }
-    })
-}
