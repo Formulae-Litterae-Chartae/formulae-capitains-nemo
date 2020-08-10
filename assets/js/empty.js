@@ -3,6 +3,23 @@ if (window.location.host == 'tools.formulae.uni-hamburg.de') {
     subdomain = '/dev'
 }
 
+// This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
+if (navigator.language == 'none') {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change language')
+            }
+        }
+    }
+    request.open('GET', subdomain + '/lang/de', true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+}
+
 $(function () {
   $('[data-toggle="popover"]').popover()
 })

@@ -209,4 +209,4 @@ slopInput.addEventListener('invalid', function () {
 
 document.getElementById('advancedResetButton').addEventListener("click", function () {
     document.getElementById('advanced-form').reset();
-}
+})
