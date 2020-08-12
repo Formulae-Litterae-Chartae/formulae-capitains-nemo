@@ -200,7 +200,7 @@
                                 <input class="form-check-input" id="Wednesday" name="special_days" type="checkbox" value="Wednesday"{% if "Wednesday" in form.data.special_days %} checked=""{% endif %}>
                             </div>
                             <div class="form-check form-check-inline form-group">
-                                <label class="form-check-label" for="Easter">{{ _('Do') }}</label>
+                                <label class="form-check-label" for="Thursday">{{ _('Do') }}</label>
                                 <input class="form-check-input" id="Thursday" name="special_days" type="checkbox" value="Thursday"{% if "Thursday" in form.data.special_days %} checked=""{% endif %}>
                             </div>
                             <div class="form-check form-check-inline form-group">
@@ -226,7 +226,7 @@
 <script>
     var tags = {{ composition_places|tojson }};
     var datePlusMinusInvalidMessage = "{{ _('Plus-Minus muss zwischen 0 und 100 Jahren liegen') }}";
-    var slopInvalidMessage = "{{ _('Der Suchradius muss zwischen 0 und 100 liegen') }}";
+    var slopInvalidMessage = "{{ _('Der Suchradius muss eine positive ganze Zahl sein') }}";
 </script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 <script src="{{url_for('InstanceNemo.static', filename='js/advanced_search.js')}}"></script>

@@ -1,16 +1,5 @@
-var allCorporaChecks = document.querySelectorAll('input.under-all');
-var formulaeChecks = document.querySelectorAll('input.under-formulae');
-var chartaeChecks = document.querySelectorAll('input.under-chartae');
-var wordSearchData = document.getElementById('word-search-datalist');
-var wordSearchInput = document.getElementById('word-search-box');
-var regestSearchData = document.getElementById('regest-word-search-datalist');
-var regestSearchInput = document.getElementById('regest-word-search-box');
 var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
-var firstLetter = document.getElementById('firstLetter');
-var specialDays = document.querySelectorAll('input[name="special_days"]');
-var datePlusMinusInput = document.getElementById('date_plus_minus');
-var slopInput = document.getElementById('slop');
 
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
@@ -18,21 +7,12 @@ function outputUpdate(plusMinus, targetId) {
 }
 
 function checkSubCorpora(tag, category) {
-    var subelements = document.getElementsByClassName(category)
-    for(var i=0; i<subelements.length; i++) {
+    var subelements = document.getElementsByClassName(category);
+    var l = subelements.length;
+    var i;
+    for(i = 0; i < l; i++) {
         subelements[i].checked = tag.checked;
     }
-}
-
-// for autocomplete as you type I need the following things:
-// - a listener for when the field changes
-// see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas
-wordSearchInput.onkeyup = function(e) {
-    sendAutocompleteRequest(wordSearchInput, wordSearchData, "text");
-}
-
-regestSearchInput.onkeyup = function(e) {
-    sendAutocompleteRequest(regestSearchInput, regestSearchData, "regest");
 }
 
 function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
@@ -46,47 +26,42 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
     textSearchTimeout = setTimeout(function () {
         // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
         // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
-        var word = sourceElement.value;
+        var word = sourceElement.val();
         if(word !== '' && !(word.match(/[\*\?]/))){
             previous = word;
-            var request = new XMLHttpRequest();
-            request.onreadystatechange = function(response) {
-                if (request.readyState === 4) {
-                    if (request.status === 200) {
-                        var jsonOptions = JSON.parse(request.responseText);
-                        var docFrag = document.createDocumentFragment();
-                        jsonOptions.forEach(function(item) {
-                            var option = document.createElement('option');
-                            option.value = item;
-                            docFrag.appendChild(option);
-                        });
-                        targetElement.innerHTML = '';
-                        targetElement.appendChild(docFrag);
-                        sourceElement.placeholder = sourceElement.getAttribute('default');
-                    } else {
+            var request = $.ajax( subdomain + '/search/suggest/' + word + buildUrl(qSource) )
+                .done(function (response, status) {
+                    var jsonOptions = JSON.parse(response);
+                    var docFrag = document.createDocumentFragment();
+                    jsonOptions.forEach(function(item) {
+                        var option = document.createElement('option');
+                        option.value = item;
+                        docFrag.appendChild(option);
+                    });
+                    targetElement.html('');
+                    targetElement.append(docFrag);
+                    sourceElement.placeholder = sourceElement.attr('default');
+                    })
+                .fail(function () {
                         // An error occured
                         sourceElement.placeholder = "Couldn't load suggestions.";
-                    }
-                }
-            };
+                    })
             
             sourceElement.placeholder = "Loading options...";
-            
-            // Set up and make the request.
-            request.open('GET', subdomain + '/search/suggest/' + word + buildUrl(qSource), true);
-            request.send();
         }
     }, 500)
 }
-
+advancedForm
 // *******************************************************************
 // functions to store unsubmitted values from the advanced search page
 // *******************************************************************
 
 // build the tail end of the url to submit via AJAX
 function buildUrl(qSource) {
+    var corpus = [];
+    var special_days = [];
     var params = {
-        corpus:[],
+        corpus:'',
         lemma_search:'autocomplete',
         fuzziness:'0',
         in_order:'False',
@@ -103,7 +78,7 @@ function buildUrl(qSource) {
         date_plus_minus:'0',
         exclusive_date_range:'False',
         composition_place:'',
-        special_days:[],
+        special_days:'',
         regest_field:'regest'
     };
     if (qSource == "text") {
@@ -112,7 +87,7 @@ function buildUrl(qSource) {
         if (searchLemmas.checked) {
             params.lemma_search = 'autocomplete_lemmas';
         } else {
-            params.lemma_search = 'autocompslopInputlete';
+            params.lemma_search = 'autocomplete';
         }
     } else if (qSource == "regest") {
         params.extra_q = document.getElementById('word-search-box').value;
@@ -124,24 +99,26 @@ function buildUrl(qSource) {
             params.lemma_search = 'False';
         }
     }
-    formulaeChecks.forEach(function(formula) {
+    $('input.under-formulae').each(function(i, formula) {
         if (formula.checked) {
-            params.corpus.push(formula.value);
+            corpus.push(formula.value);
         }
     })
-    chartaeChecks.forEach(function(charter) {
+    $('input.under-chartae').each(function(i, charter) {
         if (charter.checked) {
-            params.corpus.push(charter.value);
+            corpus.push(charter.value);
         }
     })
-    specialDays.forEach(function(day) {
+    $('input[name="special_days"]').each(function(i, day) {
         if (day.checked) {
-            params.special_days.push(day.value);
+            special_days.push(day.value);
         }
     })
     if (document.getElementById('in_order').checked) {
         params.in_order = document.getElementById('in_order').value;
     }
+    params.corpus = corpus.join('+');
+    params.special_days = special_days.join('+');
     // Transfer the other values from the form to params
     var advancedForm = document.getElementById('advanced-form');
     for (f of advancedForm) {
@@ -166,47 +143,63 @@ function change_lemma_search() {
 
 function updateParam(par) {
     if (par === 'searchLemmas') {
-        params.field = this.val();
+        params.field = this.value;
     } else {
         params[par] = this.value;
     }
 }
 
-// autocomplete for the Issued At search using JQuery UI
-$( "#place-search" ).autocomplete({
-    source: function( request, response ) {
-        if ( firstLetter.checked ) {
-            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-            response( $.grep( tags, function( item ){
-                return matcher.test( item );
-            }) );document.getElementById('advancedResetButton').addEventListener("click", resetAdvancedSearchForm);
-    } else {
-        var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-        response( $.grep( tags, function( item ){
-            return matcher.test( item );
-        }) );
-    }
-    }
-})
+$(document).ready(function () {
+    // autocomplete for the Issued At search using JQuery UI
+    $( "#place-search" ).autocomplete({
+        source: function( request, response ) {
+            if ( document.getElementById('firstLetter').checked ) {
+                var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+                response( $.grep( tags, function( item ){
+                    return matcher.test( item );
+                }) );
+            } else {
+                var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
+                response( $.grep( tags, function( item ){
+                    return matcher.test( item );
+                }) );
+            }
+        }
+    })
 
-datePlusMinusInput.addEventListener('input', function () {
-    datePlusMinusInput.setCustomValidity("");
-    datePlusMinusInput.checkValidity();
-})
+    // for autocomplete as you type I need the following things:
+    // - a listener for when the field changes
+    // see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas
+    $('#word-search-box').keyup(function(e) {
+        sendAutocompleteRequest($( this ), $('#word-search-datalist'), "text");
+    });
 
-datePlusMinusInput.addEventListener('invalid', function () {
-    datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
-})
+    $('#regest-word-search-box').keyup(function(e) {
+        sendAutocompleteRequest($( this ), $('#regest-word-search-datalist'), "regest");
+    });
+     
+    var datePlusMinusInput = document.getElementById('date_plus_minus');
+    var slopInput = document.getElementById('slop');
 
-slopInput.addEventListener('input', function () {
-    slopInput.setCustomValidity("");
-    slopInput.checkValidity();
-})
+    datePlusMinusInput.addEventListener('input', function () {
+        datePlusMinusInput.setCustomValidity("");
+        datePlusMinusInput.checkValidity();
+    })
 
-slopInput.addEventListener('invalid', function () {
-    slopInput.setCustomValidity(slopInvalidMessage);
-})
+    datePlusMinusInput.addEventListener('invalid', function () {
+        datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
+    })
 
-document.getElementById('advancedResetButton').addEventListener("click", function () {
-    document.getElementById('advanced-form').reset();
+    slopInput.addEventListener('input', function () {
+        slopInput.setCustomValidity("");
+        slopInput.checkValidity();
+    })
+
+    slopInput.addEventListener('invalid', function () {
+        slopInput.setCustomValidity(slopInvalidMessage);
+    })
+
+    $('#advancedResetButton').click(function () {
+        document.getElementById('advanced-form').reset();
+    })
 })
