@@ -34,6 +34,9 @@ nosetests.xml
 .project
 .pydevproject
 
+# Dependency directories
+node_modules/
+
 adduser.py
 venv
 app.db
