@@ -54,6 +54,29 @@ $(document).ready(function () {
             $( this ).css('height', '40vh');
         })
     })
+    
+    // Highlight formulaic parts of the texts
+    $('.text-section').each( function() {
+        var formTypes = [];
+        $( this ).find('span.w').each( function() {
+            var formType = $( this ).attr('type');
+            if ( formType && !(formTypes.includes(formType)) ) {
+                formTypes.push(formType);
+            }
+        });
+        for ( t of formTypes ) {
+            var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t).text(t);
+            $( this ).prev('.control-row').find('.part-menu-dropdown').first().append(menuItem)
+        }
+    } )
+    
+    $('.part-menu-dropdown .dropdown-item').click( function() {
+        var selectedPart = $( this ).attr('value');
+        $( this ).toggleClass('yellow-bg');
+        $( this ).parents('.control-row').first().next('.text-section').find('span[type="' + selectedPart + '"]').each( function() {
+            $( this ).toggleClass('yellow-bg');
+        })
+    });
 })
 
 Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {

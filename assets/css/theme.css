@@ -776,7 +776,7 @@ p.flash-grey {
     padding-right: 3px;
 }
 
-.maximize-window-icon,.minimize-window-icon,.add-window-icon {
+.maximize-window-icon,.minimize-window-icon,.add-window-icon,.part-menu-icon {
     padding-left: 3px;
     padding-right: 3px;
     bottom: -.5px;
@@ -786,8 +786,21 @@ p.flash-grey {
     content: none;
 }
 
+.part-menu-toggle::after {
+    content: none;
+}
+
 .dropleft .add-text-toggle::before {
     content: none;
+}
+
+.dropleft .part-menu-toggle::before {
+    content: none;
+}
+
+.part-menu-dropdown .dropdown-item {
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 span.corpus_coverage {
@@ -801,4 +814,8 @@ span.corpus_coverage {
 #searchDownloadProgress {
     visibility: hidden;
     color: black;
+}
+
+.yellow-bg {
+    background-color: yellow;
 }

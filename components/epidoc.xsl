@@ -65,6 +65,9 @@
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
             </xsl:if>
+            <xsl:if test="current()[@type]">
+                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
