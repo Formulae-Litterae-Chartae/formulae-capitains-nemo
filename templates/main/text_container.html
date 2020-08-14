@@ -52,6 +52,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
 <script>
 var gutterBackgroundImage="url('{{ url_for('InstanceNemo.static', filename='images/vertical_handle.png') }}')";
+var hideAllPartsMessage="{{ _('Alle ausblenden') }}";
+var showAllPartsMessage="{{ _('Alle zeigen') }}";
 </script>
 <script type="text/javascript" src="{{url_for('InstanceNemo.static', filename='js/text_container.js')}}"></script>
 {% endblock %}

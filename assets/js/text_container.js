@@ -58,24 +58,41 @@ $(document).ready(function () {
     // Highlight formulaic parts of the texts
     $('.text-section').each( function() {
         var formTypes = [];
-        $( this ).find('span.w').each( function() {
-            var formType = $( this ).attr('type');
+        $( this ).find('span[function]').each( function() {
+            var formType = $( this ).attr('function');
             if ( formType && !(formTypes.includes(formType)) ) {
                 formTypes.push(formType);
             }
         });
         for ( t of formTypes ) {
-            var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t).text(t);
+            var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
+            menuItem.append($("<input> " + t + "</input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t}));
             $( this ).prev('.control-row').find('.part-menu-dropdown').first().append(menuItem)
         }
-    } )
+    } );
     
-    $('.part-menu-dropdown .dropdown-item').click( function() {
+    $('.part-menu-dropdown .show-all-parts').prop('checked', false); 
+    
+    $('.part-menu-dropdown .show-parts').click( function() {
         var selectedPart = $( this ).attr('value');
-        $( this ).toggleClass('yellow-bg');
-        $( this ).parents('.control-row').first().next('.text-section').find('span[type="' + selectedPart + '"]').each( function() {
-            $( this ).toggleClass('yellow-bg');
+        var childCheck = $( this ).children();
+        $( this ).parents('.control-row').first().next('.text-section').find('span[function="' + selectedPart + '"]').each( function() {
+            $( this ).toggleClass(selectedPart + '-bg');
         })
+    });
+    
+    $('.part-menu-dropdown .show-all-parts').click( function() {
+        origElement = $( this );
+        if (origElement.prop('checked')) {
+            origElement.next('label').text(hideAllPartsMessage);
+        } else {
+            origElement.next('label').text(showAllPartsMessage);
+        }
+        origElement.parents('.part-menu-dropdown').find('input.show-parts').each( function() {
+            if ($( this ).prop('checked') != origElement.prop('checked')) {
+                $( this ).trigger('click');
+            }
+        });
     });
 })
 
