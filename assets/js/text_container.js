@@ -56,7 +56,7 @@ $(document).ready(function () {
     })
     
     // Highlight formulaic parts of the texts
-    $('.text-section').each( function() {
+    $('.text-section,.text-row').each( function() {
         var formTypes = [];
         $( this ).find('span[function]').each( function() {
             var formType = $( this ).attr('function');
@@ -64,6 +64,9 @@ $(document).ready(function () {
                 formTypes.push(formType);
             }
         });
+        if (formTypes.length > 0) {
+            $(".part-menu-icon").css('display', 'block');
+        }
         for ( t of formTypes ) {
             var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
             menuItem.append($("<input> " + t + "</input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t}));
@@ -76,7 +79,7 @@ $(document).ready(function () {
     $('.part-menu-dropdown .show-parts').click( function() {
         var selectedPart = $( this ).attr('value');
         var childCheck = $( this ).children();
-        $( this ).parents('.control-row').first().next('.text-section').find('span[function="' + selectedPart + '"]').each( function() {
+        $( this ).parents('.control-row').first().next('.text-section,.text-row').find('span[function="' + selectedPart + '"]').each( function() {
             $( this ).toggleClass(selectedPart + '-bg');
         })
     });
