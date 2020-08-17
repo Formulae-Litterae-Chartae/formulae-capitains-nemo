@@ -3,9 +3,22 @@ if (window.location.host == 'tools.formulae.uni-hamburg.de') {
     subdomain = '/dev'
 }
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
+// This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
+if (navigator.language == 'none') {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                location.reload();
+            } else {
+                alert('Failed to change language')
+            }
+        }
+    }
+    request.open('GET', subdomain + '/lang/de', true);
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    request.send()
+}
   
 function restrictSearch() {
     var button = document.getElementById('restrictSearchButton');
@@ -33,7 +46,7 @@ function makeLemmaSearch() {
         if (lemma.checked || lemma.getAttribute('checked') == 'True') {
             newQ.push(lemma.getAttribute('value'));
         }
-    };
+    }
     if (Array.isArray(newQ) && newQ.length) {
         oldUrl = oldUrl.replace(reField, '');
         oldUrl = oldUrl.replace(rePage, '');
@@ -44,55 +57,20 @@ function makeLemmaSearch() {
     }
 }
 
-
-// I think this function was for when I was using the accordion to expand a collection to its works on the collection screen.
-// I don't think it is needed any more so I am commenting it out and testing, just to make sure.
-// function getSubElements(coll) {
-//         var objectId = coll.getAttribute('sub-element-url');
-//         var targetList = document.getElementById(coll.getAttribute('sub-element-id'));
-//         if (coll.getAttribute('ul-shown') == 'true') {
-//             coll.setAttribute('ul-shown', 'false');
-//             targetList.innerHTML = ''
-//         } else {
-//             var request = new XMLHttpRequest();
-//             request.onreadystatechange = function() {
-//                 if (this.readyState == 4) {
-//                     if (this.status == 200) {
-//                         targetList.innerHTML = this.responseText;
-//                         coll.setAttribute('ul-shown', 'true');
-//                     } else {
-//                         alert("No texts found for collection.")
-//                     }
-//                 }
-//             };
-//             request.open('GET', objectId, true);
-//             request.send()
-//     }
-// }
-
-// AJAX request to change locale and then refresh the page
-$('.lang-link').bind('click', function(event) {
-    event.preventDefault();
-    e = this;
-    var request = new XMLHttpRequest();
-    request.onreadystatechange = function() {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                location.reload();
-            } else {
-                alert('Failed to change language')
-            }
+function pdfDownloadWorker() {
+    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
+        if (data != '99%') {
+            $('#searchDownloadProgress').html(data);
+            setTimeout(pdfDownloadWorker, 1000)
+        } else {
+            $('#searchDownloadProgress').html(data);
         }
-    };
-    request.open('GET', subdomain + '/lang/' + e.getAttribute('value'), true);
-    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-    request.send()
-})
+    })
+}
 
-//to disable cut, copy, paste, and mouse right-click
 $(document).ready(function () {
     //Disable cut, copy, and paste
-    $('.no-copy').bind('cut copy paste', function (e) {
+    $('.no-copy').on('cut copy paste', function (e) {
         e.preventDefault();
         $('#no-copy-message').modal('show')
     });
@@ -107,7 +85,7 @@ $(document).ready(function () {
         if (document.getElementById(link.getAttribute('link-to'))) {
             link.removeAttribute('hidden');
         }
-    };
+    }
 
     // from http://jsfiddle.net/zpkKv/2/
     $('#simple-search-q').on('change invalid', function() {
@@ -119,7 +97,7 @@ $(document).ready(function () {
         textfield.setCustomValidity('');
         
         if (!textfield.validity.valid) {
-        textfield.setCustomValidity(simpleSearchQMessage);  
+            textfield.setCustomValidity(simpleSearchQMessage);  
         }
     });
     
@@ -169,17 +147,20 @@ $(document).ready(function () {
         // E.g. from https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
         $('#searchDownloadProgress').css("visibility", "visible");
         pdfDownloadWorker()
+    });
+    
+    // AJAX request to change locale and then refresh the page
+    $('.lang-link').on('click', function(event) {
+        event.preventDefault();
+        var request = $.ajax( subdomain + '/lang/' + $( this ).attr('value') )
+            .done( function () {
+                location.reload();
+            })
+            .fail(function() {
+                alert('Failed to change language');
+            });
     })
     
-});
-
-function pdfDownloadWorker() {
-    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
-        if (data != '99%') {
-            $('#searchDownloadProgress').html(data);
-            setTimeout(pdfDownloadWorker, 1000)
-        } else {
-            $('#searchDownloadProgress').html(data);
-        }
-    })
-}
+    $('[data-toggle="popover"]').popover()
+    
+})
