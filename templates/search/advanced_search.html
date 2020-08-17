@@ -51,7 +51,9 @@
                         </a>
                     </div>
                     <div class="collapse" id="wordExpandedCollapse">
-                        <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link px-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.fuzzinessMessage }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
+                        <p>{{ _('In bestimmten Teilen suchen') }} <a class="btn btn-link p-0" data-toggle="collapse" href="#formPartsCollapse" role="button" aria-expanded="false" aria-controls="formPartsCollapse" title="{{ _('In bestimmten Teilen suchen') }}"><i class="fas fa-caret-down"></i></a></p>
+                        <div class="collapse" id="formPartsCollapse">
+                            {{ form.formulaic_parts() }}
                         </div>
                         <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
                             {{ form.slop(min="0") }} {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><i class="fas fa-question-circle" ></i></a></div>
