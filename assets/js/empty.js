@@ -1,3 +1,8 @@
+var subdomain = '';
+if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+    subdomain = '/dev'
+}
+
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
@@ -69,10 +74,6 @@ function makeLemmaSearch() {
 $('.lang-link').bind('click', function(event) {
     event.preventDefault();
     e = this;
-    var subdomain = '';
-    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-        subdomain = '/dev'
-    }
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
@@ -89,7 +90,7 @@ $('.lang-link').bind('click', function(event) {
 })
 
 //to disable cut, copy, paste, and mouse right-click
-$(document).ready(function () {    
+$(document).ready(function () {
     //Disable cut, copy, and paste
     $('.no-copy').bind('cut copy paste', function (e) {
         e.preventDefault();
@@ -122,4 +123,63 @@ $(document).ready(function () {
         }
     });
     
+    $('#searchDownload').on('click', function() {
+        var jqxhr = $.ajax( subdomain + "/search/download/" + downloadId )
+            .done(function (response, status, xhr) {
+                var filename = "";
+                var disposition = xhr.getResponseHeader('Content-Disposition');
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
+                }
+                var type = xhr.getResponseHeader('Content-Type');
+                var blob = new Blob([response], { type: type });
+                if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                    // IE workaround for "HTML7007: One or more blob URLs were revoked by closing the blob for which they were created. These URLs will no longer resolve as the data backing the URL has been freed."
+                    window.navigator.msSaveBlob(blob, filename);
+                } else {
+                    var URL = window.URL || window.webkitURL;
+                    var downloadUrl = URL.createObjectURL(blob);
+
+                    if (filename) {
+                        // use HTML5 a[download] attribute to specify filename
+                        var a = document.createElement("a");
+                        // safari doesn't support this yet
+                        if (typeof a.download === 'undefined') {
+                            window.location = downloadUrl;
+                        } else {
+                            a.href = downloadUrl;
+                            a.download = filename;
+                            document.body.appendChild(a);
+                            a.click();
+                        }
+                    } else {
+                        window.location = downloadUrl;
+                    }
+                }
+            })
+            .fail(function() {
+                alert( downloadError );
+            })
+            .always(function() {
+                $('#searchDownloadProgress').css("visibility", "hidden").html('...');
+            });
+        // Replace this with a function that repeatedly calls to the backend to find out the status
+        // E.g. from https://stackoverflow.com/questions/24251898/flask-app-update-progress-bar-while-function-runs
+        $('#searchDownloadProgress').css("visibility", "visible");
+        pdfDownloadWorker()
+    })
+    
 });
+
+function pdfDownloadWorker() {
+    $.get(subdomain + '/search/pdf_progress/' + downloadId, function(data) {
+        if (data != '99%') {
+            $('#searchDownloadProgress').html(data);
+            setTimeout(pdfDownloadWorker, 1000)
+        } else {
+            $('#searchDownloadProgress').html(data);
+        }
+    })
+}

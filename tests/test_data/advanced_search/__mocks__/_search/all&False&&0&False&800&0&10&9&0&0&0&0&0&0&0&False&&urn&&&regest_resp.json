@@ -1,0 +1,787 @@
+{
+  "took": 14,
+  "timed_out": false,
+  "_shards": {
+    "total": 41,
+    "successful": 41,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 421,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "date_string": "769–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0769",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
+          "lemmas": null,
+          "regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+          "date_string": "769–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0769",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+          "date_string": "768–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0768",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in ––.",
+          "lemmas": null,
+          "regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 29",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
+          "date_string": "768–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Do itaque ego Uigelius de Tremune pro remedio anime fratris mei Uictoris de facultatula ipsius aliquantulum ad ecclesiam beato Elarii in fundo Curia in loco qui nuncupatur Furtunes, hoc est agrum in fundo Trimune modios II cum accesso suo et quatuor nogarius et quatuor melarius seu cetera a pumifera subiacencia et ipsum confinat' de subtus in ––.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0768",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
+          "lemmas": null,
+          "regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+          "date_string": "ca. 791–806",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0791",
+              "lte": "0806-12-31"
+            }
+          ],
+          "all_dates": [
+            "0791",
+            "0806-12-31"
+          ],
+          "min_date": "0791",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v3",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 130",
+          "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
+          "date_string": "[789–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0789-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0789-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0789-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0130.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v3",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 132",
+          "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0132.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v3",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 133",
+          "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0133.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v3",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 134",
+          "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
+          "date_string": "[711–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0711-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0711-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0711-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0134.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v3",
+        "_type": "echternach",
+        "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 135",
+          "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0135.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 11114,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
+          "Angers": {
+            "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
+          },
+          "Arnulfinger": {
+            "doc_count": 24
+          },
+          "Bünden": {
+            "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "Echternach": {
+            "doc_count": 152
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
+          },
+          "Freising": {
+            "doc_count": 1383
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "Gorze": {
+            "doc_count": 121
+          },
+          "Hersfeld": {
+            "doc_count": 121
+          },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 2286
+          },
+          "Luzern": {
+            "doc_count": 6
+          },
+          "Marculf": {
+            "doc_count": 41
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 281
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 189
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
+          },
+          "Merowinger": {
+            "doc_count": 196
+          },
+          "Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
+          },
+          "Passau": {
+            "doc_count": 102
+          },
+          "Regensburg": {
+            "doc_count": 269
+          },
+          "Rheinisch": {
+            "doc_count": 78
+          },
+          "Rätien": {
+            "doc_count": 60
+          },
+          "Salzburg": {
+            "doc_count": 229
+          },
+          "Schäftlarn": {
+            "doc_count": 37
+          },
+          "St. Gallen": {
+            "doc_count": 779
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
+          "Weißenburg": {
+            "doc_count": 276
+          },
+          "Werden": {
+            "doc_count": 66
+          },
+          "Zürich": {
+            "doc_count": 53
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 8
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 25
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 153
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 3141
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 2907
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 2908
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 1328
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 524
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 5
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 1
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 6
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 21
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 262
+        },
+        "Gorze": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 2
+        },
+        "Katalonien": {
+          "doc_count": 8
+        },
+        "Lorsch": {
+          "doc_count": 29
+        },
+        "Luzern": {
+          "doc_count": 6
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 1
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 3
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 7
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 1
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 2
+        },
+        "Mondsee": {
+          "doc_count": 19
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 23
+        },
+        "Regensburg": {
+          "doc_count": 2
+        },
+        "Rheinisch": {
+          "doc_count": 4
+        },
+        "Rätien": {
+          "doc_count": 7
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Schäftlarn": {
+          "doc_count": 7
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 4
+        },
+        "Werden": {
+          "doc_count": 1
+        },
+        "Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 2
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 382
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 22
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 11
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

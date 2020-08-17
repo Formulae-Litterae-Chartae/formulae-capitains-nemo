@@ -27,6 +27,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from copy import copy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
+from random import randint
 
 
 class NemoFormulae(Nemo):
@@ -64,7 +65,8 @@ class NemoFormulae(Nemo):
         "f_is_str",
         "f_i18n_citation_type",
         "f_slugify",
-        "f_make_members"
+        "f_make_members",
+        "f_random_int"
     ]
 
     CACHED = [
@@ -84,6 +86,8 @@ class NemoFormulae(Nemo):
     ]
 
     OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
+                        # 'urn:cts:formulae:anjou_archives',
+                        # 'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
@@ -93,9 +97,12 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:fulda_stengel',
                         # 'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
+                        # 'urn:cts:formulae:langobardisch',
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         # 'urn:cts:formulae:marmoutier_dunois',
+                        # 'urn:cts:formulae:marmoutier_laurain',
+                        # 'urn:cts:formulae:marmoutier_leveque',
                         # 'urn:cts:formulae:marmoutier_manceau',
                         # 'urn:cts:formulae:marmoutier_serfs',
                         # 'urn:cts:formulae:marmoutier_vendomois',
@@ -104,11 +111,14 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mondsee',
                         # 'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
+                        # 'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
+                        # 'urn:cts:formulae:tours_gasnault',
+                        # 'urn:cts:formulae:tours_st_julien_fragments',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']
@@ -118,17 +128,19 @@ class NemoFormulae(Nemo):
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
+                             # 'urn:cts:formulae:langobardisch',
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
                              # 'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
                              'urn:cts:formulae:salzburg',
+                             # 'urn:cts:formulae:tours_gasnault',
                              'urn:cts:formulae:weissenburg',
                              'urn:cts:formulae:werden']
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
-                        "eng": _l("Englisch"), "cat": _l("Katalanisch")}
+                        "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
 
@@ -158,6 +170,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["join_list_values"] = self.f_join_list_values
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.jinja_env.filters["insert_in_list"] = self.f_insert_in_list
+        self.app.jinja_env.filters["random_int"] = self.f_random_int
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -293,7 +306,7 @@ class NemoFormulae(Nemo):
                         par = _('(Prolog)')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
-        elif 'katalonien' in m.id or 'marmoutier_manceau' in m.id:
+        elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
             par = list(m.parent)[0].split('_')[-1]
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
@@ -322,7 +335,8 @@ class NemoFormulae(Nemo):
         open_texts = []
         half_open_texts = []
         all_texts = {m['id']: sorted([self.ordered_corpora(r, m['id']) for r in self.resolver.getMetadata(m['id']).readableDescendants.values()])
-                     for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:katalonien',
+                     for l in self.sub_colls.values() for m in l if m['id'] not in ['urn:cts:formulae:anjou_archives',
+                                                                                    'urn:cts:formulae:katalonien',
                                                                                     'urn:cts:formulae:marmoutier_manceau',
                                                                                     'urn:cts:formulae:marmoutier_vendomois_appendix',
                                                                                     'urn:cts:formulae:marmoutier_dunois']}
@@ -339,6 +353,9 @@ class NemoFormulae(Nemo):
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:marmoutier_dunois']})
+        all_texts.update({m: sorted([self.ordered_corpora(r, m)
+                                     for r in self.resolver.getMetadata(m).readableDescendants.values()])
+                          for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
         for c in all_texts.keys():
             if c in self.OPEN_COLLECTIONS:
                 open_texts += [x[1][0] for x in all_texts[c]]
@@ -434,6 +451,11 @@ class NemoFormulae(Nemo):
         return l
 
     @staticmethod
+    def f_random_int(start: int = 1, end: int = 10000) -> int:
+        """ A Jinja filter to produce a random integer between 1 and 10,000"""
+        return randint(start, end)
+
+    @staticmethod
     def r_set_language(code: str) -> Union[str, redirect]:
         """ Sets the session's language code which will be used for all requests
 
@@ -482,7 +504,7 @@ class NemoFormulae(Nemo):
             response.vary = 'session'
         response.cache_control.max_age = max_age
         response.cache_control.public = True
-        if getattr(g, 'previous_search', None):
+        if getattr(g, 'previous_search', None) is not None:
             session['previous_search'] = g.previous_search
         if getattr(g, 'previous_search_args', None):
             session['previous_search_args'] = g.previous_search_args
@@ -594,7 +616,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -617,7 +639,8 @@ class NemoFormulae(Nemo):
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
         elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau", 
-                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois"]:
+                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois",
+                          "urn:cts:formulae:anjou_archives"]:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
@@ -1103,15 +1126,15 @@ class NemoFormulae(Nemo):
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
         prev_args = session['previous_search_args']
-        prev_args['search_field'] = prev_args.get('search_field', 'text')
+        search_field = 'text'
         if prev_args.get('lemma_search', None) == "True":
-            prev_args['search_field'] = 'lemmas'
+            search_field = 'lemmas'
         ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
                                            q=prev_args.get('q', ''),
                                            ordered_terms=prev_args.get('ordered_terms', False),
                                            slop=prev_args.get('slop', 0),
                                            regest_field=prev_args.get('regest_field', 'regest'),
-                                           search_field=prev_args.get('search_field'),
+                                           search_field=search_field,
                                            highlight_field='text',
                                            fuzz=prev_args.get('fuzziness', '0'))
         if not any(ids):

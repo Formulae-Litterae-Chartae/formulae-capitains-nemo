@@ -7,7 +7,7 @@ from copy import copy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
-from collections import defaultdict
+from math import floor
 
 
 PRE_TAGS = "</small><strong>"
@@ -23,6 +23,8 @@ range_agg = {'date_range': {'field': 'min_date', 'format': 'yyyy',
                                        {'key': '900-999', 'from': '0900', 'to': '0999'},
                                        {'key': '>1000', 'from': '1000'}]}}
 corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensis'}},
+                                      "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
+                                      "Chroniques des comtes d’Anjou": {'match': {'_type': 'anjou_comtes_chroniques'}},
                                       'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                                       'Bünden': {'match': {'_type': 'buenden'}},
                                       'Echternach': {'match': {'_type': 'echternach'}},
@@ -32,11 +34,15 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Gorze': {'match': {'_type': 'gorze'}},
                                       'Hersfeld': {'match': {'_type': 'hersfeld'}},
                                       'Katalonien': {'match': {'_type': 'katalonien'}},
+                                      'Codice Diplomatico Longobardo': {'match': {'_type': 'langobardisch'}},
                                       'Lorsch': {'match': {'_type': 'lorsch'}},
                                       'Luzern': {'match': {'_type': 'luzern'}},
                                       'Marculf': {'match': {'_type': 'marculf'}},
+                                      "Accensement d'une vigne de Marmoutier": {'match': {'_type': 'marmoutier_barthelemy'}},
                                       'Marmoutier - Dunois': {'match': {'_type': 'marmoutier_dunois'}},
                                       'Marmoutier - Fougères': {'match': {'_type': 'marmoutier_fougères'}},
+                                      'Un acte faux de Marmoutier': {'match': {'_type': 'marmoutier_laurain'}},
+                                      'Marmoutier - Trois actes faux ou interpolés': {'match': {'_type': 'marmoutier_leveque'}},
                                       'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
                                       'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
                                       'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
@@ -47,11 +53,14 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Papsturkunden Frankreich': {'match': {'_type': 'papsturkunden_frankreich'}},
                                       'Passau': {'match': {'_type': 'passau'}},
                                       'Rätien': {'match': {'_type': 'raetien'}},
+                                      'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                                       'Regensburg': {'match': {'_type': 'regensburg'}},
                                       'Rheinisch': {'match': {'_type': 'rheinisch'}},
                                       'Salzburg': {'match': {'_type': 'salzburg'}},
                                       'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                       'St. Gallen': {'match': {'_type': 'stgallen'}},
+                                      'Une nouvelle charte de Théotolon': {'match': {'_type': 'tours_gasnault'}},
+                                      'Fragments de Saint-Julien de Tours': {'match': {'_type': 'tours_st_julien_fragments'}},
                                       'Weißenburg': {'match': {'_type': 'weissenburg'}},
                                       'Werden': {'match': {'_type': 'werden'}},
                                       'Zürich': {'match': {'_type': 'zuerich'}}}}}
@@ -71,7 +80,7 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
-        return 'urn'
+        return ['sort_prefix', 'urn']
     if sort_str == 'min_date_asc':
         return [{'all_dates': {'order': 'asc', 'mode': 'min'}}, 'urn']
     if sort_str == 'max_date_asc':
@@ -81,10 +90,10 @@ def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, 
     if sort_str == 'max_date_desc':
         return [{'all_dates': {'order': 'desc', 'mode': 'max'}}, 'urn']
     if sort_str == 'urn_desc':
-        return [{'urn': {'order': 'desc'}}]
+        return ['sort_prefix', {'urn': {'order': 'desc'}}]
 
 
-def set_session_token(index: list, orig_template: dict, field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
+def set_session_token(index: list, orig_template: dict, search_field: str, q: str) -> List[Dict[str, Union[str, List[str]]]]:
     """ Sets previous search to include the first X search results"""
     template = copy(orig_template)
     template.update({'from': 0, 'size': HITS_TO_READER})
@@ -93,7 +102,7 @@ def set_session_token(index: list, orig_template: dict, field: str, q: str) -> L
     highlighted_terms = set()
     if q:
         for hit in search_hits:
-            for highlight in hit['highlight'][field]:
+            for highlight in hit['highlight'][search_field]:
                 for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
                     highlighted_terms.add(m.group(1).lower())
     g.highlighted_words = highlighted_terms
@@ -121,7 +130,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     kwargs['fragment_size'] = 1000
     field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
     if kwargs['qSource'] == 'text':
-        highlight_field = field_mapping[kwargs.get('field', 'autocomplete')]
+        highlight_field = field_mapping[kwargs.get('lemma_search', 'autocomplete')]
         term = kwargs.get('q', '')
         if '*' in term or '?' in term:
             return None
@@ -145,7 +154,10 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
             if i == -1:
                 ind = i
                 continue
-            results.add(r[i:min(r.find(' ', i + len(term) + 30), len(r))].strip())
+            end_index = min(r.find(' ', i + len(term) + 30), len(r))
+            if end_index == -1:
+                end_index = len(r)
+            results.add(r[i:end_index].strip())
             ind = i + len(sep + term)
     return sorted(results, key=str.lower)[:10]
 
@@ -171,7 +183,8 @@ def highlight_segment(orig_str: str) -> str:
 
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str, fuzz: str) -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          highlight_field: str, fuzz: str,
+                          download_id: str = 'pdf_download_0') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -183,7 +196,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     """
     ids = []
     all_highlighted_terms = set()
-    for hit in search['hits']['hits']:
+    for list_index, hit in enumerate(search['hits']['hits']):
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
@@ -300,6 +313,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+            current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+        current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:
@@ -321,7 +336,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     return ids, all_highlighted_terms
 
 
-def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', page: int = 1, per_page: int = 10,
+def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str = '', page: int = 1, per_page: int = 10,
                          fuzziness: str = '0', year: int = 0, month: int = 0, day: int = 0, year_start: int = 0,
                          month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
@@ -332,13 +347,18 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
                                             dict,
                                             List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
-    prev_search = dict()
+    prev_search = None
     if q == '' and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
         corpus = ['all']
     if special_days is None:
         special_days = []
+    search_field = 'text'
+    if lemma_search == 'True':
+        search_field = 'lemmas'
+    elif 'autocomplete' in lemma_search:
+        search_field = lemma_search
     old_sort = sort
     sort = build_sort_list(sort)
     if old_search is False:
@@ -346,7 +366,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
-    body_template['highlight'] = {'fields': {field: {"fragment_size": 1000},
+    body_template['highlight'] = {'fields': {search_field: {"fragment_size": 1000},
                                              regest_field: {"fragment_size": 1000}},
                                   'pre_tags': [PRE_TAGS],
                                   'post_tags': [POST_TAGS],
@@ -357,7 +377,7 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     ordered_terms = True
     if in_order == 'False':
         ordered_terms = False
-    if field == 'lemmas':
+    if search_field == 'lemmas':
         fuzz = '0'
         if '*' in q or '?' in q:
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
@@ -370,15 +390,15 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
-                clauses.append([{'span_multi': {'match': {'wildcard': {field: term}}}}])
+                clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
             else:
-                if field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}]
+                if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
                     for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
                     clauses.append(sub_clauses)
                 else:
-                    clauses.append([{'span_multi': {'match': {'fuzzy': {field: {"value": term, "fuzziness": fuzz}}}}}])
+                    clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
         bool_clauses = []
         for clause in product(*clauses):
             bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
@@ -455,13 +475,19 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        if field in ('lemmas', 'text'):
-            ids, highlighted_terms = lem_highlight_to_text(search, q, ordered_terms, slop, regest_field, field, 'text',
-                                                           fuzz)
+        if search_field in ('lemmas', 'text'):
+            ids, highlighted_terms = lem_highlight_to_text(search=search,
+                                                           q=q,
+                                                           ordered_terms=ordered_terms,
+                                                           slop=slop,
+                                                           regest_field=regest_field,
+                                                           search_field=search_field,
+                                                           highlight_field='text',
+                                                           fuzz=fuzz)
         else:
             ids = [{'id': hit['_id'],
                     'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][field]] if 'highlight' in hit else [],
+                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
                     'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
                     if 'highlight' in hit and regest_field in hit['highlight'] else []}
                    for hit in search['hits']['hits']]
@@ -474,14 +500,14 @@ def advanced_query_index(corpus: list = None, field: str = "text", q: str = '', 
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]
-    if field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-        prev_search = set_session_token(corpus, body_template, field, q if field in ['text', 'lemmas'] else '')
+    if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
+        prev_search = set_session_token(corpus, body_template, search_field, q if search_field in ['text', 'lemmas'] else '')
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=field,
+                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=lemma_search,
                                                                          q=q.replace(' ', '+'), fuzz=fuzziness,
                                                                          in_order=in_order, slop=slop, y=year, m=month,
                                                                          d=day, y_s=year_start,

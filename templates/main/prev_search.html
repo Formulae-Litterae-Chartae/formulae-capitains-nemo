@@ -9,7 +9,7 @@
             aria-controls="prevSearchResults">
         {{ _('Ergebnisse der letzten Suche') }}
         </button>
-         - <a href="{{ url_for('search.download_search_results') }}" id="searchDownloadIcon" title="{{ _('Suchergebnisse herunterladen') }}"><i class="fas fa-file-download"></i></a>
+         - <a href="#" id="searchDownload" title="{{ _('Suchergebnisse herunterladen') }}"><i class="fas fa-file-download"></i> <span id="searchDownloadProgress" role="status">...</span>
     </div>
     <div id="prevSearchResults" class="collapse">
         
@@ -26,3 +26,11 @@
         
     </div>
 </div>
+
+
+{% block additionalscript %}
+<script>
+    var downloadId = {{ 1|random_int(10000)|string }};
+    var downloadError = "{{ _('Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später.') }}";
+</script>
+{% endblock %}
