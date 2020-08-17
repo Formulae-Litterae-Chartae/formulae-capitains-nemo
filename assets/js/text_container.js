@@ -64,6 +64,9 @@ $(document).ready(function () {
                 formTypes.push(formType);
             }
         });
+        if ( formTypes.length > 0 ) {
+            $('.part-menu-icon').css('display', 'block');
+        }
         for ( t of formTypes ) {
             var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
             menuItem.append($("<input> " + t + "</input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t}));

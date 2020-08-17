@@ -816,6 +816,10 @@ span.corpus_coverage {
     color: black;
 }
 
+.part-menu-icon {
+    display: none;
+}
+
 /* Background colors for formulaic parts */
 
 .Arenga-bg {
