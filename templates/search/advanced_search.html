@@ -51,10 +51,8 @@
                         </a>
                     </div>
                     <div class="collapse" id="wordExpandedCollapse">
-                        <p>{{ _('In bestimmten Teilen suchen') }} <a class="btn btn-link p-0" data-toggle="collapse" href="#formPartsCollapse" role="button" aria-expanded="false" aria-controls="formPartsCollapse" title="{{ _('In bestimmten Teilen suchen') }}"><i class="fas fa-caret-down"></i></a></p>
-                        <div class="collapse" id="formPartsCollapse">
-                            {{ form.formulaic_parts() }}
-                        </div>
+                        <div class="text-center my-2"><strong>{{ form.formulaic_parts.label }}</strong></div>
+                        <div>{{ form.formulaic_parts(class="w-100 mb-2", size="6") }}</div>
                         <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
                             {{ form.slop(min="0") }} {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><i class="fas fa-question-circle" ></i></a></div>
                         </div>
