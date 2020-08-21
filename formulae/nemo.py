@@ -701,7 +701,8 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
-                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS,
+                    "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''
                 },
                 "readable": r,
                 "parents": current_parents,
@@ -992,11 +993,14 @@ class NemoFormulae(Nemo):
                     inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
-        translations = [(m, m.metadata.get_single(DC.title))
+        translations = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
                         for m in self.get_readable_siblings(metadata)] + \
-                       [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
+                       [(self.resolver.getMetadata(str(x)),
+                         self.resolver.getMetadata(str(x)).metadata.get_single(DC.title),
+                         self.resolver.getMetadata(str(x)).metadata.get_single(DCTERMS.isPartOf) or '')
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
-        transcriptions = [(m, m.metadata.get_single(DC.title)) for m in self.get_transcriptions(metadata)]
+        transcriptions = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
+                          for m in self.get_transcriptions(metadata)]
         current_parents = self.make_parents(metadata, lang=lang)
         return {
             "template": "main::text.html",
@@ -1019,7 +1023,8 @@ class NemoFormulae(Nemo):
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
-                    "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or '')
+                    "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
+                    "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or '')
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]

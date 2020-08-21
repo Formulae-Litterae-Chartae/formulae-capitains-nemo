@@ -51,7 +51,7 @@
                     <div class="dropdown-divider"></div>
                     {% for coll in g.sub_colls['manuscript_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }} ({{ coll['short_title']|safe }})</a>
                     {% endif %}
                     {% endfor %}
                 </div>

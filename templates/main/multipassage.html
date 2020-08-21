@@ -31,7 +31,7 @@
             {% endif %}
         {% endfor %}
         {% if 'manifest' in object.objectId %}
-            <div class="col-12 entry-title text-center">{{object.title|safe}}</div>
+            <div class="col-12 entry-title text-center">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.title|safe}}</div>
             <div class="col-12 text-center"><a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a></div>
         {% else %}
             {% if object.prev_version %}
@@ -56,7 +56,7 @@
                 <div class="col-1">
                 </div>
             {% endif %}
-            <div class="col entry-title text-center">{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            <div class="col entry-title text-center">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
             {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['_id']) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
@@ -109,7 +109,7 @@
         {% if translation[objId] and object.collections.parents[-1]['id'] in ['formulae_collection', 'manuscript_collection'] %}
             <span class="dropdown-item-text">{{ _('Edition, Übersetzung, Transkription') }}</span>
             {% for t in translation[objId] %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ t[1]|string|safe }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if t[2] != '' %}{{ t[2]|safe }}: {% endif %}{{ t[1]|string|safe }}</span></a>
 
             {% endfor %}
             <div class="dropdown-divider"></div>
