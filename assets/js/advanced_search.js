@@ -51,7 +51,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
         }
     }, 500)
 }
-advancedForm
+
 // *******************************************************************
 // functions to store unsubmitted values from the advanced search page
 // *******************************************************************

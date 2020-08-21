@@ -7,6 +7,8 @@
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
             <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a tabindex="0" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
+            <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+            <br>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
                 <div class="col-xl-3 col-4">
@@ -45,34 +47,34 @@
                         <p class="mb-0 smallfont"><span title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
                     </div>
                     
-                    <div class="text-center">
-                        <a class="btn btn-link" data-toggle="collapse" href="#wordExpandedCollapse" role="button" aria-expanded="false" aria-controls="wordExpandedCollapse">
-                            {{ _('Erweiterte Optionen') }}
-                        </a>
+                    <div class="form-row mb-2">
+                        <div class="col"><strong>{{ form.slop.label }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#slopCollapse" role="button" aria-expanded="false" aria-controls="slopCollapse"><i class="fas fa-caret-down"></i></a><a tabindex="0" type="button" class="btn btn-link p-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><i class="fas fa-question-circle" ></i></a>
+                        <div class="collapse" id="slopCollapse">{{ form.slop(min="0") }} {{ _('Wörter') }}</div>
+                        </div>
                     </div>
-                    <div class="collapse" id="wordExpandedCollapse">
-                        <div class="form-row align-items-center justify-content-center"><div class="text-center"><p class="mb-0">{{ form.fuzziness.label }} <a tabindex="0" type="button" class="btn btn-link px-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.fuzzinessMessage }}"><i class="fas fa-question-circle" ></i></a></p><p>{{ form.fuzziness() }}</p></div>
+                    <div class="form-row mb-2">
+                        <div class="col"><strong>{{ form.fuzziness.label }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#fuzzinessCollapse" role="button" aria-expanded="false" aria-controls="fuzzinessCollapse"><i class="fas fa-caret-down"></i></a><a tabindex="0" type="button" class="btn btn-link p-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.fuzzinessMessage }}"><i class="fas fa-question-circle" ></i></a>
+                        <div class="collapse" id="fuzzinessCollapse">{{ form.fuzziness() }}</div>
                         </div>
-                        <div class="form-row align-items-center justify-content-center"><div class="text-center">{{ form.slop.label }}: 
-                            {{ form.slop(min="0") }} {{ _('Wörter') }}<a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><i class="fas fa-question-circle" ></i></a></div>
-                        </div>
-                        <div class="text-center mb-2"><strong>{{ _('Regestensuche') }}</strong><a tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regestSearchMessage }}"><i class="fas fa-question-circle" ></i></a></div>
-                        <div>
-                            {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off") }}
-                            <datalist id="regest-word-search-datalist">
-                            </datalist>
-                        </div>
-                        <div class="form-group pt-3">
-                            <div class="text-center mb-2"><strong>{{ _('Ausstellungsortsuche') }}</strong></div>
-                            <div>
-                                {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="col"><strong>{{ form.regest_q.label }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#regestSearchCollapse" role="button" aria-expanded="false" aria-controls="regestSearchCollapse"><i class="fas fa-caret-down"></i></a><a tabindex="0" type="button" class="btn btn-link p-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regestSearchMessage }}"><i class="fas fa-question-circle" ></i></a>
+                            <div class="collapse" id="regestSearchCollapse">
+                                {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off") }}
+                                <datalist id="regest-word-search-datalist">
+                                </datalist>
                             </div>
-                            <div><input id="firstLetter" name="placeSearch" type="checkbox" checked> <span class="smallfont align-top">{{ _("Anfangsbuchstaben") }}<a tabindex="0" type="button" class="btn btn-link px-1 py-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.firstLetterPlaceSearchMessage }}"><i class="fas fa-question-circle" ></i></a></span></input></div>
                         </div>
                     </div>
-                    <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
-                    <br>
-                    <div class="row justify-content-center py-0"><button class="btn btn-sm btn-secondary" type="reset" id="advancedResetButton">{{ _('Zurücksetzen') }}</button></div>
+                    <div class="form-row mb-2">
+                        <div class="col"><strong>{{ _('Ausstellungsortsuche') }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#compositionSearchCollapse" role="button" aria-expanded="false" aria-controls="compositionSearchCollapse"><i class="fas fa-caret-down"></i></a>
+                            <div class="collapse" id="compositionSearchCollapse">
+                                {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
+                                <div><input id="firstLetter" name="placeSearch" type="checkbox" checked> <span class="smallfont align-top">{{ _("Anfangsbuchstaben") }}<a tabindex="0" type="button" class="btn btn-link px-1 py-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.firstLetterPlaceSearchMessage }}"><i class="fas fa-question-circle" ></i></a></span></input></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center pt-1"><button class="btn btn-sm btn-secondary" type="reset" id="advancedResetButton">{{ _(' Formular Zurücksetzen') }}</button></div>
                 </div>
                 <div class="col-xl-3 col-4 date-search">
                     <div class="text-center search-section-label"><strong>{{ _('Datumssuche') }}</strong><a tabindex="0" type="button" class="btn btn-link px-1 py-0" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}"><i class="fas fa-question-circle" ></i></a></div>

@@ -103,4 +103,4 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Thursday', _l('Do')),
                                                                                     ('Friday', _l('Fr')),
                                                                                     ('Saturday', _l('Sa'))])
-    submit = SubmitField(_l('Suche'))
+    submit = SubmitField(_l('Suche Durchführen'))

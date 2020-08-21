@@ -307,6 +307,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Das PDF für diesen Text ist nicht zugänglich.'))
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
+            c.get('manuscript_desc/siglen', follow_redirects=True)
+            self.assertTemplateUsed('main::manuscript_siglen.html')
 
     def test_authorized_project_member(self):
 
@@ -448,6 +450,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.app.redis.setex('pdf_download_1000', 60, '10%')
             r = c.get('/search/pdf_progress/1000')
             self.assertEqual(r.get_data(as_text=True), '10%')
+            c.get('manuscript_desc/siglen', follow_redirects=True)
+            self.assertTemplateUsed('main::manuscript_siglen.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -538,6 +542,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertNotIn(b'Encrypt', r.get_data())
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertTemplateUsed('main::fulda_d1_desc.html')
+            c.get('manuscript_desc/siglen', follow_redirects=True)
+            self.assertTemplateUsed('main::manuscript_siglen.html')
 
 
     @patch("formulae.search.routes.advanced_query_index")
