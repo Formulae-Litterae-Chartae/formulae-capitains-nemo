@@ -630,7 +630,12 @@ div.transcription p {
 
 .manuscript-number {
     vertical-align: sub;
-    font-size: small !important;
+    font-size: small;
+}
+
+h1 .manuscript-number {
+    vertical-align: sub;
+    font-size: smaller;
 }
 
 .regest_collapse_heading {
