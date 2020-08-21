@@ -961,3 +961,19 @@ span.corpus_coverage {
     border-bottom-style: solid;
     border-color: peru;
 }
+
+#manuscript-table tbody td:first-child p {
+    padding-right: 4em;
+    margin-left: 4em;
+    margin-bottom: 0px;
+}
+
+#manuscript-table tbody td:last-child p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#manuscript-table thead th p {
+    margin-top: 1em;
+    margin-bottom: 0px;
+}
