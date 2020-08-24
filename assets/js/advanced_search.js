@@ -78,4 +78,27 @@ $(document).ready(function () {
     $('#advancedResetButton').click(function () {
         document.getElementById('advanced-form').reset();
     })
+    
+    $('.collapse input').each(function(i, el) {
+        if ($( this ).attr('type') == "checkbox") {
+            if ($( this ).prop('checked') && $( this ).attr('id') != "firstLetter") {
+                var collapseParent = $( this ).parents('#formulaeCorporaCollapse,#chartaeCorporaCollapse');
+                if (collapseParent.length && collapseParent.find('input:checked').length == collapseParent.find('input').length) {
+                    collapseParent.prev('li').find('input[type="checkbox"]').prop( "checked", true);
+                } else {
+                    $( this ).parents('.collapse').show();
+                }
+            }
+        } else {
+            if ($( this ).val() && $( this ).val() != "0") {
+                $( this ).parents('.collapse').show();
+            }
+        }
+    });
+    
+    $('.collapse option:checked').each(function(i, el) {
+        if ($( this ).val() != "0") {
+            $( this ).parents('.collapse').show();
+        }
+    });
 })
