@@ -1109,7 +1109,9 @@ class NemoFormulae(Nemo):
                     for transcription in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
-                            d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
+                            d["IIIFviewer"].append(("manifest:" + transcription.id,
+                                                    manifests['title'],
+                                                    transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['_id'] == id]
