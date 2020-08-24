@@ -638,6 +638,11 @@ h1 .manuscript-number {
     font-size: smaller;
 }
 
+.version-dropdown span.manuscript-number {
+    vertical-align: sub;
+    font-size: small;
+}
+
 .regest_collapse_heading {
     font-weight: bold;
 }

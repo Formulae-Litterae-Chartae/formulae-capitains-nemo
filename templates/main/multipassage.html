@@ -101,7 +101,7 @@
             {% if loop.first %}
                 <span class="dropdown-item-text">{{ _('Manuskriptbilder') }}</span>
             {% endif %}
-                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{{ manifest[1]|safe }}</span></a>
+                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
             {% if loop.last %}
                 <div class="dropdown-divider"></div>
             {% endif %}
