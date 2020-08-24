@@ -1,6 +1,3 @@
-var textSearchTimeout = null;
-var searchLemmas = document.getElementById('lemma_search');
-
 // Thanks to https://stackoverflow.com/questions/31136882/displaying-slider-value-alongside-wtforms-fields-html5-decimalrangefield
 function outputUpdate(plusMinus, targetId) {
     document.querySelector(targetId).value = plusMinus;
@@ -15,42 +12,19 @@ function checkSubCorpora(tag, category) {
     }
 }
 
-function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
-    // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
-    // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
-    clearTimeout(textSearchTimeout);
-    var subdomain = '';
-    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-        subdomain = '/dev'
-    }
-    textSearchTimeout = setTimeout(function () {
-        // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
-        // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
-        var word = sourceElement.val();
-        if(word !== '' && !(word.match(/[\*\?]/))){
-            previous = word;
-            var request = $.ajax( subdomain + '/search/suggest/' + word + buildUrl(qSource) )
-                .done(function (response, status) {
-                    var jsonOptions = JSON.parse(response);
-                    var docFrag = document.createDocumentFragment();
-                    jsonOptions.forEach(function(item) {
-                        var option = document.createElement('option');
-                        option.value = item;
-                        docFrag.appendChild(option);
-                    });
-                    targetElement.html('');
-                    targetElement.append(docFrag);
-                    sourceElement.placeholder = sourceElement.attr('default');
-                    })
-                .fail(function () {
-                        // An error occured
-                        sourceElement.placeholder = "Couldn't load suggestions.";
-                    })
-            
-            sourceElement.placeholder = "Loading options...";
-        }
-    }, 500)
+
+function change_lemma_search() {
+    searchLemmas = !searchLemmas;
 }
+
+function updateParam(par) {
+    if (par === 'searchLemmas') {
+        params.field = this.value;
+    } else {
+        params[par] = this.value;
+    }
+}
+
 
 // *******************************************************************
 // functions to store unsubmitted values from the advanced search page
@@ -135,18 +109,6 @@ function buildUrl(qSource) {
     }
     brandNewUrl += extraField + "=" + params.extra_q + '&qSource=' + qSource;
     return brandNewUrl;
-}
-
-function change_lemma_search() {
-    searchLemmas = !searchLemmas;
-}
-
-function updateParam(par) {
-    if (par === 'searchLemmas') {
-        params.field = this.value;
-    } else {
-        params[par] = this.value;
-    }
 }
 
 $(document).ready(function () {

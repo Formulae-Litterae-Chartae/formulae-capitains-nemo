@@ -2,6 +2,9 @@ var subdomain = '';
 if (window.location.host == 'tools.formulae.uni-hamburg.de') {
     subdomain = '/dev'
 }
+var textSearchTimeout = null;
+var searchLemmas = document.getElementById('lemma_search');
+
 
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
@@ -66,6 +69,82 @@ function pdfDownloadWorker() {
             $('#searchDownloadProgress').html(data);
         }
     })
+}
+
+function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
+    // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
+    // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
+    clearTimeout(textSearchTimeout);
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    textSearchTimeout = setTimeout(function () {
+        // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
+        // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
+        var word = sourceElement.val();
+        if(word !== '' && !(word.match(/[\*\?]/))){
+            previous = word;
+            var requestUrl;
+            if (qSource == "simple") {
+                requestUrl = subdomain + '/search/suggest/' + word + buildSimpleUrl("text");
+            } else {
+                requestUrl = subdomain + '/search/suggest/' + word + buildUrl(qSource);
+            }
+            var request = $.ajax( requestUrl )
+                .done(function (response, status) {
+                    var jsonOptions = JSON.parse(response);
+                    var docFrag = document.createDocumentFragment();
+                    jsonOptions.forEach(function(item) {
+                        var option = document.createElement('option');
+                        option.value = item;
+                        docFrag.appendChild(option);
+                    });
+                    targetElement.html('');
+                    targetElement.append(docFrag);
+                    sourceElement.placeholder = sourceElement.attr('default');
+                    })
+                .fail(function () {
+                        // An error occured
+                        sourceElement.placeholder = "Couldn't load suggestions.";
+                    })
+            
+            sourceElement.placeholder = "Loading options...";
+        }
+    }, 500)
+}
+
+// *******************************************************************
+// functions to store unsubmitted values from the advanced search page
+// *******************************************************************
+
+// build the tail end of the url to submit via AJAX
+function buildSimpleUrl(qSource) {
+    var corpus = [];
+    var params = {
+        corpus:'',
+        lemma_search:'autocomplete',
+    };
+    if (searchLemmas.checked) {
+        params.lemma_search = 'autocomplete_lemmas';
+    } else {
+        params.lemma_search = 'autocomplete';
+    }
+    $('input[name="corpus"]').each( function(i, subCorp) {
+        if (subCorp.checked) {
+            corpus.push(subCorp.value);
+        }
+    });
+    params.corpus = corpus.join('+');
+    // Build the URL extension
+    var brandNewUrl = "?";
+    for (f in params) {
+        if (f != 'extra_field' && f != 'extra_q') {
+            brandNewUrl += f + '=' + params[f] + '&';
+        }
+    }
+    brandNewUrl += 'qSource=' + qSource;
+    return brandNewUrl;
 }
 
 $(document).ready(function () {
@@ -162,5 +241,10 @@ $(document).ready(function () {
     })
     
     $('[data-toggle="popover"]').popover()
+    
+    
+    $('#simple-search-q').keyup(function(e) {
+        sendAutocompleteRequest($( this ), $('#simple-search-datalist'), "simple");
+    });
     
 })
