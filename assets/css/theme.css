@@ -630,7 +630,17 @@ div.transcription p {
 
 .manuscript-number {
     vertical-align: sub;
-    font-size: small !important;
+    font-size: small;
+}
+
+h1 .manuscript-number {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.version-dropdown span.manuscript-number {
+    vertical-align: sub;
+    font-size: small;
 }
 
 .regest_collapse_heading {
@@ -960,4 +970,36 @@ span.corpus_coverage {
 .Übertragungsklausel-bg {
     border-bottom-style: solid;
     border-color: peru;
+}
+
+#manuscript-table tbody td:first-child p {
+    padding-right: 4em;
+    margin-left: 4em;
+    margin-bottom: 0px;
+}
+
+#manuscript-table tbody td:last-child p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#manuscript-table thead th p {
+    margin-top: 1em;
+    margin-bottom: 0px;
+}
+
+.search-section-label {
+    margin-bottom: 1em;
+}
+
+.search-section-label strong {
+    font-size: larger;
+}
+
+.btn-link.btn.search-help {
+    cursor: help;
+}
+
+.btn-link.btn.search-help label {
+    cursor: help;
 }

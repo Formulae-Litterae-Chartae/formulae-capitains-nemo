@@ -135,4 +135,4 @@ class AdvancedSearchForm(SearchForm):
         ("Konsensformel", _l("Konsensformel")),
         ("Schlussformel", _l("Schlussformel"))
     ])
-    submit = SubmitField(_l('Suche'))
+    submit = SubmitField(_l('Suche Durchführen'))

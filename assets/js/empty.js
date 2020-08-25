@@ -2,6 +2,9 @@ var subdomain = '';
 if (window.location.host == 'tools.formulae.uni-hamburg.de') {
     subdomain = '/dev'
 }
+var textSearchTimeout = null;
+var searchLemmas = document.getElementById('lemma_search');
+
 
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
@@ -66,6 +69,162 @@ function pdfDownloadWorker() {
             $('#searchDownloadProgress').html(data);
         }
     })
+}
+
+function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
+    // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
+    // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
+    clearTimeout(textSearchTimeout);
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    textSearchTimeout = setTimeout(function () {
+        // - a function that sends the partial search query request to the server to be sent to elasticsearch (see showLexEntry above)
+        // this is taken directly from https://blog.teamtreehouse.com/creating-autocomplete-dropdowns-datalist-element
+        var word = sourceElement.val();
+        if(word !== '' && !(word.match(/[\*\?]/))){
+            previous = word;
+            var requestUrl;
+            if (qSource == "simple") {
+                requestUrl = subdomain + '/search/suggest/' + word + buildSimpleUrl("text");
+            } else {
+                requestUrl = subdomain + '/search/suggest/' + word + buildUrl(qSource);
+            }
+            var request = $.ajax( requestUrl )
+                .done(function (response, status) {
+                    var jsonOptions = JSON.parse(response);
+                    var docFrag = document.createDocumentFragment();
+                    jsonOptions.forEach(function(item) {
+                        var option = document.createElement('option');
+                        option.value = item;
+                        docFrag.appendChild(option);
+                    });
+                    targetElement.html('');
+                    targetElement.append(docFrag);
+                    sourceElement.placeholder = sourceElement.attr('default');
+                    })
+                .fail(function () {
+                        // An error occured
+                        sourceElement.placeholder = "Couldn't load suggestions.";
+                    })
+            
+            sourceElement.placeholder = "Loading options...";
+        }
+    }, 500)
+}
+
+// *******************************************************************
+// functions to store unsubmitted values from the advanced search page
+// *******************************************************************
+
+// build the tail end of the url to submit via AJAX
+function buildSimpleUrl(qSource) {
+    var corpus = [];
+    var params = {
+        corpus:'',
+        lemma_search:'autocomplete',
+    };
+    if (searchLemmas.checked) {
+        params.lemma_search = 'autocomplete_lemmas';
+    } else {
+        params.lemma_search = 'autocomplete';
+    }
+    $('input[name="corpus"]').each( function(i, subCorp) {
+        if (subCorp.checked) {
+            corpus.push(subCorp.value);
+        }
+    });
+    params.corpus = corpus.join('+');
+    // Build the URL extension
+    var brandNewUrl = "?";
+    for (f in params) {
+        if (f != 'extra_field' && f != 'extra_q') {
+            brandNewUrl += f + '=' + params[f] + '&';
+        }
+    }
+    brandNewUrl += 'qSource=' + qSource;
+    return brandNewUrl;
+}
+
+function buildUrl(qSource) {
+    var corpus = [];
+    var special_days = [];
+    var params = {
+        corpus:'',
+        lemma_search:'autocomplete',
+        fuzziness:'0',
+        in_order:'False',
+        year:'0',
+        slop:'0',
+        month:'0',
+        day:'0',
+        year_start:'0',
+        month_start:'0',
+        day_start:'0',
+        year_end:'0',
+        month_end:'0',
+        day_end:'0',
+        date_plus_minus:'0',
+        exclusive_date_range:'False',
+        composition_place:'',
+        special_days:'',
+        regest_field:'regest'
+    };
+    if (qSource == "text") {
+        params.extra_q = document.getElementById('regest-word-search-box').value;
+        var extraField = 'regest_q';
+        if (searchLemmas.checked) {
+            params.lemma_search = 'autocomplete_lemmas';
+        } else {
+            params.lemma_search = 'autocomplete';
+        }
+    } else if (qSource == "regest") {
+        params.extra_q = document.getElementById('word-search-box').value;
+        params.regest_field = 'autocomplete_regest';
+        var extraField = 'q';
+        if (searchLemmas.checked) {
+            params.lemma_search = 'True';
+        } else {
+            params.lemma_search = 'False';
+        }
+    }
+    $('input.under-formulae').each(function(i, formula) {
+        if (formula.checked) {
+            corpus.push(formula.value);
+        }
+    })
+    $('input.under-chartae').each(function(i, charter) {
+        if (charter.checked) {
+            corpus.push(charter.value);
+        }
+    })
+    $('input[name="special_days"]').each(function(i, day) {
+        if (day.checked) {
+            special_days.push(day.value);
+        }
+    })
+    if (document.getElementById('in_order').checked) {
+        params.in_order = document.getElementById('in_order').value;
+    }
+    params.corpus = corpus.join('+');
+    params.special_days = special_days.join('+');
+    // Transfer the other values from the form to params
+    var advancedForm = document.getElementById('advanced-form');
+    for (f of advancedForm) {
+        if (f.name && !(['corpus', 'special_days', 'in_order', 'regest_field', 'lemma_search'].includes(f.name)) && params[f.name]) {
+            params[f.name] = f.value;
+        }
+    }
+    // Build the URL extension
+    var brandNewUrl = "?";
+    for (f in params) {
+        if (f != 'extra_field' && f != 'extra_q') {
+            brandNewUrl += f + '=' + params[f] + '&';
+        }
+    }
+    brandNewUrl += extraField + "=" + params.extra_q + '&qSource=' + qSource;
+    return brandNewUrl;
 }
 
 $(document).ready(function () {
@@ -162,5 +321,10 @@ $(document).ready(function () {
     })
     
     $('[data-toggle="popover"]').popover()
+    
+    
+    $('#simple-search-q').keyup(function(e) {
+        sendAutocompleteRequest($( this ), $('#simple-search-datalist'), "simple");
+    });
     
 })
