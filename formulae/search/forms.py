@@ -113,7 +113,6 @@ class AdvancedSearchForm(SearchForm):
         ("Dispositio", _l("Dispositio")),
         ("Traditionsformel", _l("Traditionsformel")),
         ("Pertinenzformel", _l("Pertinenzformel")),
-        ("Provenienz", _l("Provenienz")),
         ("Übertragungsklausel", _l("Übertragungsklausel")),
         ("Pertinenzformel-des-Tauschpartners", _l("Pertinenzformel des Tauschpartners")),
         ("Erwähnung-der-Schenkung", _l("Erwähnung der Schenkung")),
@@ -123,16 +122,13 @@ class AdvancedSearchForm(SearchForm):
         ("Leihegewährung", _l("Leihegewährung")),
         ("Beurkundungsbeschluss-oder-Beurkundungsgewährung", _l("Beurkundungsbeschluss oder Beurkundungsgewährung")),
         ("Leiheklausel", _l("Leiheklausel")),
-        ("Narratives-Element", _l("Narratives Element")),
         ("Poenformel", _l("Poenformel")),
-        ("Strafe", _l("Strafe")),
         ("Stipulationsformel", _l("Stipulationsformel")),
         ("Corroboratio", _l("Corroboratio")),
         ("Subscriptiones", _l("Subscriptiones")),
         ("Schreiber", _l("Schreiber")),
         ("Datierung", _l("Datierung")),
-        ("Datierung", _l("Datierung")),
         ("Konsensformel", _l("Konsensformel")),
-        ("Schlussformel", _l("Schlussformel"))
+        ("Apprecatio", _l("Apprecatio"))
     ])
     submit = SubmitField(_l('Suche Durchführen'))

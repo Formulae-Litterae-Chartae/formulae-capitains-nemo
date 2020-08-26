@@ -342,6 +342,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
+                         formulaic_parts: str = '',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -355,7 +356,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if special_days is None:
         special_days = []
     search_field = 'text'
-    if lemma_search == 'True':
+    if formulaic_parts != '':
+        search_field = formulaic_parts.split('+')
+    elif lemma_search == 'True':
         search_field = 'lemmas'
     elif 'autocomplete' in lemma_search:
         search_field = lemma_search
@@ -366,8 +369,12 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page, 'aggs': AGGREGATIONS})
 
-    body_template['highlight'] = {'fields': {search_field: {"fragment_size": 1000},
-                                             regest_field: {"fragment_size": 1000}},
+    if isinstance(search_field, list):
+        search_highlight = {x: {"fragment_size": 1000} for x in search_field}
+    else:
+        search_highlight = {search_field: {"fragment_size": 1000}}
+    search_highlight.update({regest_field: {"fragment_size": 1000}})
+    body_template['highlight'] = {'fields': search_highlight,
                                   'pre_tags': [PRE_TAGS],
                                   'post_tags': [POST_TAGS],
                                   'encoder': 'html'
@@ -387,21 +394,34 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
-        clauses = []
-        for term in q.split():
-            if '*' in term or '?' in term:
-                clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
-            else:
-                if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
-                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
-                    clauses.append(sub_clauses)
+        if isinstance(search_field, list):
+            for s_field in search_field:
+                clauses = []
+                for term in q.split():
+                    clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
+                bool_clauses = []
+                for clause in product(*clauses):
+                    bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+        else:
+            clauses = []
+            for term in q.split():
+                if '*' in term or '?' in term:
+                    if isinstance(search_field, list):
+                        for s_field in search_field:
+                            clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                    else:
+                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
                 else:
-                    clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
-        bool_clauses = []
-        for clause in product(*clauses):
-            bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+                    if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                        sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
+                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                            sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                        clauses.append(sub_clauses)
+                    else:
+                        clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
+            bool_clauses = []
+            for clause in product(*clauses):
+                bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
         body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
     if regest_q:
@@ -485,12 +505,25 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                            highlight_field='text',
                                                            fuzz=fuzz)
         else:
-            ids = [{'id': hit['_id'],
-                    'info': hit['_source'],
-                    'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
-                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                    if 'highlight' in hit and regest_field in hit['highlight'] else []}
-                   for hit in search['hits']['hits']]
+            if isinstance(search_field, list):
+                ids = []
+                for hit in search['hits']['hits']:
+                    highlight_sents = []
+                    for s_field in search_field:
+                        if 'highlight' in hit and s_field in hit['highlight']:
+                            highlight_sents += [Markup(highlight_segment(x)) for x in hit['highlight'][s_field]]
+                    ids.append({'id': hit['_id'],
+                                'info': hit['_source'],
+                                'sents': highlight_sents,
+                                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                                if 'highlight' in hit and regest_field in hit['highlight'] else []})
+            else:
+                ids = [{'id': hit['_id'],
+                        'info': hit['_source'],
+                        'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
+                        'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                        if 'highlight' in hit and regest_field in hit['highlight'] else []}
+                       for hit in search['hits']['hits']]
     elif regest_q:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
