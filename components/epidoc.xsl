@@ -65,6 +65,9 @@
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
             </xsl:if>
+            <xsl:if test="current()[@type]">
+                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
@@ -423,6 +426,14 @@
     
     <xsl:template match="t:seg[@type='foreign-text']">
         <span class="foreign-text"><xsl:apply-templates/></span>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@function]">
+        <xsl:element name="span">
+            <xsl:attribute name="function"><xsl:value-of select="@function"/></xsl:attribute>
+            <xsl:attribute name="title"><xsl:value-of select="translate(@function, '-', ' ')"/></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:list">

@@ -49,6 +49,7 @@
             <xsl:attribute name="data-toggle">elex-modal-popover</xsl:attribute>
             <xsl:attribute name="class">modal-popover</xsl:attribute>
             <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+            <xsl:attribute name="href">#</xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>

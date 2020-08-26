@@ -50,7 +50,8 @@ class NemoFormulae(Nemo):
         ("/contact", "r_contact", ["GET"]),
         ("/pdf/<objectId>", "r_pdf", ["GET"]),
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
-        ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"])
+        ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
+        ("/manuscript_desc/siglen", "r_man_siglen", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -700,7 +701,8 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
-                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS,
+                    "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''
                 },
                 "readable": r,
                 "parents": current_parents,
@@ -991,11 +993,14 @@ class NemoFormulae(Nemo):
                     inRefs.append([self.resolver.getMetadata(ref[0]), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
-        translations = [(m, m.metadata.get_single(DC.title))
+        translations = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
                         for m in self.get_readable_siblings(metadata)] + \
-                       [(self.resolver.getMetadata(str(x)), self.resolver.getMetadata(str(x)).metadata.get_single(DC.title))
+                       [(self.resolver.getMetadata(str(x)),
+                         self.resolver.getMetadata(str(x)).metadata.get_single(DC.title),
+                         self.resolver.getMetadata(str(x)).metadata.get_single(DCTERMS.isPartOf) or '')
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
-        transcriptions = [(m, m.metadata.get_single(DC.title)) for m in self.get_transcriptions(metadata)]
+        transcriptions = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
+                          for m in self.get_transcriptions(metadata)]
         current_parents = self.make_parents(metadata, lang=lang)
         return {
             "template": "main::text.html",
@@ -1018,7 +1023,8 @@ class NemoFormulae(Nemo):
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
-                    "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or '')
+                    "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
+                    "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or '')
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
@@ -1103,7 +1109,9 @@ class NemoFormulae(Nemo):
                     for transcription in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
-                            d["IIIFviewer"].append(("manifest:" + transcription.id, manifests['title']))
+                            d["IIIFviewer"].append(("manifest:" + transcription.id,
+                                                    manifests['title'],
+                                                    transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['_id'] == id]
@@ -1210,6 +1218,15 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::{}_desc.html".format(manuscript)}
+
+    @staticmethod
+    def r_man_siglen() -> Dict[str, str]:
+        """ Route for manuscript descriptions
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::manuscript_siglen.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

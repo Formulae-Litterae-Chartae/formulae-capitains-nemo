@@ -630,7 +630,17 @@ div.transcription p {
 
 .manuscript-number {
     vertical-align: sub;
-    font-size: small !important;
+    font-size: small;
+}
+
+h1 .manuscript-number {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.version-dropdown span.manuscript-number {
+    vertical-align: sub;
+    font-size: small;
 }
 
 .regest_collapse_heading {
@@ -776,7 +786,7 @@ p.flash-grey {
     padding-right: 3px;
 }
 
-.maximize-window-icon,.minimize-window-icon,.add-window-icon {
+.maximize-window-icon,.minimize-window-icon,.add-window-icon,.part-menu-icon {
     padding-left: 3px;
     padding-right: 3px;
     bottom: -.5px;
@@ -786,8 +796,21 @@ p.flash-grey {
     content: none;
 }
 
+.part-menu-toggle::after {
+    content: none;
+}
+
 .dropleft .add-text-toggle::before {
     content: none;
+}
+
+.dropleft .part-menu-toggle::before {
+    content: none;
+}
+
+.part-menu-dropdown .dropdown-item {
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 span.corpus_coverage {
@@ -801,4 +824,182 @@ span.corpus_coverage {
 #searchDownloadProgress {
     visibility: hidden;
     color: black;
+}
+
+.part-menu-icon {
+    display: none;
+}
+
+/* Background colors for formulaic parts */
+
+.Arenga-bg {
+    border-bottom-style: solid;
+    border-color: navy;
+}
+
+.Beneficium-bg {
+    border-bottom-style: solid;
+    border-color: blue;
+}
+
+.Beurkundungsbeschluss-oder-Beurkundungsgewährung-bg {
+    border-bottom-style: solid;
+    border-color: darkblue;
+}
+
+.Corroboratio-bg {
+    border-bottom-style: solid;
+    border-color: lightslategrey;
+}
+
+.Datierung-bg {
+    border-bottom-style: solid;
+    border-color: teal;
+}
+
+.Dispositio-bg {
+    border-bottom-style: solid;
+    border-color: olive;
+}
+
+.Empfänger-bg {
+    border-bottom-style: solid;
+    border-color: green;
+}
+
+.Erwähnung-der-Schenkung-bg {
+    border-bottom-style: solid;
+    border-color: darkgreen;
+}
+
+.Intitulatio-bg {
+    border-bottom-style: solid;
+    border-color: cornflowerblue;
+}
+
+.Invocatio-oder-Inscriptio-bg {
+    border-bottom-style: solid;
+    border-color: darkolivegreen;
+}
+
+.Konsensformel-bg {
+    border-bottom-style: solid;
+    border-color: orange;
+}
+
+.Leihebitte-bg {
+    border-bottom-style: solid;
+    border-color: red;
+}
+
+.Leihegewährung-bg {
+    border-bottom-style: solid;
+    border-color: maroon;
+}
+
+.Leiheklausel-bg {
+    border-bottom-style: solid;
+    border-color: lightblue;
+}
+
+.Narratives-Element-bg {
+    border-bottom-style: solid;
+    border-color: purple;
+}
+
+.Pertinenzformel-bg {
+    border-bottom-style: solid;
+    border-color: black;
+}
+
+.Pertinenzformel-des-Tauschpartners-bg {
+    border-bottom-style: solid;
+    border-color: gray;
+}
+
+.Poenformel-bg {
+    border-bottom-style: solid;
+    border-color: silver;
+}
+
+.Provenienz-bg {
+    border-bottom-style: solid;
+    border-color: darkseagreen;
+}
+
+.Publicatio-bg {
+    border-bottom-style: solid;
+    border-color: goldenrod;
+}
+
+.Schlussformel-bg {
+    border-bottom-style: solid;
+    border-color: darkgray;
+}
+
+.Schreiber-bg {
+    border-bottom-style: solid;
+    border-color: darkgreen;
+}
+
+.Stipulationsformel-bg {
+    border-bottom-style: solid;
+    border-color: khaki;
+}
+
+.Strafe-bg {
+    border-bottom-style: solid;
+    border-color: olive;
+}
+
+.Subscriptiones-bg {
+    border-bottom-style: solid;
+    border-color: seagreen;
+}
+
+.Traditionsformel-bg {
+    border-bottom-style: solid;
+    border-color: steelblue;
+}
+
+.Überleitungsformel-bg {
+    border-bottom-style: solid;
+    border-color: tan;
+}
+
+.Übertragungsklausel-bg {
+    border-bottom-style: solid;
+    border-color: peru;
+}
+
+#manuscript-table tbody td:first-child p {
+    padding-right: 4em;
+    margin-left: 4em;
+    margin-bottom: 0px;
+}
+
+#manuscript-table tbody td:last-child p {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+#manuscript-table thead th p {
+    margin-top: 1em;
+    margin-bottom: 0px;
+}
+
+.search-section-label {
+    margin-bottom: 1em;
+}
+
+.search-section-label strong {
+    font-size: larger;
+}
+
+.btn-link.btn.search-help {
+    cursor: help;
+}
+
+.btn-link.btn.search-help label {
+    cursor: help;
 }
