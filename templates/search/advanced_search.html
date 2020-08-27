@@ -49,6 +49,7 @@
                     <div class="form-row mb-2">
                         <div class="col text-center"><a tabindex="0" type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><strong>{{ form.formulaic_parts.label }}</strong></a> <a class="btn btn-link p-0 mb-2" data-toggle="collapse" href="#partSearchCollapse" role="button" aria-expanded="false" aria-controls="partSearchCollapse"><i class="fas fa-caret-down"></i></a>
                             <div class="collapse" id="partSearchCollapse">
+                                <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
                                 {{ form.formulaic_parts(class="w-100 mb-2", size="6") }}
                             </div>
                         </div>

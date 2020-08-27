@@ -395,22 +395,21 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
     if q:
         if isinstance(search_field, list):
+            bool_clauses = []
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
-                bool_clauses = []
+                    if '*' in term or '?' in term:
+                        clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                    else:
+                        clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
                 for clause in product(*clauses):
                     bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
         else:
             clauses = []
             for term in q.split():
                 if '*' in term or '?' in term:
-                    if isinstance(search_field, list):
-                        for s_field in search_field:
-                            clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
-                    else:
-                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
+                    clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
                 else:
                     if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
                         sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
@@ -422,6 +421,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             bool_clauses = []
             for clause in product(*clauses):
                 bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+        body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+    elif isinstance(search_field, list):
+        bool_clauses = [{'exists': {'field': x}} for x in search_field]
         body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
     if regest_q:
@@ -530,6 +532,15 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 'sents': [],
                 'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]}
                for hit in search['hits']['hits']]
+    elif isinstance(search_field, list):
+        ids = []
+        for hit in search['hits']['hits']:
+            sents = []
+            for s_field in search_field:
+                if s_field in hit['_source']:
+                    sent = '<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]
+                    sents.append(Markup(sent))
+            ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': []})
     else:
         ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
                for hit in search['hits']['hits']]

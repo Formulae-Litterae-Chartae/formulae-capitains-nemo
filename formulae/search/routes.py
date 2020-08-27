@@ -162,6 +162,8 @@ def r_advanced_search():
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
         form.special_days.data = form.special_days.data[0].split(' ')
+    if form.formulaic_parts.data and len(form.formulaic_parts.data) == 1:
+        form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
