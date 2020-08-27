@@ -182,8 +182,8 @@ def highlight_segment(orig_str: str) -> str:
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str, search_field: str,
-                          highlight_field: str, fuzz: str,
+def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
+                          search_field: Union[str, list], highlight_field: str, fuzz: str,
                           download_id: str = 'pdf_download_0') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
