@@ -10,7 +10,7 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
-from formulae.search.Search import lem_highlight_to_text
+from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -1132,13 +1132,19 @@ class NemoFormulae(Nemo):
         :return: transformed html
         """
         root = etree.fromstring(html)
-        xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
-                                    with_tail=True, standalone=None)
         prev_args = session['previous_search_args']
         if prev_args.get('formulaic_parts', None):
             parts = prev_args.get('formulaic_parts', '').split('+')
             for part in parts:
-                xml_string = re.sub(r'(function="{}")'.format(part), r'\1 class="searched"', xml_string)
+                if part in results[0]['highlight']:
+                    root.xpath('//span[@function="{}"]'.format(part))[0].set('class', 'searched')
+                    for highlight in results[0]['highlight'][part]:
+                        for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                            for w_tag in root.xpath('//span[@function="{}"]//span[@class="w"]'.format(part)):
+                                if w_tag.text == m.group(1):
+                                    w_tag.set('class', w_tag.get('class') + ' font-weight-bold')
+            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None,
+                                        pretty_print=False, with_tail=True, standalone=None)
         else:
             spans = root.xpath('//span[contains(@class, "w")]')
             search_field = 'text'
@@ -1166,6 +1172,8 @@ class NemoFormulae(Nemo):
                                 spans[i].set('class', spans[i].get('class') + ' searched-end')
                     if 'searched-end' not in spans[i].get('class'):
                         spans[i].set('class', spans[i].get('class') + ' searched-end')
+            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
+                                        with_tail=True, standalone=None)
             span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
             xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
