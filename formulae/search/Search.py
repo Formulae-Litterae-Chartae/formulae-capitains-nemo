@@ -551,7 +551,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}&{spec_days}&{regest_q}&{regest_field}".format(corpus='+'.join(corpus), field=lemma_search,
+                   "{sort}&{spec_days}&{regest_q}&" \
+                   "{regest_field}&{charter_parts}".format(corpus='+'.join(corpus), field=lemma_search,
                                                                          q=q.replace(' ', '+'), fuzz=fuzziness,
                                                                          in_order=in_order, slop=slop, y=year, m=month,
                                                                          d=day, y_s=year_start,
@@ -562,7 +563,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                                          c_p=composition_place, sort=old_sort,
                                                                          spec_days='+'.join(special_days),
                                                                          regest_q=regest_q.replace(' ', '+'),
-                                                                         regest_field=regest_field)
+                                                                         regest_field=regest_field,
+                                                           charter_parts=formulaic_parts.replace(' ', '+'))
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results
