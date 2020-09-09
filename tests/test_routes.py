@@ -701,6 +701,18 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', formulaic_parts='')
+            c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
+                  'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
+                                           source='advanced', regest_field='regest',
+                                           formulaic_parts="Poenformel+Stipulationsformel")
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -808,6 +820,18 @@ class TestIndividualRoutes(Formulae_Testing):
         mock_highlight.return_value = ([], [])
         result = self.nemo.highlight_found_sents(html_input, [])
         self.assertEqual(html_input, result)
+
+    def test_highlight_charter_parts(self):
+        """ Make sure that the parts of a charter are highlighted correctly when there is a hit in that part"""
+        session['previous_search_args'] = {'formulaic_parts': 'Arenga+Invocatio-oder-Inscriptio'}
+        results = [{'highlight': {'Invocatio-oder-Inscriptio': ["</small><strong>trinitatis</strong><small>"]}}]
+        obj_id = "urn:cts:formulae:stgallen.wartmann0615.lat001"
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
+        html_output = self.nemo.highlight_found_sents(html_input, results)
+        self.assertIn('<span function="Invocatio-oder-Inscriptio" title="Invocatio oder Inscriptio" class="searched">',
+                      html_output)
+        self.assertIn('<span class="w font-weight-bold">trinitatis</span>', html_output)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
@@ -1950,6 +1974,29 @@ class TestES(Formulae_Testing):
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'christi'),
+                                                                 ("fuzziness", "0"),
+                                                                 ("in_order", "False"),
+                                                                 ("year", 0),
+                                                                 ("slop", "0"),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("regest_q", ''),
+                                                                 ("regest_field", "regest"),
+                                                                 ("formulaic_parts", "Invocatio-oder-Inscriptio")]),
+                 'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
+                                                                 ("lemma_search", "False"),
+                                                                 ("q", 'christ*'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -3693,6 +3740,19 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_single_charter_part_search(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_single_charter_part_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_single_charter_part_search_with_wildcard(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
