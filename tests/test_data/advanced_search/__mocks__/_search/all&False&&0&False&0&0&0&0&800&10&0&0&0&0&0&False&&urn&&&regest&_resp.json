@@ -1,0 +1,782 @@
+{
+  "took": 10,
+  "timed_out": false,
+  "_shards": {
+    "total": 42,
+    "successful": 42,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 7646,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "anjou_archives_v1",
+        "_type": "anjou_archives",
+        "_id": "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Archives d’Anjou. Recueil de documents et mémoires inédits sur cette province publié sous les auspices du Conseil général de Maine et Loire (Ed. Marchegay) Appendix Cartis Majoris Monasterii, Nr. 2",
+          "urn": "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001",
+          "date_string": "1060",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": true,
+          "dating": [
+            {
+              "gte": "1060-01-01",
+              "lte": "1060-12-31"
+            }
+          ],
+          "all_dates": [
+            "1060-01-01",
+            "1060-12-31"
+          ],
+          "min_date": "1060-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_archives.marchegay_appendix_0002.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 1",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0001.lat001",
+          "date_string": "865 05",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0865-05-01",
+              "lte": "0865-05-31"
+            }
+          ],
+          "all_dates": [
+            "0865-05-01",
+            "0865-05-31"
+          ],
+          "min_date": "0865-05-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0001.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 2",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0002.lat001",
+          "date_string": "898 09 29",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 898,
+              "month": 9,
+              "day": 29
+            }
+          ],
+          "all_dates": [
+            "0898-09-29"
+          ],
+          "min_date": "0898-09-29",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0002.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 3",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0003.lat001",
+          "date_string": "905 07 05",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 905,
+              "month": 7,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0905-07-05"
+          ],
+          "min_date": "0905-07-05",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0003.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 4",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0004.lat001",
+          "date_string": "909 10 30",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 909,
+              "month": 10,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0909-10-30"
+          ],
+          "min_date": "0909-10-30",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0004.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 5",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0005.lat001",
+          "date_string": "914 05 30",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 914,
+              "month": 5,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0914-05-30"
+          ],
+          "min_date": "0914-05-30",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0005.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 6",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0006.lat001",
+          "date_string": "929",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0929-01-01",
+              "lte": "0929-12-31"
+            }
+          ],
+          "all_dates": [
+            "0929-01-01",
+            "0929-12-31"
+          ],
+          "min_date": "0929-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0006.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0007.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 7",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0007.lat001",
+          "date_string": "931 03 26",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 931,
+              "month": 3,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0931-03-26"
+          ],
+          "min_date": "0931-03-26",
+          "days": [
+            "Saturday",
+            "Lent"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0007.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0008.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 8",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0008.lat001",
+          "date_string": "941 08",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0941-08-01",
+              "lte": "0941-08-31"
+            }
+          ],
+          "all_dates": [
+            "0941-08-01",
+            "0941-08-31"
+          ],
+          "min_date": "0941-08-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0008.lat001"
+        ]
+      },
+      {
+        "_index": "anjou_comtes_chroniques_v1",
+        "_type": "anjou_comtes_chroniques",
+        "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0009.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Introduction aux chroniques des comtes d’Anjou (Ed. Mabille) Nr. 9",
+          "urn": "urn:cts:formulae:anjou_comtes_chroniques.mabille0009.lat001",
+          "date_string": "943 12 26",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 943,
+              "month": 12,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0943-12-26"
+          ],
+          "min_date": "0943-12-26",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:anjou_comtes_chroniques.mabille0009.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 11124,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
+          "Angers": {
+            "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
+          },
+          "Arnulfinger": {
+            "doc_count": 24
+          },
+          "Bünden": {
+            "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 10
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "Echternach": {
+            "doc_count": 152
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
+          },
+          "Freising": {
+            "doc_count": 1383
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "Gorze": {
+            "doc_count": 121
+          },
+          "Hersfeld": {
+            "doc_count": 121
+          },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 2286
+          },
+          "Luzern": {
+            "doc_count": 6
+          },
+          "Marculf": {
+            "doc_count": 41
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 281
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 189
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
+          },
+          "Merowinger": {
+            "doc_count": 196
+          },
+          "Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
+          },
+          "Passau": {
+            "doc_count": 102
+          },
+          "Regensburg": {
+            "doc_count": 269
+          },
+          "Rheinisch": {
+            "doc_count": 78
+          },
+          "Rätien": {
+            "doc_count": 60
+          },
+          "Salzburg": {
+            "doc_count": 229
+          },
+          "Schäftlarn": {
+            "doc_count": 37
+          },
+          "St. Gallen": {
+            "doc_count": 779
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
+          "Weißenburg": {
+            "doc_count": 276
+          },
+          "Werden": {
+            "doc_count": 66
+          },
+          "Zürich": {
+            "doc_count": 53
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 7
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 24
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 154
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 3141
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 2909
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 2926
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 1319
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 524
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 1
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 1
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 19
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 377
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 10
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 43
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 38
+        },
+        "Freising": {
+          "doc_count": 1226
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 278
+        },
+        "Gorze": {
+          "doc_count": 81
+        },
+        "Hersfeld": {
+          "doc_count": 101
+        },
+        "Katalonien": {
+          "doc_count": 2237
+        },
+        "Lorsch": {
+          "doc_count": 470
+        },
+        "Luzern": {
+          "doc_count": 6
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 278
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 7
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 188
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 185
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 6
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 153
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 50
+        },
+        "Merowinger": {
+          "doc_count": 1
+        },
+        "Mittelrheinisch": {
+          "doc_count": 79
+        },
+        "Mondsee": {
+          "doc_count": 100
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 259
+        },
+        "Passau": {
+          "doc_count": 70
+        },
+        "Regensburg": {
+          "doc_count": 261
+        },
+        "Rheinisch": {
+          "doc_count": 71
+        },
+        "Rätien": {
+          "doc_count": 58
+        },
+        "Salzburg": {
+          "doc_count": 197
+        },
+        "Schäftlarn": {
+          "doc_count": 28
+        },
+        "St. Gallen": {
+          "doc_count": 610
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 1
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 56
+        },
+        "Werden": {
+          "doc_count": 47
+        },
+        "Zürich": {
+          "doc_count": 53
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 1
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 3
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 427
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 2885
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 2926
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 1319
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

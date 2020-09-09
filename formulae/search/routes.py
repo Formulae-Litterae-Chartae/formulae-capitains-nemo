@@ -87,7 +87,8 @@ def r_results():
                        special_days=special_days,
                        old_search=old_search,
                        source=request.args.get('source', 'advanced'),
-                       regest_field=request.args.get('regest_field', 'regest'))
+                       regest_field=request.args.get('regest_field', 'regest'),
+                       formulaic_parts=request.args.get('formulaic_parts', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -161,12 +162,15 @@ def r_advanced_search():
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
         form.special_days.data = form.special_days.data[0].split(' ')
+    if form.formulaic_parts.data and len(form.formulaic_parts.data) == 1:
+        form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
             data['regest_q'] = data['regest_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
+            data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
             lemma_search = data.pop('lemma_search')
             data['lemma_search'] = 'False'
             if lemma_search in ['y', 'True', True]:
