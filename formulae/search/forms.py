@@ -103,7 +103,7 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Thursday', _l('Do')),
                                                                                     ('Friday', _l('Fr')),
                                                                                     ('Saturday', _l('Sa'))])
-    formulaic_parts = SelectMultipleField(_l('In bestimmten Teilen suchen'), choices=[
+    formulaic_parts = SelectMultipleField(_l('In bestimmten Teilen suchen'), choices=sorted([
         ("Empfänger", _l("Empfänger")),
         ("Invocatio-oder-Inscriptio", _l("Invocatio oder Inscriptio")),
         ("Intitulatio", _l("Intitulatio")),
@@ -130,5 +130,5 @@ class AdvancedSearchForm(SearchForm):
         ("Datierung", _l("Datierung")),
         ("Konsensformel", _l("Konsensformel")),
         ("Apprecatio", _l("Apprecatio"))
-    ])
+    ], key=lambda x: x[1]))
     submit = SubmitField(_l('Suche Durchführen'))

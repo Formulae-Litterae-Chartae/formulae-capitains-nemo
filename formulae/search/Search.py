@@ -513,7 +513,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                     highlight_sents = []
                     for s_field in search_field:
                         if 'highlight' in hit and s_field in hit['highlight']:
-                            highlight_sents += [Markup(highlight_segment(x)) for x in hit['highlight'][s_field]]
+                            highlight_sents += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
                     ids.append({'id': hit['_id'],
                                 'info': hit['_source'],
                                 'sents': highlight_sents,
