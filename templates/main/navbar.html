@@ -22,7 +22,7 @@
             {% endif %}
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
                 <div class="dropdown-menu" aria-labelledby="formulaeDropdown">
                     {% for coll in g.sub_colls['formulae_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
@@ -35,7 +35,7 @@
                 <a class="nav-link active" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
                     {% for coll in g.sub_colls['other_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
@@ -45,7 +45,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
                 <div class="dropdown-menu" aria-labelledby="manuscriptDropdown">
                     <a class="dropdown-item" href="{{url_for('InstanceNemo.r_man_siglen')}}">{{ _("Liste aller Formelhandschriften") }}</a>
                     <div class="dropdown-divider"></div>
