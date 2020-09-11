@@ -5,14 +5,14 @@
     
     <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav my-0 mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
             </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
@@ -31,8 +31,8 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
@@ -56,8 +56,8 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
             </li>
         </ul>
         {% include "search::search_box.html" %}

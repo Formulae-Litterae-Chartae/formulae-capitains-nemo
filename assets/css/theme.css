@@ -224,6 +224,14 @@ nav .dropdown:hover .dropdown-menu {
     display: block;
 }
 
+#mainNavbar .navbar-nav .nav-item .nav-link {
+    color: rgba(255,255,255,.60);
+}
+
+#mainNavbar .navbar-nav .nav-item .nav-link.active {
+    color: rgba(255,255,255);
+}
+
 .platzhalter {
     font-weight: bold;
 }
@@ -1002,4 +1010,12 @@ span.corpus_coverage {
 
 .btn-link.btn.search-help label {
     cursor: help;
+}
+
+.btn.btn-link {
+    color: #0010ff;
+}
+
+a.search-help {
+    color: #0010ff;
 }
