@@ -23,7 +23,7 @@
     <h1>
     {{collections.current.label|striptags}}
     </h1>
-    <a class="ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Corpusübersicht') }}</a>
+    <a class="internal-link ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Corpusübersicht') }}</a>
 </header>
 </div>
 
@@ -31,11 +31,11 @@
 {% if collections.readable %}
 <div class="row_mv">
 
-    <ul class="list-group list-group-flush" style="flex-direction: row;">
+    <div class="card-group">
         {{ build_column(collections.readable.editions) }}
         {{ build_column(collections.readable.translations) }}
         {{ build_column(collections.readable.transcriptions) }}
-    </ul>
+    </div>
 </div>
 {% endif %}
 {% endblock %}
@@ -46,29 +46,26 @@
 
 {% macro build_column(type_dict) %}
     {% for values in type_dict %}
-    <li id="{{values['edition_name']}}" class="list-group-item flex-column mv-rows">
+    <div id="{{values['edition_name']}}" class="card mv-rows">
         <div class="card-header mv-card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
             <h5>{{values['edition_name']}}</h5>
         </div>
-        <div class="card border-light">
-            {% for name in values['links'][0]%}
-                <div class="card search-hit">
-                    {% if 'regesten' in values and values['regesten'][loop.index0] %}
-                    {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
-                    <div class="card-body p-2 search-hit-menu{{ copy_class }}">
-                        {{ values['regesten'][loop.index0] }}
-                    </div>
-                    {% else %}
-                    {% if values['titles'][loop.index-1] %}<h5>{{ values['titles'][loop.index-1] }}</h5>{% endif %}
-                    <div class="card-body p-2 search-hit-menu">
-                        <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Lesen') }}</a>
-                    </div>
-                    {% endif %}
+        <ul class="list-group list-group-flush">
+        {% for name in values['links'][0]%}
+            <li class="list-group-item">
+                {% if 'regesten' in values and values['regesten'][loop.index0] %}
+                {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
+                <div class="card-text p-2 search-hit-menu{{ copy_class }}">
+                    {{ values['regesten'][loop.index0] }}
                 </div>
-
-            {% endfor %}
-        </div>
-    </li>
+                {% else %}
+                {% if values['titles'][loop.index-1] %}<h5>{{ values['titles'][loop.index-1] }}</h5>{% endif %}
+                <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Lesen') }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
     {% endfor %}
 {% endmacro %}
 

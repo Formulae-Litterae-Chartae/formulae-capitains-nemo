@@ -1,21 +1,23 @@
 {% if g.search_form and 'advanced_search' not in request.url %}
-<form class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
-    <ul class="list-inline mb-0 mt-1" style="font-size: small;">
-        <li class="text-white list-inline-item align-top">{{ _("Suchen in:") }}</li>
-        {% for corp in g.search_form.corpus %}
-        <li class="list-inline-item">{{corp(checked="")}} {{ corp.label(class="mb-0 align-top") }}</li>
-        {% endfor %}
-    </ul>
-    <p class="mb-0">
-        {{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text, id="simple-search-q", list="simple-search-datalist", autocomplete="off", **{'aria-label': _('Einfache Suche')}) }}
+<form id="simple-search-form" class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
+    <div class="form-row">
+        <div class="col-auto">{{ g.search_form.q.label(id="simple-search-label", for="simple-search-q") }}</div>
+        <div class="col-auto ml-auto mb-0 mt-1">
+            {% for corp in g.search_form.corpus %}
+            <div class="form-check form-check-inline corpus-check">
+                {{corp(checked="")}} {{ corp.label(class="mb-0 align-top") }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="form-row">
+        {{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text, id="simple-search-q", list="simple-search-datalist", autocomplete="off") }}
         <datalist id="simple-search-datalist">
         </datalist>
-    </p>
-    <div class="d-flex justify-content-between">
+    </div>
+    <div class="form-row justify-content-between">
         <span title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}" style="font-size: small;">{{ g.search_form.lemma_search() }} <span class="text-white p-0 align-top">{{ g.search_form.lemma_search.label(class="m-0") }}</span></span>
-        <a class="nav-link text-white p-0 text-right" href="{{ url_for('search.r_advanced_search') }}" style="font-size: small;">{{ _('Erweiterte Suche') }}</a>
+        <a class="nav-link text-white p-0 text-right" href="{{ url_for('search.r_advanced_search') }}" title="{{ _('Zur Seite der erweiterten Suche') }}">{{ _('Erweiterte Suche') }}</a>
     </div>
 </form>
 {% endif %}
-<!--<a class="btn btn-outline-secondary my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->
-<!--<a class="btn btn-outline-info my-2 my-sm-0" href="BIDOUILLE_advanced_charter_search.html">Advanced search page</a>-->
