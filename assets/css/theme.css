@@ -1016,6 +1016,6 @@ span.corpus_coverage {
     color: #0010ff;
 }
 
-a.search-help {
+a.search-help,a.outside-link {
     color: #0010ff;
 }

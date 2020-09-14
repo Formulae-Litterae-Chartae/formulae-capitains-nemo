@@ -7,7 +7,7 @@
         {% endfor %}
     </ul>
     <p class="mb-0">
-        {{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text, id="simple-search-q", list="simple-search-datalist", autocomplete="off") }}
+        {{ g.search_form.q(size=25, class="form-control my-0", placeholder=g.search_form.q.label.text, id="simple-search-q", list="simple-search-datalist", autocomplete="off", **{'aria-label': _('Einfache Suche')}) }}
         <datalist id="simple-search-datalist">
         </datalist>
     </p>
