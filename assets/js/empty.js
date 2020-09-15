@@ -327,4 +327,21 @@ $(document).ready(function () {
         sendAutocompleteRequest($( this ), $('#simple-search-datalist'), "simple");
     });
     
+    $('#manuscript-table dt').hover(function() {
+        $( this ).css("background-color", "lightgrey");
+        $( this ).next().css("background-color", "lightgrey");
+    },
+    function() {
+        $( this ).css("background-color", "inherit");
+        $( this ).next().css("background-color", "inherit");
+    });
+    
+    $('#manuscript-table dd').hover(function() {
+        $( this ).css("background-color", "lightgrey");
+        $( this ).prev().css("background-color", "lightgrey");
+    },
+    function() {
+        $( this ).css("background-color", "inherit");
+        $( this ).prev().css("background-color", "inherit");
+    });
 })

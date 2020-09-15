@@ -1035,14 +1035,33 @@ span.corpus_coverage {
 }
 
 a.btn-outline-primary {
-    border-color: #0010ff;
+    border-color: #1422ff;
 }
 
 a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link {
-    color: #0010ff;
+    color: #1422ff;
 }
 
 .elex-letter.btn-outline-secondary.disabled {
     color: black;
     border-color: black;
+}
+
+#manuscript-table.card {
+    border: none;
+    background-color: inherit;
+    padding-top: 2rem;
+}
+
+#manuscript-table .card-header {
+    font-weight: bold;
+	padding: 0 0 .75rem .5rem;
+    background-color: inherit;
+    border: none;
+}
+
+#manuscript-table dt {
+    font-weight: normal;
+    margin-left: 2rem;
+    margin-bottom: .5rem;
 }
