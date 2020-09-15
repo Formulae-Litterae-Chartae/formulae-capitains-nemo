@@ -826,6 +826,11 @@ p.flash-grey {
     content: none;
 }
 
+button.add-text-toggle.btn.btn-link {
+    padding: 0;
+    border: none;
+}
+
 .part-menu-toggle::after {
     content: none;
 }
