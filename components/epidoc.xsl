@@ -58,12 +58,11 @@
                 </xsl:attribute>
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
-                <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
-                <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
-                <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
+                <xsl:attribute name="tabindex">0</xsl:attribute>
+                <xsl:attribute name="role">button</xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@type]">
                 <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>

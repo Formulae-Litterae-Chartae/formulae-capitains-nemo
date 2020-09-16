@@ -69,7 +69,9 @@ $(document).ready(function () {
         }
         for ( t of formTypes ) {
             var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
-            menuItem.append($("<input> " + t + "</input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t}));
+            var inputItem = $("<input></input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t, 'id': t});
+            menuItem.append(inputItem);
+            menuItem.append($("<label>" + t + "</label>").attr('for', t));
             $( this ).prev('.control-row').find('.part-menu-dropdown').first().append(menuItem)
         }
     } );

@@ -110,6 +110,30 @@ $(document).ready(function(){
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         request.send()
     })
+    
+    $('span.w.lexicon').each(function() {
+        $(this).attr('title', lexElementTitle[0] + '"' + $( this ).attr('data-lexicon') + '"' + lexElementTitle[1])
+    })
+    
+    $('span.w.lexicon').on({
+        click: function() {
+            showLexEntry($( this ));
+        },
+        keydown: function(event) {
+            if (event.key == "Enter" || event.key == " ") {
+                showLexEntry($( this ));
+            }
+        }
+    });
+    
+    $('span.w[lemma]').on({
+        mouseover: function() {
+            showLemma($( this ));
+        },
+        mouseout: function() {
+            hideLemma($( this ));
+        }
+    })
 })
 
 function makePopupNote(id) {
@@ -131,7 +155,7 @@ function closeNote(id) {
 }
 
 function showLemma(x) {
-    var lemma = x.getAttribute("lemma");
+    var lemma = x.attr("lemma");
     var lem_box = document.getElementById("lem_box");
     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
@@ -229,7 +253,7 @@ function showNotes(c) {
 }
 
 function showLexEntry(word) {
-        var lemma = word.getAttribute('data-lexicon');
+        var lemma = word.attr('data-lexicon');
         var request = new XMLHttpRequest();
         var message = lexModal.getAttribute('message');
         var subdomain = '';

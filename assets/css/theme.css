@@ -684,7 +684,7 @@ h1 .manuscript-number {
 }
 
 .kurz-regest {
-    color: gray;
+    color: #595959;
     font-weight: bold;
 }
 
@@ -829,6 +829,13 @@ p.flash-grey {
 button.add-text-toggle.btn.btn-link {
     padding: 0;
     border: none;
+    margin-bottom: 2px;
+}
+
+button.part-menu-toggle.btn.btn-link {
+    padding: 0;
+    border: none;
+    margin-bottom: 2px;
 }
 
 .part-menu-toggle::after {
@@ -1043,7 +1050,7 @@ a.btn-outline-primary {
     border-color: #1422ff;
 }
 
-a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link {
+a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link,a.note,a.paragraph-link {
     color: #1422ff;
 }
 
@@ -1069,4 +1076,9 @@ a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.bt
     font-weight: normal;
     margin-left: 2rem;
     margin-bottom: .5rem;
+}
+
+.part-menu-dropdown .dropdown-item label {
+    margin-left: 0.3rem;
+    display: initial;
 }
