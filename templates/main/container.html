@@ -8,7 +8,7 @@
     <meta name="description" content="Medieval Latin Formulae and their German translations in the Capitains Format">
     <meta name="keywords" content="XML,TEI,Capitains,latin,medieval,formulae">
     <meta name="author" content="Matthew Munson">
-    <title>Formulae - Litterae - Chartae</title>
+    <title>{% block title %}Formulae - Litterae - Chartae{% endblock %}</title>
     {% block metadata %}
       {% include "main::metadata.html" %}
     {% endblock %}
@@ -49,7 +49,7 @@
   <body>
     {% include "main::header.html" %}
     {% include "main::navbar.html" %}
-    <div class="container-fluid" id="main-container">
+    <main class="container-fluid" id="main-container">
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div class="row pb-0">
@@ -75,7 +75,7 @@
             {% endblock %}
         
     </div>
-    </div>
+    </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

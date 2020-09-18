@@ -1,11 +1,11 @@
 <!-- The Modal Content for the Regest -->
 
 {% if object.collections.current.short_regest != '' %}
-    <div class="regest-header text-center">
-        <div class="card-title mb-0 kurz-regest" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel">{{object.collections.current.short_regest}}</div><a class="internal-link" data-toggle="collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">{{ _('Regest') }}</a>
+    <div class="regest-header text-center" role="heading" aria-level="3">
+        <div class="card-title mb-0 kurz-regest" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-modalLabel" title="{{ _('Kurzregest') }}" data-toggle="tooltip" >{{object.collections.current.short_regest}}</div><a class="internal-link" data-toggle="collapse" aria-expanded="false" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" role="button" aria-controls="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" title="{{ _('Vollregest lesen') }}">{{ _('Regest') }}</a>
     </div>
     {% elif ((object.open_regest or current_user.project_team) and object.collections.current.description != 'None') or object.collections.current.dating or object.collections.current.issued_at %}
-    <div class="text-center"><a class="internal-link" data-toggle="collapse" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" aria-labelledby="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapseLabel" aria-expanded="false">{{ _('Regest') }}</a></div>
+    <div class="text-center" role="heading" aria-level="3"><a class="internal-link" data-toggle="collapse" data-toggle="tooltip" href="#{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse" aria-expanded="false" role="button" aria-controls="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">{{ _('Regest') }}</a></div>
     {% endif %}
     <div class="collapse" id="{{ object.objectId|replace(':', '')|replace('.', '') }}-collapse">
         <div class="card card-body bg-light"><p class="mb-0 regest-body">

@@ -681,6 +681,7 @@ h1 .manuscript-number {
     font-variant: small-caps;
     font-size: larger;
     line-height: 1em;
+    margin-bottom: 0;
 }
 
 .kurz-regest {
@@ -1050,8 +1051,12 @@ a.btn-outline-primary {
     border-color: #1422ff;
 }
 
-a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link,a.note,a.paragraph-link {
+a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link,a.note,a.paragraph-link,a.page-link {
     color: #1422ff;
+}
+
+a.btn-primary,li.page-item.active .page-link {
+    background-color: #1422ff;
 }
 
 .elex-letter.btn-outline-secondary.disabled {
@@ -1078,7 +1083,7 @@ a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.bt
     margin-bottom: .5rem;
 }
 
-.part-menu-dropdown .dropdown-item label {
+.part-menu-dropdown .dropdown-item label, .corpora-search-results-dropdown .dropdown-item label {
     margin-left: 0.3rem;
     display: initial;
 }

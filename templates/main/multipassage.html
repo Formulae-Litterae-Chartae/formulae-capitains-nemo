@@ -9,8 +9,8 @@
 {% endif %}
 
 {% macro header_passage(object, index, all_texts, all_reffs) %}
-<header class="col-12 justify-content-center px-0">
-    <div class="panel-footer text-center">
+<div class="col-12 justify-content-center px-0">
+    <div class="text-center">
         <div class="row pt-0 pb-0">
             {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
             {% set prev_obj = _('Vorherige Formel') %}
@@ -56,7 +56,13 @@
                 <div class="col-1">
                 </div>
             {% endif %}
-            <div class="col entry-title text-center">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}<a href="#" id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if 'manifest' not in object.collections.current.id %}<a class="internal-link" href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            <div class="col text-center">
+                <h2 class="entry-title">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}</h2>
+                <a href="#" id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>
+                {% if 'manifest' not in object.collections.current.id %}
+                <a class="internal-link" href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>
+                {% endif %}
+                </div>
             {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['_id']) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
@@ -89,7 +95,7 @@
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
 
-</header>
+</div>
 {% endmacro %}
 {% macro version_menu(objId, inRefs, object, index) %}
 <div class="dropleft">
@@ -234,7 +240,7 @@
                 {% endif %}
             </div>
             {% if  text.text_passage %}
-            <div class="text-row">
+            <div class="text-row row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 <div class="d-flex flex-row">{{ navigation }}</div>
                     {{ text.text_passage }}
@@ -356,7 +362,7 @@
      var scrollIndependentSrc="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}"
      var fromScrollingTexts="{{ _('Texte zusammen scrollen.') }}";
      var scrollTogetherSrc="{{url_for('InstanceNemo.static', filename='images/scroll_together.png')}}";
-     var lexElementTitle=["{{ _('Eintrag ') }}", "{{ _(' im Elexikon lesen') }}"];
+     var lexElementTitle=["{{ _('Eintrag zu ') }}", "{{ _(' im Elexikon lesen') }}"];
 </script>
 <script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
 <script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>

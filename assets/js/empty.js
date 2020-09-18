@@ -228,6 +228,9 @@ function buildUrl(qSource) {
 }
 
 $(document).ready(function () {
+    
+    $('[data-toggle="tooltip"]').tooltip()
+    
     //Disable cut, copy, and paste
     $('.no-copy').on('cut copy paste', function (e) {
         e.preventDefault();

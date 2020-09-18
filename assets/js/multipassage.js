@@ -1,4 +1,4 @@
-var lexModal = document.getElementById('lexicon-modal');
+var lexModal = $('#lexicon-modal');
 var scrollControl = document.getElementById('scroll-control-image');
 
 $(document).ready(function(){
@@ -112,7 +112,11 @@ $(document).ready(function(){
     })
     
     $('span.w.lexicon').each(function() {
-        $(this).attr('title', lexElementTitle[0] + '"' + $( this ).attr('data-lexicon') + '"' + lexElementTitle[1])
+        $(this).attr({
+            'title': lexElementTitle[0] + '<span class="latin-word">' + $( this ).attr('data-lexicon').replace('_', ' ') + '</span>' + lexElementTitle[1],
+            'data-toggle': 'tooltip',
+            'data-html': 'true'
+        })
     })
     
     $('span.w.lexicon').on({
@@ -123,6 +127,19 @@ $(document).ready(function(){
             if (event.key == "Enter" || event.key == " ") {
                 showLexEntry($( this ));
             }
+            $( this ).tooltip('hide');
+        },
+        mouseover: function() {
+            $( this ).tooltip('show');
+        },
+        mouseout: function() {
+            $( this ).tooltip('hide');
+        },
+        focusin: function() {
+            $( this ).tooltip('show');
+        },
+        focusout: function() {
+            $( this ).tooltip('hide');
         }
     });
     
@@ -131,6 +148,12 @@ $(document).ready(function(){
             showLemma($( this ));
         },
         mouseout: function() {
+            hideLemma($( this ));
+        },
+        focusin: function() {
+            showLemma($( this ));
+        },
+        focusout: function() {
             hideLemma($( this ));
         }
     })
@@ -255,7 +278,7 @@ function showNotes(c) {
 function showLexEntry(word) {
         var lemma = word.attr('data-lexicon');
         var request = new XMLHttpRequest();
-        var message = lexModal.getAttribute('message');
+        var message = lexModal.attr('message');
         var subdomain = '';
         if (window.location.host == 'tools.formulae.uni-hamburg.de') {
             subdomain = '/dev'
@@ -263,8 +286,8 @@ function showLexEntry(word) {
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
-                    lexModal.innerHTML = this.responseText;
-                    lexModal.style.display = 'block';
+                    lexModal.html(this.responseText);
+                    lexModal.modal('show');
                 } else {
                     alert(message + lemma)
                 }
@@ -275,12 +298,12 @@ function showLexEntry(word) {
     }
     
 function closeLexEntry() {
-    lexModal.style.display = "none";
+    lexModal.modal('hide');
 }
     
 window.onclick = function(event) {
     if (event.target == lexModal) {
-        lexModal.style.display = 'none';
+        lexModal.modal('hide');
     }
 }
 
