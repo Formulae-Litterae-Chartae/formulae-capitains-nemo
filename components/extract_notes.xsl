@@ -84,6 +84,7 @@
             <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
             <!--<xsl:attribute name="style">width: 25rem;</xsl:attribute>-->
             <xsl:element name="div">
+                <xsl:attribute name="lang">de</xsl:attribute>
                 <xsl:attribute name="class">card</xsl:attribute>
                 <xsl:attribute name="style">font-size: small; color: black; text-decoration: none;</xsl:attribute>
                 <xsl:element name="span">

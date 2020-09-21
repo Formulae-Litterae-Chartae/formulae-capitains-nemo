@@ -59,6 +59,13 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" id="accessibilityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Barrierefreiheit') }}</a>
+                <div class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_accessibility_statement')}}">{{ _("Erklärung zur Barrierefreiheit") }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_contact')}}">{{ _("Barrieren Melden") }}</a>
+                </div>
+            </li>
         </ul>
         {% include "search::search_box.html" %}
         {% if current_user.is_anonymous %}

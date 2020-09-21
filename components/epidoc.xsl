@@ -31,6 +31,7 @@
         <xsl:text>text translation lang_</xsl:text>
         <xsl:value-of select="@xml:lang"/>
       </xsl:attribute>
+        <xsl:attribute name="lang"><xsl:value-of select="substring(./@xml:lang, 1, 2)"/></xsl:attribute>
       
       
       <xsl:apply-templates/>
@@ -103,6 +104,7 @@
                 <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
             </xsl:attribute>
             <xsl:attribute name="data-lang"><xsl:value-of select="./@xml:lang"/></xsl:attribute>
+            <xsl:attribute name="lang"><xsl:value-of select="substring(./@xml:lang, 1, 2)"/></xsl:attribute>
             <xsl:if test="@xml:lang = 'heb'">
                 <xsl:attribute name="dir">
                     <xsl:text>rtl</xsl:text>

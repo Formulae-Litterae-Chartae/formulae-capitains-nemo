@@ -51,7 +51,8 @@ class NemoFormulae(Nemo):
         ("/pdf/<objectId>", "r_pdf", ["GET"]),
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
-        ("/manuscript_desc/siglen", "r_man_siglen", ["GET"])
+        ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
+        ("/accessibility_statement", "r_accessibility_statement", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1241,6 +1242,15 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::manuscript_siglen.html"}
+
+    @staticmethod
+    def r_accessibility_statement() -> Dict[str, str]:
+        """ Route for accessibility statement
+
+        :return: Template to use for accessibility statement page
+        :rtype: {str: str}
+        """
+        return {"template": "main::accessibility_statement.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
