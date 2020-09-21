@@ -185,6 +185,7 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
     def make_inflected_to_lem_mapping(self):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -364,9 +365,10 @@ class NemoFormulae(Nemo):
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
         for c in all_texts.keys():
-            if c in self.OPEN_COLLECTIONS:
+            parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values()]
+            if set(self.OPEN_COLLECTIONS).intersection(parents + [c]):
                 open_texts += [x[1][0] for x in all_texts[c]]
-            if c in self.HALF_OPEN_COLLECTIONS:
+            if set(self.HALF_OPEN_COLLECTIONS).intersection(parents + [c]):
                 half_open_texts += [x[1][0] for x in all_texts[c]]
         return all_texts, open_texts, half_open_texts
 
@@ -621,9 +623,14 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
         if self.check_project_team() is False:
-            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-        if not re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId) and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+            if not from_four_level_collection:
+                data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+            elif set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
+                data['collections']['members'] = []
+                flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+        if not from_four_level_collection and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
