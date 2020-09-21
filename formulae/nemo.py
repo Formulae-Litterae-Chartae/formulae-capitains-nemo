@@ -140,6 +140,12 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:weissenburg',
                              'urn:cts:formulae:werden']
 
+    FOUR_LEVEL_COLLECTIONS = ["urn:cts:formulae:katalonien",
+                              "urn:cts:formulae:marmoutier_manceau",
+                              "urn:cts:formulae:marmoutier_vendomois_appendix",
+                              "urn:cts:formulae:marmoutier_dunois",
+                              "urn:cts:formulae:anjou_archives"]
+
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
 
@@ -639,9 +645,7 @@ class NemoFormulae(Nemo):
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
-        elif objectId in ["urn:cts:formulae:katalonien", "urn:cts:formulae:marmoutier_manceau", 
-                          "urn:cts:formulae:marmoutier_vendomois_appendix", "urn:cts:formulae:marmoutier_dunois",
-                          "urn:cts:formulae:anjou_archives"]:
+        elif objectId in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
@@ -844,7 +848,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         """
         collection = self.resolver.getMetadata(objectId)
-        if 'defaultTic' not in collection.parent:
+        if 'defaultTic' not in collection.parent and objectId not in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
@@ -878,6 +882,9 @@ class NemoFormulae(Nemo):
         :param lang: Lang in which to express main data
         :return: Template and collections contained in given collection
         """
+        if objectId in self.FOUR_LEVEL_COLLECTIONS:
+            return redirect(url_for('InstanceNemo.r_add_text_collection', objectId=objectId, objectIds=objectIds,
+                                    reffs=reffs, lang=lang))
         initial = self.r_corpus(objectId, lang=lang)
         initial.update({'prev_texts': objectIds, 'prev_reffs': reffs})
         return initial
