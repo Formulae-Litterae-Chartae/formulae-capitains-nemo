@@ -309,6 +309,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::fulda_d1_desc.html')
             c.get('manuscript_desc/siglen', follow_redirects=True)
             self.assertTemplateUsed('main::manuscript_siglen.html')
+            c.get('accessibility_statement', follow_redirects=True)
+            self.assertTemplateUsed('main::accessibility_statement.html')
 
     def test_authorized_project_member(self):
 
@@ -452,6 +454,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(r.get_data(as_text=True), '10%')
             c.get('manuscript_desc/siglen', follow_redirects=True)
             self.assertTemplateUsed('main::manuscript_siglen.html')
+            c.get('accessibility_statement', follow_redirects=True)
+            self.assertTemplateUsed('main::accessibility_statement.html')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -544,6 +548,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::fulda_d1_desc.html')
             c.get('manuscript_desc/siglen', follow_redirects=True)
             self.assertTemplateUsed('main::manuscript_siglen.html')
+            c.get('accessibility_statement', follow_redirects=True)
+            self.assertTemplateUsed('main::accessibility_statement.html')
 
 
     @patch("formulae.search.routes.advanced_query_index")

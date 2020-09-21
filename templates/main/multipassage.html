@@ -9,8 +9,8 @@
 {% endif %}
 
 {% macro header_passage(object, index, all_texts, all_reffs) %}
-<header class="col-12 justify-content-center px-0">
-    <div class="panel-footer text-center">
+<div class="col-12 justify-content-center px-0">
+    <div class="text-center">
         <div class="row pt-0 pb-0">
             {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
             {% set prev_obj = _('Vorherige Formel') %}
@@ -32,13 +32,13 @@
         {% endfor %}
         {% if 'manifest' in object.objectId %}
             <div class="col-12 entry-title text-center">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.title|safe}}</div>
-            <div class="col-12 text-center"><a href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a></div>
+            <div class="col-12 text-center"><a class="internal-link" href="{{ object.lib_link }}" target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}">{{ _('Zur Bibliothek')}}</a></div>
         {% else %}
             {% if object.prev_version %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}"><i class="fas fa-step-backward"></i></a>
+                    <a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}"><i class="fas fa-step-backward"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
@@ -49,19 +49,25 @@
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index - 1]['_id']) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-chevron-up"></i></a>
+                    <a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Vorheriges Suchergebnis') }}"><i class="fas fa-chevron-up"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
                 <div class="col-1">
                 </div>
             {% endif %}
-            <div class="col entry-title text-center">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}<a id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>{% if 'manifest' not in object.collections.current.id %}<a href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>{% endif %}</div>
+            <div class="col text-center">
+                <h2 class="entry-title">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}</h2>
+                <a href="#" id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" title="{{ _('Empfohlene Zitierweise') }}"></i></a>
+                {% if 'manifest' not in object.collections.current.id %}
+                <a class="internal-link" href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}"><i class="fas fa-file-download"></i></a>
+                {% endif %}
+                </div>
             {% if ns.hit_index != -1 and ns.hit_index + 1 < session['previous_search']|length %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, session['previous_search'][ns.hit_index + 1]['_id']) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-chevron-down"></i></a>
+                    <a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ _('Nächstes Suchergebnis') }}"><i class="fas fa-chevron-down"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
@@ -72,7 +78,7 @@
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
-                    <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}"><i class="fas fa-step-forward"></i></a>
+                    <a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}"><i class="fas fa-step-forward"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
@@ -89,13 +95,13 @@
     {% endif %}
     <span class='Z3988' title='{{object.collections.current.coins}}'></span>
 
-</header>
+</div>
 {% endmacro %}
 {% macro version_menu(objId, inRefs, object, index) %}
 <div class="dropleft">
-    <a class="dropdown-toggle add-text-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Eine Spalte hinzufügen') }}">
+    <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Eine Spalte hinzufügen') }}">
         <img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Eine Spalte hinzufügen') }}">
-    </a>
+    </button>
     <div class="dropdown-menu version-dropdown">
         {% for manifest in object.IIIFviewer if manifest[0] not in request.path %}
             {% if loop.first %}
@@ -170,13 +176,13 @@
         {% if objects|length > 1 %}
         <div class="row py-0 justify-content-center">
             <div class="col-auto text-center">
-                <a href="#" class="reading-format-setter" title="{{ _('Texte nebeneinander zeigen.') }}" value="columns" {% if session['reading_format'] != 'columns' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_columns.png')}}" alt="{{ _('übereinander') }}"></a>
-                <a href="#" class="reading-format-setter" title="{{ _('Texte übereinander zeigen.') }}" value="rows" {% if session['reading_format'] != 'rows' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_rows.png')}}" alt="{{ _('übereinander') }}"></a>
+                <a href="#" class="reading-format-setter" title="{{ _('Texte nebeneinander zeigen.') }}" value="columns" {% if session['reading_format'] != 'columns' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_columns.png')}}" alt="{{ _('Texte nebeneinander') }}"></a>
+                <a href="#" class="reading-format-setter" title="{{ _('Texte übereinander zeigen.') }}" value="rows" {% if session['reading_format'] != 'rows' %}{% else %}hidden{% endif %}><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_rows.png')}}" alt="{{ _('Texte übereinander') }}"></a>
                 {% if session['reading_format'] == 'columns' %}
-                <a href="#"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}" onclick="changeScrollMode(this)" title="{{ _('Texte unabhängig von einander scrollen.') }}"></a>
+                <a href="#" onclick="changeScrollMode(this)" title="{{ _('Texte unabhängig von einander scrollen.') }}"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}" alt="{{ _('Texte unabhängig scrollen') }}"></a>
                 {% elif session['reading_format'] == 'rows' %}
-                <a href="#" id="max-rows-image"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/maximize_reading_rows.png')}}" title="{{ _('Alle Texte maximiert anzeigen.') }}"></a>
-                <a href="#" id="min-rows-image"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/minimize_reading_rows.png')}}" title="{{ _('Alle Texte in original Größe anzeigen.') }}"></a>
+                <a href="#" id="max-rows-image" title="{{ _('Alle Texte maximiert anzeigen.') }}"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/maximize_reading_rows.png')}}" alt="{{ _('Texte maximieren') }}"></a>
+                <a href="#" id="min-rows-image" title="{{ _('Alle Texte in original Größe anzeigen.') }}"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/minimize_reading_rows.png')}}" alt="{{ _('Texte in original Größe') }}"></a>
                 {% endif %}
             </div>
         </div>
@@ -207,16 +213,11 @@
                 </div>
                 <div class="col col-auto part-menu-icon">
                     <div class="dropleft">
-<<<<<<< HEAD
-                        <a class="dropdown-toggle part-menu-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Formulaische Teile zeigen') }}">
+                        <button class="dropdown-toggle part-menu-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Formulaische Teile zeigen') }}">
                             <img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Formulaische Teile zeigen') }}">
-=======
-                        <a class="dropdown-toggle part-menu-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ _('Urkundenteile zeigen') }}">
-                            <img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}">
->>>>>>> dev
-                        </a>
+                        </button>
                         <div class="dropdown-menu part-menu-dropdown">
-                            <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts"> <label>{{ _('Alle zeigen') }}</label></span>
+                            <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts" id="All-Parts"><label for="All-Parts">{{ _('Alle zeigen') }}</label></span>
                             <div class="dropdown-divider"></div>
                             <!-- More spans should be added here as necessary by JS -->
                         </div>
@@ -224,10 +225,10 @@
                 </div>
                 {% if loop.length > 1 %}
                 <div class="col col-auto maximize-window-icon">
-                    <a class="maximize-column-link" title="{{ _('Maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Maximieren') }}"></a>
+                    <a href="#" class="maximize-column-link" title="{{ _('Maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Maximieren') }}"></a>
                 </div>
                 <div class="col col-auto minimize-window-icon">
-                    <a class="minimize-column-link" title="{{ _('Original Größe') }}"><img src="{{url_for('InstanceNemo.static', filename='images/minimize_window.png')}}" alt="{{ _('Original Größe') }}"></a>
+                    <a href="#" class="minimize-column-link" title="{{ _('Original Größe') }}"><img src="{{url_for('InstanceNemo.static', filename='images/minimize_window.png')}}" alt="{{ _('Original Größe') }}"></a>
                 </div>
                 {% endif %}
                 {% if objects|length > 1 %}
@@ -239,19 +240,20 @@
                 {% endif %}
             </div>
             {% if  text.text_passage %}
-            <div class="text-row">
+            <div class="text-row row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 <div class="d-flex flex-row">{{ navigation }}</div>
                     {{ text.text_passage }}
                 <footer>{% include "main::passage_footer.html" %}</footer>
+            </div>
             {% else %}
             <div class="image-row">
                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                 {% with manifest = text.manifest, div_v = text.div_v %}
                 {% include "viewer::embededmirador.html" %}
                 {% endwith %}
-            {% endif %}
             </div>
+            {% endif %}
             {% if loop.length > 1 %}
             <span class="text-row-handle"><img src="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}" alt="Horizontal Handle"></span>
             {% endif %}
@@ -360,6 +362,7 @@
      var scrollIndependentSrc="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}"
      var fromScrollingTexts="{{ _('Texte zusammen scrollen.') }}";
      var scrollTogetherSrc="{{url_for('InstanceNemo.static', filename='images/scroll_together.png')}}";
+     var lexElementTitle=["{{ _('Eintrag zu ') }}", "{{ _(' im Elexikon lesen') }}"];
 </script>
 <script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
 <script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>

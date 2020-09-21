@@ -1,3 +1,9 @@
+if (window.innerWidth < 768) {
+        var splitSizes = [25, 50, 25];
+    } else {
+        var splitSizes = [16, 68, 16];
+    };
+
 $(document).ready(function () {
     $('.reading-sidebar').each(function() {
         $( this ).css('max-width', '33%');
@@ -69,7 +75,9 @@ $(document).ready(function () {
         }
         for ( t of formTypes ) {
             var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
-            menuItem.append($("<input> " + t + "</input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t}));
+            var inputItem = $("<input></input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t, 'id': t});
+            menuItem.append(inputItem);
+            menuItem.append($("<label>" + t + "</label>").attr('for', t));
             $( this ).prev('.control-row').find('.part-menu-dropdown').first().append(menuItem)
         }
     } );
@@ -100,7 +108,7 @@ $(document).ready(function () {
 })
 
 Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
-    sizes: [16, 68, 16],
+    sizes: splitSizes,
     minSize: [0, 100, 0],
     elementStyle: function(dimension, size, gutterSize) {
         if (size > 0.5) {

@@ -31,6 +31,7 @@
         <xsl:text>text translation lang_</xsl:text>
         <xsl:value-of select="@xml:lang"/>
       </xsl:attribute>
+        <xsl:attribute name="lang"><xsl:value-of select="substring(./@xml:lang, 1, 2)"/></xsl:attribute>
       
       
       <xsl:apply-templates/>
@@ -58,12 +59,11 @@
                 </xsl:attribute>
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
-                <xsl:attribute name="onmouseover">showLemma(this)</xsl:attribute>
-                <xsl:attribute name="onmouseout">hideLemma()</xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
-                <xsl:attribute name="onclick">showLexEntry(this)</xsl:attribute>
+                <xsl:attribute name="tabindex">0</xsl:attribute>
+                <xsl:attribute name="role">button</xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@type]">
                 <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
@@ -104,6 +104,7 @@
                 <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
             </xsl:attribute>
             <xsl:attribute name="data-lang"><xsl:value-of select="./@xml:lang"/></xsl:attribute>
+            <xsl:attribute name="lang"><xsl:value-of select="substring(./@xml:lang, 1, 2)"/></xsl:attribute>
             <xsl:if test="@xml:lang = 'heb'">
                 <xsl:attribute name="dir">
                     <xsl:text>rtl</xsl:text>

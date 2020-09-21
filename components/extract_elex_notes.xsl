@@ -28,6 +28,7 @@
                 <xsl:attribute name="class">card</xsl:attribute>
                 <xsl:attribute name="style">font-size: small; color: black; text-decoration: none;</xsl:attribute>
                 <xsl:element name="span">
+                    <xsl:attribute name="lang">de</xsl:attribute>
                     <xsl:element name="sup"><xsl:value-of select="text()"/></xsl:element><xsl:text> </xsl:text><xsl:apply-templates mode="noteContent" select="span"/>
                 </xsl:element>
             </xsl:element>
