@@ -373,6 +373,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::lexicon_modal.html')
             c.get('/add_text/urn:cts:formulae:elexicon/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/add_text/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
             # An authenicated user who surfs to the login page should be redirected to their user page
             c.get('/auth/login', follow_redirects=True)
             self.assertTemplateUsed('auth::login.html')
