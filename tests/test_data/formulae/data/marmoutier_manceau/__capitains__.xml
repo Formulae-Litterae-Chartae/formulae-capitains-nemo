@@ -14,6 +14,8 @@
    <dc:type>cts:textgroup</dc:type>
    <members>
       <collection path="./laurain_ballée/__capitains__.xml"
-                  identifier="urn:cts:formulae:marmoutier_manceau.laurain_ballée"/>
+         identifier="urn:cts:formulae:marmoutier_manceau.laurain_ballée"/>
+      <collection path="./laurain_lehoux/__capitains__.xml"
+         identifier="urn:cts:formulae:marmoutier_manceau.laurain_lehoux"/>
    </members>
 </collection>
