@@ -859,8 +859,13 @@ class NemoFormulae(Nemo):
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
         if self.check_project_team() is False:
-            members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
+            if not from_four_level_collection:
+                members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
+            elif set(self.restricted_four_level_collections).intersection([p['id'] for p in members] + [objectId]):
+                members = []
+                flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
         if len(members) == 1:
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=members[0]['id'], objectIds=objectIds,
                                     reffs=reffs, lang=lang))
