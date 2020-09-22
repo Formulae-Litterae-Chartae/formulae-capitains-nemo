@@ -20,7 +20,7 @@ from tests.fake_es import FakeElasticsearch
 from collections import OrderedDict, defaultdict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for, abort
+from flask import Markup, session, g, url_for, abort, request
 from json import dumps, load, JSONDecodeError
 import re
 from math import ceil
@@ -225,6 +225,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
             self.assertMessageFlashed(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
+            r = c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            data = self.get_context_variable('collections')
+            self.assertEqual(data['members'], [])
+            self.assertTemplateUsed('main::sub_collections.html')
             # r_references does not work right now
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -237,6 +242,15 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::collection.html')
             c.get('/add_collection/other_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collections.html')
+            c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertEqual(data['members'], [])
+            c.get('/add_collection/urn:cts:formulae:marmoutier_manceau/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertNotEqual(data['members'], [])
             c.get('/add_collection/formulae_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
@@ -358,6 +372,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
@@ -382,6 +398,14 @@ class TestIndividualRoutes(Formulae_Testing):
             # The following tests are to make sure that non-open texts are available to project members
             c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
+            c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertNotEqual(data['members'], [])
+            c.get('/add_collection/urn:cts:formulae:marmoutier_manceau/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertNotEqual(data['members'], [])
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
@@ -504,6 +528,16 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
             self.assertMessageFlashed(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
+            c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
+            self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertEqual(data['members'], [])
+            c.get('/add_collection/urn:cts:formulae:marmoutier_manceau/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collections.html')
+            data = self.get_context_variable('collections')
+            self.assertNotEqual(data['members'], [])
             # r_references does not work right now.
             # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
             # self.assertTemplateUsed('main::references.html')
