@@ -128,8 +128,6 @@ class Formulae_Testing(flask_testing.TestCase):
         db.drop_all()
 
     def _add_flash_message(self, app, message, category):
-        if len(self.flashed_messages) > 0:
-            self.flashed_messages = []
         self.flashed_messages.append((message, category))
 
     def _add_template(self, app, template, context):
@@ -389,7 +387,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertMessageFlashed(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
+            self.assertIn(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'), [x[0] for x in self.flashed_messages])
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection.html')
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -500,6 +498,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.app.redis.setex('pdf_download_1000', 60, '10%')
             r = c.get('/search/pdf_progress/1000')
             self.assertEqual(r.get_data(as_text=True), '10%')
+            self.app.redis.delete('pdf_download_1000')
             c.get('manuscript_desc/siglen', follow_redirects=True)
             self.assertTemplateUsed('main::manuscript_siglen.html')
             c.get('accessibility_statement', follow_redirects=True)
@@ -1672,7 +1671,7 @@ class TestAuth(Formulae_Testing):
             self.assertTrue(User.query.filter_by(username='project.member').first().check_password('some_new_password'),
                             'User should have a new password: "some_new_password".')
             self.assertTemplateUsed('auth::login.html')
-            self.assertMessageFlashed(_("Sie haben Ihr Passwort erfolgreich geändert."))
+            self.assertIn(_("Sie haben Ihr Passwort erfolgreich geändert."), [x[0] for x in self.flashed_messages])
 
     def test_user_change_prefs_incorrect(self):
         """ Make sure that a user who gives the false old password is not able to change their password"""
