@@ -103,4 +103,32 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Thursday', _l('Do')),
                                                                                     ('Friday', _l('Fr')),
                                                                                     ('Saturday', _l('Sa'))])
+    formulaic_parts = SelectMultipleField(_l('In bestimmten Teilen suchen'), choices=sorted([
+        ("Empfänger", _l("Empfänger")),
+        ("Invocatio-oder-Inscriptio", _l("Invocatio oder Inscriptio")),
+        ("Intitulatio", _l("Intitulatio")),
+        ("Arenga", _l("Arenga")),
+        ("Publicatio", _l("Publicatio")),
+        ("Überleitungsformel", _l("Überleitungsformel")),
+        ("Dispositio", _l("Dispositio")),
+        ("Traditionsformel", _l("Traditionsformel")),
+        ("Pertinenzformel", _l("Pertinenzformel")),
+        ("Übertragungsklausel", _l("Übertragungsklausel")),
+        ("Pertinenzformel-des-Tauschpartners", _l("Pertinenzformel des Tauschpartners")),
+        ("Erwähnung-der-Schenkung", _l("Erwähnung der Schenkung")),
+        ("Leihebitte", _l("Leihebitte")),
+        ("Beurkundungsbitte", _l("Beurkundungsbitte")),
+        ("Beneficium", _l("Beneficium")),
+        ("Leihegewährung", _l("Leihegewährung")),
+        ("Beurkundungsbeschluss-oder-Beurkundungsgewährung", _l("Beurkundungsbeschluss oder Beurkundungsgewährung")),
+        ("Leiheklausel", _l("Leiheklausel")),
+        ("Poenformel", _l("Poenformel")),
+        ("Stipulationsformel", _l("Stipulationsformel")),
+        ("Corroboratio", _l("Corroboratio")),
+        ("Subscriptiones", _l("Subscriptiones")),
+        ("Schreiber", _l("Schreiber")),
+        ("Datierung", _l("Datierung")),
+        ("Konsensformel", _l("Konsensformel")),
+        ("Apprecatio", _l("Apprecatio"))
+    ], key=lambda x: x[1]))
     submit = SubmitField(_l('Suche Durchführen'))

@@ -1,4 +1,5 @@
 {% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Erweiterte Suche') }}{% endblock %}
 
 {% import "search::help_messages.html" as messages %}
 
@@ -6,7 +7,7 @@
         <!-- BODY OF THE SEARCH PAGE - 1st row = title. -->
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
-            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a tabindex="0" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
+            <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a class="search-help" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
             <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
             <br>
         <!-- 2d row = search entries. -->
@@ -14,30 +15,26 @@
                 <div class="col-xl-3 col-4">
                     <div class="text-center search-section-label"><strong>{{ form.corpus.label }}</strong></div>
                     <ul class="corpus-ul">
-                        <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> {{ _('Alle') }}</li>
+                        <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> <label for="all">{{ _('Alle') }}</label></li>
                         <ul class="corpus-ul">
-                            <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> Formulae <a class="btn btn-link p-0" data-toggle="collapse" href="#formulaeCorporaCollapse" role="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></a></li>
-                                <div class="collapse" id="formulaeCorporaCollapse">
-                                    <ul class="corpus-ul">
+                            <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> <label for="formulae">Formulae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#formulaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></button></li>
+                                    <ul class="corpus-ul collapse" id="formulaeCorporaCollapse">
                                     {% for choice in categories['formulae_collection']|sort %}
-                                        <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
+                                        <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
                                     {% endfor %}
                                     </ul>
-                                </div>
-                            <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> Chartae <a class="btn btn-link p-0" data-toggle="collapse" href="#chartaeCorporaCollapse" role="button" aria-expanded="false" aria-controls="chartaeCorporaCollapse" title="{{ _('Alle Urkundencorpora zeigen') }}"><i class="fas fa-caret-down"></i></a></li>
-                                <div class="collapse" id="chartaeCorporaCollapse">
-                                    <ul class="corpus-ul">
+                            <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> <label for="chartae">Chartae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#chartaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="chartaeCorporaCollapse" title="{{ _('Alle Urkundencorpora zeigen') }}"><i class="fas fa-caret-down"></i></button></li>
+                                    <ul class="corpus-ul collapse" id="chartaeCorporaCollapse">
                                     {% for choice in categories['other_collection']|sort %}
-                                        <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> {{ choice[1] }}</li>
+                                        <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
                                     {% endfor %}
                                     </ul>
-                                </div>
                         </ul>
                     </ul>
                 </div>
                 <div class="col-xl-2 col-4">
                     <div class="form-group mb-2">
-                        <div class="text-center search-section-label"><a tabindex="0" type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}"><strong>{{ _('Wortsuche') }}</strong></a></div>
+                        <div class="text-center search-section-label"><strong><label for="word-search-box">{{ _('Wortsuche') }}</label></strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}" aria-label="{{ _('Hilfe für Wortsuche') }}"><i class="fas fa-question-circle"></i></button></div>
                         <div>
                             {{ form.q(class="form-control my-0", placeholder=form.q.label.text, id="word-search-box", list="word-search-datalist", default=form.q.label.text, autocomplete="off") }}
                             <datalist id="word-search-datalist">
@@ -46,21 +43,28 @@
                         <p class="mb-0 smallfont"><span title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span></p>
                         <p class="mb-0 smallfont"><span title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
                     </div>
-                    
+                    <!--<div class="form-row mb-2">
+                        <div class="col text-center"><strong>{{ form.formulaic_parts.label(for="partsButton", id="partsLabel") }}</strong> <button id="partsButton" class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#partSearchCollapse" type="button" aria-expanded="false" aria-controls="partSearchCollapse" title="{{ _('Die Liste der Teile zeigen') }}"><i class="fas fa-caret-down"></i></button>
+                            <div class="collapse" id="partSearchCollapse">
+                                <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
+                                {{ form.formulaic_parts(class="w-100 mb-2", size="6", **{"aria-labelledby": "partsLabel"}) }}
+                            </div>
+                        </div>
+                    </div>-->
                     <div class="form-row mb-2">
-                        <div class="col text-center"><a tabindex="0" type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}"><strong>{{ form.slop.label }}</strong></a> <a class="btn btn-link p-0 mb-2" data-toggle="collapse" href="#slopCollapse" role="button" aria-expanded="false" aria-controls="slopCollapse"><i class="fas fa-caret-down"></i></a>
-                        <div class="collapse" id="slopCollapse">{{ form.slop(min="0") }} {{ _('Wörter') }}</div>
+                        <div class="col text-center"><strong>{{ form.slop.label(for="slopButton", id="slopLabel") }}</strong> <button id="slopButton" class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#slopCollapse" type="button" aria-expanded="false" aria-controls="slopCollapse" title="{{ _('Suchradiuseingabe zeigen') }}"><i class="fas fa-caret-down"></i></button> <button type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.searchRadiusMessage }}" aria-label="{{ _('Hilfe für Suchradius') }}"><i class="fas fa-question-circle"></i></button>
+                        <div class="collapse" id="slopCollapse">{{ form.slop(min="0", **{'aria-labelledby': 'slopLabel'}) }} {{ _('Wörter') }}</div>
                         </div>
                     </div>
                     <div class="form-row mb-2">
-                        <div class="col text-center"><a tabindex="0" type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.fuzzinessMessage }}"><strong>{{ form.fuzziness.label }}</strong></a> <a class="btn btn-link p-0 mb-2" data-toggle="collapse" href="#fuzzinessCollapse" role="button" aria-expanded="false" aria-controls="fuzzinessCollapse"><i class="fas fa-caret-down"></i></a>
-                        <div class="collapse" id="fuzzinessCollapse">{{ form.fuzziness() }}</div>
+                        <div class="col text-center"><strong>{{ form.fuzziness.label(for="fuzzinessButton", id="fuzzinessLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#fuzzinessCollapse" type="button" aria-expanded="false" aria-controls="fuzzinessCollapse" title="{{ _('Unschärfegradeingabe zeigen') }}"><i class="fas fa-caret-down"></i></button> <button type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.fuzzinessMessage }}" aria-label="{{ _('Hilfe für Unschärfegrad') }}"><i class="fas fa-question-circle"></i></button>
+                        <div class="collapse" id="fuzzinessCollapse">{{ form.fuzziness(**{'aria-labelledby': 'fuzzinessLabel'}) }}</div>
                         </div>
                     </div>
                     <div class="form-row mb-2">
-                        <div class="col text-center"><a tabindex="0" type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regestSearchMessage }}"><strong>{{ form.regest_q.label }}</strong></a> <a class="btn btn-link p-0 mb-2" data-toggle="collapse" href="#regestSearchCollapse" role="button" aria-expanded="false" aria-controls="regestSearchCollapse"><i class="fas fa-caret-down"></i></a>
+                        <div class="col text-center"><strong>{{ form.regest_q.label(for="regestButton", id="regestLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#regestSearchCollapse" type="button" aria-expanded="false" aria-controls="regestSearchCollapse" title="{{ _('Regestensucheingabe zeigen') }}"><i class="fas fa-caret-down"></i></button> <button type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regestSearchMessage }}" aria-label="{{ _('Hilfe für Regestensuche') }}"><i class="fas fa-question-circle"></i></button>
                             <div class="collapse" id="regestSearchCollapse">
-                                {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off") }}
+                                {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off", **{'aria-labelledby': 'regestLabel'}) }}
                                 <datalist id="regest-word-search-datalist">
                                 </datalist>
                             </div>
@@ -68,18 +72,18 @@
                     </div>
                     <div class="form-row mb-2">
                         <div class="col">
-                            <div class="text-center"><strong>{{ _('Ausstellungsortsuche') }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#compositionSearchCollapse" role="button" aria-expanded="false" aria-controls="compositionSearchCollapse"><i class="fas fa-caret-down"></i></a></div>
+                            <div class="text-center"><strong><label for="compositionButton" id="compositionLabel">{{ _('Ausstellungsortsuche') }}</label></strong> <button id="compositionButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#compositionSearchCollapse" type="button" aria-expanded="false" aria-controls="compositionSearchCollapse" title="{{ _('Ausstellungsortsucheingabe zeigen') }}"><i class="fas fa-caret-down"></i></button></div>
                             <div class="collapse" id="compositionSearchCollapse">
-                                {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text) }}
-                                <div><input id="firstLetter" name="placeSearch" type="checkbox" checked> <a tabindex="0" type="button" class="btn btn-link px-1 py-0 smallfont align-top search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.firstLetterPlaceSearchMessage }}">{{ _("Anfangsbuchstaben") }}</a></input></div>
+                                {{ form.composition_place(class="form-control my-0", id="place-search",  placeholder=form.composition_place.label.text, default=form.composition_place.label.text, **{'aria-labelledby': 'compositionLabel'}) }}
+                                <div><input id="firstLetter" name="placeSearch" type="checkbox" checked> <label class="py-0 smallfont align-top" for="firstLetter">{{ _("Anfangsbuchstaben") }}</label><button type="button" class="btn btn-link px-1 py-0 smallfont align-top search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.firstLetterPlaceSearchMessage }}" aria-label="{{ _('Hilfe für Anfangsbuchstabeneingabe') }}"><i class="fas fa-question-circle"></i></button></input></div>
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-center pt-1"><button class="btn btn-sm btn-secondary" type="reset" id="advancedResetButton">{{ _(' Formular Zurücksetzen') }}</button></div>
                 </div>
                 <div class="col-xl-3 col-4 date-search">
-                    <div class="text-center search-section-label"><a tabindex="0" type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}"><strong>{{ _('Datumssuche') }}</strong></a></div>
-                    <div class="title text-center"><strong>{{ _('Nach einem bestimmten Datum suchen') }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#simpleDateSearchCollapse" role="button" aria-expanded="false" aria-controls="simpleDateSearchCollapse"><i class="fas fa-caret-down"></i></a></div>
+                    <div class="text-center search-section-label"><strong>{{ _('Datumssuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}" aria-label="{{ _('Hilfe für Datumssuche') }}"><i class="fas fa-question-circle"></i></button></div>
+                    <div class="title text-center"><strong><label for="simpleDateButton">{{ _('Nach einem bestimmten Datum suchen') }}</label></strong> <button id="simpleDateButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#simpleDateSearchCollapse" type="button" aria-expanded="false" aria-controls="simpleDateSearchCollapse" title="{{ _('Eingabe für die bestimmte Datumssuchen zeigen') }}"><i class="fas fa-caret-down"></i></button></div>
                     <div class="collapse" id="simpleDateSearchCollapse">
                         <div class="form-row align-items-center justify-content-center">
                             <div class="form-group">
@@ -111,9 +115,9 @@
                             {{ form.date_plus_minus(min="0", max="100") }} {{ _('Jahr(e)') }}</div>
                         </div>
                     </div>
-                    <div class="title mt-3 text-center"><strong>{{ _('Nach einer Datumsspanne suchen') }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#dateRangeSearchCollapse" role="button" aria-expanded="false" aria-controls="dateRangeSearchCollapse"><i class="fas fa-caret-down"></i></a></div>
+                    <div class="title mt-3 text-center"><strong><label for="dateRangeButton">{{ _('Nach einer Datumsspanne suchen') }}</label></strong> <button id="dateRangeButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#dateRangeSearchCollapse" type="button" aria-expanded="false" aria-controls="dateRangeSearchCollapse" title="{{ _('Eingabe für die Datumsspannesuche zeigen') }}"><i class="fas fa-caret-down"></i></button></div>
                     <div class="collapse" id="dateRangeSearchCollapse">
-                        <div class="text-center">{{ form.exclusive_date_range(class="align-text-top") }}<a tabindex="0" type="button" class="btn btn-link px-1 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.exclusiveDateSearchMessage }}"> {{ _('Exklusiv') }}</a></div>
+                        <div class="text-center">{{ form.exclusive_date_range(class="align-text-top") }} <label for="exclusive_date_range">{{ _('Exklusiv') }}</label><button type="button" class="btn btn-link px-1 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.exclusiveDateSearchMessage }}" aria-label="{{ _('Hilfe für exklusive Datumsspannesuche') }}"><i class="fas fa-question-circle"></i></button></div>
                         
                         <div class="form-row align-items-center justify-content-center">
                             <div class="date-range-label">{{ _('Von') }}</div>
@@ -170,7 +174,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mt-3 text-center"><strong>{{ form.special_days.label }}</strong> <a class="btn btn-link p-0" data-toggle="collapse" href="#specialDaySearchCollapse" role="button" aria-expanded="false" aria-controls="specialDaySearchCollapse"><i class="fas fa-caret-down"></i></a></div>
+                    <div class="mt-3 text-center"><strong>{{ form.special_days.label(for="specialDayButton") }}</strong> <button id="specialDayButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#specialDaySearchCollapse" type="button" aria-expanded="false" aria-controls="specialDaySearchCollapse" title="{{ _('Eingabe für die bestimmte Tagessuche zeigen') }}"><i class="fas fa-caret-down"></i></button></div>
                     <div class="collapse" id="specialDaySearchCollapse">
                         <div class="text-center"><em>{{ _('Bewegliche Kirchenfeste') }}</em></div>
                         <div class="form-row align-items-center justify-content-center" id="holiday-row">

@@ -5,14 +5,14 @@
     
     <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav my-0 mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
             </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
@@ -22,7 +22,7 @@
             {% endif %}
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
                 <div class="dropdown-menu" aria-labelledby="formulaeDropdown">
                     {% for coll in g.sub_colls['formulae_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
@@ -31,11 +31,11 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
                     {% for coll in g.sub_colls['other_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
@@ -45,7 +45,7 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopus="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
+                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
                 <div class="dropdown-menu" aria-labelledby="manuscriptDropdown">
                     <a class="dropdown-item" href="{{url_for('InstanceNemo.r_man_siglen')}}">{{ _("Liste aller Formelhandschriften") }}</a>
                     <div class="dropdown-divider"></div>
@@ -56,21 +56,28 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" id="accessibilityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Barrierefreiheit') }}</a>
+                <div class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_accessibility_statement')}}">{{ _("Erklärung zur Barrierefreiheit") }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_contact')}}">{{ _("Barrieren Melden") }}</a>
+                </div>
             </li>
         </ul>
         {% include "search::search_box.html" %}
         {% if current_user.is_anonymous %}
         <ul class="navbar-nav flex-column" id="lang-nav">
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" title="Deutsch" value="de"><img id="de-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/DE_flag.png')}}" alt="DE"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" title="Sprache ins Deutsche ändern" value="de"><img id="de-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/DE_flag.png')}}" alt="DE"></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" title="English" value="en"><img id="uk-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/UK_flag.png')}}" alt="EN"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" title="Change the language to English" value="en"><img id="uk-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/UK_flag.png')}}" alt="EN"></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" title="Français" value="fr"><img id="fr-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/FR_flag.png')}}" alt="FR"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" title="Changer la langue en français" value="fr"><img id="fr-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/FR_flag.png')}}" alt="FR"></a>
             </li>
         </ul>
         {% endif %}

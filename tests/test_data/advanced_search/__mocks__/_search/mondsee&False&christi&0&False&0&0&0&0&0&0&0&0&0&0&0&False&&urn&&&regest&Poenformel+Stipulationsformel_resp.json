@@ -1,0 +1,553 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 2,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "mondsee_v4",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 128",
+          "urn": "urn:cts:formulae:mondsee.rath0128.lat001",
+          "date_string": "(Anfang 784- nach 799 04)",
+          "comp_ort": "Buch/Wörth",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Buch/Wörth",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0784",
+              "lte": "0803-12-31"
+            }
+          ],
+          "all_dates": [
+            "0784",
+            "0803-12-31"
+          ],
+          "min_date": "0784",
+          "sort_prefix": 1,
+          "Arenga": "Vox divina clamat per prophetam in universo orbe dicens: nolo mortem peccatoris sed magis, ut convertatur et vivat; et in alio loco scriptura dicit: abscondite aelimosinam in sinu pauperis et ipse orat pro vobis [et] pro peccatis vestris ad dominum; et iterum dicit: quia sicut aqua extinguit ignem, ita elimosina extinguit peccatum. Ego in dei nomine Tato considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiaent vobis, de tanta igitur miseracione et pietate domini confisus, idcirco hanc epistolam donabimus donatumque in perpetuum esse volumus atque de iure nostro in potestatem et dominacionem monasterii sancti Michahelis, cuius vocabulum est Maninseo in pago Matahgouue constructum, ubi preest venerabilis Hunricus abbas vel turba plurima monachorum adunata",
+          "Intitulatio": "Ego in dei nomine Tato",
+          "Überleitungsformel": "considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiaent vobis",
+          "Traditionsformel": "idcirco",
+          "Empfänger": "in potestatem et dominacionem",
+          "Pertinenzformel": "in villa nuncupante Pooh domum meam et curtem meam et mediam terram meam seu media prata mea, et servum cum uxore sua et cum domo sua et peculium utriusque sexus et terra sua, et alius homo cum uxore sua et cum domo sua et cum terra sua vel quicquid habere videtur, sicut a nobis hodierno tempore possidetur",
+          "Übertragungsklausel": "Ea scilicet racione, ut, dum pariter vivimus, antedicta domo vel servi seu terra sub usu [vel] beneficio in potestate nostra consistat, post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium adiuvante deo consistant",
+          "Leihebitte": "Ea scilicet racione, ut, dum pariter vivimus, antedicta domo vel servi seu terra sub usu [vel] beneficio in potestate nostra consistat",
+          "Beneficium": "antedicta domo vel servi seu terra",
+          "Leiheklausel": "post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium adiuvante deo consistant",
+          "Poenformel": "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel qualibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus habeatur, et Iuda traditoris domini nostri Ihesu Christi perfruatur consorcio",
+          "Stipulationsformel": "ut haec presens donatio, quae a nobis pro timore die [et pro amore Christi conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa]"
+        },
+        "highlight": {
+          "Poenformel": [
+            "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel qualibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus habeatur, et Iuda traditoris domini nostri Ihesu </small><strong>Christi</strong><small> perfruatur consorcio"
+          ],
+          "Stipulationsformel": [
+            "ut haec presens donatio, quae a nobis pro timore die [et pro amore </small><strong>Christi</strong><small> conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa]"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0128.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v4",
+        "_type": "mondsee",
+        "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 134",
+          "urn": "urn:cts:formulae:mondsee.rath0134.lat001",
+          "date_string": "Anfang 748- vor 799 04 11",
+          "comp_ort": "Langkampfen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Langkampfen",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0799-04-11"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0799-04-11"
+          ],
+          "min_date": "0748",
+          "sort_prefix": 1,
+          "Arenga": "Vox divina clamat per prophetam in universo orbe dicens: nolo mortem peccatoris sed magis, ut convertatur et vivat; et in alio loco scriptura dicit: abscondite aelimosinam in sinu pauperis et ipse orat pro vobis et pro peccatis vestris ad dominum; et iterum dicit: quia sicut aqua extinguit ignem, ita elimosina extinguit peccatum",
+          "Überleitungsformel": "Ergo ... considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiant vobis, de tanta igitur miseracione et pietate domini confisus",
+          "Intitulatio": "ego in dei nomine Hrodperht",
+          "Traditionsformel": "idcirco hanc epistolam dono atque donatumque in perpetuum esse volo atque de iure meo in potestatem et dominacionem monasterii sancti Michahelis, cuius vocabulum est Maninseo in pago Matahgouue constructum, ubi preest venerabilis Hunricus abbas vel turba plurima monachorum adunata",
+          "Empfänger": "meo in potestatem et dominacionem",
+          "Pertinenzformel": "in villa nuncupante Lantchampha domum meam et omnia terra mea, cum domibus, edificiis, terris, pratis, aquis aquarumve decursibus, et duos servos meos cum uxoribus eorum et cum domibus eorum et cum terra eorum vel quicquid habere videntur, sicut a nobis hodierno tempore possidetur",
+          "Leihebitte": "Ea scilicet racione, ut, dum pariter vivimus ... sub usu vel beneficio in potestate nostra consistat",
+          "Beneficium": "antedicta villa vel edificia seu servi vel quicquid ad ipsum locum pertinet",
+          "Leiheklausel": "post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium consistant",
+          "Poenformel": "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel quelibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus abeatur, et Iuda traditoris domini nostri Ihesu Christi perfruatur consorcio",
+          "Strafe": "insuper etiam, quod repetit, non valeat vindicare, et inferat partibus ipsius monasterii vel fratrum ibidem consistencium duplicem pecuniam atque substanciam, et in sacratissimo fisco auri libras II, argenti pondera V",
+          "Stipulationsformel": "ut haec presens donatio, que a me pro timore dei et pro amore Christi conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa",
+          "Datierung": "Facta est autem haec cartula in loco, qui dicitur Lantchampha",
+          "Corroboratio": "Sunt multi testes"
+        },
+        "highlight": {
+          "Poenformel": [
+            "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel quelibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus abeatur, et Iuda traditoris domini nostri Ihesu </small><strong>Christi</strong><small> perfruatur consorcio"
+          ],
+          "Stipulationsformel": [
+            "ut haec presens donatio, que a me pro timore dei et pro amore </small><strong>Christi</strong><small> conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0134.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 137,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 0
+          },
+          "Angers": {
+            "doc_count": 0
+          },
+          "Archives d’Anjou": {
+            "doc_count": 0
+          },
+          "Arnulfinger": {
+            "doc_count": 0
+          },
+          "Bünden": {
+            "doc_count": 0
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 0
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Echternach": {
+            "doc_count": 0
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 0
+          },
+          "Freising": {
+            "doc_count": 0
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 0
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 0
+          },
+          "Gorze": {
+            "doc_count": 0
+          },
+          "Hersfeld": {
+            "doc_count": 0
+          },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 0
+          },
+          "Luzern": {
+            "doc_count": 0
+          },
+          "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 0
+          },
+          "Merowinger": {
+            "doc_count": 0
+          },
+          "Mittelrheinisch": {
+            "doc_count": 0
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 0
+          },
+          "Passau": {
+            "doc_count": 0
+          },
+          "Regensburg": {
+            "doc_count": 0
+          },
+          "Rheinisch": {
+            "doc_count": 0
+          },
+          "Rätien": {
+            "doc_count": 0
+          },
+          "Salzburg": {
+            "doc_count": 0
+          },
+          "Schäftlarn": {
+            "doc_count": 0
+          },
+          "St. Gallen": {
+            "doc_count": 0
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 0
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 0
+          },
+          "Weißenburg": {
+            "doc_count": 0
+          },
+          "Werden": {
+            "doc_count": 0
+          },
+          "Zürich": {
+            "doc_count": 0
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 0
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 0
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 0
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 62
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 74
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 0
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 0
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 0
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 0
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 0
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Gorze": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 2
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "Rätien": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Schäftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 2
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

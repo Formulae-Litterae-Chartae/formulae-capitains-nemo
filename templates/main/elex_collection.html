@@ -1,4 +1,5 @@
 {% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('E-Lexikon Inhalt') }}{% endblock %}
 
 {% block article %}
 {% set old_first_letter = namespace(letter='') %}
@@ -17,7 +18,7 @@
     </div>
     <h4>{{ _('Gehe zu Buchstabe:') }}</h4>
     {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-    <a type="button" class="btn px-1 mx-0 {% if letter not in collections.readable %}btn-outline-secondary disabled{% else %}btn-outline-primary{% endif %}" href="#L-{{letter}}" >{{letter}}</a>
+    <a type="button" class="elex-letter btn px-1 mx-0 {% if letter not in collections.readable %}btn-outline-secondary disabled{% else %}btn-outline-primary{% endif %}" href="#L-{{letter}}" >{{letter}}</a>
     {% endfor %}
     <div class="row">
         <div class="col-3">

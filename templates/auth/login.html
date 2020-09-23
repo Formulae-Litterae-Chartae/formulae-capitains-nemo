@@ -1,5 +1,6 @@
 {% extends "main::container.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}Formulae - Litterae - Chartae: {{ title }}{% endblock %}
 
 {% block article %}
     <article class="container-fluid" id="login-article">
@@ -7,15 +8,15 @@
     <div class="row">
         {% for form in forms %}
         <div class="col-auto">
-            <h5>{{ form.title }}</h5>
-            {{ wtf.quick_form(form, button_map={'submit': 'outline-secondary'}) }}
+            {% if form.title %}<h5>{{ form.title }}</h5>{% endif %}
+            {{ wtf.quick_form(form, button_map={'submit': 'secondary'}) }}
             {% if purpose == 'login' %}
             <br>
             <p>
                 {{ _('Passwort Vergessen?') }}
-                <a href="{{ url_for('auth.r_reset_password_request') }}">{{ _('Klicken Sie hier, um ihr Passwort zurückzusetzen') }}</a>
+                <a class="outside-link" href="{{ url_for('auth.r_reset_password_request') }}">{{ _('Klicken Sie hier, um ihr Passwort zurückzusetzen') }}</a>
             </p>
-            <p>{{ _('Noch kein Benutzerkonto?') }} <a href="{{ url_for('auth.r_register') }}">{{ _('Klicken Sie hier') }}</a></p>
+            <p>{{ _('Noch kein Benutzerkonto?') }} <a class="outside-link" href="{{ url_for('auth.r_register') }}">{{ _('Klicken Sie hier') }}</a></p>
             {% endif %}
         </div>
         {% endfor %}

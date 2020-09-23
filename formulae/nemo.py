@@ -10,7 +10,7 @@ from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
-from formulae.search.Search import lem_highlight_to_text
+from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -51,7 +51,8 @@ class NemoFormulae(Nemo):
         ("/pdf/<objectId>", "r_pdf", ["GET"]),
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
-        ("/manuscript_desc/siglen", "r_man_siglen", ["GET"])
+        ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
+        ("/accessibility_statement", "r_accessibility_statement", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -178,6 +179,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.filters["replace_indexed_item"] = self.f_replace_indexed_item
         self.app.jinja_env.filters["insert_in_list"] = self.f_insert_in_list
         self.app.jinja_env.filters["random_int"] = self.f_random_int
+        self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
         self.app.before_request(self.before_request)
@@ -1151,37 +1153,50 @@ class NemoFormulae(Nemo):
         :return: transformed html
         """
         root = etree.fromstring(html)
-        spans = root.xpath('//span[contains(@class, "w")]')
         prev_args = session['previous_search_args']
-        search_field = 'text'
-        if prev_args.get('lemma_search', None) == "True":
-            search_field = 'lemmas'
-        ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
-                                           q=prev_args.get('q', ''),
-                                           ordered_terms=prev_args.get('ordered_terms', False),
-                                           slop=prev_args.get('slop', 0),
-                                           regest_field=prev_args.get('regest_field', 'regest'),
-                                           search_field=search_field,
-                                           highlight_field='text',
-                                           fuzz=prev_args.get('fuzziness', '0'))
-        if not any(ids):
-            return html
-        if 'sentence_spans' in ids[0]:
-            for sent_index, sent in enumerate(ids[0]['sents']):
-                for span_index, i in enumerate(ids[0]['sentence_spans'][sent_index]):
-                    if span_index == 0 and 'searched-start' not in spans[i].get('class'):
-                        spans[i].set('class', spans[i].get('class') + ' searched-start')
-                    elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
-                        spans[i].set('class', spans[i].get('class') + ' searched-start')
-                    if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
-                        if 'searched-end' not in spans[i].get('class'):
-                            spans[i].set('class', spans[i].get('class') + ' searched-end')
-                if 'searched-end' not in spans[i].get('class'):
-                    spans[i].set('class', spans[i].get('class') + ' searched-end')
-        xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
-                                    with_tail=True, standalone=None)
-        span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
-        xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
+        if prev_args.get('formulaic_parts', None):
+            parts = prev_args.get('formulaic_parts', '').split('+')
+            for part in parts:
+                if part in results[0]['highlight']:
+                    root.xpath('//span[@function="{}"]'.format(part))[0].set('class', 'searched')
+                    for highlight in results[0]['highlight'][part]:
+                        for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                            for w_tag in root.xpath('//span[@function="{}"]//span[@class="w"]'.format(part)):
+                                if w_tag.text == m.group(1):
+                                    w_tag.set('class', w_tag.get('class') + ' font-weight-bold')
+            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None,
+                                        pretty_print=False, with_tail=True, standalone=None)
+        else:
+            spans = root.xpath('//span[contains(@class, "w")]')
+            search_field = 'text'
+            if prev_args.get('lemma_search', None) == "True":
+                search_field = 'lemmas'
+            ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
+                                               q=prev_args.get('q', ''),
+                                               ordered_terms=prev_args.get('ordered_terms', False),
+                                               slop=prev_args.get('slop', 0),
+                                               regest_field=prev_args.get('regest_field', 'regest'),
+                                               search_field=search_field,
+                                               highlight_field='text',
+                                               fuzz=prev_args.get('fuzziness', '0'))
+            if not any(ids):
+                return html
+            if 'sentence_spans' in ids[0]:
+                for sent_index, sent in enumerate(ids[0]['sents']):
+                    for span_index, i in enumerate(ids[0]['sentence_spans'][sent_index]):
+                        if span_index == 0 and 'searched-start' not in spans[i].get('class'):
+                            spans[i].set('class', spans[i].get('class') + ' searched-start')
+                        elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
+                            spans[i].set('class', spans[i].get('class') + ' searched-start')
+                        if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
+                            if 'searched-end' not in spans[i].get('class'):
+                                spans[i].set('class', spans[i].get('class') + ' searched-end')
+                    if 'searched-end' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-end')
+            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
+                                        with_tail=True, standalone=None)
+            span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+            xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 
     def r_lexicon(self, objectId: str, lang: str = None) -> Dict[str, Any]:
@@ -1246,6 +1261,15 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::manuscript_siglen.html"}
+
+    @staticmethod
+    def r_accessibility_statement() -> Dict[str, str]:
+        """ Route for accessibility statement
+
+        :return: Template to use for accessibility statement page
+        :rtype: {str: str}
+        """
+        return {"template": "main::accessibility_statement.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

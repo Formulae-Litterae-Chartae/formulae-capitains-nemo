@@ -1,4 +1,5 @@
 {% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %} {{ _('Inhalt') }}{% endblock %}
 
 {% macro make_dates(values) %}
 
@@ -21,9 +22,9 @@
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
     {% if collections.parents[-1].id == 'formulae_collection' %}
-    <a class="ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
+    <a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
     {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
-    <a class="man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
+    <a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
     {% endif %}
 </header>
 </div>
@@ -108,7 +109,7 @@
                             {% for p in values['regest'] %}
                                 <p class="{{ copy_class }}"><small>{% if p != 'None' %}{{ p }}{% endif %}</small></p>
                             {% endfor %}
-                            <p class="mb-0 text-right"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
+                            <p class="mb-0 text-right"><a class="internal-link" href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% else %}
                             {{ make_dates(values) }}
                             <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>

@@ -1,4 +1,4 @@
-var lexModal = document.getElementById('lexicon-modal');
+var lexModal = $('#lexicon-modal');
 var scrollControl = document.getElementById('scroll-control-image');
 
 $(document).ready(function(){
@@ -110,6 +110,53 @@ $(document).ready(function(){
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         request.send()
     })
+    
+    $('span.w.lexicon').each(function() {
+        $(this).attr({
+            'title': lexElementTitle[0] + '<span class="latin-word">' + $( this ).attr('data-lexicon').replace('_', ' ') + '</span>' + lexElementTitle[1],
+            'data-toggle': 'tooltip',
+            'data-html': 'true'
+        })
+    })
+    
+    $('span.w.lexicon').on({
+        click: function() {
+            showLexEntry($( this ));
+        },
+        keydown: function(event) {
+            if (event.key == "Enter" || event.key == " ") {
+                showLexEntry($( this ));
+            }
+            $( this ).tooltip('hide');
+        },
+        mouseover: function() {
+            $( this ).tooltip('show');
+        },
+        mouseout: function() {
+            $( this ).tooltip('hide');
+        },
+        focusin: function() {
+            $( this ).tooltip('show');
+        },
+        focusout: function() {
+            $( this ).tooltip('hide');
+        }
+    });
+    
+    $('span.w[lemma]').on({
+        mouseover: function() {
+            showLemma($( this ));
+        },
+        mouseout: function() {
+            hideLemma($( this ));
+        },
+        focusin: function() {
+            showLemma($( this ));
+        },
+        focusout: function() {
+            hideLemma($( this ));
+        }
+    })
 })
 
 function makePopupNote(id) {
@@ -131,7 +178,7 @@ function closeNote(id) {
 }
 
 function showLemma(x) {
-    var lemma = x.getAttribute("lemma");
+    var lemma = x.attr("lemma");
     var lem_box = document.getElementById("lem_box");
     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
@@ -229,9 +276,9 @@ function showNotes(c) {
 }
 
 function showLexEntry(word) {
-        var lemma = word.getAttribute('data-lexicon');
+        var lemma = word.attr('data-lexicon');
         var request = new XMLHttpRequest();
-        var message = lexModal.getAttribute('message');
+        var message = lexModal.attr('message');
         var subdomain = '';
         if (window.location.host == 'tools.formulae.uni-hamburg.de') {
             subdomain = '/dev'
@@ -239,8 +286,8 @@ function showLexEntry(word) {
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
                 if (this.status == 200) {
-                    lexModal.innerHTML = this.responseText;
-                    lexModal.style.display = 'block';
+                    lexModal.html(this.responseText);
+                    lexModal.modal('show');
                 } else {
                     alert(message + lemma)
                 }
@@ -251,12 +298,12 @@ function showLexEntry(word) {
     }
     
 function closeLexEntry() {
-    lexModal.style.display = "none";
+    lexModal.modal('hide');
 }
     
 window.onclick = function(event) {
     if (event.target == lexModal) {
-        lexModal.style.display = 'none';
+        lexModal.modal('hide');
     }
 }
 

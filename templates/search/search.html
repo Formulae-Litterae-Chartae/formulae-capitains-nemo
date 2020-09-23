@@ -1,4 +1,5 @@
 {% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Suchergebnisse') }}{% endblock %}
 {% set previous_search_args = g.previous_search_args|default(session['previous_search_args']) %}
 {% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
 
@@ -7,7 +8,7 @@
     <header>
     {% if total_results > 0 %}
             <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
-         <a type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
+         <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">
             <div class="table-header">
@@ -48,8 +49,8 @@
     {% endif %}
     {% if previous_search_args %}
     <div class="row search-subtitle-row">
-        <div class="col-auto mr-auto search-subtitle"><a href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
-        <div class="col-auto mr-auto search-subtitle"><a href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
+        <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
         </div>
         <div class="col-auto">
             <div class="dropdown">
@@ -61,7 +62,7 @@
                     <div class="dropdown-divider"></div>
                     {% for corp in g.corpora %}
                         {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
-                        <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}"> {{ corp[1] }}</input></span>
+                        <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
                         {% endif %}
                     {% endfor %}
                     <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
@@ -103,7 +104,7 @@
             </table>
         </div>
         <div class="col-auto mr-auto my-auto pl-1">
-            <a onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
+            <a href="#" onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
         </div>
     </div>
     {% endif %}
@@ -124,11 +125,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="{{ sort_urls['urn'] }}">{{ _('Alphabetisch') }}</a></td>
-                    <td><a href="{{ sort_urls['min_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
-                    <td><a href="{{ sort_urls['min_date_desc'] }}">{{ _('Absteigend') }}</a></td>
-                    <td><a href="{{ sort_urls['max_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
-                    <td><a href="{{ sort_urls['max_date_desc'] }}">{{ _('Absteigend') }}</a></td>
+                    <td><a class="internal-link" href="{{ sort_urls['urn'] }}">{{ _('Alphabetisch') }}</a></td>
+                    <td><a class="internal-link" href="{{ sort_urls['min_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
+                    <td><a class="internal-link" href="{{ sort_urls['min_date_desc'] }}">{{ _('Absteigend') }}</a></td>
+                    <td><a class="internal-link" href="{{ sort_urls['max_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
+                    <td><a class="internal-link" href="{{ sort_urls['max_date_desc'] }}">{{ _('Absteigend') }}</a></td>
                 </tr>
             </tbody>
         </table>
@@ -137,7 +138,7 @@
     {% for post in posts %}
         <div class="card">
             {% if current_user.project_team or post['id'] in open_texts %}
-            <div class="card-header py-0 text-center"><a href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">
+            <div class="card-header py-0 text-center"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">
                 {{ post['info']['title'] }}
             </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
             <div class="card-body py-0">
@@ -162,12 +163,12 @@
     <nav aria-label="Search results pages">
         <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item{{ ' disabled' if not first_url }}">
-                <a class="page-link" href="{{ first_url or '#' }}">
+                <a class="page-link" href="{{ first_url or '#' }}" aria-label="{{ _('Erste Ergebnisse') }}">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             <li class="page-item{{ ' disabled' if not prev_url }}">
-                <a class="page-link" href="{{ prev_url or '#' }}">
+                <a class="page-link" href="{{ prev_url or '#' }}" aria-label="{{ _('Vorherige Ergebnisse') }}">
                     <span aria-hidden="true">&lt;</span>
                 </a>
             </li>
@@ -181,12 +182,12 @@
             </li>
             {% endfor %}
             <li class="page-item{{ ' disabled' if not next_url }}">
-                <a class="page-link" href="{{ next_url or '#' }}">
+                <a class="page-link" href="{{ next_url or '#' }}" aria-label="{{ _('Nächste Ergebnisse') }}">
                     <span aria-hidden="true">&gt;</span>
                 </a>
             </li>
             <li class="page-item{{ ' disabled' if not last_url }}">
-                <a class="page-link" href="{{ last_url or '#' }}">
+                <a class="page-link" href="{{ last_url or '#' }}" aria-label="{{ _('Letzte Ergebnisse') }}">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
