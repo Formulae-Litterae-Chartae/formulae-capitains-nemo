@@ -81,25 +81,6 @@
     to {opacity:1 ;}
 } 
 
-ol > li {
-  display: list-item;
-  list-style: none;
-}
-
-ol > li {
-  display: list-item;
-}
-
-ol > li:nth-child(5n) {
-  list-style: decimal;
-}
-ol > li:nth-child(1) {
-  list-style: decimal;
-}
-ol > li:hover {
-  list-style: decimal;
-}
-
 #reading-container article {
   width:100%;
 }
