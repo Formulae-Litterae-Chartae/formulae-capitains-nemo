@@ -70,10 +70,9 @@ $(document).ready(function () {
                 formTypes.push(formType);
             }
         });
-//         Put this back in to show the parts dropdown menu
-//         if (formTypes.length > 0) {
-//             $(".part-menu-icon").css('display', 'block');
-//         }
+        if (formTypes.length > 0) {
+            $(".part-menu-icon").css('display', 'block');
+        }
         for ( t of formTypes ) {
             var menuItem = $("<span></span>").attr("class", "dropdown-item").attr("value", t);
             var inputItem = $("<input></input>").attr({"class" : "show-parts", "type" : "checkbox", "value" : t, 'id': t});
