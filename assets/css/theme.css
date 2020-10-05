@@ -201,7 +201,7 @@ nav .dropdown-menu {
     display: none;
 }
 
-nav .dropdown:hover .dropdown-menu {
+nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     display: block;
 }
 
@@ -1067,4 +1067,16 @@ a.btn-primary,li.page-item.active .page-link {
 .part-menu-dropdown .dropdown-item label, .corpora-search-results-dropdown .dropdown-item label {
     margin-left: 0.3rem;
     display: initial;
+}
+
+#footerNavbar {
+    background-color: #fafafa;
+}
+
+#footerNavbar .nav-link {
+    color: black;
+}
+
+#footerLinkContainer {
+    max-width: 1140px;
 }
