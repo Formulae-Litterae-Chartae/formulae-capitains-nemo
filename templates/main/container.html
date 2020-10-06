@@ -76,6 +76,19 @@
         
     </div>
     </main>
+    <nav class="navbar" id="footerNavbar">
+        <div class="container justify-content-end" id="footerContainer">
+            <a class="nav-link" href="{{ url_for('InstanceNemo.r_impressum') }}">{{ _('Impressum') }}</a>
+            <a class="nav-link" href="{{ url_for('InstanceNemo.r_contact') }}">{{ _('Kontakt') }}</a>
+            <div class="nav-item dropup">
+                <a class="nav-link dropdown-toggle active" role="button" id="accessibilityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Barrierefreiheit') }}</a>
+                <div class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_accessibility_statement')}}">{{ _("Erklärung zur Barrierefreiheit") }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_contact')}}">{{ _("Barrieren melden") }}</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -86,13 +99,14 @@
       {% else %}<script src="{{ filename }}"></script>
       {% endif %}
     {% endfor %}
-
-  {% block additionalscript %}
   <script>
     var simpleSearchQMessage="{{ _('Ein Suchterminus ist erforderlich.') }}"; 
   </script>
+
+  {% block additionalscript %}
   {% endblock %}
   {% block footer %}
   {% endblock %}
+    
   </body>
 </html>
