@@ -1070,13 +1070,14 @@ a.btn-primary,li.page-item.active .page-link {
 }
 
 #footerNavbar {
-    background-color: #fafafa;
+    background-color: #263d3d;
+    top: 30px;
 }
 
 #footerNavbar .nav-link {
-    color: black;
+    color: white;
 }
 
-#footerLinkContainer {
-    max-width: 1140px;
+#main-container {
+    min-height: 65%;
 }
