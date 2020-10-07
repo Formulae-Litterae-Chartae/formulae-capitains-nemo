@@ -347,23 +347,3 @@
 
 {% block metadata %}
 {% endblock %}
-
-{% block additionalscript %}
-<script>
-     var expMess="{{ _('Mehr zeigen') }}";
-     var conMess="{{ _('Weniger zeigen') }}";
-     var appHeading="{{ _('Apparatus') }}";
-     var comHeading="{{ _('Kommentar') }}";
-     var appCloseButton="{{ _('Alle Apparatusanmerkungen für diesen Text ausblenden') }}";
-     var appOpenButton="{{ _('Alle Apparatusanmerkungen für diesen Text einblenden') }}";
-     var comCloseButton="{{ _('Alle Kommentaranmerkungen für diesen Text ausblenden') }}";
-     var comOpenButton="{{ _('Alle Kommentaranmerkungen für diesen Text einblenden') }}";
-     var toScrollingTexts="{{ _('Texte unabhängig von einander scrollen.') }}";
-     var scrollIndependentSrc="{{url_for('InstanceNemo.static', filename='images/scroll_independently.png')}}"
-     var fromScrollingTexts="{{ _('Texte zusammen scrollen.') }}";
-     var scrollTogetherSrc="{{url_for('InstanceNemo.static', filename='images/scroll_together.png')}}";
-     var lexElementTitle=["{{ _('Eintrag zu ') }}", "{{ _(' im Elexikon lesen') }}"];
-</script>
-<script src="{{url_for('InstanceNemo.static', filename='js/multipassage.js')}}"></script>
-<script type='text/javascript' src="{{url_for('InstanceNemo.static', filename='js/mirador.min.js')}}"></script>
-{% endblock %}
