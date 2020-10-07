@@ -131,15 +131,19 @@ $(document).ready(function(){
         },
         mouseover: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         mouseout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         },
         focusin: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         focusout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         }
     });
     
@@ -180,14 +184,14 @@ function closeNote(id) {
 function showLemma(x) {
     var lemma = x.attr("lemma");
     var lem_box = document.getElementById("lem_box");
-    lem_box.setAttribute("default-data", lem_box.innerHTML);
+//     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
 }
 
 function hideLemma() {
     var lem_box = document.getElementById("lem_box");
     lem_box.innerHTML = lem_box.getAttribute("default-data");
-    lem_box.removeAttribute("default-data");
+//     lem_box.removeAttribute("default-data");
 }
 
 function hideNotes(c) {
