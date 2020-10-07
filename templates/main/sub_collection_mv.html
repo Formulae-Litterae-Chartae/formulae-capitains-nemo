@@ -48,7 +48,7 @@
 {% macro build_column(type_dict) %}
     {% for values in type_dict %}
     <div id="{{values['edition_name']}}" class="card mv-rows">
-        <div class="card-header mv-card-header" data-toggle="tooltip" data-placement="top" title="{{values['full_edition_name']}}">
+        <div class="card-header mv-card-header" id="full-{{values['edition_name']}}" data-toggle="tooltip" data-placement="top" data-container="#full-{{values['edition_name']}}" title="{{values['full_edition_name']}}">
             <h5>{{values['edition_name']}}</h5>
         </div>
         <ul class="list-group list-group-flush">

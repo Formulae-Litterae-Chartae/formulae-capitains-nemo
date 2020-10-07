@@ -231,6 +231,27 @@ $(document).ready(function () {
     
     $('[data-toggle="tooltip"]').tooltip()
     
+    $('[data-toggle="tooltip"]').on({
+        click: function() {
+            $( this ).tooltip('hide');
+        },
+        keydown: function(event) {
+            $( this ).tooltip('hide');
+        },
+        mouseover: function() {
+            $( this ).tooltip('show');
+        },
+        mouseout: function() {
+            $( this ).tooltip('hide');
+        },
+        focusin: function() {
+            $( this ).tooltip('show');
+        },
+        focusout: function() {
+            $( this ).tooltip('hide');
+        }
+    });
+    
     //Disable cut, copy, and paste
     $('.no-copy').on('cut copy paste', function (e) {
         e.preventDefault();
