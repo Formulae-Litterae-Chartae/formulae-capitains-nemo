@@ -18,20 +18,22 @@
                             <xsl:attribute name="class">apparatus-title text-white align-middle</xsl:attribute>
                             <xsl:element name="button">
                                 <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-a1-hide-button</xsl:attribute>
-                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0 position-relative</xsl:attribute>
                                 <xsl:attribute name="onclick">hideNotes('<xsl:value-of select="$text-urn"/> a1')</xsl:attribute>
                                 <xsl:attribute name="title"></xsl:attribute>
                                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
-                                <xsl:attribute name="data-container"><xsl:value-of select="$text-urn"/>-a1-hide-button</xsl:attribute>
+                                <xsl:attribute name="data-container">#<xsl:value-of select="$text-urn"/>-a1-hide-button</xsl:attribute>
+                                <xsl:attribute name="data-placement">left</xsl:attribute>
                                 <xsl:text>⊗</xsl:text>
                             </xsl:element>
                             <xsl:element name="button">
                                 <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-a1-show-button</xsl:attribute>
-                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0 hidden-button</xsl:attribute>
+                                <xsl:attribute name="class">btn btn-dark float-right btn-sm text-white m-0 p-0 hidden-button position-relative</xsl:attribute>
                                 <xsl:attribute name="onclick">showNotes('<xsl:value-of select="$text-urn"/> a1')</xsl:attribute>
                                 <xsl:attribute name="title"></xsl:attribute>
                                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
-                                <xsl:attribute name="data-container"><xsl:value-of select="$text-urn"/>-a1-show-button</xsl:attribute>
+                                <xsl:attribute name="data-container">#<xsl:value-of select="$text-urn"/>-a1-show-button</xsl:attribute>
+                                <xsl:attribute name="data-placement">left</xsl:attribute>
                                 <xsl:text>⊕</xsl:text>
                             </xsl:element>
                         </xsl:element>
@@ -52,7 +54,8 @@
                                 <xsl:attribute name="onclick">hideNotes('<xsl:value-of select="$text-urn"/> n1')</xsl:attribute>
                                 <xsl:attribute name="title"></xsl:attribute>
                                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
-                                <xsl:attribute name="data-container"><xsl:value-of select="$text-urn"/>-n1-hide-button</xsl:attribute>
+                                <xsl:attribute name="data-container">#<xsl:value-of select="$text-urn"/>-n1-hide-button</xsl:attribute>
+                                <xsl:attribute name="data-placement">left</xsl:attribute>
                                 <xsl:text>⊗</xsl:text>
                             </xsl:element>
                             <xsl:element name="button">
@@ -61,7 +64,8 @@
                                 <xsl:attribute name="onclick">showNotes('<xsl:value-of select="$text-urn"/> n1')</xsl:attribute>
                                 <xsl:attribute name="title"></xsl:attribute>
                                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
-                                <xsl:attribute name="data-container"><xsl:value-of select="$text-urn"/>-n1-show-button</xsl:attribute>
+                                <xsl:attribute name="data-container">#<xsl:value-of select="$text-urn"/>-n1-show-button</xsl:attribute>
+                                <xsl:attribute name="data-placement">left</xsl:attribute>
                                 <xsl:text>⊕</xsl:text>
                             </xsl:element>
                         </xsl:element>

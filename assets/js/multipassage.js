@@ -4,12 +4,12 @@ var scrollControl = document.getElementById('scroll-control-image');
 $(document).ready(function(){
     var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
     myDefaultWhiteList.button = ['type', 'onclick'];
-    $('.apparatus-title').append(appHeading);
-    $('.commentary-title').append(comHeading);
-    $('[id$="a1-hide-button"]').attr('title', appCloseButton)
-    $('[id$="a1-show-button"]').attr('title', appOpenButton)
-    $('[id$="n1-hide-button"]').attr('title', comCloseButton)
-    $('[id$="n1-show-button"]').attr('title', comOpenButton)
+//     $('.apparatus-title').append(appHeading);
+//     $('.commentary-title').append(comHeading);
+//     $('[id$="a1-hide-button"]').attr('title', appCloseButton)
+//     $('[id$="a1-show-button"]').attr('title', appOpenButton)
+//     $('[id$="n1-hide-button"]').attr('title', comCloseButton)
+//     $('[id$="n1-show-button"]').attr('title', comOpenButton)
     
     // These are the popovers for the notes in the right column of the normal text view.
     $('[data-toggle="bibl-popover"]').popover(

@@ -15,7 +15,7 @@
                     <div>
                         <span class="align-middle">{{ text.collections.current.label }}</span>
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-hide-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 relative-position" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')"data-toggle="tooltip" data-container="#{{ text.objectId|replace(':', '-')|replace('.', '-') }}-hide-button" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}" data-placement="left">&#8855;</button>
-                        <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button relative-position" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" data-toggle="tooltip" data-container="#{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
+                        <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button relative-position" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" data-toggle="tooltip" data-container="#{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}" data-placement="left">&#8853;</button>
                     </div>
                 </div>
                 <div class="{{ note_class }}" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
