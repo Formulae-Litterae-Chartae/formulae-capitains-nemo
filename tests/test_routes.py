@@ -27,6 +27,7 @@ from math import ceil
 from datetime import date
 from copy import copy
 from io import StringIO
+from lxml import etree
 
 
 class TestConfig(Config):
@@ -820,45 +821,46 @@ class TestIndividualRoutes(Formulae_Testing):
         # Highlighting should cross boundary of parent nodes
         session['previous_search_args'] = {'q': 'Text that I want to search'}
         search_string = ['Text that I want to search']
-        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w searched-end">that</span></span></p><p><span class="searched"><span class="w searched-start searched-end">I</span></span></p><p><span class="searched"><span class="w searched-start">want</span><span class="w">to</span><span class="w searched-end">search</span></span>'
+        expected = search_string[0].split()
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         mock_highlight.return_value = [[{'sents': search_string, 'sentence_spans': [range(0, 6)]}], []]
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result)
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
         # Should be able to deal with editorial punctuation in the text
         search_string = ['Text with special editorial signs in it']
-        expected = '<span class="searched"><span class="w searched-start">Text</span><span class="w">with</span><span class="w">sp&lt;e&gt;cial</span><span class="w">[edi]torial</span><span class="w">[signs</span><span class="w">in</span><span class="w searched-end">i]t</span></span>'
+        expected = ['Text', 'with', 'sp<e>cial', '[edi]torial', '[signs', 'in', 'i]t']
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result)
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
         # Make sure that results are also returned whether lemma or text, simple or advanced
         session['previous_search_args']['lemma_search'] = 'False'
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result, 'Advanced with text should work.')
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with text should work.')
         session['previous_search_args']['lemma_search'] = 'True'
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result, 'Advanced with lemmas should work.')
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with lemmas should work.')
         session['previous_search_args'].pop('lemma_search', None)
         session['previous_search_args']['lemma_search'] = 'True'
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result, 'Simple with lemmas should work.')
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with lemmas should work.')
         session['previous_search_args'].pop('lemma_search', None)
         session['previous_search_args']['lemma_search'] = 'False'
-        result = self.nemo.highlight_found_sents(html_input, [])
-        self.assertIn(expected, result, 'Simple with text should work.')
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with text should work.')
         # Should return the same result when passed in the session variable to r_multipassage
         session['previous_search'] = [{'_id': obj_id,
                                        'title': 'Salzburg A1',
                                        'sents': search_string,
                                        'sentence_spans': [range(6, 13)]}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
-        self.assertIn(expected, passage_data['objects'][0]['text_passage'])
-        #Make sure that when no sentences are highlighted, the original HTML is returned
+        result = etree.fromstring(passage_data['objects'][0]['text_passage'])
+        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
+        # Make sure that when no sentences are highlighted, the original HTML is returned
         mock_highlight.return_value = ([], [])
         result = self.nemo.highlight_found_sents(html_input, [])
         self.assertEqual(html_input, result)
@@ -873,7 +875,7 @@ class TestIndividualRoutes(Formulae_Testing):
         html_output = self.nemo.highlight_found_sents(html_input, results)
         self.assertIn('<span function="Invocatio-oder-Inscriptio" title="Invocatio oder Inscriptio" class="searched">',
                       html_output)
-        self.assertIn('<span class="w font-weight-bold">trinitatis</span>', html_output)
+        self.assertIn('class="w font-weight-bold">trinitatis</span>', html_output)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")

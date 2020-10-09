@@ -1195,7 +1195,7 @@ class NemoFormulae(Nemo):
                         spans[i].set('class', spans[i].get('class') + ' searched-end')
             xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                         with_tail=True, standalone=None)
-            span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+            span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
             xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 

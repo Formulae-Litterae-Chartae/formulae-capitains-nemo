@@ -229,7 +229,7 @@ function buildUrl(qSource) {
 
 $(document).ready(function () {
     
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'})
     
     $('[data-toggle="tooltip"]').on({
         click: function() {
