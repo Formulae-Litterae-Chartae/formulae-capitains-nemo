@@ -45,6 +45,7 @@
             <xsl:text> </xsl:text>
         </xsl:if> -->       
         <xsl:element name="span">
+            <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
@@ -64,6 +65,7 @@
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="tabindex">0</xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
+                <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@type]">
                 <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>

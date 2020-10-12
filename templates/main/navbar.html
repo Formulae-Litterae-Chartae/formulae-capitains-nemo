@@ -12,7 +12,7 @@
             {% if current_user.is_anonymous %}
                 <a class="nav-link" href="{{ url_for('auth.r_login') }}">{{ _('Einloggen') }}</a>
             {% else %}
-                <span class="navbar-text px-2"><a href="{{ url_for('auth.r_user', username=current_user.username) }}" title="{{ _('Benutzerprofil ändern') }}">{{ current_user.username }}</a> <small>(<a href="{{ url_for('auth.r_logout') }}">{{ _('ausloggen') }}</a>)</small></span>
+                <span class="navbar-text px-2"><a href="{{ url_for('auth.r_user', username=current_user.username) }}" id="profile-link" data-toggle="tooltip" data-container="#profile-link" title="{{ _('Benutzerprofil ändern') }}">{{ current_user.username }}</a> <small>(<a href="{{ url_for('auth.r_logout') }}">{{ _('ausloggen') }}</a>)</small></span>
             {% endif %}
             </li>
             <li class="nav-item dropdown">
@@ -58,13 +58,13 @@
         {% if current_user.is_anonymous %}
         <ul class="navbar-nav flex-column" id="lang-nav">
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" title="Sprache ins Deutsche ändern" value="de"><img id="de-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/DE_flag.png')}}" alt="DE"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='de') }}" id="german-link" data-toggle="tooltip" data-container="#german-link" title="Sprache ins Deutsche ändern" value="de"><img id="de-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/DE_flag.png')}}" alt="DE"></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" title="Change the language to English" value="en"><img id="uk-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/UK_flag.png')}}" alt="EN"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='en') }}" id="english-link" data-toggle="tooltip" data-container="#english-link" title="Change the language to English" value="en"><img id="uk-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/UK_flag.png')}}" alt="EN"></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" title="Changer la langue en français" value="fr"><img id="fr-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/FR_flag.png')}}" alt="FR"></a>
+                <a class="nav-link lang-link" href="{{ url_for('InstanceNemo.r_set_language', code='fr') }}" id="french-link" data-toggle="tooltip" data-container="#french-link" title="Changer la langue en français" value="fr"><img id="fr-flag-navbar" class="img-fluid" src="{{url_for('InstanceNemo.static', filename='images/FR_flag.png')}}" alt="FR"></a>
             </li>
         </ul>
         {% endif %}

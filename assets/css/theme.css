@@ -1081,3 +1081,7 @@ a.btn-primary,li.page-item.active .page-link {
 #main-container {
     min-height: 65%;
 }
+
+.relative-position {
+    position: relative;
+}

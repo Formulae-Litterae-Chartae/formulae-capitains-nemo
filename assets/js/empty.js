@@ -228,8 +228,35 @@ function buildUrl(qSource) {
 }
 
 $(document).ready(function () {
+    $('.apparatus-title').append(appHeading);
+    $('.commentary-title').append(comHeading);
+    $('[id$="a1-hide-button"]').attr('title', appCloseButton)
+    $('[id$="a1-show-button"]').attr('title', appOpenButton)
+    $('[id$="n1-hide-button"]').attr('title', comCloseButton)
+    $('[id$="n1-show-button"]').attr('title', comOpenButton)
     
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'})
+    
+    $('[data-toggle="tooltip"]').on({
+        click: function() {
+            $( this ).tooltip('hide');
+        },
+        keydown: function(event) {
+            $( this ).tooltip('hide');
+        },
+        mouseover: function() {
+            $( this ).tooltip('show');
+        },
+        mouseout: function() {
+            $( this ).tooltip('hide');
+        },
+        focusin: function() {
+            $( this ).tooltip('show');
+        },
+        focusout: function() {
+            $( this ).tooltip('hide');
+        }
+    });
     
     //Disable cut, copy, and paste
     $('.no-copy').on('cut copy paste', function (e) {

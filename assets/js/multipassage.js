@@ -4,12 +4,12 @@ var scrollControl = document.getElementById('scroll-control-image');
 $(document).ready(function(){
     var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
     myDefaultWhiteList.button = ['type', 'onclick'];
-    $('.apparatus-title').append(appHeading);
-    $('.commentary-title').append(comHeading);
-    $('[id$="a1-hide-button"]').attr('title', appCloseButton)
-    $('[id$="a1-show-button"]').attr('title', appOpenButton)
-    $('[id$="n1-hide-button"]').attr('title', comCloseButton)
-    $('[id$="n1-show-button"]').attr('title', comOpenButton)
+//     $('.apparatus-title').append(appHeading);
+//     $('.commentary-title').append(comHeading);
+//     $('[id$="a1-hide-button"]').attr('title', appCloseButton)
+//     $('[id$="a1-show-button"]').attr('title', appOpenButton)
+//     $('[id$="n1-hide-button"]').attr('title', comCloseButton)
+//     $('[id$="n1-show-button"]').attr('title', comOpenButton)
     
     // These are the popovers for the notes in the right column of the normal text view.
     $('[data-toggle="bibl-popover"]').popover(
@@ -131,15 +131,19 @@ $(document).ready(function(){
         },
         mouseover: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         mouseout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         },
         focusin: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         focusout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         }
     });
     
@@ -180,14 +184,14 @@ function closeNote(id) {
 function showLemma(x) {
     var lemma = x.attr("lemma");
     var lem_box = document.getElementById("lem_box");
-    lem_box.setAttribute("default-data", lem_box.innerHTML);
+//     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
 }
 
 function hideLemma() {
     var lem_box = document.getElementById("lem_box");
     lem_box.innerHTML = lem_box.getAttribute("default-data");
-    lem_box.removeAttribute("default-data");
+//     lem_box.removeAttribute("default-data");
 }
 
 function hideNotes(c) {
