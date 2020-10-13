@@ -122,6 +122,16 @@ Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
             }
         }
     },
+    gutter: (index, direction, pairElement) => {
+        const gutter = document.createElement('div')
+        gutter.setAttribute("tabindex", "0");
+        var order = 2;
+        if (pairElement.id == 'sidebar_r') {
+            order = 3
+        } 
+        gutter.className = `gutter gutter-${direction} order-${order}`
+        return gutter
+    },
     gutterStyle: (dimension, gutterSize) => ({
         'flex-basis':  `${gutterSize}px`,
     }),
