@@ -507,7 +507,6 @@ button.close {
 .search-subtitle {
     padding-top: 0rem;
     padding-bottom: 0rem;
-    padding-left: 1.5rem;
     font-size: 1.25rem;
 }
 
@@ -1084,4 +1083,16 @@ a.btn-primary,li.page-item.active .page-link {
 
 .relative-position {
     position: relative;
+}
+
+#results-title-column {
+    width: 15%;
+}
+
+#results-date-column {
+    width: 10%;
+}
+
+#table-view-link {
+    margin-left: 0;
 }

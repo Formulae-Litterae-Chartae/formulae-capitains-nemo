@@ -11,6 +11,7 @@ from io import BytesIO
 from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
+from math import floor
 
 
 CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -41,6 +42,13 @@ def r_results():
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
+    template = 'search::search.html'
+    posts_per_page = current_app.config['POSTS_PER_PAGE']
+    page = request.args.get('page', 1, type=int)
+    if request.args.get('partsTable', None):
+        template = 'search::part_results.html'
+        posts_per_page = 10000
+        page = 1
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
@@ -58,12 +66,11 @@ def r_results():
         special_days = special_days.split('+')
         if len(special_days) == 1:
             special_days = special_days[0].split(' ')
-    page = request.args.get('page', 1, type=int)
     old_search = False
     if request.args.get('old_search', None) == 'True':
         old_search = True
-    search_args = dict(per_page=current_app.config['POSTS_PER_PAGE'],
-                       lemma_search=request.args.get('lemma_search', 'False'),
+    search_args = dict(per_page=posts_per_page,
+                       lemma_search=request.args.get('lemma_search', 'False') or 'False',
                        q=request.args.get('q'),
                        fuzziness=request.args.get("fuzziness", "0"),
                        page=page,
@@ -142,7 +149,7 @@ def r_results():
             inf_to_lemmas.append(lem_possibilites)
         if not all(inf_to_lemmas):
             inf_to_lemmas = []
-    return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
+    return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts,
                                                  next_url=next_url, prev_url=prev_url, page_urls=page_urls,
                                                  first_url=first_url, last_url=last_url, current_page=page,
                                                  search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
@@ -245,7 +252,7 @@ def download_search_results(download_id: str) -> Response:
                               ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
                               ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
                               ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
-                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora'))]
+                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora')), ('formulaic_parts', _('Urkundenteile'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
         for arg, s in search_arg_mapping:
             if arg in session['previous_search_args']:
@@ -256,24 +263,56 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             if arg == 'special_days':
                 value = ' - '.join([special_day_dict[x] for x in value.split('+')])
+            if arg == 'formulaic_parts':
+                value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
         search_field = 'text'
-        if prev_args.get('lemma_search', None) == "True":
-            search_field = 'lemmas'
-        try:
-            ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
-                                               q=prev_args.get('q', ''),
-                                               ordered_terms=prev_args.get('ordered_terms', False),
-                                               slop=prev_args.get('slop', 0),
-                                               regest_field=prev_args.get('regest_field', 'regest'),
-                                               search_field=search_field,
-                                               highlight_field='text',
-                                               fuzz=prev_args.get('fuzz', '0'),
-                                               download_id=download_id)
-        # This finally statement makes sure that the JS function to get the progress halts on an error.
-        finally:
+        if prev_args.get('formulaic_parts', None):
+            ids = []
+            for list_index, hit in enumerate(session['previous_search']):
+                sents = []
+                if 'highlight' in hit:
+                    for k, v in hit['highlight'].items():
+                        for t in v:
+                            sents.append('<b>{part}</b>: {text}'.format(part=k, text=t))
+                else:
+                    for p in prev_args.get('formulaic_parts').split('+'):
+                        if p in hit['_source']:
+                            sents.append('<b>{part}</b>: {text}'.format(part=p, text=hit['_source'][p]))
+                regest_sents = []
+                open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+                half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+                show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+                regest_field=prev_args.get('regest_field', 'regest')
+                if 'highlight' in hit and regest_field in hit['highlight']:
+                    if show_regest is False:
+                        regest_sents = [_('Regest nicht zugänglich.')]
+                    else:
+                        regest_sents = hit['highlight'][regest_field]
+                ids.append({'id': hit['_id'],
+                            'info': hit['_source'],
+                            'sents': sents,
+                            'title': hit['_source']['title'],
+                            'regest_sents': regest_sents})
+                current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
+        else:
+            if prev_args.get('lemma_search', None) == "True":
+                search_field = 'lemmas'
+            try:
+                ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
+                                                   q=prev_args.get('q', ''),
+                                                   ordered_terms=prev_args.get('ordered_terms', False),
+                                                   slop=prev_args.get('slop', 0),
+                                                   regest_field=prev_args.get('regest_field', 'regest'),
+                                                   search_field=search_field,
+                                                   highlight_field='text',
+                                                   fuzz=prev_args.get('fuzz', '0'),
+                                                   download_id=download_id)
+            # This finally statement makes sure that the JS function to get the progress halts on an error.
+            finally:
+                current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:

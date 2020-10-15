@@ -4,7 +4,7 @@
 {% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
 
 {% block article %}
-    <article>
+    <article class="container-fluid">
     <header>
     {% if total_results > 0 %}
             <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
@@ -58,7 +58,7 @@
                     {{ _('Zeig nur Resultate aus:') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
-                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% elif arg=='formulaic_parts' %}{{ previous_search_args['formulaic_parts']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
                     {% for corp in g.corpora %}
                         {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
@@ -134,6 +134,9 @@
             </tbody>
         </table>
     </div>
+    {% endif %}
+    {% if g.previous_search_args['formulaic_parts'] %}
+    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&partsTable=true{% endif %}">{{ _('Resultate als Tabelle zeigen') }}</a></div>
     {% endif %}
     {% for post in posts %}
         <div class="card">
