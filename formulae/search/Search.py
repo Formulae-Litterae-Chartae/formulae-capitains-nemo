@@ -332,7 +332,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     'sents': ordered_sentences,
                     'sentence_spans': ordered_sentence_spans,
                     'title': hit['_source']['title'],
-                    'regest_sents': regest_sents})
+                    'regest_sents': regest_sents,
+                    'highlight': ordered_sentences})
     return ids, all_highlighted_terms
 
 
@@ -511,26 +512,31 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 ids = []
                 for hit in search['hits']['hits']:
                     highlight_sents = []
+                    full_highlight = []
                     for s_field in search_field:
                         if 'highlight' in hit and s_field in hit['highlight']:
                             highlight_sents += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
+                            full_highlight += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + x) for x in hit['highlight'][s_field]]
                     ids.append({'id': hit['_id'],
                                 'info': hit['_source'],
                                 'sents': highlight_sents,
                                 'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                                if 'highlight' in hit and regest_field in hit['highlight'] else []})
+                                if 'highlight' in hit and regest_field in hit['highlight'] else [],
+                                'highlight': full_highlight})
             else:
                 ids = [{'id': hit['_id'],
                         'info': hit['_source'],
                         'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
                         'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                        if 'highlight' in hit and regest_field in hit['highlight'] else []}
+                        if 'highlight' in hit and regest_field in hit['highlight'] else [],
+                        'highlight': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else []}
                        for hit in search['hits']['hits']]
     elif regest_q:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [],
-                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]}
+                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]],
+                'highlight': []}
                for hit in search['hits']['hits']]
     elif isinstance(search_field, list):
         ids = []
@@ -540,9 +546,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 if s_field in hit['_source']:
                     sent = '<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]
                     sents.append(Markup(sent))
-            ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': []})
+            ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': [], 'highlight': sents})
     else:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': []}
+        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': [], 'highlight': []}
                for hit in search['hits']['hits']]
     if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
         prev_search = set_session_token(corpus, body_template, search_field, q if search_field in ['text', 'lemmas'] else '')

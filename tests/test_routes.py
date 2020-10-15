@@ -756,6 +756,19 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest',
                                            formulaic_parts="Poenformel+Stipulationsformel")
+            c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
+                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
+                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&partsTable=true', follow_redirects=True)
+            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
+                                           day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10000, q='',
+                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
+                                           source='advanced', regest_field='regest',
+                                           formulaic_parts="Poenformel+Stipulationsformel")
+            self.assertTemplateUsed('search::part_results.html')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -3758,11 +3771,15 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.MOCK_VECTOR_RETURN_VALUE
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
-        self.nemo.open_texts.append('urn:cts:formulae:buenden.meyer-marthaler0027.lat001')
+        self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0027.lat001', 'urn:cts:formulae:mondsee.rath0128.lat001']
         with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
             expected = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_lemmas.pdf', mode='rb') as f:
             expected_lemmas = f.read()
+        with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='rb') as f:
+            expected_parts = f.read()
+        with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='rb') as f:
+            expected_parts_no_q = f.read()
         with self.client as c:
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download/1')
@@ -3779,6 +3796,34 @@ class TestES(Formulae_Testing):
             #with open('tests/test_data/advanced_search/downloaded_search_lemmas.pdf', mode='wb') as f:
             #    f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_lemmas).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+            test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
+            test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+            fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+            resp = fake.load_response()
+            mock_search.return_value = resp
+            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['special_days'] = [test_args['special_days']]
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            r = c.get('/search/download/1')
+            # Uncomment this when the mock search download file needs to be recreated
+            #with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='wb') as f:
+            #    f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+            test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
+            test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+            fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+            resp = fake.load_response()
+            mock_search.return_value = resp
+            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['special_days'] = [test_args['special_days']]
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            r = c.get('/search/download/1')
+            # Uncomment this when the mock search download file needs to be recreated
+            #with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='wb') as f:
+            #    f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts_no_q).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
     @patch.object(Elasticsearch, "search")
