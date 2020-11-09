@@ -71,27 +71,27 @@
         </div>
     </div>
     {% endif %}
-    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Resultate als Liste zeigen') }}</a></div>
+    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Resultate nach Korpus zeigen') }}</a></div>
     
     <table id="partsSearchResultTable" class="table table-sm table-hover">
         <caption>{{ _('Suchergebnisse') }}</caption>
         <thead>
             <tr>
-                <th id="results-title-column" scope="col">{{ _('Titel') }} <i class="fas fa-sort"></i></th>
-                <th id="results-date-column" scope="col">{{ _('Datierung') }} <i class="fas fa-sort"></i></th>
                 <th id="results-text-column" scope="col">{{ _('Text') }} <i class="fas fa-sort"></i></th>
+                <th id="results-date-column" scope="col">{{ _('Datierung') }} <i class="fas fa-sort"></i></th>
+                <th id="results-title-column" scope="col">{{ _('Edition') }} <i class="fas fa-sort"></i></th>
             </tr>
         </thead>
         <tbody>
         {% for post in posts %}
             <tr>
+                <td>{% if current_user.project_team or post['id'] in open_texts %}{% for sent in post['highlight'] %}<p class="card-text m-0"><small>- {{ sent }}</small></p>{% endfor %}{% else %}<span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ _('Text nicht verfügbar') }}</span>{% endif %}</td>
+                <td sortVal="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %} {{ post['info']['date_string'] }}{% endif %}</td>
             {% if current_user.project_team or post['id'] in open_texts %}
                 <td sortVal="{{  post['id'] }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
             {% else %}
                 <td sortVal="{{  post['id'] }}"><a class="disabled" href="#">{{ post['info']['title'] }}</a></td>
             {% endif %}
-                <td sortVal="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %} {{ post['info']['date_string'] }}{% endif %}</td>
-                <td>{% if current_user.project_team or post['id'] in open_texts %}{% for sent in post['highlight'] %}<p class="card-text m-0"><small>- {{ sent }}</small></p>{% endfor %}{% else %}<span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ _('Text nicht verfügbar') }}</span>{% endif %}</td>
             </tr>
         {% endfor %}
         </tbody>

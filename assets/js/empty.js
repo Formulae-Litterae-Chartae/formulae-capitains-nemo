@@ -252,7 +252,7 @@ function sortSearchResultsTable(n) {
       /* Check if the two rows should switch place,
       based on the direction, asc or desc: */
       if (dir == "asc") {
-          if (n == 2) {
+          if (n == 0) {
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
             // If so, mark as a switch and break the loop:
             shouldSwitch = true;
@@ -266,7 +266,7 @@ function sortSearchResultsTable(n) {
             }
         }
       } else if (dir == "desc") {
-          if (n == 2) {
+          if (n == 0) {
             if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
             // If so, mark as a switch and break the loop:
             shouldSwitch = true;
@@ -447,7 +447,9 @@ $(document).ready(function () {
         $( this ).prev().css("background-color", "inherit");
     });
     
-    $('#results-title-column').click(function() {sortSearchResultsTable(0)});
+    $('#results-text-column').click(function() {sortSearchResultsTable(0)});
     $('#results-date-column').click(function() {sortSearchResultsTable(1)});
-    $('#results-text-column').click(function() {sortSearchResultsTable(2)});
+    $('#results-title-column').click(function() {sortSearchResultsTable(2)});
+    
+    $('#results-text-column').trigger('click');
 })
