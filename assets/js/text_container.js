@@ -33,6 +33,21 @@ $(document).ready(function () {
         handles: "s",
     });
     
+    $('.ui-resizable-handle.ui-resizable-s').attr('tabindex', '0');
+    
+    $('.ui-resizable-handle.ui-resizable-s').keydown( function(event) {
+        var parent = $( this ).closest('.multi-reading-row');
+        var curr_ht = parent.height();
+        var key = event.charCode || event.keyCode;
+        if (key == 38) {
+            event.preventDefault();
+            parent.height( curr_ht - 10 )
+        } else if (key == 40) {
+            event.preventDefault();
+            parent.height( curr_ht + 10 )
+        };
+    });
+    
     $('.multi-reading-row').each(function() {
         $( this ).css("height", "40vh");
     })
