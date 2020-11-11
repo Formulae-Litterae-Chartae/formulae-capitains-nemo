@@ -28,12 +28,42 @@ $(document).ready(function () {
         })
     })
     
+    $('.gutter.gutter-horizontal').keydown( function(event) {
+        if ( $( this ).hasClass( "order-2" ) ) {
+            var indOne = 0;
+            var indTwo = 1;
+        } else if ( $( this ).hasClass( "order-3" ) ) {
+            var indOne = 1;
+            var indTwo = 2;
+        } else {
+            return;
+        };
+        var widths = splitInstance.getSizes();
+        var key = event.charCode || event.keyCode;
+        if (key == 37) {
+            event.preventDefault();
+            if (widths[indOne] >= 0.5) {
+                widths[indOne] = widths[indOne] - 1;
+                widths[indTwo] = widths[indTwo] + 1;
+            };
+        } else if (key == 39) {
+            event.preventDefault();
+            if (widths[indTwo] >= 0.5) {
+                widths[indOne] = widths[indOne] + 1;
+                widths[indTwo] = widths[indTwo] - 1;
+            };
+        };
+        splitInstance.setSizes(widths);
+    });
+    
     // Allow texts when in rows reading format to be expanded and contracted by the user
     $('.multi-reading-row').resizable({
         handles: "s",
     });
     
     $('.ui-resizable-handle.ui-resizable-s').attr('tabindex', '0');
+    $('.ui-resizable-handle.ui-resizable-s').addClass('text-center');
+    $('.ui-resizable-handle.ui-resizable-s').html('<img src="' + handleBackgroundImage + '" alt="Horizontal Handle">');
     
     $('.ui-resizable-handle.ui-resizable-s').keydown( function(event) {
         var parent = $( this ).closest('.multi-reading-row');
@@ -122,7 +152,7 @@ $(document).ready(function () {
     });
 })
 
-Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
+var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
     sizes: splitSizes,
     minSize: [0, 100, 0],
     elementStyle: function(dimension, size, gutterSize) {
