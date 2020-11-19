@@ -73,8 +73,7 @@
     {% endif %}
     <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Resultate nach Korpus zeigen') }}</a></div>
     
-    <table id="partsSearchResultTable" class="table table-sm table-hover">
-        <caption>{{ _('Suchergebnisse') }}</caption>
+    <table id="partsSearchResultTable" class="table table-sm table-hover" aria-label="{{ _('Suchergebnisse') }}">
         <thead>
             <tr>
                 <th id="results-text-column" scope="col">{{ _('Text') }} <i class="fas fa-sort"></i></th>
