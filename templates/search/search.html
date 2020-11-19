@@ -138,30 +138,42 @@
     {% if previous_search_args['formulaic_parts'] %}
     <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&partsTable=true{% endif %}">{{ _('Resultate nach Textteilen zeigen') }}</a></div>
     {% endif %}
-    {% for post in posts %}
-        <div class="card">
+    <table id="corpusSearchResultTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Suchergebnisse') }}">
+        <thead>
+            <tr>
+                <th id="results-title-column" scope="col">{{ _('Edition') }}</th>
+                <th id="results-date-column" scope="col">{{ _('Datierung') }}/{{ _('Ausstellungsort') }}</th>
+                <th id="results-text-column" scope="col">{{ _('Text') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
             {% if current_user.project_team or post['id'] in open_texts %}
-            <div class="card-header py-0 text-center"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">
-                {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
-            <div class="card-body py-0">
-                {% for sent in post['sents'] %}
-                <p class="card-text m-0"><small>- {{ sent }}</small></p>
-                {% endfor %}
-                {% if post['regest_sents'] %}
-                <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
-                {% endif %}
-                {% for sent in post['regest_sents'] %}
-                <p class="card-text m-0"><small>- {{ sent }}</small></p>
-                {% endfor %}
-            </div>
+                <td sortVal="{{  post['id'] }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
             {% else %}
-            <div class="card-header py-0 text-center"><a class="disabled" id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">
-                {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
+                <td sortVal="{{  post['id'] }}"><a class="disabled" href="#">{{ post['info']['title'] }}</a></td>
             {% endif %}
-        </div>
-    {% endfor %}
+                <td sortVal="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% if post['info']['orig_comp_ort']  != ' ' %}<br>{% endif %}{% endif %}{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
+                <td>
+                {% if current_user.project_team or post['id'] in open_texts %}
+                    {% for sent in post['sents'] %}
+                    <p class="card-text m-0"><small>- {{ sent }}</small></p>
+                    {% endfor %}
+                    {% if post['regest_sents'] %}
+                    <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
+                    {% endif %}
+                    {% for sent in post['regest_sents'] %}
+                    <p class="card-text m-0"><small>- {{ sent }}</small></p>
+                    {% endfor %}
+                {% else %}
+                    <span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ _('Text nicht verfügbar') }}</span>
+                {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     {% if last_url or first_url %}
     <nav aria-label="Search results pages">
         <ul class="pagination pagination-sm justify-content-center">
