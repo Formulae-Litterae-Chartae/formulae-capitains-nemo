@@ -26,7 +26,9 @@ if (navigator.language == 'none') {
 function restrictSearch() {
     var button = document.getElementById('restrictSearchButton');
     var re = new RegExp('&corpus=[^&]*');
+    var partRe = new RegExp('&formulaic_parts=[^&]*');
     var corpora = document.getElementsByClassName('corp-restrict-to');
+    var parts = document.getElementsByClassName('part-restrict-to');
     var oldUrl = button.getAttribute('href');
     var newCorpora = new Array();
     for (let corp of corpora){
@@ -34,7 +36,15 @@ function restrictSearch() {
             newCorpora.push(corp.getAttribute('value'));
         }
     }
-    button.setAttribute('href', oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B') + '&old_search=True'));
+    var newParts = new Array();
+    for (let part of parts){
+        if (part.checked) {
+            newParts.push(part.getAttribute('value'));
+        }
+    }
+    oldUrl = oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B'));
+    oldUrl = oldUrl.replace(partRe, '&formulaic_parts=' + newParts.join('%2B'))
+    button.setAttribute('href', oldUrl + '&old_search=True');
 }
 
 function makeLemmaSearch() {
@@ -447,9 +457,13 @@ $(document).ready(function () {
         $( this ).prev().css("background-color", "inherit");
     });
     
-    $('#results-text-column').click(function() {sortSearchResultsTable(0)});
-    $('#results-date-column').click(function() {sortSearchResultsTable(1)});
-    $('#results-title-column').click(function() {sortSearchResultsTable(2)});
+    $('#partsSearchResultTable #results-text-column').click(function() {sortSearchResultsTable(0)});
+    $('#partsSearchResultTable #results-date-column').click(function() {sortSearchResultsTable(1)});
+    $('#partsSearchResultTable #results-title-column').click(function() {sortSearchResultsTable(2)});
     
-    $('#results-text-column').trigger('click');
+    $('#partsSearchResultTable #results-text-column').trigger('click');
+    
+    $('#restrictSearchButton').click(function() {
+        restrictSearch();
+    })
 })

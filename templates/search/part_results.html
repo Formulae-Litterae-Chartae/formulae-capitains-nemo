@@ -53,19 +53,32 @@
         <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
         </div>
         <div class="col-auto">
-            <div class="dropdown">
+            <div class="dropleft">
                 <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ _('Zeig nur Resultate aus:') }}
+                    {{ _('Resultate filtern') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
-                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <a class="dropdown-item text-center" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% elif arg=='formulaic_parts' %}{{ previous_search_args['formulaic_parts']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&partsTable=true&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
-                    {% for corp in g.corpora %}
-                        {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
-                        <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
-                        {% endif %}
-                    {% endfor %}
-                    <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
+                    <div class="table-header">
+                        <div class="table-cell">{{ _('Korpora') }}</div>
+                        <div class="table-cell">{{ _('Urkundenteile') }}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                        {% for corp in g.corpora %}
+                            {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <div class="table-cell">
+                        {% for form_part in g.form_parts %}
+                            <span class="dropdown-item"><input class="part-restrict-to" name="corpus" type="checkbox" value="{{ form_part[0] }}" id="part-restrict-{{ form_part[0] }}"></input><label for="part-restrict-{{ form_part[0] }}">{{ form_part[1] }}</label></span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <span class="dropdown-item text-center"><a href="{{ request.url }}" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
                 </div>
             </div>
         </div>
