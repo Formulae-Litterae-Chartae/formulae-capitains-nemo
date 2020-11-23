@@ -149,7 +149,7 @@
     </div>
     {% endif %}
     {% if previous_search_args['formulaic_parts'] %}
-    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ previous_search_args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&partsTable=true{% endif %}">{{ _('Resultate nach Textteilen zeigen') }}</a></div>
+    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&partsTable=true">{{ _('Resultate nach Textteilen zeigen') }}</a></div>
     {% endif %}
     <table id="corpusSearchResultTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Suchergebnisse') }}">
         <thead>
