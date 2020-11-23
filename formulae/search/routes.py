@@ -3,7 +3,7 @@ from flask_babel import _
 from math import ceil
 from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS, \
     lem_highlight_to_text
-from .forms import AdvancedSearchForm
+from .forms import AdvancedSearchForm, FORM_PARTS
 from formulae.search import bp
 from json import dumps
 import re
@@ -61,6 +61,9 @@ def r_results():
     else:
         corps = corpus
     g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    g.form_parts = []
+    if request.args.get('formulaic_parts'):
+        g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
     special_days = request.args.get('special_days')
     if special_days:
         special_days = special_days.split('+')

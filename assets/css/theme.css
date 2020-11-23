@@ -423,18 +423,18 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     font-weight: bold;
 }
 
-#search-stat-table .table-header {
+#search-stat-table .table-header,.corpora-search-results-dropdown .table-header {
     display: table-header-group;
 }
 
-#search-stat-table .table-header .table-cell {
+#search-stat-table .table-header .table-cell,.corpora-search-results-dropdown .table-header .table-cell {
     border-right: 1px solid #ddd;
     padding-left: 0.5rem;
     display: table-cell;
     font-weight: bold;
 }
 
-#search-stat-table .table-row {
+#search-stat-table .table-row,.corpora-search-results-dropdown .table-row {
     display: table-row;
 }
 
@@ -451,7 +451,7 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     display: table-cell;
 }
 
-#search-stat-table .table-row .table-cell {
+#search-stat-table .table-row .table-cell,.corpora-search-results-dropdown .table-row .table-cell {
     border-right: 1px solid #ddd;
     vertical-align:top;
     display: table-cell;
