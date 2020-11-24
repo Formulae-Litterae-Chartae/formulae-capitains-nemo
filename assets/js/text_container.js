@@ -1,8 +1,10 @@
-if (window.innerWidth < 768) {
-        var splitSizes = [25, 50, 25];
-    } else {
-        var splitSizes = [16, 68, 16];
-    };
+if ( window.innerWidth < 576 ) {
+    var splitSizes = [0, 100, 0];
+} else if (window.innerWidth < 768) {
+    var splitSizes = [25, 50, 25];
+} else {
+    var splitSizes = [16, 68, 16];
+};
 
 $(document).ready(function () {
     $('.reading-sidebar').each(function() {
