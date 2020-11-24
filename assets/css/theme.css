@@ -860,44 +860,29 @@ span.corpus_coverage {
     border-color: navy;
 }
 
-.Beneficium-bg {
-    border-bottom-style: solid;
-    border-color: blue;
-}
-
-.Beurkundungsbeschluss-oder-Beurkundungsgewährung-bg {
-    border-bottom-style: solid;
-    border-color: darkblue;
-}
-
 .Corroboratio-bg {
     border-bottom-style: solid;
     border-color: lightslategrey;
 }
 
-.Datierung-bg {
-    border-bottom-style: solid;
-    border-color: teal;
-}
-
 .Dispositio-bg {
     border-bottom-style: solid;
-    border-color: olive;
+    border-color: red;
 }
 
-.Empfänger-bg {
+.Eschatokoll-bg {
     border-bottom-style: solid;
-    border-color: green;
-}
-
-.Erwähnung-der-Schenkung-bg {
-    border-bottom-style: solid;
-    border-color: darkgreen;
+    border-color: orange;
 }
 
 .Intitulatio-bg {
     border-bottom-style: solid;
-    border-color: cornflowerblue;
+    border-color: green;
+}
+
+.Inscriptio-bg {
+    border-bottom-style: solid;
+    border-color: blue;
 }
 
 .Invocatio-oder-Inscriptio-bg {
@@ -905,24 +890,9 @@ span.corpus_coverage {
     border-color: darkolivegreen;
 }
 
-.Konsensformel-bg {
+.Narratio-bg {
     border-bottom-style: solid;
-    border-color: orange;
-}
-
-.Leihebitte-bg {
-    border-bottom-style: solid;
-    border-color: red;
-}
-
-.Leihegewährung-bg {
-    border-bottom-style: solid;
-    border-color: maroon;
-}
-
-.Leiheklausel-bg {
-    border-bottom-style: solid;
-    border-color: lightblue;
+    border-color: darkblue;
 }
 
 .Narratives-Element-bg {
@@ -935,14 +905,9 @@ span.corpus_coverage {
     border-color: black;
 }
 
-.Pertinenzformel-des-Tauschpartners-bg {
-    border-bottom-style: solid;
-    border-color: gray;
-}
-
 .Poenformel-bg {
     border-bottom-style: solid;
-    border-color: silver;
+    border-color: gray;
 }
 
 .Provenienz-bg {
@@ -960,11 +925,6 @@ span.corpus_coverage {
     border-color: darkgray;
 }
 
-.Schreiber-bg {
-    border-bottom-style: solid;
-    border-color: darkgreen;
-}
-
 .Stipulationsformel-bg {
     border-bottom-style: solid;
     border-color: khaki;
@@ -973,26 +933,6 @@ span.corpus_coverage {
 .Strafe-bg {
     border-bottom-style: solid;
     border-color: olive;
-}
-
-.Subscriptiones-bg {
-    border-bottom-style: solid;
-    border-color: seagreen;
-}
-
-.Traditionsformel-bg {
-    border-bottom-style: solid;
-    border-color: steelblue;
-}
-
-.Überleitungsformel-bg {
-    border-bottom-style: solid;
-    border-color: tan;
-}
-
-.Übertragungsklausel-bg {
-    border-bottom-style: solid;
-    border-color: peru;
 }
 
 #manuscript-table tbody td:first-child p {
