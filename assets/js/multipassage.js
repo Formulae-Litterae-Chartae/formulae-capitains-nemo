@@ -77,16 +77,28 @@ $(document).ready(function(){
     $('.expand').each(function() {
         $(this).attr('title', expMess);
     })
-
-    $('.note').click(function() {
-        var linkTarget = $(this).attr('href');
-        $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
-        $( linkTarget ).addClass( 'flash-yellow' );
-        if ($(linkTarget).hasClass('fade-out')) {
-            $(linkTarget).toggleClass('expanded fade-out');
-            $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
-        }
-    })
+    
+    if ( screen.width > 767 ) {
+        $('.note').click(function() {
+            var linkTarget = $(this).attr('href');
+            $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
+            $( linkTarget ).addClass( 'flash-yellow' );
+            if ($(linkTarget).hasClass('fade-out')) {
+                $(linkTarget).toggleClass('expanded fade-out');
+                $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
+            }
+        })
+    } else {
+        $('.note').popover({
+            container: 'body',
+            content: function() {
+                var text = $( $(this).attr('href') + ' div.card' ).children('span').clone();
+                text.children('button').remove();
+                return text.html();
+            },
+            html: true
+        })
+    }
     
     // AJAX request to change reading format and then refresh the page
     $('.reading-format-setter').on('click', function(event) {

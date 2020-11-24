@@ -1,62 +1,63 @@
-if ( window.innerWidth < 576 ) {
-    var splitSizes = [0, 100, 0];
-} else if (window.innerWidth < 768) {
+if (window.innerWidth < 992) {
     var splitSizes = [25, 50, 25];
 } else {
     var splitSizes = [16, 68, 16];
 };
 
 $(document).ready(function () {
-    $('.reading-sidebar').each(function() {
-        $( this ).css('max-width', '33%');
-        $( this ).css('min-width', '0');
-        $( this ).removeClass('d-none d-lg-block')
-    })
-    
-    $('#sidebar_r').css('padding-left', '0px');
-
-    $('#sidebar_l').css('padding-right', '0px');
-
-    $('#reading-container').css({
-        "padding-left": '0px',
-        "padding-right": '0px'
-    });
-    
-    $('.gutter.gutter-horizontal').each(function() {
-        $( this ).css({
-            'visibility': 'visible',
-            'background-image': gutterBackgroundImage,
-            'z-index': 1000
+    if ( screen.width > 767 ) {
+        // use Split to show notes
+        $('.reading-sidebar').each(function() {
+            $( this ).css('max-width', '33%');
+            $( this ).css('min-width', '0');
+            $( this ).removeClass('d-none d-lg-block')
         })
-    })
-    
-    $('.gutter.gutter-horizontal').keydown( function(event) {
-        if ( $( this ).hasClass( "order-2" ) ) {
-            var indOne = 0;
-            var indTwo = 1;
-        } else if ( $( this ).hasClass( "order-3" ) ) {
-            var indOne = 1;
-            var indTwo = 2;
-        } else {
-            return;
-        };
-        var widths = splitInstance.getSizes();
-        var key = event.charCode || event.keyCode;
-        if (key == 37) {
-            event.preventDefault();
-            if (widths[indOne] >= 0.5) {
-                widths[indOne] = widths[indOne] - 1;
-                widths[indTwo] = widths[indTwo] + 1;
+        
+        $('#sidebar_r').css('padding-left', '0px');
+
+        $('#sidebar_l').css('padding-right', '0px');
+
+        $('#reading-container').css({
+            "padding-left": '0px',
+            "padding-right": '0px'
+        });
+        
+        $('.gutter.gutter-horizontal').each(function() {
+            $( this ).css({
+                'visibility': 'visible',
+                'background-image': gutterBackgroundImage,
+                'z-index': 1000
+            })
+        })
+        
+        $('.gutter.gutter-horizontal').keydown( function(event) {
+            if ( $( this ).hasClass( "order-2" ) ) {
+                var indOne = 0;
+                var indTwo = 1;
+            } else if ( $( this ).hasClass( "order-3" ) ) {
+                var indOne = 1;
+                var indTwo = 2;
+            } else {
+                return;
             };
-        } else if (key == 39) {
-            event.preventDefault();
-            if (widths[indTwo] >= 0.5) {
-                widths[indOne] = widths[indOne] + 1;
-                widths[indTwo] = widths[indTwo] - 1;
+            var widths = splitInstance.getSizes();
+            var key = event.charCode || event.keyCode;
+            if (key == 37) {
+                event.preventDefault();
+                if (widths[indOne] >= 0.5) {
+                    widths[indOne] = widths[indOne] - 1;
+                    widths[indTwo] = widths[indTwo] + 1;
+                };
+            } else if (key == 39) {
+                event.preventDefault();
+                if (widths[indTwo] >= 0.5) {
+                    widths[indOne] = widths[indOne] + 1;
+                    widths[indTwo] = widths[indTwo] - 1;
+                };
             };
-        };
-        splitInstance.setSizes(widths);
-    });
+            splitInstance.setSizes(widths);
+        });
+    }
     
     // Allow texts when in rows reading format to be expanded and contracted by the user
     $('.multi-reading-row').resizable({
