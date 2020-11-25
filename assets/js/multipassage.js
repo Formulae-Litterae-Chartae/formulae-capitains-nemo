@@ -89,14 +89,12 @@ $(document).ready(function(){
             }
         })
     } else {
-        $('.note').popover({
-            container: 'body',
-            content: function() {
-                var text = $( $(this).attr('href') + ' div.card' ).children('span').clone();
-                text.children('button').remove();
-                return text.html();
-            },
-            html: true
+        $('.note').click( function() {
+            var text = $( $(this).attr('href') ).children('div').children('span').clone();
+            text.children('button').remove();
+            text.find('a[data-container]').attr({'data-toggle': 'elex-modal-popover', 'class': 'modal-popover'});
+            $('#note-modal div.modal-body').html(text.html());
+            $('#note-modal').modal('show');
         })
     }
     

@@ -306,7 +306,7 @@
                 <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>
-                <xsl:attribute name="aria-controls"><xsl:value-of select="concat('multiCollapseExample', $note_num)"/></xsl:attribute>
+                <xsl:attribute name="aria-controls"><xsl:value-of select="generate-id()"/></xsl:attribute>
                 <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
                 <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
                 <xsl:value-of select="$note_num"/>
