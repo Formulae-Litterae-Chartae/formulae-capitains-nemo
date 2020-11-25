@@ -23,7 +23,7 @@
 
 <!-- THE LEFT COLUMN -->
 <!-- occurs after the middle column in the DOM for a more logical tab order -->
-<div id="sidebar_l" class="col-3 col-md-2 d-none d-lg-block reading-sidebar order-1">
+<div id="sidebar_l" class="col-sm-3 col-md-2 d-none d-lg-block reading-sidebar order-1">
     <div class="d-flex flex-column" id="left-sticky-col">
         {% if session['previous_search'] %}
             {% include "main::prev_search.html" %}
@@ -35,7 +35,7 @@
 </div>
 
 <!-- THE RIGHT COLUMN -->
-<div id="sidebar_r" class="col-3 col-md-2 d-none d-lg-block reading-sidebar order-5">
+<div id="sidebar_r" class="col-sm-3 col-md-2 d-none d-lg-block reading-sidebar order-5">
     <div class="d-flex flex-column" id="right-sticky-col">
         {% include "main::lexicon.html" %}
         {% if objects|length > 1 %}

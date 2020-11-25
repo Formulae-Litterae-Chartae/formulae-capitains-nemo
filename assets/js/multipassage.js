@@ -77,16 +77,26 @@ $(document).ready(function(){
     $('.expand').each(function() {
         $(this).attr('title', expMess);
     })
-
-    $('.note').click(function() {
-        var linkTarget = $(this).attr('href');
-        $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
-        $( linkTarget ).addClass( 'flash-yellow' );
-        if ($(linkTarget).hasClass('fade-out')) {
-            $(linkTarget).toggleClass('expanded fade-out');
-            $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
-        }
-    })
+    
+    if ( screen.width > 767 ) {
+        $('.note').click(function() {
+            var linkTarget = $(this).attr('href');
+            $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
+            $( linkTarget ).addClass( 'flash-yellow' );
+            if ($(linkTarget).hasClass('fade-out')) {
+                $(linkTarget).toggleClass('expanded fade-out');
+                $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
+            }
+        })
+    } else {
+        $('.note').click( function() {
+            var text = $( $(this).attr('href') ).children('div').children('span').clone();
+            text.children('button').remove();
+            text.find('a[data-container]').attr({'data-toggle': 'elex-modal-popover', 'class': 'modal-popover'});
+            $('#note-modal div.modal-body').html(text.html());
+            $('#note-modal').modal('show');
+        })
+    }
     
     // AJAX request to change reading format and then refresh the page
     $('.reading-format-setter').on('click', function(event) {
