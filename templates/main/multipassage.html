@@ -210,7 +210,8 @@
         {% else %}
             {% set copy_class = '' %}
         {% endif %}
-        <article class="hentry entry white row{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
+        <div class="row mx-0">
+        <article class="hentry entry white col-sm-12{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
             <!-- <nav>
                 {{ navigation }}
             </nav> -->
@@ -222,8 +223,8 @@
             {%set new_reffs = objects|map(attribute='subreference')|list %}
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
             
-            <div class="row ml-auto pt-0 pb-0 control-row">
-                <div class="col col-auto add-window-icon">
+            <div class="row pt-0 pb-0 control-row">
+                <div class="col col-auto add-window-icon ml-auto">
                     {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
                 </div>
                 <div class="col col-auto part-menu-icon">
@@ -270,6 +271,7 @@
             </div>
             {% endif %}
         </article>
+        </div>
         {% endfor %}
         
     {% else %}
