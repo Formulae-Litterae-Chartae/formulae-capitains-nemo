@@ -10,7 +10,6 @@
 
 {% macro header_passage(object, index, all_texts, all_reffs) %}
 <div class="col-12 justify-content-center px-0">
-    <div class="text-center">
         <div class="row pt-0 pb-0">
             {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
             {% set prev_obj = _('Vorherige Formel') %}
@@ -87,7 +86,6 @@
             {% endif %}
         {% endif %}
         </div>
-    </div>
     {% if 'elexicon' not in object.objectId and 'manifest' not in object.objectId %}
         {% if object.open_regest or current_user.project_team or object.collections.current.dating or object.collections.current.issued_at %}
         {% include "main::regest_collapse.html" %}
@@ -223,7 +221,7 @@
             {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
             
             <div class="row ml-auto pt-0 pb-0 control-row">
-                <div class="col col-auto add-window-icon">
+                <div class="col col-auto add-window-icon ml-auto">
                     {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
                 </div>
                 <div class="col col-auto part-menu-icon">
@@ -256,10 +254,16 @@
             </div>
             {% if  text.text_passage %}
             <div class="text-row row">
-                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                <div class="d-flex flex-row">{{ navigation }}</div>
-                    {{ text.text_passage }}
-                <footer>{% include "main::passage_footer.html" %}</footer>
+                <div class="col-12">
+                    <div class="row">{{ header_passage(text, loop.index, all_texts, all_reffs) }}</div>
+                    <div class="d-flex flex-row">{{ navigation }}</div>
+                    <div class="row">
+                        <div class="col-12">
+                            {{ text.text_passage }}
+                        </div>
+                    </div>
+                    <footer>{% include "main::passage_footer.html" %}</footer>
+                </div>
             </div>
             {% else %}
             <div class="image-row">
@@ -273,7 +277,7 @@
         {% endfor %}
         
     {% else %}
-        <article class="hentry entry white col-sm-12">
+        <article class="hentry entry white">
             <!-- <nav>
                 {{ navigation }}
             </nav> -->
@@ -315,19 +319,27 @@
                         {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
                         {% endif %}
                     </div>
-                    <section class="text-section{{ copy_class }}">
-                    {% if  text.text_passage %}
-                        {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                        <div class="d-flex flex-row">{{ navigation }}</div>
-                            {{ text.text_passage }}
-                        <footer>{% include "main::passage_footer.html" %}</footer>
-                    {% else %}
-                        {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                        {% with manifest = text.manifest, div_v = text.div_v %}
-                        {% include "viewer::embededmirador.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    </section>
+                    <div class="row">
+                        <section class="col-12 text-section{{ copy_class }}">
+                        {% if  text.text_passage %}
+                            <div class="row">
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            </div>
+                            <div class="d-flex flex-row">{{ navigation }}</div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ text.text_passage }}
+                                </div>
+                            </div>
+                            <footer>{% include "main::passage_footer.html" %}</footer>
+                        {% else %}
+                            {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            {% with manifest = text.manifest, div_v = text.div_v %}
+                            {% include "viewer::embededmirador.html" %}
+                            {% endwith %}
+                        {% endif %}
+                        </section>
+                    </div>
                 </div>
             {% endfor %}
             </div>

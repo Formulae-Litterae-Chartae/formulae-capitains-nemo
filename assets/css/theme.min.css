@@ -129,6 +129,7 @@ ul.menu li a.active {
 
 #reading-container article.multi-reading-row { 
     padding-right: 30px;
+    padding-left: 30px;
 }
 
 #reading-container article.multi-reading-row[style*="height: auto"] {
