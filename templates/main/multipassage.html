@@ -11,7 +11,7 @@
 {% macro header_passage(object, index, all_texts, all_reffs) %}
 <div class="col-12 justify-content-center px-0">
     <div class="text-center">
-        <div class="row pt-0 pb-0">
+        <div class="row pt-0 pb-0 mx-0">
             {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
             {% set prev_obj = _('Vorherige Formel') %}
             {% set next_obj = _('Nächste Formel') %}
@@ -23,7 +23,7 @@
             {% set next_obj = _('Nächste Urkunde') %}
             {% endif %}
         </div>
-        <div class="row py-1 align-items-center">
+        <div class="row py-1 align-items-center mx-0">
         {% set ns = namespace(hit_index=-1) %}
         {% for hit in session['previous_search'] %}
             {% if hit['_id'] == object.objectId %}
@@ -211,129 +211,133 @@
             {% set copy_class = '' %}
         {% endif %}
         <div class="row mx-0">
-        <article class="hentry entry white col-sm-12{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
-            <!-- <nav>
-                {{ navigation }}
-            </nav> -->
+            <article class="hentry entry white col-sm-12{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
+                <!-- <nav>
+                    {{ navigation }}
+                </nav> -->
 
-            
-            
-            {%set all_texts = objects|map(attribute='objectId')|list %}
-            {%set all_reffs = objects|map(attribute='subreference')|list %}
-            {%set new_reffs = objects|map(attribute='subreference')|list %}
-            {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-            
-            <div class="row pt-0 pb-0 control-row">
-                <div class="col col-auto add-window-icon ml-auto">
-                    {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
-                </div>
-                <div class="col col-auto part-menu-icon">
-                    <div class="dropleft">
-                        <button class="dropdown-toggle part-menu-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id="part-menu-icon-{{ loop.index }}" data-toggle="tooltip" data-container="#part-menu-icon-{{ loop.index }}" title="{{ _('Urkundenteile zeigen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}"></span>
-                        </button>
-                        <div class="dropdown-menu part-menu-dropdown">
-                            <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts" id="All-Parts"><label for="All-Parts">{{ _('Alle zeigen') }}</label></span>
-                            <div class="dropdown-divider"></div>
-                            <!-- More spans should be added here as necessary by JS -->
+                
+                
+                {%set all_texts = objects|map(attribute='objectId')|list %}
+                {%set all_reffs = objects|map(attribute='subreference')|list %}
+                {%set new_reffs = objects|map(attribute='subreference')|list %}
+                {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
+                
+                <div class="row pt-0 pb-0 control-row">
+                    <div class="col col-auto add-window-icon ml-auto">
+                        {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
+                    </div>
+                    <div class="col col-auto part-menu-icon">
+                        <div class="dropleft">
+                            <button class="dropdown-toggle part-menu-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="part-menu-icon-{{ loop.index }}" data-toggle="tooltip" data-container="#part-menu-icon-{{ loop.index }}" title="{{ _('Urkundenteile zeigen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}"></span>
+                            </button>
+                            <div class="dropdown-menu part-menu-dropdown">
+                                <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts" id="All-Parts"><label for="All-Parts">{{ _('Alle zeigen') }}</label></span>
+                                <div class="dropdown-divider"></div>
+                                <!-- More spans should be added here as necessary by JS -->
+                            </div>
                         </div>
                     </div>
+                    {% if loop.length > 1 %}
+                    <div class="col col-auto maximize-window-icon">
+                        <a href="#" class="maximize-column-link" id="maximize-link-{{ loop.index }}" data-toggle="tooltip" data-container="#maximize-link-{{ loop.index }}" title="{{ _('Maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Maximieren') }}"></a>
+                    </div>
+                    <div class="col col-auto minimize-window-icon">
+                        <a href="#" class="minimize-column-link" id="minimize-link-{{ loop.index }}" data-toggle="tooltip" data-container="#minimize-link-{{ loop.index }}"  title="{{ _('Original Größe') }}"><img src="{{url_for('InstanceNemo.static', filename='images/minimize_window.png')}}" alt="{{ _('Original Größe') }}"></a>
+                    </div>
+                    {% endif %}
+                    {% if objects|length > 1 %}
+                    <div class="col col-auto close-window-icon">
+                        <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" id="remove-column-{{ loop.index }}" data-toggle="tooltip" data-container="#remove-column-{{ loop.index }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
+                    </div>
+                    {% set all_texts = all_texts|insert_in_list(loop.index - 1, text.objectId) %}
+                    {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
+                    {% endif %}
                 </div>
-                {% if loop.length > 1 %}
-                <div class="col col-auto maximize-window-icon">
-                    <a href="#" class="maximize-column-link" id="maximize-link-{{ loop.index }}" data-toggle="tooltip" data-container="#maximize-link-{{ loop.index }}" title="{{ _('Maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Maximieren') }}"></a>
+                {% if  text.text_passage %}
+                <div class="text-row row">
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                    <div class="d-flex flex-row">{{ navigation }}</div>
+                        {{ text.text_passage }}
+                    <footer>{% include "main::passage_footer.html" %}</footer>
                 </div>
-                <div class="col col-auto minimize-window-icon">
-                    <a href="#" class="minimize-column-link" id="minimize-link-{{ loop.index }}" data-toggle="tooltip" data-container="#minimize-link-{{ loop.index }}"  title="{{ _('Original Größe') }}"><img src="{{url_for('InstanceNemo.static', filename='images/minimize_window.png')}}" alt="{{ _('Original Größe') }}"></a>
+                {% else %}
+                <div class="image-row">
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                    {% with manifest = text.manifest, div_v = text.div_v %}
+                    {% include "viewer::embededmirador.html" %}
+                    {% endwith %}
                 </div>
                 {% endif %}
-                {% if objects|length > 1 %}
-                <div class="col col-auto close-window-icon">
-                    <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" id="remove-column-{{ loop.index }}" data-toggle="tooltip" data-container="#remove-column-{{ loop.index }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
-                </div>
-                {% set all_texts = all_texts|insert_in_list(loop.index - 1, text.objectId) %}
-                {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
-                {% endif %}
-            </div>
-            {% if  text.text_passage %}
-            <div class="text-row row">
-                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                <div class="d-flex flex-row">{{ navigation }}</div>
-                    {{ text.text_passage }}
-                <footer>{% include "main::passage_footer.html" %}</footer>
-            </div>
-            {% else %}
-            <div class="image-row">
-                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                {% with manifest = text.manifest, div_v = text.div_v %}
-                {% include "viewer::embededmirador.html" %}
-                {% endwith %}
-            </div>
-            {% endif %}
-        </article>
+            </article>
         </div>
         {% endfor %}
         
     {% else %}
-        <article class="hentry entry white col-sm-12">
-            <!-- <nav>
-                {{ navigation }}
-            </nav> -->
+        <div class="row mx-0">
+            <article class="hentry entry white col-sm-12">
+                <!-- <nav>
+                    {{ navigation }}
+                </nav> -->
 
-            <div class="row pt-3">
-                <section class="col-sm with-border" id="viewer" style="display:none;"></section>
-            {% for text in objects %}
-            {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
-                {% set copy_class = ' no-copy' %}
-            {% else %}
-                {% set copy_class = '' %}
-            {% endif %}
-            {%set all_texts = objects|map(attribute='objectId')|list %}
-            {%set all_reffs = objects|map(attribute='subreference')|list %}
-            {%set new_reffs = objects|map(attribute='subreference')|list %}
-            {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
-                <div class="col-sm{% if not loop.last %} with-border{% endif %}">
-                    <div class="row pt-0 pb-0 control-row">
-                        <div class="col col-auto add-window-icon ml-auto">
-                            {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
-                        </div>
-                        <div class="col col-auto part-menu-icon">
-                            <div class="dropleft">
-                                <a class="dropdown-toggle part-menu-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span id="part-menu-icon-{{ loop.index }}" data-toggle="tooltip" data-container="#part-menu-icon-{{ loop.index }}" title="{{ _('Urkundenteile zeigen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}"></span>
-                                </a>
-                                <div class="dropdown-menu part-menu-dropdown">
-                                    <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts"> <label>{{ _('Alle zeigen') }}</label></span>
-                                    <div class="dropdown-divider"></div>
-                                    <!-- More spans should be added here as necessary by JS -->
+                <div class="row pt-3">
+                    <section class="col-sm with-border" id="viewer" style="display:none;"></section>
+                {% for text in objects %}
+                {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+                    {% set copy_class = ' no-copy' %}
+                {% else %}
+                    {% set copy_class = '' %}
+                {% endif %}
+                {%set all_texts = objects|map(attribute='objectId')|list %}
+                {%set all_reffs = objects|map(attribute='subreference')|list %}
+                {%set new_reffs = objects|map(attribute='subreference')|list %}
+                {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
+                    <div class="col-sm{% if not loop.last %} with-border{% endif %}">
+                        <div class="row pt-0 pb-0 control-row">
+                            <div class="col col-auto add-window-icon ml-auto">
+                                {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
+                            </div>
+                            <div class="col col-auto part-menu-icon">
+                                <div class="dropleft">
+                                    <a class="dropdown-toggle part-menu-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span id="part-menu-icon-{{ loop.index }}" data-toggle="tooltip" data-container="#part-menu-icon-{{ loop.index }}" title="{{ _('Urkundenteile zeigen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}"></span>
+                                    </a>
+                                    <div class="dropdown-menu part-menu-dropdown">
+                                        <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts"> <label>{{ _('Alle zeigen') }}</label></span>
+                                        <div class="dropdown-divider"></div>
+                                        <!-- More spans should be added here as necessary by JS -->
+                                    </div>
                                 </div>
                             </div>
+                            {% if objects|length > 1 %}
+                            <div class="col col-auto close-window-icon">
+                                <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" id="remove-column-{{ loop.index }}" data-toggle="tooltip" data-container="#remove-column-{{ loop.index }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
+                            </div>
+                            {% set all_texts = all_texts|insert_in_list(loop.index - 1, text.objectId) %}
+                            {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
+                            {% endif %}
                         </div>
-                        {% if objects|length > 1 %}
-                        <div class="col col-auto close-window-icon">
-                            <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" id="remove-column-{{ loop.index }}" data-toggle="tooltip" data-container="#remove-column-{{ loop.index }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
-                        </div>
-                        {% set all_texts = all_texts|insert_in_list(loop.index - 1, text.objectId) %}
-                        {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
+                        <section class="text-section{{ copy_class }}">
+                        {% if  text.text_passage %}
+                            <div class="row mx-0">
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            </div>
+                            <div class="d-flex flex-row">{{ navigation }}</div>
+                                {{ text.text_passage }}
+                            <footer>{% include "main::passage_footer.html" %}</footer>
+                        {% else %}
+                            {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            {% with manifest = text.manifest, div_v = text.div_v %}
+                            {% include "viewer::embededmirador.html" %}
+                            {% endwith %}
                         {% endif %}
+                        </section>
                     </div>
-                    <section class="text-section{{ copy_class }}">
-                    {% if  text.text_passage %}
-                        {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                        <div class="d-flex flex-row">{{ navigation }}</div>
-                            {{ text.text_passage }}
-                        <footer>{% include "main::passage_footer.html" %}</footer>
-                    {% else %}
-                        {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                        {% with manifest = text.manifest, div_v = text.div_v %}
-                        {% include "viewer::embededmirador.html" %}
-                        {% endwith %}
-                    {% endif %}
-                    </section>
+                {% endfor %}
                 </div>
-            {% endfor %}
-            </div>
-        </article>
+            </article>
+        </div>
     {% endif %}
 
 

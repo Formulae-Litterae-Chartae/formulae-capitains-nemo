@@ -1,5 +1,5 @@
 var lexModal = $('#lexicon-modal');
-var scrollControl = document.getElementById('scroll-control-image');
+var scrollControl = document.getElementById('scroll-text-separate');
 
 $(document).ready(function(){
     var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
@@ -322,12 +322,13 @@ window.onclick = function(event) {
 }
 
 function changeScrollMode(el) {
-    if (el.getAttribute('title') == toScrollingTexts) {
+    var imgChild = el.children[0];
+    if (el.getAttribute('title') == toScrollingTexts || el.getAttribute('title') == '') {
         el.setAttribute('title', fromScrollingTexts);
-        el.setAttribute('src', scrollTogetherSrc);
+        imgChild.setAttribute('src', scrollTogetherSrc);
     } else {
         el.setAttribute('title', toScrollingTexts);
-        el.setAttribute('src', scrollIndependentSrc);
+        imgChild.setAttribute('src', scrollIndependentSrc);
     };
     var textSections = document.querySelectorAll('.text-section');
     for (let section of textSections) {
@@ -336,10 +337,11 @@ function changeScrollMode(el) {
 }
 
 function goToLinkedParagraph(h, t) {
-    el = document.getElementById(t);
-    if (scrollControl && scrollControl.getAttribute('title') == toScrollingTexts) {
+    var el = document.getElementById(t);
+    var imgChild = scrollControl.children[0];
+    if (scrollControl && (scrollControl.getAttribute('title') == toScrollingTexts || scrollControl.getAttribute('title') == '')) {
         scrollControl.setAttribute('title', fromScrollingTexts);
-        scrollControl.setAttribute('src', scrollTogetherSrc);
+        imgChild.setAttribute('src', scrollTogetherSrc);
         var textSections = document.querySelectorAll('.text-section');
         for (let section of textSections) {
             section.classList.toggle('scrolling');
