@@ -2,8 +2,6 @@ var lexModal = $('#lexicon-modal');
 var scrollControl = document.getElementById('scroll-text-separate');
 
 $(document).ready(function(){
-    var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
-    myDefaultWhiteList.button = ['type', 'onclick'];
 //     $('.apparatus-title').append(appHeading);
 //     $('.commentary-title').append(comHeading);
 //     $('[id$="a1-hide-button"]').attr('title', appCloseButton)
@@ -23,6 +21,10 @@ $(document).ready(function(){
           boundary: 'window',
           template: '<div class="popover charter-bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
           html: true
+    })
+    
+    $('body').on('click', '.bibl-popover a.close', function() {
+        $( this ).closest('.bibl-popover').popover('hide');
     })
     
     // These are the popups in the elexicon modal notes.

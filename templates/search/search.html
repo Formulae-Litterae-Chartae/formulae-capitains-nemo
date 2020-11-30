@@ -54,7 +54,7 @@
         </div>
         <div class="col-auto">
             <div class="dropleft">
-                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" data-reference="parent" aria-haspopup="true" aria-expanded="false">
                     {{ _('Resultate filtern') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
@@ -62,7 +62,7 @@
                     <div class="dropdown-divider"></div>
                     <div class="table-header">
                         <div class="table-cell">{{ _('Korpora') }}</div>
-                        <div class="table-cell">{{ _('Urkundenteile') }}</div>
+                        {% if previous_search_args['formulaic_parts'] %}<div class="table-cell">{{ _('Urkundenteile') }}</div>{% endif %}
                     </div>
                     <div class="table-row">
                         <div class="table-cell">
@@ -72,11 +72,13 @@
                             {% endif %}
                         {% endfor %}
                         </div>
+                        {% if previous_search_args['formulaic_parts'] %}
                         <div class="table-cell">
                         {% for form_part in g.form_parts %}
                             <span class="dropdown-item"><input class="part-restrict-to" name="corpus" type="checkbox" value="{{ form_part[0] }}" id="part-restrict-{{ form_part[0] }}"></input><label for="part-restrict-{{ form_part[0] }}">{{ form_part[1] }}</label></span>
                         {% endfor %}
                         </div>
+                        {% endif %}
                     </div>
                     <span class="dropdown-item text-center"><a href="{{ request.url }}" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
                 </div>
