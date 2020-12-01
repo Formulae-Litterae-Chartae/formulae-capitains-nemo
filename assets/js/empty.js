@@ -466,4 +466,9 @@ $(document).ready(function () {
     $('#restrictSearchButton').click(function() {
         restrictSearch();
     })
+    
+    $('.corpora-search-results-dropdown label').on('click', function () {
+        $( this ).siblings('input').click();
+        return false;
+    });
 })
