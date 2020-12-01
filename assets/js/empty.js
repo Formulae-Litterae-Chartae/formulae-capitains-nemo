@@ -42,8 +42,12 @@ function restrictSearch() {
             newParts.push(part.getAttribute('value'));
         }
     }
-    oldUrl = oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B'));
-    oldUrl = oldUrl.replace(partRe, '&formulaic_parts=' + newParts.join('%2B'))
+    if ( newCorpora.length > 0 ) {
+        oldUrl = oldUrl.replace(re, '&corpus=' + newCorpora.join('%2B'));
+    }
+    if ( newParts.length > 0 ) {
+        oldUrl = oldUrl.replace(partRe, '&formulaic_parts=' + newParts.join('%2B'))
+    }
     button.setAttribute('href', oldUrl + '&old_search=True');
 }
 

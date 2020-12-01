@@ -53,7 +53,6 @@
         <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
         </div>
         <div class="col-auto">
-            {% if g.corpora|length > 1 or previous_search_args['formulaic_parts'] > 1 %}
             <div class="dropleft">
                 <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" data-reference="parent" aria-haspopup="true" aria-expanded="false">
                     {{ _('Resultate filtern') }}
@@ -84,7 +83,6 @@
                     <span class="dropdown-item text-center"><a href="{{ request.url }}" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
                 </div>
             </div>
-            {% endif %}
         </div>
     </div>
     {% endif %}
