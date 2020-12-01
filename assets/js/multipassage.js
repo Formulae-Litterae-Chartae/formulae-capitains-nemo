@@ -194,7 +194,7 @@ function closeNote(id) {
 }
 
 function showLemma(x) {
-    var lemma = x.attr("lemma");
+    var lemma = x.attr("n");
     var lem_box = document.getElementById("lem_box");
 //     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
