@@ -124,7 +124,7 @@
     
     <xsl:template match="bibl">
         <xsl:param name="closeButton">
-            <xsl:text>&lt;button type="button" class="close" aria-label="Close" onclick="closePopup('</xsl:text><xsl:value-of select="generate-id()"/><xsl:text>')"&gt;☒&lt;/button&gt;</xsl:text>
+            <xsl:text>&lt;a role="button" href="#" class="close" aria-label="Close"&gt;☒&lt;/a&gt;</xsl:text>
         </xsl:param>
         <xsl:element name="a">
             <xsl:attribute name="data-content"><xsl:value-of select="$closeButton"/><xsl:value-of select="@n"/></xsl:attribute>

@@ -61,6 +61,9 @@
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
             </xsl:if>
+            <xsl:if test="@n">
+                <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
+            </xsl:if>
             <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="tabindex">0</xsl:attribute>
