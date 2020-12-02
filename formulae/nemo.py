@@ -187,9 +187,10 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        self.dead_urls = self.make_dead_url_mapping()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
-    def make_inflected_to_lem_mapping(self):
+    def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['INFLECTED_LEM_JSONS']:
@@ -203,7 +204,7 @@ class NemoFormulae(Nemo):
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
 
-    def make_lem_to_lem_mapping(self):
+    def make_lem_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps theoretical lemmas onto the used lemmas, e.g., gero -> gerere"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['LEM_TO_LEM_JSONS']:
@@ -216,6 +217,20 @@ class NemoFormulae(Nemo):
             for k, v in lem_to_lem.items():
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
+
+    def make_dead_url_mapping(self) -> dict:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        dead_url_mapping = dict()
+        for j in self.app.config['DEAD_URLS']:
+            with open(j) as f:
+                try:
+                    dead_urls = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid dead url mapping from it.')
+                    continue
+            for k, v in dead_urls.items():
+                dead_url_mapping[k] = v
+        return dict(dead_url_mapping)
 
     @staticmethod
     def register_font():
@@ -981,13 +996,7 @@ class NemoFormulae(Nemo):
         :param subreference: Reference identifier
         :return: Template, collections metadata and Markup object representing the text
         """
-        try:
-            metadata = self.get_collection(objectId)
-        except UnknownCollection as E:
-            if objectId in self.dead_urls:
-                objectId = self.dead_urls[objectId]
-            else:
-                raise E
+        metadata = self.get_collection(objectId)
         if isinstance(metadata, XmlCapitainsCollectionMetadata):
             editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and 'cts:edition' in t.subtype]
             if len(editions) == 0:
@@ -1084,6 +1093,8 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
+            if id in self.dead_urls:
+                id = self.dead_urls[id]
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -1093,7 +1104,6 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
-                id = d['objectId']
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
                 translations[id] = []
