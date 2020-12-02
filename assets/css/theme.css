@@ -434,6 +434,12 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     font-weight: bold;
 }
 
+#search-stat-table .table-header .table-cell:only-of-type,.corpora-search-results-dropdown .table-header .table-cell:only-of-type {
+    padding-left: 0.5rem;
+    display: table-cell;
+    font-weight: bold;
+}
+
 #search-stat-table .table-row,.corpora-search-results-dropdown .table-row {
     display: table-row;
 }
@@ -453,6 +459,11 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
 
 #search-stat-table .table-row .table-cell,.corpora-search-results-dropdown .table-row .table-cell {
     border-right: 1px solid #ddd;
+    vertical-align:top;
+    display: table-cell;
+}
+
+#search-stat-table .table-row .table-cell:only-of-type,.corpora-search-results-dropdown .table-row .table-cell:only-of-type {
     vertical-align:top;
     display: table-cell;
 }
