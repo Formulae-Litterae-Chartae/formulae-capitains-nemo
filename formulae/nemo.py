@@ -981,7 +981,13 @@ class NemoFormulae(Nemo):
         :param subreference: Reference identifier
         :return: Template, collections metadata and Markup object representing the text
         """
-        metadata = self.get_collection(objectId)
+        try:
+            metadata = self.get_collection(objectId)
+        except UnknownCollection as E:
+            if objectId in self.dead_urls:
+                objectId = self.dead_urls[objectId]
+            else:
+                raise E
         if isinstance(metadata, XmlCapitainsCollectionMetadata):
             editions = [t for t in metadata.children.values() if isinstance(t, XmlCapitainsReadableMetadata) and 'cts:edition' in t.subtype]
             if len(editions) == 0:
@@ -1087,6 +1093,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
+                id = d['objectId']
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
                 translations[id] = []
