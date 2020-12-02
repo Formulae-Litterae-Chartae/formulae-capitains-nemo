@@ -475,4 +475,9 @@ $(document).ready(function () {
         $( this ).siblings('input').click();
         return false;
     });
+    
+    $('.part-menu-dropdown').on('click', 'label', function () {
+        $( this ).siblings('input').click();
+        return false;
+    });
 })
