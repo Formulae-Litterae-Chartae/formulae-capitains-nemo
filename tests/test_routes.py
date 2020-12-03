@@ -36,6 +36,7 @@ class TestConfig(Config):
     CORPUS_FOLDERS = ["tests/test_data/formulae"]
     INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
+    DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -455,7 +456,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
-            self.assertMessageFlashed(_('Es gibt keine Manuskriptbilder für Angers 3 (deu)'))
+            r = c.get('/texts/urn:cts:formulae:lorsch.gloeckner4233.lat001/passage/1', follow_redirects=True)
+            self.assertTemplateUsed('main::multipassage.html')
+            c_v = self.get_context_variable('objects')
+            self.assertEqual(c_v[0]['objectId'], 'urn:cts:formulae:lorsch.gloeckner0002.lat001',
+                             'A dead url should redirect to a live document.')
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:p12.65r65v.lat001/passage/1+all', follow_redirects=True)
             self.assertTemplateUsed('main::multipassage.html')
             c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
@@ -1317,6 +1322,16 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_lem_to_lem_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
+
+    def test_load_dead_urls_mapping(self):
+        """ Ensure that the json mapping file is correctly loaded."""
+        self.assertEqual(self.nemo.dead_urls['urn:cts:formulae:lorsch.gloeckner4233.lat001'],
+                         "urn:cts:formulae:lorsch.gloeckner0002.lat001",
+                         'Mapping files should have loaded correctly.')
+        self.app.config['DEAD_URLS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_dead_url_mapping()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid dead url mapping from it.')
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
