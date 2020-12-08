@@ -364,6 +364,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::salzburg_collection.html')
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertTemplateUsed('main::elex_collection.html')
+            c.get('/corpus/urn:cts:formulae:marculf', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -1142,12 +1144,16 @@ class TestFunctions(Formulae_Testing):
                              {'editions': [{'edition_name': 'Edition',
                                            'full_edition_name': '',
                                            'links': [['urn:cts:formulae:marculf.form000',
-                                                      'urn:cts:formulae:marculf.form003'],
+                                                      'urn:cts:formulae:marculf.form003',
+                                                      'urn:cts:formulae:marculf.2_capitula'],
                                                      ['urn:cts:formulae:marculf.form000.lat001',
-                                                      'urn:cts:formulae:marculf.form003.lat001']],
+                                                      'urn:cts:formulae:marculf.form003.lat001',
+                                                      'urn:cts:formulae:marculf.2_capitula.lat001']],
                                            'name': 'lat001',
-                                           'regesten': ['', ''],
-                                           'titles': ['Marculf Prolog', 'Marculf I,3']}],
+                                           'regesten': ['', '', ''],
+                                           'titles': ['Marculf Prolog',
+                                                      'Marculf I,3',
+                                                      'Marculf II Capitula']}],
                              'transcriptions': [{'edition_name': 'Ko2',
                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
                                                                       'Fabr. 84 [fol.69r-fol.70v]',
@@ -1272,8 +1278,8 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form000.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')
-            data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form003.lat001', '1')
-            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.form000.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:marculf.2_capitula.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.form003.lat001')
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:marmoutier_serfs.salmon0002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)

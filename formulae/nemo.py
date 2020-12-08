@@ -344,6 +344,8 @@ class NemoFormulae(Nemo):
                     par = _('(Prolog)')
             elif 'computus' in par:
                 par = '057(Computus)'
+            elif '2_capitula' in par:
+                par = '2_0'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
@@ -693,12 +695,14 @@ class NemoFormulae(Nemo):
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'Computus' in work_name:
+                    if 'urn:cts:formulae:marculf' in m.ancestors:
+                        work_name = str(parent_title).replace('Marculf ', '')
+                        if 'Prolog' in work_name:
+                            work_name = _('(Prolog)')
+                    elif 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
                         work_name = _('(Titel)')
-                    elif 'Prolog' in work_name:
-                        work_name = _('(Prolog)')
                     elif 'urn:cts:formulae:lorsch' in m.ancestors:
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
