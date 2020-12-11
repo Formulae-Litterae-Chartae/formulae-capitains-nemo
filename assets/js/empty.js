@@ -6,6 +6,7 @@ var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 
 
+
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
     var request = new XMLHttpRequest();
@@ -311,6 +312,7 @@ function sortSearchResultsTable(n) {
       }
     }
   }
+  $('body').css('cursor', 'default')
 }
 
 $(document).ready(function () {
@@ -461,11 +463,18 @@ $(document).ready(function () {
         $( this ).prev().css("background-color", "inherit");
     });
     
-    $('#partsSearchResultTable #results-text-column').click(function() {sortSearchResultsTable(0)});
-    $('#partsSearchResultTable #results-date-column').click(function() {sortSearchResultsTable(1)});
-    $('#partsSearchResultTable #results-title-column').click(function() {sortSearchResultsTable(2)});
-    
-    $('#partsSearchResultTable #results-text-column').trigger('click');
+    var searchResultTable = $('#partsSearchResultTable.as-datatable').DataTable({
+        "paging": false,
+        "pageLength": -1,
+        "lengthChange": false,
+        "info": false,
+        "order": [],
+        "dom": "<'row'<'col-sm-12'f>>" +
+        "<'row'<'col-sm-12'tr>>",
+        "language": {
+            "search": searchBoxString + ':'
+        }
+    });
     
     $('#restrictSearchButton').click(function() {
         restrictSearch();

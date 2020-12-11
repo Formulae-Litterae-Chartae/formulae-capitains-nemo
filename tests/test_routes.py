@@ -766,7 +766,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
-                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&partsTable=true', follow_redirects=True)
+                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10000, q='',
@@ -775,7 +775,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest',
                                            formulaic_parts="Poenformel+Stipulationsformel")
-            self.assertTemplateUsed('search::part_results.html')
+            self.assertTemplateUsed('search::search.html')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'

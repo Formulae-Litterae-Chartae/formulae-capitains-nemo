@@ -43,11 +43,9 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     template = 'search::search.html'
-    posts_per_page = current_app.config['POSTS_PER_PAGE']
+    posts_per_page = request.args.get('per_page', current_app.config['POSTS_PER_PAGE'], type=int)
     page = request.args.get('page', 1, type=int)
-    if request.args.get('partsTable', None):
-        template = 'search::part_results.html'
-        posts_per_page = 10000
+    if posts_per_page == 10000:
         page = 1
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
@@ -108,9 +106,9 @@ def r_results():
     search_args.pop('old_search', None)
     first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
     next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
+        if total > page * posts_per_page else None
     prev_url = url_for('.r_results', **search_args, page=page - 1, old_search=True) if page > 1 else None
-    total_pages = int(ceil(total / current_app.config['POSTS_PER_PAGE']))
+    total_pages = int(ceil(total / posts_per_page))
     page_urls = []
     if total_pages > 12:
         page_urls.append((1, url_for('.r_results', **search_args, page=1, old_search=True)))
@@ -122,7 +120,7 @@ def r_results():
         for page_num in range(1, total_pages + 1):
             page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
     last_url = url_for('.r_results', **search_args, page=total_pages, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
+        if total > page * posts_per_page else None
     orig_sort = search_args.pop('sort', '')
     sort_urls = dict()
     for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:

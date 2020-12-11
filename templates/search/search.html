@@ -2,6 +2,7 @@
 {% block title %}Formulae - Litterae - Chartae: {{ _('Suchergebnisse') }}{% endblock %}
 {% set previous_search_args = g.previous_search_args|default(session['previous_search_args']) %}
 {% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
+{% set per_page = request.args['per_page']|default('10') %}
 
 {% block article %}
     <article class="container-fluid">
@@ -150,26 +151,25 @@
         </table>
     </div>
     {% endif %}
-    {% if previous_search_args['formulaic_parts'] %}
-    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&partsTable=true">{{ _('Resultate nach Textteilen zeigen') }}</a></div>
-    {% endif %}
-    <table id="corpusSearchResultTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Suchergebnisse') }}">
+    <div class="row py-1" id="table-view-link">{{ _('Pro Seite') }}:
+        {% if per_page=='10' %} <span class="text-muted">10</span>{% else %}<a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable', 'per_page', 'page'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&per_page=10&page=1">10</a>{% endif %}
+        {% if per_page=='20' %} <span class="text-muted">20</span>{% else %}<a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable', 'per_page', 'page'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&per_page=20&page=1">20</a>{% endif %}
+        {% if per_page=='50' %} <span class="text-muted">50</span>{% else %}<a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable', 'per_page', 'page'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&per_page=50&page=1">50</a>{% endif %}
+        {% if per_page=='100' %} <span class="text-muted">100</span>{% else %}<a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable', 'per_page', 'page'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&per_page=100&page=1">100</a>{% endif %}
+        {% if per_page=='10000' %} <span class="text-muted">{{ _('Alle') }}</span>{% else %}<a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable', 'per_page', 'page'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}&per_page=10000&page=1">{{ _('Alle') }}</a>{% endif %}
+    </div>
+    <table id="partsSearchResultTable" class="table table-sm table-hover table-bordered{% if per_page=='10000' %} as-datatable{% endif %}" aria-label="{{ _('Suchergebnisse') }}">
         <thead>
             <tr>
-                <th id="results-title-column" scope="col">{{ _('Edition') }}</th>
-                <th id="results-date-column" scope="col">{{ _('Datierung') }}/{{ _('Ausstellungsort') }}</th>
                 <th id="results-text-column" scope="col">{{ _('Text') }}</th>
+                <th id="results-date-column" scope="col">{{ _('Datierung') }}</th>
+                <th id="results-place-column" scope="col">{{ _('Ausstellungsort') }}</th>
+                <th id="results-title-column" scope="col">{{ _('Edition') }}</th>
             </tr>
         </thead>
         <tbody>
         {% for post in posts %}
             <tr>
-            {% if current_user.project_team or post['id'] in open_texts %}
-                <td sortVal="{{  post['id'] }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
-            {% else %}
-                <td sortVal="{{  post['id'] }}"><a class="disabled" href="#">{{ post['info']['title'] }}</a></td>
-            {% endif %}
-                <td sortVal="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% if post['info']['orig_comp_ort']  != ' ' %}<br>{% endif %}{% endif %}{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
                 <td>
                 {% if current_user.project_team or post['id'] in open_texts %}
                     {% for sent in post['sents'] %}
@@ -185,6 +185,13 @@
                     <span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ _('Text nicht verfügbar') }}</span>
                 {% endif %}
                 </td>
+                <td data-order="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% endif %}</td>
+                <td>{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
+            {% if current_user.project_team or post['id'] in open_texts %}
+                <td data-order="{{  loop.index }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
+            {% else %}
+                <td data-order="{{  loop.index }}"><a class="disabled" href="#">{{ post['info']['title'] }}</a></td>
+            {% endif %}
             </tr>
         {% endfor %}
         </tbody>
