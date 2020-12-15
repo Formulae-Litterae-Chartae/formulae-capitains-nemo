@@ -3,7 +3,7 @@ from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
-from formulae.search.Search import advanced_query_index, suggest_composition_places, build_sort_list, \
+from formulae.search.Search import advanced_query_index, build_sort_list, \
     set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
@@ -490,6 +490,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::manuscript_siglen.html')
             c.get('accessibility_statement', follow_redirects=True)
             self.assertTemplateUsed('main::accessibility_statement.html')
+            c.get('/search/advanced_search', follow_redirects=True)
+            d = self.get_context_variable('composition_places')
+            self.assertEqual(d[1], 'Aachen', 'The correct places should be sent to the advanced search pages.')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -1328,6 +1331,16 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_lem_to_lem_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
+
+    def test_load_comp_places_list(self):
+        """ Ensure that the json file is correctly loaded."""
+        self.assertEqual(self.nemo.comp_places[1],
+                         "Aachen",
+                         'Mapping files should have loaded correctly.')
+        self.app.config['COMP_PLACES'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_comp_places_list()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid composition place list from it.')
 
     def test_load_dead_urls_mapping(self):
         """ Ensure that the json mapping file is correctly loaded."""
@@ -3623,15 +3636,15 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=y', follow_redirects=True)
             self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"y" should be converted to "True"')
 
-    @patch.object(Elasticsearch, "search")
-    def test_suggest_composition_places(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_suggest_composition_places'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
-        mock_search.return_value = resp
-        results = suggest_composition_places()
-        self.assertEqual(results, expected, 'The true results should match the expected results.')
+    # @patch.object(Elasticsearch, "search")
+    # def test_suggest_composition_places(self, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_suggest_composition_places'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     resp = fake.load_response()
+    #     expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
+    #     mock_search.return_value = resp
+    #     results = suggest_composition_places()
+    #     self.assertEqual(results, expected, 'The true results should match the expected results.')
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion(self, mock_search):

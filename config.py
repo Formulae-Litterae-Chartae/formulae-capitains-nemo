@@ -18,6 +18,7 @@ class Config(object):
     INFLECTED_LEM_JSONS = os.environ.get('INFLECTED_LEM_JSONS').split(';') if os.environ.get('INFLECTED_LEM_JSONS') else []
     LEM_TO_LEM_JSONS = os.environ.get('LEM_TO_LEM_JSONS').split(';') if os.environ.get('LEM_TO_LEM_JSONS') else []
     DEAD_URLS = os.environ.get('DEAD_URLS').split(';') if os.environ.get('DEAD_URLS') else []
+    COMP_PLACES = os.environ.get('COMP_PLACES').split(';') if os.environ.get('COMP_PLACES') else []
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)

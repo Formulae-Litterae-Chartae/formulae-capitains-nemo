@@ -109,18 +109,6 @@ def set_session_token(index: list, orig_template: dict, search_field: str, q: st
     return search_hits
 
 
-def suggest_composition_places() -> List[str]:
-    """ To enable search-as-you-type for the place of composition field
-
-    :return: sorted set of results
-    """
-    body = {'query': {'exists': {'field': 'comp_ort'}}}
-    results = []
-    for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
-        results += x['_source']['comp_ort'].split('; ')
-    return sorted(list(set(results)))
-
-
 def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """ To enable search-as-you-type for the text search
 

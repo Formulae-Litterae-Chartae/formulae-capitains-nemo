@@ -1,8 +1,7 @@
 from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
-from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS, \
-    lem_highlight_to_text
+from .Search import advanced_query_index, suggest_word_search, AGGREGATIONS, lem_highlight_to_text
 from .forms import AdvancedSearchForm, FORM_PARTS
 from formulae.search import bp
 from json import dumps
@@ -187,7 +186,7 @@ def r_advanced_search():
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
-                                                 composition_places=suggest_composition_places(), url=dict())
+                                                 composition_places=current_app.config['nemo_app'].comp_places, url=dict())
 
 
 @bp.route("/doc", methods=["GET"])
