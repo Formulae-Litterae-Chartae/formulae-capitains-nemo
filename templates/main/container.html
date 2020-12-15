@@ -120,6 +120,14 @@
      var scrollTogetherSrc="{{url_for('InstanceNemo.static', filename='images/scroll_together.png')}}";
      var lexElementTitle=["{{ _('Eintrag zu ') }}", "{{ _(' im Elexikon lesen') }}"];
      var searchBoxString="{{ _('Suche') }}";
+     var allResultsString="{{ _('Alle') }}";
+     if ( "{{ get_locale() }}" == "de" ) {
+        var dataTableLangFile = "{{url_for('InstanceNemo.static', filename='js/dataTablesGerman.json')}}";
+     } else if ( "{{ get_locale() }}" == "fr" ) {
+        var dataTableLangFile = "{{url_for('InstanceNemo.static', filename='js/dataTablesFrench.json')}}";
+     } else {
+        var dataTableLangFile = "";
+     }
 </script>
 
   {% block additionalscript %}

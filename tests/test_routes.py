@@ -712,7 +712,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=None, regest_q='', old_search=False, source='advanced',
@@ -724,7 +724,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -735,7 +735,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -746,7 +746,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -757,7 +757,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -2359,13 +2359,11 @@ class TestES(Formulae_Testing):
         actual, total, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
         with self.client as c:
             test_args['source'] = 'advanced'
             r = c.get('/search/results', query_string=test_args, follow_redirects=True)
-            p = re.compile('\.\.\..+<li class="page-item">\n\s+<a class="page-link"[^>]+page={total}'.format(total=total_pages),
-                           re.DOTALL)
-            self.assertRegex(r.get_data(as_text=True), p)
+            d = self.get_context_variable('total_results')
+            self.assertEqual(d, total)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):

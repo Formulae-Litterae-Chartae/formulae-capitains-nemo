@@ -463,17 +463,21 @@ $(document).ready(function () {
         $( this ).prev().css("background-color", "inherit");
     });
     
-    var searchResultTable = $('#partsSearchResultTable.as-datatable').DataTable({
-        "paging": false,
-        "pageLength": -1,
-        "lengthChange": false,
-        "info": false,
+    var searchResultTable = $('#partsSearchResultTable').DataTable({
         "order": [],
-        "dom": "<'row'<'col-sm-12'f>>" +
-        "<'row'<'col-sm-12'tr>>",
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, allResultsString] ],
         "language": {
-            "search": searchBoxString + ':'
-        }
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ 1 ],
+                "orderable": false
+            }
+        ]
     });
     
     $('#restrictSearchButton').click(function() {
@@ -489,4 +493,32 @@ $(document).ready(function () {
         $( this ).siblings('input').click();
         return false;
     });
+    
+    $('#taq-sort').click(function() {
+        var dateCol = $('#results-date-column');
+        if ( dateCol.hasClass('taq-up') ) {
+            dateCol.removeClass();
+            dateCol.addClass('taq-down');
+        } else {
+            dateCol.removeClass();
+            dateCol.addClass('taq-up');
+        }
+        $('#results-max-date-column').click();
+    })
+    
+    $('#tpq-sort').click(function() {
+        var dateCol = $('#results-date-column');
+        if ( dateCol.hasClass('tpq-up') ) {
+            dateCol.removeClass();
+            dateCol.addClass('tpq-down');
+        } else {
+            dateCol.removeClass();
+            dateCol.addClass('tpq-up');
+        }
+        $('#results-min-date-column').click();
+    })
+    
+    $('#results-text-column,#results-place-column,#results-title-column').click(function() {
+        $('#results-date-column').removeClass();
+    })
 })

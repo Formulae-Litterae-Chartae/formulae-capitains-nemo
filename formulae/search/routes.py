@@ -43,10 +43,8 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     template = 'search::search.html'
-    posts_per_page = request.args.get('per_page', current_app.config['POSTS_PER_PAGE'], type=int)
-    page = request.args.get('page', 1, type=int)
-    if posts_per_page == 10000:
-        page = 1
+    posts_per_page = 10000
+    page = 1
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
