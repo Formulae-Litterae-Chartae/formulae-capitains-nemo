@@ -1,8 +1,7 @@
 from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
-from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS, \
-    lem_highlight_to_text
+from .Search import advanced_query_index, suggest_word_search, AGGREGATIONS, lem_highlight_to_text
 from .forms import AdvancedSearchForm, FORM_PARTS
 from formulae.search import bp
 from json import dumps
@@ -43,12 +42,8 @@ def r_results():
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
     template = 'search::search.html'
-    posts_per_page = current_app.config['POSTS_PER_PAGE']
-    page = request.args.get('page', 1, type=int)
-    if request.args.get('partsTable', None):
-        template = 'search::part_results.html'
-        posts_per_page = 10000
-        page = 1
+    posts_per_page = 10000
+    page = 1
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
@@ -106,28 +101,6 @@ def r_results():
     if 'special_days' in search_args:
         search_args['special_days'] = '+'.join(special_days)
     search_args.pop('old_search', None)
-    first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
-    next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('.r_results', **search_args, page=page - 1, old_search=True) if page > 1 else None
-    total_pages = int(ceil(total / current_app.config['POSTS_PER_PAGE']))
-    page_urls = []
-    if total_pages > 12:
-        page_urls.append((1, url_for('.r_results', **search_args, page=1, old_search=True)))
-        # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
-        for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
-        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages, old_search=True)))
-    else:
-        for page_num in range(1, total_pages + 1):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
-    last_url = url_for('.r_results', **search_args, page=total_pages, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    orig_sort = search_args.pop('sort', '')
-    sort_urls = dict()
-    for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
-        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1, old_search=True)
-    search_args['sort'] = orig_sort
     if old_search is False:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
@@ -153,10 +126,8 @@ def r_results():
         if not all(inf_to_lemmas):
             inf_to_lemmas = []
     return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts,
-                                                 next_url=next_url, prev_url=prev_url, page_urls=page_urls,
-                                                 first_url=first_url, last_url=last_url, current_page=page,
-                                                 search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
-                                                 sort_urls=sort_urls, total_results=total, aggs=aggs,
+                                                 current_page=page, search_string=g.search_form.q.data.lower(),
+                                                 url=dict(), open_texts=g.open_texts, total_results=total, aggs=aggs,
                                                  searched_lems=inf_to_lemmas)
 
 
@@ -191,7 +162,7 @@ def r_advanced_search():
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
-                                                 composition_places=suggest_composition_places(), url=dict())
+                                                 composition_places=current_app.config['nemo_app'].comp_places, url=dict())
 
 
 @bp.route("/doc", methods=["GET"])

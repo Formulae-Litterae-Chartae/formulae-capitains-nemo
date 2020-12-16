@@ -188,6 +188,7 @@ class NemoFormulae(Nemo):
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
         self.dead_urls = self.make_dead_url_mapping()
+        self.comp_places = self.make_comp_places_list()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
     def make_inflected_to_lem_mapping(self) -> dict:
@@ -231,6 +232,18 @@ class NemoFormulae(Nemo):
             for k, v in dead_urls.items():
                 dead_url_mapping[k] = v
         return dict(dead_url_mapping)
+
+    def make_comp_places_list(self) -> list:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        comp_places = list()
+        for j in self.app.config['COMP_PLACES']:
+            with open(j) as f:
+                try:
+                    comp_places += json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid composition place list from it.')
+                    continue
+        return sorted(list(comp_places))
 
     @staticmethod
     def register_font():

@@ -6,6 +6,7 @@ var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 
 
+
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
     var request = new XMLHttpRequest();
@@ -311,6 +312,7 @@ function sortSearchResultsTable(n) {
       }
     }
   }
+  $('body').css('cursor', 'default')
 }
 
 $(document).ready(function () {
@@ -461,11 +463,22 @@ $(document).ready(function () {
         $( this ).prev().css("background-color", "inherit");
     });
     
-    $('#partsSearchResultTable #results-text-column').click(function() {sortSearchResultsTable(0)});
-    $('#partsSearchResultTable #results-date-column').click(function() {sortSearchResultsTable(1)});
-    $('#partsSearchResultTable #results-title-column').click(function() {sortSearchResultsTable(2)});
-    
-    $('#partsSearchResultTable #results-text-column').trigger('click');
+    var searchResultTable = $('#partsSearchResultTable').DataTable({
+        "order": [],
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, allResultsString] ],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ 1 ],
+                "orderable": false
+            }
+        ]
+    });
     
     $('#restrictSearchButton').click(function() {
         restrictSearch();
@@ -480,4 +493,32 @@ $(document).ready(function () {
         $( this ).siblings('input').click();
         return false;
     });
+    
+    $('#taq-sort').click(function() {
+        var dateCol = $('#results-date-column');
+        if ( dateCol.hasClass('taq-up') ) {
+            dateCol.removeClass();
+            dateCol.addClass('taq-down');
+        } else {
+            dateCol.removeClass();
+            dateCol.addClass('taq-up');
+        }
+        $('#results-max-date-column').click();
+    })
+    
+    $('#tpq-sort').click(function() {
+        var dateCol = $('#results-date-column');
+        if ( dateCol.hasClass('tpq-up') ) {
+            dateCol.removeClass();
+            dateCol.addClass('tpq-down');
+        } else {
+            dateCol.removeClass();
+            dateCol.addClass('tpq-up');
+        }
+        $('#results-min-date-column').click();
+    })
+    
+    $('#results-text-column,#results-place-column,#results-title-column').click(function() {
+        $('#results-date-column').removeClass();
+    })
 })

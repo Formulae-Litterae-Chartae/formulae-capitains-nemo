@@ -3,7 +3,7 @@ from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
-from formulae.search.Search import advanced_query_index, suggest_composition_places, build_sort_list, \
+from formulae.search.Search import advanced_query_index, build_sort_list, \
     set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
@@ -37,6 +37,7 @@ class TestConfig(Config):
     INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
+    COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -490,6 +491,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::manuscript_siglen.html')
             c.get('accessibility_statement', follow_redirects=True)
             self.assertTemplateUsed('main::accessibility_statement.html')
+            c.get('/search/advanced_search', follow_redirects=True)
+            d = self.get_context_variable('composition_places')
+            self.assertEqual(d[1], 'Aachen', 'The correct places should be sent to the advanced search pages.')
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -712,7 +716,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=None, regest_q='', old_search=False, source='advanced',
@@ -724,7 +728,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -735,7 +739,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -746,7 +750,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -757,7 +761,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10, q='',
+                                           month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
@@ -766,7 +770,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
-                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&partsTable=true', follow_redirects=True)
+                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10000, q='',
@@ -775,7 +779,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest',
                                            formulaic_parts="Poenformel+Stipulationsformel")
-            self.assertTemplateUsed('search::part_results.html')
+            self.assertTemplateUsed('search::search.html')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -1328,6 +1332,16 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_lem_to_lem_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid lemma to lemma mapping from it.')
+
+    def test_load_comp_places_list(self):
+        """ Ensure that the json file is correctly loaded."""
+        self.assertEqual(self.nemo.comp_places[1],
+                         "Aachen",
+                         'Mapping files should have loaded correctly.')
+        self.app.config['COMP_PLACES'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_comp_places_list()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid composition place list from it.')
 
     def test_load_dead_urls_mapping(self):
         """ Ensure that the json mapping file is correctly loaded."""
@@ -2359,13 +2373,11 @@ class TestES(Formulae_Testing):
         actual, total, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        total_pages = int(ceil(total / self.app.config['POSTS_PER_PAGE']))
         with self.client as c:
             test_args['source'] = 'advanced'
             r = c.get('/search/results', query_string=test_args, follow_redirects=True)
-            p = re.compile('\.\.\..+<li class="page-item">\n\s+<a class="page-link"[^>]+page={total}'.format(total=total_pages),
-                           re.DOTALL)
-            self.assertRegex(r.get_data(as_text=True), p)
+            d = self.get_context_variable('total_results')
+            self.assertEqual(d, total)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_end_year(self, mock_search):
@@ -3625,15 +3637,15 @@ class TestES(Formulae_Testing):
             self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=y', follow_redirects=True)
             self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"y" should be converted to "True"')
 
-    @patch.object(Elasticsearch, "search")
-    def test_suggest_composition_places(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_suggest_composition_places'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
-        mock_search.return_value = resp
-        results = suggest_composition_places()
-        self.assertEqual(results, expected, 'The true results should match the expected results.')
+    # @patch.object(Elasticsearch, "search")
+    # def test_suggest_composition_places(self, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_suggest_composition_places'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     resp = fake.load_response()
+    #     expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
+    #     mock_search.return_value = resp
+    #     results = suggest_composition_places()
+    #     self.assertEqual(results, expected, 'The true results should match the expected results.')
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion(self, mock_search):

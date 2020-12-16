@@ -109,18 +109,6 @@ def set_session_token(index: list, orig_template: dict, search_field: str, q: st
     return search_hits
 
 
-def suggest_composition_places() -> List[str]:
-    """ To enable search-as-you-type for the place of composition field
-
-    :return: sorted set of results
-    """
-    body = {'query': {'exists': {'field': 'comp_ort'}}}
-    results = []
-    for x in current_app.elasticsearch.search(index=['all'], doc_type='', size=10000, body=body)['hits']['hits']:
-        results += x['_source']['comp_ort'].split('; ')
-    return sorted(list(set(results)))
-
-
 def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """ To enable search-as-you-type for the text search
 
@@ -201,23 +189,30 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
         sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-        if current_app.config['nemo_app'].check_project_team() is True or hit['_id'] in current_app.config['nemo_app'].open_texts:
+        if current_app.config['nemo_app'].check_project_team() is True or open_text:
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
             vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
             highlight_offsets = dict()
             searched_positions = dict()
-            for v in vectors['term_vectors'][highlight_field]['terms'].values():
-                for o in v['tokens']:
-                    highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-            for k, v in vectors['term_vectors'][search_field]['terms'].items():
-                for o in v['tokens']:
-                    searched_positions[o['position']] = k
-            highlighted_words = set()
-            for highlight in hit['highlight'][search_field]:
-                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
-                    highlighted_words.add(m.group(1).lower())
+            if highlight_field == search_field:
+                for k, v in vectors['term_vectors'][search_field]['terms'].items():
+                    for o in v['tokens']:
+                        searched_positions[o['position']] = k
+                        highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+            else:
+                for v in vectors['term_vectors'][highlight_field]['terms'].values():
+                    for o in v['tokens']:
+                        highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
+                for k, v in vectors['term_vectors'][search_field]['terms'].items():
+                    for o in v['tokens']:
+                        searched_positions[o['position']] = k
+            highlighted_words = set(q.split())
+            if re.search(r'[?*]', q) or fuzz != '0':
+                for highlight in hit['highlight'][search_field]:
+                    for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                        highlighted_words.add(m.group(1).lower())
             all_highlighted_terms.update(highlighted_words)
             if ' ' in q:
                 q_words = q.split()
@@ -284,9 +279,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                 sentence_spans.append(range(max(0, ordered_span[0] - 10),
                                                             min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
-                terms = {q}
-                if re.search(r'[?*]', q) or fuzz != '0':
-                    terms = highlighted_words
+                terms = highlighted_words
                 positions = []
                 for w in terms:
                     if search_field == 'lemmas':

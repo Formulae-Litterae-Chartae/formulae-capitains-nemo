@@ -593,7 +593,7 @@ img[id$="-flag-navbar"] {
     animation-duration: 4s;
 }
 
-.hidden-button {
+.hidden-button, .hidden-cell, #results-max-date-column, #results-min-date-column {
     display: none;
 }
 
@@ -1037,13 +1037,42 @@ a.btn-primary,li.page-item.active .page-link {
 }
 
 #results-title-column {
-    width: 15%;
+    width: 20%;
 }
 
-#results-date-column {
+#results-date-column, #results-place-column {
     width: 10%;
 }
 
 #table-view-link {
     margin-left: 0;
+}
+
+#table-view-link a,  #table-view-link span {
+    margin-left: 5px;
+}
+
+#partsSearchResultTable thead {
+    font-size: large;
+}
+
+.small-text {
+    font-size: small;
+}
+
+#partsSearchResultTable > thead .sorting::before, #partsSearchResultTable > thead .sorting::after, #partsSearchResultTable > thead .sorting_asc::before, #partsSearchResultTable > thead .sorting_asc::after, #partsSearchResultTable > thead .sorting_desc::before, #partsSearchResultTable > thead .sorting_desc::after, #partsSearchResultTable > thead .sorting_asc_disabled::before, #partsSearchResultTable > thead .sorting_asc_disabled::after, #partsSearchResultTable > thead .sorting_desc_disabled::before, #partsSearchResultTable > thead .sorting_desc_disabled::after {
+	position: absolute;
+	bottom: 0.9em;
+	display: block;
+	opacity: 1;
+}
+
+#partsSearchResultTable > thead .sorting::after, #partsSearchResultTable > thead .sorting_asc::after, #partsSearchResultTable > thead .sorting_desc::after, #partsSearchResultTable > thead .sorting_asc_disabled::after, #partsSearchResultTable > thead .sorting_desc_disabled::after {
+	right: 0.3em;
+}
+
+#partsSearchResultTable > thead .sorting_asc::before, #partsSearchResultTable > thead .sorting_desc::after, .taq-down #taq-down-symbol, .taq-up #taq-up-symbol, .tpq-down #tpq-down-symbol, .tpq-up #tpq-up-symbol {
+    outline-style: dotted;
+    outline-offset: 0;
+    outline-width: thin;
 }
