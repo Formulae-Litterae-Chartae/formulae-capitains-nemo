@@ -37,6 +37,7 @@ class TestConfig(Config):
     INFLECTED_LEM_JSONS = ["tests/test_data/formulae/inflected_to_lem.json"]
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
+    COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
