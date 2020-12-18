@@ -210,6 +210,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         searched_positions[o['position']] = k
             highlighted_words = set(q.split())
             if re.search(r'[?*]', q) or fuzz != '0':
+                highlighted_words = set()
                 for highlight in hit['highlight'][search_field]:
                     for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
                         highlighted_words.add(m.group(1).lower())
