@@ -118,6 +118,7 @@ class Formulae_Testing(flask_testing.TestCase):
         u.set_password('some_other_password')
         db.session.add(u)
         db.session.commit()
+        self.maxDiff = None
 
     def tearDown(self):
         db.session.remove()
@@ -891,13 +892,13 @@ class TestIndividualRoutes(Formulae_Testing):
 
     def test_highlight_charter_parts(self):
         """ Make sure that the parts of a charter are highlighted correctly when there is a hit in that part"""
-        session['previous_search_args'] = {'formulaic_parts': 'Arenga+Invocatio-oder-Inscriptio'}
-        results = [{'highlight': {'Invocatio-oder-Inscriptio': ["</small><strong>trinitatis</strong><small>"]}}]
+        session['previous_search_args'] = {'formulaic_parts': 'Arenga+Invocatio'}
+        results = [{'highlight': {'Invocatio': ["</small><strong>trinitatis</strong><small>"]}}]
         obj_id = "urn:cts:formulae:stgallen.wartmann0615.lat001"
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         html_output = self.nemo.highlight_found_sents(html_input, results)
-        self.assertIn('<span function="Invocatio-oder-Inscriptio" title="Invocatio oder Inscriptio" class="searched">',
+        self.assertIn('<span function="Invocatio" title="Invocatio" class="searched">',
                       html_output)
         self.assertIn('class="w font-weight-bold">trinitatis</span>', html_output)
 
@@ -2085,7 +2086,7 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio-oder-Inscriptio")]),
+                                                                 ("formulaic_parts", "Invocatio")]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'christ*'),
@@ -2108,7 +2109,7 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio-oder-Inscriptio")]),
+                                                                 ("formulaic_parts", "Invocatio")]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("lemma_search", "False"),
                                                                 ("q", 'christi'),
@@ -3005,13 +3006,13 @@ class TestES(Formulae_Testing):
             for i2, t in enumerate(hit['highlight']['text']):
                 resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
         sents = [{'sents':
-                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum </strong><small>domni nostri Charoli gloriosissimi regis, sub die, quod est XV '),
-                       Markup('cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi </small><strong>regis,</strong><small> sub die, quod est XV kl. madii, sub presenciarum bonorum '),
-                       Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et </small><strong>regnum </strong><small>superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri ')]},
+                      [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, sub die, quod est XV '),
+                       Markup('cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi </small><strong>regis</strong><small>, sub die, quod est XV kl. madii, sub presenciarum bonorum '),
+                       Markup('ab eo rogiti venerunt vel signa fecerunt, Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri ')]},
                  {'sents':
-                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum </strong><small>domni nostri Caroli regis, Sub die, quod est pridie kl.'),
-                       Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis,</strong><small> Sub die, quod est pridie kl. aprilis. Notavi diem et '),
-                       Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum </strong><small>superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
+                      [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl.'),
+                       Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et '),
+                       Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3107,6 +3108,7 @@ class TestES(Formulae_Testing):
                  {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']},
+                 {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']}]
         mock_search.return_value = resp
         mock_vectors.side_effect = self.my_side_effect
@@ -3117,7 +3119,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "termvectors")
-    def test_single_word_highlighting_wildcard(self, mock_vectors, mock_search):
+    def test_multi_word_highlighting_wildcard(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -3652,16 +3654,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        expected = ['scripsi diemque et tempus designavi',
+        expected = ['scripsi',
+                    'scripsi diemque et tempus designavi',
                     'scripsi et manu mea propria subscripsi',
                     'scripsi et subscri st psi notavi diem',
                     'scripsi et subscripsi',
                     'scripsi et subscripsi notavi diem v fer',
+                    'scripsi et supscripsi notavi diem et',
                     'scripsi et suscripsi',
                     'scripsi et teste me suscripsi',
-                    'scripsi signum baselii et filii sui rofini',
-                    'scripsi signum uictorini et felicianes',
-                    'scripsimus preter quartam quam reliquimus']
+                    'scripsi signum baselii et filii sui rofini']
         mock_search.return_value = resp
         test_args['qSource'] = 'text'
         results = suggest_word_search(**test_args)
@@ -3928,7 +3930,7 @@ class TestES(Formulae_Testing):
                             Markup('<strong>Stipulationsformel:</strong> et quod repetit, nullatenus evindicare valeat, sed presens tradicio omni tempore firma permaneat cum stipulacione subnixa')]},
                  {'sents': [Markup('<strong>Poenformel:</strong> ut nullus obtineat ei effectum hoc mutare vel refragare'),
                             Markup('<strong>Stipulationsformel:</strong> sed presens ista tradicio stabilis in evum permaneat')]}]
-        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual[:10]])
 
 
 class TestErrors(Formulae_Testing):

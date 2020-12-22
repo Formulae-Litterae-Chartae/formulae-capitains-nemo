@@ -1,5 +1,5 @@
 {
-  "took": 34,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 42,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v28",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v28",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -394,15 +394,16 @@
             "0813-04-20"
           ],
           "min_date": "0769-04-20",
+          "max_date": "0813-04-20",
           "days": [
-            "Tuesday",
-            "Friday",
-            "Monday",
-            "Easter",
-            "Sunday",
             "Wednesday",
             "Saturday",
+            "Friday",
+            "Monday",
+            "Tuesday",
             "Lent",
+            "Sunday",
+            "Easter",
             "Thursday"
           ],
           "sort_prefix": 1
@@ -418,7 +419,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -638,15 +639,16 @@
             "0813-03-31"
           ],
           "min_date": "0769-03-31",
+          "max_date": "0813-03-31",
           "days": [
-            "Tuesday",
-            "Friday",
-            "Monday",
-            "Easter",
-            "Sunday",
             "Wednesday",
             "Saturday",
+            "Sunday",
+            "Friday",
+            "Tuesday",
             "Lent",
+            "Monday",
+            "Easter",
             "Thursday"
           ],
           "sort_prefix": 1
@@ -662,7 +664,7 @@
         ]
       },
       {
-        "_index": "lorsch_v4",
+        "_index": "lorsch_v29",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -690,6 +692,7 @@
             "0774-06-29"
           ],
           "min_date": "0774-06-29",
+          "max_date": "0774-06-29",
           "days": [
             "Wednesday"
           ],
@@ -721,7 +724,7 @@
         ]
       },
       {
-        "_index": "lorsch_v4",
+        "_index": "lorsch_v29",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -749,6 +752,7 @@
             "0773-07-07"
           ],
           "min_date": "0773-07-07",
+          "max_date": "0773-07-07",
           "days": [
             "Wednesday"
           ],
@@ -780,7 +784,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v28",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -814,6 +818,7 @@
             "0814"
           ],
           "min_date": "0768",
+          "max_date": "0814",
           "sort_prefix": 1
         },
         "highlight": {
@@ -842,7 +847,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v28",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -876,6 +881,7 @@
             "0814"
           ],
           "min_date": "0768",
+          "max_date": "0814",
           "sort_prefix": 1
         },
         "highlight": {
@@ -904,7 +910,7 @@
         ]
       },
       {
-        "_index": "raetien_v4",
+        "_index": "raetien_v28",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -938,9 +944,10 @@
             "0865-02-12"
           ],
           "min_date": "0858-02-12",
+          "max_date": "0865-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -970,7 +977,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v29",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -998,6 +1005,7 @@
             "0762-08-20"
           ],
           "min_date": "0762-08-20",
+          "max_date": "0762-08-20",
           "days": [
             "Friday"
           ],
@@ -1027,12 +1035,79 @@
           1,
           "urn:cts:formulae:stgallen.wartmann0026.lat001"
         ]
+      },
+      {
+        "_index": "stgallen_v29",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
+          "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
+          "date_string": "858 (865) 02 12",
+          "comp_ort": "Grabs",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Grabs",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 858,
+              "month": 2,
+              "day": 12
+            },
+            {
+              "year": 865,
+              "month": 2,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0858-02-12",
+            "0865-02-12"
+          ],
+          "min_date": "0858-02-12",
+          "max_date": "0865-02-12",
+          "days": [
+            "Saturday",
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0458.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11124,
+      "doc_count": 13023,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -1084,13 +1159,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2286
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -1195,7 +1270,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3141
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -1203,7 +1278,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2909
+            "doc_count": 3359
           },
           {
             "key": "900-999",
@@ -1211,18 +1286,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2933
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1320
           }
         ]
       },
       "no_date": {
-        "doc_count": 524
+        "doc_count": 694
       }
     },
     "corpus": {
