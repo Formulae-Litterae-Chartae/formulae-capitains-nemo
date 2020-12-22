@@ -1,5 +1,5 @@
 {
-  "took": 10,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 42,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v29",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
         "_score": null,
@@ -40,6 +40,7 @@
             "0908-09-13"
           ],
           "min_date": "0908-09-13",
+          "max_date": "0908-09-13",
           "days": [
             "Tuesday"
           ],
@@ -71,7 +72,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v29",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
         "_score": null,
@@ -99,6 +100,7 @@
             "0957-12-31"
           ],
           "min_date": "0956",
+          "max_date": "0957-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -127,7 +129,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v29",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
         "_score": null,
@@ -155,6 +157,7 @@
             "0976-12-31"
           ],
           "min_date": "0972",
+          "max_date": "0976-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -183,7 +186,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v29",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
         "_score": null,
@@ -211,6 +214,7 @@
             "0976-12-31"
           ],
           "min_date": "0972",
+          "max_date": "0976-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -239,7 +243,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v29",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
         "_score": null,
@@ -267,6 +271,7 @@
             "1005-12-31"
           ],
           "min_date": "0994",
+          "max_date": "1005-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -295,7 +300,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v28",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -323,6 +328,7 @@
             "0933-06-01"
           ],
           "min_date": "0933-06-01",
+          "max_date": "0933-06-01",
           "days": [
             "Saturday"
           ],
@@ -354,7 +360,7 @@
         ]
       },
       {
-        "_index": "passau_v4",
+        "_index": "passau_v28",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
         "_score": null,
@@ -382,6 +388,7 @@
             "0852-02-07"
           ],
           "min_date": "0852-02-07",
+          "max_date": "0852-02-07",
           "days": [
             "Sunday"
           ],
@@ -413,7 +420,7 @@
         ]
       },
       {
-        "_index": "regensburg_v4",
+        "_index": "regensburg_v29",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
         "_score": null,
@@ -441,6 +448,7 @@
             "0863-12-31"
           ],
           "min_date": "0847",
+          "max_date": "0863-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -469,7 +477,7 @@
         ]
       },
       {
-        "_index": "regensburg_v4",
+        "_index": "regensburg_v29",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
         "_score": null,
@@ -497,6 +505,7 @@
             "0887-12-31"
           ],
           "min_date": "0883",
+          "max_date": "0887-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -525,7 +534,7 @@
         ]
       },
       {
-        "_index": "stgallen_v4",
+        "_index": "stgallen_v29",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -553,6 +562,7 @@
             "0827-09-08"
           ],
           "min_date": "0827-09-08",
+          "max_date": "0827-09-08",
           "days": [
             "Sunday"
           ],
@@ -582,12 +592,192 @@
           1,
           "urn:cts:formulae:stgallen.wartmann0308.lat001"
         ]
+      },
+      {
+        "_index": "stgallen_v29",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 381",
+          "urn": "urn:cts:formulae:stgallen.wartmann0381.lat001",
+          "date_string": "839 10 22",
+          "comp_ort": "Bettenweiler",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bettenweiler",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 839,
+              "month": 10,
+              "day": 22
+            }
+          ],
+          "all_dates": [
+            "0839-10-22"
+          ],
+          "min_date": "0839-10-22",
+          "max_date": "0839-10-22",
+          "days": [
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0381.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v29",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 694",
+          "urn": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+          "date_string": "894 08 26",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 894,
+              "month": 8,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0894-08-26"
+          ],
+          "min_date": "0894-08-26",
+          "max_date": "0894-08-26",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0694.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v28",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 69",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+          "date_string": "820 09 02",
+          "comp_ort": "Quierzy-s.-Oise",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Quierzy-s.-Oise",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 9,
+              "day": 2
+            }
+          ],
+          "all_dates": [
+            "0820-09-02"
+          ],
+          "min_date": "0820-09-02",
+          "max_date": "0820-09-02",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0069.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11124,
+      "doc_count": 13023,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -639,13 +829,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2286
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -750,7 +940,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3141
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -758,7 +948,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2909
+            "doc_count": 3359
           },
           {
             "key": "900-999",
@@ -766,18 +956,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2933
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1320
           }
         ]
       },
       "no_date": {
-        "doc_count": 524
+        "doc_count": 694
       }
     },
     "corpus": {

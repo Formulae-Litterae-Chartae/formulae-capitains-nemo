@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -40,6 +40,7 @@
             "0765-12-15"
           ],
           "min_date": "0765-12-15",
+          "max_date": "0765-12-15",
           "days": [
             "Sunday"
           ],
@@ -56,7 +57,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -348,15 +349,16 @@
             "0813-04-20"
           ],
           "min_date": "0769-04-20",
+          "max_date": "0813-04-20",
           "days": [
-            "Tuesday",
-            "Friday",
-            "Monday",
-            "Easter",
-            "Sunday",
             "Wednesday",
             "Saturday",
+            "Friday",
+            "Monday",
+            "Tuesday",
             "Lent",
+            "Sunday",
+            "Easter",
             "Thursday"
           ],
           "sort_prefix": 1
@@ -372,7 +374,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -406,6 +408,7 @@
             "0814"
           ],
           "min_date": "0769",
+          "max_date": "0814",
           "sort_prefix": 1
         },
         "highlight": {
@@ -419,7 +422,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -639,15 +642,16 @@
             "0813-03-31"
           ],
           "min_date": "0769-03-31",
+          "max_date": "0813-03-31",
           "days": [
-            "Tuesday",
-            "Friday",
-            "Monday",
-            "Easter",
-            "Sunday",
             "Wednesday",
             "Saturday",
+            "Sunday",
+            "Friday",
+            "Tuesday",
             "Lent",
+            "Monday",
+            "Easter",
             "Thursday"
           ],
           "sort_prefix": 1
@@ -663,7 +667,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -697,6 +701,7 @@
             "0814"
           ],
           "min_date": "0768",
+          "max_date": "0814",
           "sort_prefix": 1
         },
         "highlight": {
@@ -710,7 +715,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -738,6 +743,7 @@
             "0806-12-31"
           ],
           "min_date": "0791",
+          "max_date": "0806-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -751,7 +757,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
         "_score": null,
@@ -779,6 +785,7 @@
             "0807-02-07"
           ],
           "min_date": "0807-02-07",
+          "max_date": "0807-02-07",
           "days": [
             "Sunday"
           ],
@@ -795,7 +802,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -823,6 +830,7 @@
             "0890-11-25"
           ],
           "min_date": "0890-05-20",
+          "max_date": "0890-11-25",
           "sort_prefix": 1
         },
         "highlight": {
@@ -836,7 +844,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -864,6 +872,7 @@
             "0904-06-14"
           ],
           "min_date": "0904-06-14",
+          "max_date": "0904-06-14",
           "days": [
             "Thursday"
           ],
@@ -880,7 +889,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v28",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
         "_score": null,
@@ -908,6 +917,7 @@
             "0909-12-28"
           ],
           "min_date": "0909-12-28",
+          "max_date": "0909-12-28",
           "days": [
             "Thursday"
           ],
@@ -921,6 +931,93 @@
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0089.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v28",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ Noticia de iudicado inter Vualdone episcopo et de monachis sancti Galli et advocato eorum. In Christi nomine. Regni primi regis Heinrici, residente duce Burchardo et Vvaldone Curiensis eclesie episcopo in Vinomna in mallo publico ad audiendas et discernendas causas, venit Cozaldus monachus et Albericus monachus et Richo monachus et cum aliis monachis per septem, cum avocato suo Domnico proclamans se de Vualdone episcopo et de abacia Fauariensi, quod iuste debuisset ad partem sancti Galli venire plus quam illi licui set habere. Econtra Vualdo episcopus astantibus monachis de Fauairis cum avocato suo Ursicino respondit: quod malo ordine queris, quia tu ipse Cozolt forcia fecisti cum avocato tuo Domnico avunculo meo Salamoni et mihi, quia ipse pactum habuit factum cum te et cum aliis monachis de sancto Gallo, ut ipsam apaciunculam predialiter diebus vite sue possideret et ego post discessum suum, et post meum discessum ad vestrum monasterium et paccionem feci cum vobis et cum aliis monachis, ut curtis Pussunvvang illi et mihi econtra donaretur; et si ille nec ego investitus fuisset, vos abuissetis vestram et nos nostram causam; fecit eciam pactum, ut si ego indignus episcopus venirem, ut post suum discessum, si paccia ista firma fuisset nec irrita, ad vostrum monasterium hec abaciuncula pertineret. Hec omnia tu irrumpisti, ita ut avunculo meo Salamone tu ipse, qui es decanus de monachis sancti Galli tradicionem per forciam fecisti Alamannis in incensum dando, ut omni anno duo libra exinde dediset ad partem sancti Galli et ad monachos, nostrum pactum non firmasti nec investisti; insuper et nostra tulisti per forcia. Et hoc scit omnis populus de Curuvuala. Et hec ipsa paccio et tua forcia venit ante regem Chunradum loco Honfridinga et iudicatum fuit ab omni populo, qui tunc aderant, te malo ordine iniustam tradicionem facere, et ob hanc causam dedit senior meus hoc preceptum de Fauarias, quod in manu teneo. Et perlecto precepto mandavit dux Burchardus, ut secundum legem Romana iudicarent, qui de hac causa facere debuissent. Iudicaverunt omnes Romani et Alamanni, si Cozoldus cum avocato suo, cum legitimis testibus de Curuvvala non potuisset episcopum et avocatum suum de hac re vincere, postea querelam nec racionem habere. Et tunc Cozoldus monachus et alii monachi cum avocato suo concredidit se, et si dux non precasset, dublam terram et simblem Domnicus avocatus wadasset. Iudices: Alexander, Starculfus, Ebroinus, Ercenbertus, Seianus, Costancius, Meroaldus, Vvancio, Vuito, item Meroaldus, Valerius, Orsicinus, Nuffus, Pasciuus, alius Nuffus, Balfridus, Scalco, Vigilius, Artimius, Regenzo, Pvuo, Valerius, Seianus, Ceizo, Victor, Aurames, Priectus, Otmarus, Domnicus, Victor, Peppo, Vuangairus, Jordannes, Vualderamnus, Taso, Libucio, item Victor, Vincencius, Jovvinianus, Libucio, Azzo, Orsacius, item alii iudices de Alamania: Kerat, Manogaldus, Sigibold, Ezzo, Pegere, Richolf, Vuito, Cozzelm, Vvicart, Kisilfritd, Ricer, Amalbret, Ricker, Berahker+, Renger, Ato, Ratker. Ego Vrsicinus presbyter rogitus hab Erchanberto cancellario scripsi et supscripsi. Notavi diem et annum. Die octava idus martii, anno incarnacionis domini nongentesimo XX, anno primo regis Heinrici. Iudicatum est eciam ab omnibus, ut si quis deinceps de hac re querelam aut mallacionem faceret, sciret se esse calumniatorem. Rec noticia publice scripta et coram omni populo lecta.",
+          "lemmas": null,
+          "regest": "Das öffentliche Gericht zu Rankweil weist die von den Mönchen des Klosters St. Gallen auf Herausgabe der Abtei Pfäfers gegen Bischof Waldo von Chur geführte Klage zurück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 96",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
+          "date_string": "920 03 08",
+          "comp_ort": "Rankweil",
+          "autocomplete": "+ Noticia de iudicado inter Vualdone episcopo et de monachis sancti Galli et advocato eorum. In Christi nomine. Regni primi regis Heinrici, residente duce Burchardo et Vvaldone Curiensis eclesie episcopo in Vinomna in mallo publico ad audiendas et discernendas causas, venit Cozaldus monachus et Albericus monachus et Richo monachus et cum aliis monachis per septem, cum avocato suo Domnico proclamans se de Vualdone episcopo et de abacia Fauariensi, quod iuste debuisset ad partem sancti Galli venire plus quam illi licui set habere. Econtra Vualdo episcopus astantibus monachis de Fauairis cum avocato suo Ursicino respondit: quod malo ordine queris, quia tu ipse Cozolt forcia fecisti cum avocato tuo Domnico avunculo meo Salamoni et mihi, quia ipse pactum habuit factum cum te et cum aliis monachis de sancto Gallo, ut ipsam apaciunculam predialiter diebus vite sue possideret et ego post discessum suum, et post meum discessum ad vestrum monasterium et paccionem feci cum vobis et cum aliis monachis, ut curtis Pussunvvang illi et mihi econtra donaretur; et si ille nec ego investitus fuisset, vos abuissetis vestram et nos nostram causam; fecit eciam pactum, ut si ego indignus episcopus venirem, ut post suum discessum, si paccia ista firma fuisset nec irrita, ad vostrum monasterium hec abaciuncula pertineret. Hec omnia tu irrumpisti, ita ut avunculo meo Salamone tu ipse, qui es decanus de monachis sancti Galli tradicionem per forciam fecisti Alamannis in incensum dando, ut omni anno duo libra exinde dediset ad partem sancti Galli et ad monachos, nostrum pactum non firmasti nec investisti; insuper et nostra tulisti per forcia. Et hoc scit omnis populus de Curuvuala. Et hec ipsa paccio et tua forcia venit ante regem Chunradum loco Honfridinga et iudicatum fuit ab omni populo, qui tunc aderant, te malo ordine iniustam tradicionem facere, et ob hanc causam dedit senior meus hoc preceptum de Fauarias, quod in manu teneo. Et perlecto precepto mandavit dux Burchardus, ut secundum legem Romana iudicarent, qui de hac causa facere debuissent. Iudicaverunt omnes Romani et Alamanni, si Cozoldus cum avocato suo, cum legitimis testibus de Curuvvala non potuisset episcopum et avocatum suum de hac re vincere, postea querelam nec racionem habere. Et tunc Cozoldus monachus et alii monachi cum avocato suo concredidit se, et si dux non precasset, dublam terram et simblem Domnicus avocatus wadasset. Iudices: Alexander, Starculfus, Ebroinus, Ercenbertus, Seianus, Costancius, Meroaldus, Vvancio, Vuito, item Meroaldus, Valerius, Orsicinus, Nuffus, Pasciuus, alius Nuffus, Balfridus, Scalco, Vigilius, Artimius, Regenzo, Pvuo, Valerius, Seianus, Ceizo, Victor, Aurames, Priectus, Otmarus, Domnicus, Victor, Peppo, Vuangairus, Jordannes, Vualderamnus, Taso, Libucio, item Victor, Vincencius, Jovvinianus, Libucio, Azzo, Orsacius, item alii iudices de Alamania: Kerat, Manogaldus, Sigibold, Ezzo, Pegere, Richolf, Vuito, Cozzelm, Vvicart, Kisilfritd, Ricer, Amalbret, Ricker, Berahker+, Renger, Ato, Ratker. Ego Vrsicinus presbyter rogitus hab Erchanberto cancellario scripsi et supscripsi. Notavi diem et annum. Die octava idus martii, anno incarnacionis domini nongentesimo XX, anno primo regis Heinrici. Iudicatum est eciam ab omnibus, ut si quis deinceps de hac re querelam aut mallacionem faceret, sciret se esse calumniatorem. Rec noticia publice scripta et coram omni populo lecta.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Das öffentliche Gericht zu Rankweil weist die von den Mönchen des Klosters St. Gallen auf Herausgabe der Abtei Pfäfers gegen Bischof Waldo von Chur geführte Klage zurück.",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 920,
+              "month": 3,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0920-03-08"
+          ],
+          "min_date": "0920-03-08",
+          "max_date": "0920-03-08",
+          "days": [
+            "Wednesday",
+            "Lent"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete": [
+            "Ego Vrsicinus presbyter rogitus hab Erchanberto cancellario </small><strong>scripsi</strong><small> et supscripsi. Notavi diem et annum. Die octava idus martii, anno incarnacionis domini nongentesimo XX, anno primo regis Heinrici. Iudicatum est eciam ab omnibus, ut si quis deinceps de hac re querelam aut mallacionem faceret, sciret se esse calumniatorem. Rec noticia publice scripta et coram omni populo lecta."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0096.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v28",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In Christi nomine. Ego itaque bresbiter Valencio sanus a sana mente per comiatu senioris Iltebaldi et cum manu – – dono et facio et donatumque esse volo tibi nepoti meo Priecto et in manu Vigilii omnia mea proprietate, quatum ego abeo in Lopiene in solamen, in edificiis, in vineis, in cortinis, in agris, in pradis, die presente faciendi queque voluerit, sine censo, omnem omni permutandi. Et carta ista firma permaneat omni tempore. Et si quis contra anc cartam umquam inquietare voluerit, solvat duplum, quod carta ista continet, et aurum libras III. Facta in Lopiene, mense februarium, anno II regnante Ottone filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi.",
+          "lemmas": null,
+          "regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 140",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
+          "date_string": "975 02",
+          "comp_ort": "Maienfeld",
+          "autocomplete": "In Christi nomine. Ego itaque bresbiter Valencio sanus a sana mente per comiatu senioris Iltebaldi et cum manu – – dono et facio et donatumque esse volo tibi nepoti meo Priecto et in manu Vigilii omnia mea proprietate, quatum ego abeo in Lopiene in solamen, in edificiis, in vineis, in cortinis, in agris, in pradis, die presente faciendi queque voluerit, sine censo, omnem omni permutandi. Et carta ista firma permaneat omni tempore. Et si quis contra anc cartam umquam inquietare voluerit, solvat duplum, quod carta ista continet, et aurum libras III. Facta in Lopiene, mense februarium, anno II regnante Ottone filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
+          "orig_comp_ort": "Maienfeld",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 975,
+              "month": 2
+            }
+          ],
+          "all_dates": [
+            "0975-02"
+          ],
+          "min_date": "0975-02",
+          "max_date": "0975-02",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete": [
+            "Et ego Paulinus cancelarius rogitus da Vigilio anc cartam </small><strong>scripsi</strong><small>."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0140.lat001"
         ]
       }
     ]

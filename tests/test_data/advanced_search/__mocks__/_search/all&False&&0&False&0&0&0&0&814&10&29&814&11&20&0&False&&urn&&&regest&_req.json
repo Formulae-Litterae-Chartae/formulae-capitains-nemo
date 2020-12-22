@@ -131,7 +131,7 @@
     "urn"
   ],
   "from": 0,
-  "size": 10,
+  "size": 10000,
   "aggs": {
     "range": {
       "date_range": {
