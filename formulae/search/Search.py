@@ -172,7 +172,7 @@ def highlight_segment(orig_str: str) -> str:
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
                           search_field: Union[str, list], highlight_field: str, fuzz: str,
-                          download_id: str = 'pdf_download_0') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          download_id: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -193,21 +193,14 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
-            vectors = current_app.elasticsearch.termvectors(index=hit['_index'], doc_type=hit['_type'], id=hit['_id'])
-            highlight_offsets = dict()
-            searched_positions = dict()
-            if highlight_field == search_field:
-                for k, v in vectors['term_vectors'][search_field]['terms'].items():
-                    for o in v['tokens']:
-                        searched_positions[o['position']] = k
-                        highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-            else:
-                for v in vectors['term_vectors'][highlight_field]['terms'].values():
-                    for o in v['tokens']:
-                        highlight_offsets[o['position']] = (o['start_offset'], o['end_offset'])
-                for k, v in vectors['term_vectors'][search_field]['terms'].items():
-                    for o in v['tokens']:
-                        searched_positions[o['position']] = k
+            vectors = current_app.config['nemo_app'].term_vectors[hit['_id']]['term_vectors']
+            highlight_offsets = current_app.config['nemo_app'].term_vectors[hit['_id']]['positions'][highlight_field]
+            # if highlight_field == search_field:
+            #     for v in vectors[search_field]['terms'].values():
+            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            # else:
+            #     for v in vectors[highlight_field]['terms'].values():
+            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
             highlighted_words = set(q.split())
             if re.search(r'[?*]', q) or fuzz != '0':
                 highlighted_words = set()
@@ -237,14 +230,14 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                 terms.add(term)
                     for w in terms:
                         if search_field == 'lemmas':
-                            if w in vectors['term_vectors']['lemmas']['terms']:
-                                positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                            if w in vectors['lemmas']['terms']:
+                                positions[token] += [i['position'] for i in vectors['lemmas']['terms'][w]['tokens']]
                             for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                                if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                                    positions[token] += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                                if other_lem in vectors['lemmas']['terms']:
+                                    positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                             positions[token] = sorted(positions[w])
                         else:
-                            positions[token] += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                            positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                 search_range_start = int(slop) + len(q_words)
                 search_range_end = int(slop) + len(q_words) + 1
                 if ordered_terms:
@@ -262,10 +255,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[x][1] - 1 for x in ordered_span]
-                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
-                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                            start_offsets = [highlight_offsets[str(x)][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[str(x)][1] - 1 for x in ordered_span]
+                            start_index = highlight_offsets[str(max(0, ordered_span[0] - 10))][0]
+                            end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, ordered_span[-1] + 10))][1] + 1
                             sentence = ''
                             for i, x in enumerate(text[start_index:end_index]):
                                 if i + start_index in start_offsets:
@@ -284,19 +277,19 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 positions = []
                 for w in terms:
                     if search_field == 'lemmas':
-                        if w in vectors['term_vectors']['lemmas']['terms']:
-                            positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][w]['tokens']]
+                        if w in vectors['lemmas']['terms']:
+                            positions += [i['position'] for i in vectors['lemmas']['terms'][w]['tokens']]
                         for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                            if other_lem in vectors['term_vectors']['lemmas']['terms']:
-                                positions += [i['position'] for i in vectors['term_vectors']['lemmas']['terms'][other_lem]['tokens']]
+                            if other_lem in vectors['lemmas']['terms']:
+                                positions += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        positions += [i['position'] for i in vectors['term_vectors'][search_field]['terms'][w]['tokens']]
+                        positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
-                    start_offset = highlight_offsets[pos][0]
-                    end_offset = highlight_offsets[pos][1] - 1
-                    start_index = highlight_offsets[max(0, pos - 10)][0]
-                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
+                    start_offset = highlight_offsets[str(pos)][0]
+                    end_offset = highlight_offsets[str(pos)][1] - 1
+                    start_index = highlight_offsets[str(max(0, pos - 10))][0]
+                    end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, pos + 10))][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
                         if i + start_index == start_offset:
@@ -307,8 +300,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
-            current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
-        current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+            if download_id:
+                current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+        if download_id:
+            current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:
