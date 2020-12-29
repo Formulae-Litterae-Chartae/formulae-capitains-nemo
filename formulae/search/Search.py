@@ -184,6 +184,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     """
     ids = []
     all_highlighted_terms = set()
+    mvectors_body = {'docs': [{'_index': h['_index'], '_type': h['_type'], '_id': h['_id'], 'term_statistics': False, 'field_statistics': False} for h in search['hits']['hits']]}
+    corp_vectors = {d['_id']: {'term_vectors': d['term_vectors']} for d in current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']}
     for list_index, hit in enumerate(search['hits']['hits']):
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
@@ -193,14 +195,14 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
-            vectors = current_app.config['nemo_app'].term_vectors[hit['_id']]['term_vectors']
-            highlight_offsets = current_app.config['nemo_app'].term_vectors[hit['_id']]['positions'][highlight_field]
-            # if highlight_field == search_field:
-            #     for v in vectors[search_field]['terms'].values():
-            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
-            # else:
-            #     for v in vectors[highlight_field]['terms'].values():
-            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            vectors = corp_vectors[hit['_id']]['term_vectors']
+            highlight_offsets = dict()
+            if highlight_field == search_field:
+                for v in vectors[search_field]['terms'].values():
+                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            else:
+                for v in vectors[highlight_field]['terms'].values():
+                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
             highlighted_words = set(q.split())
             if re.search(r'[?*]', q) or fuzz != '0':
                 highlighted_words = set()
@@ -255,10 +257,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                            start_offsets = [highlight_offsets[str(x)][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[str(x)][1] - 1 for x in ordered_span]
-                            start_index = highlight_offsets[str(max(0, ordered_span[0] - 10))][0]
-                            end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, ordered_span[-1] + 10))][1] + 1
+                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[x][1] - 1 for x in ordered_span]
+                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
+                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
                             sentence = ''
                             for i, x in enumerate(text[start_index:end_index]):
                                 if i + start_index in start_offsets:
@@ -286,10 +288,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
-                    start_offset = highlight_offsets[str(pos)][0]
-                    end_offset = highlight_offsets[str(pos)][1] - 1
-                    start_index = highlight_offsets[str(max(0, pos - 10))][0]
-                    end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, pos + 10))][1] + 1
+                    start_offset = highlight_offsets[pos][0]
+                    end_offset = highlight_offsets[pos][1] - 1
+                    start_index = highlight_offsets[max(0, pos - 10)][0]
+                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
                         if i + start_index == start_offset:

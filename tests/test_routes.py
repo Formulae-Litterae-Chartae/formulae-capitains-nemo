@@ -38,7 +38,7 @@ class TestConfig(Config):
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
     COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
-    TERM_VECTORS = "tests/test_data/formulae/composition_places.json"
+    # TERM_VECTORS = "tests/test_data/formulae/composition_places.json"
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
     SAVE_REQUESTS = False
@@ -100,9 +100,6 @@ class Formulae_Testing(flask_testing.TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001']
-        self.nemo.term_vectors = defaultdict(term_vector_default_value)
-        with open('tests/test_data/advanced_search/all_term_vectors.json') as f:
-            self.nemo.term_vectors.update(load(f))
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -120,6 +117,8 @@ class Formulae_Testing(flask_testing.TestCase):
         db.session.add(u)
         db.session.commit()
         self.maxDiff = None
+        with open('tests/test_data/advanced_search/all_term_vectors.json') as f:
+            self.term_vectors = load(f)
 
     def tearDown(self):
         db.session.remove()
@@ -139,10 +138,10 @@ class TestNemoSetup(Formulae_Testing):
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
-            self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
-                             TestES.MOCK_VECTOR_RETURN_VALUE)
-            self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001.lat001'],
-                             TestES.MOCK_VECTOR_RETURN_VALUE)
+            # self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
+            #                  TestES.MOCK_VECTOR_RETURN_VALUE)
+            # self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:marmoutier_manceau.laurain_ballée_0001.lat001'],
+            #                  TestES.MOCK_VECTOR_RETURN_VALUE)
 
 
 class TestInit(TestCase):
@@ -906,7 +905,8 @@ class TestIndividualRoutes(Formulae_Testing):
         self.assertIn('class="w font-weight-bold">trinitatis</span>', html_output)
 
     @patch.object(Elasticsearch, "search")
-    def test_session_previous_results_set(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_session_previous_results_set(self, mock_highlight, mock_search):
         """ Make sure that session['previous_results'] is set correctly"""
         test_args = OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -921,6 +921,7 @@ class TestIndividualRoutes(Formulae_Testing):
         for hit in resp['hits']['hits']:
             hit['highlight']['text'][0] = PRE_TAGS + hit['highlight']['text'][0] + POST_TAGS
         mock_search.return_value = resp
+        mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
@@ -973,7 +974,8 @@ class TestIndividualRoutes(Formulae_Testing):
                 self.assertTrue('previous_search' in session, message)
 
     @patch.object(Elasticsearch, "search")
-    def test_session_previous_search_args_set_corpora(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_session_previous_search_args_set_corpora(self, mock_highlight, mock_search):
         """ Make sure that session['previous_search_args'] is set correctly with 'all' corpora"""
         search_url = "/search/results?fuzziness=0&day_start=&year=&date_plus_minus=0&q=regnum&year_end=&corpus=all&submit=True&lemma_search=y&year_start=&month_start=0&source=advanced&month=0&day=&in_order=False&exclusive_date_range=False&month_end=0&slop=0&day_end=&regest_q="
         previous_args = {'source': 'advanced', 'corpus': 'all', 'q': 'regnum', 'fuzziness': '0', 'slop': '0',
@@ -991,6 +993,7 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
+        mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             session['previous_search_args'] = previous_args
             c.get(search_url, follow_redirects=True)
@@ -1353,15 +1356,15 @@ class TestFunctions(Formulae_Testing):
             self.nemo.make_dead_url_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid dead url mapping from it.')
 
-    def test_load_term_vectors(self):
-        """ Ensure that the json mapping file is correctly loaded."""
-        self.assertEqual(self.nemo.term_vectors["urn:cts:formulae:buenden.meyer-marthaler0027.lat001"]["term_vectors"]["text"]["terms"]["a"]["term_freq"],
-                         4,
-                         'Mapping files should have loaded correctly.')
-        self.app.config['TERM_VECTORS'] = "tests/test_data/formulae/inflected_to_lem_error.txt"
-        with patch.object(self.app.logger, 'warning') as mock:
-            self.nemo.make_termvectors()
-            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid term vector dictionary from it.')
+    # def test_load_term_vectors(self):
+    #     """ Ensure that the json mapping file is correctly loaded."""
+    #     self.assertEqual(self.nemo.term_vectors["urn:cts:formulae:buenden.meyer-marthaler0027.lat001"]["term_vectors"]["text"]["terms"]["a"]["term_freq"],
+    #                      4,
+    #                      'Mapping files should have loaded correctly.')
+    #     self.app.config['TERM_VECTORS'] = "tests/test_data/formulae/inflected_to_lem_error.txt"
+    #     with patch.object(self.app.logger, 'warning') as mock:
+    #         self.nemo.make_termvectors()
+    #         mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid term vector dictionary from it.')
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
@@ -2167,7 +2170,13 @@ class TestES(Formulae_Testing):
                                                                ("formulaic_parts", "Poenformel%2BStipulationsformel")])
                  }
 
-    MOCK_VECTOR_RETURN_VALUE = {'term_vectors': {'text': {'terms':
+    MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
+                                '_type': 'andecavensis',
+                                '_id': 'urn:cts:formulae:andecavensis.form001.lat001',
+                                '_version': 1,
+                                'found': True,
+                                'took': 0,
+                                'term_vectors': {'text': {'terms':
                                                               {'regnum': {'term_freq': 1, 'tokens': [{'position': 0,
                                                                                                       'start_offset': 0,
                                                                                                       'end_offset': 3}]},
@@ -2195,33 +2204,15 @@ class TestES(Formulae_Testing):
                                                                  'text': {'term_freq': 1, 'tokens': [{'position': 3,
                                                                                                       'start_offset': 10,
                                                                                                       'end_offset': 13}]},
-                                                                 'gerere': {'term_freq': 1, 'tokens': [{'position': 4,
+                                                                 'gerere': {'term_freq': 1, 'tokens': [{'position': 0,
                                                                                                         'start_offset': 14,
                                                                                                         'end_offset': 19}]},
-                                                                 'gesta': {'term_freq': 1, 'tokens': [{'position': 5,
+                                                                 'gesta': {'term_freq': 1, 'tokens': [{'position': 1,
                                                                                                        'start_offset': 20,
                                                                                                        'end_offset': 24}]}
                                                                  }
                                                             }
-                                                 },
-                                'positions': {'text':
-                                                              {"0": (0, 3),
-                                                               "1": (5, 8),
-                                                               "2": (10, 13),
-                                                               "3": (10, 13),
-                                                               "4": (14, 19),
-                                                               "5": (20, 24)
-                                                          },
-                                                 'lemmas':
-                                                                {"0": (0, 3),
-                                                                 "1": (5, 8),
-                                                                 "2": (10, 13),
-                                                                 "3": (10, 13),
-                                                                 "4": (14, 19),
-                                                                 "5": (20, 24)
-                                                                 }
-                                                            }
-                                }
+                                                 }}
 
     SEARCH_FILTERS_CORPORA = {'Angers': {'match': {'_type': 'andecavensis'}},
                               "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
@@ -2281,6 +2272,25 @@ class TestES(Formulae_Testing):
                 return load(f)
         with open('tests/test_data/advanced_search/buenden24_term_vectors.json') as f:
             return load(f)
+
+    def highlight_side_effect(self, **kwargs):
+        return [{'id': hit['_id'],
+                 'info': hit['_source'],
+                 'sents': [],
+                 'sentence_spans': [],
+                 'title': hit['_source']['title'],
+                 'regest_sents': [],
+                 'highlight': []} for hit in kwargs['search']['hits']['hits']], set()
+
+    def vector_side_effect(self, **kwargs):
+        ids = [x['_id'] for x in self.term_vectors['docs']]
+        rv = self.term_vectors
+        for d in kwargs['body']['docs']:
+            if d['_id'] not in ids:
+                new_vector = copy(self.MOCK_VECTOR_RETURN_VALUE)
+                new_vector['_id'] = d['_id']
+                rv['docs'].append(new_vector)
+        return rv
 
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
@@ -2545,13 +2555,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multiword_wildcard_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_multiword_wildcard_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_multiword_wildcard_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -2559,26 +2571,30 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_lemma_advanced_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_mapped_lemma_advanced_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_mapped_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
@@ -2586,13 +2602,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -2601,7 +2619,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_lemma_simple_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_lemma_simple_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = {'query':
@@ -2693,6 +2712,7 @@ class TestES(Formulae_Testing):
             if 'lemmas' not in hit['highlight']:
                 hit['highlight']['lemmas'] = hit['highlight']['text']
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
                                                per_page=10)
@@ -2700,7 +2720,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_mapped_lemma_simple_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_mapped_lemma_simple_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = {'query':
@@ -2828,6 +2849,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
                                                per_page=10)
@@ -2850,13 +2872,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_regest_and_word_advanced_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_regest_and_word_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2876,13 +2900,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multiword_lemma_advanced_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -2890,7 +2916,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_single_word_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -2901,13 +2928,15 @@ class TestES(Formulae_Testing):
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_single_word_highlighting_wildcard(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_word_highlighting_wildcard(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -2927,13 +2956,15 @@ class TestES(Formulae_Testing):
                        Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et '),
                        Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg*'
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
@@ -2943,26 +2974,30 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_highlighting_repeated_words(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_highlighting_repeated_words(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_single_word_fuzzy_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_word_fuzzy_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -2975,13 +3010,15 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': ['Text nicht zugänglich.']}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_fuzzy_highlighting_with_wildcard(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_fuzzy_highlighting_with_wildcard(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches with wildcards"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
@@ -2991,13 +3028,15 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_fuzzy_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_fuzzy_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
@@ -3014,13 +3053,15 @@ class TestES(Formulae_Testing):
                  {'sents': ['Text nicht zugänglich.']},
                  {'sents': ['Text nicht zugänglich.']}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_word_highlighting_wildcard(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_highlighting_wildcard(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
             will not cause an error.
@@ -3038,6 +3079,7 @@ class TestES(Formulae_Testing):
                       [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
                        Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni</strong><small> nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg* domni'
         test_args['slop'] = '3'
@@ -3045,7 +3087,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_single_lemma_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -3074,13 +3117,15 @@ class TestES(Formulae_Testing):
                                    '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_lemma_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'regnum+domni'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -3105,13 +3150,15 @@ class TestES(Formulae_Testing):
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_lemma_highlighting_terms_out_of_order(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_lemma_highlighting_terms_out_of_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
         test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -3136,13 +3183,15 @@ class TestES(Formulae_Testing):
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_lemma_highlighting_terms_out_of_order_ordered_terms_True(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_lemma_highlighting_terms_out_of_order_ordered_terms_True(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
         test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum'), ("fuzziness", "0"),
                                  ("in_order", "True"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -3161,13 +3210,15 @@ class TestES(Formulae_Testing):
         sents = [{'sents': []},
                  {'sents': []}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_lemma_highlighting_terms_with_slop(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_lemma_highlighting_terms_with_slop(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
         test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum+regis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "2"), ("month", 0), ("day", 0),
@@ -3190,13 +3241,15 @@ class TestES(Formulae_Testing):
                                    '</small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_multi_lemma_highlighting_terms_with_slop_in_order(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_lemma_highlighting_terms_with_slop_in_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
         test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'sub+regis'), ("fuzziness", "0"),
                                  ("in_order", "True"), ("year", 0), ("slop", "4"), ("month", 0), ("day", 0),
@@ -3218,6 +3271,7 @@ class TestES(Formulae_Testing):
                                    'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3261,10 +3315,12 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_simple_multi_corpus_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_simple_multi_corpus_search(self, mock_highlight, mock_search):
         test_args = OrderedDict([("corpus", ['formulae', 'chartae']), ("q", 'regnum'), ("lemma_search", "False"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn'),
                                  ('source', 'simple')])
+        mock_highlight.side_effect = self.highlight_side_effect
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                                 'title': 'St. Gallen 259'},
@@ -3681,7 +3737,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_download_search_results(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_download_search_results(self, mock_vectors, mock_search):
         with self.client as c:
             c.get('/search/download/1', follow_redirects=True)
             self.assertMessageFlashed(_('Keine Suchergebnisse zum Herunterladen.'))
@@ -3690,6 +3747,7 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
         mock_search.return_value = resp
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
         self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0027.lat001', 'urn:cts:formulae:mondsee.rath0128.lat001']
