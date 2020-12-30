@@ -501,10 +501,6 @@ class NemoFormulae(Nemo):
         g.open_collections = self.OPEN_COLLECTIONS
         if not re.search('texts|search|assets|favicon|reading_format', request.url):
             session.pop('previous_search', None)
-        if 'update_flash_message' not in session:
-            flash(_('Aktuell werden wichtige Updates zum Server installiert. Dies kann zur Verlangsamung oder sogar zu kurzzeitigem Ausfall der Werkstatt führen. Wir bitten um Verständnis.'),
-                  category='warning')
-            session['update_flash_message'] = True
 
     def after_request(self, response: Response) -> Response:
         """ Currently used only for the Cache-Control header.
