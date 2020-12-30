@@ -190,12 +190,8 @@ class TestIndividualRoutes(Formulae_Testing):
 
         """
         with self.client as c:
-            self.assertNotIn('update_flash_message', session)
             c.get('/', follow_redirects=True)
             self.assertTemplateUsed('main::index.html')
-            self.assertMessageFlashed(_('Aktuell werden wichtige Updates zum Server installiert. Dies kann zur Verlangsamung oder sogar zu kurzzeitigem Ausfall der Werkstatt führen. Wir bitten um Verständnis.'),
-                                      category='warning')
-            self.assertIn('update_flash_message', session)
             c.get('/imprint', follow_redirects=True)
             self.assertTemplateUsed('main::impressum.html')
             c.get('/bibliography', follow_redirects=True)
