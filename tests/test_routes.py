@@ -2582,15 +2582,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, "lem_highlight_to_text")
-    def test_mapped_lemma_advanced_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_mapped_lemma_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
@@ -2598,15 +2598,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, "lem_highlight_to_text")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
