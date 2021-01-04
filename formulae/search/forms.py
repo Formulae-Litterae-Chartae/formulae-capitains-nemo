@@ -2,11 +2,12 @@ from flask import request
 from flask_wtf import FlaskForm
 from flask_babel import lazy_gettext as _l
 from flask_babel import _
-from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField, HiddenField
+from wtforms.validators import DataRequired, ValidationError, NumberRange
 from wtforms.fields.html5 import IntegerField
 from wtforms.widgets import CheckboxInput
 from collections import OrderedDict
+from random import randint
 
 FORM_PARTS = OrderedDict({
     "Invocatio": _l("Invocatio"),
@@ -121,4 +122,5 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Saturday', _l('Sa'))])
     formulaic_parts = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
                                           choices=[(k, v) for k, v in FORM_PARTS.items()])
-    submit = SubmitField(_l('Suche Durchführen'))
+    search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
+    submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")

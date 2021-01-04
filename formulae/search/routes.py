@@ -93,7 +93,8 @@ def r_results():
                        old_search=old_search,
                        source=request.args.get('source', 'advanced'),
                        regest_field=request.args.get('regest_field', 'regest'),
-                       formulaic_parts=request.args.get('formulaic_parts', ''))
+                       formulaic_parts=request.args.get('formulaic_parts', ''),
+                       search_id=request.args.get('search_id', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -325,6 +326,8 @@ def download_search_results(download_id: str) -> Response:
 @bp.route('/pdf_progress/<download_id>', methods=["GET"])
 def pdf_download_progress(download_id: str) -> str:
     """ Function periodically called by JS from client to check progress of PDF download"""
-    if current_app.redis.get('pdf_download_' + str(download_id)):
-        return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    if not download_id.startswith('search_progress_'):
+        download_id = 'pdf_download_' + str(download_id)
+    if current_app.redis.get(download_id):
+        return current_app.redis.get(download_id).decode('utf-8') or '0%'
     return '0%'
