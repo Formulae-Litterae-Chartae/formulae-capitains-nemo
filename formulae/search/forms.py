@@ -48,6 +48,7 @@ class SearchForm(FlaskForm):
                                      message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").'))]
                                  )
     lemma_search = BooleanField(_l('Lemma'))
+    simple_search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
 
     def __init__(self, *args, **kwargs):
         if 'formdata' not in kwargs:

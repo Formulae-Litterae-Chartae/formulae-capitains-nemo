@@ -541,7 +541,16 @@ $(document).ready(function () {
         }, 2000)
     })
     
+    $('#simple-search-q').keyup(function(e) {
+        if (e.key === 'Enter' || e.key === 13) {
+            setTimeout(function() {
+                $('#searchProgressModal').modal('show');
+                searchProgressBar('search_progress_' + $('#simple_search_id').attr('value'));
+            }, 2000)
+        }
+    })
+    
     $('#cancelSearchButton').click(function() {
-        window.stop();
+        location.reload();
     })
 })

@@ -483,7 +483,7 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/search/pdf_progress/1000')
             self.assertEqual(r.get_data(as_text=True), '0%',
                              'If the key does not exist in Redis, it should return "0%"')
-            self.app.redis.setex('pdf_download_1000', 60, '10%')
+            self.app.redis.setex('pdf_download_1000', 10, '10%')
             r = c.get('/search/pdf_progress/1000')
             self.assertEqual(r.get_data(as_text=True), '10%')
             c.get('manuscript_desc/siglen', follow_redirects=True)
@@ -712,29 +712,29 @@ class TestIndividualRoutes(Formulae_Testing):
                           'g.corpora should be set when session["previous_search_args"] is set.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=Search')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=None, regest_q='', old_search=False, source='advanced',
-                                           regest_field='regest', formulaic_parts='')
+                                           regest_field='regest', formulaic_parts='', search_id="1234")
             self.assert_context('searched_lems', [], 'When "q" is empty, there should be no searched lemmas.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&special_days=Easter%20Tuesday'
-                  '&submit=Search')
+                  '&search_id=1234&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
                                            month_start=12, page=1, per_page=10000, q='',
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='')
+                                           source='advanced', regest_field='regest', formulaic_parts='', search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&search_id=1234'
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
@@ -742,10 +742,10 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='')
+                                           source='advanced', regest_field='regest', formulaic_parts='', search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&search_id=1234'
                   '&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
@@ -753,10 +753,10 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='')
+                                           source='advanced', regest_field='regest', formulaic_parts='', search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&search_id=1234&'
                   'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
@@ -764,11 +764,11 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest',
+                                           source='advanced', regest_field='regest', search_id="1234",
                                            formulaic_parts="Poenformel+Stipulationsformel")
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&'
+                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&search_id=1234&'
                   'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
                                            day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
@@ -776,35 +776,35 @@ class TestIndividualRoutes(Formulae_Testing):
                                            in_order='False', year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest',
+                                           source='advanced', regest_field='regest', search_id="1234",
                                            formulaic_parts="Poenformel+Stipulationsformel")
             self.assertTemplateUsed('search::search.html')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=True')
             self.assert_context('searched_lems', [{'regnum'}],
                                 'When a query word matches a lemma, it should be returned.')
             with c.session_transaction() as session:
                 session['highlighted_words'] = ['regnum']
             c.get('/search/results?source=advanced&corpus=formulae&q=re*num&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=True')
             self.assert_context('searched_lems', [{'regnum'}],
                                 'When a query pattern matches a lemma, it should be returned.')
             c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=True')
             self.assert_context('searched_lems', [],
                                 'When a query word does not match a lemma, "searched_lems" should be empty.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+domni+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=True')
             self.assert_context('searched_lems', [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}],
                                 'When all query words match a lemma, all should be returned.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+word+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&submit=True')
+                  'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&submit=True')
             self.assert_context('searched_lems', [],
                                 'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
@@ -816,12 +816,12 @@ class TestIndividualRoutes(Formulae_Testing):
             params['special_days'] = 'Easter%2BTuesday'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&special_days=Easter+Tuesday&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&search_id=1234&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                  'date_plus_minus=0&submit=Search', follow_redirects=True)
+                  'date_plus_minus=0&search_id=1234&submit=Search', follow_redirects=True)
             # Check g.corpora
             self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
@@ -830,13 +830,23 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', q='regnum', sort='urn', source='simple')
-        mock_search.return_value = [[], 0]
+        mock_search.return_value = [[], 0, {}, []]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum')
+            response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum&search_id=4321&simple_search_id=1234')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+            c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum&search_id=4321&simple_search_id=1234',
+                  follow_redirects=True)
+            mock_search.assert_called_with(corpus=['formulae', 'chartae'], date_plus_minus=0, day=0, day_end=0,
+                                           day_start=0, lemma_search='False', fuzziness='0', slop='0', month=0, month_end=0,
+                                           month_start=0, page=1, per_page=10000, q='regnum',
+                                           in_order='False', year=0, year_end=0, year_start=0,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=None, regest_q=None, old_search=False,
+                                           source='simple', regest_field='regest', search_id="1234",
+                                           formulaic_parts="")
 
     @patch("formulae.nemo.lem_highlight_to_text")
     def test_search_result_highlighting(self, mock_highlight):
