@@ -8,7 +8,7 @@
         <form action="" method="get" id="advanced-form">
             {{ form.hidden_tag() }}
             <div class="text-center"><h3><strong>{{ _('Erweiterte Suche') }}</strong> <a class="search-help" id="general-search-help-link" data-toggle="tooltip" data-container="#general-search-help-link" href="{{ url_for('search.r_search_docs') }}" title="{{ _('Zur ausführlichen Dokumentation der erweiterten Suche') }}"><i class="fas fa-question-circle"></i></a></h3></div>
-            <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary") }}</div>
+            <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary", downloadId=1|random_int(10000)|string) }}</div>
             <br>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">

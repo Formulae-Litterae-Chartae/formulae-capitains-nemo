@@ -29,6 +29,7 @@ def r_simple_search() -> redirect:
     data['q'] = data['q'].lower()
     lemma_search = data.pop('lemma_search')
     data['lemma_search'] = 'False'
+    data['search_id'] = data.pop('simple_search_id')
     if lemma_search in ['y', 'True', True]:
         data['lemma_search'] = 'True'
     corpus = '+'.join(data.pop("corpus"))
@@ -93,7 +94,8 @@ def r_results():
                        old_search=old_search,
                        source=request.args.get('source', 'advanced'),
                        regest_field=request.args.get('regest_field', 'regest'),
-                       formulaic_parts=request.args.get('formulaic_parts', ''))
+                       formulaic_parts=request.args.get('formulaic_parts', ''),
+                       search_id=request.args.get('search_id', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -137,7 +139,8 @@ def r_advanced_search():
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus')
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
+                      'search_id', 'simple_search_id')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
@@ -325,6 +328,8 @@ def download_search_results(download_id: str) -> Response:
 @bp.route('/pdf_progress/<download_id>', methods=["GET"])
 def pdf_download_progress(download_id: str) -> str:
     """ Function periodically called by JS from client to check progress of PDF download"""
-    if current_app.redis.get('pdf_download_' + str(download_id)):
-        return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    if not download_id.startswith('search_progress_'):
+        download_id = 'pdf_download_' + str(download_id)
+    if current_app.redis.get(download_id):
+        return current_app.redis.get(download_id).decode('utf-8') or '0%'
     return '0%'

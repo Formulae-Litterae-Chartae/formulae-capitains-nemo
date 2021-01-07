@@ -8,6 +8,7 @@ from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
 from math import floor
+from random import randint
 
 
 PRE_TAGS = "</small><strong>"
@@ -182,8 +183,16 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     :param regest_field:
     :return:
     """
+    if download_id:
+        current_app.redis.set(download_id, '20%')
     ids = []
     all_highlighted_terms = set()
+    mvectors_body = {'docs': [{'_index': h['_index'], '_type': h['_type'], '_id': h['_id'], 'term_statistics': False, 'field_statistics': False} for h in search['hits']['hits']]}
+    corp_vectors = dict()
+    for i, d in enumerate(current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']):
+        corp_vectors[d['_id']] = {'term_vectors': d['term_vectors']}
+    if download_id:
+        current_app.redis.set(download_id, '50%')
     for list_index, hit in enumerate(search['hits']['hits']):
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
@@ -193,14 +202,14 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             text = hit['_source'][highlight_field]
             sentences = []
             sentence_spans = []
-            vectors = current_app.config['nemo_app'].term_vectors[hit['_id']]['term_vectors']
-            highlight_offsets = current_app.config['nemo_app'].term_vectors[hit['_id']]['positions'][highlight_field]
-            # if highlight_field == search_field:
-            #     for v in vectors[search_field]['terms'].values():
-            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
-            # else:
-            #     for v in vectors[highlight_field]['terms'].values():
-            #         highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            vectors = corp_vectors[hit['_id']]['term_vectors']
+            highlight_offsets = dict()
+            if highlight_field == search_field:
+                for v in vectors[search_field]['terms'].values():
+                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            else:
+                for v in vectors[highlight_field]['terms'].values():
+                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
             highlighted_words = set(q.split())
             if re.search(r'[?*]', q) or fuzz != '0':
                 highlighted_words = set()
@@ -255,10 +264,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                            start_offsets = [highlight_offsets[str(x)][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[str(x)][1] - 1 for x in ordered_span]
-                            start_index = highlight_offsets[str(max(0, ordered_span[0] - 10))][0]
-                            end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, ordered_span[-1] + 10))][1] + 1
+                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[x][1] - 1 for x in ordered_span]
+                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
+                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
                             sentence = ''
                             for i, x in enumerate(text[start_index:end_index]):
                                 if i + start_index in start_offsets:
@@ -286,10 +295,10 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
-                    start_offset = highlight_offsets[str(pos)][0]
-                    end_offset = highlight_offsets[str(pos)][1] - 1
-                    start_index = highlight_offsets[str(max(0, pos - 10))][0]
-                    end_index = highlight_offsets[str(min(len(highlight_offsets) - 1, pos + 10))][1] + 1
+                    start_offset = highlight_offsets[pos][0]
+                    end_offset = highlight_offsets[pos][1] - 1
+                    start_index = highlight_offsets[max(0, pos - 10)][0]
+                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
                         if i + start_index == start_offset:
@@ -300,10 +309,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             sentence += x
                     sentences.append(Markup(sentence))
                     sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
-            if download_id:
-                current_app.redis.set(download_id, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
-        if download_id:
-            current_app.redis.setex(download_id, 60, str(floor((list_index / len(search['hits']['hits'])) * 100)) + '%')
+        if download_id and list_index % 500 == 0:
+            current_app.redis.set(download_id, str(50 + floor((list_index / len(search['hits']['hits'])) * 50)) + '%')
         regest_sents = []
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
         if 'highlight' in hit and regest_field in hit['highlight']:
@@ -323,6 +330,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     'title': hit['_source']['title'],
                     'regest_sents': regest_sents,
                     'highlight': ordered_sentences})
+    if download_id:
+        current_app.redis.setex(download_id, 60, '100%')
     return ids, all_highlighted_terms
 
 
@@ -332,7 +341,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '',
+                         formulaic_parts: str = '', search_id: str = '',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -352,6 +361,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         search_field = 'lemmas'
     elif 'autocomplete' in lemma_search:
         search_field = lemma_search
+    if search_id:
+        search_id = 'search_progress_' + search_id
     old_sort = sort
     sort = build_sort_list(sort)
     if old_search is False:
@@ -495,7 +506,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                            regest_field=regest_field,
                                                            search_field=search_field,
                                                            highlight_field='text',
-                                                           fuzz=fuzz)
+                                                           fuzz=fuzz,
+                                                           download_id=search_id)
         else:
             if isinstance(search_field, list):
                 ids = []

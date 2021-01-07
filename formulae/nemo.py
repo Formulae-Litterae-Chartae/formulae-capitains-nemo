@@ -189,7 +189,7 @@ class NemoFormulae(Nemo):
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
         self.dead_urls = self.make_dead_url_mapping()
         self.comp_places = self.make_comp_places_list()
-        self.term_vectors = self.make_termvectors()
+        # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
     def make_inflected_to_lem_mapping(self) -> dict:
@@ -246,13 +246,13 @@ class NemoFormulae(Nemo):
                     continue
         return sorted(list(comp_places))
 
-    def make_termvectors(self) -> dict:
-        """ Load the ES term vectors from a saved JSON file"""
-        with open(self.app.config['TERM_VECTORS']) as f:
-            try:
-                return json_load(f)
-            except JSONDecodeError:
-                self.app.logger.warning(self.app.config['TERM_VECTORS'] + ' is not a valid JSON file. Unable to load valid term vector dictionary from it.')
+    # def make_termvectors(self) -> dict:
+    #     """ Load the ES term vectors from a saved JSON file"""
+    #     with open(self.app.config['TERM_VECTORS']) as f:
+    #         try:
+    #             return json_load(f)
+    #         except JSONDecodeError:
+    #             self.app.logger.warning(self.app.config['TERM_VECTORS'] + ' is not a valid JSON file. Unable to load valid term vector dictionary from it.')
 
     @staticmethod
     def register_font():
@@ -540,10 +540,6 @@ class NemoFormulae(Nemo):
         g.open_collections = self.OPEN_COLLECTIONS
         if not re.search('texts|search|assets|favicon|reading_format', request.url):
             session.pop('previous_search', None)
-        if 'update_flash_message' not in session:
-            flash(_('Aktuell werden wichtige Updates zum Server installiert. Dies kann zur Verlangsamung oder sogar zu kurzzeitigem Ausfall der Werkstatt führen. Wir bitten um Verständnis.'),
-                  category='warning')
-            session['update_flash_message'] = True
 
     def after_request(self, response: Response) -> Response:
         """ Currently used only for the Cache-Control header.

@@ -68,6 +68,27 @@
     {% endif %}
     {% endwith %}
     <div class="row" id="sub-container">
+        <!-- Modal for long-running searches -->
+        <div class="modal fade" id="searchProgressModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="searchProgressModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchProgressModalLabel">{{ _('Suche Läuft') }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar" id="searchProgressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancelSearchButton" type="button" class="btn btn-secondary" data-dismiss="modal">{{ ('Suche unterbrechen') }}</button>
+                </div>
+                </div>
+            </div>
+        </div>
     <!--<nav class="col-sm-2 menus" id="menu-container">
         {% include "main::menu.html" %}
     </nav>-->
@@ -127,7 +148,7 @@
         var dataTableLangFile = "{{url_for('InstanceNemo.static', filename='js/dataTablesFrench.json')}}";
      } else {
         var dataTableLangFile = "";
-     }
+     };
 </script>
 
   {% block additionalscript %}

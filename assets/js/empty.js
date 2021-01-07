@@ -86,6 +86,18 @@ function pdfDownloadWorker() {
     })
 }
 
+function searchProgressBar(searchId) {
+    $.get(subdomain + '/search/pdf_progress/' + searchId, function(data) {
+        var bar = $('#searchProgressBar');
+        bar.html(data);
+        bar.css('width', data);
+        bar.attr("aria-valuenow", data.replace('%', ''));
+        if (data != '100%') {
+            setTimeout(searchProgressBar, 1000, searchId);
+        };
+    })
+}
+
 function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
     // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
     // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
@@ -458,7 +470,7 @@ $(document).ready(function () {
         $( this ).css("background-color", "lightgrey");
         $( this ).prev().css("background-color", "lightgrey");
     },
-    function() {
+    function() {validate_optional_number_range
         $( this ).css("background-color", "inherit");
         $( this ).prev().css("background-color", "inherit");
     });
@@ -520,5 +532,25 @@ $(document).ready(function () {
     
     $('#results-text-column,#results-place-column,#results-title-column').click(function() {
         $('#results-date-column').removeClass();
+    })
+    
+    $('#advancedSearchSubmit').click(function() {
+        setTimeout(function() {
+            $('#searchProgressModal').modal('show');
+            searchProgressBar('search_progress_' + $('#search_id').attr('value'));
+        }, 2000)
+    })
+    
+    $('#simple-search-q').keyup(function(e) {
+        if (e.key === 'Enter' || e.key === 13) {
+            setTimeout(function() {
+                $('#searchProgressModal').modal('show');
+                searchProgressBar('search_progress_' + $('#simple_search_id').attr('value'));
+            }, 2000)
+        }
+    })
+    
+    $('#cancelSearchButton').click(function() {
+        location.reload();
     })
 })
