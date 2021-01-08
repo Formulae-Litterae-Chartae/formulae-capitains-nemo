@@ -70,8 +70,18 @@
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
             </xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'latin-word')">
+                <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
+            </xsl:if>
             <xsl:if test="current()[@type]">
-                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                <xsl:choose>
+                    <xsl:when test="@type='latin-word'">
+                        <xsl:attribute name="lang">la</xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
@@ -405,6 +415,9 @@
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+                    <xsl:if test="./@rend='italic' or contains(./@type, 'italic')">
+                        <xsl:attribute name="lang">la</xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:otherwise>
@@ -427,7 +440,7 @@
     </xsl:template>-->
     
     <xsl:template match="t:seg[@type='lex-title']">
-        <strong><xsl:apply-templates/></strong>
+        <strong lang="la"><xsl:apply-templates/></strong>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='foreign-text']">
