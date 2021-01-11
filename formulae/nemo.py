@@ -1038,6 +1038,12 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        secondary_language = 'de'
+        all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
+        if len(all_langs) > 0:
+            for l in all_langs:
+                if l != 'lat':
+                    secondary_language = l[:2]
         # metadata1 = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
@@ -1082,6 +1088,7 @@ class NemoFormulae(Nemo):
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
                     'lang': metadata.lang,
+                    'secondary_lang': secondary_language,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
