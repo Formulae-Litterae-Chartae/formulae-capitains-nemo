@@ -24,6 +24,26 @@
                   "slop": "0",
                   "in_order": false
                 }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "regnumque",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
               }
             ],
             "minimum_should_match": 1
@@ -252,6 +272,11 @@
           "Rheinisch": {
             "match": {
               "_type": "rheinisch"
+            }
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "match": {
+              "_type": "telma_martin_tours"
             }
           },
           "Salzburg": {
@@ -518,6 +543,11 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Saint-Martin de Tours (TELMA)": {
+                "match": {
+                  "_type": "telma_martin_tours"
                 }
               },
               "Salzburg": {

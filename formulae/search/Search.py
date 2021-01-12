@@ -57,6 +57,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                                       'Regensburg': {'match': {'_type': 'regensburg'}},
                                       'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                                      'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},
                                       'Salzburg': {'match': {'_type': 'salzburg'}},
                                       'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                                       'St. Gallen': {'match': {'_type': 'stgallen'}},

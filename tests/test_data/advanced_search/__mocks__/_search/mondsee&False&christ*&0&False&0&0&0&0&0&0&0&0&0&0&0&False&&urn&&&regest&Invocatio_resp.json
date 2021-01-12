@@ -1,5 +1,5 @@
 {
-  "took": 0,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -117,6 +117,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
           "Salzburg": {
@@ -309,6 +312,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

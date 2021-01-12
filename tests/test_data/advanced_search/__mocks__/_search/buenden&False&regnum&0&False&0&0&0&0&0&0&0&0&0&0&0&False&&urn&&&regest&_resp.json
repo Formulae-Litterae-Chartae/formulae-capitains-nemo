@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v28",
+        "_index": "buenden_v40",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -306,15 +306,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Wednesday",
             "Saturday",
-            "Friday",
-            "Monday",
-            "Tuesday",
-            "Lent",
-            "Sunday",
             "Easter",
-            "Thursday"
+            "Monday",
+            "Friday",
+            "Lent",
+            "Wednesday",
+            "Thursday",
+            "Sunday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v28",
+        "_index": "buenden_v40",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -551,15 +551,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Wednesday",
             "Saturday",
-            "Sunday",
-            "Friday",
-            "Tuesday",
-            "Lent",
-            "Monday",
             "Easter",
-            "Thursday"
+            "Monday",
+            "Friday",
+            "Lent",
+            "Wednesday",
+            "Thursday",
+            "Sunday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -680,6 +680,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
           "Salzburg": {
@@ -872,6 +875,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

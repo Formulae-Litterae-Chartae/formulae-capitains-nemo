@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v28",
+        "_index": "mondsee_v40",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
@@ -89,7 +89,7 @@
         ]
       },
       {
-        "_index": "mondsee_v28",
+        "_index": "mondsee_v40",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
@@ -278,6 +278,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
           "Salzburg": {
@@ -470,6 +473,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

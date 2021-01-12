@@ -1335,7 +1335,7 @@ class TestFunctions(Formulae_Testing):
     def test_load_lem_to_lem_mapping(self):
         """ Ensure that the json mapping file is correctly loaded."""
         self.assertEqual(self.nemo.lem_to_lem_mapping['gero'],
-                         {'gerere', 'gesta'},
+                         {'gerere', 'gesta', 'gestus'},
                          'Mapping files should have loaded correctly.')
         self.app.config['LEM_TO_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
         with patch.object(self.app.logger, 'warning') as mock:
@@ -2254,6 +2254,7 @@ class TestES(Formulae_Testing):
                               'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
                               'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                              'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},
                               'Salzburg': {'match': {'_type': 'salzburg'}},
                               'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
                               'St. Gallen': {'match': {'_type': 'stgallen'}},
@@ -2649,7 +2650,21 @@ class TestES(Formulae_Testing):
                                          'slop': 4,
                                          'in_order': False
                                          }
-                                      }
+                                      },
+                                     {'span_near':
+                                          {'clauses':
+                                               [{'span_multi':
+                                                     {'match':
+                                                          {'fuzzy':
+                                                               {'lemmas':
+                                                                    {'value': 'regnumque', 'fuzziness': '0'}
+                                                                }
+                                                           }
+                                                      }
+                                                 }
+                                                ],
+                                           'slop': 4,
+                                           'in_order': False}}
                                      ],
                                  'minimum_should_match': 1
                                  }
@@ -2745,7 +2760,7 @@ class TestES(Formulae_Testing):
                                                                      }
                                                                 }
                                                            }
-                                                      }
+                                                      },
                                                      ],
                                                 'slop': 4,
                                                 'in_order': False
@@ -2774,6 +2789,22 @@ class TestES(Formulae_Testing):
                                                                {'fuzzy':
                                                                     {'lemmas':
                                                                          {'value': 'gesta', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
+                                           },
+                                          {'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gestus', 'fuzziness': '0'}
                                                                      }
                                                                 }
                                                            }

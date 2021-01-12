@@ -275,6 +275,11 @@
               "_type": "rheinisch"
             }
           },
+          "Saint-Martin de Tours (TELMA)": {
+            "match": {
+              "_type": "telma_martin_tours"
+            }
+          },
           "Salzburg": {
             "match": {
               "_type": "salzburg"
@@ -539,6 +544,11 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Saint-Martin de Tours (TELMA)": {
+                "match": {
+                  "_type": "telma_martin_tours"
                 }
               },
               "Salzburg": {

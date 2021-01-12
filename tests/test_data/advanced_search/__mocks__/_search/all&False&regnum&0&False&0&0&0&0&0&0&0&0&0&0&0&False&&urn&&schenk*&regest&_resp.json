@@ -1,9 +1,9 @@
 {
-  "took": 14,
+  "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 43,
+    "successful": 43,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v28",
+        "_index": "andecavensis_v40",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v28",
+        "_index": "andecavensis_v40",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v28",
+        "_index": "buenden_v40",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -324,15 +324,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Wednesday",
             "Saturday",
-            "Sunday",
-            "Friday",
-            "Tuesday",
-            "Lent",
-            "Monday",
             "Easter",
-            "Thursday"
+            "Monday",
+            "Friday",
+            "Lent",
+            "Wednesday",
+            "Thursday",
+            "Sunday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -350,7 +350,7 @@
         ]
       },
       {
-        "_index": "echternach_v3",
+        "_index": "echternach_v15",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
         "_score": null,
@@ -407,7 +407,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -462,7 +462,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -517,7 +517,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -577,7 +577,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -637,7 +637,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -648,7 +648,7 @@
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 400",
           "urn": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "date_string": "a) 818 08 b) 819 02 04 c) 08 12",
-          "comp_ort": "Vicenza",
+          "comp_ort": "a Vicenza",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
@@ -708,7 +708,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -769,7 +769,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
         "_score": null,
@@ -829,7 +829,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
         "_score": null,
@@ -889,7 +889,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
         "_score": null,
@@ -949,7 +949,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v29",
+        "_index": "fulda_stengel_v41",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
         "_score": null,
@@ -1006,7 +1006,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v28",
+        "_index": "hersfeld_v40",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
         "_score": null,
@@ -1066,7 +1066,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v29",
+        "_index": "merowinger1_v41",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
         "_score": null,
@@ -1123,7 +1123,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v29",
+        "_index": "merowinger1_v41",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
         "_score": null,
@@ -1153,8 +1153,8 @@
           "min_date": "0662-04-02",
           "max_date": "0662-04-02",
           "days": [
-            "Lent",
-            "Saturday"
+            "Saturday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -1184,7 +1184,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
         "_score": null,
@@ -1244,7 +1244,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -1307,7 +1307,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -1370,7 +1370,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
         "_score": null,
@@ -1430,7 +1430,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
         "_score": null,
@@ -1460,8 +1460,8 @@
           "min_date": "0820-03-28",
           "max_date": "0820-03-28",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -1491,7 +1491,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
         "_score": null,
@@ -1527,8 +1527,8 @@
           "min_date": "0820-05-07",
           "max_date": "0820-06-05",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -1558,7 +1558,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
         "_score": null,
@@ -1618,7 +1618,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
         "_score": null,
@@ -1678,7 +1678,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
         "_score": null,
@@ -1738,7 +1738,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
         "_score": null,
@@ -1792,11 +1792,11 @@
           "min_date": "0817-10-13",
           "max_date": "0821-10-13",
           "days": [
-            "Wednesday",
             "Saturday",
+            "Wednesday",
+            "Thursday",
             "Sunday",
-            "Tuesday",
-            "Thursday"
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -1826,7 +1826,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
         "_score": null,
@@ -1883,7 +1883,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
         "_score": null,
@@ -1943,7 +1943,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
         "_score": null,
@@ -2000,7 +2000,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
         "_score": null,
@@ -2061,7 +2061,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
         "_score": null,
@@ -2122,7 +2122,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
         "_score": null,
@@ -2182,7 +2182,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
         "_score": null,
@@ -2242,7 +2242,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
         "_score": null,
@@ -2309,7 +2309,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
         "_score": null,
@@ -2369,7 +2369,7 @@
         ]
       },
       {
-        "_index": "raetien_v28",
+        "_index": "raetien_v40",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
         "_score": null,
@@ -2429,7 +2429,7 @@
         ]
       },
       {
-        "_index": "regensburg_v29",
+        "_index": "regensburg_v41",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
         "_score": null,
@@ -2484,7 +2484,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v28",
+        "_index": "schaeftlarn_v40",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
         "_score": null,
@@ -2539,7 +2539,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
         "_score": null,
@@ -2599,7 +2599,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -2659,7 +2659,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
         "_score": null,
@@ -2719,7 +2719,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
         "_score": null,
@@ -2779,7 +2779,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
         "_score": null,
@@ -2839,7 +2839,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
         "_score": null,
@@ -2869,8 +2869,8 @@
           "min_date": "0820-03-28",
           "max_date": "0820-03-28",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -2900,7 +2900,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
         "_score": null,
@@ -2960,7 +2960,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
         "_score": null,
@@ -3020,7 +3020,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
         "_score": null,
@@ -3080,7 +3080,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
         "_score": null,
@@ -3140,7 +3140,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
         "_score": null,
@@ -3200,7 +3200,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
         "_score": null,
@@ -3260,7 +3260,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
         "_score": null,
@@ -3321,7 +3321,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
         "_score": null,
@@ -3382,7 +3382,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
         "_score": null,
@@ -3443,7 +3443,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
         "_score": null,
@@ -3503,7 +3503,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
         "_score": null,
@@ -3563,7 +3563,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
         "_score": null,
@@ -3623,7 +3623,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
         "_score": null,
@@ -3690,7 +3690,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
         "_score": null,
@@ -3750,7 +3750,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v28",
+        "_index": "weissenburg_v40",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
         "_score": null,
@@ -3813,7 +3813,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13023,
+      "doc_count": 12984,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -3871,7 +3871,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -3917,6 +3917,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -3992,18 +3995,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2933
+            "doc_count": 2938
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1320
+            "doc_count": 1329
           }
         ]
       },
       "no_date": {
-        "doc_count": 694
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -4109,6 +4112,9 @@
         },
         "Rätien": {
           "doc_count": 20
+        },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0
