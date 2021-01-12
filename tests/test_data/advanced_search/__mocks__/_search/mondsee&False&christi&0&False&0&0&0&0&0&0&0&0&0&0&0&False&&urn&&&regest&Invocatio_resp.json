@@ -119,6 +119,9 @@
           "Rätien": {
             "doc_count": 0
           },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 0
+          },
           "Salzburg": {
             "doc_count": 0
           },
@@ -309,6 +312,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

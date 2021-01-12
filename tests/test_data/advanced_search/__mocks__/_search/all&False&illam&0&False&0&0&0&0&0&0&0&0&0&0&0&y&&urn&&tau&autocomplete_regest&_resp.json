@@ -1,9 +1,9 @@
 {
-  "took": 9,
+  "took": 8,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 43,
+    "successful": 43,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
         "_score": null,
@@ -72,7 +72,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
         "_score": null,
@@ -129,7 +129,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
         "_score": null,
@@ -186,7 +186,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
         "_score": null,
@@ -243,7 +243,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
         "_score": null,
@@ -300,7 +300,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v28",
+        "_index": "hersfeld_v40",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -360,7 +360,7 @@
         ]
       },
       {
-        "_index": "passau_v28",
+        "_index": "passau_v40",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
         "_score": null,
@@ -420,7 +420,7 @@
         ]
       },
       {
-        "_index": "regensburg_v29",
+        "_index": "regensburg_v41",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
         "_score": null,
@@ -477,7 +477,7 @@
         ]
       },
       {
-        "_index": "regensburg_v29",
+        "_index": "regensburg_v41",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
         "_score": null,
@@ -534,7 +534,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -594,7 +594,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
         "_score": null,
@@ -654,7 +654,7 @@
         ]
       },
       {
-        "_index": "stgallen_v29",
+        "_index": "stgallen_v41",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -714,7 +714,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v28",
+        "_index": "weissenburg_v40",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
@@ -777,7 +777,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13023,
+      "doc_count": 12984,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -835,7 +835,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -881,6 +881,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -956,18 +959,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2933
+            "doc_count": 2938
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1320
+            "doc_count": 1329
           }
         ]
       },
       "no_date": {
-        "doc_count": 694
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -1072,6 +1075,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

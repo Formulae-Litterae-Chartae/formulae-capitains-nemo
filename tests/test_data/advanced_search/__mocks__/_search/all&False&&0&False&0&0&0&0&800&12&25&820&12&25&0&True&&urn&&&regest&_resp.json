@@ -1,9 +1,9 @@
 {
-  "took": 6,
+  "took": 9,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 43,
+    "successful": 43,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "_index": "freising_v29",
+        "_index": "freising_v41",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
@@ -95,7 +95,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13023,
+      "doc_count": 12984,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -153,7 +153,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -199,6 +199,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -274,18 +277,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2933
+            "doc_count": 2938
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1320
+            "doc_count": 1329
           }
         ]
       },
       "no_date": {
-        "doc_count": 694
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -390,6 +393,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {
