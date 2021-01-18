@@ -1,5 +1,5 @@
 {
-  "took": 0,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -39,6 +39,9 @@
             "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Cormery (TELMA)": {
             "doc_count": 0
           },
           "Echternach": {
@@ -234,6 +237,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {

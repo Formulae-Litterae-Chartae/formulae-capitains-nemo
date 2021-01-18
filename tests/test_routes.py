@@ -2254,6 +2254,7 @@ class TestES(Formulae_Testing):
                               'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
                               'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                              'Cormery (TELMA)': {'match': {'_type': 'telma_cormery'}},
                               'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},
                               'Salzburg': {'match': {'_type': 'salzburg'}},
                               'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},

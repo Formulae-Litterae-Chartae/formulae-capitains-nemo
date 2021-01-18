@@ -1,9 +1,9 @@
 {
-  "took": 7,
+  "took": 10,
   "timed_out": false,
   "_shards": {
-    "total": 43,
-    "successful": 43,
+    "total": 44,
+    "successful": 44,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v40",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v40",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v40",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v40",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v40",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "_index": "marculf_v40",
+        "_index": "marculf_v42",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -282,7 +282,7 @@
         ]
       },
       {
-        "_index": "marculf_v40",
+        "_index": "marculf_v42",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form015.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "_index": "marculf_v40",
+        "_index": "marculf_v42",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form024.lat001",
         "_score": null,
@@ -372,7 +372,7 @@
         ]
       },
       {
-        "_index": "marculf_v40",
+        "_index": "marculf_v42",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form035.lat001",
         "_score": null,
@@ -420,7 +420,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 12984,
+      "doc_count": 12989,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -446,6 +446,9 @@
           },
           "Codice Diplomatico Longobardo": {
             "doc_count": 48
+          },
+          "Cormery (TELMA)": {
+            "doc_count": 5
           },
           "Echternach": {
             "doc_count": 152
@@ -594,7 +597,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3359
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -602,13 +605,13 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2938
+            "doc_count": 2939
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1329
+            "doc_count": 1330
           }
         ]
       },
@@ -640,6 +643,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
