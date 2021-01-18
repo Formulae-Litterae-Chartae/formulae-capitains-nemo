@@ -41,6 +41,9 @@
           "Codice Diplomatico Longobardo": {
             "doc_count": 0
           },
+          "Cormery (TELMA)": {
+            "doc_count": 0
+          },
           "Echternach": {
             "doc_count": 0
           },
@@ -234,6 +237,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {

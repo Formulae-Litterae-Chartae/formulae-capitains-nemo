@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v40",
+        "_index": "mondsee_v42",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
@@ -89,7 +89,7 @@
         ]
       },
       {
-        "_index": "mondsee_v40",
+        "_index": "mondsee_v42",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
@@ -200,6 +200,9 @@
             "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Cormery (TELMA)": {
             "doc_count": 0
           },
           "Echternach": {
@@ -395,6 +398,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {

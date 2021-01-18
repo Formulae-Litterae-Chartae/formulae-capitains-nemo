@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v40",
+        "_index": "buenden_v42",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -306,15 +306,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Saturday",
-            "Easter",
-            "Monday",
             "Friday",
-            "Lent",
-            "Wednesday",
-            "Thursday",
             "Sunday",
-            "Tuesday"
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Lent",
+            "Easter",
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v40",
+        "_index": "buenden_v42",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -551,15 +551,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Saturday",
-            "Easter",
-            "Monday",
             "Friday",
-            "Lent",
-            "Wednesday",
-            "Thursday",
             "Sunday",
-            "Tuesday"
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Lent",
+            "Easter",
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -602,6 +602,9 @@
             "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Cormery (TELMA)": {
             "doc_count": 0
           },
           "Echternach": {
@@ -797,6 +800,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
