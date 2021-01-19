@@ -131,7 +131,7 @@
     "urn"
   ],
   "from": 0,
-  "size": 10,
+  "size": 10000,
   "aggs": {
     "range": {
       "date_range": {
@@ -346,6 +346,16 @@
           "Rheinisch": {
             "match": {
               "_type": "rheinisch"
+            }
+          },
+          "Cormery (TELMA)": {
+            "match": {
+              "_type": "telma_cormery"
+            }
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "match": {
+              "_type": "telma_martin_tours"
             }
           },
           "Salzburg": {
@@ -612,6 +622,16 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Cormery (TELMA)": {
+                "match": {
+                  "_type": "telma_cormery"
+                }
+              },
+              "Saint-Martin de Tours (TELMA)": {
+                "match": {
+                  "_type": "telma_martin_tours"
                 }
               },
               "Salzburg": {

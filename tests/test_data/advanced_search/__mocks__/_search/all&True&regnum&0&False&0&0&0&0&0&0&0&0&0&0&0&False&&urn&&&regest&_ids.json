@@ -1,5 +1,8 @@
 [
   {
+    "id": "urn:cts:formulae:andecavensis.computus.lat001"
+  },
+  {
     "id": "urn:cts:formulae:andecavensis.form001.lat001"
   },
   {
@@ -28,5 +31,38 @@
   },
   {
     "id": "urn:cts:formulae:marculf.form021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_serfs.salmon0038app.lat001"
   }
 ]

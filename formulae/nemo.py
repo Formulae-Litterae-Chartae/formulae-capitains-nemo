@@ -187,9 +187,12 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        self.dead_urls = self.make_dead_url_mapping()
+        self.comp_places = self.make_comp_places_list()
+        # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
-    def make_inflected_to_lem_mapping(self):
+    def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['INFLECTED_LEM_JSONS']:
@@ -203,7 +206,7 @@ class NemoFormulae(Nemo):
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
 
-    def make_lem_to_lem_mapping(self):
+    def make_lem_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps theoretical lemmas onto the used lemmas, e.g., gero -> gerere"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['LEM_TO_LEM_JSONS']:
@@ -216,6 +219,40 @@ class NemoFormulae(Nemo):
             for k, v in lem_to_lem.items():
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
+
+    def make_dead_url_mapping(self) -> dict:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        dead_url_mapping = dict()
+        for j in self.app.config['DEAD_URLS']:
+            with open(j) as f:
+                try:
+                    dead_urls = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid dead url mapping from it.')
+                    continue
+            for k, v in dead_urls.items():
+                dead_url_mapping[k] = v
+        return dict(dead_url_mapping)
+
+    def make_comp_places_list(self) -> list:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        comp_places = list()
+        for j in self.app.config['COMP_PLACES']:
+            with open(j) as f:
+                try:
+                    comp_places += json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid composition place list from it.')
+                    continue
+        return sorted(list(comp_places))
+
+    # def make_termvectors(self) -> dict:
+    #     """ Load the ES term vectors from a saved JSON file"""
+    #     with open(self.app.config['TERM_VECTORS']) as f:
+    #         try:
+    #             return json_load(f)
+    #         except JSONDecodeError:
+    #             self.app.logger.warning(self.app.config['TERM_VECTORS'] + ' is not a valid JSON file. Unable to load valid term vector dictionary from it.')
 
     @staticmethod
     def register_font():
@@ -329,6 +366,8 @@ class NemoFormulae(Nemo):
                     par = _('(Prolog)')
             elif 'computus' in par:
                 par = '057(Computus)'
+            elif '2_capitula' in par:
+                par = '2_0'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
@@ -678,12 +717,14 @@ class NemoFormulae(Nemo):
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'Computus' in work_name:
+                    if 'urn:cts:formulae:marculf' in m.ancestors:
+                        work_name = str(parent_title).replace('Marculf ', '')
+                        if 'Prolog' in work_name:
+                            work_name = _('(Prolog)')
+                    elif 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
                         work_name = _('(Titel)')
-                    elif 'Prolog' in work_name:
-                        work_name = _('(Prolog)')
                     elif 'urn:cts:formulae:lorsch' in m.ancestors:
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
@@ -997,6 +1038,12 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        secondary_language = 'de'
+        all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
+        if len(all_langs) > 0:
+            for l in all_langs:
+                if l != 'lat':
+                    secondary_language = l[:2]
         # metadata1 = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
@@ -1041,6 +1088,7 @@ class NemoFormulae(Nemo):
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
                     'lang': metadata.lang,
+                    'secondary_lang': secondary_language,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
@@ -1078,6 +1126,8 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
+            if id in self.dead_urls:
+                id = self.dead_urls[id]
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -1195,7 +1245,7 @@ class NemoFormulae(Nemo):
                         spans[i].set('class', spans[i].get('class') + ' searched-end')
             xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                         with_tail=True, standalone=None)
-            span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+            span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
             xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 

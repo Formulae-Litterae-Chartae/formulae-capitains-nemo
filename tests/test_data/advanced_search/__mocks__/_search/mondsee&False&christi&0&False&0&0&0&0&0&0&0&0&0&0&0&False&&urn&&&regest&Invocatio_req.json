@@ -12,7 +12,7 @@
                       "span_multi": {
                         "match": {
                           "fuzzy": {
-                            "Invocatio-oder-Inscriptio": {
+                            "Invocatio": {
                               "value": "christi",
                               "fuzziness": "0"
                             }
@@ -37,7 +37,7 @@
     "urn"
   ],
   "from": 0,
-  "size": 10,
+  "size": 10000,
   "aggs": {
     "range": {
       "date_range": {
@@ -252,6 +252,16 @@
           "Rheinisch": {
             "match": {
               "_type": "rheinisch"
+            }
+          },
+          "Cormery (TELMA)": {
+            "match": {
+              "_type": "telma_cormery"
+            }
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "match": {
+              "_type": "telma_martin_tours"
             }
           },
           "Salzburg": {
@@ -520,6 +530,16 @@
                   "_type": "rheinisch"
                 }
               },
+              "Cormery (TELMA)": {
+                "match": {
+                  "_type": "telma_cormery"
+                }
+              },
+              "Saint-Martin de Tours (TELMA)": {
+                "match": {
+                  "_type": "telma_martin_tours"
+                }
+              },
               "Salzburg": {
                 "match": {
                   "_type": "salzburg"
@@ -573,7 +593,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio-oder-Inscriptio": {
+      "Invocatio": {
         "fragment_size": 1000
       },
       "regest": {

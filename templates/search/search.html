@@ -2,13 +2,14 @@
 {% block title %}Formulae - Litterae - Chartae: {{ _('Suchergebnisse') }}{% endblock %}
 {% set previous_search_args = g.previous_search_args|default(session['previous_search_args']) %}
 {% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
+{% set per_page = request.args['per_page']|default('10') %}
 
 {% block article %}
-    <article>
+    <article class="container-fluid">
     <header>
     {% if total_results > 0 %}
-            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
-         <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
+         <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">
             <div class="table-header">
@@ -20,16 +21,16 @@
                     <div class="stat-sub-table">
                     {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
                     {% if aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] != 0 %}
-                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp|replace(' ', '&nbsp;')|safe }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp|replace(' ', '&nbsp;')|safe }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-corp-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-hits-tooltip" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" id="{{ loop.index }}-corp-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-total-tooltip" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
                     {% endif %}
                     {% endfor %}
                     </div>
                 </div>
                 <div class="table-cell">
                     <div class="stat-sub-table">
-                    {% if aggs['no_date']['doc_count'] != 0 %}<div class="stat-sub-row"><div class="stat-sub-cell">{{ _('k.A.') }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ aggs['no_date']['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente ohne Datum')}}">({{ aggs['all_docs']['no_date']['doc_count'] }})</div></div>{% endif %}
+                    {% if aggs['no_date']['doc_count'] != 0 %}<div class="stat-sub-row"><div class="stat-sub-cell">{{ _('k.A.') }}</div><div class="stat-sub-cell px-2 text-right" id="no-date-hits-tooltip" data-toggle="tooltip" data-container="#no-date-hits-tooltip" title="{{ _('Treffer')}}">{{ aggs['no_date']['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right relative-position" id="no-date-total-tooltip" data-toggle="tooltip" data-container="#no-date-total-tooltip" data-placement="right" title="{{ _('Gesamtzahl der Dokumente ohne Datum')}}">({{ aggs['all_docs']['no_date']['doc_count'] }})</div></div>{% endif %}
                     {% for cent in aggs['range']['buckets'] %}
-                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ cent['key'] }}</div><div class="stat-sub-cell px-2 text-right" title="{{ _('Treffer')}}">{{ cent['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" title="{{ _('Gesamtzahl der Dokumente in dieser Datumsspanne')}}">({{ aggs['all_docs']['range']['buckets'][loop.index0]['doc_count'] }})</div></div>
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ cent['key'] }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-cent-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-cent-hits-tooltip" title="{{ _('Treffer')}}">{{ cent['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right relative-position" id="{{ loop.index }}-cent-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-cent-total-tooltip" data-placement="right" title="{{ _('Gesamtzahl der Dokumente in dieser Datumsspanne')}}">({{ aggs['all_docs']['range']['buckets'][loop.index0]['doc_count'] }})</div></div>
                     {% endfor %}
                     </div>
                 </div>
@@ -53,19 +54,34 @@
         <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
         </div>
         <div class="col-auto">
-            <div class="dropdown">
-                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ _('Zeig nur Resultate aus:') }}
+            <div class="dropleft">
+                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" data-reference="parent" aria-haspopup="true" aria-expanded="false">
+                    {{ _('Resultate filtern') }}
                 </button>
                 <div class="dropdown-menu corpora-search-results-dropdown">
-                    <a class="dropdown-item" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <a class="dropdown-item text-center" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% elif arg=='formulaic_parts' %}{{ previous_search_args['formulaic_parts']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
                     <div class="dropdown-divider"></div>
-                    {% for corp in g.corpora %}
-                        {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
-                        <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                    <div class="table-header">
+                        <div class="table-cell">{{ _('Korpora') }}</div>
+                        {% if previous_search_args['formulaic_parts'] %}<div class="table-cell">{{ _('Urkundenteile') }}</div>{% endif %}
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                        {% for corp in g.corpora %}
+                            {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        {% if previous_search_args['formulaic_parts'] %}
+                        <div class="table-cell">
+                        {% for form_part in g.form_parts %}
+                            <span class="dropdown-item"><input class="part-restrict-to" name="corpus" type="checkbox" value="{{ form_part[0] }}" id="part-restrict-{{ form_part[0] }}"></input><label for="part-restrict-{{ form_part[0] }}">{{ form_part[1] }}</label></span>
+                        {% endfor %}
+                        </div>
                         {% endif %}
-                    {% endfor %}
-                    <span class="dropdown-item"><a href="{{ request.url }}" onclick="restrictSearch()" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
+                    </div>
+                    <span class="dropdown-item text-center"><a href="{{ request.url }}" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
                 </div>
             </div>
         </div>
@@ -109,91 +125,48 @@
     </div>
     {% endif %}
     
-    
-    {% if total_results > 0 %}
-    <div class="row py-1" id="results-sort-row">
-        <table id="results-sort-table" class="table table-sm table-bordered">
-            <thead>
-                <tr>
-                    <th colspan="5">{{ _('Sortieren nach') }}</th>
-                </tr>
-                <tr>
-                    <th colspan="1">{{ _('Korpus') }}</th>
-                    <th colspan="2">{{ _('Terminus post quem') }}</th>
-                    <th colspan="2">{{ _('Terminus ante quem') }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a class="internal-link" href="{{ sort_urls['urn'] }}">{{ _('Alphabetisch') }}</a></td>
-                    <td><a class="internal-link" href="{{ sort_urls['min_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
-                    <td><a class="internal-link" href="{{ sort_urls['min_date_desc'] }}">{{ _('Absteigend') }}</a></td>
-                    <td><a class="internal-link" href="{{ sort_urls['max_date_asc'] }}">{{ _('Aufsteigend') }}</a></td>
-                    <td><a class="internal-link" href="{{ sort_urls['max_date_desc'] }}">{{ _('Absteigend') }}</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    {% endif %}
-    {% for post in posts %}
-        <div class="card">
-            {% if current_user.project_team or post['id'] in open_texts %}
-            <div class="card-header py-0 text-center"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">
-                {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
-            <div class="card-body py-0">
-                {% for sent in post['sents'] %}
-                <p class="card-text m-0"><small>- {{ sent }}</small></p>
-                {% endfor %}
-                {% if post['regest_sents'] %}
-                <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
+    <table id="partsSearchResultTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Suchergebnisse') }}">
+        <thead>
+            <tr>
+                <th id="results-text-column" scope="col">{{ _('Text') }}</th>
+                <th id="results-date-column" scope="col" align="justify"><div class="row" id="date-header-row"><div class="col-auto"><span>{{ _('Datierung') }}</span></div><div class="col-auto ml-auto"><span class="small-text align-text-top">(<a id="tpq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Post Quem sortieren') }}">TPQ</a> <span id="tpq-up-symbol">↑</span><span id="tpq-down-symbol">↓</span> | <a id="taq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Ante Quem sortieren') }}">TAQ</a> <span id="taq-up-symbol">↑</span><span id="taq-down-symbol">↓</span>)</span></div></div></th>
+                <th id="results-min-date-column" scope="col"></th>
+                <th id="results-max-date-column" scope="col"></th>
+                <th id="results-place-column" scope="col">{{ _('Ausstellungsort') }}</th>
+                <th id="results-title-column" scope="col">{{ _('Edition') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>
+                {% if current_user.project_team or post['id'] in open_texts %}
+                    {% for sent in post['sents'] %}
+                    <p class="card-text m-0"><small>- {{ sent }}</small></p>
+                    {% endfor %}
+                    {% if post['regest_sents'] %}
+                    <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
+                    {% endif %}
+                    {% for sent in post['regest_sents'] %}
+                    <p class="card-text m-0"><small>- {{ sent }}</small></p>
+                    {% endfor %}
+                {% else %}
+                    <span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}"><small>{{ _('Text nicht verfügbar') }}</small></span>
                 {% endif %}
-                {% for sent in post['regest_sents'] %}
-                <p class="card-text m-0"><small>- {{ sent }}</small></p>
-                {% endfor %}
-            </div>
+                </td>
+                <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% endif %}</td>
+                <td data-order="{{  post['info']['min_date'] }}" class="hidden-cell"></td>
+                <td data-order="{{  post['info']['max_date'] }}" class="hidden-cell"></td>
+                <td data-order="{{  post['info']['comp_ort'] }}">{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
+            {% if current_user.project_team or post['id'] in open_texts %}
+                <td data-order="{{  loop.index }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
             {% else %}
-            <div class="card-header py-0 text-center"><a class="disabled" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">
-                {{ post['info']['title'] }}
-            </a>{% if post['info']['date_string'] != ' ' %} ({{ post['info']['date_string'] }}){% endif %}{% if post['info']['orig_comp_ort']  != ' ' %} ({{ post['info']['orig_comp_ort'] }}){% endif %}</div>
+                <td data-order="{{  loop.index }}"><a id="{{ loop.index }}-link-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-link-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ post['info']['title'] }}</a></td>
             {% endif %}
-        </div>
-    {% endfor %}
-    {% if last_url or first_url %}
-    <nav aria-label="Search results pages">
-        <ul class="pagination pagination-sm justify-content-center">
-            <li class="page-item{{ ' disabled' if not first_url }}">
-                <a class="page-link" href="{{ first_url or '#' }}" aria-label="{{ _('Erste Ergebnisse') }}">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item{{ ' disabled' if not prev_url }}">
-                <a class="page-link" href="{{ prev_url or '#' }}" aria-label="{{ _('Vorherige Ergebnisse') }}">
-                    <span aria-hidden="true">&lt;</span>
-                </a>
-            </li>
-            {% for p_url in page_urls %}
-            {{ '...' if loop.index == 2 and p_url|first != 2 }}
-            {{ '...' if loop.last and loop.previtem|first != p_url|first - 1 }}
-            <li class="page-item{{ ' active' if p_url|first == current_page }}">
-                <a class="page-link" href="{{ p_url|last }}">
-                    {{ p_url|first }}
-                </a>
-            </li>
-            {% endfor %}
-            <li class="page-item{{ ' disabled' if not next_url }}">
-                <a class="page-link" href="{{ next_url or '#' }}" aria-label="{{ _('Nächste Ergebnisse') }}">
-                    <span aria-hidden="true">&gt;</span>
-                </a>
-            </li>
-            <li class="page-item{{ ' disabled' if not last_url }}">
-                <a class="page-link" href="{{ last_url or '#' }}" aria-label="{{ _('Letzte Ergebnisse') }}">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
     </article>
 {% endblock %}
 

@@ -1,9 +1,8 @@
 from flask import redirect, request, url_for, g, flash, current_app, session, Response
 from flask_babel import _
 from math import ceil
-from .Search import advanced_query_index, suggest_composition_places, suggest_word_search, AGGREGATIONS, \
-    lem_highlight_to_text
-from .forms import AdvancedSearchForm
+from .Search import advanced_query_index, suggest_word_search, AGGREGATIONS, lem_highlight_to_text
+from .forms import AdvancedSearchForm, FORM_PARTS
 from formulae.search import bp
 from json import dumps
 import re
@@ -11,6 +10,7 @@ from io import BytesIO
 from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
+from math import floor
 
 
 CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -29,6 +29,7 @@ def r_simple_search() -> redirect:
     data['q'] = data['q'].lower()
     lemma_search = data.pop('lemma_search')
     data['lemma_search'] = 'False'
+    data['search_id'] = data.pop('simple_search_id')
     if lemma_search in ['y', 'True', True]:
         data['lemma_search'] = 'True'
     corpus = '+'.join(data.pop("corpus"))
@@ -41,6 +42,9 @@ def r_results():
     # This means that someone simply navigated to the /results page without any search parameters
     if not source:
         return redirect(url_for('InstanceNemo.r_index'))
+    template = 'search::search.html'
+    posts_per_page = 10000
+    page = 1
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
@@ -53,17 +57,19 @@ def r_results():
     else:
         corps = corpus
     g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    g.form_parts = []
+    if request.args.get('formulaic_parts'):
+        g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
     special_days = request.args.get('special_days')
     if special_days:
         special_days = special_days.split('+')
         if len(special_days) == 1:
             special_days = special_days[0].split(' ')
-    page = request.args.get('page', 1, type=int)
     old_search = False
     if request.args.get('old_search', None) == 'True':
         old_search = True
-    search_args = dict(per_page=current_app.config['POSTS_PER_PAGE'],
-                       lemma_search=request.args.get('lemma_search', 'False'),
+    search_args = dict(per_page=posts_per_page,
+                       lemma_search=request.args.get('lemma_search', 'False') or 'False',
                        q=request.args.get('q'),
                        fuzziness=request.args.get("fuzziness", "0"),
                        page=page,
@@ -88,7 +94,8 @@ def r_results():
                        old_search=old_search,
                        source=request.args.get('source', 'advanced'),
                        regest_field=request.args.get('regest_field', 'regest'),
-                       formulaic_parts=request.args.get('formulaic_parts', ''))
+                       formulaic_parts=request.args.get('formulaic_parts', ''),
+                       search_id=request.args.get('search_id', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -96,28 +103,6 @@ def r_results():
     if 'special_days' in search_args:
         search_args['special_days'] = '+'.join(special_days)
     search_args.pop('old_search', None)
-    first_url = url_for('.r_results', **search_args, page=1, old_search=True) if page > 1 else None
-    next_url = url_for('.r_results', **search_args, page=page + 1, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('.r_results', **search_args, page=page - 1, old_search=True) if page > 1 else None
-    total_pages = int(ceil(total / current_app.config['POSTS_PER_PAGE']))
-    page_urls = []
-    if total_pages > 12:
-        page_urls.append((1, url_for('.r_results', **search_args, page=1, old_search=True)))
-        # page_num will be at most 12 members long. This should allow searches with many results to be displayed better.
-        for page_num in range(max(page - 5, 2), min(page + 5, total_pages)):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
-        page_urls.append((total_pages, url_for('.r_results', **search_args, page=total_pages, old_search=True)))
-    else:
-        for page_num in range(1, total_pages + 1):
-            page_urls.append((page_num, url_for('.r_results', **search_args, page=page_num, old_search=True)))
-    last_url = url_for('.r_results', **search_args, page=total_pages, old_search=True) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    orig_sort = search_args.pop('sort', '')
-    sort_urls = dict()
-    for sort_param in ['min_date_asc', 'urn', 'max_date_asc', 'min_date_desc', 'max_date_desc', 'urn_desc']:
-        sort_urls[sort_param] = url_for('.r_results', sort=sort_param, **search_args, page=1, old_search=True)
-    search_args['sort'] = orig_sort
     if old_search is False:
         g.previous_search_args = search_args
         g.previous_aggregations = aggs
@@ -142,11 +127,9 @@ def r_results():
             inf_to_lemmas.append(lem_possibilites)
         if not all(inf_to_lemmas):
             inf_to_lemmas = []
-    return current_app.config['nemo_app'].render(template='search::search.html', title=_('Suche'), posts=posts,
-                                                 next_url=next_url, prev_url=prev_url, page_urls=page_urls,
-                                                 first_url=first_url, last_url=last_url, current_page=page,
-                                                 search_string=g.search_form.q.data.lower(), url=dict(), open_texts=g.open_texts,
-                                                 sort_urls=sort_urls, total_results=total, aggs=aggs,
+    return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts,
+                                                 current_page=page, search_string=g.search_form.q.data.lower(),
+                                                 url=dict(), open_texts=g.open_texts, total_results=total, aggs=aggs,
                                                  searched_lems=inf_to_lemmas)
 
 
@@ -156,7 +139,8 @@ def r_advanced_search():
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus')
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
+                      'search_id', 'simple_search_id')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
@@ -181,7 +165,7 @@ def r_advanced_search():
     for k, m in form.errors.items():
         flash(k + ': ' + m[0])
     return current_app.config['nemo_app'].render(template='search::advanced_search.html', form=form, categories=coll_cats,
-                                                 composition_places=suggest_composition_places(), url=dict())
+                                                 composition_places=current_app.config['nemo_app'].comp_places, url=dict())
 
 
 @bp.route("/doc", methods=["GET"])
@@ -245,7 +229,7 @@ def download_search_results(download_id: str) -> Response:
                               ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
                               ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
                               ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
-                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora'))]
+                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora')), ('formulaic_parts', _('Urkundenteile'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
         for arg, s in search_arg_mapping:
             if arg in session['previous_search_args']:
@@ -256,24 +240,56 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             if arg == 'special_days':
                 value = ' - '.join([special_day_dict[x] for x in value.split('+')])
+            if arg == 'formulaic_parts':
+                value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
         search_field = 'text'
-        if prev_args.get('lemma_search', None) == "True":
-            search_field = 'lemmas'
-        try:
-            ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
-                                               q=prev_args.get('q', ''),
-                                               ordered_terms=prev_args.get('ordered_terms', False),
-                                               slop=prev_args.get('slop', 0),
-                                               regest_field=prev_args.get('regest_field', 'regest'),
-                                               search_field=search_field,
-                                               highlight_field='text',
-                                               fuzz=prev_args.get('fuzz', '0'),
-                                               download_id=download_id)
-        # This finally statement makes sure that the JS function to get the progress halts on an error.
-        finally:
+        if prev_args.get('formulaic_parts', None):
+            ids = []
+            for list_index, hit in enumerate(session['previous_search']):
+                sents = []
+                if 'highlight' in hit:
+                    for k, v in hit['highlight'].items():
+                        for t in v:
+                            sents.append('<b>{part}</b>: {text}'.format(part=k, text=t))
+                else:
+                    for p in prev_args.get('formulaic_parts').split('+'):
+                        if p in hit['_source']:
+                            sents.append('<b>{part}</b>: {text}'.format(part=p, text=hit['_source'][p]))
+                regest_sents = []
+                open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
+                half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+                show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+                regest_field=prev_args.get('regest_field', 'regest')
+                if 'highlight' in hit and regest_field in hit['highlight']:
+                    if show_regest is False:
+                        regest_sents = [_('Regest nicht zugänglich.')]
+                    else:
+                        regest_sents = hit['highlight'][regest_field]
+                ids.append({'id': hit['_id'],
+                            'info': hit['_source'],
+                            'sents': sents,
+                            'title': hit['_source']['title'],
+                            'regest_sents': regest_sents})
+                current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
+        else:
+            if prev_args.get('lemma_search', None) == "True":
+                search_field = 'lemmas'
+            try:
+                ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
+                                                   q=prev_args.get('q', ''),
+                                                   ordered_terms=prev_args.get('ordered_terms', False),
+                                                   slop=prev_args.get('slop', 0),
+                                                   regest_field=prev_args.get('regest_field', 'regest'),
+                                                   search_field=search_field,
+                                                   highlight_field='text',
+                                                   fuzz=prev_args.get('fuzz', '0'),
+                                                   download_id=download_id)
+            # This finally statement makes sure that the JS function to get the progress halts on an error.
+            finally:
+                current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
@@ -312,6 +328,8 @@ def download_search_results(download_id: str) -> Response:
 @bp.route('/pdf_progress/<download_id>', methods=["GET"])
 def pdf_download_progress(download_id: str) -> str:
     """ Function periodically called by JS from client to check progress of PDF download"""
-    if current_app.redis.get('pdf_download_' + str(download_id)):
-        return current_app.redis.get('pdf_download_' + str(download_id)).decode('utf-8') or '0%'
+    if not download_id.startswith('search_progress_'):
+        download_id = 'pdf_download_' + str(download_id)
+    if current_app.redis.get(download_id):
+        return current_app.redis.get(download_id).decode('utf-8') or '0%'
     return '0%'

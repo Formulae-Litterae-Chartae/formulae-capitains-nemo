@@ -109,6 +109,166 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "facio",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "factus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gero",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "factus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gesta",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "factus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gerere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "factus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "facere",
                               "fuzziness": "0"
                             }
@@ -205,7 +365,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "fieri",
+                              "value": "facere",
                               "fuzziness": "0"
                             }
                           }
@@ -217,71 +377,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gero",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "fieri",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gesta",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "fieri",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gerere",
+                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
@@ -305,7 +401,7 @@
     "urn"
   ],
   "from": 0,
-  "size": 10,
+  "size": 10000,
   "aggs": {
     "range": {
       "date_range": {
@@ -520,6 +616,16 @@
           "Rheinisch": {
             "match": {
               "_type": "rheinisch"
+            }
+          },
+          "Cormery (TELMA)": {
+            "match": {
+              "_type": "telma_cormery"
+            }
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "match": {
+              "_type": "telma_martin_tours"
             }
           },
           "Salzburg": {
@@ -786,6 +892,16 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Cormery (TELMA)": {
+                "match": {
+                  "_type": "telma_cormery"
+                }
+              },
+              "Saint-Martin de Tours (TELMA)": {
+                "match": {
+                  "_type": "telma_martin_tours"
                 }
               },
               "Salzburg": {

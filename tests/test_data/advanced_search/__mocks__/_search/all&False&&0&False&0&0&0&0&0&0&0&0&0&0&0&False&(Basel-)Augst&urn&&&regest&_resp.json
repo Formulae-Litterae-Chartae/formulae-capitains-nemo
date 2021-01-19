@@ -1,60 +1,20 @@
 {
-  "took": 5,
+  "took": 6,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 44,
+    "successful": 44,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 1,
+    "total": 0,
     "max_score": null,
-    "hits": [
-      {
-        "_index": "stgallen_v4",
-        "_type": "stgallen",
-        "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 291",
-          "urn": "urn:cts:formulae:stgallen.wartmann0291.lat001",
-          "date_string": "825 05 11",
-          "comp_ort": "(Basel-)Augst",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "(Basel-)Augst",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 825,
-              "month": 5,
-              "day": 11
-            }
-          ],
-          "all_dates": [
-            "0825-05-11"
-          ],
-          "min_date": "0825-05-11",
-          "days": [
-            "Thursday"
-          ],
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:stgallen.wartmann0291.lat001"
-        ]
-      }
-    ]
+    "hits": []
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11124,
+      "doc_count": 12989,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -81,6 +41,9 @@
           "Codice Diplomatico Longobardo": {
             "doc_count": 48
           },
+          "Cormery (TELMA)": {
+            "doc_count": 5
+          },
           "Echternach": {
             "doc_count": 152
           },
@@ -106,7 +69,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2286
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
@@ -158,6 +121,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -217,7 +183,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3141
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -225,7 +191,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2909
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -233,18 +199,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2939
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1330
           }
         ]
       },
       "no_date": {
-        "doc_count": 524
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -271,6 +237,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
@@ -351,6 +320,9 @@
         "Rätien": {
           "doc_count": 0
         },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
         "Salzburg": {
           "doc_count": 0
         },
@@ -358,7 +330,7 @@
           "doc_count": 0
         },
         "St. Gallen": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Un acte faux de Marmoutier": {
           "doc_count": 0
@@ -417,7 +389,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 1
+          "doc_count": 0
         },
         {
           "key": "900-999",

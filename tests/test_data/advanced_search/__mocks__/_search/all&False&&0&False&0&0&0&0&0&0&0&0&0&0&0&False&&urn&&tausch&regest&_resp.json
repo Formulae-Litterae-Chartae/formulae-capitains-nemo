@@ -1,9 +1,9 @@
 {
-  "took": 6,
+  "took": 31,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 44,
+    "successful": 44,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
@@ -85,6 +85,7 @@
             "0876-12-31"
           ],
           "min_date": "0875",
+          "max_date": "0876-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -113,7 +114,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
@@ -141,6 +142,7 @@
             "0883-12-31"
           ],
           "min_date": "0876",
+          "max_date": "0883-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -169,7 +171,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
@@ -197,6 +199,7 @@
             "0957-12-31"
           ],
           "min_date": "0938",
+          "max_date": "0957-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -225,7 +228,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
@@ -253,6 +256,7 @@
             "0972-12-31"
           ],
           "min_date": "0957",
+          "max_date": "0972-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -281,7 +285,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
@@ -309,6 +313,7 @@
             "0976-12-31"
           ],
           "min_date": "0972",
+          "max_date": "0976-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -337,7 +342,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v42",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
         "_score": null,
@@ -365,6 +370,7 @@
             "0932-06-01"
           ],
           "min_date": "0932-06-01",
+          "max_date": "0932-06-01",
           "days": [
             "Friday"
           ],
@@ -396,7 +402,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v42",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -424,6 +430,7 @@
             "0933-06-01"
           ],
           "min_date": "0933-06-01",
+          "max_date": "0933-06-01",
           "days": [
             "Saturday"
           ],
@@ -455,7 +462,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v42",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
         "_score": null,
@@ -483,9 +490,10 @@
             "0948-03-27"
           ],
           "min_date": "0948-03-27",
+          "max_date": "0948-03-27",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -515,7 +523,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v4",
+        "_index": "hersfeld_v42",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
         "_score": null,
@@ -543,9 +551,10 @@
             "0948-03-30"
           ],
           "min_date": "0948-03-30",
+          "max_date": "0948-03-30",
           "days": [
-            "Thursday",
-            "Lent"
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -573,12 +582,1979 @@
           1,
           "urn:cts:formulae:hersfeld.weirich0049.lat003"
         ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 49b",
+          "urn": "urn:cts:formulae:hersfeld.weirich0049.lat004",
+          "date_string": "94[8] 03 30",
+          "comp_ort": "Magdeburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Magdeburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 948,
+              "month": 3,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0948-03-30"
+          ],
+          "min_date": "0948-03-30",
+          "max_date": "0948-03-30",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0049.lat004"
+        ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0052.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 52",
+          "urn": "urn:cts:formulae:hersfeld.weirich0052.lat001",
+          "date_string": "[949-957]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0949-01-01",
+              "lte": "0957-12-31"
+            }
+          ],
+          "all_dates": [
+            "0949-01-01",
+            "0957-12-31"
+          ],
+          "min_date": "0949-01-01",
+          "max_date": "0957-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0052.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0070.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 70",
+          "urn": "urn:cts:formulae:hersfeld.weirich0070.lat001",
+          "date_string": "991 10 04",
+          "comp_ort": "Bodfeld",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bodfeld",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 991,
+              "month": 10,
+              "day": 4
+            }
+          ],
+          "all_dates": [
+            "0991-10-04"
+          ],
+          "min_date": "0991-10-04",
+          "max_date": "0991-10-04",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0070.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0071.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 71",
+          "urn": "urn:cts:formulae:hersfeld.weirich0071.lat001",
+          "date_string": "992 09 28",
+          "comp_ort": "Bodfeld",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bodfeld",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 992,
+              "month": 9,
+              "day": 28
+            }
+          ],
+          "all_dates": [
+            "0992-09-28"
+          ],
+          "min_date": "0992-09-28",
+          "max_date": "0992-09-28",
+          "days": [
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0071.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0080.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 80",
+          "urn": "urn:cts:formulae:hersfeld.weirich0080.lat001",
+          "date_string": "1015 01 26",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1015,
+              "month": 1,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "1015-01-26"
+          ],
+          "min_date": "1015-01-26",
+          "max_date": "1015-01-26",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0080.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger1_v43",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 50",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
+          "date_string": "(636) 07 18",
+          "comp_ort": "Clichy",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Clichy",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 636,
+              "month": 7,
+              "day": 18
+            }
+          ],
+          "all_dates": [
+            "0636-07-18"
+          ],
+          "min_date": "0636-07-18",
+          "max_date": "0636-07-18",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:merowinger1.koelzer0050.lat001"
+        ]
+      },
+      {
+        "_index": "mittelrheinisch_v42",
+        "_type": "mittelrheinisch",
+        "_id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch zur Geschichte der mittelrheinischen Territorien (Ed. Beyer) Nr. 163",
+          "urn": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
+          "date_string": "923 06",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0923-06-01",
+              "lte": "0923-06-30"
+            }
+          ],
+          "all_dates": [
+            "0923-06-01",
+            "0923-06-30"
+          ],
+          "min_date": "0923-06-01",
+          "max_date": "0923-06-30",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mittelrheinisch.beyer0163.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 23",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0023.lat001",
+          "date_string": "c. 826-840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0826",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0826",
+            "0840-12-31"
+          ],
+          "min_date": "0826",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0023.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 25",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0025.lat001",
+          "date_string": "829",
+          "comp_ort": "Berndorf",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Berndorf",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 829
+            }
+          ],
+          "all_dates": [
+            "0829"
+          ],
+          "min_date": "0829",
+          "max_date": "0829",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0025.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0030.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 30",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0030.lat001",
+          "date_string": "c. 840-846 09 02",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0840",
+              "lte": "0846-09-02"
+            }
+          ],
+          "all_dates": [
+            "0840",
+            "0846-09-02"
+          ],
+          "min_date": "0840",
+          "max_date": "0846-09-02",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0030.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0035.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 35",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0035.lat001",
+          "date_string": "847–863",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0847",
+              "lte": "0863-12-31"
+            }
+          ],
+          "all_dates": [
+            "0847",
+            "0863-12-31"
+          ],
+          "min_date": "0847",
+          "max_date": "0863-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0035.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0038.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 38",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0038.lat001",
+          "date_string": "863?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 863
+            }
+          ],
+          "all_dates": [
+            "0863"
+          ],
+          "min_date": "0863",
+          "max_date": "0863",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0038.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0039.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 39",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0039.lat001",
+          "date_string": "863",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 863
+            }
+          ],
+          "all_dates": [
+            "0863"
+          ],
+          "min_date": "0863",
+          "max_date": "0863",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0039.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0058.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 58",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0058.lat001",
+          "date_string": "c. 863-885",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0863",
+              "lte": "0885-12-31"
+            }
+          ],
+          "all_dates": [
+            "0863",
+            "0885-12-31"
+          ],
+          "min_date": "0863",
+          "max_date": "0885-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0058.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0079.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 79",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0079.lat001",
+          "date_string": "c. 875-885",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0875",
+              "lte": "0885-12-31"
+            }
+          ],
+          "all_dates": [
+            "0875",
+            "0885-12-31"
+          ],
+          "min_date": "0875",
+          "max_date": "0885-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0079.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0097.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 97",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0097.lat001",
+          "date_string": "882-885",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0882",
+              "lte": "0885-12-31"
+            }
+          ],
+          "all_dates": [
+            "0882",
+            "0885-12-31"
+          ],
+          "min_date": "0882",
+          "max_date": "0885-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0097.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0131.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 131",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0131.lat001",
+          "date_string": "888/89",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0888",
+              "lte": "0889-12-31"
+            }
+          ],
+          "all_dates": [
+            "0888",
+            "0889-12-31"
+          ],
+          "min_date": "0888",
+          "max_date": "0889-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0131.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0169.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 169",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0169.lat001",
+          "date_string": "891-894",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0891",
+              "lte": "0894-12-31"
+            }
+          ],
+          "all_dates": [
+            "0891",
+            "0894-12-31"
+          ],
+          "min_date": "0891",
+          "max_date": "0894-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0169.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0175.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 175",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0175.lat001",
+          "date_string": "c. 900",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 900
+            }
+          ],
+          "all_dates": [
+            "0900"
+          ],
+          "min_date": "0900",
+          "max_date": "0900",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0175.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0182.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 182",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0182.lat001",
+          "date_string": "900",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 900
+            }
+          ],
+          "all_dates": [
+            "0900"
+          ],
+          "min_date": "0900",
+          "max_date": "0900",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0182.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0185.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 185",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0185.lat001",
+          "date_string": "901",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 901
+            }
+          ],
+          "all_dates": [
+            "0901"
+          ],
+          "min_date": "0901",
+          "max_date": "0901",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0185.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0202.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 202",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0202.lat001",
+          "date_string": "975-980",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0975",
+              "lte": "0980-12-31"
+            }
+          ],
+          "all_dates": [
+            "0975",
+            "0980-12-31"
+          ],
+          "min_date": "0975",
+          "max_date": "0980-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0202.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0207.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 207",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0207.lat001",
+          "date_string": "975-980",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0975",
+              "lte": "0980-12-31"
+            }
+          ],
+          "all_dates": [
+            "0975",
+            "0980-12-31"
+          ],
+          "min_date": "0975",
+          "max_date": "0980-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0207.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0216.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 216",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0216.lat001",
+          "date_string": "c. 980-985",
+          "comp_ort": "Regensburg, St. Peter",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg, St. Peter",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0980",
+              "lte": "0985-12-31"
+            }
+          ],
+          "all_dates": [
+            "0980",
+            "0985-12-31"
+          ],
+          "min_date": "0980",
+          "max_date": "0985-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0216.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 308",
+          "urn": "urn:cts:formulae:stgallen.wartmann0308.lat001",
+          "date_string": "827 09 08",
+          "comp_ort": "Wasserburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Wasserburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 827,
+              "month": 9,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0827-09-08"
+          ],
+          "min_date": "0827-09-08",
+          "max_date": "0827-09-08",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0308.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0479.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 479",
+          "urn": "urn:cts:formulae:stgallen.wartmann0479.lat001",
+          "date_string": "861 04 01",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 861,
+              "month": 4,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0861-04-01"
+          ],
+          "min_date": "0861-04-01",
+          "max_date": "0861-04-01",
+          "days": [
+            "Lent",
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0479.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0586.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 586",
+          "urn": "urn:cts:formulae:stgallen.wartmann0586.lat001",
+          "date_string": "875 04 03",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 875,
+              "month": 4,
+              "day": 3
+            }
+          ],
+          "all_dates": [
+            "0875-04-03"
+          ],
+          "min_date": "0875-04-03",
+          "max_date": "0875-04-03",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0586.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0587.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 587",
+          "urn": "urn:cts:formulae:stgallen.wartmann0587.lat001",
+          "date_string": "875 04 03",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 875,
+              "month": 4,
+              "day": 3
+            }
+          ],
+          "all_dates": [
+            "0875-04-03"
+          ],
+          "min_date": "0875-04-03",
+          "max_date": "0875-04-03",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0587.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0588.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 588",
+          "urn": "urn:cts:formulae:stgallen.wartmann0588.lat001",
+          "date_string": "875 04 03",
+          "comp_ort": "Frankfurt",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Frankfurt",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 875,
+              "month": 4,
+              "day": 3
+            }
+          ],
+          "all_dates": [
+            "0875-04-03"
+          ],
+          "min_date": "0875-04-03",
+          "max_date": "0875-04-03",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0588.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 694",
+          "urn": "urn:cts:formulae:stgallen.wartmann0694.lat001",
+          "date_string": "894 08 26",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 894,
+              "month": 8,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0894-08-26"
+          ],
+          "min_date": "0894-08-26",
+          "max_date": "0894-08-26",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0694.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0708.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 708",
+          "urn": "urn:cts:formulae:stgallen.wartmann0708.lat001",
+          "date_string": "897 01 30",
+          "comp_ort": "Regensburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Regensburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 897,
+              "month": 1,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0897-01-30"
+          ],
+          "min_date": "0897-01-30",
+          "max_date": "0897-01-30",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0708.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v42",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 69",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
+          "date_string": "820 09 02",
+          "comp_ort": "Quierzy-s.-Oise",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Quierzy-s.-Oise",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 9,
+              "day": 2
+            }
+          ],
+          "all_dates": [
+            "0820-09-02"
+          ],
+          "min_date": "0820-09-02",
+          "max_date": "0820-09-02",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0069.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v42",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0090.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 90",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0090.lat001",
+          "date_string": "779 10 09-780 10 08",
+          "comp_ort": "Weißenburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Weißenburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0779-10-09",
+              "lte": "0780-10-08"
+            }
+          ],
+          "all_dates": [
+            "0779-10-09",
+            "0780-10-08"
+          ],
+          "min_date": "0779-10-09",
+          "max_date": "0780-10-08",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0090.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v42",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0158.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 158",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0158.lat001",
+          "date_string": "833 08 18",
+          "comp_ort": "Weißenburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Weißenburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 833,
+              "month": 8,
+              "day": 18
+            }
+          ],
+          "all_dates": [
+            "0833-08-18"
+          ],
+          "min_date": "0833-08-18",
+          "max_date": "0833-08-18",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0158.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11124,
+      "doc_count": 12989,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -605,6 +2581,9 @@
           "Codice Diplomatico Longobardo": {
             "doc_count": 48
           },
+          "Cormery (TELMA)": {
+            "doc_count": 5
+          },
           "Echternach": {
             "doc_count": 152
           },
@@ -630,7 +2609,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2286
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
@@ -682,6 +2661,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -741,7 +2723,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3141
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -749,7 +2731,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2909
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -757,18 +2739,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2939
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1330
           }
         ]
       },
       "no_date": {
-        "doc_count": 524
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -795,6 +2777,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
@@ -873,6 +2858,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {

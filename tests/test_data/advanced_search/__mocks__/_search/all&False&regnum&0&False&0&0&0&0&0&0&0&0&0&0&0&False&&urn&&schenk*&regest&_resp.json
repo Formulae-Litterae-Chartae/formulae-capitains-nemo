@@ -1,9 +1,9 @@
 {
-  "took": 10,
+  "took": 19,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 44,
+    "successful": 44,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v42",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v42",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -322,16 +322,17 @@
             "0813-03-31"
           ],
           "min_date": "0769-03-31",
+          "max_date": "0813-03-31",
           "days": [
-            "Tuesday",
             "Friday",
-            "Monday",
-            "Easter",
             "Sunday",
             "Wednesday",
-            "Saturday",
+            "Tuesday",
+            "Thursday",
             "Lent",
-            "Thursday"
+            "Easter",
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -349,7 +350,7 @@
         ]
       },
       {
-        "_index": "echternach_v4",
+        "_index": "echternach_v17",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
         "_score": null,
@@ -377,6 +378,7 @@
             "0928-12-31"
           ],
           "min_date": "0915-01-01",
+          "max_date": "0928-12-31",
           "sort_prefix": 1
         },
         "highlight": {
@@ -405,7 +407,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -431,6 +433,7 @@
             "0769"
           ],
           "min_date": "0769",
+          "max_date": "0769",
           "sort_prefix": 1
         },
         "highlight": {
@@ -459,7 +462,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -485,6 +488,7 @@
             "0782"
           ],
           "min_date": "0782",
+          "max_date": "0782",
           "sort_prefix": 1
         },
         "highlight": {
@@ -513,7 +517,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -541,6 +545,7 @@
             "0815-08-06"
           ],
           "min_date": "0815-08-06",
+          "max_date": "0815-08-06",
           "days": [
             "Monday"
           ],
@@ -572,7 +577,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -600,6 +605,7 @@
             "0816-02-13"
           ],
           "min_date": "0816-02-13",
+          "max_date": "0816-02-13",
           "days": [
             "Wednesday"
           ],
@@ -631,7 +637,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -641,8 +647,8 @@
           "regest": "regest text",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 400",
           "urn": "urn:cts:formulae:freising.bitterauf0400.lat001",
-          "date_string": "a) 818 08b) 819 02 04c) 08 12",
-          "comp_ort": "a) Vicenza",
+          "date_string": "a) 818 08 b) 819 02 04 c) 08 12",
+          "comp_ort": "a Vicenza",
           "autocomplete": "autocomplete text",
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
@@ -670,6 +676,7 @@
             "0819-08-12"
           ],
           "min_date": "0818-08",
+          "max_date": "0819-08-12",
           "days": [
             "Friday"
           ],
@@ -701,7 +708,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v43",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -729,9 +736,10 @@
             "0819-04-14"
           ],
           "min_date": "0819-04-14",
+          "max_date": "0819-04-14",
           "days": [
-            "Thursday",
-            "Lent"
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -759,12 +767,3053 @@
           1,
           "urn:cts:formulae:freising.bitterauf0409.lat001"
         ]
+      },
+      {
+        "_index": "freising_v43",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 412",
+          "urn": "urn:cts:formulae:freising.bitterauf0412.lat001",
+          "date_string": "819 05 06",
+          "comp_ort": "Freising",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "(Freising)",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 819,
+              "month": 5,
+              "day": 6
+            }
+          ],
+          "all_dates": [
+            "0819-05-06"
+          ],
+          "min_date": "0819-05-06",
+          "max_date": "0819-05-06",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0412.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v43",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 415",
+          "urn": "urn:cts:formulae:freising.bitterauf0415.lat001",
+          "date_string": "819 05 08",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 819,
+              "month": 5,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0819-05-08"
+          ],
+          "min_date": "0819-05-08",
+          "max_date": "0819-05-08",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0415.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v43",
+        "_type": "freising",
+        "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 439",
+          "urn": "urn:cts:formulae:freising.bitterauf0439.lat001",
+          "date_string": "820 07 20",
+          "comp_ort": "Prenpruc",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "„Prenpruc“",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 7,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0820-07-20"
+          ],
+          "min_date": "0820-07-20",
+          "max_date": "0820-07-20",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0439.lat001"
+        ]
+      },
+      {
+        "_index": "fulda_stengel_v43",
+        "_type": "fulda_stengel",
+        "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch des Klosters Fulda; Teil: Bd. 1., (Die Zeit der Äbte Sturmi und Baugulf) (Ed. Stengel) Nr. 34",
+          "urn": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
+          "date_string": "760 06 [Anfang]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0760-06-01",
+              "lte": "0760-06-15"
+            }
+          ],
+          "all_dates": [
+            "0760-06-01",
+            "0760-06-15"
+          ],
+          "min_date": "0760-06-01",
+          "max_date": "0760-06-15",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:fulda_stengel.stengel0034.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v42",
+        "_type": "hersfeld",
+        "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 16",
+          "urn": "urn:cts:formulae:hersfeld.weirich0016.lat001",
+          "date_string": "782 07 04",
+          "comp_ort": "Düren",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Düren",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 782,
+              "month": 7,
+              "day": 4
+            }
+          ],
+          "all_dates": [
+            "0782-07-04"
+          ],
+          "min_date": "0782-07-04",
+          "max_date": "0782-07-04",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0016.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger1_v43",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 3",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
+          "date_string": "(498) 12 29",
+          "comp_ort": "Reims",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Reims",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 498,
+              "month": 12,
+              "day": 29
+            }
+          ],
+          "all_dates": [
+            "0498-12-29"
+          ],
+          "min_date": "0498-12-29",
+          "max_date": "0498-12-29",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:merowinger1.koelzer0003.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger1_v43",
+        "_type": "merowinger1",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 69",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
+          "date_string": "<662> 04 02",
+          "comp_ort": "Isenburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Isenburg",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 662,
+              "month": 4,
+              "day": 2
+            }
+          ],
+          "all_dates": [
+            "0662-04-02"
+          ],
+          "min_date": "0662-04-02",
+          "max_date": "0662-04-02",
+          "days": [
+            "Lent",
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:merowinger1.koelzer0069.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 2",
+          "urn": "urn:cts:formulae:raetien.erhart0002.lat001",
+          "date_string": "745 08 30",
+          "comp_ort": "Gebhardswil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "[Gebhardwil]",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 745,
+              "month": 8,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0745-08-30"
+          ],
+          "min_date": "0745-08-30",
+          "max_date": "0745-08-30",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0002.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 3",
+          "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
+          "date_string": "768–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0768",
+          "max_date": "0814",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0003.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 6",
+          "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
+          "date_string": "768–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0768",
+          "max_date": "0814",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0006.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 13",
+          "urn": "urn:cts:formulae:raetien.erhart0013.lat001",
+          "date_string": "819 04 30",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 819,
+              "month": 4,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0819-04-30"
+          ],
+          "min_date": "0819-04-30",
+          "max_date": "0819-04-30",
+          "days": [
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0013.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 14",
+          "urn": "urn:cts:formulae:raetien.erhart0014.lat001",
+          "date_string": "820 03 28",
+          "comp_ort": "Nüziders",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Nüziders",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 3,
+              "day": 28
+            }
+          ],
+          "all_dates": [
+            "0820-03-28"
+          ],
+          "min_date": "0820-03-28",
+          "max_date": "0820-03-28",
+          "days": [
+            "Lent",
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0014.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 16",
+          "urn": "urn:cts:formulae:raetien.erhart0016.lat001",
+          "date_string": "820 05 07/ 06 05",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 5,
+              "day": 7
+            },
+            {
+              "year": 820,
+              "month": 6,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0820-05-07",
+            "0820-06-05"
+          ],
+          "min_date": "0820-05-07",
+          "max_date": "0820-06-05",
+          "days": [
+            "Tuesday",
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0016.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 17",
+          "urn": "urn:cts:formulae:raetien.erhart0017.lat001",
+          "date_string": "820 06 05",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 6,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0820-06-05"
+          ],
+          "min_date": "0820-06-05",
+          "max_date": "0820-06-05",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0017.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 19",
+          "urn": "urn:cts:formulae:raetien.erhart0019.lat001",
+          "date_string": "820 06 05",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 6,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0820-06-05"
+          ],
+          "min_date": "0820-06-05",
+          "max_date": "0820-06-05",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0019.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 20",
+          "urn": "urn:cts:formulae:raetien.erhart0020.lat001",
+          "date_string": "820 05 14",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 5,
+              "day": 14
+            }
+          ],
+          "all_dates": [
+            "0820-05-14"
+          ],
+          "min_date": "0820-05-14",
+          "max_date": "0820-05-14",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0020.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 22",
+          "urn": "urn:cts:formulae:raetien.erhart0022.lat001",
+          "date_string": "[817-821] Oktober 13.",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 817,
+              "month": 10,
+              "day": 13
+            },
+            {
+              "year": 818,
+              "month": 10,
+              "day": 13
+            },
+            {
+              "year": 819,
+              "month": 10,
+              "day": 13
+            },
+            {
+              "year": 820,
+              "month": 10,
+              "day": 13
+            },
+            {
+              "year": 821,
+              "month": 10,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0817-10-13",
+            "0818-10-13",
+            "0819-10-13",
+            "0820-10-13",
+            "0821-10-13"
+          ],
+          "min_date": "0817-10-13",
+          "max_date": "0821-10-13",
+          "days": [
+            "Sunday",
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0022.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 23",
+          "urn": "urn:cts:formulae:raetien.erhart0023.lat001",
+          "date_string": "817-821",
+          "comp_ort": "Schlin",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlin",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0817",
+              "lte": "0821-12-31"
+            }
+          ],
+          "all_dates": [
+            "0817",
+            "0821-12-31"
+          ],
+          "min_date": "0817",
+          "max_date": "0821-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0023.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 24",
+          "urn": "urn:cts:formulae:raetien.erhart0024.lat001",
+          "date_string": "821 07 16",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 7,
+              "day": 16
+            }
+          ],
+          "all_dates": [
+            "0821-07-16"
+          ],
+          "min_date": "0821-07-16",
+          "max_date": "0821-07-16",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0024.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 26",
+          "urn": "urn:cts:formulae:raetien.erhart0026.lat001",
+          "date_string": "nach 820",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0820",
+              "lte": "0900-12-31"
+            }
+          ],
+          "all_dates": [
+            "0820",
+            "0900-12-31"
+          ],
+          "min_date": "0820",
+          "max_date": "0900-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0026.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 27",
+          "urn": "urn:cts:formulae:raetien.erhart0027.lat001",
+          "date_string": "821 03 07",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 3,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0821-03-07"
+          ],
+          "min_date": "0821-03-07",
+          "max_date": "0821-03-07",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0027.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 28",
+          "urn": "urn:cts:formulae:raetien.erhart0028.lat001",
+          "date_string": "821 03 07",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "(Schlins)",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 3,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0821-03-07"
+          ],
+          "min_date": "0821-03-07",
+          "max_date": "0821-03-07",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0028.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 31",
+          "urn": "urn:cts:formulae:raetien.erhart0031.lat001",
+          "date_string": "825 05 01",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 825,
+              "month": 5,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0825-05-01"
+          ],
+          "min_date": "0825-05-01",
+          "max_date": "0825-05-01",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0031.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 34",
+          "urn": "urn:cts:formulae:raetien.erhart0034.lat001",
+          "date_string": "825 09 27",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 825,
+              "month": 9,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0825-09-27"
+          ],
+          "min_date": "0825-09-27",
+          "max_date": "0825-09-27",
+          "days": [
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0034.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 40",
+          "urn": "urn:cts:formulae:raetien.erhart0040.lat001",
+          "date_string": "844/851 06 11",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 844,
+              "month": 6,
+              "day": 11
+            },
+            {
+              "year": 851,
+              "month": 6,
+              "day": 11
+            }
+          ],
+          "all_dates": [
+            "0844-06-11",
+            "0851-06-11"
+          ],
+          "min_date": "0844-06-11",
+          "max_date": "0851-06-11",
+          "days": [
+            "Wednesday",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0040.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 46",
+          "urn": "urn:cts:formulae:raetien.erhart0046.lat001",
+          "date_string": "881 09 13",
+          "comp_ort": "Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankweil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 881,
+              "month": 9,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0881-09-13"
+          ],
+          "min_date": "0881-09-13",
+          "max_date": "0881-09-13",
+          "days": [
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0046.lat001"
+        ]
+      },
+      {
+        "_index": "raetien_v42",
+        "_type": "raetien",
+        "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 51",
+          "urn": "urn:cts:formulae:raetien.erhart0051.lat001",
+          "date_string": "884 07 06",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "St. Gallen",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 884,
+              "month": 7,
+              "day": 6
+            }
+          ],
+          "all_dates": [
+            "0884-07-06"
+          ],
+          "min_date": "0884-07-06",
+          "max_date": "0884-07-06",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:raetien.erhart0051.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v43",
+        "_type": "regensburg",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 21",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
+          "date_string": "822",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 822
+            }
+          ],
+          "all_dates": [
+            "0822"
+          ],
+          "min_date": "0822",
+          "max_date": "0822",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0021.lat001"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v42",
+        "_type": "schaeftlarn",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 10",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
+          "date_string": "ca. 782",
+          "comp_ort": "Ober-Neuching",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "(Ober-)Neuching",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 782
+            }
+          ],
+          "all_dates": [
+            "0782"
+          ],
+          "min_date": "0782",
+          "max_date": "0782",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 9",
+          "urn": "urn:cts:formulae:stgallen.wartmann0009.lat001",
+          "date_string": "744 08 30",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 744,
+              "month": 8,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0744-08-30"
+          ],
+          "min_date": "0744-08-30",
+          "max_date": "0744-08-30",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0009.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
+          "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
+          "date_string": "762 08 20",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 762,
+              "month": 8,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0762-08-20"
+          ],
+          "min_date": "0762-08-20",
+          "max_date": "0762-08-20",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0026.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 72",
+          "urn": "urn:cts:formulae:stgallen.wartmann0072.lat001",
+          "date_string": "774 09 13",
+          "comp_ort": "Vinomna; Rankweil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Vinomna (Rankwil)",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 774,
+              "month": 9,
+              "day": 13
+            }
+          ],
+          "all_dates": [
+            "0774-09-13"
+          ],
+          "min_date": "0774-09-13",
+          "max_date": "0774-09-13",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0072.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 180",
+          "urn": "urn:cts:formulae:stgallen.wartmann0180.lat001",
+          "date_string": "804 07 06",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 804,
+              "month": 7,
+              "day": 6
+            }
+          ],
+          "all_dates": [
+            "0804-07-06"
+          ],
+          "min_date": "0804-07-06",
+          "max_date": "0804-07-06",
+          "days": [
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0180.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 243",
+          "urn": "urn:cts:formulae:stgallen.wartmann0243.lat001",
+          "date_string": "819 04 30",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 819,
+              "month": 4,
+              "day": 30
+            }
+          ],
+          "all_dates": [
+            "0819-04-30"
+          ],
+          "min_date": "0819-04-30",
+          "max_date": "0819-04-30",
+          "days": [
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0243.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 247",
+          "urn": "urn:cts:formulae:stgallen.wartmann0247.lat001",
+          "date_string": "820 03 28",
+          "comp_ort": "Nüziders",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Nüziders",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 3,
+              "day": 28
+            }
+          ],
+          "all_dates": [
+            "0820-03-28"
+          ],
+          "min_date": "0820-03-28",
+          "max_date": "0820-03-28",
+          "days": [
+            "Lent",
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0247.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 250",
+          "urn": "urn:cts:formulae:stgallen.wartmann0250.lat001",
+          "date_string": "820 05 07",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 5,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0820-05-07"
+          ],
+          "min_date": "0820-05-07",
+          "max_date": "0820-05-07",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0250.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 253",
+          "urn": "urn:cts:formulae:stgallen.wartmann0253.lat001",
+          "date_string": "(820) 05 15",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 5,
+              "day": 15
+            }
+          ],
+          "all_dates": [
+            "0820-05-15"
+          ],
+          "min_date": "0820-05-15",
+          "max_date": "0820-05-15",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0253.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 255",
+          "urn": "urn:cts:formulae:stgallen.wartmann0255.lat001",
+          "date_string": "820 06 05",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 6,
+              "day": 5
+            }
+          ],
+          "all_dates": [
+            "0820-06-05"
+          ],
+          "min_date": "0820-06-05",
+          "max_date": "0820-06-05",
+          "days": [
+            "Tuesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0255.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 258",
+          "urn": "urn:cts:formulae:stgallen.wartmann0258.lat001",
+          "date_string": "(820) 06 18",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 6,
+              "day": 18
+            }
+          ],
+          "all_dates": [
+            "0820-06-18"
+          ],
+          "min_date": "0820-06-18",
+          "max_date": "0820-06-18",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0258.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 259",
+          "urn": "urn:cts:formulae:stgallen.wartmann0259.lat001",
+          "date_string": "(820) 09 27",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 9,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0820-09-27"
+          ],
+          "min_date": "0820-09-27",
+          "max_date": "0820-09-27",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0259.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 260",
+          "urn": "urn:cts:formulae:stgallen.wartmann0260.lat001",
+          "date_string": "(820) 10 11",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 820,
+              "month": 10,
+              "day": 11
+            }
+          ],
+          "all_dates": [
+            "0820-10-11"
+          ],
+          "min_date": "0820-10-11",
+          "max_date": "0820-10-11",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0260.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 264",
+          "urn": "urn:cts:formulae:stgallen.wartmann0264.lat001",
+          "date_string": "821 03 07",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 3,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0821-03-07"
+          ],
+          "min_date": "0821-03-07",
+          "max_date": "0821-03-07",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0264.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 265",
+          "urn": "urn:cts:formulae:stgallen.wartmann0265.lat001",
+          "date_string": "821 03 07",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 3,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0821-03-07"
+          ],
+          "min_date": "0821-03-07",
+          "max_date": "0821-03-07",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0265.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 266",
+          "urn": "urn:cts:formulae:stgallen.wartmann0266.lat001",
+          "date_string": "821 03 07",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 3,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0821-03-07"
+          ],
+          "min_date": "0821-03-07",
+          "max_date": "0821-03-07",
+          "days": [
+            "Lent",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0266.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 270",
+          "urn": "urn:cts:formulae:stgallen.wartmann0270.lat001",
+          "date_string": "821 06 15",
+          "comp_ort": "Schlins",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Schlins",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 821,
+              "month": 6,
+              "day": 15
+            }
+          ],
+          "all_dates": [
+            "0821-06-15"
+          ],
+          "min_date": "0821-06-15",
+          "max_date": "0821-06-15",
+          "days": [
+            "Saturday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0270.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 289",
+          "urn": "urn:cts:formulae:stgallen.wartmann0289.lat001",
+          "date_string": "825 05 01",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 825,
+              "month": 5,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0825-05-01"
+          ],
+          "min_date": "0825-05-01",
+          "max_date": "0825-05-01",
+          "days": [
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0289.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 387",
+          "urn": "urn:cts:formulae:stgallen.wartmann0387.lat001",
+          "date_string": "843 12 26",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 843,
+              "month": 12,
+              "day": 26
+            }
+          ],
+          "all_dates": [
+            "0843-12-26"
+          ],
+          "min_date": "0843-12-26",
+          "max_date": "0843-12-26",
+          "days": [
+            "Wednesday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0387.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 391",
+          "urn": "urn:cts:formulae:stgallen.wartmann0391.lat001",
+          "date_string": "844 (851) 06 11",
+          "comp_ort": "Rankwil",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Rankwil",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 844,
+              "month": 6,
+              "day": 11
+            },
+            {
+              "year": 851,
+              "month": 6,
+              "day": 11
+            }
+          ],
+          "all_dates": [
+            "0844-06-11",
+            "0851-06-11"
+          ],
+          "min_date": "0844-06-11",
+          "max_date": "0851-06-11",
+          "days": [
+            "Wednesday",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0391.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v43",
+        "_type": "stgallen",
+        "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 734",
+          "urn": "urn:cts:formulae:stgallen.wartmann0734.lat001",
+          "date_string": "904 06 01",
+          "comp_ort": "Pavia",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Pavia",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 904,
+              "month": 6,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "0904-06-01"
+          ],
+          "min_date": "0904-06-01",
+          "max_date": "0904-06-01",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0734.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v42",
+        "_type": "weissenburg",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 4",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
+          "date_string": "743 01 18",
+          "comp_ort": "Weißenburg",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Weißenburg",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 743,
+              "month": 1,
+              "day": 18
+            }
+          ],
+          "all_dates": [
+            "0743-01-18"
+          ],
+          "min_date": "0743-01-18",
+          "max_date": "0743-01-18",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "regest text"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0004.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11124,
+      "doc_count": 12989,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -791,6 +3840,9 @@
           "Codice Diplomatico Longobardo": {
             "doc_count": 48
           },
+          "Cormery (TELMA)": {
+            "doc_count": 5
+          },
           "Echternach": {
             "doc_count": 152
           },
@@ -816,7 +3868,7 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2286
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
@@ -868,6 +3920,9 @@
           },
           "Rätien": {
             "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -927,7 +3982,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3141
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -935,7 +3990,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2909
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -943,18 +3998,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2939
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1330
           }
         ]
       },
       "no_date": {
-        "doc_count": 524
+        "doc_count": 641
       }
     },
     "corpus": {
@@ -981,6 +4036,9 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
@@ -1060,6 +4118,9 @@
         },
         "Rätien": {
           "doc_count": 20
+        },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
         },
         "Salzburg": {
           "doc_count": 0

@@ -1,0 +1,119 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Suchergebnisse') }}{% endblock %}
+{% set previous_search_args = g.previous_search_args|default(session['previous_search_args']) %}
+{% set previous_aggregations = g.previous_aggregations|default(session['previous_aggregations']) %}
+
+{% block article %}
+    <article class="container-fluid">
+    <header>
+    {% if total_results > 0 %}
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
+         <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
+        <div class="dropdown-menu" aria-labelledby="searchStats">
+            <div id="search-stat-table">
+            <div class="table-header">
+                <div class="table-cell">{{ _('Corpus') }}</div>
+                <div class="table-cell">{{ _('Datierung') }}</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="stat-sub-table">
+                    {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
+                    {% if aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] != 0 %}
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp|replace(' ', '&nbsp;')|safe }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-corp-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-hits-tooltip" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" id="{{ loop.index }}-corp-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-total-tooltip" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
+                    {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="table-cell">
+                    <div class="stat-sub-table">
+                    {% if aggs['no_date']['doc_count'] != 0 %}<div class="stat-sub-row"><div class="stat-sub-cell">{{ _('k.A.') }}</div><div class="stat-sub-cell px-2 text-right" id="no-date-hits-tooltip" data-toggle="tooltip" data-container="#no-date-hits-tooltip" title="{{ _('Treffer')}}">{{ aggs['no_date']['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right relative-position" id="no-date-total-tooltip" data-toggle="tooltip" data-container="#no-date-total-tooltip" data-placement="right" title="{{ _('Gesamtzahl der Dokumente ohne Datum')}}">({{ aggs['all_docs']['no_date']['doc_count'] }})</div></div>{% endif %}
+                    {% for cent in aggs['range']['buckets'] %}
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ cent['key'] }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-cent-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-cent-hits-tooltip" title="{{ _('Treffer')}}">{{ cent['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right relative-position" id="{{ loop.index }}-cent-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-cent-total-tooltip" data-placement="right" title="{{ _('Gesamtzahl der Dokumente in dieser Datumsspanne')}}">({{ aggs['all_docs']['range']['buckets'][loop.index0]['doc_count'] }})</div></div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </h1>
+        
+    
+    {% else %}
+    <h1>{{ _('Suchergebnisse') }} ({{ total_results|string }} {{ _(' Treffer') }})</h1>
+    {% endif %}
+    </header>
+    {% if posts|length == 0 %}
+    <h4>{{ _("Keine Ergebnisse gefunden für") }} <span class="font-italic">{{ search_string }}</span>.</h4>
+    {% endif %}
+    {% if previous_search_args %}
+    <div class="row search-subtitle-row">
+        <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
+        <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
+        </div>
+        <div class="col-auto">
+            <div class="dropleft">
+                <button class="btn btn-link dropdown-toggle search-subtitle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ _('Resultate filtern') }}
+                </button>
+                <div class="dropdown-menu corpora-search-results-dropdown">
+                    <a class="dropdown-item text-center" href="{{ url_for('search.r_results') }}?{% for arg, val in previous_search_args.items() %}{{arg}}={% if val==['False'] %}{% elif arg=='corpus' %}{{ previous_search_args['corpus']|replace('+', '%2B') }}{% elif arg=='formulaic_parts' %}{{ previous_search_args['formulaic_parts']|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endfor %}&partsTable=true&old_search=True">{{ _('Zeig Alle Resultate') }}</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="table-header">
+                        <div class="table-cell">{{ _('Korpora') }}</div>
+                        <div class="table-cell">{{ _('Urkundenteile') }}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-cell">
+                        {% for corp in g.corpora %}
+                            {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
+                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                        <div class="table-cell">
+                        {% for form_part in g.form_parts %}
+                            <span class="dropdown-item"><input class="part-restrict-to" name="corpus" type="checkbox" value="{{ form_part[0] }}" id="part-restrict-{{ form_part[0] }}"></input><label for="part-restrict-{{ form_part[0] }}">{{ form_part[1] }}</label></span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <span class="dropdown-item text-center"><a href="{{ request.url }}" type="button" class="btn btn-sm btn-primary" id="restrictSearchButton" newUrl="#">{{ _('Los!') }}</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row py-1" id="table-view-link"><a class="internal-link" href="{{ url_for('search.r_results') }}?{% for arg, val in request.args.items() %}{% if arg not in ['submit', 'partsTable'] %}{{arg}}={% if val=='False' %}{% elif arg in ['formulaic_parts', 'corpus'] %}{{ request.args[arg]|replace('+', '%2B') }}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}">{{ _('Resultate nach Korpora zeigen') }}</a></div>
+    
+    <table id="partsSearchResultTable" class="table table-sm table-hover" aria-label="{{ _('Suchergebnisse') }}">
+        <thead>
+            <tr>
+                <th id="results-text-column" scope="col">{{ _('Text') }} <i class="fas fa-sort"></i></th>
+                <th id="results-date-column" scope="col">{{ _('Datierung') }} <i class="fas fa-sort"></i></th>
+                <th id="results-title-column" scope="col">{{ _('Edition') }} <i class="fas fa-sort"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{% if current_user.project_team or post['id'] in open_texts %}{% for sent in post['highlight'] %}<p class="card-text m-0"><small>- {{ sent }}</small></p>{% endfor %}{% else %}<span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ _('Text nicht verfügbar') }}</span>{% endif %}</td>
+                <td sortVal="{{  post['info']['min_date'] }}">{% if post['info']['date_string'] != ' ' %} {{ post['info']['date_string'] }}{% endif %}</td>
+            {% if current_user.project_team or post['id'] in open_texts %}
+                <td sortVal="{{  post['id'] }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
+            {% else %}
+                <td sortVal="{{  post['id'] }}"><a class="disabled" href="#">{{ post['info']['title'] }}</a></td>
+            {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </article>
+{% endblock %}
+
+{% block additionalscript %}
+<script>
+    var downloadId = {{ 1|random_int(10000)|string }};
+    var downloadError = "{{ _('Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später.') }}";
+</script>
+{% endblock %}
