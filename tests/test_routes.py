@@ -279,6 +279,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertMessageFlashed(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
+            c.get('/corpus/urn:cts:formulae:lorsch', follow_redirects=True)
+            self.assertTemplateUsed('main::sub_collection.html')
+            self.assertMessageFlashed(_('Die Lorscher Urkunden sind in Bearbeitung und werden bald wieder zugänglich gemacht.'))
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertTemplateUsed('main::sub_collection_mv.html')
             # Make sure the Salzburg collection is ordered correctly
@@ -297,6 +300,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertMessageFlashed(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
+            c.get('/texts/urn:cts:formulae:lorsch.gloeckner0010.lat001/passage/all', follow_redirects=True)
+            self.assertMessageFlashed(_('Die Lorscher Urkunden sind in Bearbeitung und werden bald wieder zugänglich gemacht.'))
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertTemplateUsed('main::multipassage.html')
