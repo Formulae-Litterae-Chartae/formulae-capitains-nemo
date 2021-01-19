@@ -500,7 +500,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if q:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        if search_field in ('lemmas', 'text'):
+        if search_field in ('lemmas', 'text') and search['hits']['total'] > 0:
             ids, highlighted_terms = lem_highlight_to_text(search=search,
                                                            q=q,
                                                            ordered_terms=ordered_terms,
