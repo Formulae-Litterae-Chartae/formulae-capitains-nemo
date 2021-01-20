@@ -182,6 +182,11 @@
               "_type": "arnulfinger"
             }
           },
+          "Auvergne": {
+            "match": {
+              "_type": "auvergne"
+            }
+          },
           "Bünden": {
             "match": {
               "_type": "buenden"
@@ -456,6 +461,11 @@
               "Arnulfinger": {
                 "match": {
                   "_type": "arnulfinger"
+                }
+              },
+              "Auvergne": {
+                "match": {
+                  "_type": "auvergne"
                 }
               },
               "Bünden": {

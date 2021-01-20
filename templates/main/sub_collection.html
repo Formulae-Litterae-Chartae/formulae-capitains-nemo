@@ -52,7 +52,7 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h5>{{values['title']}}: </h5>
                         <span>
-                            {% if 'andecavensis' in collections.current.id or 'marculf' in collections.current.id %}
+                            {% if 'formulae_collection' in collections.parent_ids %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
                                         [{{ _('Edition') }}]
