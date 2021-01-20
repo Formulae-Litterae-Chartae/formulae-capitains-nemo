@@ -27,6 +27,7 @@ corpus_agg = {'filters': {'filters': {'Angers': {'match': {'_type': 'andecavensi
                                       "Archives d’Anjou": {'match': {'_type': 'anjou_archives'}},
                                       "Chroniques des comtes d’Anjou": {'match': {'_type': 'anjou_comtes_chroniques'}},
                                       'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
+                                      'Auvergne': {'match': {'_type': 'auvergne'}},
                                       'Bünden': {'match': {'_type': 'buenden'}},
                                       'Echternach': {'match': {'_type': 'echternach'}},
                                       'Freising': {'match': {'_type': 'freising'}},

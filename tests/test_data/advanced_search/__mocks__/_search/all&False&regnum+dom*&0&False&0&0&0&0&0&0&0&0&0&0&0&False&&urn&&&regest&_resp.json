@@ -1,9 +1,9 @@
 {
-  "took": 71,
+  "took": 93,
   "timed_out": false,
   "_shards": {
-    "total": 44,
-    "successful": 44,
+    "total": 45,
+    "successful": 45,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v42",
+        "_index": "andecavensis_v45",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v42",
+        "_index": "andecavensis_v45",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -396,15 +396,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Friday",
-            "Sunday",
-            "Wednesday",
-            "Tuesday",
             "Thursday",
-            "Lent",
+            "Friday",
+            "Wednesday",
             "Easter",
+            "Tuesday",
             "Saturday",
-            "Monday"
+            "Lent",
+            "Monday",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -419,7 +419,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -641,15 +641,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Friday",
-            "Sunday",
-            "Wednesday",
-            "Tuesday",
             "Thursday",
-            "Lent",
+            "Friday",
+            "Wednesday",
             "Easter",
+            "Tuesday",
             "Saturday",
-            "Monday"
+            "Lent",
+            "Monday",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -664,7 +664,7 @@
         ]
       },
       {
-        "_index": "lorsch_v43",
+        "_index": "lorsch_v46",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -724,7 +724,7 @@
         ]
       },
       {
-        "_index": "lorsch_v43",
+        "_index": "lorsch_v46",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -784,7 +784,7 @@
         ]
       },
       {
-        "_index": "raetien_v42",
+        "_index": "raetien_v45",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -847,7 +847,7 @@
         ]
       },
       {
-        "_index": "raetien_v42",
+        "_index": "raetien_v45",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -910,7 +910,7 @@
         ]
       },
       {
-        "_index": "raetien_v42",
+        "_index": "raetien_v45",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -1037,7 +1037,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -1107,7 +1107,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 12989,
+      "doc_count": 13049,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -1121,6 +1121,9 @@
           },
           "Arnulfinger": {
             "doc_count": 24
+          },
+          "Auvergne": {
+            "doc_count": 6
           },
           "Bünden": {
             "doc_count": 24
@@ -1168,7 +1171,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -1284,7 +1287,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3362
+            "doc_count": 3363
           },
           {
             "key": "900-999",
@@ -1303,7 +1306,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 641
+        "doc_count": 700
       }
     },
     "corpus": {
@@ -1318,6 +1321,9 @@
           "doc_count": 0
         },
         "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
           "doc_count": 0
         },
         "Bünden": {

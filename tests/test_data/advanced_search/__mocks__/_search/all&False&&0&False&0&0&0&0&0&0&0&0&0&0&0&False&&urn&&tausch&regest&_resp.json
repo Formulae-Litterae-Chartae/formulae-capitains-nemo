@@ -1,9 +1,9 @@
 {
-  "took": 31,
+  "took": 38,
   "timed_out": false,
   "_shards": {
-    "total": 44,
-    "successful": 44,
+    "total": 45,
+    "successful": 45,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v42",
+        "_index": "andecavensis_v45",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "freising_v43",
+        "_index": "freising_v46",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
@@ -114,7 +114,7 @@
         ]
       },
       {
-        "_index": "freising_v43",
+        "_index": "freising_v46",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
@@ -171,7 +171,7 @@
         ]
       },
       {
-        "_index": "freising_v43",
+        "_index": "freising_v46",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
@@ -228,7 +228,7 @@
         ]
       },
       {
-        "_index": "freising_v43",
+        "_index": "freising_v46",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
@@ -285,7 +285,7 @@
         ]
       },
       {
-        "_index": "freising_v43",
+        "_index": "freising_v46",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
@@ -342,7 +342,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
         "_score": null,
@@ -402,7 +402,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -462,7 +462,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
         "_score": null,
@@ -523,7 +523,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
         "_score": null,
@@ -553,8 +553,8 @@
           "min_date": "0948-03-30",
           "max_date": "0948-03-30",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -584,7 +584,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
         "_score": null,
@@ -614,8 +614,8 @@
           "min_date": "0948-03-30",
           "max_date": "0948-03-30",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -645,7 +645,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0052.lat001",
         "_score": null,
@@ -702,7 +702,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0070.lat001",
         "_score": null,
@@ -762,7 +762,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0071.lat001",
         "_score": null,
@@ -822,7 +822,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v42",
+        "_index": "hersfeld_v45",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0080.lat001",
         "_score": null,
@@ -879,7 +879,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v43",
+        "_index": "merowinger1_v46",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
         "_score": null,
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v42",
+        "_index": "mittelrheinisch_v45",
         "_type": "mittelrheinisch",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
         "_score": null,
@@ -996,7 +996,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0023.lat001",
         "_score": null,
@@ -1053,7 +1053,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0025.lat001",
         "_score": null,
@@ -1108,7 +1108,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0030.lat001",
         "_score": null,
@@ -1165,7 +1165,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0035.lat001",
         "_score": null,
@@ -1222,7 +1222,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0038.lat001",
         "_score": null,
@@ -1277,7 +1277,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0039.lat001",
         "_score": null,
@@ -1332,7 +1332,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0058.lat001",
         "_score": null,
@@ -1389,7 +1389,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0079.lat001",
         "_score": null,
@@ -1446,7 +1446,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0097.lat001",
         "_score": null,
@@ -1503,7 +1503,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0131.lat001",
         "_score": null,
@@ -1560,7 +1560,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0169.lat001",
         "_score": null,
@@ -1617,7 +1617,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0175.lat001",
         "_score": null,
@@ -1672,7 +1672,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0182.lat001",
         "_score": null,
@@ -1727,7 +1727,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0185.lat001",
         "_score": null,
@@ -1782,7 +1782,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0202.lat001",
         "_score": null,
@@ -1839,7 +1839,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0207.lat001",
         "_score": null,
@@ -1896,7 +1896,7 @@
         ]
       },
       {
-        "_index": "regensburg_v43",
+        "_index": "regensburg_v46",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0216.lat001",
         "_score": null,
@@ -1953,7 +1953,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -2013,7 +2013,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0479.lat001",
         "_score": null,
@@ -2074,7 +2074,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0586.lat001",
         "_score": null,
@@ -2134,7 +2134,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0587.lat001",
         "_score": null,
@@ -2194,7 +2194,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0588.lat001",
         "_score": null,
@@ -2254,7 +2254,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -2314,7 +2314,7 @@
         ]
       },
       {
-        "_index": "stgallen_v43",
+        "_index": "stgallen_v46",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0708.lat001",
         "_score": null,
@@ -2374,7 +2374,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v42",
+        "_index": "weissenburg_v45",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
@@ -2434,7 +2434,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v42",
+        "_index": "weissenburg_v45",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0090.lat001",
         "_score": null,
@@ -2491,7 +2491,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v42",
+        "_index": "weissenburg_v45",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0158.lat001",
         "_score": null,
@@ -2554,7 +2554,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 12989,
+      "doc_count": 13049,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -2568,6 +2568,9 @@
           },
           "Arnulfinger": {
             "doc_count": 24
+          },
+          "Auvergne": {
+            "doc_count": 6
           },
           "Bünden": {
             "doc_count": 24
@@ -2615,7 +2618,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -2731,7 +2734,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3362
+            "doc_count": 3363
           },
           {
             "key": "900-999",
@@ -2750,7 +2753,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 641
+        "doc_count": 700
       }
     },
     "corpus": {
@@ -2765,6 +2768,9 @@
           "doc_count": 0
         },
         "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
           "doc_count": 0
         },
         "Bünden": {

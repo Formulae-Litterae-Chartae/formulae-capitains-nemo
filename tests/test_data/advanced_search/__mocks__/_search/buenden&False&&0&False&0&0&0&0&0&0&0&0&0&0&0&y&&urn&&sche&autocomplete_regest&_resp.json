@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -99,7 +99,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -369,15 +369,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Friday",
-            "Sunday",
-            "Wednesday",
-            "Tuesday",
             "Thursday",
-            "Lent",
+            "Friday",
+            "Wednesday",
             "Easter",
+            "Tuesday",
             "Saturday",
-            "Monday"
+            "Lent",
+            "Monday",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -392,7 +392,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -440,7 +440,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -488,7 +488,7 @@
         ]
       },
       {
-        "_index": "buenden_v42",
+        "_index": "buenden_v45",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -545,6 +545,9 @@
             "doc_count": 0
           },
           "Arnulfinger": {
+            "doc_count": 0
+          },
+          "Auvergne": {
             "doc_count": 0
           },
           "Bünden": {
@@ -743,6 +746,9 @@
           "doc_count": 0
         },
         "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
           "doc_count": 0
         },
         "Bünden": {
