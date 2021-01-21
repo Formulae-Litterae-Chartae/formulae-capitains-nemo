@@ -1076,3 +1076,8 @@ a.btn-primary,li.page-item.active .page-link {
     outline-offset: 0;
     outline-width: thin;
 }
+
+#lem_box {
+    font-size: small;
+    line-height: 2em;
+}

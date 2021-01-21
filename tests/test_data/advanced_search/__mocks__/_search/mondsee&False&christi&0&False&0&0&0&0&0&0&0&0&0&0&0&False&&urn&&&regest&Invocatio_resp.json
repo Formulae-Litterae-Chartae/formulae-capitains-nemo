@@ -29,6 +29,9 @@
           "Arnulfinger": {
             "doc_count": 0
           },
+          "Auvergne": {
+            "doc_count": 0
+          },
           "Bünden": {
             "doc_count": 0
           },
@@ -225,6 +228,9 @@
           "doc_count": 0
         },
         "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
           "doc_count": 0
         },
         "Bünden": {
