@@ -100,7 +100,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:langobardisch',
-                        # 'urn:cts:formulae:lorsch',
+                        'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:marmoutier_dunois',
                         'urn:cts:formulae:marmoutier_laurain',
@@ -131,7 +131,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
                              'urn:cts:formulae:langobardisch',
-                             # 'urn:cts:formulae:lorsch',
+                             'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
@@ -695,8 +695,6 @@ class NemoFormulae(Nemo):
             template = "main::salzburg_collection.html"
         elif objectId in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
-        elif self.check_project_team() is False and 'lorsch' in objectId:
-            flash(_('Die Lorscher Urkunden sind in Bearbeitung und werden bald wieder zugänglich gemacht.'))
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 manuscript_data = [m.metadata.get_single(DC.source) or
@@ -1193,10 +1191,6 @@ class NemoFormulae(Nemo):
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
-            for i in ids:
-                if 'lorsch' in i:
-                    flash(_('Die Lorscher Urkunden sind in Bearbeitung und werden bald wieder zugänglich gemacht.'))
-                    break
         passage_data['translation'] = translations
         return passage_data
 
