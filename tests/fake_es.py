@@ -42,7 +42,7 @@ class FakeElasticsearch(object):
     def save_response(self, resp: dict):
         file_name = self.build_path('_resp.json')
         for i, h in enumerate(resp['hits']['hits']):
-            if 'buenden' not in h['_id']:
+            if 'buenden' not in h['_id'] and 'freising' not in h['_id']:
                 resp['hits']['hits'][i]['_source']['text'] = 'some real text'
                 resp['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
                 resp['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'

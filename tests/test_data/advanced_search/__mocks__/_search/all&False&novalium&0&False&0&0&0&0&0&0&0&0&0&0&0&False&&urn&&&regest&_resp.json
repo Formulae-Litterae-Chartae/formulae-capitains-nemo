@@ -1,0 +1,1219 @@
+{
+  "took": 12,
+  "timed_out": false,
+  "_shards": {
+    "total": 45,
+    "successful": 45,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": 14,
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "lorsch_v46",
+        "_type": "lorsch",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 164",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
+          "date_string": "1179 04 07",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1179,
+              "month": 4,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "1179-04-07"
+          ],
+          "min_date": "1179-04-07",
+          "max_date": "1179-04-07",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0253.lat001"
+        ]
+      },
+      {
+        "_index": "marmoutier_dunois_v45",
+        "_type": "marmoutier_dunois",
+        "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 215",
+          "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
+          "date_string": "Um 1208",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1208-01-01",
+              "lte": "1208-12-31"
+            }
+          ],
+          "all_dates": [
+            "1208-01-01",
+            "1208-12-31"
+          ],
+          "min_date": "1208-01-01",
+          "max_date": "1208-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 118",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
+          "date_string": "1162 11 16",
+          "comp_ort": "Tours",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Tours",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1162,
+              "month": 11,
+              "day": 16
+            }
+          ],
+          "all_dates": [
+            "1162-11-16"
+          ],
+          "min_date": "1162-11-16",
+          "max_date": "1162-11-16",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 131",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
+          "date_string": "1164 09 15",
+          "comp_ort": "Sens",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Sens",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1164,
+              "month": 9,
+              "day": 15
+            }
+          ],
+          "all_dates": [
+            "1164-09-15"
+          ],
+          "min_date": "1164-09-15",
+          "max_date": "1164-09-15",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 133",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
+          "date_string": "1164 09 25 – 1165 03 24",
+          "comp_ort": "Sens",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Sens",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1164-09-25",
+              "lte": "1165-03-24"
+            }
+          ],
+          "all_dates": [
+            "1164-09-25",
+            "1165-03-24"
+          ],
+          "min_date": "1164-09-25",
+          "max_date": "1165-03-24",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 168",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
+          "date_string": "1179 04 06",
+          "comp_ort": "Lateran",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lateran",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1179,
+              "month": 4,
+              "day": 6
+            }
+          ],
+          "all_dates": [
+            "1179-04-06"
+          ],
+          "min_date": "1179-04-06",
+          "max_date": "1179-04-06",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 175",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
+          "date_string": "1181 01 19",
+          "comp_ort": "Tusculanum",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Tusculanum",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1181,
+              "month": 1,
+              "day": 19
+            }
+          ],
+          "all_dates": [
+            "1181-01-19"
+          ],
+          "min_date": "1181-01-19",
+          "max_date": "1181-01-19",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 181",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
+          "date_string": "1182Vor 09 06",
+          "comp_ort": "Velletri",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Velletri",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1182-01-01",
+              "lte": "1182-09-06"
+            }
+          ],
+          "all_dates": [
+            "1182-01-01",
+            "1182-09-06"
+          ],
+          "min_date": "1182-01-01",
+          "max_date": "1182-09-06",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 197",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
+          "date_string": "1184 08 25",
+          "comp_ort": "Verona",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Verona",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1184,
+              "month": 8,
+              "day": 25
+            }
+          ],
+          "all_dates": [
+            "1184-08-25"
+          ],
+          "min_date": "1184-08-25",
+          "max_date": "1184-08-25",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 198",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
+          "date_string": "1184 08 29",
+          "comp_ort": "Verona",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Verona",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1184,
+              "month": 8,
+              "day": 29
+            }
+          ],
+          "all_dates": [
+            "1184-08-29"
+          ],
+          "min_date": "1184-08-29",
+          "max_date": "1184-08-29",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 216",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
+          "date_string": "1185 07 01",
+          "comp_ort": "Verona",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Verona",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1185,
+              "month": 7,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "1185-07-01"
+          ],
+          "min_date": "1185-07-01",
+          "max_date": "1185-07-01",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 233",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
+          "date_string": "1188 11 10",
+          "comp_ort": "Lateran",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lateran",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1188,
+              "month": 11,
+              "day": 10
+            }
+          ],
+          "all_dates": [
+            "1188-11-10"
+          ],
+          "min_date": "1188-11-10",
+          "max_date": "1188-11-10",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 236",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
+          "date_string": "1189 04 20",
+          "comp_ort": "Lateran",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lateran",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1189,
+              "month": 4,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "1189-04-20"
+          ],
+          "min_date": "1189-04-20",
+          "max_date": "1189-04-20",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001"
+        ]
+      },
+      {
+        "_index": "papsturkunden_frankreich_v46",
+        "_type": "papsturkunden_frankreich",
+        "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 246",
+          "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
+          "date_string": "1196 04 14 – 1197 04 13",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1196-04-14",
+              "lte": "1197-04-13"
+            }
+          ],
+          "all_dates": [
+            "1196-04-14",
+            "1197-04-13"
+          ],
+          "min_date": "1196-04-14",
+          "max_date": "1197-04-13",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 13049,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
+          "Angers": {
+            "doc_count": 62
+          },
+          "Archives d’Anjou": {
+            "doc_count": 74
+          },
+          "Arnulfinger": {
+            "doc_count": 24
+          },
+          "Auvergne": {
+            "doc_count": 6
+          },
+          "Bünden": {
+            "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 391
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 10
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "Cormery (TELMA)": {
+            "doc_count": 5
+          },
+          "Echternach": {
+            "doc_count": 152
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
+          },
+          "Freising": {
+            "doc_count": 1383
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "Gorze": {
+            "doc_count": 121
+          },
+          "Hersfeld": {
+            "doc_count": 121
+          },
+          "Katalonien": {
+            "doc_count": 2247
+          },
+          "Lorsch": {
+            "doc_count": 4131
+          },
+          "Luzern": {
+            "doc_count": 6
+          },
+          "Marculf": {
+            "doc_count": 95
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 281
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 189
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
+          },
+          "Merowinger": {
+            "doc_count": 196
+          },
+          "Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "Mondsee": {
+            "doc_count": 137
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 259
+          },
+          "Passau": {
+            "doc_count": 102
+          },
+          "Regensburg": {
+            "doc_count": 269
+          },
+          "Rheinisch": {
+            "doc_count": 78
+          },
+          "Rätien": {
+            "doc_count": 60
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
+          },
+          "Salzburg": {
+            "doc_count": 229
+          },
+          "Schäftlarn": {
+            "doc_count": 37
+          },
+          "St. Gallen": {
+            "doc_count": 779
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
+          "Weißenburg": {
+            "doc_count": 276
+          },
+          "Werden": {
+            "doc_count": 66
+          },
+          "Zürich": {
+            "doc_count": 53
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 7
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 24
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 154
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 4398
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 3363
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 2939
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 1330
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 700
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 0
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 0
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Gorze": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 1
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 1
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 12
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Schäftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 0
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 14
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

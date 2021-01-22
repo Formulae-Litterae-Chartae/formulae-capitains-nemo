@@ -53,7 +53,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gesta",
                               "fuzziness": "0"
                             }
                           }
@@ -73,7 +73,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gesta",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }

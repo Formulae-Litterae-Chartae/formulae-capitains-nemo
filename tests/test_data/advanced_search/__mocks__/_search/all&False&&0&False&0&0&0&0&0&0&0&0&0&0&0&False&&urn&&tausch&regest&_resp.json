@@ -1,5 +1,5 @@
 {
-  "took": 10,
+  "took": 9,
   "timed_out": false,
   "_shards": {
     "total": 45,
@@ -62,16 +62,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset. Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
+          "lemmas": null,
+          "regest": "Bischof Arnold erneuert mit Graf Ermbert den Tausch einer Hufe zu Ausser(Inner)bittlbach gegen eine solche zu Isen.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 915",
           "urn": "urn:cts:formulae:freising.bitterauf0915.lat001",
           "date_string": "875-876",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset. Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Arnold erneuert mit Graf Ermbert den Tausch einer Hufe zu Ausser(Inner)bittlbach gegen eine solche zu Isen.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -90,22 +90,7 @@
         },
         "highlight": {
           "regest": [
-            "regest text"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Arnold erneuert mit Graf Ermbert den </small><strong>Tausch</strong><small> einer Hufe zu Ausser(Inner)bittlbach gegen eine solche zu Isen."
           ]
         },
         "sort": [
@@ -119,16 +104,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine. Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente. Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam. Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem. Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio.",
+          "lemmas": null,
+          "regest": "Bischof Arnold beurkundet einen Tausch von Teilen eines Hofes zu Haindlfing gegen Ackerland ebenda zwischen zwei Dienstleuten der Kirche, dem Kleriker Engilrih und dem Laien Uualto.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 953",
           "urn": "urn:cts:formulae:freising.bitterauf0953.lat001",
           "date_string": "876-883",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine. Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente. Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam. Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem. Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Arnold beurkundet einen Tausch von Teilen eines Hofes zu Haindlfing gegen Ackerland ebenda zwischen zwei Dienstleuten der Kirche, dem Kleriker Engilrih und dem Laien Uualto.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -147,22 +132,7 @@
         },
         "highlight": {
           "regest": [
-            "regest text"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Arnold beurkundet einen </small><strong>Tausch</strong><small> von Teilen eines Hofes zu Haindlfing gegen Ackerland ebenda zwischen zwei Dienstleuten der Kirche, dem Kleriker Engilrih und dem Laien Uualto."
           ]
         },
         "sort": [
@@ -176,16 +146,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat. Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum. Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum. Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt: Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
+          "lemmas": null,
+          "regest": "Bischof Lambert bestätigt einen Tausch seines Vorgängers mit dem Erzpriester Engilscalh, wonach dieser für Niederroth Besitz zu Gross(Klein)viecht, Pasing, Strassbach übergibt.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1118",
           "urn": "urn:cts:formulae:freising.bitterauf1118.lat001",
           "date_string": "Nach 938",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat. Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum. Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum. Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt: Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Lambert bestätigt einen Tausch seines Vorgängers mit dem Erzpriester Engilscalh, wonach dieser für Niederroth Besitz zu Gross(Klein)viecht, Pasing, Strassbach übergibt.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -204,22 +174,7 @@
         },
         "highlight": {
           "regest": [
-            "regest text"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Lambert bestätigt einen </small><strong>Tausch</strong><small> seines Vorgängers mit dem Erzpriester Engilscalh, wonach dieser für Niederroth Besitz zu Gross(Klein)viecht, Pasing, Strassbach übergibt."
           ]
         },
         "sort": [
@@ -233,16 +188,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit. Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant. Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti: Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
+          "lemmas": null,
+          "regest": "Bischof Abraham bestätigt einen Tausch von Unfreien zwischen Bischof Lambert und dem Diakon Ratolt.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1155",
           "urn": "urn:cts:formulae:freising.bitterauf1155.lat001",
           "date_string": "Nach 957",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit. Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant. Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti: Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Abraham bestätigt einen Tausch von Unfreien zwischen Bischof Lambert und dem Diakon Ratolt.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -261,22 +216,7 @@
         },
         "highlight": {
           "regest": [
-            "regest text"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Abraham bestätigt einen </small><strong>Tausch</strong><small> von Unfreien zwischen Bischof Lambert und dem Diakon Ratolt."
           ]
         },
         "sort": [
@@ -290,16 +230,16 @@
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt. Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum. Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit. Huius concambii testes sunt: Ruotpreht. Ludolt. Diotrih. Guntpold.",
+          "lemmas": null,
+          "regest": "Tausch Bischof Abrahams mit der Nonne Hitta",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1245",
           "urn": "urn:cts:formulae:freising.bitterauf1245.lat001",
           "date_string": "-",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt. Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum. Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit. Huius concambii testes sunt: Ruotpreht. Ludolt. Diotrih. Guntpold.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Tausch Bischof Abrahams mit der Nonne Hitta",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -318,22 +258,7 @@
         },
         "highlight": {
           "regest": [
-            "regest text"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
+            "</small><strong>Tausch</strong><small> Bischof Abrahams mit der Nonne Hitta"
           ]
         },
         "sort": [

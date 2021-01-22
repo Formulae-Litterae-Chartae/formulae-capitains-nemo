@@ -249,7 +249,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                     positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                             positions[token] = sorted(positions[w])
                         else:
-                            u_term = w.replace('v', 'u')
+                            u_term = w.replace('v', 'u').replace('w', 'uu')
                             if w in vectors[search_field]['terms']:
                                 positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                             if u_term != w and u_term in vectors[search_field]['terms']:
@@ -299,7 +299,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             if other_lem in vectors['lemmas']['terms']:
                                 positions += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        u_term = w.replace('v', 'u')
+                        u_term = w.replace('v', 'u').replace('w', 'uu')
                         if w in vectors[search_field]['terms']:
                             positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
                         if u_term != w and u_term in vectors[search_field]['terms']:
@@ -411,7 +411,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    u_term = term.replace('v', 'u')
+                    u_term = term.replace('v', 'u').replace('w', 'uu')
                     if u_term != term:
                         if '*' in term or '?' in term:
                             clauses.append([{'span_or':
@@ -453,7 +453,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for term in q.split():
                 u_term = term
                 if search_field != 'lemmas':
-                    u_term = term.replace('v', 'u')
+                    u_term = term.replace('v', 'u').replace('w', 'uu')
                 if '*' in term or '?' in term:
                     if u_term != term:
                         clauses.append([{'span_or':
