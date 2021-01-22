@@ -136,7 +136,8 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts + ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
-                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001'], self.nemo.open_texts)
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:freising.bitterauf0090.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
             # self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
