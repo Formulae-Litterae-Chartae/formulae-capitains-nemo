@@ -11,34 +11,19 @@
                     {
                       "span_multi": {
                         "match": {
-                          "wildcard": {
-                            "Narratio": "christ*"
+                          "regexp": {
+                            "Narratio": "chr[ij]st.+"
                           }
                         }
                       }
                     },
                     {
-                      "span_or": {
-                        "clauses": [
-                          {
-                            "span_multi": {
-                              "match": {
-                                "wildcard": {
-                                  "Narratio": "vener?bili"
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "span_multi": {
-                              "match": {
-                                "wildcard": {
-                                  "Narratio": "uener?bili"
-                                }
-                              }
-                            }
+                      "span_multi": {
+                        "match": {
+                          "regexp": {
+                            "Narratio": "[uv]ener.b[ij]l[ij]"
                           }
-                        ]
+                        }
                       }
                     }
                   ],

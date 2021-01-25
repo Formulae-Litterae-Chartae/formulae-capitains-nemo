@@ -14,23 +14,8 @@
                           {
                             "span_multi": {
                               "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "novalium",
-                                    "fuzziness": "0"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "span_multi": {
-                              "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "noualium",
-                                    "fuzziness": "0"
-                                  }
+                                "regexp": {
+                                  "text": "no[uv]al[ij][uv]m"
                                 }
                               }
                             }

@@ -411,36 +411,31 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    u_term = term.replace('v', 'u').replace('w', 'uu')
+                    u_term = re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', term)))
                     if u_term != term:
                         if '*' in term or '?' in term:
-                            clauses.append([{'span_or':
-                                                 {'clauses': [
-                                                     {'span_multi': {'match': {'wildcard': {s_field: term}}}},
-                                                     {'span_multi': {'match': {'wildcard': {s_field: u_term}}}}
-                                                 ]
-                                                 }
-                            }])
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
                         else:
-                            clauses.append([{'span_or':
-                                                 {'clauses': [
-                                                     {'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {s_field: {"value": term, "fuzziness": fuzz}}
-                                                                }
-                                                           }
-                                                      },
-                                                     {'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {s_field: {"value": u_term, "fuzziness": fuzz}}
-                                                                }
-                                                           }
-                                                      }
-                                                 ]
-                                                 }
-                            }])
+                            words = [u_term]
+                            sub_clauses = {'span_or': {'clauses': []}}
+                            if fuzz == 'AUTO':
+                                if len(term) < 3:
+                                    term_fuzz = 0
+                                elif len(term) < 6:
+                                    term_fuzz = 1
+                                else:
+                                    term_fuzz = 2
+                            else:
+                                term_fuzz = int(fuzz)
+                            if term_fuzz != 0:
+                                suggest_body = {'suggest': {'fuzzy_suggest': {'text': term, 'term': {'field': 'text', 'suggest_mode': 'always', 'max_edits': term_fuzz, 'min_word_length': 3}}}}
+                                suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                if 'suggest' in suggests:
+                                    for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                        words.append(re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', s['text']))))
+                            for w in words:
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {'text': w}}}})
+                            clauses.append([sub_clauses])
                     else:
                         if '*' in term or '?' in term:
                             clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
@@ -453,16 +448,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for term in q.split():
                 u_term = term
                 if search_field != 'lemmas':
-                    u_term = term.replace('v', 'u').replace('w', 'uu')
+                    u_term = re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', term)))
                 if '*' in term or '?' in term:
                     if u_term != term:
-                        clauses.append([{'span_or':
-                            {'clauses': [
-                                {'span_multi': {'match': {'wildcard': {search_field: term}}}},
-                                {'span_multi': {'match': {'wildcard': {search_field: u_term}}}}
-                            ]
-                            }
-                        }])
+                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
                     else:
                         clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
                 else:
@@ -473,25 +462,27 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                         clauses.append(sub_clauses)
                     else:
                         if u_term != term:
-                            clauses.append([{'span_or':
-                                                 {'clauses': [
-                                                     {'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {search_field: {"value": term, "fuzziness": fuzz}}
-                                                                }
-                                                           }
-                                                      },
-                                                     {'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {search_field: {"value": u_term, "fuzziness": fuzz}}
-                                                                }
-                                                           }
-                                                      }
-                                                 ]
-                                                 }
-                            }])
+                            words = [u_term]
+                            sub_clauses = {'span_or': {'clauses': []}}
+                            if fuzz == 'AUTO':
+                                if len(term) < 3:
+                                    term_fuzz = 0
+                                elif len(term) < 6:
+                                    term_fuzz = 1
+                                else:
+                                    term_fuzz = 2
+                            else:
+                                term_fuzz = int(fuzz)
+                            if term_fuzz != 0:
+                                suggest_body = {'suggest': {'fuzzy_suggest': {'text': term, 'term': {'field': 'text', 'suggest_mode': 'always', 'max_edits': term_fuzz, 'min_word_length': 3}}}}
+                                print(suggest_body)
+                                suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                if 'suggest' in suggests:
+                                    for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                        words.append(re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', s['text']))))
+                            for w in words:
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {'text': w}}}})
+                            clauses.append([sub_clauses])
                         else:
                             clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
             bool_clauses = []

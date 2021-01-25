@@ -14,23 +14,8 @@
                           {
                             "span_multi": {
                               "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "wolfhart",
-                                    "fuzziness": "0"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "span_multi": {
-                              "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "uuolfhart",
-                                    "fuzziness": "0"
-                                  }
+                                "regexp": {
+                                  "text": "(w|uu)olfhart"
                                 }
                               }
                             }
@@ -44,23 +29,8 @@
                           {
                             "span_multi": {
                               "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "cvm",
-                                    "fuzziness": "0"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "span_multi": {
-                              "match": {
-                                "fuzzy": {
-                                  "text": {
-                                    "value": "cum",
-                                    "fuzziness": "0"
-                                  }
+                                "regexp": {
+                                  "text": "c[uv]m"
                                 }
                               }
                             }

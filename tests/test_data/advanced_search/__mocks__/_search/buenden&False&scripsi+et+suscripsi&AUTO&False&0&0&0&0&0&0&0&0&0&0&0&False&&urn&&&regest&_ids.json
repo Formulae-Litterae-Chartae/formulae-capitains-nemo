@@ -1,8 +1,5 @@
 [
   {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001"
-  },
-  {
     "id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
   },
   {
@@ -13,23 +10,5 @@
   },
   {
     "id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001"
   }
 ]
