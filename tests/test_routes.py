@@ -100,7 +100,8 @@ class Formulae_Testing(flask_testing.TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
-                                 'urn:cts:formulae:freising.bitterauf0090.lat001']
+                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -137,7 +138,8 @@ class TestNemoSetup(Formulae_Testing):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
-                                 'urn:cts:formulae:freising.bitterauf0090.lat001'], self.nemo.open_texts)
+                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
             # self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
@@ -2102,7 +2104,7 @@ class TestES(Formulae_Testing):
                                                                ("formulaic_parts", "")]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
-                                                                 ("q", 'christi'),
+                                                                 ("q", 'tempore'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -2122,10 +2124,10 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio")]),
+                                                                 ("formulaic_parts", "Stipulationsformel")]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
-                                                                 ("q", 'christ*'),
+                                                                 ("q", 'temp?re'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -2145,7 +2147,30 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio")]),
+                                                                 ("formulaic_parts", "Stipulationsformel")]),
+                 'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
+                                                                 ("lemma_search", "False"),
+                                                                 ("q", 'christ* vener?bili'),
+                                                                 ("fuzziness", "0"),
+                                                                 ("in_order", "False"),
+                                                                 ("year", 0),
+                                                                 ("slop", "0"),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("regest_q", ''),
+                                                                 ("regest_field", "regest"),
+                                                                 ("formulaic_parts", "Narratio")]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("lemma_search", "False"),
                                                                 ("q", 'christi'),
@@ -2992,20 +3017,21 @@ class TestES(Formulae_Testing):
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_v_to_u_single_word(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_v_to_u_single_word(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_v_to_u_single_word'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.return_value = self.term_vectors
+        sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.assertIn(sents, [x['sents'] for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")

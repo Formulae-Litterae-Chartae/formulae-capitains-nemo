@@ -57,7 +57,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gestus",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -121,7 +121,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
@@ -185,7 +185,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gestus",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -249,7 +249,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
@@ -313,7 +313,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gestus",
+                              "value": "gerere",
                               "fuzziness": "0"
                             }
                           }
@@ -377,7 +377,7 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
-                              "value": "gerere",
+                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
