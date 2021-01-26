@@ -19,6 +19,24 @@
                                 }
                               }
                             }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]pta"
+                                }
+                              }
+                            }
                           }
                         ]
                       }

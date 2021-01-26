@@ -1,18 +1,18 @@
 {
-  "took": 10,
+  "took": 23,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 42,
+    "successful": 42,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 89,
+    "total": 81,
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -49,7 +49,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -123,7 +123,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -160,7 +160,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -197,7 +197,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v9",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
         "_score": null,
@@ -234,7 +234,7 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
         "_score": null,
@@ -274,7 +274,7 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
         "_score": null,
@@ -314,7 +314,7 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
         "_score": null,
@@ -351,7 +351,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v9",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
         "_score": null,
@@ -388,7 +388,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v9",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
         "_score": null,
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0002.lat001",
         "_score": null,
@@ -462,7 +462,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_lesescaulesmartí_0001.lat001",
         "_score": null,
@@ -499,7 +499,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0008.lat001",
         "_score": null,
@@ -536,7 +536,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0012.lat001",
         "_score": null,
@@ -573,7 +573,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0013.lat001",
         "_score": null,
@@ -610,7 +610,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0014.lat001",
         "_score": null,
@@ -647,7 +647,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0022.lat001",
         "_score": null,
@@ -684,7 +684,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0023.lat001",
         "_score": null,
@@ -721,7 +721,7 @@
         ]
       },
       {
-        "_index": "katalonien_v46",
+        "_index": "katalonien_v9",
         "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_urgellesglésiamaria_0001.lat001",
         "_score": null,
@@ -758,7 +758,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0155.lat001",
         "_score": null,
@@ -795,7 +795,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0156.lat001",
         "_score": null,
@@ -832,7 +832,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0157.lat001",
         "_score": null,
@@ -869,7 +869,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0158.lat001",
         "_score": null,
@@ -906,7 +906,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0160.lat001",
         "_score": null,
@@ -943,7 +943,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0167.lat001",
         "_score": null,
@@ -980,7 +980,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0168.lat001",
         "_score": null,
@@ -1017,7 +1017,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0169.lat001",
         "_score": null,
@@ -1054,7 +1054,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0170.lat001",
         "_score": null,
@@ -1091,7 +1091,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0171.lat001",
         "_score": null,
@@ -1128,7 +1128,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0330.lat001",
         "_score": null,
@@ -1165,7 +1165,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0478.lat001",
         "_score": null,
@@ -1202,7 +1202,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0483.lat001",
         "_score": null,
@@ -1239,7 +1239,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0484.lat001",
         "_score": null,
@@ -1276,7 +1276,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1709.lat001",
         "_score": null,
@@ -1996,13 +1996,13 @@
           "min_date": "0765-11-20",
           "max_date": "0880-11-20",
           "days": [
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Tuesday",
+            "Sunday",
             "Saturday",
+            "Tuesday",
+            "Wednesday",
             "Monday",
-            "Sunday"
+            "Thursday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -2012,7 +2012,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1711.lat001",
         "_score": null,
@@ -2049,7 +2049,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1756.lat001",
         "_score": null,
@@ -2086,7 +2086,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v9",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1919.lat001",
         "_score": null,
@@ -2123,303 +2123,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2509.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Enzgau, Nr. 2389 (Reg. 2904) B.",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2509.lat001",
-          "date_string": "Rund 800",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0750-01-01",
-              "lte": "0899-12-31"
-            }
-          ],
-          "all_dates": [
-            "0750-01-01",
-            "0899-12-31"
-          ],
-          "min_date": "0750-01-01",
-          "max_date": "0899-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2509.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2582.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Neckar-, Linz-, Schmiegau, Nr. 2462 (Reg. 3403) B.",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2582.lat001",
-          "date_string": "Um 790-820",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0790-01-01",
-              "lte": "0820-12-31"
-            }
-          ],
-          "all_dates": [
-            "0790-01-01",
-            "0820-12-31"
-          ],
-          "min_date": "0790-01-01",
-          "max_date": "0820-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2582.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2664.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2544 (Reg. 3412)",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2664.lat001",
-          "date_string": "9. Jh.",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0800-01-01",
-              "lte": "0899-12-31"
-            }
-          ],
-          "all_dates": [
-            "0800-01-01",
-            "0899-12-31"
-          ],
-          "min_date": "0800-01-01",
-          "max_date": "0899-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2664.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2687.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2567",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2687.lat001",
-          "date_string": "9. Jh.",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0800-01-01",
-              "lte": "0899-12-31"
-            }
-          ],
-          "all_dates": [
-            "0800-01-01",
-            "0899-12-31"
-          ],
-          "min_date": "0800-01-01",
-          "max_date": "0899-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2687.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2689.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2568 (Reg. 3411)",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2689.lat001",
-          "date_string": "9. Jh.",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0800-01-01",
-              "lte": "0899-12-31"
-            }
-          ],
-          "all_dates": [
-            "0800-01-01",
-            "0899-12-31"
-          ],
-          "min_date": "0800-01-01",
-          "max_date": "0899-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2689.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner2810.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Breisgau, Nr. 2689 (Reg. 3081)",
-          "urn": "urn:cts:formulae:lorsch.gloeckner2810.lat001",
-          "date_string": "814",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0814-01-01",
-              "lte": "0814-12-31"
-            }
-          ],
-          "all_dates": [
-            "0814-01-01",
-            "0814-12-31"
-          ],
-          "min_date": "0814-01-01",
-          "max_date": "0814-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner2810.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner3550.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Maingau, Nr. 3421 (Reg. 3294)",
-          "urn": "urn:cts:formulae:lorsch.gloeckner3550.lat001",
-          "date_string": "804-837 (um 810)",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "dating": [
-            {
-              "gte": "0804-01-01",
-              "lte": "0837-12-31"
-            }
-          ],
-          "all_dates": [
-            "0804-01-01",
-            "0837-12-31"
-          ],
-          "min_date": "0804-01-01",
-          "max_date": "0837-12-31",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner3550.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner4462.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Nr. 3809 (Reg. 3399)",
-          "urn": "urn:cts:formulae:lorsch.gloeckner4462.lat001",
-          "date_string": "Vor 815",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0700-01-01",
-              "lte": "0815-01-01"
-            }
-          ],
-          "all_dates": [
-            "0700-01-01",
-            "0815-01-01"
-          ],
-          "min_date": "0700-01-01",
-          "max_date": "0815-01-01",
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner4462.lat001"
-        ]
-      },
-      {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -2456,7 +2160,7 @@
         ]
       },
       {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -2493,7 +2197,7 @@
         ]
       },
       {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -2530,7 +2234,7 @@
         ]
       },
       {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -2567,7 +2271,7 @@
         ]
       },
       {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -2604,7 +2308,7 @@
         ]
       },
       {
-        "_index": "luzern_v45",
+        "_index": "luzern_v9",
         "_type": "luzern",
         "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
         "_score": null,
@@ -2641,7 +2345,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -2692,7 +2396,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -2741,7 +2445,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -2788,7 +2492,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -2837,7 +2541,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -2882,7 +2586,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -2933,7 +2637,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -2986,7 +2690,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -3041,7 +2745,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -3082,7 +2786,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -3133,7 +2837,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0083.lat001",
         "_score": null,
@@ -3182,7 +2886,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0084.lat001",
         "_score": null,
@@ -3229,7 +2933,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
         "_score": null,
@@ -3278,7 +2982,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0094.lat001",
         "_score": null,
@@ -3327,7 +3031,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0127.lat001",
         "_score": null,
@@ -3374,7 +3078,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0131.lat001",
         "_score": null,
@@ -3421,7 +3125,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,
@@ -3474,7 +3178,7 @@
         ]
       },
       {
-        "_index": "passau_v45",
+        "_index": "passau_v9",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0065.lat001",
         "_score": null,
@@ -3511,7 +3215,7 @@
         ]
       },
       {
-        "_index": "passau_v45",
+        "_index": "passau_v9",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0066.lat001",
         "_score": null,
@@ -3548,7 +3252,7 @@
         ]
       },
       {
-        "_index": "passau_v45",
+        "_index": "passau_v9",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0079.lat001",
         "_score": null,
@@ -3585,7 +3289,7 @@
         ]
       },
       {
-        "_index": "redon_v44",
+        "_index": "redon_v9",
         "_type": "redon",
         "_id": "urn:cts:formulae:redon.courson0135.lat001",
         "_score": null,
@@ -3622,7 +3326,7 @@
         ]
       },
       {
-        "_index": "redon_v44",
+        "_index": "redon_v9",
         "_type": "redon",
         "_id": "urn:cts:formulae:redon.courson0166.lat001",
         "_score": null,
@@ -3659,7 +3363,7 @@
         ]
       },
       {
-        "_index": "redon_v44",
+        "_index": "redon_v9",
         "_type": "redon",
         "_id": "urn:cts:formulae:redon.courson0212.lat001",
         "_score": null,
@@ -3696,7 +3400,7 @@
         ]
       },
       {
-        "_index": "redon_v44",
+        "_index": "redon_v9",
         "_type": "redon",
         "_id": "urn:cts:formulae:redon.courson0267.lat001",
         "_score": null,
@@ -3733,7 +3437,7 @@
         ]
       },
       {
-        "_index": "regensburg_v46",
+        "_index": "regensburg_v9",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0009.lat001",
         "_score": null,
@@ -3770,7 +3474,7 @@
         ]
       },
       {
-        "_index": "regensburg_v46",
+        "_index": "regensburg_v9",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0014.lat001",
         "_score": null,
@@ -3807,7 +3511,7 @@
         ]
       },
       {
-        "_index": "regensburg_v46",
+        "_index": "regensburg_v9",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0037.lat001",
         "_score": null,
@@ -3844,7 +3548,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v45",
+        "_index": "rheinisch_v9",
         "_type": "rheinisch",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0054.lat001",
         "_score": null,
@@ -3881,7 +3585,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v45",
+        "_index": "rheinisch_v9",
         "_type": "rheinisch",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0055.lat001",
         "_score": null,
@@ -3918,7 +3622,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v45",
+        "_index": "rheinisch_v9",
         "_type": "rheinisch",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0059.lat001",
         "_score": null,
@@ -3955,7 +3659,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v45",
+        "_index": "rheinisch_v9",
         "_type": "rheinisch",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0215.lat001",
         "_score": null,
@@ -3992,7 +3696,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v45",
+        "_index": "schaeftlarn_v9",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0013.lat001",
         "_score": null,
@@ -4029,7 +3733,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v9",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0216.lat001",
         "_score": null,
@@ -4066,7 +3770,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v9",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0217.lat001",
         "_score": null,
@@ -4103,7 +3807,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v9",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0048.lat001",
         "_score": null,
@@ -4140,7 +3844,7 @@
         ]
       },
       {
-        "_index": "werden_v45",
+        "_index": "werden_v9",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0043.lat001",
         "_score": null,
@@ -4177,7 +3881,7 @@
         ]
       },
       {
-        "_index": "werden_v45",
+        "_index": "werden_v9",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0044.lat001",
         "_score": null,
@@ -4217,7 +3921,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 11098,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -4233,7 +3937,7 @@
             "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
             "doc_count": 24
@@ -4248,7 +3952,7 @@
             "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
             "doc_count": 152
@@ -4275,13 +3979,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 2260
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -4329,7 +4033,7 @@
             "doc_count": 60
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
             "doc_count": 229
@@ -4373,7 +4077,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 24
+            "doc_count": 23
           },
           {
             "key": "600-699",
@@ -4389,7 +4093,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 3126
           },
           {
             "key": "800-899",
@@ -4397,7 +4101,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 2910
           },
           {
             "key": "900-999",
@@ -4405,18 +4109,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2926
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1319
           }
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 513
       }
     },
     "corpus": {
@@ -4476,7 +4180,7 @@
           "doc_count": 9
         },
         "Lorsch": {
-          "doc_count": 26
+          "doc_count": 18
         },
         "Luzern": {
           "doc_count": 6
@@ -4590,7 +4294,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 39
+          "doc_count": 36
         },
         {
           "key": "800-899",
@@ -4598,7 +4302,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 49
+          "doc_count": 44
         },
         {
           "key": "900-999",

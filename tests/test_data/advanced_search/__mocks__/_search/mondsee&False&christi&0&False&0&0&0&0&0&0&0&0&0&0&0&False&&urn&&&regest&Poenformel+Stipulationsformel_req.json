@@ -15,7 +15,7 @@
                             "span_multi": {
                               "match": {
                                 "regexp": {
-                                  "text": "chr[ij]st[ij]"
+                                  "Poenformel": "chr[ij]st[ij]"
                                 }
                               }
                             }
@@ -38,7 +38,7 @@
                             "span_multi": {
                               "match": {
                                 "regexp": {
-                                  "text": "chr[ij]st[ij]"
+                                  "Stipulationsformel": "chr[ij]st[ij]"
                                 }
                               }
                             }

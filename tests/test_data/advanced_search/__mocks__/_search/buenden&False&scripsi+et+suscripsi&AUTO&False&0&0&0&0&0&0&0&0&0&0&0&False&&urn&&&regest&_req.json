@@ -19,6 +19,24 @@
                                 }
                               }
                             }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]pta"
+                                }
+                              }
+                            }
                           }
                         ]
                       }
@@ -43,6 +61,33 @@
                               "match": {
                                 "regexp": {
                                   "text": "s[uv]scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]bscr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]pscr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]ps[ij]"
                                 }
                               }
                             }

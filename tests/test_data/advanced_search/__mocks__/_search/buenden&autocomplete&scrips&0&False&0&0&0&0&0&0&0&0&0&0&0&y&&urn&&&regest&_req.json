@@ -9,18 +9,15 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_or": {
-                        "clauses": [
-                          {
-                            "span_multi": {
-                              "match": {
-                                "regexp": {
-                                  "text": "scr[ij]ps"
-                                }
-                              }
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "autocomplete": {
+                              "value": "scrips",
+                              "fuzziness": "0"
                             }
                           }
-                        ]
+                        }
                       }
                     }
                   ],

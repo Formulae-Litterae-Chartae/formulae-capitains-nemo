@@ -3125,8 +3125,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         sents = [{'sents': ['Text nicht zugänglich.']},
                  {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': ['Text nicht zugänglich.']}]
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3548,13 +3547,16 @@ class TestES(Formulae_Testing):
                                     {'should':
                                          [{'span_near':
                                                {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'text':
-                                                                         {'value': 'regnum', 'fuzziness': '0'}
-                                                                     }
-                                                                }
+                                                    [{'span_or':
+                                                          {'clauses':
+                                                               [{'span_multi':
+                                                                     {'match':
+                                                                          {'regexp':
+                                                                               {'text': 'regn[uv]m'}
+                                                                           }
+                                                                      }
+                                                                 }
+                                                                ]
                                                            }
                                                       }
                                                      ],
@@ -3634,41 +3636,43 @@ class TestES(Formulae_Testing):
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['q'] = 'regnum domni'
-        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
-                                                                                              {'match':
-                                                                                                   {'fuzzy':
-                                                                                     {'text':
-                                                                                          {'value': 'regnum',
-                                                                                           'fuzziness': '0'
-                                                                                           }
-                                                                                      }
-                                                                                 }
-                                                                            }
-                                                                       },
-                                                                      {'span_multi':
-                                                                           {'match':
-                                                                                {'fuzzy':
-                                                                                     {'text':
-                                                                                          {'value': 'domni',
-                                                                                           'fuzziness': '0'
-                                                                                           }
-                                                                                      }
-                                                                                 }
-                                                                            }
-                                                                       }
-                                                                      ]
+        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_or':
+                                                                                              {'clauses':
+                                                                                                   [
+                                                                                                       {'span_multi':
+                                                                                                            {'match':
+                                                                                                                 {'regexp':
+                                                                                                                      {'text': 'regn[uv]m'}
+                                                                                                                  }
+                                                                                                             }
+                                                                                                        }
+                                                                                                   ]
+                                                                                              }},
+            {'span_or':
+                 {'clauses':
+                      [{'span_multi':
+                            {'match':
+                                 {'regexp':
+                                      {'text': 'domn[ij]'}
+                                  }
+                             }
+                        }
+                       ]
+                  }
+             }
+        ]
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['q'] = 're?num'
         body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
                                                                                               {'match':
-                                                                                                   {'wildcard':
-                                                                                                        {'text': 're?num'}
+                                                                                                   {'regexp':
+                                                                                                        {'text': 're.n[uv]m'}
                                                                                                     }
                                                                                                }
-                                                                                          }
-                                                                                         ]
+                                                                                          }]
         advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         self.assertCountEqual({'index': ['formulae', 'chartae'], 'doc_type': "", 'body': body},
                               mock_search.call_args[1])
         test_args['corpus'] = ['']
