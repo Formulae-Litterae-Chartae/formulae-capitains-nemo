@@ -411,7 +411,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    u_term = re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', term)))
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', term)))
                     if u_term != term:
                         if '*' in term or '?' in term:
                             clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
@@ -440,7 +440,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                 suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
                                 if 'suggest' in suggests:
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                        words.append(re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', s['text']))))
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', s['text']))))
                             for w in words:
                                 sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
                             clauses.append([sub_clauses])
@@ -456,7 +456,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for term in q.split():
                 u_term = term
                 if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
-                    u_term = re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', term)))
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', term)))
                 if '*' in term or '?' in term:
                     if u_term != term:
                         clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
@@ -494,7 +494,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                 suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
                                 if 'suggest' in suggests:
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                        words.append(re.sub(r'i|j', '[ij]', re.sub(r'w|uu', '(w|uu)', re.sub(r'(?<!u)u(?!u)|v', '[uv]', s['text']))))
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', s['text']))))
                             for w in words:
                                 sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
                             clauses.append([sub_clauses])

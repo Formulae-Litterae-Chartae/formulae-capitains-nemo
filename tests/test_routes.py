@@ -2150,7 +2150,7 @@ class TestES(Formulae_Testing):
                                                                  ("formulaic_parts", "Stipulationsformel")]),
                  'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
-                                                                 ("q", 'christ* vener?bili'),
+                                                                 ("q", 'christ*+vener?bili'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -2216,7 +2216,53 @@ class TestES(Formulae_Testing):
                                                                ('special_days', ''),
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
-                                                               ("formulaic_parts", "Poenformel%2BStipulationsformel")])
+                                                               ("formulaic_parts", "Poenformel%2BStipulationsformel")]),
+                 'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'in+loco+qui+nuncupatur'),
+                                                               ("fuzziness", "AUTO"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "Narratio")]),
+                 'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'in+loco+qui+nuncupatur'),
+                                                               ("fuzziness", "AUTO"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -2343,6 +2389,64 @@ class TestES(Formulae_Testing):
                 new_vector['_id'] = d['_id']
                 rv['docs'].append(new_vector)
         return rv
+
+    def suggest_side_effect(self, **kwargs):
+        if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
+            resp = {}
+            if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                resp = {"suggest": {
+                    "fuzzy_suggest": [{
+                        "text": "qui",
+                        "offset": 0,
+                        "length": 3,
+                        "options": [{
+                            "text": "quis",
+                            "score": 0.75,
+                            "freq": 27
+                        },
+                            {
+                            "text": "que",
+                            "score": 0.75,
+                            "freq": 27
+                            },
+                            {
+                            "text": "qua",
+                            "score": 0.75,
+                            "freq": 27
+                            },
+                            {
+                            "text": "quia",
+                            "score": 0.75,
+                            "freq": 27
+                            },
+                            {
+                            "text": "quo",
+                            "score": 0.75,
+                            "freq": 27
+                            }
+                        ]
+                    }]
+                }}
+            elif kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'nuncupatur':
+                resp = {"suggest": {
+                    "fuzzy_suggest": [{
+                        "text": "qui",
+                        "offset": 0,
+                        "length": 3,
+                        "options": [{
+                            "text": "nuncupata",
+                            "score": 0.75,
+                            "freq": 27
+                        }
+                        ]
+                    }
+                    ]
+                }
+                }
+            return resp
+        test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        return fake.load_response()
 
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
@@ -3966,6 +4070,71 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_single_charter_part_search_with_wildcard(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_single_charter_part_search_with_wildcard_v_u(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_fuzzy_charter_part_search(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        last_call_body = mock_search.call_args.kwargs['body']
+        call_dicts = [{'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': '[ij]n'}}}}]}},
+                      {'span_multi': {'match': {'fuzzy': {'Narratio': {'value': 'loco', 'fuzziness': 'AUTO'}}}}},
+                      {'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': 'q[uv][ij]'}}}}]}},
+                      {'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': 'n[uv]nc[uv]pat[uv]r'}}}}]}}]
+        self.assertCountEqual(call_dicts,
+                              last_call_body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'])
+
+    @patch.object(Elasticsearch, "search")
+    def test_fuzzy_v_to_u_search(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.suggest_side_effect
+        # mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])

@@ -30,7 +30,7 @@
                             "span_multi": {
                               "match": {
                                 "regexp": {
-                                  "text": "(w|uu)[ij]l[ij]arent[ij]s"
+                                  "text": "(w|uu|vu|uv)[ij]l[ij]arent[ij]s"
                                 }
                               }
                             }
