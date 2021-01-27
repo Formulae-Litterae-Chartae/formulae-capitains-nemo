@@ -2393,56 +2393,83 @@ class TestES(Formulae_Testing):
     def suggest_side_effect(self, **kwargs):
         if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
             resp = {}
-            if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
-                resp = {"suggest": {
-                    "fuzzy_suggest": [{
-                        "text": "qui",
-                        "offset": 0,
-                        "length": 3,
-                        "options": [{
-                            "text": "quis",
-                            "score": 0.75,
-                            "freq": 27
-                        },
-                            {
-                            "text": "que",
-                            "score": 0.75,
-                            "freq": 27
+            if kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [{
+                                "text": "quis",
+                                "score": 0.75,
+                                "freq": 27
                             },
-                            {
-                            "text": "qua",
-                            "score": 0.75,
-                            "freq": 27
-                            },
-                            {
-                            "text": "quia",
-                            "score": 0.75,
-                            "freq": 27
-                            },
-                            {
-                            "text": "quo",
-                            "score": 0.75,
-                            "freq": 27
+                                {
+                                "text": "que",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "qua",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "quia",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "quo",
+                                "score": 0.75,
+                                "freq": 27
+                                }
+                            ]
+                        }]
+                    }}
+                elif kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'nuncupatur' and kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [{
+                                "text": "nuncupata",
+                                "score": 0.75,
+                                "freq": 27
                             }
-                        ]
-                    }]
-                }}
-            elif kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'nuncupatur':
-                resp = {"suggest": {
-                    "fuzzy_suggest": [{
-                        "text": "qui",
-                        "offset": 0,
-                        "length": 3,
-                        "options": [{
-                            "text": "nuncupata",
-                            "score": 0.75,
-                            "freq": 27
+                            ]
                         }
                         ]
                     }
-                    ]
-                }
-                }
+                    }
+            else:
+                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [
+                                {
+                                "text": "quia",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "qua",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "que",
+                                "score": 0.75,
+                                "freq": 27
+                                }
+                            ]
+                        }]
+                    }}
             return resp
         test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
@@ -4111,17 +4138,12 @@ class TestES(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = self.suggest_side_effect
+        # mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
-        last_call_body = mock_search.call_args.kwargs['body']
-        call_dicts = [{'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': '[ij]n'}}}}]}},
-                      {'span_multi': {'match': {'fuzzy': {'Narratio': {'value': 'loco', 'fuzziness': 'AUTO'}}}}},
-                      {'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': 'q[uv][ij]'}}}}]}},
-                      {'span_or': {'clauses': [{'span_multi': {'match': {'regexp': {'Narratio': 'n[uv]nc[uv]pat[uv]r'}}}}]}}]
-        self.assertCountEqual(call_dicts,
-                              last_call_body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'])
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
     def test_fuzzy_v_to_u_search(self, mock_search):
@@ -4133,7 +4155,6 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.suggest_side_effect
         # mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
