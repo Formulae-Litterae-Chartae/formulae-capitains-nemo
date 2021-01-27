@@ -223,7 +223,9 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 positions = {k: [] for k in q_words}
                 for token in q_words:
                     terms = {token}
-                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', token)))
+                    u_term = token
+                    if search_field != 'lemmas':
+                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', token)))
                     if u_term == token:
                         if re.search(r'[?*]', token):
                             terms = set()

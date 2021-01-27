@@ -9,27 +9,15 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_or": {
-                        "clauses": [
-                          {
-                            "span_multi": {
-                              "match": {
-                                "regexp": {
-                                  "text": "petton[ij]s"
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "span_multi": {
-                              "match": {
-                                "regexp": {
-                                  "text": "patron[ij]s"
-                                }
-                              }
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "text": {
+                              "value": "pettone",
+                              "fuzziness": "AUTO"
                             }
                           }
-                        ]
+                        }
                       }
                     }
                   ],
