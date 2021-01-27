@@ -100,6 +100,7 @@ class Formulae_Testing(flask_testing.TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                  'urn:cts:formulae:freising.bitterauf0090.lat001',
                                  'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
 
@@ -138,6 +139,7 @@ class TestNemoSetup(Formulae_Testing):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                  'urn:cts:formulae:freising.bitterauf0090.lat001',
                                  'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
@@ -2069,7 +2071,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"),
                                                                ("formulaic_parts", "")]),
-                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettonis'), ("fuzziness", "AUTO"),
+                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -2077,7 +2079,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"),
                                                                ("formulaic_parts", "")]),
-                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "AUTO"),
+                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnante+pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -2783,6 +2785,7 @@ class TestES(Formulae_Testing):
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        print([{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -3254,9 +3257,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
+        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3289,17 +3293,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']}]
+        sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
