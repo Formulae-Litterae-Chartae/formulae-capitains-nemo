@@ -1,9 +1,9 @@
 {
-  "took": 15,
+  "took": 247,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 42,
+    "successful": 42,
     "skipped": 0,
     "failed": 0
   },
@@ -12,21 +12,21 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "Consultum enim et rationabile videtur, ut quicquid ecclesiasticis vel saecularibus negotiis aut iudiciis agatur, serie literarum et testimonio nobilium et veracium virorum ita ligetur et confirmetur, ne in posterum ullo modo possit dissolvi vel corrumpi. Notum sit enim sanctae dei ecclesiae fidelibus veracibusque viris, qualiter Dracholfus Frigisingensis ecclesiae venerabilis episcopus et Couuo eiusdem ecclesiae humilis chorepiscopus inter se conplacitaverunt et communi traditione testiumque conductione sicut mos est firmaverunt. Remisit enim idem chorepiscopus et advocatus suus comes Sigihardus propriam abbatiolam suam quam coram rege et episcopis atque comitibus et ceteris principibus suis, sicut in cartula exinde precepto regis facta scriptum est, complacitavit Mosapurg nuncupatam ad ecclesiam beatae Marie semper virginis et sancti Corbiniani confessoris in manus prefati episcopi et advocati sui Kepolfi ea rations et tenore, quatenus ille quicquid eodem die vel tempore de episcopatu in beneficium haberet, deinceps usque in finem mortalis vitae sine ulla contradictione et molestia possideret. Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad illam pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III. Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII. id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII. Isti sunt testes eiusdem complacitationis, sicut mos est Baioariorum, per aures tracti: Arbo comes. Sigihart comes. Uuetti comes. Uuolfdregil comes et ceteri vassalli. Pernhart. Hartnid. Helmperht. Kotesscalh. Nothart. Tento. Adalfrid. Kisalolt. Jacob. Muotheri. Ratolt. Liutfrid. Ramuolf. Benedic. Kotahelm.",
+          "lemmas": null,
+          "regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1045",
           "urn": "urn:cts:formulae:freising.bitterauf1045.lat001",
           "date_string": "908 09 13",
           "comp_ort": "Freising",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "Consultum enim et rationabile videtur, ut quicquid ecclesiasticis vel saecularibus negotiis aut iudiciis agatur, serie literarum et testimonio nobilium et veracium virorum ita ligetur et confirmetur, ne in posterum ullo modo possit dissolvi vel corrumpi. Notum sit enim sanctae dei ecclesiae fidelibus veracibusque viris, qualiter Dracholfus Frigisingensis ecclesiae venerabilis episcopus et Couuo eiusdem ecclesiae humilis chorepiscopus inter se conplacitaverunt et communi traditione testiumque conductione sicut mos est firmaverunt. Remisit enim idem chorepiscopus et advocatus suus comes Sigihardus propriam abbatiolam suam quam coram rege et episcopis atque comitibus et ceteris principibus suis, sicut in cartula exinde precepto regis facta scriptum est, complacitavit Mosapurg nuncupatam ad ecclesiam beatae Marie semper virginis et sancti Corbiniani confessoris in manus prefati episcopi et advocati sui Kepolfi ea rations et tenore, quatenus ille quicquid eodem die vel tempore de episcopatu in beneficium haberet, deinceps usque in finem mortalis vitae sine ulla contradictione et molestia possideret. Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad illam pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III. Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII. id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII. Isti sunt testes eiusdem complacitationis, sicut mos est Baioariorum, per aures tracti: Arbo comes. Sigihart comes. Uuetti comes. Uuolfdregil comes et ceteri vassalli. Pernhart. Hartnid. Helmperht. Kotesscalh. Nothart. Tento. Adalfrid. Kisalolt. Jacob. Muotheri. Ratolt. Liutfrid. Ramuolf. Benedic. Kotahelm.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung.",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -48,22 +48,10 @@
         },
         "highlight": {
           "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Dracholf </small><strong>tauscht</strong><small> von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung."
           ],
           "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
+            "Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad </small><strong>illam</strong><small> pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III. Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII. id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII."
           ]
         },
         "sort": [
@@ -72,21 +60,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMMUTATIO LANTBERTI EPISCOPI ET ADALPERONIS COMITIS. In dei nomine. Placuit atque convenit inter venerabilem Lantbertum Frigisingensis aecclesiae episcopum necnon et quendam comitem Adalpero nominatum quandam commutationem facere sicut et fecerunt. Tradidit itaque prenominatus comes partem suae proprietatis, id est arabilis terrae IIII iugera in loco Risa dicto in manus prefati episcopi et advocati sui Ratoldi perpetualiter ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem commutationis de rebus predictae aecclesiae in loco Hohinpurc nuncupato partem illam urbistatii ad aquilonem positam valloque circumseptam idem iam prescriptus laudabilis episcopus una cum manu sui advocati predicti eidem comiti aevis temporibus in proprietatem tradidit habendum. Isti sunt testes per aures tracti: Eparhart comes. Adalhoh. Isanhart. Kisallot. Irmanheri. Petto. Peranger. Otmar. Vualdman.",
+          "lemmas": null,
+          "regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1152",
           "urn": "urn:cts:formulae:freising.bitterauf1152.lat001",
           "date_string": "956-957",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMMUTATIO LANTBERTI EPISCOPI ET ADALPERONIS COMITIS. In dei nomine. Placuit atque convenit inter venerabilem Lantbertum Frigisingensis aecclesiae episcopum necnon et quendam comitem Adalpero nominatum quandam commutationem facere sicut et fecerunt. Tradidit itaque prenominatus comes partem suae proprietatis, id est arabilis terrae IIII iugera in loco Risa dicto in manus prefati episcopi et advocati sui Ratoldi perpetualiter ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem commutationis de rebus predictae aecclesiae in loco Hohinpurc nuncupato partem illam urbistatii ad aquilonem positam valloque circumseptam idem iam prescriptus laudabilis episcopus una cum manu sui advocati predicti eidem comiti aevis temporibus in proprietatem tradidit habendum. Isti sunt testes per aures tracti: Eparhart comes. Adalhoh. Isanhart. Kisallot. Irmanheri. Petto. Peranger. Otmar. Vualdman.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -105,22 +93,10 @@
         },
         "highlight": {
           "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Lambert </small><strong>tauscht</strong><small> von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg."
           ],
           "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
+            "Econtra vero in recompensatione eiusdem commutationis de rebus predictae aecclesiae in loco Hohinpurc nuncupato partem </small><strong>illam</strong><small> urbistatii ad aquilonem positam valloque circumseptam idem iam prescriptus laudabilis episcopus una cum manu sui advocati predicti eidem comiti aevis temporibus in proprietatem tradidit habendum. Isti sunt testes per aures tracti: Eparhart comes. Adalhoh. Isanhart. Kisallot. Irmanheri. Petto. Peranger. Otmar. Vualdman."
           ]
         },
         "sort": [
@@ -129,21 +105,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "CONCAMBIUM ABRAHAE EPISCOPI ET ISANHARDI. In dei nomine. Placuit atque convenit inter venerabilem Abraham episcopum et Isanhardum servum ecclesiae Frigisingensis quandam commutationem facere sicut et fecerunt. Tradidit itaque prenominatus Isanhardus ad Altinhusun et ad Uettingun curtiferam I in mensura unius iugeris et dimidii et arabilis terrae hobam I servilem et iugera XIIII silvulae iugera III cum omnibus rebus iure ad illam hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero idem prenominatus episcopus una cum manu eiusdem Paponis de rebus predictae dei aecclesiae cum consilio suorum fidelium ad Pacharun aequali mensura eidem Isanhardo totidem tradidit in proprietatem habendum et exinde quicquid ab altero accepit firmiter teneat atque possideat. Unde et has commutationes conscribi fecerunt et his testibus confirmaverunt. Isti sunt testes eiusdem commutationis: Jacob. Dietrih. Adalhoh. Ediram. Kundhart. Uuillihart. Ellinrih. Meginrat. Chuniperht. Et ex familia: Hunperht. Reginhelm. Reginhart. Isangrim. Alpolt. Lvitpreht.",
+          "lemmas": null,
+          "regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1214",
           "urn": "urn:cts:formulae:freising.bitterauf1214.lat001",
           "date_string": "972-976",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "CONCAMBIUM ABRAHAE EPISCOPI ET ISANHARDI. In dei nomine. Placuit atque convenit inter venerabilem Abraham episcopum et Isanhardum servum ecclesiae Frigisingensis quandam commutationem facere sicut et fecerunt. Tradidit itaque prenominatus Isanhardus ad Altinhusun et ad Uettingun curtiferam I in mensura unius iugeris et dimidii et arabilis terrae hobam I servilem et iugera XIIII silvulae iugera III cum omnibus rebus iure ad illam hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero idem prenominatus episcopus una cum manu eiusdem Paponis de rebus predictae dei aecclesiae cum consilio suorum fidelium ad Pacharun aequali mensura eidem Isanhardo totidem tradidit in proprietatem habendum et exinde quicquid ab altero accepit firmiter teneat atque possideat. Unde et has commutationes conscribi fecerunt et his testibus confirmaverunt. Isti sunt testes eiusdem commutationis: Jacob. Dietrih. Adalhoh. Ediram. Kundhart. Uuillihart. Ellinrih. Meginrat. Chuniperht. Et ex familia: Hunperht. Reginhelm. Reginhart. Isangrim. Alpolt. Lvitpreht.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -162,22 +138,10 @@
         },
         "highlight": {
           "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Abraham </small><strong>tauscht</strong><small> von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern."
           ],
           "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
+            "Tradidit itaque prenominatus Isanhardus ad Altinhusun et ad Uettingun curtiferam I in mensura unius iugeris et dimidii et arabilis terrae hobam I servilem et iugera XIIII silvulae iugera III cum omnibus rebus iure ad </small><strong>illam</strong><small> hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero idem prenominatus episcopus una cum manu eiusdem Paponis de rebus predictae dei aecclesiae cum consilio suorum fidelium ad Pacharun aequali mensura eidem Isanhardo totidem tradidit in proprietatem habendum et exinde quicquid ab altero accepit firmiter teneat atque possideat. Unde et has commutationes conscribi fecerunt et his testibus confirmaverunt. Isti sunt testes eiusdem commutationis: Jacob. Dietrih. Adalhoh. Ediram. Kundhart. Uuillihart. Ellinrih. Meginrat. Chuniperht. Et ex familia: Hunperht. Reginhelm. Reginhart. Isangrim. Alpolt. Lvitpreht."
           ]
         },
         "sort": [
@@ -186,21 +150,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMMUTATIO ABRAHAE EPISCOPI ET AARON. In dei nomine. Placuit atque convenit inter venerabilem Abraham episcopum et liberum virum nomine Aron quandam commutationem facere sicut et fecerunt. Tradidit itaque idem prenominatus Aron ad Smidahusun curtiferam I in mensura iugeri et dimidii et arabilis terre hobam I servilem pratorum iugera II et sillvulae quicquid ibi habuit cum omnibus rebus iuste legitimeque ad illam hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero prenominatus episcopus et advocatus eius cum consilio suorum fidelium in eadem recompensatione tradiderunt eidem prescripto Aroni ad Rinchpah in omnibus aequali mensura eo scilicet tenore, ut uterque quod ab altero accepit firmiter teneat atque possideat. Isti sunt testes eiusdem commutationis: Anno. Kotascalh. Dietrih. Jacob. Papo. Adalhoh. Kundhart. Ediram.",
+          "lemmas": null,
+          "regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1219",
           "urn": "urn:cts:formulae:freising.bitterauf1219.lat001",
           "date_string": "972-976",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMMUTATIO ABRAHAE EPISCOPI ET AARON. In dei nomine. Placuit atque convenit inter venerabilem Abraham episcopum et liberum virum nomine Aron quandam commutationem facere sicut et fecerunt. Tradidit itaque idem prenominatus Aron ad Smidahusun curtiferam I in mensura iugeri et dimidii et arabilis terre hobam I servilem pratorum iugera II et sillvulae quicquid ibi habuit cum omnibus rebus iuste legitimeque ad illam hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero prenominatus episcopus et advocatus eius cum consilio suorum fidelium in eadem recompensatione tradiderunt eidem prescripto Aroni ad Rinchpah in omnibus aequali mensura eo scilicet tenore, ut uterque quod ab altero accepit firmiter teneat atque possideat. Isti sunt testes eiusdem commutationis: Anno. Kotascalh. Dietrih. Jacob. Papo. Adalhoh. Kundhart. Ediram.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -219,22 +183,10 @@
         },
         "highlight": {
           "autocomplete_regest": [
-            "autocomplete regest text"
+            "Bischof Abraham </small><strong>tauscht</strong><small> von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach."
           ],
           "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
+            "Tradidit itaque idem prenominatus Aron ad Smidahusun curtiferam I in mensura iugeri et dimidii et arabilis terre hobam I servilem pratorum iugera II et sillvulae quicquid ibi habuit cum omnibus rebus iuste legitimeque ad </small><strong>illam</strong><small> hobam pertinentibus in manus prefati episcopi et advocati sui Paponis ad aecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi perpetualiter existendum. Econtra vero prenominatus episcopus et advocatus eius cum consilio suorum fidelium in eadem recompensatione tradiderunt eidem prescripto Aroni ad Rinchpah in omnibus aequali mensura eo scilicet tenore, ut uterque quod ab altero accepit firmiter teneat atque possideat. Isti sunt testes eiusdem commutationis: Anno. Kotascalh. Dietrih. Jacob. Papo. Adalhoh. Kundhart. Ediram."
           ]
         },
         "sort": [
@@ -243,21 +195,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v9",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "COMMUTATIO GOTESCALCHI EPISCOPI ET CUIUSDAM SERVI SANCTAE MARIAE SANCTIQUE CORBINIANI ARIPO NUNCUPATI. a) Notum sit omnibus Christi fidelibus presentibus scilicet atque futuris, qualiter placuit inter venerabilem Frisingensis aecclesiae Gotescalchum episcopum et quendam eiusdem aecclesiae proprium servum Ariponem nuncupatum quandam inter se agere commutationem quam et fecerunt. Tradidit namque idem servus iam dictus in loco Sindeoshusa dicto curtiferum I et arabilis terrae hobam I servilem silve iugera V, in alio quoque loco Hemminhusa nuncupato iterum curtiferum I cum exitibus et reditibus quomodo et prius pascuis quoque aquarumque decursibus viis et in viis et omnibus ad ea loca legaliter pertinentibus terrae etiam arabilis iugera XVI pratorum iugus I in manus episcopi pretitulati et advocati sm Ŏdalscalchi ad aecclesiam sanctae Mariae sanctique Corbiniani perenniter existendum. Econtra vero episcopus unâ cum manu eiusdem advocati iam dicti aequam mensuram eidem servo redonavit ad Horchinhouun ea lege, ut ille ipse posterique eius absque omnium contradictione semper haberent in proprietatem. Huius rei testes sunt VI nobiles viri: Piligrim. Helmpreht. Dietrich. Guntpolt. Gotescalch. Wicco. De familia: Walto. Diethoh. Rihheri. Dietpreht. Wolfhart. Eparheri. Pero. Ŏgo. Sintpreht. Reginhalm. Sunhart. Wolfker. Managolt. Rihmunt. Rihker. Eparmunt. Alpvuin. Asmar. Wolfhart. Liutpreht. Liuto. Reginpreht. Perachtolt. b) Sed ut haec ista commutatio fìrmior esset, idem ille advocatus veniens ad eundem locum Horchinhoua nominatum eandem illam proprietatem cum testibus iterum presentavit. Testes IIII nobiles viri: Erchanker. Dietrich. Aripo. Iterum Dietrich. Lantfrit. Ratkis. De familia: Wolfhart. Machtuni. Wolfheri. Rihmunt. Rihker. Eparmunt.",
+          "lemmas": null,
+          "regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1325",
           "urn": "urn:cts:formulae:freising.bitterauf1325.lat001",
           "date_string": "944-1005",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "COMMUTATIO GOTESCALCHI EPISCOPI ET CUIUSDAM SERVI SANCTAE MARIAE SANCTIQUE CORBINIANI ARIPO NUNCUPATI. a) Notum sit omnibus Christi fidelibus presentibus scilicet atque futuris, qualiter placuit inter venerabilem Frisingensis aecclesiae Gotescalchum episcopum et quendam eiusdem aecclesiae proprium servum Ariponem nuncupatum quandam inter se agere commutationem quam et fecerunt. Tradidit namque idem servus iam dictus in loco Sindeoshusa dicto curtiferum I et arabilis terrae hobam I servilem silve iugera V, in alio quoque loco Hemminhusa nuncupato iterum curtiferum I cum exitibus et reditibus quomodo et prius pascuis quoque aquarumque decursibus viis et in viis et omnibus ad ea loca legaliter pertinentibus terrae etiam arabilis iugera XVI pratorum iugus I in manus episcopi pretitulati et advocati sm Ŏdalscalchi ad aecclesiam sanctae Mariae sanctique Corbiniani perenniter existendum. Econtra vero episcopus unâ cum manu eiusdem advocati iam dicti aequam mensuram eidem servo redonavit ad Horchinhouun ea lege, ut ille ipse posterique eius absque omnium contradictione semper haberent in proprietatem. Huius rei testes sunt VI nobiles viri: Piligrim. Helmpreht. Dietrich. Guntpolt. Gotescalch. Wicco. De familia: Walto. Diethoh. Rihheri. Dietpreht. Wolfhart. Eparheri. Pero. Ŏgo. Sintpreht. Reginhalm. Sunhart. Wolfker. Managolt. Rihmunt. Rihker. Eparmunt. Alpvuin. Asmar. Wolfhart. Liutpreht. Liuto. Reginpreht. Perachtolt. b) Sed ut haec ista commutatio fìrmior esset, idem ille advocatus veniens ad eundem locum Horchinhoua nominatum eandem illam proprietatem cum testibus iterum presentavit. Testes IIII nobiles viri: Erchanker. Dietrich. Aripo. Iterum Dietrich. Lantfrit. Ratkis. De familia: Wolfhart. Machtuni. Wolfheri. Rihmunt. Rihker. Eparmunt.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -276,22 +228,10 @@
         },
         "highlight": {
           "autocomplete_regest": [
-            "autocomplete regest text"
+            "a) Bischof Gottschalk </small><strong>tauscht</strong><small> von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung."
           ],
           "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
+            "Perachtolt. b) Sed ut haec ista commutatio fìrmior esset, idem ille advocatus veniens ad eundem locum Horchinhoua nominatum eandem </small><strong>illam</strong><small> proprietatem cum testibus iterum presentavit. Testes IIII nobiles viri: Erchanker. Dietrich. Aripo. Iterum Dietrich. Lantfrit. Ratkis. De familia: Wolfhart. Machtuni. Wolfheri. Rihmunt. Rihker. Eparmunt."
           ]
         },
         "sort": [
@@ -300,7 +240,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v9",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -360,7 +300,7 @@
         ]
       },
       {
-        "_index": "passau_v45",
+        "_index": "passau_v9",
         "_type": "passau",
         "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
         "_score": null,
@@ -420,7 +360,7 @@
         ]
       },
       {
-        "_index": "regensburg_v46",
+        "_index": "regensburg_v9",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
         "_score": null,
@@ -477,7 +417,7 @@
         ]
       },
       {
-        "_index": "regensburg_v46",
+        "_index": "regensburg_v9",
         "_type": "regensburg",
         "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
         "_score": null,
@@ -534,7 +474,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v9",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -594,7 +534,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v9",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
         "_score": null,
@@ -654,7 +594,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v9",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -714,7 +654,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v9",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
@@ -777,7 +717,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 11098,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -793,7 +733,7 @@
             "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
             "doc_count": 24
@@ -808,7 +748,7 @@
             "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
             "doc_count": 152
@@ -835,13 +775,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 2260
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -889,7 +829,7 @@
             "doc_count": 60
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
             "doc_count": 229
@@ -933,7 +873,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 24
+            "doc_count": 23
           },
           {
             "key": "600-699",
@@ -949,7 +889,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 3126
           },
           {
             "key": "800-899",
@@ -957,7 +897,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 2910
           },
           {
             "key": "900-999",
@@ -965,18 +905,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2926
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1319
           }
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 513
       }
     },
     "corpus": {

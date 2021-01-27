@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 2,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -63,7 +63,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -112,7 +112,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -159,7 +159,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -208,7 +208,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -304,7 +304,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -357,7 +357,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -412,7 +412,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -453,7 +453,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -504,7 +504,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0083.lat001",
         "_score": null,
@@ -553,7 +553,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0084.lat001",
         "_score": null,
@@ -600,7 +600,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
         "_score": null,
@@ -649,7 +649,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0094.lat001",
         "_score": null,
@@ -698,7 +698,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0127.lat001",
         "_score": null,
@@ -745,7 +745,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0131.lat001",
         "_score": null,
@@ -792,7 +792,7 @@
         ]
       },
       {
-        "_index": "mondsee_v45",
+        "_index": "mondsee_v9",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,

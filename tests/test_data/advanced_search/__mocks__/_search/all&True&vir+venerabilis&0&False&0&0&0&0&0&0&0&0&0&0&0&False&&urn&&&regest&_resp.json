@@ -1,9 +1,9 @@
 {
-  "took": 16,
+  "took": 23,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 42,
+    "successful": 42,
     "skipped": 0,
     "failed": 0
   },
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v9",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v9",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v9",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v9",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v9",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v9",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -282,7 +282,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v9",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form015.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v9",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form024.lat001",
         "_score": null,
@@ -372,7 +372,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v9",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form035.lat001",
         "_score": null,
@@ -420,7 +420,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 11098,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -436,7 +436,7 @@
             "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
             "doc_count": 24
@@ -451,7 +451,7 @@
             "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
             "doc_count": 152
@@ -478,13 +478,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 2260
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -532,7 +532,7 @@
             "doc_count": 60
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
             "doc_count": 229
@@ -576,7 +576,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 24
+            "doc_count": 23
           },
           {
             "key": "600-699",
@@ -592,7 +592,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 3126
           },
           {
             "key": "800-899",
@@ -600,7 +600,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 2910
           },
           {
             "key": "900-999",
@@ -608,18 +608,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2926
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1319
           }
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 513
       }
     },
     "corpus": {

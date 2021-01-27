@@ -249,7 +249,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                     positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                             positions[token] = sorted(positions[w])
                         else:
-                            positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
+                            u_term = w.replace('v', 'u').replace('w', 'uu')
+                            if w in vectors[search_field]['terms']:
+                                positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
+                            if u_term != w and u_term in vectors[search_field]['terms']:
+                                positions[token] += [i['position'] for i in vectors[search_field]['terms'][u_term]['tokens']]
                 search_range_start = int(slop) + len(q_words)
                 search_range_end = int(slop) + len(q_words) + 1
                 if ordered_terms:
@@ -295,7 +299,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             if other_lem in vectors['lemmas']['terms']:
                                 positions += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
+                        u_term = w.replace('v', 'u').replace('w', 'uu')
+                        if w in vectors[search_field]['terms']:
+                            positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
+                        if u_term != w and u_term in vectors[search_field]['terms']:
+                            positions += [i['position'] for i in vectors[search_field]['terms'][u_term]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
@@ -403,17 +411,57 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    if '*' in term or '?' in term:
-                        clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', term)))
+                    if u_term != term:
+                        if '*' in term or '?' in term:
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                        else:
+                            words = [u_term]
+                            sub_clauses = {'span_or': {'clauses': []}}
+                            if fuzz == 'AUTO':
+                                if len(term) < 3:
+                                    term_fuzz = 0
+                                elif len(term) < 6:
+                                    term_fuzz = 1
+                                else:
+                                    term_fuzz = 2
+                            else:
+                                term_fuzz = int(fuzz)
+                            if term_fuzz != 0:
+                                suggest_body = {'suggest':
+                                                    {'fuzzy_suggest':
+                                                         {'text': term,
+                                                          'term':
+                                                              {'field': s_field,
+                                                               'suggest_mode': 'always',
+                                                               'max_edits': term_fuzz,
+                                                               'min_word_length': 3,
+                                                               'max_term_freq': 20000}}}}
+                                suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                if 'suggest' in suggests:
+                                    for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', s['text']))))
+                            for w in words:
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
+                            clauses.append([sub_clauses])
                     else:
-                        clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
+                        if '*' in term or '?' in term:
+                            clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                        else:
+                            clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
                 for clause in product(*clauses):
                     bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
         else:
             clauses = []
             for term in q.split():
+                u_term = term
+                if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', term)))
                 if '*' in term or '?' in term:
-                    clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
+                    if u_term != term:
+                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                    else:
+                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
                 else:
                     if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
                         sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
@@ -421,7 +469,37 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                             sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
                         clauses.append(sub_clauses)
                     else:
-                        clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
+                        if u_term != term:
+                            words = [u_term]
+                            sub_clauses = {'span_or': {'clauses': []}}
+                            if fuzz == 'AUTO':
+                                if len(term) < 3:
+                                    term_fuzz = 0
+                                elif len(term) < 6:
+                                    term_fuzz = 1
+                                else:
+                                    term_fuzz = 2
+                            else:
+                                term_fuzz = int(fuzz)
+                            if term_fuzz != 0:
+                                suggest_body = {'suggest':
+                                                    {'fuzzy_suggest':
+                                                         {'text': term,
+                                                          'term':
+                                                              {'field': search_field,
+                                                               'suggest_mode': 'always',
+                                                               'max_edits': term_fuzz,
+                                                               'min_word_length': 3,
+                                                               'max_term_freq': 20000}}}}
+                                suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                if 'suggest' in suggests:
+                                    for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', s['text']))))
+                            for w in words:
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
+                            clauses.append([sub_clauses])
+                        else:
+                            clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
             bool_clauses = []
             for clause in product(*clauses):
                 bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})

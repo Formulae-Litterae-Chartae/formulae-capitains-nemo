@@ -11,8 +11,17 @@
                     {
                       "span_multi": {
                         "match": {
-                          "wildcard": {
-                            "Invocatio": "christ*"
+                          "regexp": {
+                            "Narratio": "chr[ij]st.+"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "regexp": {
+                            "Narratio": "[uv]ener.b[ij]l[ij]"
                           }
                         }
                       }
@@ -600,7 +609,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio": {
+      "Narratio": {
         "fragment_size": 1000
       },
       "regest": {

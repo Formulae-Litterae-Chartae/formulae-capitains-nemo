@@ -9,15 +9,18 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "Invocatio": {
-                              "value": "christi",
-                              "fuzziness": "0"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "no[uv]al[ij][uv]m"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ],
@@ -603,7 +606,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio": {
+      "text": {
         "fragment_size": 1000
       },
       "regest": {

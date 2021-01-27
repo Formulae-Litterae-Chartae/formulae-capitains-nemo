@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v9",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -306,15 +306,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Friday",
+            "Lent",
+            "Sunday",
+            "Saturday",
+            "Tuesday",
             "Wednesday",
             "Easter",
-            "Tuesday",
-            "Saturday",
-            "Lent",
             "Monday",
-            "Sunday"
+            "Thursday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v9",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -377,7 +377,7 @@
         ]
       },
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v9",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -599,15 +599,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Thursday",
-            "Friday",
+            "Lent",
+            "Sunday",
+            "Tuesday",
             "Wednesday",
             "Easter",
-            "Tuesday",
+            "Thursday",
             "Saturday",
-            "Lent",
             "Monday",
-            "Sunday"
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -622,7 +622,7 @@
         ]
       },
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v9",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,

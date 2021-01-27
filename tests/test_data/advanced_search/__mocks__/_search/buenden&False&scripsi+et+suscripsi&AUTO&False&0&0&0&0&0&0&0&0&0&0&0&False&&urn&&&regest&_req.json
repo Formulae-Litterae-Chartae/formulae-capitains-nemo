@@ -9,15 +9,36 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "scripsi",
-                              "fuzziness": "AUTO"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]pta"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     },
                     {
@@ -33,15 +54,45 @@
                       }
                     },
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "suscripsi",
-                              "fuzziness": "AUTO"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]scr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]bscr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "s[uv]pscr[ij]ps[ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "scr[ij]ps[ij]"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ],
