@@ -213,7 +213,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             else:
                 for v in vectors[highlight_field]['terms'].values():
                     highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
-            highlighted_words = set()
+            highlighted_words = set(q.split())
             for highlight in hit['highlight'][search_field]:
                 for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
                     highlighted_words.add(m.group(1).lower())
