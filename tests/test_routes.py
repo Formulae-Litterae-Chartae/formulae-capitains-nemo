@@ -4017,7 +4017,7 @@ class TestES(Formulae_Testing):
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            #recreate = True
+            # recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())

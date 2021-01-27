@@ -213,33 +213,48 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             else:
                 for v in vectors[highlight_field]['terms'].values():
                     highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
-            highlighted_words = set(q.split())
-            if re.search(r'[?*]', q) or fuzz != '0':
-                highlighted_words = set()
-                for highlight in hit['highlight'][search_field]:
-                    for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
-                        highlighted_words.add(m.group(1).lower())
+            highlighted_words = set()
+            for highlight in hit['highlight'][search_field]:
+                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
+                    highlighted_words.add(m.group(1).lower())
             all_highlighted_terms.update(highlighted_words)
             if ' ' in q:
                 q_words = q.split()
                 positions = {k: [] for k in q_words}
                 for token in q_words:
                     terms = {token}
-                    if re.search(r'[?*]', token):
-                        terms = set()
-                        new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'w|uu', '(w|uu|vu|uv)', re.sub(r'(?<!u)u(?!u)|(?<!u)v(?!u)', '[uv]', token)))
+                    if u_term == token:
+                        if re.search(r'[?*]', token):
+                            terms = set()
+                            new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                            for term in highlighted_words:
+                                if re.fullmatch(r'{}'.format(new_token), term):
+                                    terms.add(term)
+                        elif fuzz != '0':
+                            terms = set()
+                            if fuzz == 'AUTO':
+                                fuzz = min(len(token) // 3, 2)
+                            else:
+                                fuzz = int(fuzz)
+                            for term in highlighted_words:
+                                if levenshtein_distance(term, token) <= fuzz:
+                                    terms.add(term)
+                    else:
+                        new_token = u_term.replace('?', '.').replace('*', '.+')
                         for term in highlighted_words:
                             if re.fullmatch(r'{}'.format(new_token), term):
                                 terms.add(term)
-                    elif fuzz != '0':
-                        terms = set()
-                        if fuzz == 'AUTO':
-                            fuzz = min(len(token) // 3, 2)
-                        else:
-                            fuzz = int(fuzz)
-                        for term in highlighted_words:
-                            if levenshtein_distance(term, token) <= fuzz:
-                                terms.add(term)
+                        if not re.search(r'[?*]', token) and fuzz != 0:
+                            fuzz_terms = set()
+                            if fuzz == 'AUTO':
+                                fuzz = min(len(token) // 3, 2)
+                            else:
+                                fuzz = int(fuzz)
+                            for term, t in product(highlighted_words, terms):
+                                if levenshtein_distance(term, t) <= fuzz:
+                                    fuzz_terms.add(term)
+                            terms.update(fuzz_terms)
                     for w in terms:
                         if search_field == 'lemmas':
                             if w in vectors['lemmas']['terms']:
@@ -249,11 +264,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                     positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                             positions[token] = sorted(positions[w])
                         else:
-                            u_term = w.replace('v', 'u').replace('w', 'uu')
                             if w in vectors[search_field]['terms']:
                                 positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
-                            if u_term != w and u_term in vectors[search_field]['terms']:
-                                positions[token] += [i['position'] for i in vectors[search_field]['terms'][u_term]['tokens']]
                 search_range_start = int(slop) + len(q_words)
                 search_range_end = int(slop) + len(q_words) + 1
                 if ordered_terms:
@@ -299,11 +311,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             if other_lem in vectors['lemmas']['terms']:
                                 positions += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                     else:
-                        u_term = w.replace('v', 'u').replace('w', 'uu')
                         if w in vectors[search_field]['terms']:
                             positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
-                        if u_term != w and u_term in vectors[search_field]['terms']:
-                            positions += [i['position'] for i in vectors[search_field]['terms'][u_term]['tokens']]
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
