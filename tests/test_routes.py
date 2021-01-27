@@ -4146,14 +4146,16 @@ class TestES(Formulae_Testing):
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
-    def test_fuzzy_v_to_u_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_fuzzy_v_to_u_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.side_effect = self.suggest_side_effect
-        mock_search.return_value = resp
+        mock_highlight.side_effect = self.highlight_side_effect
+        # mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
