@@ -2785,7 +2785,6 @@ class TestES(Formulae_Testing):
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        print([{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
