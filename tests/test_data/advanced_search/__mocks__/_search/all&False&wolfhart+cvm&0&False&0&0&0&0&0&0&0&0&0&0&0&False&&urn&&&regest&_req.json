@@ -15,7 +15,7 @@
                             "span_multi": {
                               "match": {
                                 "regexp": {
-                                  "text": "(w|uu|vu|uv)olfhart"
+                                  "text": "(w|uu|vu|uv|vv)olfhart"
                                 }
                               }
                             }
