@@ -13470,6 +13470,1404 @@
     "id": "urn:cts:formulae:lorsch.gloeckner2278.lat001"
   },
   {
+    "id": "urn:cts:formulae:lorsch.gloeckner2288.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2290.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2295.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2298.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2299.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2300.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2301.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2302.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2303.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2304.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2307.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2309.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2312.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2313.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2316.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2317.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2322.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2323.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2327.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2331.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2332.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2333.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2335.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2336.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2337.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2339.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2341.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2342.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2350.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2353.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2370.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2373.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2374.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2375.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2377.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2380.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2383.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2385.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2386.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2387.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2388.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2393.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2395.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2396.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2397.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2400.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2401.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2402.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2403.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2404.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2405.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2407.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2408.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2413.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2414.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2417.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2418.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2421.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2422.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2425.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2426.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2428.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2431.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2433.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2435.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2436.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2437.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2438.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2439.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2441.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2444.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2445.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2448.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2450.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2453.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2455.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2457.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2458.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2460.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2461.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2462.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2463.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2465.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2466.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2467.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2468.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2472.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2474.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2480.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2485.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2488.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2491.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2505.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2506.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2508.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2509.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2517.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2563.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2580.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2581.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2582.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2586.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2588.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2589.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2596.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2600.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2603.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2613.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2632.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2643.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2645.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2646.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2648.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2650.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2651.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2654.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2658.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2660.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2663.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2664.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2667.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2668.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2670.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2674.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2675.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2676.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2677.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2679.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2683.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2685.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2686.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2687.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2689.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2698.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2707.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2714.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2716.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2717.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2718.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2719.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2722.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2725.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2728.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2729.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2730.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2731.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2740.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2742.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2747.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2748.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2755.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2760.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2768.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2775.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2781.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2791.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2793.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2801.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2802.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2803.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2806.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2807.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2810.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2812.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2814.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2817.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2818.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2823.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2824.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2830.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2837.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2838.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2841.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2852.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2853.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2856.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2863.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2865.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2867.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2872.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2875.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2885.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2887.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2888.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2889.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2890.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2896.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2905.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2906.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2907.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2912.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2923.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2926.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2927.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2929.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2932.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2941.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2949.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2951.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2957.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2961.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2963.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2969.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2970.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2972.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2979.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2981.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2983.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2984.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2993.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2995.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2996.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner2998.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3000.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3070.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3123.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3137.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3159.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3161.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3162.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3174.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3192.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3195.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3198.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3201.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3212.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3213.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3214.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3216.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3221.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3222.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3232.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3235.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3238.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3248.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3250.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3251.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3252.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3253.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3268.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3269.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3278.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3280.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3286.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3289.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3290.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3294.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3303.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3331.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3333.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3336.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3339.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3341.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3344.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3349.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3350.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3363.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3376.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3414.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3424.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3427.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3437.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3438.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3442.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3444.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3449.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3450.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3452.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3454.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3462.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3465.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3467.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3470.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3477.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3482.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3496.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3498.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3502.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3505.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3506.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3509.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3512.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3515.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3518.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3524.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3526.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3530.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3532.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3538.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3539.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3543.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3545.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3549.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3550.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3552.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3553.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3555.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3556.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3557.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3558.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3559.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3563.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3580.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3582.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3583.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3590.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3591.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3593.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3603.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3607.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3611.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3615.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3617.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3623.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3625.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3626.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3628.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3633.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3635.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3636.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3641.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3642.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3643.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3650.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3651.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3652.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3654.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3655.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3657.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3660.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3663.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3668.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3670.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3671.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3672.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3699.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3701.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3726.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3731.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3732.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3733.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3737.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3738.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3758.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3760.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3763.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3766.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3769.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3774.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3778.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3780.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3781.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3793.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner3794.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4093.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4095.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4101.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4114.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4122.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4144.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4146.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4148.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4160.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4162.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4164.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4375.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4377.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4379.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4381.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4383.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4385.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4387.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4389.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4391.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4393.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4395.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4397.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4399.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4401.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4403.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4405.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4407.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4409.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4411.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4413.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4414.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4416.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4418.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4420.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4423.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4424.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4429.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4430.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4437.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4445.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4448.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4449.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4462.lat001"
+  },
+  {
     "id": "urn:cts:formulae:luzern.schiess0001.lat001"
   },
   {
@@ -16159,6 +17557,9 @@
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0135.lat001"
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0137.lat001"
@@ -22444,6 +23845,66 @@
   },
   {
     "id": "urn:cts:formulae:stgallen.wartmann0778.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud1419.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud1420.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud1541.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud1774.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud4839.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1400.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1420.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1423.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1434.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1527.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1542.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1883.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1965.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud2270.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud2271.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud3199.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud3200.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud3485.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud3639.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud5020.lat001"
   },
   {
     "id": "urn:cts:formulae:tours_st_julien_fragments.grandmaison0001.lat001"

@@ -1,9 +1,9 @@
 {
-  "took": 17,
+  "took": 6,
   "timed_out": false,
   "_shards": {
-    "total": 42,
-    "successful": 42,
+    "total": 45,
+    "successful": 45,
     "skipped": 0,
     "failed": 0
   },
@@ -14,7 +14,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 11098,
+      "doc_count": 13049,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -30,7 +30,7 @@
             "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Bünden": {
             "doc_count": 24
@@ -45,7 +45,7 @@
             "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 0
+            "doc_count": 5
           },
           "Echternach": {
             "doc_count": 152
@@ -72,13 +72,13 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 2260
+            "doc_count": 4131
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -126,7 +126,7 @@
             "doc_count": 60
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Salzburg": {
             "doc_count": 229
@@ -170,7 +170,7 @@
             "from_as_string": "0500",
             "to": -43264540800000.0,
             "to_as_string": "0599",
-            "doc_count": 23
+            "doc_count": 24
           },
           {
             "key": "600-699",
@@ -186,7 +186,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 3126
+            "doc_count": 4398
           },
           {
             "key": "800-899",
@@ -194,7 +194,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 2910
+            "doc_count": 3363
           },
           {
             "key": "900-999",
@@ -202,18 +202,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2926
+            "doc_count": 2939
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1319
+            "doc_count": 1330
           }
         ]
       },
       "no_date": {
-        "doc_count": 513
+        "doc_count": 700
       }
     },
     "corpus": {

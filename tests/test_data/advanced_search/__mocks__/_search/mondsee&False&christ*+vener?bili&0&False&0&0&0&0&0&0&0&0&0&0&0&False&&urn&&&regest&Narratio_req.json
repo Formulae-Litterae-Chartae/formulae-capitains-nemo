@@ -21,7 +21,7 @@
                       "span_multi": {
                         "match": {
                           "regexp": {
-                            "Narratio": "vener.b[ij]l[ij]"
+                            "Narratio": "[uv]ener.b[ij]l[ij]"
                           }
                         }
                       }
