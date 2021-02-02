@@ -225,7 +225,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     terms = {token}
                     u_term = token
                     if search_field != 'lemmas':
-                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(^|[^uv])[uv]([^uv]|$)', r'\1[uv]\2', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', token)))
+                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', token)))
                     if u_term == token:
                         if re.search(r'[?*]', token):
                             terms = set()
@@ -304,17 +304,17 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                                                             min(len(highlight_offsets), ordered_span[-1] + 11)))
             else:
                 terms = highlighted_words
-                positions = []
+                positions = set()
                 for w in terms:
                     if search_field == 'lemmas':
                         if w in vectors['lemmas']['terms']:
-                            positions += [i['position'] for i in vectors['lemmas']['terms'][w]['tokens']]
+                            positions.update([i['position'] for i in vectors['lemmas']['terms'][w]['tokens']])
                         for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
                             if other_lem in vectors['lemmas']['terms']:
-                                positions += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
+                                positions.update([i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']])
                     else:
                         if w in vectors[search_field]['terms']:
-                            positions += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
+                            positions.update([i['position'] for i in vectors[search_field]['terms'][w]['tokens']])
                 positions = sorted(positions)
                 for pos in positions:
                     start_offset = highlight_offsets[pos][0]
@@ -422,7 +422,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(^|[^uv])[uv]([^uv]|$)', r'\1[uv]\2', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                     if u_term != term:
                         if '*' in term or '?' in term:
                             clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
@@ -451,7 +451,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                 suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
                                 if 'suggest' in suggests:
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(^|[^uv])[uv]([^uv]|$)', r'\1[uv]\2', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
                                 sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
                             clauses.append([sub_clauses])
@@ -467,7 +467,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for term in q.split():
                 u_term = term
                 if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
-                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(^|[^uv])[uv]([^uv]|$)', r'\1[uv]\2', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                 if '*' in term or '?' in term:
                     if u_term != term:
                         clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
@@ -505,7 +505,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                 suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
                                 if 'suggest' in suggests:
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(^|[^uv])[uv]([^uv]|$)', r'\1[uv]\2', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
+                                        words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
                                 sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
                             clauses.append([sub_clauses])
