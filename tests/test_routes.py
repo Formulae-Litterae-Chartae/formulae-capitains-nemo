@@ -38,6 +38,7 @@ class TestConfig(Config):
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
     COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
+    LEMMA_LISTS = ["tests/test_data/formulae/lem_list_1.json", "tests/test_data/formulae/lem_list_2.json"]
     # TERM_VECTORS = "tests/test_data/formulae/composition_places.json"
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
@@ -333,6 +334,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::manuscript_siglen.html')
             c.get('accessibility_statement', follow_redirects=True)
             self.assertTemplateUsed('main::accessibility_statement.html')
+            c.get('/search/lemmata', follow_redirects=True)
+            data = self.get_context_variable('lemmas')
+            self.assertEqual(['1', '8', '12', '45', 'hello', 'xxx'], data)
+
 
     def test_authorized_project_member(self):
 

@@ -11,6 +11,7 @@ from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
 from math import floor
+from json import load
 
 
 CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -333,3 +334,19 @@ def pdf_download_progress(download_id: str) -> str:
     if current_app.redis.get(download_id):
         return current_app.redis.get(download_id).decode('utf-8') or '0%'
     return '0%'
+
+@bp.route('/lemmata', methods=['GET'])
+def lemma_list():
+    """ Function to compile the data for the lists of lemmata"""
+    def sort_int(x):
+        if x.isdigit():
+            return (0, int(x))
+        return (1, x)
+    all_lemmas = set()
+    for l in current_app.config['LEMMA_LISTS']:
+        with open(l) as f:
+            new_lemmas = load(f)
+        all_lemmas.update(new_lemmas)
+    return current_app.config['nemo_app'].render(template='search::lemma_list.html',
+                                                 lemmas=sorted(all_lemmas, key=sort_int),
+                                                 url=dict())

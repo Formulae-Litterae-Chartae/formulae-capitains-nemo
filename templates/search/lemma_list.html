@@ -1,0 +1,20 @@
+{% extends "main::container.html" %}
+{% block title %}{{ _('Liste der suchbaren Lemmata') }}{% endblock %}
+            
+{%block article%}
+<div class="container">
+       <h3 class="text-center">{{ _('Liste der suchbaren Lemmata') }}</h3>
+<p>Kurze Einleitungstext hier</p>
+<table class="table">
+  <tbody>
+    {% for row in lemmas|batch(10, '') %}
+        <tr>
+        {% for column in row %}
+            <td>{{ column }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
