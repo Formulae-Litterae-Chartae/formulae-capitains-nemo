@@ -339,22 +339,21 @@ def pdf_download_progress(download_id: str) -> str:
 def lemma_list():
     """ Function to compile the data for the lists of lemmata"""
     def roman_to_int(s):
-        try:
+        result = s
+        if isinstance(s, str):
             s = s.lower()
-        except AttributeError:
-            raise(TypeError, 'expected string, got %s' % type(s))
-        # map of (numeral, value) tuples
-        roman_numeral_map = (('m', 1000), ('cm', 900),
-                             ('d', 500), ('cd', 400),
-                             ('c', 100), ('xc', 90),
-                             ('l', 50), ('xl', 40),
-                             ('x', 10), ('ix', 9),
-                             ('v', 5), ('iv', 4), ('i', 1))
-        result, index = 0, 0
-        for numeral, value in roman_numeral_map:
-            while s[index: index+len(numeral)] == numeral:
-                result += value
-                index += len(numeral)
+            # map of (numeral, value) tuples
+            roman_numeral_map = (('m', 1000), ('cm', 900),
+                                 ('d', 500), ('cd', 400),
+                                 ('c', 100), ('xc', 90),
+                                 ('l', 50), ('xl', 40),
+                                 ('x', 10), ('ix', 9),
+                                 ('v', 5), ('iv', 4), ('i', 1))
+            result, index = 0, 0
+            for numeral, value in roman_numeral_map:
+                while s[index: index+len(numeral)] == numeral:
+                    result += value
+                    index += len(numeral)
         return result
 
     def sort_int(x):
