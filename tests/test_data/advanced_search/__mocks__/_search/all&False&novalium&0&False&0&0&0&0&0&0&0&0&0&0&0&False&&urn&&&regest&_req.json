@@ -9,15 +9,18 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "pettonis",
-                              "fuzziness": "AUTO"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "no[uv]al[ij][uv]m"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ],

@@ -11,11 +11,8 @@
                     {
                       "span_multi": {
                         "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "scripsi",
-                              "fuzziness": "AUTO"
-                            }
+                          "regexp": {
+                            "Narratio": "chr[ij]st.+"
                           }
                         }
                       }
@@ -23,23 +20,8 @@
                     {
                       "span_multi": {
                         "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "et",
-                              "fuzziness": "AUTO"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "suscripsi",
-                              "fuzziness": "AUTO"
-                            }
+                          "regexp": {
+                            "Narratio": "[uv]ener.b[ij]l[ij]"
                           }
                         }
                       }
@@ -627,7 +609,7 @@
   },
   "highlight": {
     "fields": {
-      "text": {
+      "Narratio": {
         "fragment_size": 1000
       },
       "regest": {

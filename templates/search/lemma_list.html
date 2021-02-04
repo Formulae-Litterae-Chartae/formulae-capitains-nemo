@@ -1,0 +1,39 @@
+{% extends "main::container.html" %}
+{% block title %}{{ _('Liste der suchbaren Lemmata') }}{% endblock %}
+            
+{%block article%}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-7">
+            <h3 class="text-center">{{ _('Liste der suchbaren Lemmata') }}</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col col-7">
+            <table class="table table-sm">
+                <tbody>
+                    <tr><th scope="col" colspan="10" class="text-center">{{ _('Deutsche Lemmata') }}</th></tr>
+                    <tr>{% for term in ['Personenname', 'Ortsname', 'Volksstamm', 'Monatsname', 'Tagesbezeichnung']|batch(10, '') %}{% for column in term %}<td>{% if column %}<span id="{{ column }}-search" data-toggle="tooltip" data-container="#{{ column }}-search" data-placement="top" title='{{ _("Suche nach ") }}"{{ column }}"'><a href="{{ url_for('search.r_results', source='simple', corpus='formulae+chartae', sort='urn', q=column|lower, lemma_search='True') }}" class="internal-link">{{ column }}</a></span>{% else %}{{ column }}{% endif %}</td>{% endfor %}{% endfor %}</tr>
+                    <tr><th scope="col" colspan="10" class="text-center">{{ _('Zahlen') }}</th></tr>
+                    {% for row in numbers|batch(10, '') %}
+                    <tr>
+                    {% for column in row %}
+                        <td>{% if column %}<span id="{{ column }}-search" data-toggle="tooltip" data-container="#{{ column }}-search" data-placement="top" title='{{ _("Suche nach ") }}"{{ column }}"'><a href="{{ url_for('search.r_results', source='simple', corpus='formulae+chartae', sort='urn', q=column|lower, lemma_search='True') }}" class="internal-link">{{ column }}</a>{% else %}{{ column }}{% endif %}</td>
+                    {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    <tr><th scope="col" colspan="10" class="text-center">{{ _('Lateinische Lemmata') }}</th></tr>
+                    {% for row in lemmas|batch(10, '') %}
+                    <tr>
+                    {% for column in row %}
+                        <td>{% if column %}<span id="{{ column }}-search" data-toggle="tooltip" data-container="#{{ column }}-search" data-placement="top" title='{{ _("Suche nach ") }}"{{ column }}"'><a href="{{ url_for('search.r_results', source='simple', corpus='formulae+chartae', sort='urn', q=column|lower, lemma_search='True') }}" class="internal-link">{{ column }}</a>{% else %}{{ column }}{% endif %}</td>
+                    {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

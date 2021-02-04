@@ -1,5 +1,5 @@
 {
-  "took": 16,
+  "took": 10,
   "timed_out": false,
   "_shards": {
     "total": 45,
@@ -8,11 +8,11 @@
     "failed": 0
   },
   "hits": {
-    "total": 9,
+    "total": 11,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v3",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -282,7 +282,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form015.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form024.lat001",
         "_score": null,
@@ -372,7 +372,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v3",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form035.lat001",
         "_score": null,
@@ -414,6 +414,96 @@
         "sort": [
           0,
           "urn:cts:formulae:marculf.form035.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v3",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,23",
+          "urn": "urn:cts:formulae:marculf.form2_023.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_023.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v3",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_037.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,37",
+          "urn": "urn:cts:formulae:marculf.form2_037.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_037.lat001"
         ]
       }
     ]
@@ -685,7 +775,7 @@
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 4
+          "doc_count": 6
         },
         "Marmoutier - Dunois": {
           "doc_count": 0
@@ -820,7 +910,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 9
+      "doc_count": 11
     }
   }
 }

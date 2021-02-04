@@ -57,6 +57,38 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "facio",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
                               "fuzziness": "0"
                             }
@@ -90,38 +122,6 @@
                           "fuzzy": {
                             "lemmas": {
                               "value": "gerere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "facio",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
@@ -185,6 +185,38 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "factus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
                               "fuzziness": "0"
                             }
@@ -218,38 +250,6 @@
                           "fuzzy": {
                             "lemmas": {
                               "value": "gerere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "factus",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }
@@ -313,6 +313,38 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
+                              "value": "facere",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
                               "fuzziness": "0"
                             }
@@ -346,38 +378,6 @@
                           "fuzzy": {
                             "lemmas": {
                               "value": "gerere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "facere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }

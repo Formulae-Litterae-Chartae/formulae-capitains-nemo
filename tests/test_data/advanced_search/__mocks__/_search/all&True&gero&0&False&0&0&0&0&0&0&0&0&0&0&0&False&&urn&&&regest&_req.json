@@ -33,6 +33,26 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gestus",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
                               "fuzziness": "0"
                             }
@@ -54,26 +74,6 @@
                           "fuzzy": {
                             "lemmas": {
                               "value": "gerere",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gestus",
                               "fuzziness": "0"
                             }
                           }

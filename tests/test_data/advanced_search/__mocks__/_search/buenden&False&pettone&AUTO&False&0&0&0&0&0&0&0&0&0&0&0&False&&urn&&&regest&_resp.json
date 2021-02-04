@@ -1,5 +1,5 @@
 {
-  "took": 13,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,49 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v45",
-        "_type": "buenden",
-        "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
-        "_score": null,
-        "_source": {
-          "text": "In nomine domini nostri Iesu Christi. Notum sit omnibus tam posteris quam praesentibus, quod comes Wido de Lomello et Sparavayra tale praedium, quale habuit Anthsona, quod situm est iuxta Vareia, dedit libera et potestativa manu sine omni contradictione mortua Adelheida uxore sua et post mortem suam anno duodecimo sancto Martino, Sigisberto, Placido, patronis Disertinae, cum omnibus pertinentiis eiusdem praedii, scilicet cum duabus capellis sancti Blasii et sancti Galli et alia capella sancti Steffani protomartyris sita iuxta fluvium Dagonda cum decimis primitiis dotalibus, cum familia viris et mulieribus, aquis aquae ducti bus piscinis piscationibus molendinis olivetis ficetis castanetis vitetis exitibus et reditibus agris pratis pascuis, et omnia eius reliqua praedia sita a fluvio Dagonda usque ad Cugirum et usque ad Vareia et usque ad terminos Cambiri ea conditione, ut semper praedicta capella sancti Blasii semper munita monachis esset Disertinensis coenobii et iidem monachi victuarent de praedictis dotalitiis et rebus et ut ibidem praedicarent iidem fratres docerent, communicarent, absolverent paenitentes, baptizarent, sepelirent omnes de eadem familia et omnes christianos, qui eadem sacramenta inibi quaererunt. Reliqua quoque multa alia praedia coenobio dedit Disertinensi, scilicet Docimbir, quidquid in eodem vico et reliquis subscriptis vicis habuit, omnia dedit fratribus coenobitis Desertinae in vico Amortinzun, Assisurr, Asgozila, Acaminach, Adaguna, Adcursenna, Appiubia, Aduliagas, Ecedia, Admine, Adinmunge, ad Centum Valle, ad Lucarne, Gadampiri, Vartelotosa, Piura, Primuna, Pladamia, Amurcukot, Crenarde, Crantula, Luvin, Ferraira, Belede. Ista praedia et possessiones, quas habuit praedictus comes Wido in istis vicis et praedictis terminis, omnia libere, sicut possedit dedit coenobio Disertino. Siquidem beatus et piae memoriae predictus comes Wido satisfacturus imperio Pipini imperatoris, patris Caroli Magni, qui visitaturus Curiam venit Desertinam sub Ursicino, tunc temporis episcopo Curiensi et abbate Disertinae, ibique infirmatus est fratribus vero orationibus subvenientibus et gemitibus condolendo compatientibus conpunctione et instinctu spiritus sancti confortatus rogavit, ut intercederent patronos suos Martinum scilicet Sigisbertum et Placidum, quorum precibus consolidatus pristinis redintegratus ea, quae praediximus, dedit coenobio Disertinensi. Huius rei testes sunt: Hugilo, Vitalis, Wernerus, Udalricus, Lanzo, Huno, Gothescalcus. Perrexit autem praedictus comes Wido ad Curiam et donationem istam et quae ipse dedit sancto Martino Disertinensi in praesentia imperatoris confirmavit. In reditu vero iterum infirmatus et mortuus est apud Disertinam sepultus. Imperator autem Pipinus fecit sententiam supra hanc donationem Wydonis tenoris huius, ut quicunque temere haec praedia violaverit vel invaserit, centum talenta auri fischo imperatoris persolvat, si liber est; si servus, centum uncias debeat dare et regionem terrae suae exeat. Et si liber aut servus uterque ablata non reddiderint bona eorum publicentur et, quamdiu haec non fecerint, a lege gentis suae alieni existant. Acta feliciter donatio Wydonis comitis in loco Disertinensi. Confirmatio autem Pipini imperatoris in loco qui dicitur Asia; Ursicino simul episcopo Curiae et abbate Disertinae. Debent et enim reges locis illis, qui specialiter ad regales fasces pertinent, specialem defensionem.",
-          "lemmas": null,
-          "regest": "Graf Wido von Lomello schenkt dem Kloster Disentis Güter und Rechte.",
-          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 16",
-          "urn": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
-          "date_string": "751–759/60",
-          "comp_ort": "Disentis",
-          "autocomplete": "In nomine domini nostri Iesu Christi. Notum sit omnibus tam posteris quam praesentibus, quod comes Wido de Lomello et Sparavayra tale praedium, quale habuit Anthsona, quod situm est iuxta Vareia, dedit libera et potestativa manu sine omni contradictione mortua Adelheida uxore sua et post mortem suam anno duodecimo sancto Martino, Sigisberto, Placido, patronis Disertinae, cum omnibus pertinentiis eiusdem praedii, scilicet cum duabus capellis sancti Blasii et sancti Galli et alia capella sancti Steffani protomartyris sita iuxta fluvium Dagonda cum decimis primitiis dotalibus, cum familia viris et mulieribus, aquis aquae ducti bus piscinis piscationibus molendinis olivetis ficetis castanetis vitetis exitibus et reditibus agris pratis pascuis, et omnia eius reliqua praedia sita a fluvio Dagonda usque ad Cugirum et usque ad Vareia et usque ad terminos Cambiri ea conditione, ut semper praedicta capella sancti Blasii semper munita monachis esset Disertinensis coenobii et iidem monachi victuarent de praedictis dotalitiis et rebus et ut ibidem praedicarent iidem fratres docerent, communicarent, absolverent paenitentes, baptizarent, sepelirent omnes de eadem familia et omnes christianos, qui eadem sacramenta inibi quaererunt. Reliqua quoque multa alia praedia coenobio dedit Disertinensi, scilicet Docimbir, quidquid in eodem vico et reliquis subscriptis vicis habuit, omnia dedit fratribus coenobitis Desertinae in vico Amortinzun, Assisurr, Asgozila, Acaminach, Adaguna, Adcursenna, Appiubia, Aduliagas, Ecedia, Admine, Adinmunge, ad Centum Valle, ad Lucarne, Gadampiri, Vartelotosa, Piura, Primuna, Pladamia, Amurcukot, Crenarde, Crantula, Luvin, Ferraira, Belede. Ista praedia et possessiones, quas habuit praedictus comes Wido in istis vicis et praedictis terminis, omnia libere, sicut possedit dedit coenobio Disertino. Siquidem beatus et piae memoriae predictus comes Wido satisfacturus imperio Pipini imperatoris, patris Caroli Magni, qui visitaturus Curiam venit Desertinam sub Ursicino, tunc temporis episcopo Curiensi et abbate Disertinae, ibique infirmatus est fratribus vero orationibus subvenientibus et gemitibus condolendo compatientibus conpunctione et instinctu spiritus sancti confortatus rogavit, ut intercederent patronos suos Martinum scilicet Sigisbertum et Placidum, quorum precibus consolidatus pristinis redintegratus ea, quae praediximus, dedit coenobio Disertinensi. Huius rei testes sunt: Hugilo, Vitalis, Wernerus, Udalricus, Lanzo, Huno, Gothescalcus. Perrexit autem praedictus comes Wido ad Curiam et donationem istam et quae ipse dedit sancto Martino Disertinensi in praesentia imperatoris confirmavit. In reditu vero iterum infirmatus et mortuus est apud Disertinam sepultus. Imperator autem Pipinus fecit sententiam supra hanc donationem Wydonis tenoris huius, ut quicunque temere haec praedia violaverit vel invaserit, centum talenta auri fischo imperatoris persolvat, si liber est; si servus, centum uncias debeat dare et regionem terrae suae exeat. Et si liber aut servus uterque ablata non reddiderint bona eorum publicentur et, quamdiu haec non fecerint, a lege gentis suae alieni existant. Acta feliciter donatio Wydonis comitis in loco Disertinensi. Confirmatio autem Pipini imperatoris in loco qui dicitur Asia; Ursicino simul episcopo Curiae et abbate Disertinae. Debent et enim reges locis illis, qui specialiter ad regales fasces pertinent, specialem defensionem.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Graf Wido von Lomello schenkt dem Kloster Disentis Güter und Rechte.",
-          "orig_comp_ort": "Disentis",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0751",
-              "lte": "0760-12-31"
-            }
-          ],
-          "all_dates": [
-            "0751",
-            "0760-12-31"
-          ],
-          "min_date": "0751",
-          "max_date": "0760-12-31",
-          "sort_prefix": 1
-        },
-        "highlight": {
-          "text": [
-            "Notum sit omnibus tam posteris quam praesentibus, quod comes Wido de Lomello et Sparavayra tale praedium, quale habuit Anthsona, quod situm est iuxta Vareia, dedit libera et potestativa manu sine omni contradictione mortua Adelheida uxore sua et post mortem suam anno duodecimo sancto Martino, Sigisberto, Placido, </small><strong>patronis</strong><small> Disertinae, cum omnibus pertinentiis eiusdem praedii, scilicet cum duabus capellis sancti Blasii et sancti Galli et alia capella sancti Steffani protomartyris sita iuxta fluvium Dagonda cum decimis primitiis dotalibus, cum familia viris et mulieribus, aquis aquae ducti bus piscinis piscationibus molendinis olivetis ficetis castanetis vitetis exitibus et reditibus agris pratis pascuis, et omnia eius reliqua praedia sita a fluvio Dagonda usque ad Cugirum et usque ad Vareia et usque ad terminos Cambiri ea conditione, ut semper praedicta capella sancti Blasii semper munita monachis esset Disertinensis coenobii et iidem monachi victuarent de praedictis dotalitiis et rebus et"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:buenden.meyer-marthaler0016.lat001"
-        ]
-      },
-      {
-        "_index": "buenden_v45",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -348,15 +306,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Friday",
-            "Wednesday",
-            "Easter",
-            "Tuesday",
-            "Saturday",
             "Lent",
             "Monday",
-            "Sunday"
+            "Saturday",
+            "Sunday",
+            "Wednesday",
+            "Friday",
+            "Thursday",
+            "Tuesday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -371,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -419,7 +377,52 @@
         ]
       },
       {
-        "_index": "buenden_v45",
+        "_index": "buenden_v3",
+        "_type": "buenden",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
+          "lemmas": null,
+          "regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 86",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
+          "date_string": "904 06 14",
+          "comp_ort": "Ingelheim",
+          "autocomplete": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "orig_comp_ort": "Ingelheim",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 904,
+              "month": 6,
+              "day": 14
+            }
+          ],
+          "all_dates": [
+            "0904-06-14"
+          ],
+          "min_date": "0904-06-14",
+          "max_date": "0904-06-14",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum </small><strong>Hattone</strong><small> venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v3",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -451,7 +454,7 @@
         },
         "highlight": {
           "text": [
-            "Facta in Lopiene, mense februarium, anno II regnante Ottone filio </small><strong>Ottonis</strong><small>. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi."
+            "Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi."
           ]
         },
         "sort": [
@@ -836,7 +839,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 3
+          "doc_count": 2
         },
         {
           "key": "800-899",
@@ -852,7 +855,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 1
+          "doc_count": 2
         },
         {
           "key": ">1000",

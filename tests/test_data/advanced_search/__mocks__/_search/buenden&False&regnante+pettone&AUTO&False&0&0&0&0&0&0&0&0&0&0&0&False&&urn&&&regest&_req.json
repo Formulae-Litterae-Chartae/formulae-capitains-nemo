@@ -12,9 +12,21 @@
                       "span_multi": {
                         "match": {
                           "fuzzy": {
-                            "Invocatio": {
-                              "value": "christi",
-                              "fuzziness": "0"
+                            "text": {
+                              "value": "regnante",
+                              "fuzziness": "AUTO"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "text": {
+                              "value": "pettone",
+                              "fuzziness": "AUTO"
                             }
                           }
                         }
@@ -603,7 +615,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio": {
+      "text": {
         "fragment_size": 1000
       },
       "regest": {

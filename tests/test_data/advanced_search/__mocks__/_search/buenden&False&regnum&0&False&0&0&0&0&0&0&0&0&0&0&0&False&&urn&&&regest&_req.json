@@ -9,15 +9,18 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "regnum",
-                              "fuzziness": "0"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "regn[uv]m"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ],
