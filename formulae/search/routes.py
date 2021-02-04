@@ -369,7 +369,7 @@ def lemma_list():
     nums = set()
     lems = set()
     for t in all_lemmas:
-        if re.fullmatch(r'[ivxlcm]+', t.lower()) or t.isdigit():
+        if re.fullmatch(r'[ivxlcdm]+', t.lower()) or t.isdigit():
             nums.add(t)
         else:
             lems.add(t)

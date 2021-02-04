@@ -336,7 +336,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::accessibility_statement.html')
             c.get('/search/lemmata', follow_redirects=True)
             self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
-            self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cm', 'm'],
+            self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cd', 'd', 'cm', 'm'],
                              self.get_context_variable('numbers'))
 
 
