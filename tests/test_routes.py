@@ -335,8 +335,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('accessibility_statement', follow_redirects=True)
             self.assertTemplateUsed('main::accessibility_statement.html')
             c.get('/search/lemmata', follow_redirects=True)
-            data = self.get_context_variable('lemmas')
-            self.assertEqual(['1', '8', '12', '45', 'hello', 'xxx'], data)
+            self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
+            self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cm', 'm'],
+                             self.get_context_variable('numbers'))
 
 
     def test_authorized_project_member(self):
