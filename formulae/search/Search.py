@@ -291,7 +291,9 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
                             sentence = ''
                             for i, x in enumerate(text[start_index:end_index]):
-                                if i + start_index in start_offsets:
+                                if i + start_index in start_offsets and i + start_index in end_offsets:
+                                    sentence += PRE_TAGS + x + POST_TAGS
+                                elif i + start_index in start_offsets:
                                     sentence += PRE_TAGS + x
                                 elif i + start_index in end_offsets:
                                     sentence += x + POST_TAGS
@@ -323,7 +325,9 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
-                        if i + start_index == start_offset:
+                        if i + start_index == start_offset and i + start_index == end_offset:
+                            sentence += PRE_TAGS + x + POST_TAGS
+                        elif i + start_index == start_offset:
                             sentence += PRE_TAGS + x
                         elif i + start_index == end_offset:
                             sentence += x + POST_TAGS

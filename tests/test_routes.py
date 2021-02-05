@@ -1347,7 +1347,7 @@ class TestFunctions(Formulae_Testing):
     def test_load_lem_to_lem_mapping(self):
         """ Ensure that the json mapping file is correctly loaded."""
         self.assertEqual(self.nemo.lem_to_lem_mapping['gero'],
-                         {'gerere', 'gesta', 'gestus'},
+                         {'gerere', 'gesta', 'gestus', 'gerereve'},
                          'Mapping files should have loaded correctly.')
         self.app.config['LEM_TO_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
         with patch.object(self.app.logger, 'warning') as mock:
@@ -2270,6 +2270,52 @@ class TestES(Formulae_Testing):
                                                                ('special_days', ''),
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
+                 'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'a'),
+                                                               ("fuzziness", "0"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
+                 'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'daumerii+a'),
+                                                               ("fuzziness", "0"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
                                                                ("formulaic_parts", "")])
                  }
 
@@ -2997,6 +3043,22 @@ class TestES(Formulae_Testing):
                                                 'slop': 4,
                                                 'in_order': False
                                                 }
+                                           },
+                                          {'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gerereve', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
                                            }
                                           ],
                                      'minimum_should_match': 1
@@ -3330,6 +3392,43 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg* domni'
         test_args['slop'] = '3'
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_letter_highlighting_one_word(self, mock_vectors, mock_search):
+        """ Make sure that single letter words are correctly highlighted (i.e., the word and not the rest of the fragment)
+        """
+        test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_one_word'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('</small><strong>a</strong><small> quem dimisit filio suo Rofino et agrum in Pulueraria modios ')]},
+                 {'sents': [Markup('de supra in Theudoranes, dabtus in sancti Petri; alium pratum </small><strong>a</strong><small> Sanguinetum honus I, confinat da una parte in Canilias, da '),
+                            Markup('da una parte in Canilias, da alia in via; agrum </small><strong>a</strong><small> Tonbeclo modios II, confinat in Scolchengus, da alia in sancti '),
+                            Markup('in Scolchengus, da alia in sancti Petri; alium agrum modios </small><strong>a</strong><small> Tomba maiore, confinat da una parte in Martini, de alia '),
+                            Markup('saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter </small><strong>a</strong><small> vice Augustani diaconis scripsi et suscripsi.')]},
+                 {'sents': [Markup('alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.'),
+                            Markup('Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter </small><strong>a</strong><small> vice Lubucionis diaconi scripsi et suscripsi.')]},
+                 {'sents': [Markup('In Christi nomine. Ego itaque bresbiter Valencio sanus </small><strong>a</strong><small> sana mente per comiatu senioris Iltebaldi et cum manu – – dono ')]}]
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for s in sents:
+            self.assertIn(s, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_letter_highlighting_multiword(self, mock_vectors, mock_search):
+        """ Make sure that single letter words are correctly highlighted (i.e., the word and not the rest of the fragment)
+        """
+        test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_multiword'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('da alia in Uictoriani coloni, da supra in Massanesco. Signum </small><strong>Daumerii</strong><small> </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.')]}]
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 

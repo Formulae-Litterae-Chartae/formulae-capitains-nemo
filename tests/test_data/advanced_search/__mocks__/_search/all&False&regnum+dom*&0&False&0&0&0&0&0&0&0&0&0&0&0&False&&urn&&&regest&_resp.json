@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 36,
   "timed_out": false,
   "_shards": {
     "total": 45,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -397,14 +397,14 @@
           "max_date": "0813-04-20",
           "days": [
             "Lent",
-            "Monday",
-            "Saturday",
-            "Sunday",
-            "Wednesday",
-            "Friday",
-            "Thursday",
             "Tuesday",
-            "Easter"
+            "Sunday",
+            "Saturday",
+            "Easter",
+            "Friday",
+            "Wednesday",
+            "Monday",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -419,7 +419,7 @@
         ]
       },
       {
-        "_index": "buenden_v3",
+        "_index": "buenden_v4",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -642,14 +642,14 @@
           "max_date": "0813-03-31",
           "days": [
             "Lent",
+            "Tuesday",
             "Sunday",
             "Saturday",
-            "Monday",
-            "Wednesday",
+            "Easter",
             "Friday",
-            "Thursday",
-            "Tuesday",
-            "Easter"
+            "Wednesday",
+            "Monday",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -664,7 +664,7 @@
         ]
       },
       {
-        "_index": "lorsch_v3",
+        "_index": "lorsch_v4",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -724,7 +724,7 @@
         ]
       },
       {
-        "_index": "lorsch_v3",
+        "_index": "lorsch_v4",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -784,7 +784,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -847,7 +847,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -910,7 +910,7 @@
         ]
       },
       {
-        "_index": "raetien_v3",
+        "_index": "raetien_v4",
         "_type": "raetien",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -977,7 +977,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v4",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -1037,7 +1037,7 @@
         ]
       },
       {
-        "_index": "stgallen_v3",
+        "_index": "stgallen_v4",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -1107,7 +1107,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 12995,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -1171,7 +1171,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -1287,7 +1287,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -1306,7 +1306,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 647
       }
     },
     "corpus": {

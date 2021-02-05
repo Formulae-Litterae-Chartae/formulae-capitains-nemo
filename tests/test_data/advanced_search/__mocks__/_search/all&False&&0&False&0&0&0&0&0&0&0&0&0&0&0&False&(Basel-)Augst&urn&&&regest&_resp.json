@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 45,
@@ -14,7 +14,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 12995,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -78,7 +78,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -194,7 +194,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -213,7 +213,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 647
       }
     },
     "corpus": {
