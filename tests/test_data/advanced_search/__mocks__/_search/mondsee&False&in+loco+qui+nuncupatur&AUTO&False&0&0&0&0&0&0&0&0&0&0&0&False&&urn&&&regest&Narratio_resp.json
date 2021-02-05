@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v3",
+        "_index": "mondsee_v4",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,

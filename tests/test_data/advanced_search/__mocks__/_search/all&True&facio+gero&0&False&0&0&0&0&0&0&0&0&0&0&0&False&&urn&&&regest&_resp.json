@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 11,
   "timed_out": false,
   "_shards": {
     "total": 45,
@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form048.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form051.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v3",
+        "_index": "andecavensis_v4",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form052.lat001",
         "_score": null,
@@ -195,7 +195,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 12995,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -259,7 +259,7 @@
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -375,7 +375,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -394,7 +394,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 647
       }
     },
     "corpus": {
