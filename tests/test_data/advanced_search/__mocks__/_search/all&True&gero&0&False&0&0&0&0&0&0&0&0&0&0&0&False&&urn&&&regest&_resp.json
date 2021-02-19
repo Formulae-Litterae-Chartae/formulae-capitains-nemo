@@ -1,18 +1,18 @@
 {
-  "took": 13,
+  "took": 11,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 46,
+    "successful": 46,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 25,
+    "total": 33,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form041.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form048.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form051.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v4",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form052.lat001",
         "_score": null,
@@ -237,7 +237,52 @@
         ]
       },
       {
-        "_index": "marculf_v4",
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II Capitula",
+          "urn": "urn:cts:formulae:marculf.2_capitula.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.2_capitula.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form000.lat001",
         "_score": null,
@@ -282,7 +327,322 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,3",
+          "urn": "urn:cts:formulae:marculf.form2_003.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_003.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_017.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,17",
+          "urn": "urn:cts:formulae:marculf.form2_017.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_017.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_031.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,31",
+          "urn": "urn:cts:formulae:marculf.form2_031.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_031.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_037.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,37",
+          "urn": "urn:cts:formulae:marculf.form2_037.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_037.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_038.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,38",
+          "urn": "urn:cts:formulae:marculf.form2_038.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_038.lat001"
+        ]
+      },
+      {
+        "_index": "auvergne_v11",
+        "_type": "auvergne",
+        "_id": "urn:cts:formulae:auvergne.form001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Auvergne 1",
+          "urn": "urn:cts:formulae:auvergne.form001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:auvergne.form001.lat001"
+        ]
+      },
+      {
+        "_index": "auvergne_v11",
+        "_type": "auvergne",
+        "_id": "urn:cts:formulae:auvergne.form002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Auvergne 2",
+          "urn": "urn:cts:formulae:auvergne.form002.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:auvergne.form002.lat001"
+        ]
+      },
+      {
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
         "_score": null,
@@ -339,7 +699,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
         "_score": null,
@@ -396,7 +756,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
         "_score": null,
@@ -453,7 +813,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
         "_score": null,
@@ -510,7 +870,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
         "_score": null,
@@ -567,7 +927,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
         "_score": null,
@@ -624,7 +984,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
         "_score": null,
@@ -681,7 +1041,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
         "_score": null,
@@ -738,7 +1098,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
         "_score": null,
@@ -795,7 +1155,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
         "_score": null,
@@ -852,7 +1212,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
         "_score": null,
@@ -909,7 +1269,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
         "_score": null,
@@ -966,7 +1326,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
         "_score": null,
@@ -1023,7 +1383,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
         "_score": null,
@@ -1080,7 +1440,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
         "_score": null,
@@ -1137,7 +1497,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
         "_score": null,
@@ -1194,7 +1554,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
         "_score": null,
@@ -1251,7 +1611,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
         "_score": null,
@@ -1308,7 +1668,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v4",
+        "_index": "marmoutier_serfs_v12",
         "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
         "_score": null,
@@ -1368,7 +1728,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 12995,
+      "doc_count": 13156,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -1426,13 +1786,16 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 4130
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -1540,7 +1903,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 4397
           },
           {
             "key": "800-899",
@@ -1548,7 +1911,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3362
+            "doc_count": 3363
           },
           {
             "key": "900-999",
@@ -1556,18 +1919,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2944
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1433
           }
         ]
       },
       "no_date": {
-        "doc_count": 647
+        "doc_count": 700
       }
     },
     "corpus": {
@@ -1585,7 +1948,7 @@
           "doc_count": 0
         },
         "Auvergne": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Bünden": {
           "doc_count": 0
@@ -1633,7 +1996,10 @@
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 1
+          "doc_count": 7
+        },
+        "Marmoutier (TELMA)": {
+          "doc_count": 0
         },
         "Marmoutier - Dunois": {
           "doc_count": 0
@@ -1768,7 +2134,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 6
+      "doc_count": 14
     }
   }
 }

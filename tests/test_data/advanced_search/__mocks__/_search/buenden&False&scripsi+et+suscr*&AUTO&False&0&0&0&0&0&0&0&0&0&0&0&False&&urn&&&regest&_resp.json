@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v12",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -307,14 +307,14 @@
           "max_date": "0813-04-20",
           "days": [
             "Lent",
-            "Tuesday",
-            "Sunday",
-            "Saturday",
+            "Thursday",
             "Easter",
-            "Friday",
             "Wednesday",
+            "Sunday",
             "Monday",
-            "Thursday"
+            "Saturday",
+            "Tuesday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v12",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -377,7 +377,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v12",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -600,14 +600,14 @@
           "max_date": "0813-03-31",
           "days": [
             "Lent",
-            "Tuesday",
-            "Sunday",
-            "Saturday",
+            "Thursday",
             "Easter",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Tuesday",
+            "Saturday",
             "Monday",
-            "Thursday"
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -622,7 +622,7 @@
         ]
       },
       {
-        "_index": "buenden_v4",
+        "_index": "buenden_v12",
         "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -737,6 +737,9 @@
             "doc_count": 0
           },
           "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier (TELMA)": {
             "doc_count": 0
           },
           "Marmoutier - Dunois": {
@@ -938,6 +941,9 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
           "doc_count": 0
         },
         "Marmoutier - Dunois": {
