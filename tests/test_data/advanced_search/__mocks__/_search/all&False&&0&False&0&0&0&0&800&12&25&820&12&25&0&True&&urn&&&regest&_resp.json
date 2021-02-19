@@ -1,9 +1,9 @@
 {
-  "took": 9,
+  "took": 7,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 46,
+    "successful": 46,
     "skipped": 0,
     "failed": 0
   },
@@ -12,19 +12,19 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v4",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
         "_source": {
-          "text": "TRADITIO PERAHARTI DE MARZILINGA. De traditione quam fecit Perahart ad Marzilinga. Eo modo hanc traditionem peregit veniens ipse Perahart ad Frigisinga in praesentia domni Hittonis episcopi et Liutpaldi comitis seu aliorum multorum qui hoc audierunt et viderunt, quod ipse Perahart se ipsum tradidit in servitium sanctae Mariae semper virginis seu sancti Corbiniani confessoris Christi cum omnia eo die ad eum pertinentia. Quicquid ipso die propriae hereditatis se habere videbatur totum ex integro domui sanctae Mariae tradidit et firmiter condonavit, hoc est curtem medium et domum medium cum alia edificia tota media cum armentis ovibus porcis, unum servum, iurnales XII, de pratis quasi carradas XXX. Haec omnia ego Perahart feci, ut victum et vestimentum in hac domo habuissem et si minus exinde quam necessitas mihi esset, in meo proprio ad vitam meam hoc conquirere mihi licuisset. Hec sunt testes: Memmo. Reginperht. Crimuni. Isanperht. Reginhoh. Adalleoz. Oato. Uuichart. Actum est haec in VIII. kal. ian. anno gloriosi imperatoris Hluduuuici V. indictione XI. Ego Tagabertus indignus presbiter scripsi iussione Hittonis episcopi.",
+          "text": "TRADITIO PERAHARTI DE MARZILINGA. De traditione quam fecit Perahart ad Marzilinga Eo modo hanc traditionem peregit veniens ipse Perahart ad Frigisinga in praesentia domni Hittonis episcopi et Liutpaldi comitis seu aliorum multorum qui hoc audierunt et viderunt, quod ipse Perahart se ipsum tradidit in servitium sanctae Mariae semper virginis seu sancti Corbiniani confessoris Christi cum omnia eo die ad eum pertinentia. Quicquid ipso die propriae hereditatis se habere videbatur totum ex integro domui sanctae Mariae tradidit et firmiter condonavit hoc est curtem medium et domum medium cum alia edificia tota media cum armentis ovibus porcis, unum servum, iurnales XII, de pratis quasi carradas XXX Haec omnia ego Perahart feci, ut victum et vestimentum in hac domo habuissem et si minus exinde quam necessitas mihi esset, in meo proprio ad vitam meam hoc conquirere mihi licuisset Hec sunt testes: Memmo. Reginperht. Crimuni. Isanperht. Reginhoh. Adalleoz. Oato. Uuichart. Actum est haec in VIII. kal. ian. anno gloriosi imperatoris Hluduuuici V. indictione XI Ego Tagabertus indignus presbiter scripsi iussione Hittonis episcopi",
           "lemmas": null,
           "regest": "Perahart übergibt sich und seinen Besitz zu Marzling.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 404",
           "urn": "urn:cts:formulae:freising.bitterauf0404.lat001",
           "date_string": "818 12 25",
           "comp_ort": "Freising",
-          "autocomplete": "TRADITIO PERAHARTI DE MARZILINGA. De traditione quam fecit Perahart ad Marzilinga. Eo modo hanc traditionem peregit veniens ipse Perahart ad Frigisinga in praesentia domni Hittonis episcopi et Liutpaldi comitis seu aliorum multorum qui hoc audierunt et viderunt, quod ipse Perahart se ipsum tradidit in servitium sanctae Mariae semper virginis seu sancti Corbiniani confessoris Christi cum omnia eo die ad eum pertinentia. Quicquid ipso die propriae hereditatis se habere videbatur totum ex integro domui sanctae Mariae tradidit et firmiter condonavit, hoc est curtem medium et domum medium cum alia edificia tota media cum armentis ovibus porcis, unum servum, iurnales XII, de pratis quasi carradas XXX. Haec omnia ego Perahart feci, ut victum et vestimentum in hac domo habuissem et si minus exinde quam necessitas mihi esset, in meo proprio ad vitam meam hoc conquirere mihi licuisset. Hec sunt testes: Memmo. Reginperht. Crimuni. Isanperht. Reginhoh. Adalleoz. Oato. Uuichart. Actum est haec in VIII. kal. ian. anno gloriosi imperatoris Hluduuuici V. indictione XI. Ego Tagabertus indignus presbiter scripsi iussione Hittonis episcopi.",
+          "autocomplete": "TRADITIO PERAHARTI DE MARZILINGA. De traditione quam fecit Perahart ad Marzilinga Eo modo hanc traditionem peregit veniens ipse Perahart ad Frigisinga in praesentia domni Hittonis episcopi et Liutpaldi comitis seu aliorum multorum qui hoc audierunt et viderunt, quod ipse Perahart se ipsum tradidit in servitium sanctae Mariae semper virginis seu sancti Corbiniani confessoris Christi cum omnia eo die ad eum pertinentia. Quicquid ipso die propriae hereditatis se habere videbatur totum ex integro domui sanctae Mariae tradidit et firmiter condonavit hoc est curtem medium et domum medium cum alia edificia tota media cum armentis ovibus porcis, unum servum, iurnales XII, de pratis quasi carradas XXX Haec omnia ego Perahart feci, ut victum et vestimentum in hac domo habuissem et si minus exinde quam necessitas mihi esset, in meo proprio ad vitam meam hoc conquirere mihi licuisset Hec sunt testes: Memmo. Reginperht. Crimuni. Isanperht. Reginhoh. Adalleoz. Oato. Uuichart. Actum est haec in VIII. kal. ian. anno gloriosi imperatoris Hluduuuici V. indictione XI Ego Tagabertus indignus presbiter scripsi iussione Hittonis episcopi",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Perahart übergibt sich und seinen Besitz zu Marzling.",
           "orig_comp_ort": "Freising",
@@ -44,7 +44,15 @@
           "days": [
             "Saturday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Dispositio": "De traditione\n                            quam fecit ... tradidit et\n                            firmiter condonavit ... Haec omnia ego Perahart feci, ut\n                            victum et vestimentum in hac domo habuissem et si minus exinde quam\n                            necessitas mihi esset, in meo proprio ad vitam meam hoc conquirere mihi\n                            licuisset",
+          "Dispositio-lems": null,
+          "Intitulatio": "Perahart ad Marzilinga",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "Quicquid ipso die propriae hereditatis\n                            se habere videbatur totum ex integro ... hoc est curtem medium et domum medium cum alia\n                            edificia tota media cum armentis ovibus porcis, unum servum, iurnales\n                            XII, de pratis quasi carradas XXX",
+          "Pertinenzformel-lems": null,
+          "Eschatokoll": "anno gloriosi imperatoris Hluduuuici V. indictione XI ... Ego Tagabertus\n                            indignus presbiter scripsi iussione Hittonis episcopi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -52,7 +60,7 @@
         ]
       },
       {
-        "_index": "freising_v4",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
@@ -95,7 +103,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 12995,
+      "doc_count": 13156,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -153,13 +161,16 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 4130
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 41
+            "doc_count": 95
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -267,7 +278,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 4397
           },
           {
             "key": "800-899",
@@ -275,7 +286,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3362
+            "doc_count": 3363
           },
           {
             "key": "900-999",
@@ -283,18 +294,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2944
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1433
           }
         ]
       },
       "no_date": {
-        "doc_count": 647
+        "doc_count": 700
       }
     },
     "corpus": {
@@ -360,6 +371,9 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
           "doc_count": 0
         },
         "Marmoutier - Dunois": {

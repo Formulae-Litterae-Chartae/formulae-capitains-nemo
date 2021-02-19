@@ -12,7 +12,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v4",
+        "_index": "mondsee_v12",
         "_type": "mondsee",
         "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
         "_score": null,
@@ -158,6 +158,9 @@
             "doc_count": 0
           },
           "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier (TELMA)": {
             "doc_count": 0
           },
           "Marmoutier - Dunois": {
@@ -359,6 +362,9 @@
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
           "doc_count": 0
         },
         "Marmoutier - Dunois": {
