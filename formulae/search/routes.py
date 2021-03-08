@@ -11,6 +11,7 @@ from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
 from math import floor
+from json import load
 
 
 CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -333,3 +334,46 @@ def pdf_download_progress(download_id: str) -> str:
     if current_app.redis.get(download_id):
         return current_app.redis.get(download_id).decode('utf-8') or '0%'
     return '0%'
+
+@bp.route('/lemmata', methods=['GET'])
+def lemma_list():
+    """ Function to compile the data for the lists of lemmata"""
+    def roman_to_int(s):
+        result = s
+        if isinstance(s, str):
+            s = s.lower()
+            # map of (numeral, value) tuples
+            roman_numeral_map = (('m', 1000), ('cm', 900),
+                                 ('d', 500), ('cd', 400),
+                                 ('c', 100), ('xc', 90),
+                                 ('l', 50), ('xl', 40),
+                                 ('x', 10), ('ix', 9),
+                                 ('v', 5), ('iv', 4), ('i', 1))
+            result, index = 0, 0
+            for numeral, value in roman_numeral_map:
+                while s[index: index+len(numeral)] == numeral:
+                    result += value
+                    index += len(numeral)
+        return result
+
+    def sort_int(x):
+        if x.isdigit():
+            return (0, int(x))
+        return (1, roman_to_int(x))
+
+    all_lemmas = set()
+    for l in current_app.config['LEMMA_LISTS']:
+        with open(l) as f:
+            new_lemmas = load(f)
+        all_lemmas.update(new_lemmas)
+    nums = set()
+    lems = set()
+    for t in all_lemmas:
+        if re.fullmatch(r'[ivxlcdm]+', t.lower()) or t.isdigit():
+            nums.add(t)
+        else:
+            lems.add(t)
+    return current_app.config['nemo_app'].render(template='search::lemma_list.html',
+                                                 lemmas=sorted(lems),
+                                                 numbers=sorted(nums, key=sort_int),
+                                                 url=dict())

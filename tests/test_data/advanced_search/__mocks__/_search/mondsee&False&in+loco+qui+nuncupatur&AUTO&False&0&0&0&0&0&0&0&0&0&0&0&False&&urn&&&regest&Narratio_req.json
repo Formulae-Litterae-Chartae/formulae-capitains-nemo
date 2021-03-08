@@ -9,15 +9,87 @@
                 "span_near": {
                   "clauses": [
                     {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "[ij]n"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
                       "span_multi": {
                         "match": {
                           "fuzzy": {
-                            "Invocatio": {
-                              "value": "christi",
-                              "fuzziness": "0"
+                            "Narratio": {
+                              "value": "loco",
+                              "fuzziness": "AUTO"
                             }
                           }
                         }
+                      }
+                    },
+                    {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "q[uv][ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "q[uv][ij]a"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "q[uv]a"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "q[uv]e"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "Narratio": "n[uv]nc[uv]pat[uv]r"
+                                }
+                              }
+                            }
+                          }
+                        ]
                       }
                     }
                   ],
@@ -262,6 +334,11 @@
           "Cormery (TELMA)": {
             "match": {
               "_type": "telma_cormery"
+            }
+          },
+          "Marmoutier (TELMA)": {
+            "match": {
+              "_type": "telma_marmoutier"
             }
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -545,6 +622,11 @@
                   "_type": "telma_cormery"
                 }
               },
+              "Marmoutier (TELMA)": {
+                "match": {
+                  "_type": "telma_marmoutier"
+                }
+              },
               "Saint-Martin de Tours (TELMA)": {
                 "match": {
                   "_type": "telma_martin_tours"
@@ -603,7 +685,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio": {
+      "Narratio": {
         "fragment_size": 1000
       },
       "regest": {

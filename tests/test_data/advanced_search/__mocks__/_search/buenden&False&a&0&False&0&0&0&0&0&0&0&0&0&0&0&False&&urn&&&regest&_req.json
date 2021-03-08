@@ -11,8 +11,11 @@
                     {
                       "span_multi": {
                         "match": {
-                          "wildcard": {
-                            "Invocatio": "christ*"
+                          "fuzzy": {
+                            "text": {
+                              "value": "a",
+                              "fuzziness": "0"
+                            }
                           }
                         }
                       }
@@ -259,6 +262,11 @@
           "Cormery (TELMA)": {
             "match": {
               "_type": "telma_cormery"
+            }
+          },
+          "Marmoutier (TELMA)": {
+            "match": {
+              "_type": "telma_marmoutier"
             }
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -542,6 +550,11 @@
                   "_type": "telma_cormery"
                 }
               },
+              "Marmoutier (TELMA)": {
+                "match": {
+                  "_type": "telma_marmoutier"
+                }
+              },
               "Saint-Martin de Tours (TELMA)": {
                 "match": {
                   "_type": "telma_martin_tours"
@@ -600,7 +613,7 @@
   },
   "highlight": {
     "fields": {
-      "Invocatio": {
+      "text": {
         "fragment_size": 1000
       },
       "regest": {

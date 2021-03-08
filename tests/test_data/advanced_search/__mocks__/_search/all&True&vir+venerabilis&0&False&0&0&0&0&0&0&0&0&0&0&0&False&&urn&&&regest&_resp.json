@@ -1,18 +1,18 @@
 {
-  "took": 16,
+  "took": 8,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 46,
+    "successful": 46,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 9,
+    "total": 11,
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
@@ -102,7 +102,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
@@ -192,7 +192,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v45",
+        "_index": "andecavensis_v12",
         "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v12",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
@@ -282,7 +282,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v12",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form015.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v12",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form024.lat001",
         "_score": null,
@@ -372,7 +372,7 @@
         ]
       },
       {
-        "_index": "marculf_v45",
+        "_index": "marculf_v12",
         "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form035.lat001",
         "_score": null,
@@ -415,12 +415,102 @@
           0,
           "urn:cts:formulae:marculf.form035.lat001"
         ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,23",
+          "urn": "urn:cts:formulae:marculf.form2_023.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_023.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v12",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_037.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,37",
+          "urn": "urn:cts:formulae:marculf.form2_037.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ],
+          "text": [
+            "text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_037.lat001"
+        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 13156,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -478,13 +568,16 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 4130
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
             "doc_count": 95
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -592,7 +685,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 4397
           },
           {
             "key": "800-899",
@@ -608,13 +701,13 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2944
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1433
           }
         ]
       },
@@ -685,7 +778,10 @@
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 4
+          "doc_count": 6
+        },
+        "Marmoutier (TELMA)": {
+          "doc_count": 0
         },
         "Marmoutier - Dunois": {
           "doc_count": 0
@@ -820,7 +916,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 9
+      "doc_count": 11
     }
   }
 }

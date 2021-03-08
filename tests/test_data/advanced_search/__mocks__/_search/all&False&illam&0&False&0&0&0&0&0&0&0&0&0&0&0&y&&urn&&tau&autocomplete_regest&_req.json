@@ -9,15 +9,18 @@
                 "span_near": {
                   "clauses": [
                     {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "text": {
-                              "value": "illam",
-                              "fuzziness": "0"
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "[ij]llam"
+                                }
+                              }
                             }
                           }
-                        }
+                        ]
                       }
                     }
                   ],
@@ -282,6 +285,11 @@
           "Cormery (TELMA)": {
             "match": {
               "_type": "telma_cormery"
+            }
+          },
+          "Marmoutier (TELMA)": {
+            "match": {
+              "_type": "telma_marmoutier"
             }
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -563,6 +571,11 @@
               "Cormery (TELMA)": {
                 "match": {
                   "_type": "telma_cormery"
+                }
+              },
+              "Marmoutier (TELMA)": {
+                "match": {
+                  "_type": "telma_marmoutier"
                 }
               },
               "Saint-Martin de Tours (TELMA)": {
