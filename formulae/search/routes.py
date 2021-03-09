@@ -96,6 +96,7 @@ def r_results():
                        source=request.args.get('source', 'advanced'),
                        regest_field=request.args.get('regest_field', 'regest'),
                        formulaic_parts=request.args.get('formulaic_parts', ''),
+                       proper_name=request.args.get('proper_name', ''),
                        search_id=request.args.get('search_id', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
@@ -149,6 +150,8 @@ def r_advanced_search():
         form.special_days.data = form.special_days.data[0].split(' ')
     if form.formulaic_parts.data and len(form.formulaic_parts.data) == 1:
         form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
+    if form.proper_name.data and len(form.proper_name.data) == 1:
+        form.proper_name.data = form.proper_name.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
@@ -161,6 +164,7 @@ def r_advanced_search():
             if lemma_search in ['y', 'True', True]:
                 data['lemma_search'] = 'True'
             data['special_days'] = '+'.join(data.pop('special_days')) or ''
+            data['proper_name'] = '+'.join(data.pop('proper_name')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():

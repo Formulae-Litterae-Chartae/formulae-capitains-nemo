@@ -368,7 +368,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '', search_id: str = '',
+                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -381,10 +381,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         corpus = ['all']
     if special_days is None:
         special_days = []
+    if proper_name != '':
+        proper_name = proper_name.split('+')
+    else:
+        proper_name = []
     search_field = 'text'
     if formulaic_parts != '':
         search_field = formulaic_parts.split('+')
-    elif lemma_search == 'True':
+    elif lemma_search == 'True' or proper_name:
         search_field = 'lemmas'
     elif 'autocomplete' in lemma_search:
         search_field = lemma_search
@@ -421,6 +425,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         fuzz = fuzziness
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
+    if proper_name:
+        clauses = list()
+        for term in proper_name:
+            sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
+            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
+            clauses += sub_clauses
+        body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
     if q:
         if isinstance(search_field, list):
             bool_clauses = []
@@ -592,7 +604,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             s_d_template['bool']['should'].append({'match': {'days': s_d}})
         body_template["query"]["bool"]["must"].append(s_d_template)
     search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    if q:
+    if q or proper_name:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
         if search_field in ('lemmas', 'text') and search['hits']['total'] > 0:
@@ -656,7 +668,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}".format(corpus='+'.join(corpus), field=lemma_search,
+                   "{regest_field}&{charter_parts}&{proper_name}".format(corpus='+'.join(corpus), field=lemma_search,
                                                                          q=q.replace(' ', '+'), fuzz=fuzziness,
                                                                          in_order=in_order, slop=slop, y=year, m=month,
                                                                          d=day, y_s=year_start,
@@ -668,7 +680,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                                          spec_days='+'.join(special_days),
                                                                          regest_q=regest_q.replace(' ', '+'),
                                                                          regest_field=regest_field,
-                                                           charter_parts=formulaic_parts.replace(' ', '+'))
+                                                                         charter_parts=formulaic_parts.replace(' ', '+'),
+                                                                         proper_name='+'.join(proper_name))
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results
