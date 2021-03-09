@@ -794,19 +794,6 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', proper_name='', search_id="1234",
                                            formulaic_parts="Poenformel+Stipulationsformel")
-            c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
-                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&search_id=1234&'
-                  'formulaic_parts=Poenformel%2BStipulationsformel&proper_name=personenname%2Bortsname&'
-                  'page=2&submit=True&per_page=10000', follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', proper_name='personenname+ortsname', search_id="1234",
-                                           formulaic_parts="Poenformel+Stipulationsformel")
             self.assertTemplateUsed('search::search.html')
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
@@ -843,9 +830,10 @@ class TestIndividualRoutes(Formulae_Testing):
             params['q'] = 'regnum'
             params['corpus'] = 'chartae'
             params['special_days'] = 'Easter%2BTuesday'
+            params['proper_name'] = 'personenname%2Bortsname'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&special_days=Easter+Tuesday&search_id=1234&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&search_id=1234&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
