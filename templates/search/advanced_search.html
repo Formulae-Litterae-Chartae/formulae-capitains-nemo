@@ -40,8 +40,32 @@
                             <datalist id="word-search-datalist">
                             </datalist>
                         </div>
-                        <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip" data-container="#lemma-search-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span></p>
+                        <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip" data-container="#lemma-search-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span> <span class="position-relative" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none">({{ _('Lemmaliste') }})</a></span></p>
                         <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="col text-center"><strong>{{ form.proper_name.label(for="properNameButton",
+                            id="properNameLabel") }}</strong> <button id="properNameButton"
+                                                                     class="btn btn-link p-0 mb-2"
+                                                                 data-toggle="collapse"
+                                                                      data-target="#properNameSearchCollapse"
+                                                                      type="button" aria-expanded="false"
+                                                                      aria-controls="properNameSearchCollapse"><span
+                                class="position-relative" id="properNameLabel-tooltip" data-toggle="tooltip"
+                                data-container="#properNameLabel-tooltip"
+                                title="{{ _('Die Liste der suchbaren Eigennamenkategorien') }}"><i
+                                class="fas fa-caret-down"></i></span></button>
+                            <div class="collapse" id="properNameSearchCollapse">
+                                <div>
+                                {% for c in form.proper_name.choices %}
+                                    <div class="form-check form-check-inline form-group mb-0">
+                                        <input class="form-check-input" id="proper_name_{{ c[0] }}" name="proper_name" type="checkbox" value="{{ c[0] }}">
+                                        <label class="form-check-label" for="proper_name_{{ c[0] }}">{{ c[1] }}</label>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row mb-2">
                         <div class="col text-center"><strong>{{ form.formulaic_parts.label(for="partsButton", id="partsLabel") }}</strong> <button id="partsButton" class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#partSearchCollapse" type="button" aria-expanded="false" aria-controls="partSearchCollapse"><span class="position-relative" id="partsLabel-tooltip" data-toggle="tooltip" data-container="#partsLabel-tooltip" title="{{ _('Die Liste der Teile zeigen') }}"><i class="fas fa-caret-down"></i></span></button>

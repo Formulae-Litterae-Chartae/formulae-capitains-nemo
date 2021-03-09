@@ -123,5 +123,7 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Saturday', _l('Sa'))])
     formulaic_parts = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
                                           choices=[(k, v) for k, v in FORM_PARTS.items()])
+    proper_name = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
+                                                                       ('ortsname', _l('Ortsname'))])
     search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
     submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")
