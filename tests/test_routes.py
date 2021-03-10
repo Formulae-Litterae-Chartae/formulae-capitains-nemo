@@ -1051,7 +1051,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/advanced_search?year=1500&submit=y')
             self.assertMessageFlashed('year: ' + _('Die Jahreszahl muss zwischen 500 und 1000 liegen'))
             self.assertTemplateUsed('search::advanced_search.html')
-            c.get('/search/advanced_search?submit=y&forgeries=')
+            c.get('/search/advanced_search?submit=y')
             self.assertMessageFlashed(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
             self.assertTemplateUsed('search::advanced_search.html')
 
