@@ -368,7 +368,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '',
+                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '', forgeries: str = 'include',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -425,6 +425,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         fuzz = fuzziness
     if composition_place:
         body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
+    if forgeries == 'exclude':
+        body_template['query']['bool']['must'].append({'term': {'forgery': False}})
+    elif forgeries == 'only':
+        body_template['query']['bool']['must'].append({'term': {'forgery': True}})
     if proper_name:
         clauses = list()
         for term in proper_name:
@@ -668,7 +672,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}&{proper_name}".format(corpus='+'.join(corpus), field=lemma_search,
+                   "{regest_field}&{charter_parts}&{proper_name}&" \
+                   "{forgeries}".format(corpus='+'.join(corpus), field=lemma_search,
                                                                          q=q.replace(' ', '+'), fuzz=fuzziness,
                                                                          in_order=in_order, slop=slop, y=year, m=month,
                                                                          d=day, y_s=year_start,
@@ -681,7 +686,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                                          regest_q=regest_q.replace(' ', '+'),
                                                                          regest_field=regest_field,
                                                                          charter_parts=formulaic_parts.replace(' ', '+'),
-                                                                         proper_name='+'.join(proper_name))
+                                                                         proper_name='+'.join(proper_name),
+                                        forgeries=forgeries)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

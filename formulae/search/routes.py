@@ -97,7 +97,8 @@ def r_results():
                        regest_field=request.args.get('regest_field', 'regest'),
                        formulaic_parts=request.args.get('formulaic_parts', ''),
                        proper_name=request.args.get('proper_name', ''),
-                       search_id=request.args.get('search_id', ''))
+                       search_id=request.args.get('search_id', ''),
+                       forgeries=request.args.get('forgeries', 'include'))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -144,6 +145,8 @@ def r_advanced_search():
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
                       'search_id', 'simple_search_id')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
+    if 'forgeries' in data_present and form.data['forgeries'] in ['include', 'exclude']:
+        data_present.remove('forgeries')
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
