@@ -40,8 +40,25 @@
                             <datalist id="word-search-datalist">
                             </datalist>
                         </div>
-                        <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip" data-container="#lemma-search-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span> <span class="position-relative" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none">({{ _('Lemmaliste') }})</a></span></p>
-                        <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip" data-container="#lemma-search-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span> <span class="position-relative" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none">({{ _('Lemmaliste') }})</a></span></p>
+                                <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                            </div>
+                            <div class="col-6">
+                                {% for subfield in form.forgeries.choices[1:] %}
+                                <div class="form-check smallfont">
+                                    <input class="form-check-input mt-0" type="radio" name="forgeries"
+                                           id="{{ subfield[0] }}"
+                                           value="{{ subfield[0] }}"{% if form.data.forgeries == subfield[0] %}
+                                           checked{% endif %}>
+                                  <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                  </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row mb-2">
                         <div class="col text-center"><strong>{{ form.proper_name.label(for="properNameButton",
@@ -103,7 +120,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-center pt-1"><button class="btn btn-sm btn-secondary" type="reset" id="advancedResetButton">{{ _(' Formular Zurücksetzen') }}</button></div>
+                    <div class="row justify-content-center pt-1"><a href="{{ url_for('search.r_advanced_search') }}"
+                                                                    class="btn btn-sm btn-secondary"
+                                                                    type="reset">{{ _(' Formular Zurücksetzen')
+                        }}</a></div>
                 </div>
                 <div class="col-xl-3 col-4 date-search">
                     <div class="text-center search-section-label"><strong>{{ _('Datumssuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}" aria-label="{{ _('Hilfe für Datumssuche') }}"><i class="fas fa-question-circle"></i></button></div>
