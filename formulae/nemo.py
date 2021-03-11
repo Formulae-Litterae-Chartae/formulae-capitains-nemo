@@ -99,7 +99,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:fulda_stengel',
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:langobardisch',
+                        # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:marmoutier_dunois',
@@ -130,7 +130,7 @@ class NemoFormulae(Nemo):
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
-                             'urn:cts:formulae:langobardisch',
+                             # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:papsturkunden_frankreich',
