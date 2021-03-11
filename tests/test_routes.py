@@ -639,6 +639,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Fulda (Stengel)": {
                       "doc_count": 0
                     },
+                    "Katalonien": {
+                        "doc_count": 0
+                    },
                     "Lorsch": {
                         "doc_count": 0
                     },
@@ -661,9 +664,6 @@ class TestIndividualRoutes(Formulae_Testing):
                       "doc_count": 0
                     },
                     "Marmoutier - Serfs": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Vendômois, Saint-Marc": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -2396,7 +2396,12 @@ class TestES(Formulae_Testing):
                               'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                               'Auvergne': {'match': {'_type': 'auvergne'}},
                               'Bünden': {'match': {'_type': 'buenden'}},
+                              'Chartae Latinae X': {'match': {'_type': 'chartae_latinae_x'}},
+                              'Chartae Latinae XI': {'match': {'_type': 'chartae_latinae_xi'}},
+                              'Chartae Latinae XII': {'match': {'_type': 'chartae_latinae_xii'}},
+                              'Chartae Latinae XLVI': {'match': {'_type': 'chartae_latinae_xlvi'}},
                               'Echternach': {'match': {'_type': 'echternach'}},
+                              'Eudes': {'match': {'_type': 'eudes'}},
                               'Freising': {'match': {'_type': 'freising'}},
                               'Fulda (Dronke)': {'match': {'_type': 'fulda_dronke'}},
                               'Fulda (Stengel)': {'match': {'_type': 'fulda_stengel'}},
@@ -2413,6 +2418,7 @@ class TestES(Formulae_Testing):
                               'Un acte faux de Marmoutier': {'match': {'_type': 'marmoutier_laurain'}},
                               'Marmoutier - Trois actes faux ou interpolés': {'match': {'_type': 'marmoutier_leveque'}},
                               'Marmoutier - Manceau': {'match': {'_type': 'marmoutier_manceau'}},
+                              'Marmoutier - Pour le perche': {'match': {'_type': 'marmoutier_pour_le_perche'}},
                               'Marmoutier - Serfs': {'match': {'_type': 'marmoutier_serfs'}},
                               'Marmoutier - Vendômois': {'match': {'_type': 'marmoutier_vendomois'}},
                               'Marmoutier - Vendômois, Appendix': {'match': {'_type': 'marmoutier_vendomois_appendix'}},
@@ -3743,6 +3749,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Hersfeld": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Katalonien": {
                                                             "doc_count": 0
                                                         },
                                                         "Lorsch": {

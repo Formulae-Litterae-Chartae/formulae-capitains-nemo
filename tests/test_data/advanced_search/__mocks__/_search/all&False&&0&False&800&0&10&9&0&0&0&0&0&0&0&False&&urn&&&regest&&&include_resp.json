@@ -1,5 +1,5 @@
 {
-  "took": 24,
+  "took": 20,
   "timed_out": false,
   "_shards": {
     "total": 46,
@@ -16863,6 +16863,18 @@
           "Cartulaire de Redon": {
             "doc_count": 391
           },
+          "Chartae Latinae X": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XI": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XII": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XLVI": {
+            "doc_count": 0
+          },
           "Chroniques des comtes d’Anjou": {
             "doc_count": 10
           },
@@ -16874,6 +16886,9 @@
           },
           "Echternach": {
             "doc_count": 152
+          },
+          "Eudes": {
+            "doc_count": 0
           },
           "Fragments de Saint-Julien de Tours": {
             "doc_count": 38
@@ -16916,6 +16931,9 @@
           },
           "Marmoutier - Manceau": {
             "doc_count": 189
+          },
+          "Marmoutier - Pour le perche": {
+            "doc_count": 0
           },
           "Marmoutier - Serfs": {
             "doc_count": 187
@@ -17067,6 +17085,18 @@
         "Cartulaire de Redon": {
           "doc_count": 1
         },
+        "Chartae Latinae X": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XI": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XII": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
         "Chroniques des comtes d’Anjou": {
           "doc_count": 0
         },
@@ -17078,6 +17108,9 @@
         },
         "Echternach": {
           "doc_count": 6
+        },
+        "Eudes": {
+          "doc_count": 0
         },
         "Fragments de Saint-Julien de Tours": {
           "doc_count": 0
@@ -17119,6 +17152,9 @@
           "doc_count": 0
         },
         "Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "Marmoutier - Pour le perche": {
           "doc_count": 0
         },
         "Marmoutier - Serfs": {

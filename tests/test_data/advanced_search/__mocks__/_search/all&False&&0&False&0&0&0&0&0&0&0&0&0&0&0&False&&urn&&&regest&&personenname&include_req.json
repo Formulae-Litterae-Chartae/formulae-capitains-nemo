@@ -22,7 +22,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "david",
+                        "value": "petrus",
                         "fuzziness": "0"
                       }
                     }
@@ -46,55 +46,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "paulus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "noah",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "theudorigus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "martinus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "petrus",
+                        "value": "abiron",
                         "fuzziness": "0"
                       }
                     }
@@ -118,7 +70,187 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
+                        "value": "chlodoveus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "chlotharius",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "noah",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "jesus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
                         "value": "iosoe",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "iohannes",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "iudas",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "theodosius",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "honorius",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "martinus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "abraham",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "theudoricus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "childoricus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "paulus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "maria",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "theodorigus",
                         "fuzziness": "0"
                       }
                     }
@@ -154,103 +286,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "iudas",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "theodorigus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "chlotharius",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "iohannes",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "jesus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "childoricus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "honorius",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "moses",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "theudoricus",
+                        "value": "david",
                         "fuzziness": "0"
                       }
                     }
@@ -274,7 +310,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "abiron",
+                        "value": "theudorigus",
                         "fuzziness": "0"
                       }
                     }
@@ -286,43 +322,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "abraham",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "maria",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "chlodoveus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "theodosius",
+                        "value": "moses",
                         "fuzziness": "0"
                       }
                     }
@@ -418,9 +418,34 @@
               "_type": "buenden"
             }
           },
+          "Chartae Latinae X": {
+            "match": {
+              "_type": "chartae_latinae_x"
+            }
+          },
+          "Chartae Latinae XI": {
+            "match": {
+              "_type": "chartae_latinae_xi"
+            }
+          },
+          "Chartae Latinae XII": {
+            "match": {
+              "_type": "chartae_latinae_xii"
+            }
+          },
+          "Chartae Latinae XLVI": {
+            "match": {
+              "_type": "chartae_latinae_xlvi"
+            }
+          },
           "Echternach": {
             "match": {
               "_type": "echternach"
+            }
+          },
+          "Eudes": {
+            "match": {
+              "_type": "eudes"
             }
           },
           "Freising": {
@@ -501,6 +526,11 @@
           "Marmoutier - Manceau": {
             "match": {
               "_type": "marmoutier_manceau"
+            }
+          },
+          "Marmoutier - Pour le perche": {
+            "match": {
+              "_type": "marmoutier_pour_le_perche"
             }
           },
           "Marmoutier - Serfs": {
@@ -704,9 +734,34 @@
                   "_type": "buenden"
                 }
               },
+              "Chartae Latinae X": {
+                "match": {
+                  "_type": "chartae_latinae_x"
+                }
+              },
+              "Chartae Latinae XI": {
+                "match": {
+                  "_type": "chartae_latinae_xi"
+                }
+              },
+              "Chartae Latinae XII": {
+                "match": {
+                  "_type": "chartae_latinae_xii"
+                }
+              },
+              "Chartae Latinae XLVI": {
+                "match": {
+                  "_type": "chartae_latinae_xlvi"
+                }
+              },
               "Echternach": {
                 "match": {
                   "_type": "echternach"
+                }
+              },
+              "Eudes": {
+                "match": {
+                  "_type": "eudes"
                 }
               },
               "Freising": {
@@ -787,6 +842,11 @@
               "Marmoutier - Manceau": {
                 "match": {
                   "_type": "marmoutier_manceau"
+                }
+              },
+              "Marmoutier - Pour le perche": {
+                "match": {
+                  "_type": "marmoutier_pour_le_perche"
                 }
               },
               "Marmoutier - Serfs": {
