@@ -16,6 +16,7 @@
     <members>
         <collection identifier="urn:cts:formulae:fulda_dronke" path="../fulda_dronke/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:fulda_stengel" path="../fulda_stengel/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:katalonien" path="../katalonien/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:lorsch" path="../lorsch/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marmoutier_manceau" path="../marmoutier_manceau/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marmoutier_serfs" path="../marmoutier_serfs/__capitains__.xml"/>

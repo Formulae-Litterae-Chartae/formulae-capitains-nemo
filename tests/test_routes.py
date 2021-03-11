@@ -639,6 +639,9 @@ class TestIndividualRoutes(Formulae_Testing):
                     "Fulda (Stengel)": {
                       "doc_count": 0
                     },
+                    "Katalonien": {
+                        "doc_count": 0
+                    },
                     "Lorsch": {
                         "doc_count": 0
                     },
@@ -661,9 +664,6 @@ class TestIndividualRoutes(Formulae_Testing):
                       "doc_count": 0
                     },
                     "Marmoutier - Serfs": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Vendômois, Saint-Marc": {
                       "doc_count": 0
                     },
                     "Merowinger": {
@@ -2396,6 +2396,10 @@ class TestES(Formulae_Testing):
                               'Arnulfinger': {'match': {'_type': 'arnulfinger'}},
                               'Auvergne': {'match': {'_type': 'auvergne'}},
                               'Bünden': {'match': {'_type': 'buenden'}},
+                              'Chartae Latinae X': {'match': {'_type': 'chartae_latinae_x'}},
+                              'Chartae Latinae XI': {'match': {'_type': 'chartae_latinae_xi'}},
+                              'Chartae Latinae XII': {'match': {'_type': 'chartae_latinae_xii'}},
+                              'Chartae Latinae XLVI': {'match': {'_type': 'chartae_latinae_xlvi'}},
                               'Echternach': {'match': {'_type': 'echternach'}},
                               'Eudes': {'match': {'_type': 'eudes'}},
                               'Freising': {'match': {'_type': 'freising'}},
@@ -3745,6 +3749,9 @@ class TestES(Formulae_Testing):
                                                             "doc_count": 0
                                                         },
                                                         "Hersfeld": {
+                                                            "doc_count": 0
+                                                        },
+                                                        "Katalonien": {
                                                             "doc_count": 0
                                                         },
                                                         "Lorsch": {

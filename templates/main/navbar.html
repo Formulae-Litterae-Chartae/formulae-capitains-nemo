@@ -31,9 +31,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
-                    {% for coll in g.sub_colls['other_collection'] %}
+                    {% for coll in g.sub_colls['display_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><span class="corpus_coverage">{{ coll['coverage'] }}:</span> {{ coll['label']|safe }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><span class="corpus_coverage">{{ coll['coverage'] }}</span></a>
                     {% endif %}
                     {% endfor %}
                 </div>

@@ -114,9 +114,34 @@
               "_type": "buenden"
             }
           },
+          "Chartae Latinae X": {
+            "match": {
+              "_type": "chartae_latinae_x"
+            }
+          },
+          "Chartae Latinae XI": {
+            "match": {
+              "_type": "chartae_latinae_xi"
+            }
+          },
+          "Chartae Latinae XII": {
+            "match": {
+              "_type": "chartae_latinae_xii"
+            }
+          },
+          "Chartae Latinae XLVI": {
+            "match": {
+              "_type": "chartae_latinae_xlvi"
+            }
+          },
           "Echternach": {
             "match": {
               "_type": "echternach"
+            }
+          },
+          "Eudes": {
+            "match": {
+              "_type": "eudes"
             }
           },
           "Freising": {
@@ -197,6 +222,11 @@
           "Marmoutier - Manceau": {
             "match": {
               "_type": "marmoutier_manceau"
+            }
+          },
+          "Marmoutier - Pour le perche": {
+            "match": {
+              "_type": "marmoutier_pour_le_perche"
             }
           },
           "Marmoutier - Serfs": {
@@ -400,9 +430,34 @@
                   "_type": "buenden"
                 }
               },
+              "Chartae Latinae X": {
+                "match": {
+                  "_type": "chartae_latinae_x"
+                }
+              },
+              "Chartae Latinae XI": {
+                "match": {
+                  "_type": "chartae_latinae_xi"
+                }
+              },
+              "Chartae Latinae XII": {
+                "match": {
+                  "_type": "chartae_latinae_xii"
+                }
+              },
+              "Chartae Latinae XLVI": {
+                "match": {
+                  "_type": "chartae_latinae_xlvi"
+                }
+              },
               "Echternach": {
                 "match": {
                   "_type": "echternach"
+                }
+              },
+              "Eudes": {
+                "match": {
+                  "_type": "eudes"
                 }
               },
               "Freising": {
@@ -483,6 +538,11 @@
               "Marmoutier - Manceau": {
                 "match": {
                   "_type": "marmoutier_manceau"
+                }
+              },
+              "Marmoutier - Pour le perche": {
+                "match": {
+                  "_type": "marmoutier_pour_le_perche"
                 }
               },
               "Marmoutier - Serfs": {

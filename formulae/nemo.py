@@ -91,6 +91,10 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
+                        'urn:cts:formulae:chartae_latinae_x',
+                        'urn:cts:formulae:chartae_latinae_xi',
+                        'urn:cts:formulae:chartae_latinae_xii',
+                        'urn:cts:formulae:chartae_latinae_xlvi',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
                         'urn:cts:formulae:eudes',
@@ -130,6 +134,10 @@ class NemoFormulae(Nemo):
     # Half-open collections are those that are newer than death-of-editor plus 70 years.
     # We do not show the regesten for these collections since those are still protected under copyright.
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
+                             'urn:cts:formulae:chartae_latinae_x',
+                             'urn:cts:formulae:chartae_latinae_xi',
+                             'urn:cts:formulae:chartae_latinae_xii',
+                             'urn:cts:formulae:chartae_latinae_xlvi',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
                              # 'urn:cts:formulae:langobardisch', # needs correction
@@ -279,7 +287,7 @@ class NemoFormulae(Nemo):
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
                 m.update({'coverage':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(DC.coverage))})
-            if member['id'] != 'other_collection':
+            if member['id'] not in ['other_collection', 'display_collection']:
                 colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
             else:
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
@@ -667,13 +675,14 @@ class NemoFormulae(Nemo):
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
                 data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
             elif set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
                 data['collections']['members'] = []
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
-        if not from_four_level_collection and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not from_four_level_collection and 'defaultTic' not in direct_parents and 'display_collection' not in direct_parents:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
