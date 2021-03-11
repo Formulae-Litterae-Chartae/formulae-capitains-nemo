@@ -38,6 +38,7 @@ class TestConfig(Config):
     LEM_TO_LEM_JSONS = ["tests/test_data/formulae/lem_to_lem.json"]
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
     COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
+    LEMMA_LISTS = ["tests/test_data/formulae/lem_list_1.json", "tests/test_data/formulae/lem_list_2.json"]
     # TERM_VECTORS = "tests/test_data/formulae/composition_places.json"
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
@@ -99,7 +100,10 @@ class Formulae_Testing(flask_testing.TestCase):
         self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
-                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001']
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
+                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -135,7 +139,10 @@ class TestNemoSetup(Formulae_Testing):
             self.assertEqual(nemo.open_texts + ['urn:cts:formulae:buenden.meyer-marthaler0024.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
-                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001'], self.nemo.open_texts)
+                                 'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
+                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001'], self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
             # self.assertEqual(self.nemo.term_vectors['urn:cts:formulae:katalonien.vinyals_albanyamonestirpere_0001.lat001'],
@@ -327,6 +334,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertTemplateUsed('main::manuscript_siglen.html')
             c.get('accessibility_statement', follow_redirects=True)
             self.assertTemplateUsed('main::accessibility_statement.html')
+            c.get('/search/lemmata', follow_redirects=True)
+            self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
+            self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cd', 'd', 'cm', 'm'],
+                             self.get_context_variable('numbers'))
+
 
     def test_authorized_project_member(self):
 
@@ -1335,7 +1347,7 @@ class TestFunctions(Formulae_Testing):
     def test_load_lem_to_lem_mapping(self):
         """ Ensure that the json mapping file is correctly loaded."""
         self.assertEqual(self.nemo.lem_to_lem_mapping['gero'],
-                         {'gerere', 'gesta', 'gestus'},
+                         {'gerere', 'gesta', 'gestus', 'gerereve'},
                          'Mapping files should have loaded correctly.')
         self.app.config['LEM_TO_LEM_JSONS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
         with patch.object(self.app.logger, 'warning') as mock:
@@ -1914,6 +1926,22 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"),
                                                                ("formulaic_parts", "")]),
+                 'test_v_to_u_multiword': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'wolfhart+cvm'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
+                 'test_v_to_u_single_word': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'novalium'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
                  'test_single_word_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettonis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -2049,7 +2077,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"),
                                                                ("formulaic_parts", "")]),
-                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettonis'), ("fuzziness", "AUTO"),
+                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -2057,7 +2085,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"),
                                                                ("formulaic_parts", "")]),
-                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "AUTO"),
+                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnante+pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -2084,7 +2112,7 @@ class TestES(Formulae_Testing):
                                                                ("formulaic_parts", "")]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
-                                                                 ("q", 'christi'),
+                                                                 ("q", 'tempore'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -2104,10 +2132,10 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio")]),
+                                                                 ("formulaic_parts", "Stipulationsformel")]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
-                                                                 ("q", 'christ*'),
+                                                                 ("q", 'temp?re'),
                                                                  ("fuzziness", "0"),
                                                                  ("in_order", "False"),
                                                                  ("year", 0),
@@ -2127,7 +2155,30 @@ class TestES(Formulae_Testing):
                                                                  ('special_days', ''),
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
-                                                                 ("formulaic_parts", "Invocatio")]),
+                                                                 ("formulaic_parts", "Stipulationsformel")]),
+                 'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
+                                                                 ("lemma_search", "False"),
+                                                                 ("q", 'christ*+vener?bili'),
+                                                                 ("fuzziness", "0"),
+                                                                 ("in_order", "False"),
+                                                                 ("year", 0),
+                                                                 ("slop", "0"),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("regest_q", ''),
+                                                                 ("regest_field", "regest"),
+                                                                 ("formulaic_parts", "Narratio")]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("lemma_search", "False"),
                                                                 ("q", 'christi'),
@@ -2173,7 +2224,99 @@ class TestES(Formulae_Testing):
                                                                ('special_days', ''),
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
-                                                               ("formulaic_parts", "Poenformel%2BStipulationsformel")])
+                                                               ("formulaic_parts", "Poenformel%2BStipulationsformel")]),
+                 'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'in+loco+qui+nuncupatur'),
+                                                               ("fuzziness", "AUTO"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "Narratio")]),
+                 'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'in+loco+qui+nuncupatur'),
+                                                               ("fuzziness", "AUTO"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
+                 'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'a'),
+                                                               ("fuzziness", "0"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")]),
+                 'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'daumerii+a'),
+                                                               ("fuzziness", "0"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                               ("formulaic_parts", "")])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -2256,6 +2399,7 @@ class TestES(Formulae_Testing):
                               'Regensburg': {'match': {'_type': 'regensburg'}},
                               'Rheinisch': {'match': {'_type': 'rheinisch'}},
                               'Cormery (TELMA)': {'match': {'_type': 'telma_cormery'}},
+                              'Marmoutier (TELMA)': {'match': {'_type': 'telma_marmoutier'}},
                               'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},
                               'Salzburg': {'match': {'_type': 'salzburg'}},
                               'Schäftlarn': {'match': {'_type': 'schaeftlarn'}},
@@ -2300,6 +2444,91 @@ class TestES(Formulae_Testing):
                 new_vector['_id'] = d['_id']
                 rv['docs'].append(new_vector)
         return rv
+
+    def suggest_side_effect(self, **kwargs):
+        if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
+            resp = {}
+            if kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [{
+                                "text": "quis",
+                                "score": 0.75,
+                                "freq": 27
+                            },
+                                {
+                                "text": "que",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "qua",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "quia",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "quo",
+                                "score": 0.75,
+                                "freq": 27
+                                }
+                            ]
+                        }]
+                    }}
+                elif kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'nuncupatur' and kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [{
+                                "text": "nuncupata",
+                                "score": 0.75,
+                                "freq": 27
+                            }
+                            ]
+                        }
+                        ]
+                    }
+                    }
+            else:
+                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                    resp = {"suggest": {
+                        "fuzzy_suggest": [{
+                            "text": "qui",
+                            "offset": 0,
+                            "length": 3,
+                            "options": [
+                                {
+                                "text": "quia",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "qua",
+                                "score": 0.75,
+                                "freq": 27
+                                },
+                                {
+                                "text": "que",
+                                "score": 0.75,
+                                "freq": 27
+                                }
+                            ]
+                        }]
+                    }}
+            return resp
+        test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        return fake.load_response()
 
     def build_file_name(self, fake_args):
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
@@ -2815,6 +3044,22 @@ class TestES(Formulae_Testing):
                                                 'slop': 4,
                                                 'in_order': False
                                                 }
+                                           },
+                                          {'span_near':
+                                               {'clauses':
+                                                    [{'span_multi':
+                                                          {'match':
+                                                               {'fuzzy':
+                                                                    {'lemmas':
+                                                                         {'value': 'gerereve', 'fuzziness': '0'}
+                                                                     }
+                                                                }
+                                                           }
+                                                      }
+                                                     ],
+                                                'slop': 4,
+                                                'in_order': False
+                                                }
                                            }
                                           ],
                                      'minimum_should_match': 1
@@ -2956,6 +3201,42 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
+    def test_v_to_u_multiword(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_v_to_u_multiword'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        sents = [{'sents':
+                      [Markup('seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis ')]}]
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_v_to_u_single_word(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_v_to_u_single_word'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertIn(sents, [x['sents'] for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
     def test_single_word_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas
             This also makes sure that a highlighted word that is just the wrong distance from the end of the string
@@ -3044,10 +3325,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': ['Text nicht zugänglich.']}]
+                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3080,17 +3361,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        sents = [{'sents': ['Text nicht zugänglich.']},
-                 {'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']},
-                 {'sents': ['Text nicht zugänglich.']}]
+        sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3122,6 +3393,43 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg* domni'
         test_args['slop'] = '3'
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_letter_highlighting_one_word(self, mock_vectors, mock_search):
+        """ Make sure that single letter words are correctly highlighted (i.e., the word and not the rest of the fragment)
+        """
+        test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_one_word'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('</small><strong>a</strong><small> quem dimisit filio suo Rofino et agrum in Pulueraria modios ')]},
+                 {'sents': [Markup('de supra in Theudoranes, dabtus in sancti Petri; alium pratum </small><strong>a</strong><small> Sanguinetum honus I, confinat da una parte in Canilias, da '),
+                            Markup('da una parte in Canilias, da alia in via; agrum </small><strong>a</strong><small> Tonbeclo modios II, confinat in Scolchengus, da alia in sancti '),
+                            Markup('in Scolchengus, da alia in sancti Petri; alium agrum modios </small><strong>a</strong><small> Tomba maiore, confinat da una parte in Martini, de alia '),
+                            Markup('saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter </small><strong>a</strong><small> vice Augustani diaconis scripsi et suscripsi.')]},
+                 {'sents': [Markup('alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.'),
+                            Markup('Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter </small><strong>a</strong><small> vice Lubucionis diaconi scripsi et suscripsi.')]},
+                 {'sents': [Markup('In Christi nomine. Ego itaque bresbiter Valencio sanus </small><strong>a</strong><small> sana mente per comiatu senioris Iltebaldi et cum manu – – dono ')]}]
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for s in sents:
+            self.assertIn(s, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_letter_highlighting_multiword(self, mock_vectors, mock_search):
+        """ Make sure that single letter words are correctly highlighted (i.e., the word and not the rest of the fragment)
+        """
+        test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_multiword'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        sents = [{'sents': [Markup('da alia in Uictoriani coloni, da supra in Massanesco. Signum </small><strong>Daumerii</strong><small> </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.')]}]
+        mock_search.return_value = resp
+        mock_vectors.return_value = self.term_vectors
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -3469,13 +3777,16 @@ class TestES(Formulae_Testing):
                                     {'should':
                                          [{'span_near':
                                                {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'text':
-                                                                         {'value': 'regnum', 'fuzziness': '0'}
-                                                                     }
-                                                                }
+                                                    [{'span_or':
+                                                          {'clauses':
+                                                               [{'span_multi':
+                                                                     {'match':
+                                                                          {'regexp':
+                                                                               {'text': 'regn[uv]m'}
+                                                                           }
+                                                                      }
+                                                                 }
+                                                                ]
                                                            }
                                                       }
                                                      ],
@@ -3555,41 +3866,43 @@ class TestES(Formulae_Testing):
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['q'] = 'regnum domni'
-        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
-                                                                                              {'match':
-                                                                                                   {'fuzzy':
-                                                                                     {'text':
-                                                                                          {'value': 'regnum',
-                                                                                           'fuzziness': '0'
-                                                                                           }
-                                                                                      }
-                                                                                 }
-                                                                            }
-                                                                       },
-                                                                      {'span_multi':
-                                                                           {'match':
-                                                                                {'fuzzy':
-                                                                                     {'text':
-                                                                                          {'value': 'domni',
-                                                                                           'fuzziness': '0'
-                                                                                           }
-                                                                                      }
-                                                                                 }
-                                                                            }
-                                                                       }
-                                                                      ]
+        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_or':
+                                                                                              {'clauses':
+                                                                                                   [
+                                                                                                       {'span_multi':
+                                                                                                            {'match':
+                                                                                                                 {'regexp':
+                                                                                                                      {'text': 'regn[uv]m'}
+                                                                                                                  }
+                                                                                                             }
+                                                                                                        }
+                                                                                                   ]
+                                                                                              }},
+            {'span_or':
+                 {'clauses':
+                      [{'span_multi':
+                            {'match':
+                                 {'regexp':
+                                      {'text': 'domn[ij]'}
+                                  }
+                             }
+                        }
+                       ]
+                  }
+             }
+        ]
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['q'] = 're?num'
         body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
                                                                                               {'match':
-                                                                                                   {'wildcard':
-                                                                                                        {'text': 're?num'}
+                                                                                                   {'regexp':
+                                                                                                        {'text': 're.n[uv]m'}
                                                                                                     }
                                                                                                }
-                                                                                          }
-                                                                                         ]
+                                                                                          }]
         advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         self.assertCountEqual({'index': ['formulae', 'chartae'], 'doc_type': "", 'body': body},
                               mock_search.call_args[1])
         test_args['corpus'] = ['']
@@ -3883,6 +4196,67 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_single_charter_part_search_with_wildcard(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_single_charter_part_search_with_wildcard_v_u(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_fuzzy_charter_part_search(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
+        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.suggest_side_effect
+        # mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_fuzzy_v_to_u_search(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.suggest_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        # mock_search.return_value = resp
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])

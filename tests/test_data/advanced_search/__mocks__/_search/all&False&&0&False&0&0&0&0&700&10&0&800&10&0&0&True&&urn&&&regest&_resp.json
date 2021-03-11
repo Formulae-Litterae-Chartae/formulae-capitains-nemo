@@ -1,18 +1,18 @@
 {
-  "took": 15,
+  "took": 13,
   "timed_out": false,
   "_shards": {
-    "total": 45,
-    "successful": 45,
+    "total": 46,
+    "successful": 46,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 218,
+    "total": 217,
     "max_score": null,
     "hits": [
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v12",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
         "_score": null,
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v12",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
         "_score": null,
@@ -92,7 +92,7 @@
         ]
       },
       {
-        "_index": "echternach_v20",
+        "_index": "echternach_v12",
         "_type": "echternach",
         "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
         "_score": null,
@@ -132,21 +132,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "TRADITIO HROADHERI DE SUUINDAHA VEL POHLOH SEU ANONIS DE PRISINGA. a) In nomine summi et unigeniti filii dei. Ego Hrodheri rem propriam quam genitor mens Sicco mihi in hereditatem reliquit in locis nuncupantibus Suuindaha et alium quem Póhlóh dicuntur pro remedium animae meae atque praenotati genitoris necnon et coniuge Uualtnia cum unico filio nostro nuncupante Heripald donavi atque transfundavi ad beatae et intemeratae virginis Mariae ecclesiam Frigisingas Castro moeniis sitae casas curtes mancipias rures saltoras silvas aquarumque decursos molendinas pratas pascua sublectilia vel quicquid utensiliis possidere videbar vel ex patrimonio aut lucro questus esse videbar ut post obitum meum et praenotate coniugis atque conscripti filii sub ditioni ipsius dei genetricis esse debeat cum oratoriis quos ipse construxi et cum colonibus meum post obitum cuncta in patrimonium sancte Mariae et Christi confessoris Corbiniani stabilivi Nam si filius meus divini largitoris munere ad superiorem accesserit gradum et eum ut pastore decet ecclesiastico more conservaverit suisque diebus cuncta possedeat tarnen sub manu cui haec credita sunt episcopale; sin vero suum normaliter non servaverit ordinem, suam tarnen sibimet possedeat portionem, cetera sub ditioni permaneat episcopali ipsius post obitum ipsam traditionem in perpetuum permanere firmamus. Nam si ego ipse vel quis ex heredibus meis vel quilibet opposita persona contra hanc donationem ire temptaverit, cum eadem dei genetrice communicetur sententiam et horum sanctorum patrociniis quos ibidem esse videntur colenda vel nominanda atque adoranda epistola tamen traditionis nihilominus perteneat firmitatem Actum in villa quae dicitur Pohlóh in anno XVIII. regnante inlustrissimo duce Tassilone sub die consule quod est non. novemb Et haec testes et eorum nomina qui per aures tracti sunt Alpolt, Ratolt, Heimilo presbiteri. Arn. Rihpald diaconi et Hulzilo monachus. Heimperht, Uurmheri, Aeio, Heilrat, Hramperht laici testes. Et ipse Arbeo episcopus testes. Ex cuius ore ego Sundarherius cartulam hanc firmitatis conscripsi b) Notitiam depromimus, quod ego Arbeo episcopus divini largitoris munere cum domui sanctae Mariae divina gratia me praeesse constituit, quod a quodam monacho nomine Egino propriam hereditatem ipsius et fratri sui Reginolti quam Reginolfus his in hereditatem eorum genitor reliquit conparavi per consensum domni Tassilonis et inlustrissimi ducis in locis quae appellantur Ilmina seu et Perahhah cum eadem basilica quae ibi fundata esse videtur cum ipso altare ad quem ipsi prius tradiderunt Donavi namque ei sicut ipse postulaverat plus minus solidos ex sanctae Mariae rebus CC Et haec sunt testes Selprat. Hato. Chuno. Sullo. Pópó. Ipsi omnes per aures tracti, ceteri vero ex nostris sine numero. c) Ego Ano rem propriam et patrimonium quam genitor meus in hereditatem reliquit in pago quae dicitur Prisingas ad beate et intemerate virginis Mariae ecclesiam donavi cum domibus et aedificiis cum territorio et utensiliis cum famulis atque subiectis cum pratis atque pascuis cum universo utensilio vel quicquid possidere iure videbar ut post obitum meum episcopali domui iureditioni deserviat atque semper virginis Mariae subesse dominationi transfundavi ut si quis contra hanc donationem ire teinptaverit, sub insolubile anathematus vinculo prostratus decedat et cum eadem Mariam communicetur sententiam et beato Christi confessore Corbiniano epistola tamen nihilominus firma permaneat Actum in Castro Frigisingas in anno XX. regnante domno Tassilone sub die consule quod est kal. oct. Et haec testes: Ratolt, Tarchnat, Pern, Pald, Horskeo presbiteri. Arn, Reginolt, Liutfrid, Rihpald diaconi. Chuno. Mezzi. Reginpald. Sullo. Pópo. Situli. Hramperht popularis. Ego Sundarheri iussus ex ore episcopi Heredis conscripsi",
+          "lemmas": null,
+          "regest": "a) Hrodheri übergibt seinen Besitz zu Schwindau (?) und Pullach. b) Bischof Arbeo kauft den Besitz des Mönches Egino und seines Bruders Reginolt zu Ilmmünster und Hohenpercha. c) Ano schenkt seinen väterlichen Besitz zu Langenpreising.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 24",
           "urn": "urn:cts:formulae:freising.bitterauf0024.lat001",
           "date_string": "a) 765 11 05 b) 765-767 c) 767 10 01",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "TRADITIO HROADHERI DE SUUINDAHA VEL POHLOH SEU ANONIS DE PRISINGA. a) In nomine summi et unigeniti filii dei. Ego Hrodheri rem propriam quam genitor mens Sicco mihi in hereditatem reliquit in locis nuncupantibus Suuindaha et alium quem Póhlóh dicuntur pro remedium animae meae atque praenotati genitoris necnon et coniuge Uualtnia cum unico filio nostro nuncupante Heripald donavi atque transfundavi ad beatae et intemeratae virginis Mariae ecclesiam Frigisingas Castro moeniis sitae casas curtes mancipias rures saltoras silvas aquarumque decursos molendinas pratas pascua sublectilia vel quicquid utensiliis possidere videbar vel ex patrimonio aut lucro questus esse videbar ut post obitum meum et praenotate coniugis atque conscripti filii sub ditioni ipsius dei genetricis esse debeat cum oratoriis quos ipse construxi et cum colonibus meum post obitum cuncta in patrimonium sancte Mariae et Christi confessoris Corbiniani stabilivi Nam si filius meus divini largitoris munere ad superiorem accesserit gradum et eum ut pastore decet ecclesiastico more conservaverit suisque diebus cuncta possedeat tarnen sub manu cui haec credita sunt episcopale; sin vero suum normaliter non servaverit ordinem, suam tarnen sibimet possedeat portionem, cetera sub ditioni permaneat episcopali ipsius post obitum ipsam traditionem in perpetuum permanere firmamus. Nam si ego ipse vel quis ex heredibus meis vel quilibet opposita persona contra hanc donationem ire temptaverit, cum eadem dei genetrice communicetur sententiam et horum sanctorum patrociniis quos ibidem esse videntur colenda vel nominanda atque adoranda epistola tamen traditionis nihilominus perteneat firmitatem Actum in villa quae dicitur Pohlóh in anno XVIII. regnante inlustrissimo duce Tassilone sub die consule quod est non. novemb Et haec testes et eorum nomina qui per aures tracti sunt Alpolt, Ratolt, Heimilo presbiteri. Arn. Rihpald diaconi et Hulzilo monachus. Heimperht, Uurmheri, Aeio, Heilrat, Hramperht laici testes. Et ipse Arbeo episcopus testes. Ex cuius ore ego Sundarherius cartulam hanc firmitatis conscripsi b) Notitiam depromimus, quod ego Arbeo episcopus divini largitoris munere cum domui sanctae Mariae divina gratia me praeesse constituit, quod a quodam monacho nomine Egino propriam hereditatem ipsius et fratri sui Reginolti quam Reginolfus his in hereditatem eorum genitor reliquit conparavi per consensum domni Tassilonis et inlustrissimi ducis in locis quae appellantur Ilmina seu et Perahhah cum eadem basilica quae ibi fundata esse videtur cum ipso altare ad quem ipsi prius tradiderunt Donavi namque ei sicut ipse postulaverat plus minus solidos ex sanctae Mariae rebus CC Et haec sunt testes Selprat. Hato. Chuno. Sullo. Pópó. Ipsi omnes per aures tracti, ceteri vero ex nostris sine numero. c) Ego Ano rem propriam et patrimonium quam genitor meus in hereditatem reliquit in pago quae dicitur Prisingas ad beate et intemerate virginis Mariae ecclesiam donavi cum domibus et aedificiis cum territorio et utensiliis cum famulis atque subiectis cum pratis atque pascuis cum universo utensilio vel quicquid possidere iure videbar ut post obitum meum episcopali domui iureditioni deserviat atque semper virginis Mariae subesse dominationi transfundavi ut si quis contra hanc donationem ire teinptaverit, sub insolubile anathematus vinculo prostratus decedat et cum eadem Mariam communicetur sententiam et beato Christi confessore Corbiniano epistola tamen nihilominus firma permaneat Actum in Castro Frigisingas in anno XX. regnante domno Tassilone sub die consule quod est kal. oct. Et haec testes: Ratolt, Tarchnat, Pern, Pald, Horskeo presbiteri. Arn, Reginolt, Liutfrid, Rihpald diaconi. Chuno. Mezzi. Reginpald. Sullo. Pópo. Situli. Hramperht popularis. Ego Sundarheri iussus ex ore episcopi Heredis conscripsi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "a) Hrodheri übergibt seinen Besitz zu Schwindau (?) und Pullach. b) Bischof Arbeo kauft den Besitz des Mönches Egino und seines Bruders Reginolt zu Ilmmünster und Hohenpercha. c) Ano schenkt seinen väterlichen Besitz zu Langenpreising.",
           "orig_comp_ort": " ",
           "forgery": false,
           "dating": [
@@ -176,10 +176,26 @@
           "min_date": "0765",
           "max_date": "0767-12-31",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Intitulatio": "Ego\n                            Hrodheri ... ego Arbeo episcopus ... Ego Ano",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "rem propriam quam genitor mens Sicco mihi in hereditatem\n                            reliquit in locis nuncupantibus Suuindaha et alium quem Póhlóh dicuntur ... moeniis sitae casas curtes mancipias rures saltoras\n                            silvas aquarumque decursos molendinas pratas pascua sublectilia vel\n                            quicquid utensiliis possidere videbar vel ex patrimonio aut lucro\n                            questus esse videbar ... propriam hereditatem ipsius\n                        et fratri sui Reginolti quam Reginolfus his in hereditatem eorum genitor\n                        reliquit ... in\n                        locis quae appellantur Ilmina seu et Perahhah cum eadem basilica quae ibi\n                        fundata esse videtur cum ipso altare ad quem ipsi prius tradiderunt ... sicut ipse postulaverat plus minus solidos ex sanctae Mariae rebus\n                        CC ... rem propriam et patrimonium quam genitor meus in\n                        hereditatem reliquit in pago quae dicitur Prisingas ... cum domibus et aedificiis cum territorio et\n                        utensiliis cum famulis atque subiectis cum pratis atque pascuis cum universo\n                        utensilio vel quicquid possidere iure videbar",
+          "Pertinenzformel-lems": null,
+          "Narratio": "pro remedium animae meae atque praenotati genitoris necnon et coniuge\n                            Uualtnia cum unico filio nostro nuncupante Heripald",
+          "Narratio-lems": null,
+          "Dispositio": "  donavi  atque\n                            transfundavi ...  donavi  ... donavi ... ut post obitum meum et praenotate coniugis atque\n                            conscripti filii sub ditioni ipsius dei genetricis esse debeat cum\n                            oratoriis quos ipse construxi et cum colonibus meum post obitum cuncta\n                            in patrimonium sancte Mariae et Christi confessoris Corbiniani\n                            stabilivi ... conparavi ... ut post obitum meum\n                        episcopali domui iureditioni deserviat atque semper virginis Mariae subesse\n                        dominationi transfundavi",
+          "Dispositio-lems": null,
+          "Poenformel": "Nam si ego ipse vel quis ex heredibus meis vel\n                            quilibet opposita persona contra hanc donationem ire temptaverit, cum\n                            eadem dei genetrice communicetur sententiam et horum sanctorum\n                            patrociniis quos ibidem esse videntur colenda vel nominanda atque\n                            adoranda ... ut si quis contra hanc donationem ire\n                        teinptaverit, sub insolubile anathematus vinculo prostratus decedat et cum\n                        eadem Mariam communicetur sententiam et beato Christi confessore Corbiniano",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "epistola tamen traditionis nihilominus perteneat firmitatem ... epistola tamen nihilominus firma permaneat",
+          "Stipulationsformel-lems": null,
+          "Eschatokoll": "anno XVIII. regnante inlustrissimo\n                            duce Tassilone sub die consule ... non. novemb ... Et ipse Arbeo episcopus\n                            testes. Ex cuius ore ego Sundarherius cartulam hanc firmitatis\n                            conscripsi ... anno XX. regnante domno Tassilone sub die consule ... Ego Sundarheri iussus ex ore episcopi Heredis\n                        conscripsi",
+          "Eschatokoll-lems": null,
+          "Corroboratio": " Et haec testes et\n                            eorum nomina qui per aures tracti sunt ... Et haec testes ... Et haec sunt testes",
+          "Corroboratio-lems": null
         },
         "sort": [
           1,
@@ -187,21 +203,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "TRADITIO ORTLAIPI DE HELPHINDORF. Constat universa deo auctore ordinata cuius nutu factura eius homo eminentiae cuncta praecellens signaculum similitudinis conditoris plasmatus fuerat, cuncta sibimet subiecta a deo fuisset imperatum cuius largitoris munere vivimus et sumus, ipse mihi et vires tribuebat et intellectum, ipse tempus et locum, ipse suo beneficio spiritui inspirans facultati, ut congrue succurrere tempori ubi beatus Christi martyr Heimrammus campum elegit certaminis, ut victor triumphans perennem cum Christo frueret gaudium, membris solutus amitteret spiritum eius amore, ut ibidem fundarer ecclesiam, ut pio apud domino delictorum veniam merearer accipere, sicque peractum est, ut ab incolis locum iusto emerem pretio, moeniis ecclesiam praedicti honoris fabricavi martyris canone dudum aedificatione constitui honorifice bonae memoriae Ermberto episcopo dedicatore ordinavi quibus laboribus me remuneraturum confido Propterea ego Ortlaip per consensum abbatis mei Hrodharti praedictam ecclesiam sancti Emmerammi in loco Helphimdorf constructa trado et transfundo ad domum beatae et intemeratae virginis Mariae, ut ne canones repugnare videar, Arbionis episcopi ditioni subsistere debeat excepto benefici illius vitae meae, ut ex eius fruar beneficiis concesse licentiae stipulatione subnexa aut necessitate cogente filiae meae, ut praedictum fuisset elevamen. Post obitum vero meum animae pro remedium meae canonica subiaceat iura ut praenotatum est cum clero et servientibus, cum libertis et aldionibus, cum terminio et facultatibus, ad domini dei nostri genetricis Mariae pertinere debeat domum castro Frigisingas fundatum. Haec sunt testes qui praesente manu firmaverunt Hrodhart abbas testis. Reginperht, Uualtrih, Hununc, Suapilo, Ratolt presbiteri. Toto. Popo. Graman. Adalperht. Ratolt. Scrot. Telo testes. Actum in villa Isna sub die consule non. octub anno XXV. regnante domno et inlustrissimo duci Tassilone indictione X Ego Albaldus scripsi",
+          "lemmas": null,
+          "regest": "Ortlaip übergibt eine Kirche zu Grosshelfendorf.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 50",
           "urn": "urn:cts:formulae:freising.bitterauf0050.lat001",
           "date_string": "772 10 07",
           "comp_ort": "Isen",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "TRADITIO ORTLAIPI DE HELPHINDORF. Constat universa deo auctore ordinata cuius nutu factura eius homo eminentiae cuncta praecellens signaculum similitudinis conditoris plasmatus fuerat, cuncta sibimet subiecta a deo fuisset imperatum cuius largitoris munere vivimus et sumus, ipse mihi et vires tribuebat et intellectum, ipse tempus et locum, ipse suo beneficio spiritui inspirans facultati, ut congrue succurrere tempori ubi beatus Christi martyr Heimrammus campum elegit certaminis, ut victor triumphans perennem cum Christo frueret gaudium, membris solutus amitteret spiritum eius amore, ut ibidem fundarer ecclesiam, ut pio apud domino delictorum veniam merearer accipere, sicque peractum est, ut ab incolis locum iusto emerem pretio, moeniis ecclesiam praedicti honoris fabricavi martyris canone dudum aedificatione constitui honorifice bonae memoriae Ermberto episcopo dedicatore ordinavi quibus laboribus me remuneraturum confido Propterea ego Ortlaip per consensum abbatis mei Hrodharti praedictam ecclesiam sancti Emmerammi in loco Helphimdorf constructa trado et transfundo ad domum beatae et intemeratae virginis Mariae, ut ne canones repugnare videar, Arbionis episcopi ditioni subsistere debeat excepto benefici illius vitae meae, ut ex eius fruar beneficiis concesse licentiae stipulatione subnexa aut necessitate cogente filiae meae, ut praedictum fuisset elevamen. Post obitum vero meum animae pro remedium meae canonica subiaceat iura ut praenotatum est cum clero et servientibus, cum libertis et aldionibus, cum terminio et facultatibus, ad domini dei nostri genetricis Mariae pertinere debeat domum castro Frigisingas fundatum. Haec sunt testes qui praesente manu firmaverunt Hrodhart abbas testis. Reginperht, Uualtrih, Hununc, Suapilo, Ratolt presbiteri. Toto. Popo. Graman. Adalperht. Ratolt. Scrot. Telo testes. Actum in villa Isna sub die consule non. octub anno XXV. regnante domno et inlustrissimo duci Tassilone indictione X Ego Albaldus scripsi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Ortlaip übergibt eine Kirche zu Grosshelfendorf.",
           "orig_comp_ort": "Isen",
           "forgery": false,
           "specific_date": [
@@ -219,7 +235,19 @@
           "days": [
             "Wednesday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Arenga": "Constat\n                            universa deo auctore ordinata cuius nutu factura eius homo eminentiae\n                            cuncta praecellens signaculum similitudinis conditoris plasmatus fuerat,\n                            cuncta sibimet subiecta a deo fuisset imperatum cuius largitoris munere\n                            vivimus et sumus, ipse mihi et vires tribuebat et intellectum, ipse\n                            tempus et locum, ipse suo beneficio spiritui inspirans facultati, ut\n                            congrue succurrere tempori ubi beatus Christi martyr Heimrammus campum\n                            elegit certaminis, ut victor triumphans perennem cum Christo frueret\n                            gaudium, membris solutus amitteret spiritum eius amore, ut ibidem\n                            fundarer ecclesiam, ut pio apud domino delictorum veniam merearer\n                            accipere, sicque peractum est, ut ab incolis locum iusto emerem pretio,\n                            moeniis ecclesiam praedicti honoris fabricavi martyris canone dudum\n                            aedificatione constitui honorifice bonae memoriae Ermberto episcopo\n                            dedicatore ordinavi quibus laboribus me remuneraturum confido",
+          "Arenga-lems": null,
+          "Intitulatio": "ego Ortlaip per consensum abbatis",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "praedictam ecclesiam\n                            sancti Emmerammi in loco Helphimdorf constructa",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "trado et transfundo",
+          "Dispositio-lems": null,
+          "Corroboratio": "Haec sunt testes qui praesente manu firmaverunt",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "sub die consule non. octub ... anno XXV. regnante domno et\n                            inlustrissimo duci Tassilone indictione X ... Ego Albaldus\n                        scripsi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -227,21 +255,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "TRADITIO MEKILONIS DE DORNEGINDORF. Regnante in perpetuo domino nostro Jesu Christo in anno XXX. regni Tassilonis duci ego Mekilo omnem alodem quem possidere videbar excepto territorii coloniae une pro remedium animae meae tradedi ad ecclesiam beati Corbiniani cum sociis suis cum ipso titulo quem in ipso territorio fundavi nuncupante Dornakindorf per manus Heredis episcopi et dedicatoris huius oratorii ad domum episcopie ipsius confirmavi adsistente clero vel plebe necnon et generibus meis atque cognatis consentientibus quicquid ad ipsum nostrae ditioni pertinet locum tam mancipiis et aedificiis quam territoriis et utensiliis ita suppellectiliis et pecodibus omnem rem cultam et incultam ita ut stilo quam prehendi perarare dinoscimus in perpetuum stabilem fieri firmamus. Actum sub die consule quod erat III. non. octob. indictione prima Et haec testes et eorum nomina Heres episcopus. Dauid. Heripald. Alpuni. Otperht. Otperht. Alholf. Hacuno. Herolf. Heripald. Uuolfpero. Hrodunc. Otker. Asprant. Podolunc. Ego Francho ex ore Heredis episcopi iussus conscripsi",
+          "lemmas": null,
+          "regest": "Mekilo schenkt Besitz zu Derndorf.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 85",
           "urn": "urn:cts:formulae:freising.bitterauf0085.lat001",
           "date_string": "777 10 05",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "TRADITIO MEKILONIS DE DORNEGINDORF. Regnante in perpetuo domino nostro Jesu Christo in anno XXX. regni Tassilonis duci ego Mekilo omnem alodem quem possidere videbar excepto territorii coloniae une pro remedium animae meae tradedi ad ecclesiam beati Corbiniani cum sociis suis cum ipso titulo quem in ipso territorio fundavi nuncupante Dornakindorf per manus Heredis episcopi et dedicatoris huius oratorii ad domum episcopie ipsius confirmavi adsistente clero vel plebe necnon et generibus meis atque cognatis consentientibus quicquid ad ipsum nostrae ditioni pertinet locum tam mancipiis et aedificiis quam territoriis et utensiliis ita suppellectiliis et pecodibus omnem rem cultam et incultam ita ut stilo quam prehendi perarare dinoscimus in perpetuum stabilem fieri firmamus. Actum sub die consule quod erat III. non. octob. indictione prima Et haec testes et eorum nomina Heres episcopus. Dauid. Heripald. Alpuni. Otperht. Otperht. Alholf. Hacuno. Herolf. Heripald. Uuolfpero. Hrodunc. Otker. Asprant. Podolunc. Ego Francho ex ore Heredis episcopi iussus conscripsi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Mekilo schenkt Besitz zu Derndorf.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -259,7 +287,19 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Eschatokoll": "Regnante in\n                            perpetuo domino nostro Jesu Christo in anno XXX. regni Tassilonis duci ... sub die consule quod erat III. non. octob. indictione prima ... Ego Francho ex ore Heredis episcopi iussus\n                            conscripsi",
+          "Eschatokoll-lems": null,
+          "Intitulatio": "ego Mekilo",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "omnem alodem quem possidere videbar excepto territorii\n                            coloniae une ... cum ipso titulo quem in ipso territorio\n                            fundavi nuncupante Dornakindorf ... quicquid ad ipsum nostrae ditioni pertinet locum tam\n                            mancipiis et aedificiis quam territoriis et utensiliis ita\n                            suppellectiliis et pecodibus omnem rem cultam et incultam",
+          "Pertinenzformel-lems": null,
+          "Narratio": "pro remedium animae meae",
+          "Narratio-lems": null,
+          "Dispositio": "tradedi",
+          "Dispositio-lems": null,
+          "Corroboratio": "Et\n                            haec testes et eorum nomina",
+          "Corroboratio-lems": null
         },
         "sort": [
           1,
@@ -267,21 +307,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "TRADITIO DEOTLINDA DE NERITINGA. In nomine domini nostri Jesu Christi Ego in dei nomine Deotlind cogitante vel tractante me de vita futura atque aeternae retributionis profutura, ut de peccatis meis veniam peccatorum meorum merear accipere ideoque trado atque transfundo omnia mea ad me pertinentia sive de proprio seu ad me adtracto quolibet adquisitionis in loco quae dicitur Neritinga, id est mansos duos, Emicho cum uxore sua Hroaduuar et filio nomine Liutperht cum familia et substantia sua quicquid habere videtur et alius servus nomine Uuolfdeo cum uxore sua Perhthilt cum filio nomine Hroduni et filia nomine Uualtrat cum filio Sikifrid itemque quod in beneficio praestiti cum consensu episcopi Attonis diacono Snelmoti, id est mancipia dua cum territorio pertinente mansum unum, haec omnia valente manu nemine contradicente trado atque confirmo ad ecclesiam beate et intemerate semper virginis Mariae in loco nuncupante Frikisinga domo episcopali, ut ibidem traditio firma et stabilis permaneat ut iam diximus mancipia curtes aedificia domorum territorium pratis aquis aquarumque decursibus pascuis et digressibus viarum sicut ab initio consueverat antiquitus antecessorum nostrorum stipulatione interposita. Actum in castro nuncupante Frikisinga sub die consule regnante domno magnifico atque glorioso Karolo rege Francorum atque Longobardorum seu et patricio Romanorum anno XX die mensis quod facit kal. octob. indictione XI Et haec testes Alprat comes. Hamadeo testis. Hununc presbiter testis. Cozzo clericus testis. Maio testis. Enzilo. Altman diaconus. Ego Snelmot manu propria ex ore Attonis episcopi haec cartulam scripsi et subscripsi",
+          "lemmas": null,
+          "regest": "Deotlind übergibt ihren Besitz zu Nörting.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 120",
           "urn": "urn:cts:formulae:freising.bitterauf0120.lat001",
           "date_string": "788 10 01",
           "comp_ort": "Freising",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "TRADITIO DEOTLINDA DE NERITINGA. In nomine domini nostri Jesu Christi Ego in dei nomine Deotlind cogitante vel tractante me de vita futura atque aeternae retributionis profutura, ut de peccatis meis veniam peccatorum meorum merear accipere ideoque trado atque transfundo omnia mea ad me pertinentia sive de proprio seu ad me adtracto quolibet adquisitionis in loco quae dicitur Neritinga, id est mansos duos, Emicho cum uxore sua Hroaduuar et filio nomine Liutperht cum familia et substantia sua quicquid habere videtur et alius servus nomine Uuolfdeo cum uxore sua Perhthilt cum filio nomine Hroduni et filia nomine Uualtrat cum filio Sikifrid itemque quod in beneficio praestiti cum consensu episcopi Attonis diacono Snelmoti, id est mancipia dua cum territorio pertinente mansum unum, haec omnia valente manu nemine contradicente trado atque confirmo ad ecclesiam beate et intemerate semper virginis Mariae in loco nuncupante Frikisinga domo episcopali, ut ibidem traditio firma et stabilis permaneat ut iam diximus mancipia curtes aedificia domorum territorium pratis aquis aquarumque decursibus pascuis et digressibus viarum sicut ab initio consueverat antiquitus antecessorum nostrorum stipulatione interposita. Actum in castro nuncupante Frikisinga sub die consule regnante domno magnifico atque glorioso Karolo rege Francorum atque Longobardorum seu et patricio Romanorum anno XX die mensis quod facit kal. octob. indictione XI Et haec testes Alprat comes. Hamadeo testis. Hununc presbiter testis. Cozzo clericus testis. Maio testis. Enzilo. Altman diaconus. Ego Snelmot manu propria ex ore Attonis episcopi haec cartulam scripsi et subscripsi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Deotlind übergibt ihren Besitz zu Nörting.",
           "orig_comp_ort": "Freising",
           "forgery": false,
           "specific_date": [
@@ -299,7 +339,21 @@
           "days": [
             "Wednesday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In nomine\n                            domini nostri Jesu Christi",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego in dei nomine Deotlind",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitante vel\n                            tractante me de vita futura atque aeternae retributionis profutura, ut\n                            de peccatis meis veniam peccatorum meorum merear accipere",
+          "Narratio-lems": null,
+          "Dispositio": "trado\n                            atque transfundo ... trado atque confirmo ... ut ibidem traditio firma et stabilis permaneat",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "omnia mea ad me pertinentia sive de proprio seu ad me\n                            adtracto quolibet adquisitionis in loco quae dicitur Neritinga, id est\n                            mansos duos, Emicho cum uxore sua Hroaduuar et filio nomine Liutperht\n                            cum familia et substantia sua quicquid habere videtur et alius servus\n                            nomine Uuolfdeo cum uxore sua Perhthilt cum filio nomine Hroduni et\n                            filia nomine Uualtrat cum filio Sikifrid itemque quod in beneficio\n                            praestiti cum consensu episcopi Attonis diacono Snelmoti, id est\n                            mancipia dua cum territorio pertinente mansum unum, haec omnia valente\n                            manu nemine contradicente",
+          "Pertinenzformel-lems": null,
+          "Eschatokoll": "sub die consule ... regnante domno\n                            magnifico atque glorioso Karolo rege Francorum atque Longobardorum seu\n                            et patricio Romanorum anno XX ... die mensis quod facit kal. octob.\n                            indictione XI ... Ego Snelmot manu propria ex ore Attonis episcopi haec cartulam\n                            scripsi et subscripsi",
+          "Eschatokoll-lems": null,
+          "Corroboratio": "Et haec testes",
+          "Corroboratio-lems": null
         },
         "sort": [
           1,
@@ -307,21 +361,21 @@
         ]
       },
       {
-        "_index": "freising_v46",
+        "_index": "freising_v12",
         "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
         "_score": null,
         "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
+          "text": "TRADITIO GAIONI IN LOCIS POAPINTAL, OPARINHOF, CYREOLA, PETTINPAH. Dum fragilitas humani generis pertimescit ultimum vite temporis diem subitanea transpositione ventura oportet, ut non in venia unum quemque inparatum, ne sine aliquo boni operis respectum migret de seculo, nisi dum suo iure et potestate consistat, praeparet sibi viam salutis dum pretium in manibus habet per quam ad aeternam valeat beatitudinem pervenire Ideoque ego Gaio in dei nomine cogitans pro remedium anime meae et remissionem peccatorum meorum, ut veniam in futuro consequi merear trado omnem hereditatem meam quod mihi ob iure parentorum meorum obvenit villas nuncupatas in pago qui cognominatur Poapintal, id est in Oparinhofe et in Cyreolu seu foras montes in loco qui nuncupatur Pettinpach vel ubicumque visus sum habere cum terris cum domibus aedificiis accolabus mancipiis alpis silvis campis pratis pascuis aquis aquarumque decursibus adiunctis adiacentiis adpenditiis peculium utriusque sexus mobilibus et inmobilibus trado ad monasterium quae nuncupatur Slechdorf ubi corpus sancti Tertuliani requiescit et Atto episcopus ibi praeesse videtur una cum monachis ibidem degentibus et recepimus a vobis in beneficium illam terram quam habetis in Pettinpach de parte Otiloni et boves IIII in ea ratione, ut annis singulis censum solvere debeam dimidium solidum in argento aut in grano et ipsas locas quas superius praenotavimus nec vendere nec alienare nec nullum naufragium inponere, sed emelioratas ad ipsum monasterium revocare. Si quis vero quod futurum esse non credo huic voluntati nostrae de quibuslibet adinventionibus aliquis de heredibus nostris vel quislibet persona qui contra huius traditionis firmitatem frangendi repertus fuerit, a conventu omnium Christianorum vel limitibus ecclesiarum extraneus habeatur et Judae traditoris domini nostri Jesu Christi perfruatur consortium insuper etiam inferat partibus ipsius monasterii vel fratrum ibidem consistentium auri libras duas nec sic quoque quod repetit non valeat vindicare et nihilominus praesens traditio quae pro timore dei et amore Christi conscribta est firma et inviolata omni tempore valeat permanere Haec sunt testes Reginhart comes. Alius Reginhart. Kaganhart. Alprih. Rubo diaconus. Zotto diaconus. Engilperht. Helmperht. Nothart. Etti. Cozrat. Engilperht, regnante domno nostro Karolo rege in Baiouuaria anno XII V. kal. novembr Ego Meriolfus presbiter scripsi et subscripsi",
+          "lemmas": null,
+          "regest": "Gaio übergibt seinen Besitz im Gau „Poapintal“ zu Oberhofen, Zirl und Langen(Amper)pettenbach dem Kloster Schlehdorf.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 177",
           "urn": "urn:cts:formulae:freising.bitterauf0177.lat001",
           "date_string": "799 10 28",
           "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
+          "autocomplete": "TRADITIO GAIONI IN LOCIS POAPINTAL, OPARINHOF, CYREOLA, PETTINPAH. Dum fragilitas humani generis pertimescit ultimum vite temporis diem subitanea transpositione ventura oportet, ut non in venia unum quemque inparatum, ne sine aliquo boni operis respectum migret de seculo, nisi dum suo iure et potestate consistat, praeparet sibi viam salutis dum pretium in manibus habet per quam ad aeternam valeat beatitudinem pervenire Ideoque ego Gaio in dei nomine cogitans pro remedium anime meae et remissionem peccatorum meorum, ut veniam in futuro consequi merear trado omnem hereditatem meam quod mihi ob iure parentorum meorum obvenit villas nuncupatas in pago qui cognominatur Poapintal, id est in Oparinhofe et in Cyreolu seu foras montes in loco qui nuncupatur Pettinpach vel ubicumque visus sum habere cum terris cum domibus aedificiis accolabus mancipiis alpis silvis campis pratis pascuis aquis aquarumque decursibus adiunctis adiacentiis adpenditiis peculium utriusque sexus mobilibus et inmobilibus trado ad monasterium quae nuncupatur Slechdorf ubi corpus sancti Tertuliani requiescit et Atto episcopus ibi praeesse videtur una cum monachis ibidem degentibus et recepimus a vobis in beneficium illam terram quam habetis in Pettinpach de parte Otiloni et boves IIII in ea ratione, ut annis singulis censum solvere debeam dimidium solidum in argento aut in grano et ipsas locas quas superius praenotavimus nec vendere nec alienare nec nullum naufragium inponere, sed emelioratas ad ipsum monasterium revocare. Si quis vero quod futurum esse non credo huic voluntati nostrae de quibuslibet adinventionibus aliquis de heredibus nostris vel quislibet persona qui contra huius traditionis firmitatem frangendi repertus fuerit, a conventu omnium Christianorum vel limitibus ecclesiarum extraneus habeatur et Judae traditoris domini nostri Jesu Christi perfruatur consortium insuper etiam inferat partibus ipsius monasterii vel fratrum ibidem consistentium auri libras duas nec sic quoque quod repetit non valeat vindicare et nihilominus praesens traditio quae pro timore dei et amore Christi conscribta est firma et inviolata omni tempore valeat permanere Haec sunt testes Reginhart comes. Alius Reginhart. Kaganhart. Alprih. Rubo diaconus. Zotto diaconus. Engilperht. Helmperht. Nothart. Etti. Cozrat. Engilperht, regnante domno nostro Karolo rege in Baiouuaria anno XII V. kal. novembr Ego Meriolfus presbiter scripsi et subscripsi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Gaio übergibt seinen Besitz im Gau „Poapintal“ zu Oberhofen, Zirl und Langen(Amper)pettenbach dem Kloster Schlehdorf.",
           "orig_comp_ort": " ",
           "forgery": false,
           "specific_date": [
@@ -339,7 +393,25 @@
           "days": [
             "Monday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Arenga": "Dum fragilitas humani generis pertimescit ultimum\n                            vite temporis diem subitanea transpositione ventura oportet, ut non in\n                            venia unum quemque inparatum, ne sine aliquo boni operis respectum\n                            migret de seculo, nisi dum suo iure et potestate consistat, praeparet\n                            sibi viam salutis dum pretium in manibus habet per quam ad aeternam\n                            valeat beatitudinem pervenire",
+          "Arenga-lems": null,
+          "Intitulatio": "ego Gaio",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans\n                            pro remedium anime meae et remissionem peccatorum meorum, ut veniam in\n                            futuro consequi merear",
+          "Narratio-lems": null,
+          "Dispositio": " trado  ... trado",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "omnem hereditatem meam quod mihi ob iure\n                            parentorum meorum obvenit villas nuncupatas in pago qui cognominatur\n                            Poapintal, id est in Oparinhofe et in Cyreolu seu foras montes in loco\n                            qui nuncupatur Pettinpach vel ubicumque visus sum habere cum terris cum\n                            domibus aedificiis accolabus mancipiis alpis silvis campis pratis\n                            pascuis aquis aquarumque decursibus adiunctis adiacentiis adpenditiis\n                            peculium utriusque sexus mobilibus et inmobilibus",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero quod futurum esse non credo huic voluntati\n                            nostrae de quibuslibet adinventionibus aliquis de heredibus nostris vel\n                            quislibet persona qui contra huius traditionis firmitatem frangendi\n                            repertus fuerit, a conventu omnium Christianorum vel limitibus\n                            ecclesiarum extraneus habeatur et Judae traditoris domini nostri Jesu\n                            Christi perfruatur consortium ... insuper etiam inferat partibus ipsius\n                            monasterii vel fratrum ibidem consistentium auri libras duas nec sic\n                            quoque quod repetit non valeat vindicare",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "nihilominus praesens\n                            traditio quae pro timore dei et amore Christi conscribta est firma et\n                            inviolata omni tempore valeat permanere",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Haec sunt testes",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "regnante domno nostro Karolo rege in Baiouuaria anno XII ... V. kal.\n                            novembr ... Ego Meriolfus presbiter scripsi et subscripsi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -347,7 +419,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v46",
+        "_index": "fulda_stengel_v12",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
         "_score": null,
@@ -387,7 +459,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v46",
+        "_index": "fulda_stengel_v12",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
         "_score": null,
@@ -427,7 +499,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v46",
+        "_index": "fulda_stengel_v12",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
         "_score": null,
@@ -467,7 +539,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v46",
+        "_index": "fulda_stengel_v12",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
         "_score": null,
@@ -507,7 +579,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v46",
+        "_index": "fulda_stengel_v12",
         "_type": "fulda_stengel",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
         "_score": null,
@@ -547,7 +619,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v12",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0003.lat001",
         "_score": null,
@@ -587,7 +659,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v12",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0009.lat001",
         "_score": null,
@@ -627,7 +699,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v12",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0010.lat001",
         "_score": null,
@@ -667,7 +739,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v45",
+        "_index": "hersfeld_v12",
         "_type": "hersfeld",
         "_id": "urn:cts:formulae:hersfeld.weirich0011.lat001",
         "_score": null,
@@ -707,7 +779,7 @@
         ]
       },
       {
-        "_index": "langobardisch_v43",
+        "_index": "langobardisch_v12",
         "_type": "langobardisch",
         "_id": "urn:cts:formulae:langobardisch.bruehl0008.lat001",
         "_score": null,
@@ -747,7 +819,7 @@
         ]
       },
       {
-        "_index": "langobardisch_v43",
+        "_index": "langobardisch_v12",
         "_type": "langobardisch",
         "_id": "urn:cts:formulae:langobardisch.bruehl0013.lat001",
         "_score": null,
@@ -787,7 +859,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0287.lat001",
         "_score": null,
@@ -827,7 +899,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0371.lat001",
         "_score": null,
@@ -867,7 +939,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0372.lat001",
         "_score": null,
@@ -907,7 +979,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0430.lat001",
         "_score": null,
@@ -947,7 +1019,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0455.lat001",
         "_score": null,
@@ -987,7 +1059,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0467.lat001",
         "_score": null,
@@ -1027,7 +1099,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0512.lat001",
         "_score": null,
@@ -1067,7 +1139,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0547.lat001",
         "_score": null,
@@ -1107,7 +1179,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0575.lat001",
         "_score": null,
@@ -1147,7 +1219,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0592.lat001",
         "_score": null,
@@ -1187,7 +1259,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0628.lat001",
         "_score": null,
@@ -1227,7 +1299,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0667.lat001",
         "_score": null,
@@ -1267,7 +1339,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0712.lat001",
         "_score": null,
@@ -1307,7 +1379,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0717.lat001",
         "_score": null,
@@ -1347,7 +1419,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0721.lat001",
         "_score": null,
@@ -1387,7 +1459,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0722.lat001",
         "_score": null,
@@ -1427,7 +1499,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0726.lat001",
         "_score": null,
@@ -1467,7 +1539,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0748.lat001",
         "_score": null,
@@ -1507,7 +1579,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0750.lat001",
         "_score": null,
@@ -1547,7 +1619,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0785.lat001",
         "_score": null,
@@ -1587,7 +1659,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0859.lat001",
         "_score": null,
@@ -1627,7 +1699,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0866.lat001",
         "_score": null,
@@ -1667,7 +1739,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0897.lat001",
         "_score": null,
@@ -1703,8 +1775,8 @@
           "min_date": "0784-10-25",
           "max_date": "0785-10-25",
           "days": [
-            "Tuesday",
-            "Monday"
+            "Monday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -1714,7 +1786,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1023.lat001",
         "_score": null,
@@ -1754,7 +1826,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1042.lat001",
         "_score": null,
@@ -1794,7 +1866,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1047.lat001",
         "_score": null,
@@ -1836,9 +1908,9 @@
           "min_date": "0765-10-29",
           "max_date": "0767-10-29",
           "days": [
+            "Tuesday",
             "Thursday",
-            "Wednesday",
-            "Tuesday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -1848,7 +1920,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1058.lat001",
         "_score": null,
@@ -1939,12 +2011,12 @@
           "max_date": "0803-10-15",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Friday",
             "Tuesday",
-            "Saturday",
             "Monday",
-            "Sunday"
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -1954,7 +2026,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1107.lat001",
         "_score": null,
@@ -1994,7 +2066,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1181.lat001",
         "_score": null,
@@ -2034,7 +2106,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1187.lat001",
         "_score": null,
@@ -2074,7 +2146,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1195.lat001",
         "_score": null,
@@ -2114,7 +2186,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1199.lat001",
         "_score": null,
@@ -2154,7 +2226,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1232.lat001",
         "_score": null,
@@ -2194,7 +2266,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1260.lat001",
         "_score": null,
@@ -2234,7 +2306,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1263.lat001",
         "_score": null,
@@ -2274,7 +2346,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1264.lat001",
         "_score": null,
@@ -2314,7 +2386,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1273.lat001",
         "_score": null,
@@ -2356,9 +2428,9 @@
           "min_date": "0765-10-22",
           "max_date": "0767-10-22",
           "days": [
+            "Tuesday",
             "Thursday",
-            "Wednesday",
-            "Tuesday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -2368,7 +2440,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1275.lat001",
         "_score": null,
@@ -2408,7 +2480,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1299.lat001",
         "_score": null,
@@ -2448,7 +2520,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1347.lat001",
         "_score": null,
@@ -2488,7 +2560,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1358.lat001",
         "_score": null,
@@ -2528,7 +2600,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1379.lat001",
         "_score": null,
@@ -2568,7 +2640,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1385.lat001",
         "_score": null,
@@ -2608,7 +2680,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1512.lat001",
         "_score": null,
@@ -2648,7 +2720,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1595.lat001",
         "_score": null,
@@ -2688,7 +2760,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1600.lat001",
         "_score": null,
@@ -2728,7 +2800,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1636.lat001",
         "_score": null,
@@ -2768,7 +2840,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1663.lat001",
         "_score": null,
@@ -2808,7 +2880,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1696.lat001",
         "_score": null,
@@ -2848,7 +2920,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1714.lat001",
         "_score": null,
@@ -2888,7 +2960,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1738.lat001",
         "_score": null,
@@ -2928,7 +3000,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1748.lat001",
         "_score": null,
@@ -2968,7 +3040,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1978.lat001",
         "_score": null,
@@ -3008,7 +3080,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner1979.lat001",
         "_score": null,
@@ -3048,7 +3120,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2003.lat001",
         "_score": null,
@@ -3090,9 +3162,9 @@
           "min_date": "0765-10-29",
           "max_date": "0767-10-29",
           "days": [
+            "Tuesday",
             "Thursday",
-            "Wednesday",
-            "Tuesday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -3102,7 +3174,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2013.lat001",
         "_score": null,
@@ -3148,7 +3220,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2019.lat001",
         "_score": null,
@@ -3188,7 +3260,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2049.lat001",
         "_score": null,
@@ -3228,7 +3300,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2051.lat001",
         "_score": null,
@@ -3270,9 +3342,9 @@
           "min_date": "0765-10-13",
           "max_date": "0767-10-13",
           "days": [
-            "Tuesday",
             "Monday",
-            "Sunday"
+            "Sunday",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -3282,7 +3354,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2055.lat001",
         "_score": null,
@@ -3322,7 +3394,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2063.lat001",
         "_score": null,
@@ -3362,7 +3434,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2081.lat001",
         "_score": null,
@@ -3402,7 +3474,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2152.lat001",
         "_score": null,
@@ -3442,7 +3514,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2155.lat001",
         "_score": null,
@@ -3482,7 +3554,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2162.lat001",
         "_score": null,
@@ -3522,7 +3594,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2171.lat001",
         "_score": null,
@@ -3562,7 +3634,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2194.lat001",
         "_score": null,
@@ -3617,10 +3689,10 @@
           "max_date": "0783-10-31",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
             "Tuesday",
-            "Sunday"
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -3630,7 +3702,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2197.lat001",
         "_score": null,
@@ -3670,7 +3742,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2294.lat001",
         "_score": null,
@@ -3686,7 +3758,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -3710,7 +3782,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2321.lat001",
         "_score": null,
@@ -3726,7 +3798,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 787,
@@ -3750,7 +3822,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2330.lat001",
         "_score": null,
@@ -3766,7 +3838,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 796,
@@ -3790,7 +3862,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2349.lat001",
         "_score": null,
@@ -3806,7 +3878,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -3830,7 +3902,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2351.lat001",
         "_score": null,
@@ -3846,7 +3918,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 778,
@@ -3870,7 +3942,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2354.lat001",
         "_score": null,
@@ -3886,7 +3958,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 779,
@@ -3924,11 +3996,11 @@
           "min_date": "0779-10-13",
           "max_date": "0783-10-13",
           "days": [
-            "Friday",
             "Wednesday",
-            "Saturday",
+            "Sunday",
+            "Friday",
             "Monday",
-            "Sunday"
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -3938,7 +4010,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2468.lat001",
         "_score": null,
@@ -3954,7 +4026,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 800,
@@ -3978,7 +4050,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2494.lat001",
         "_score": null,
@@ -3994,7 +4066,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -4018,7 +4090,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2495.lat001",
         "_score": null,
@@ -4034,7 +4106,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -4058,7 +4130,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2536.lat001",
         "_score": null,
@@ -4074,7 +4146,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -4098,7 +4170,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2545.lat001",
         "_score": null,
@@ -4114,7 +4186,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 768,
@@ -4189,12 +4261,12 @@
           "max_date": "0778-10-30",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Monday",
             "Tuesday",
             "Saturday",
-            "Monday",
-            "Sunday"
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -4204,7 +4276,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2554.lat001",
         "_score": null,
@@ -4220,7 +4292,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 776,
@@ -4244,7 +4316,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2614.lat001",
         "_score": null,
@@ -4260,7 +4332,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -4284,7 +4356,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2698.lat001",
         "_score": null,
@@ -4300,7 +4372,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 800,
@@ -4324,7 +4396,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2739.lat001",
         "_score": null,
@@ -4340,7 +4412,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 791,
@@ -4364,7 +4436,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2836.lat001",
         "_score": null,
@@ -4380,7 +4452,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 776,
@@ -4404,7 +4476,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2844.lat001",
         "_score": null,
@@ -4420,7 +4492,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 790,
@@ -4444,7 +4516,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2856.lat001",
         "_score": null,
@@ -4460,7 +4532,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 800,
@@ -4484,7 +4556,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2867.lat001",
         "_score": null,
@@ -4500,7 +4572,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 800,
@@ -4524,7 +4596,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2873.lat001",
         "_score": null,
@@ -4540,7 +4612,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 791,
@@ -4564,7 +4636,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2876.lat001",
         "_score": null,
@@ -4580,7 +4652,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 787,
@@ -4604,7 +4676,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2900.lat001",
         "_score": null,
@@ -4620,7 +4692,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 777,
@@ -4644,7 +4716,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2924.lat001",
         "_score": null,
@@ -4660,7 +4732,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 778,
@@ -4684,7 +4756,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2962.lat001",
         "_score": null,
@@ -4700,7 +4772,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 796,
@@ -4724,7 +4796,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2965.lat001",
         "_score": null,
@@ -4740,7 +4812,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -4764,7 +4836,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2966.lat001",
         "_score": null,
@@ -4780,7 +4852,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -4804,7 +4876,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2967.lat001",
         "_score": null,
@@ -4820,7 +4892,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 788,
@@ -4844,7 +4916,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner2986.lat001",
         "_score": null,
@@ -4860,7 +4932,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -4884,7 +4956,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3043.lat001",
         "_score": null,
@@ -4900,7 +4972,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -4924,7 +4996,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3053.lat001",
         "_score": null,
@@ -4940,7 +5012,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -4964,7 +5036,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3055.lat001",
         "_score": null,
@@ -4980,7 +5052,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 773,
@@ -5004,7 +5076,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3066.lat001",
         "_score": null,
@@ -5020,7 +5092,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 788,
@@ -5044,7 +5116,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3073.lat001",
         "_score": null,
@@ -5060,7 +5132,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -5084,7 +5156,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3075.lat001",
         "_score": null,
@@ -5100,7 +5172,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5120,8 +5192,8 @@
           "min_date": "0771-10-01",
           "max_date": "0772-10-01",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -5131,7 +5203,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3082.lat001",
         "_score": null,
@@ -5147,7 +5219,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -5171,7 +5243,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3116.lat001",
         "_score": null,
@@ -5187,7 +5259,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 779,
@@ -5211,7 +5283,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3145.lat001",
         "_score": null,
@@ -5227,7 +5299,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 799,
@@ -5251,7 +5323,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3149.lat001",
         "_score": null,
@@ -5267,7 +5339,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 768,
@@ -5291,7 +5363,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3157.lat001",
         "_score": null,
@@ -5307,7 +5379,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 776,
@@ -5331,7 +5403,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3215.lat001",
         "_score": null,
@@ -5347,7 +5419,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -5371,7 +5443,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3226.lat001",
         "_score": null,
@@ -5387,7 +5459,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 790,
@@ -5411,7 +5483,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3239.lat001",
         "_score": null,
@@ -5427,7 +5499,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 783,
@@ -5451,7 +5523,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3282.lat001",
         "_score": null,
@@ -5467,7 +5539,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -5491,7 +5563,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3283.lat001",
         "_score": null,
@@ -5507,7 +5579,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 783,
@@ -5531,7 +5603,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3287.lat001",
         "_score": null,
@@ -5547,7 +5619,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 783,
@@ -5571,7 +5643,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3305.lat001",
         "_score": null,
@@ -5587,7 +5659,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5611,7 +5683,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3308.lat001",
         "_score": null,
@@ -5627,7 +5699,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5651,7 +5723,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3309.lat001",
         "_score": null,
@@ -5667,7 +5739,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5691,7 +5763,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3312.lat001",
         "_score": null,
@@ -5707,7 +5779,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5731,7 +5803,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3316.lat001",
         "_score": null,
@@ -5747,7 +5819,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -5771,7 +5843,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3317.lat001",
         "_score": null,
@@ -5787,7 +5859,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 768,
@@ -5811,7 +5883,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3332.lat001",
         "_score": null,
@@ -5827,7 +5899,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -5851,7 +5923,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3348.lat001",
         "_score": null,
@@ -5867,7 +5939,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 785,
@@ -5891,7 +5963,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3351.lat001",
         "_score": null,
@@ -5907,7 +5979,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -5931,7 +6003,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3357.lat001",
         "_score": null,
@@ -5947,7 +6019,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -5971,7 +6043,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3366.lat001",
         "_score": null,
@@ -5987,7 +6059,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 775,
@@ -6011,7 +6083,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3370.lat001",
         "_score": null,
@@ -6027,7 +6099,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 775,
@@ -6051,7 +6123,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3395.lat001",
         "_score": null,
@@ -6067,7 +6139,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -6091,7 +6163,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3405.lat001",
         "_score": null,
@@ -6107,7 +6179,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 775,
@@ -6131,7 +6203,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3418.lat001",
         "_score": null,
@@ -6147,7 +6219,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 776,
@@ -6171,7 +6243,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3451.lat001",
         "_score": null,
@@ -6187,7 +6259,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 773,
@@ -6211,7 +6283,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3460.lat001",
         "_score": null,
@@ -6227,7 +6299,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 779,
@@ -6266,10 +6338,10 @@
           "max_date": "0783-10-28",
           "days": [
             "Thursday",
-            "Tuesday",
-            "Saturday",
+            "Sunday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -6279,7 +6351,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3461.lat001",
         "_score": null,
@@ -6295,7 +6367,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 779,
@@ -6334,10 +6406,10 @@
           "max_date": "0783-10-28",
           "days": [
             "Thursday",
-            "Tuesday",
-            "Saturday",
+            "Sunday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -6347,7 +6419,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3473.lat001",
         "_score": null,
@@ -6363,7 +6435,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -6387,7 +6459,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3494.lat001",
         "_score": null,
@@ -6403,7 +6475,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 781,
@@ -6427,7 +6499,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3497.lat001",
         "_score": null,
@@ -6443,7 +6515,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 789,
@@ -6467,7 +6539,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3547.lat001",
         "_score": null,
@@ -6483,7 +6555,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -6507,7 +6579,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3551.lat001",
         "_score": null,
@@ -6523,7 +6595,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 793,
@@ -6547,7 +6619,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3572.lat001",
         "_score": null,
@@ -6563,7 +6635,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -6587,7 +6659,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3585.lat001",
         "_score": null,
@@ -6603,7 +6675,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 793,
@@ -6627,7 +6699,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3595.lat001",
         "_score": null,
@@ -6643,7 +6715,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -6667,7 +6739,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3602.lat001",
         "_score": null,
@@ -6683,7 +6755,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -6707,7 +6779,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3615.lat001",
         "_score": null,
@@ -6723,7 +6795,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 800,
@@ -6747,7 +6819,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3624.lat001",
         "_score": null,
@@ -6763,7 +6835,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 787,
@@ -6787,7 +6859,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3638.lat001",
         "_score": null,
@@ -6803,7 +6875,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -6827,7 +6899,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3704.lat001",
         "_score": null,
@@ -6843,7 +6915,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 769,
@@ -6867,7 +6939,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3719.lat001",
         "_score": null,
@@ -6883,7 +6955,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 772,
@@ -6907,7 +6979,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3724.lat001",
         "_score": null,
@@ -6923,7 +6995,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 791,
@@ -6947,7 +7019,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3739.lat001",
         "_score": null,
@@ -6963,7 +7035,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -6987,7 +7059,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3765.lat001",
         "_score": null,
@@ -7003,7 +7075,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 773,
@@ -7027,7 +7099,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3843.lat001",
         "_score": null,
@@ -7043,7 +7115,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -7067,7 +7139,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3845.lat001",
         "_score": null,
@@ -7083,7 +7155,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -7107,7 +7179,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3849.lat001",
         "_score": null,
@@ -7123,7 +7195,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -7147,7 +7219,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3851.lat001",
         "_score": null,
@@ -7163,7 +7235,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -7187,7 +7259,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3853.lat001",
         "_score": null,
@@ -7203,7 +7275,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -7227,7 +7299,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3912.lat001",
         "_score": null,
@@ -7243,7 +7315,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 776,
@@ -7267,7 +7339,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3929.lat001",
         "_score": null,
@@ -7283,7 +7355,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 783,
@@ -7307,7 +7379,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner3965.lat001",
         "_score": null,
@@ -7323,7 +7395,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 783,
@@ -7347,7 +7419,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4040.lat001",
         "_score": null,
@@ -7363,7 +7435,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 790,
@@ -7387,7 +7459,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4046.lat001",
         "_score": null,
@@ -7403,7 +7475,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -7427,7 +7499,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4063.lat001",
         "_score": null,
@@ -7443,7 +7515,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 794,
@@ -7467,7 +7539,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4173.lat001",
         "_score": null,
@@ -7483,7 +7555,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 768,
@@ -7507,47 +7579,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
-        "_type": "lorsch",
-        "_id": "urn:cts:formulae:lorsch.gloeckner4176.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Wetterau, Nr. 1296",
-          "urn": "urn:cts:formulae:lorsch.gloeckner4176.lat001",
-          "date_string": "768 10 23",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": true,
-          "specific_date": [
-            {
-              "year": 768,
-              "month": 10,
-              "day": 23
-            }
-          ],
-          "all_dates": [
-            "0768-10-23"
-          ],
-          "min_date": "0768-10-23",
-          "max_date": "0768-10-23",
-          "days": [
-            "Sunday"
-          ],
-          "sort_prefix": 1
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:lorsch.gloeckner4176.lat001"
-        ]
-      },
-      {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4177.lat001",
         "_score": null,
@@ -7563,7 +7595,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 768,
@@ -7587,7 +7619,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4185.lat001",
         "_score": null,
@@ -7603,7 +7635,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -7627,7 +7659,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4197.lat001",
         "_score": null,
@@ -7643,7 +7675,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 771,
@@ -7663,8 +7695,8 @@
           "min_date": "0771-10-01",
           "max_date": "0772-10-01",
           "days": [
-            "Thursday",
-            "Tuesday"
+            "Tuesday",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -7674,7 +7706,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4199.lat001",
         "_score": null,
@@ -7690,7 +7722,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 770,
@@ -7714,7 +7746,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4227.lat001",
         "_score": null,
@@ -7730,7 +7762,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -7754,7 +7786,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4239.lat001",
         "_score": null,
@@ -7770,7 +7802,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 773,
@@ -7794,7 +7826,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4243.lat001",
         "_score": null,
@@ -7810,7 +7842,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 774,
@@ -7834,7 +7866,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4305.lat001",
         "_score": null,
@@ -7850,7 +7882,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 788,
@@ -7874,7 +7906,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4343.lat001",
         "_score": null,
@@ -7890,7 +7922,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -7914,7 +7946,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4373.lat001",
         "_score": null,
@@ -7930,7 +7962,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 799,
@@ -7954,7 +7986,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4425.lat001",
         "_score": null,
@@ -7970,7 +8002,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
-          "forgery": true,
+          "forgery": false,
           "specific_date": [
             {
               "year": 792,
@@ -7994,7 +8026,7 @@
         ]
       },
       {
-        "_index": "lorsch_v46",
+        "_index": "lorsch_v12",
         "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner4433.lat001",
         "_score": null,
@@ -8034,7 +8066,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v46",
+        "_index": "merowinger1_v12",
         "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0154.lat001",
         "_score": null,
@@ -8042,7 +8074,7 @@
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
-          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 154",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 154 †",
           "urn": "urn:cts:formulae:merowinger1.koelzer0154.lat001",
           "date_string": "703/4 10 20",
           "comp_ort": " ",
@@ -8070,8 +8102,8 @@
           "min_date": "0703-10-20",
           "max_date": "0704-10-20",
           "days": [
-            "Saturday",
-            "Monday"
+            "Monday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -8081,7 +8113,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v45",
+        "_index": "schaeftlarn_v12",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -8172,14 +8204,26 @@
           "max_date": "0800-10-09",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Friday",
             "Tuesday",
-            "Saturday",
             "Monday",
-            "Sunday"
+            "Saturday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Intitulatio": "Ego Sunderhere",
+          "Intitulatio-lems": null,
+          "Dispositio": " trado  ... trado ...   ut ibi sit stabilita   ...  ut ibi sit stabilita ",
+          "Dispositio-lems": null,
+          "Stipulationsformel": "ut ibi sit stabilita",
+          "Stipulationsformel-lems": null,
+          "Narratio": "pro redemptione animae meae",
+          "Narratio-lems": null,
+          "Corroboratio": " Isti sunt testes  ... Isti sunt testes",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Hoc actum est VII. idus Octobris in dedicatione aecclesiae in presentia Ichonis abbatis et defensoris Iacobi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8187,7 +8231,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v45",
+        "_index": "schaeftlarn_v12",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -8278,12 +8322,12 @@
           "max_date": "0800-10-09",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Friday",
             "Tuesday",
-            "Saturday",
             "Monday",
-            "Sunday"
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -8293,7 +8337,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v45",
+        "_index": "schaeftlarn_v12",
         "_type": "schaeftlarn",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -8384,12 +8428,12 @@
           "max_date": "0800-10-09",
           "days": [
             "Thursday",
-            "Friday",
             "Wednesday",
+            "Sunday",
+            "Friday",
             "Tuesday",
-            "Saturday",
             "Monday",
-            "Sunday"
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -8399,7 +8443,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
         "_score": null,
@@ -8431,7 +8475,27 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Christi nomine",
+          "Invocatio-lems": null,
+          "Inscriptio": "Domno sancto et in Christo venerabile patri Audomaro abbati Durgaugensi seo de monastirio sancti Gallonis",
+          "Inscriptio-lems": null,
+          "Intitulatio": "Ego Cauzpertus",
+          "Intitulatio-lems": null,
+          "Narratio": "pro mercede anime meae",
+          "Narratio-lems": null,
+          "Dispositio": "facultaticula mea recipere deberetis post discessum meum ... dono ... a die presente trado ... et ipsa facultaticula mea permaneat ad supradictum monastirium, ut quidquid exinde pars monastirii facere voluerit, libera ha firmissima in Dei nomine in omnibus habeat potestate",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "hoc est in pago Brisegaugense, in villa, qui dicitur Warbinbach et in Artiovinia et in Minsilido et Adaghiliniswillare, quid in istas villas visus sum habere, picuniis, casas, casalis, mancippiis, agra, prada, silvis, pascuis, aquis aquarumque decursibus, tam movele, quam inmovele, omnia ex omnibus parte mea ex integra, que mihi inter fratres meos avenit",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Siquis ego aut heredis mei aut ulla opposita persona, qui contra hanc donatione ista venire temptaverit ... tunc inferat parte custodiente dobla repetitione, et a fisco auri liberas duas et argenti pondera tres",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et nihilhomenus presens donatio istic omni tempore firma et stabilis permaneat stipulatione subnexa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum ad monastirium sancti Gallonis poblice",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego Liutfritus presbiter subscripsi ... VI kal. nov. anno tercio ... renante domnum nostrum Pippinum regem",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8439,7 +8503,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
         "_score": null,
@@ -8471,7 +8535,25 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Inscriptio": "Sacrosanctae ecclesiae sancti Gallonis monastirio in pago Durgauginsi, ubi Autmarus abbas esse videtur",
+          "Inscriptio-lems": null,
+          "Intitulatio": "Strachfridus",
+          "Intitulatio-lems": null,
+          "Narratio": "in amore Domini nostri et remedie anime nostrae",
+          "Narratio-lems": null,
+          "Dispositio": "condonavimus ... tradidit",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "hoc est, in pago Brisigauginsi, in villa, qui dicitur Aguringas, quicquid ibidem visus est habire, et in alia villa, qui dicitur Onninchova, similiter et in tercia villa Mulinhaimo, hoc sunt casis, casalis, mancipiis, peculiis, campis, pratis, viniis, silvis, aquis aquarumque decursibus, mobilibus et inmobilibus, quecumque habuit apud se ipso",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Siquis ego ipse aut de heredibus meis aut ulla obposita persona, qui contra hanc traditione ista venire temptaverit, quod nec fieri credo ... sit culpabilis contra ipsos sanctos dupla repititione sociante fisco auri libras III et argenti V",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et que repetit vindicare non prevaleat stipulatione subnexa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in ipso monastirio",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Datum VI kal. novembris ... Ego Strachfridus donationem a me factam religi ... Ego Theotbaldus monachus hanc traditionem scripsi et subscripsi ... anno VII regnante Pippino rege Franchorum, sub Chancharone comite",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8479,7 +8561,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0037.lat001",
         "_score": null,
@@ -8511,7 +8593,25 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Inscriptio": "Sagrosancto sancta eclesia sancti Gallune, qui est constructa in paco Durgauia, ubi ipsic in corpore requiiscit et iohannis abbas ad presens rector eclesia esse videntur",
+          "Inscriptio-lems": null,
+          "Intitulatio": "Ego in Dei nomen Winibertus",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans Die, ut aliquit rem mea ad ipso sagro loco pro remedium animi mei condonare dibere, quod et ita feci",
+          "Narratio-lems": null,
+          "Pertinenzformel": "oc est in paco Durgauia in loco, qui dicitur Pramacunauia, quicquid ibidem visus sum abere, mancipies, pecunies, casas, casalis, campis, pratis, silvis, aquis aquarumque decursibus, omnia ex integro",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "de meo iure ... ut quicquid exinde rector monasterie vel monahi ibidem deservientis facire voluerint, liberam ac firmissimam abeant in Dei nomen in omnebus potestatem",
+          "Dispositio-lems": null,
+          "Poenformel": "Si quis ego aut eridis mei aut ulla oposita persuna, qui contra anc tradicione ista venire timtaverit aut agere presumserit ... tunc inferat parti custodiente dubla repeditione et a fisco auri uncia quinque et argenti punduras duas",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et nichilhominus presens tradicio istic firma et stabelis permaniat stibulatione subnixsa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in villa Wila puplici presentibus, cor ic signacula contenuntur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego Varinkis rogitus scripsi et subscripsi ... Notavi die dominico, VI id. octupris ... anno X regnante domno Pippino rege Francorum, sub Warino comite",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8519,7 +8619,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0038.lat001",
         "_score": null,
@@ -8551,7 +8651,25 @@
           "days": [
             "Tuesday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego Gundpertus",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro peccato meo, ut aput Dominum veniam consequi merear",
+          "Narratio-lems": null,
+          "Pertinenzformel": "hoc est, quod dono in villa, que dicitur Agringas, casatus tuus cum hobas suas et cum omni peculiare eorum, et similiter dono sala mea cum curtile circumcinctum, cum omnis edificiis, qui ibidem esse videntur, et terram salicam, et ipsam salam colitur et omnia in ipsa villa et in ipsa marca, campis, silvis, viniis, pratis, pascuis, viis, aquis aquarumque decursibus et omnia quidquid mihi genitor meus moriens in ipsa villa reliquid et quidquid ego ipse mihi adquesivi, omnia hec",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "ut omni tempore ipsas res ad ipsum monastirium firmiter atque perenniter permaneant",
+          "Dispositio-lems": null,
+          "Poenformel": "Et si quis vero, quod futurum esse non credo, si ego ipse aut ullus de propinguis meis aut quislibet oposita persona, qui contra hanc traditionem venire aut eam infrangere voluerit, non solum quod ei non liceat ... sed damnum incurrat, id est auri uncias duas et argentu ponduos quattuor coactus exsolvat, et qui repetit nihil evindicet",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "sed presens cartula ista omni tempore firma et stabilis permaneat cum omni stibulatione subnexa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum Stetiheim villa puplici, in qua cartula ista scripta est",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "in anno XII regni Pippini regi Franchorum ... sub die V idus octob ... Ego Maginratus presbiter rogitus a Gundperto scripsi et subscripsi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8559,7 +8677,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0050.lat001",
         "_score": null,
@@ -8591,7 +8709,17 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego Offo",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "et hoc est quod dono in villa, qui dicitur Sanninga omnia, quicquid ibidem visurus sum habere",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Et hii sunt testes, qui in presente fuerunt et firmaverunt",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego itaque Ato diaconus rogitus ab Offoni hanc cartulam scripsi ... sub die VII kal. novembris ... in anno XV regnante Pippino re Franchorum",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8599,7 +8727,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0055.lat001",
         "_score": null,
@@ -8631,7 +8759,17 @@
           "days": [
             "Saturday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego iohannes episcopus et abbas monasterii sancti Gallonis, convenit nobis una cum fratribus nostris monachis ipsius monasterii",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "ut res illas, quas nobis Chrodhochus et coniux sua Raginswinda tradiderunt in villa, qui dicitur Baldinga, in pago, qui dicitur Adalhartespara ... et hoc est quod tradiderunt nobis in ipsa villa Baldinga et in ipsa marcha omni, quidquid ibidem visuri sumus habere, excepta Waldilane ancilla sua",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Et si quis hoc infrangere voluerit ... auri uncias duas et argenti ponduus IIII indiscucienti fisco quoactus exsolvat",
+          "Poenformel-lems": null,
+          "Eschatokoll": "Actum in ipso monasterio, sub die XII kal. novembris ... in anno secundo regnante Carlomanno re ... Ego itaque Ato diaconus rogitus a fratribus scripsi et subscripsi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8639,7 +8777,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0067.lat001",
         "_score": null,
@@ -8671,7 +8809,21 @@
           "days": [
             "Tuesday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Inscriptio": "Sacrasancta ecclesia sancti Galli confessoris et aliorum ceterorum apostulorum, martirum et virginum, qui est constructa in pago Arbonensi, ubi nunc preest iohannes episcopus atque abbas",
+          "Inscriptio-lems": null,
+          "Intitulatio": "Ego enim in Dei nomine Ekiseirus",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitavi Dei induitum et anime mee remedium, ut omnes res meas, quas in villa Sicgingas visus sum habere, ad ecclesiam sancti Galli condonari dibueram, quod et ita feci",
+          "Narratio-lems": null,
+          "Pertinenzformel": "Hoc est curte clausa, casa cum domibus, etefficiis et officinis, mancipiis, servos, manentes, piculiis, agris, campis, silvis, ortifferis, bumifferis, aquis aquarumque decursibus, mobilibus atque immobilibus, vias, ingressis et regressis",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "a die presente de meo iure ... trado in dominationem",
+          "Dispositio-lems": null,
+          "Poenformel": "partibus fiske multa cumponat, id est auri libras tuas et argenti pondoro quinque quoactus exsolvat et tuplam reppeditionem cum omnes res admelioratas ad ecclesiam sancti Galli stestituat",
+          "Poenformel-lems": null,
+          "Eschatokoll": "Ego enim ac si indignus peccator Adalrichus presbiter anno quinto regnante domno Carlo rege esscripsi et subscripsi ... Notavi sub diem, quod fecit mensis octuber dies XX",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8679,7 +8831,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0149.lat001",
         "_score": null,
@@ -8711,7 +8863,23 @@
           "days": [
             "Monday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null,
+          "Narratio": "pro anime meae remedio et pro eterna retributione",
+          "Narratio-lems": null,
+          "Pertinenzformel": "quicquid habeo in Essindorf et in Heidkauge cum omnibus, quibus ibidem hodierna die visus sum habere, cum mancipiis, edificiis, pratis, pascuis, viis, silvis, aquis aquarumque decursibus, mobilibus et inmobilibus, cultis et incultis, omnia videlicet, sicut iam dixi",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "trado atque transfundo ... traditum est ... ea ratione. ut deinceps liberam ac firmissimam in omnibus habeant potestatem faciendi absque ullius contradictione",
+          "Dispositio-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, si ego ipse aut ullus de heredibus aut proheredibus meis istam traditionem infrangere voluerit ... sociante fisco multa conponat, id est auri untias IIII et argenti pondera sex coactus persolvat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et presens traditio omni tempore firma et stabilis permaneat cum testibus subfirmata",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in Stiuzzelingun publice, presentibus quorum hic signacula continentur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego Wano presbiter rogitus scripsi et subscripsi ... Notavi diem lunis, III kal. novemb ... anno XXVIIII Caroli",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8719,7 +8887,7 @@
         ]
       },
       {
-        "_index": "stgallen_v46",
+        "_index": "stgallen_v12",
         "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0157.lat001",
         "_score": null,
@@ -8751,7 +8919,19 @@
           "days": [
             "Monday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Publicatio": "Notum sit omnibus, quod",
+          "Publicatio-lems": null,
+          "Intitulatio": "ego Liutprandus cum manu patris mei Liutperti et advocati",
+          "Intitulatio-lems": null,
+          "Dispositio": "trado",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "quicquid in Amalgeriswilare et in Cutaningin hereditate vel conquisitione habere dinoscor",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Actum in villa, que dicitur Amalgeriswilare publice, praesentibus quorum hic nomina subnotantur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego Egino humilis episcopus rogante Liutprando rogavi fieri hanc epistolam cum noticia testium ... Ego itaque Mano ... anno Karoli regis XXXII in natale Simonis et iude ... V kal. novemb ... scripsi et subscripsi",
+          "Eschatokoll-lems": null
         },
         "sort": [
           1,
@@ -8759,7 +8939,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0003.lat001",
         "_score": null,
@@ -8799,7 +8979,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0059.lat001",
         "_score": null,
@@ -8839,7 +9019,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0077.lat001",
         "_score": null,
@@ -8879,7 +9059,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0110.lat001",
         "_score": null,
@@ -8919,7 +9099,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0154.lat001",
         "_score": null,
@@ -8959,7 +9139,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0186.lat001",
         "_score": null,
@@ -8999,7 +9179,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0189.lat001",
         "_score": null,
@@ -9039,7 +9219,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0230.lat001",
         "_score": null,
@@ -9079,7 +9259,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0249.lat001",
         "_score": null,
@@ -9119,7 +9299,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v45",
+        "_index": "weissenburg_v12",
         "_type": "weissenburg",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0261.lat001",
         "_score": null,
@@ -9159,7 +9339,7 @@
         ]
       },
       {
-        "_index": "werden_v45",
+        "_index": "werden_v12",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0004.lat001",
         "_score": null,
@@ -9199,7 +9379,7 @@
         ]
       },
       {
-        "_index": "werden_v45",
+        "_index": "werden_v12",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0016.lat001",
         "_score": null,
@@ -9239,7 +9419,7 @@
         ]
       },
       {
-        "_index": "werden_v45",
+        "_index": "werden_v12",
         "_type": "werden",
         "_id": "urn:cts:formulae:werden.block0017.lat001",
         "_score": null,
@@ -9275,8 +9455,8 @@
           "min_date": "0798-10-09",
           "max_date": "0799-10-09",
           "days": [
-            "Wednesday",
-            "Tuesday"
+            "Tuesday",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -9289,7 +9469,7 @@
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13049,
+      "doc_count": 13156,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
@@ -9347,13 +9527,16 @@
             "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 4131
+            "doc_count": 4130
           },
           "Luzern": {
             "doc_count": 6
           },
           "Marculf": {
             "doc_count": 95
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
             "doc_count": 281
@@ -9461,7 +9644,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4398
+            "doc_count": 4397
           },
           {
             "key": "800-899",
@@ -9477,13 +9660,13 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2939
+            "doc_count": 2944
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1330
+            "doc_count": 1433
           }
         ]
       },
@@ -9548,12 +9731,15 @@
           "doc_count": 0
         },
         "Lorsch": {
-          "doc_count": 173
+          "doc_count": 172
         },
         "Luzern": {
           "doc_count": 0
         },
         "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
           "doc_count": 0
         },
         "Marmoutier - Dunois": {
@@ -9662,7 +9848,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 206
+          "doc_count": 205
         },
         {
           "key": "800-899",

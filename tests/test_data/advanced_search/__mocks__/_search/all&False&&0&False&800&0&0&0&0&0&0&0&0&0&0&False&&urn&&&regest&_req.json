@@ -275,6 +275,11 @@
               "_type": "telma_cormery"
             }
           },
+          "Marmoutier (TELMA)": {
+            "match": {
+              "_type": "telma_marmoutier"
+            }
+          },
           "Saint-Martin de Tours (TELMA)": {
             "match": {
               "_type": "telma_martin_tours"
@@ -554,6 +559,11 @@
               "Cormery (TELMA)": {
                 "match": {
                   "_type": "telma_cormery"
+                }
+              },
+              "Marmoutier (TELMA)": {
+                "match": {
+                  "_type": "telma_marmoutier"
                 }
               },
               "Saint-Martin de Tours (TELMA)": {
