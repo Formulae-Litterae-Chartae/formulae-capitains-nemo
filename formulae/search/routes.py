@@ -97,6 +97,7 @@ def r_results():
                        regest_field=request.args.get('regest_field', 'regest'),
                        formulaic_parts=request.args.get('formulaic_parts', ''),
                        proper_name=request.args.get('proper_name', ''),
+                       proper_name_q=request.args.get('proper_name_q', ''),
                        search_id=request.args.get('search_id', ''),
                        forgeries=request.args.get('forgeries', 'include'))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)

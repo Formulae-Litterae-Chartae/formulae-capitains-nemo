@@ -74,13 +74,14 @@
                                 class="fas fa-caret-down"></i></span></button>
                             <div class="collapse" id="properNameSearchCollapse">
                                 <div>
-                                {% for c in form.proper_name.choices %}
-                                    <div class="form-check form-check-inline form-group mb-0">
-                                        <input class="form-check-input" id="proper_name_{{ c[0] }}" name="proper_name" type="checkbox" value="{{ c[0] }}">
-                                        <label class="form-check-label" for="proper_name_{{ c[0] }}">{{ c[1] }}</label>
-                                    </div>
-                                {% endfor %}
+                                <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Kategorien zu wählen.')
+                                    }}</p>
+                                {{ form.proper_name(class="w-100", size="2", **{"aria-labelledby":
+                                    "properNameLabel"}) }}
                                 </div>
+                                <div class="text-left">{{ form.proper_name_q() }} {{
+                                    form.proper_name_q.label(class="smallfont")
+                                    }}</div>
                             </div>
                         </div>
                     </div>

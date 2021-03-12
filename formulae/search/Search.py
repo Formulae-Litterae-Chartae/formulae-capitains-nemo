@@ -374,7 +374,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '', forgeries: str = 'include',
+                         formulaic_parts: str = '', proper_name: str = '', proper_name_q: str = '', search_id: str = '',
+                         forgeries: str = 'include',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -394,7 +395,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     search_field = 'text'
     if formulaic_parts != '':
         search_field = formulaic_parts.split('+')
-    elif lemma_search == 'True' or proper_name:
+    elif lemma_search == 'True':
         search_field = 'lemmas'
     elif 'autocomplete' in lemma_search:
         search_field = lemma_search
@@ -435,15 +436,24 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         body_template['query']['bool']['must'].append({'term': {'forgery': False}})
     elif forgeries == 'only':
         body_template['query']['bool']['must'].append({'term': {'forgery': True}})
-    if proper_name:
+    if proper_name and proper_name_q != 'y':
         clauses = list()
         for term in proper_name:
-            sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
+            sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
             for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
             clauses += sub_clauses
         body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
     if q:
+        proper_name_bool_must = []
+        if proper_name and proper_name_q == 'y':
+            clauses = list()
+            for term in proper_name:
+                sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
+                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                    sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
+                clauses += sub_clauses
+            proper_name_bool_must = [{'bool': {'should': clauses, 'minimum_should_match': 1}}]
         if isinstance(search_field, list):
             bool_clauses = []
             for s_field in search_field:
@@ -452,7 +462,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                     u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                     if u_term != term:
                         if '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                            clauses.append([{'span_multi': {'bool_must':
+                                                                    [{'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}] + proper_name_bool_must,
+                                                                }}])
                         else:
                             words = [u_term]
                             sub_clauses = {'span_or': {'clauses': []}}
@@ -480,13 +492,16 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'bool_must':
+                                                                                                 [{'match': {'regexp': {s_field: w}}}] + proper_name_bool_must}})
                             clauses.append([sub_clauses])
                     else:
                         if '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                            clauses.append([{'span_multi': {'bool_must':
+                                                                    [{'match': {'wildcard': {s_field: term}}}] + proper_name_bool_must}}])
                         else:
-                            clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
+                            clauses.append([{'span_multi': {'bool_must':
+                                                                    [{'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}] + proper_name_bool_must}}])
                 for clause in product(*clauses):
                     bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
         else:
@@ -497,14 +512,18 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                     u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                 if '*' in term or '?' in term:
                     if u_term != term:
-                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                        clauses.append([{'span_multi': {'bool_must':
+                                                                [{'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}] + proper_name_bool_must}}])
                     else:
-                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
+                        clauses.append([{'span_multi': {'bool_must':
+                                                                [{'match': {'wildcard': {search_field: term}}}] + proper_name_bool_must}}])
                 else:
                     if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                        sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
+                        sub_clauses = [{'span_multi': {'bool_must':
+                                                           [{'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}] + proper_name_bool_must}}]
                         for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                            sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
+                            sub_clauses.append({'span_multi': {'bool_must':
+                                                                   [{'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}] + proper_name_bool_must}})
                         clauses.append(sub_clauses)
                     else:
                         if u_term != term:
@@ -534,10 +553,12 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'bool_must':
+                                                                                             [{'match': {'regexp': {search_field: w}}}] + proper_name_bool_must}})
                             clauses.append([sub_clauses])
                         else:
-                            clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
+                            clauses.append([{'bool': {'must': [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}] + proper_name_bool_must}}])
+            print(clauses)
             bool_clauses = []
             for clause in product(*clauses):
                 bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
