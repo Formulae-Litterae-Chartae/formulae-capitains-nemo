@@ -1,0 +1,517 @@
+{
+  "took": 11,
+  "timed_out": false,
+  "_shards": {
+    "total": 52,
+    "successful": 52,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "freising_v7",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
+        "_score": null,
+        "_source": {
+          "text": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
+          "lemmas": null,
+          "regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 90",
+          "urn": "urn:cts:formulae:freising.bitterauf0090.lat001",
+          "date_string": "778 08 07",
+          "comp_ort": " ",
+          "autocomplete": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
+          "orig_comp_ort": " ",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 778,
+              "month": 8,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0778-08-07"
+          ],
+          "min_date": "0778-08-07",
+          "max_date": "0778-08-07",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0090.lat001"
+        ]
+      }
+    ]
+  },
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 13232,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 0
+          },
+          "Angers": {
+            "doc_count": 0
+          },
+          "Archives d’Anjou": {
+            "doc_count": 0
+          },
+          "Arnulfinger": {
+            "doc_count": 0
+          },
+          "Auvergne": {
+            "doc_count": 0
+          },
+          "Bünden": {
+            "doc_count": 0
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 0
+          },
+          "Chartae Latinae X": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XI": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XII": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XLVI": {
+            "doc_count": 0
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Cormery (TELMA)": {
+            "doc_count": 0
+          },
+          "Echternach": {
+            "doc_count": 0
+          },
+          "Eudes": {
+            "doc_count": 0
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 0
+          },
+          "Freising": {
+            "doc_count": 0
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 0
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 0
+          },
+          "Gorze": {
+            "doc_count": 0
+          },
+          "Hersfeld": {
+            "doc_count": 0
+          },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 0
+          },
+          "Luzern": {
+            "doc_count": 0
+          },
+          "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 0
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 0
+          },
+          "Marmoutier - Pour le perche": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 0
+          },
+          "Merowinger": {
+            "doc_count": 0
+          },
+          "Mittelrheinisch": {
+            "doc_count": 0
+          },
+          "Mondsee": {
+            "doc_count": 0
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 0
+          },
+          "Passau": {
+            "doc_count": 0
+          },
+          "Regensburg": {
+            "doc_count": 0
+          },
+          "Rheinisch": {
+            "doc_count": 0
+          },
+          "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 0
+          },
+          "Salzburg": {
+            "doc_count": 0
+          },
+          "Schäftlarn": {
+            "doc_count": 0
+          },
+          "St. Gallen": {
+            "doc_count": 0
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 0
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 0
+          },
+          "Weißenburg": {
+            "doc_count": 0
+          },
+          "Werden": {
+            "doc_count": 0
+          },
+          "Zürich": {
+            "doc_count": 0
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 11
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 24
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 156
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 4416
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 3362
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 2958
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 1522
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 649
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 0
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Chartae Latinae X": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XI": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XII": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 0
+        },
+        "Eudes": {
+          "doc_count": 0
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Gorze": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "Marmoutier - Pour le perche": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Schäftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 1
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

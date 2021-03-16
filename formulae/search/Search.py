@@ -618,7 +618,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if q or proper_name:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        if search_field in ('lemmas', 'text') and search['hits']['total'] > 0:
+        if search_field in ('lemmas', 'text') and search['hits']['total']['value'] > 0:
             ids, highlighted_terms = lem_highlight_to_text(search=search,
                                                            q=q,
                                                            ordered_terms=ordered_terms,
@@ -656,7 +656,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [],
-                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]],
+                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                if 'highlight' in hit and regest_field in hit['highlight'] else [],
                 'highlight': []}
                for hit in search['hits']['hits']]
     elif isinstance(search_field, list):
@@ -700,7 +701,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         # Remove the textual parts from the results
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
-    return ids, search['hits']['total'], search['aggregations'], prev_search
+    return ids, search['hits']['total']['value'], search['aggregations'], prev_search
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,

@@ -90,6 +90,12 @@
     "id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001"
   },
   {
+    "id": "urn:cts:formulae:chartae_latinae_xi.bruckner0507.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_xii.bruckner0542.lat001"
+  },
+  {
     "id": "urn:cts:formulae:echternach.wampach0121.lat001"
   },
   {
@@ -217,6 +223,105 @@
   },
   {
     "id": "urn:cts:formulae:echternach.wampach0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0034.lat001"
   },
   {
     "id": "urn:cts:formulae:freising.bitterauf0109.lat001"
@@ -16212,6 +16317,216 @@
     "id": "urn:cts:formulae:marmoutier_manceau.laurain_vivoin_0010.lat001"
   },
   {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0029b.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0063.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0066.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0068.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0137.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0139.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0151.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0170.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0174.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0175.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0176.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0177.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0206.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0207.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0208.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0209.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0228.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0231.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0233.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0235.lat001"
+  },
+  {
     "id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001"
   },
   {
@@ -17440,9 +17755,6 @@
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0134.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:mittelrheinisch.beyer0135.lat001"
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0137.lat001"

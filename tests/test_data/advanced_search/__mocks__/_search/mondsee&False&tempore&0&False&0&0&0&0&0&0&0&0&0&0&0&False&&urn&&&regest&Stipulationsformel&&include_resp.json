@@ -1,5 +1,5 @@
 {
-  "took": 15,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0002.lat001",
         "_score": null,
@@ -66,36 +66,13 @@
           "Eschatokoll": "Anno XIII imperii domni nostri Caroli augusti et XL VI regni eius in Frantia atque XL in Italia, indictione VI",
           "Eschatokoll-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "Et haec traditio a nobis facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0002.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -140,36 +117,13 @@
           "Corroboratio": "Testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec carta a me facta omni </small><strong>tempore</strong><small> firma permaneat, stipulatione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0003.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0007.lat001",
         "_score": null,
@@ -221,36 +175,13 @@
           "Corroboratio": "Testes utrisque partibus multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed presentes commutationes inter eos et successores eorum omni </small><strong>tempore</strong><small> firmae permaneant"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0007.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
         "_score": null,
@@ -347,10 +278,10 @@
           "max_date": "0800-05-16",
           "days": [
             "Thursday",
-            "Saturday",
-            "Monday",
             "Sunday",
+            "Saturday",
             "Tuesday",
+            "Monday",
             "Wednesday",
             "Friday"
           ],
@@ -372,36 +303,13 @@
           "Corroboratio": "Et sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donacio a mae facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0009.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0011.lat001",
         "_score": null,
@@ -456,36 +364,13 @@
           "Schlussformel": "In dei nomine feliciter",
           "Schlussformel-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, ullum umquam </small><strong>tempore</strong><small> vindicare [non] valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0011.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0014.lat001",
         "_score": null,
@@ -541,36 +426,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullatenus evindicare valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0014.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0021.lat001",
         "_score": null,
@@ -626,36 +488,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, ullo modo evindicare non valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0021.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0024.lat001",
         "_score": null,
@@ -706,36 +545,13 @@
           "Eschatokoll": "anni domini DCCCXXVIIII, indiccione VII",
           "Eschatokoll-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "nullum obtineat ei effectum, sed presentes commutaciones omnique </small><strong>tempore</strong><small> firme et stabiles permaneant"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0024.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0025.lat001",
         "_score": null,
@@ -782,36 +598,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donacio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0025.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0026.lat001",
         "_score": null,
@@ -858,36 +651,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et hec donacio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0026.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0028.lat001",
         "_score": null,
@@ -935,36 +705,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "Et haec tradicio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0028.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0029.lat001",
         "_score": null,
@@ -1016,36 +763,13 @@
           "Corroboratio": "Et sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donacio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0029.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0030.lat001",
         "_score": null,
@@ -1098,36 +822,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed ista tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0030.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0031.lat001",
         "_score": null,
@@ -1179,36 +880,13 @@
           "Corroboratio": "Testes sunt multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et hec donacio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0031.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0032.lat001",
         "_score": null,
@@ -1258,36 +936,13 @@
           "Eschatokoll": "anno XIII imperii domni nostri Karoli augusti et XLVI regni eius in Francia atque XL in ltalia, indiccione VI",
           "Eschatokoll-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "Et hyc donacio a me facta omnia </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0032.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
         "_score": null,
@@ -1804,10 +1459,10 @@
           "max_date": "0829-05-07",
           "days": [
             "Thursday",
+            "Sunday",
+            "Tuesday",
             "Saturday",
             "Monday",
-            "Tuesday",
-            "Sunday",
             "Wednesday",
             "Friday"
           ],
@@ -1831,36 +1486,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et insuper, quod repetit, evindicare non valeat, et hec carta a mae facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0034.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0044.lat001",
         "_score": null,
@@ -1909,36 +1541,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec cartula omni </small><strong>tempore</strong><small> firma permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0044.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0047.lat001",
         "_score": null,
@@ -1991,36 +1600,13 @@
           "Corroboratio": "Et haec sunt testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed ista traditio omni </small><strong>tempore</strong><small> firma permaneat cum stipulatione subnexa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0047.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -2065,36 +1651,13 @@
           "Stipulationsformel": "et haec carta a me facta omni tempore firma permaneat, stipulatione subnexa",
           "Stipulationsformel-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec carta a me facta omni </small><strong>tempore</strong><small> firma permaneat, stipulatione subnexa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0048.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -2143,36 +1706,13 @@
           "Corroboratio": "Testes multi, quia ego Reginhelmus firmam facio meam partem",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec carta a me facta omni </small><strong>tempore</strong><small> firma permaneat, stibulatione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0054.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0059.lat001",
         "_score": null,
@@ -2222,36 +1762,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "Et haec donatio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0059.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0063.lat001",
         "_score": null,
@@ -2298,36 +1815,13 @@
           "Corroboratio": "Et iterum firmavit cum sua sella cum auro parata et suam luricam. Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donatio mea facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat cum stipulatione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0063.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0068.lat001",
         "_score": null,
@@ -2380,36 +1874,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "nihil optineat ei effectum, sed omni </small><strong>tempore</strong><small> stabilis permaneat, mihique manibus et aliis nobilis hominibus roborata"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0068.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0069.lat001",
         "_score": null,
@@ -2472,36 +1943,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed ista presens traditio omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0069.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
@@ -2554,36 +2002,13 @@
           "Eschatokoll": "Actum est autem haec IIII id. octb",
           "Eschatokoll-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, evindicare non valeat, et haec carta a me facta firma et stabilis omni </small><strong>tempore</strong><small> permaneat, stipulatione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0070.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0071.lat001",
         "_score": null,
@@ -2637,36 +2062,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullatenus evindicare valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0071.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0072.lat001",
         "_score": null,
@@ -2720,36 +2122,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed presens tradicio ista omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0072.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0073.lat001",
         "_score": null,
@@ -2805,36 +2184,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed ista tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0073.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0075.lat001",
         "_score": null,
@@ -2884,36 +2240,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "ut in evum et inconvulsum valeat permanere, omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0075.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0078.lat001",
         "_score": null,
@@ -2963,36 +2296,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "ut ibi stabilis permaneat omni </small><strong>tempore</strong><small>"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0078.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0080.lat001",
         "_score": null,
@@ -3052,36 +2362,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullum umquam </small><strong>tempore</strong><small> evindicare non valeat, sed presens precaria firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0080.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0088.lat001",
         "_score": null,
@@ -3135,36 +2422,13 @@
           "Corroboratio": "Et sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullum umquam </small><strong>tempore</strong><small> evindicare valeat, sed presens il precaria omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0088.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0091.lat001",
         "_score": null,
@@ -3218,36 +2482,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0091.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0092.lat001",
         "_score": null,
@@ -3300,36 +2541,13 @@
           "Corroboratio": "Et sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "[et quod repetit], nec nullatenus evindicare valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0092.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
@@ -3774,10 +2992,10 @@
           "max_date": "0800-08-06",
           "days": [
             "Thursday",
-            "Saturday",
-            "Monday",
-            "Tuesday",
             "Sunday",
+            "Saturday",
+            "Tuesday",
+            "Monday",
             "Wednesday",
             "Friday"
           ],
@@ -3805,36 +3023,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, evindicare non valeat, et hec carta nihilominus firma permaneat et stabilis omni </small><strong>tempore</strong><small>, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0096.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0098.lat001",
         "_score": null,
@@ -3891,36 +3086,13 @@
           "Corroboratio": "Et sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullo modo evindicare non valeat, sed presens traditio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0098.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
         "_score": null,
@@ -3974,36 +3146,13 @@
           "Corroboratio": "Et testes ad roborandum secundum lege Bauuariorum; dedit",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, evindicare non valeat, sed ista tradiciome omnique </small><strong>tempore</strong><small> firma et stabilis permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0099.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0112.lat001",
         "_score": null,
@@ -4058,36 +3207,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, ullum umquam </small><strong>tempore</strong><small> evindicare non valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat cum stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0112.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0114.lat001",
         "_score": null,
@@ -4139,36 +3265,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donatio a mae facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0114.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0121.lat001",
         "_score": null,
@@ -4224,36 +3327,13 @@
           "Corroboratio": "Testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullatenus evindicare non valeat, sed presens ista tradicio, mihique Perhthelmo spontanea facta et bonorum hominibus [manibus] roborata, ut in evum et inconvulsum valeat permanere, omni </small><strong>tempore</strong><small> firma et stabilis permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0121.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0123.lat001",
         "_score": null,
@@ -4305,36 +3385,13 @@
           "Corroboratio": "Sunt testes multi",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et haec donacio a me facta omni </small><strong>tempore</strong><small> firma et stabilis permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0123.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
@@ -4379,36 +3436,13 @@
           "Stipulationsformel": "ut haec presens donatio, quae a nobis pro timore die [et pro amore Christi conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa]",
           "Stipulationsformel-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "ut haec presens donatio, quae a nobis pro timore die [et pro amore Christi conscripta est, firma et inlibata omni </small><strong>tempore</strong><small> debeat permanere, stipulacione subnixa]"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0128.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,
@@ -4455,36 +3489,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "et [quod repetit], nullatenus evindicare non valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0133.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
@@ -4535,36 +3546,13 @@
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
         },
-        "highlight": {
-          "Stipulationsformel": [
-            "ut haec presens donatio, que a me pro timore dei et pro amore Christi conscripta est, firma et inlibata omni </small><strong>tempore</strong><small> debeat permanere, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0134.lat001"
         ]
       },
       {
-        "_index": "mondsee_v1",
+        "_index": "mondsee_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0135.lat001",
         "_score": null,
@@ -4619,29 +3607,6 @@
           "Eschatokoll-lems": null,
           "Corroboratio": "Sunt multi testes",
           "Corroboratio-lems": null
-        },
-        "highlight": {
-          "Stipulationsformel": [
-            "et quod repetit, nullatenus evindicare non valeat, sed presens tradicio omni </small><strong>tempore</strong><small> firma permaneat, stipulacione subnixa"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
         },
         "sort": [
           1,
