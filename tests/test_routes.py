@@ -2431,6 +2431,7 @@ class TestES(Formulae_Testing):
                               'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
                               'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                              'Saint-Bénigne de Dijon': {'match': {'_type': 'saint_bénigne'}},
                               'Cormery (TELMA)': {'match': {'_type': 'telma_cormery'}},
                               'Marmoutier (TELMA)': {'match': {'_type': 'telma_marmoutier'}},
                               'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},

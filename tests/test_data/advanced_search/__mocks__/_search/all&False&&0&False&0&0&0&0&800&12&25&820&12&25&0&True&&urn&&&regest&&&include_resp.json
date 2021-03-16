@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 13,
   "timed_out": false,
   "_shards": {
     "total": 46,
@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 2,
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v12",
-        "_type": "freising",
+        "_index": "freising_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0404.lat001",
         "_score": null,
         "_source": {
@@ -60,8 +63,8 @@
         ]
       },
       {
-        "_index": "freising_v12",
-        "_type": "freising",
+        "_index": "freising_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0430.lat001",
         "_score": null,
         "_source": {
@@ -107,25 +110,25 @@
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Angers": {
-            "doc_count": 62
+            "doc_count": 0
           },
           "Archives d’Anjou": {
-            "doc_count": 74
+            "doc_count": 0
           },
           "Arnulfinger": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
-            "doc_count": 391
+            "doc_count": 0
           },
           "Chartae Latinae X": {
             "doc_count": 0
@@ -140,127 +143,130 @@
             "doc_count": 0
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 10
+            "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 48
+            "doc_count": 0
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
-            "doc_count": 152
+            "doc_count": 0
           },
           "Eudes": {
             "doc_count": 0
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 38
+            "doc_count": 0
           },
           "Freising": {
-            "doc_count": 1383
+            "doc_count": 0
           },
           "Fulda (Dronke)": {
-            "doc_count": 8
+            "doc_count": 0
           },
           "Fulda (Stengel)": {
-            "doc_count": 563
+            "doc_count": 0
           },
           "Gorze": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Hersfeld": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Katalonien": {
-            "doc_count": 2247
+            "doc_count": 0
           },
           "Lorsch": {
-            "doc_count": 4130
+            "doc_count": 0
           },
           "Luzern": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 0
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 108
+            "doc_count": 0
           },
           "Marmoutier - Dunois": {
-            "doc_count": 281
+            "doc_count": 0
           },
           "Marmoutier - Fougères": {
-            "doc_count": 7
+            "doc_count": 0
           },
           "Marmoutier - Manceau": {
-            "doc_count": 189
+            "doc_count": 0
           },
           "Marmoutier - Pour le perche": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
-            "doc_count": 187
+            "doc_count": 0
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 163
+            "doc_count": 0
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
+            "doc_count": 0
           },
           "Merowinger": {
-            "doc_count": 196
+            "doc_count": 0
           },
           "Mittelrheinisch": {
-            "doc_count": 98
+            "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 259
+            "doc_count": 0
           },
           "Passau": {
-            "doc_count": 102
+            "doc_count": 0
           },
           "Regensburg": {
-            "doc_count": 269
+            "doc_count": 0
           },
           "Rheinisch": {
-            "doc_count": 78
+            "doc_count": 0
           },
           "Rätien": {
-            "doc_count": 60
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
-            "doc_count": 229
+            "doc_count": 0
           },
           "Schäftlarn": {
-            "doc_count": 37
+            "doc_count": 0
           },
           "St. Gallen": {
-            "doc_count": 779
+            "doc_count": 0
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Weißenburg": {
-            "doc_count": 276
+            "doc_count": 0
           },
           "Werden": {
-            "doc_count": 66
+            "doc_count": 0
           },
           "Zürich": {
-            "doc_count": 53
+            "doc_count": 0
           }
         }
       },
@@ -380,7 +386,7 @@
           "doc_count": 0
         },
         "Freising": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "Fulda (Dronke)": {
           "doc_count": 0
@@ -455,6 +461,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

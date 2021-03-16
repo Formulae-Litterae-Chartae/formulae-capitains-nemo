@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 46,
@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 37,
+    "total": {
+      "value": 37,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
@@ -306,14 +309,14 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Lent",
             "Thursday",
+            "Lent",
+            "Saturday",
+            "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
             "Wednesday",
-            "Sunday",
-            "Monday",
-            "Saturday",
-            "Tuesday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -324,8 +327,8 @@
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
@@ -548,12 +551,12 @@
           "days": [
             "Lent",
             "Thursday",
-            "Easter",
-            "Wednesday",
-            "Sunday",
-            "Tuesday",
             "Saturday",
             "Monday",
+            "Sunday",
+            "Tuesday",
+            "Easter",
+            "Wednesday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -564,8 +567,8 @@
         ]
       },
       {
-        "_index": "freising_v12",
-        "_type": "freising",
+        "_index": "freising_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
         "_source": {
@@ -594,8 +597,8 @@
           "min_date": "0822-04-13",
           "max_date": "0822-04-13",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Publicatio": "Constat enim\n                            multis in episcopio sanctae Mariae conversantibus ... Nunc vero ammonente\n                            divina gratia in proximo paschalis die quod erat id. aprilis veniens ad\n                            virum venerabilem Hittonem episcopum ita ut iam diximus ante acta\n                            renovavit et interim adquisita omnia in omnibus legitime tradidit et\n                            quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit,\n                            domui sanctae Mariae in propriam hereditatem adunare et firma\n                            stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel\n                            incultis tam terra aravile quam etiam pratas silvasque bene aptas inter\n                            totum iurnales plus minus CCCC. Haec nomina mancipiorum",
@@ -615,8 +618,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
         "_source": {
@@ -785,12 +788,12 @@
           "days": [
             "Lent",
             "Thursday",
-            "Easter",
-            "Wednesday",
-            "Sunday",
+            "Saturday",
             "Monday",
             "Tuesday",
-            "Saturday",
+            "Sunday",
+            "Easter",
+            "Wednesday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -801,8 +804,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
         "_source": {
@@ -837,10 +840,10 @@
           "min_date": "0919-04-19",
           "max_date": "0919-04-25",
           "days": [
-            "Easter",
-            "Monday",
             "Lent",
-            "Sunday"
+            "Sunday",
+            "Monday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -850,8 +853,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
         "_source": {
@@ -880,8 +883,8 @@
           "min_date": "0960-04-22",
           "max_date": "0960-04-22",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -891,8 +894,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
         "_source": {
@@ -921,8 +924,8 @@
           "min_date": "0973-03-23",
           "max_date": "0973-03-23",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -932,8 +935,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
         "_source": {
@@ -962,8 +965,8 @@
           "min_date": "0975-04-04",
           "max_date": "0975-04-04",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -973,8 +976,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
         "_source": {
@@ -1003,8 +1006,8 @@
           "min_date": "0981-03-27",
           "max_date": "0981-03-27",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1014,8 +1017,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
         "_source": {
@@ -1044,8 +1047,8 @@
           "min_date": "0985-04-12",
           "max_date": "0985-04-12",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1055,8 +1058,8 @@
         ]
       },
       {
-        "_index": "katalonien_v12",
-        "_type": "katalonien",
+        "_index": "katalonien_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
         "_score": null,
         "_source": {
@@ -1085,8 +1088,8 @@
           "min_date": "0997-03-28",
           "max_date": "0997-03-28",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1096,8 +1099,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
         "_score": null,
         "_source": {
@@ -1138,10 +1141,10 @@
           "min_date": "0766-04-19",
           "max_date": "0768-04-19",
           "days": [
-            "Easter",
-            "Tuesday",
+            "Saturday",
             "Sunday",
-            "Saturday"
+            "Easter",
+            "Tuesday"
           ],
           "sort_prefix": 1
         },
@@ -1151,8 +1154,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
         "_score": null,
         "_source": {
@@ -1181,8 +1184,8 @@
           "min_date": "0850-04-06",
           "max_date": "0850-04-06",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1192,8 +1195,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
         "_score": null,
         "_source": {
@@ -1222,8 +1225,8 @@
           "min_date": "0815-04-01",
           "max_date": "0815-04-01",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1233,8 +1236,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
         "_score": null,
         "_source": {
@@ -1263,8 +1266,8 @@
           "min_date": "0803-04-16",
           "max_date": "0803-04-16",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1274,8 +1277,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
         "_score": null,
         "_source": {
@@ -1304,8 +1307,8 @@
           "min_date": "0788-03-30",
           "max_date": "0788-03-30",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1315,8 +1318,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
         "_score": null,
         "_source": {
@@ -1345,8 +1348,8 @@
           "min_date": "0791-03-27",
           "max_date": "0791-03-27",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -1356,8 +1359,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
         "_score": null,
         "_source": {
@@ -2076,14 +2079,14 @@
           "min_date": "0765-04-17",
           "max_date": "0880-04-17",
           "days": [
-            "Lent",
             "Thursday",
+            "Lent",
+            "Saturday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
             "Easter",
             "Wednesday",
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Saturday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -2094,8 +2097,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
         "_score": null,
         "_source": {
@@ -2814,15 +2817,15 @@
           "min_date": "0765-04-18",
           "max_date": "0880-04-18",
           "days": [
-            "Lent",
             "Thursday",
-            "Easter",
-            "Wednesday",
-            "Sunday",
-            "Friday",
+            "Lent",
+            "Saturday",
             "Monday",
             "Tuesday",
-            "Saturday"
+            "Sunday",
+            "Easter",
+            "Wednesday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -2832,8 +2835,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
         "_score": null,
         "_source": {
@@ -2917,13 +2920,13 @@
           "max_date": "0778-04-22",
           "days": [
             "Thursday",
-            "Easter",
-            "Wednesday",
-            "Sunday",
-            "Friday",
+            "Saturday",
             "Monday",
+            "Sunday",
+            "Easter",
             "Tuesday",
-            "Saturday"
+            "Wednesday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -2933,8 +2936,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
         "_score": null,
         "_source": {
@@ -3019,13 +3022,13 @@
           "days": [
             "Lent",
             "Thursday",
+            "Saturday",
+            "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
             "Wednesday",
-            "Sunday",
-            "Friday",
-            "Tuesday",
-            "Monday",
-            "Saturday"
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -3035,8 +3038,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
         "_score": null,
         "_source": {
@@ -3065,8 +3068,8 @@
           "min_date": "0783-03-23",
           "max_date": "0783-03-23",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -3076,8 +3079,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
         "_score": null,
         "_source": {
@@ -3106,8 +3109,8 @@
           "min_date": "0783-03-23",
           "max_date": "0783-03-23",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -3117,8 +3120,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
         "_score": null,
         "_source": {
@@ -3189,12 +3192,12 @@
           "min_date": "0779-04-23",
           "max_date": "0786-04-23",
           "days": [
-            "Easter",
-            "Wednesday",
-            "Sunday",
+            "Saturday",
             "Monday",
             "Tuesday",
-            "Saturday",
+            "Sunday",
+            "Easter",
+            "Wednesday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -3205,8 +3208,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
         "_score": null,
         "_source": {
@@ -3285,12 +3288,12 @@
           "days": [
             "Lent",
             "Thursday",
+            "Saturday",
+            "Monday",
+            "Sunday",
+            "Tuesday",
             "Easter",
             "Wednesday",
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Saturday",
             "Friday"
           ],
           "sort_prefix": 1
@@ -3301,8 +3304,8 @@
         ]
       },
       {
-        "_index": "lorsch_v12",
-        "_type": "lorsch",
+        "_index": "lorsch_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
         "_score": null,
         "_source": {
@@ -3331,8 +3334,8 @@
           "min_date": "0797-04-23",
           "max_date": "0797-04-23",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -3342,8 +3345,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v12",
-        "_type": "merowinger1",
+        "_index": "merowinger1_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
         "_source": {
@@ -3372,8 +3375,8 @@
           "min_date": "0630-04-08",
           "max_date": "0630-04-08",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -3383,8 +3386,8 @@
         ]
       },
       {
-        "_index": "redon_v12",
-        "_type": "redon",
+        "_index": "redon_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0040.lat001",
         "_score": null,
         "_source": {
@@ -3456,12 +3459,12 @@
           "max_date": "0866-04-22",
           "days": [
             "Thursday",
-            "Easter",
-            "Wednesday",
-            "Sunday",
+            "Saturday",
             "Monday",
             "Tuesday",
-            "Saturday"
+            "Sunday",
+            "Easter",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -3471,8 +3474,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
         "_source": {
@@ -3501,8 +3504,8 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Gotabertus ... Ôdalbertus \n                  archiespiscopus \n                  uná \n                  cum \n                  advocato \n                  suo",
@@ -3520,8 +3523,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
         "_source": {
@@ -3550,8 +3553,8 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Publicatio": "Noverint omnes Christi fideles",
@@ -3571,8 +3574,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
         "_source": {
@@ -3601,8 +3604,8 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Publicatio": "In istius enimvero cartulae agnitione omnes sanctae dei aecclesiae noverint cultores",
@@ -3620,8 +3623,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
         "_source": {
@@ -3650,8 +3653,8 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Publicatio": "Notum quoque sit omnibus aecclesiae dei fidelibus",
@@ -3669,8 +3672,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
         "_source": {
@@ -3699,8 +3702,8 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Publicatio": "Et est etiam omnibus christianitatis cultoribus agnoscendum",
@@ -3722,8 +3725,8 @@
         ]
       },
       {
-        "_index": "salzburg_v12",
-        "_type": "salzburg",
+        "_index": "salzburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
         "_source": {
@@ -3752,8 +3755,8 @@
           "min_date": "0930-04-18",
           "max_date": "0930-04-18",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Dispositio": "Tradidit igitur ... post obitum suum et uxoris suae ... perenniter in proprietatem",
@@ -3769,8 +3772,8 @@
         ]
       },
       {
-        "_index": "stgallen_v12",
-        "_type": "stgallen",
+        "_index": "stgallen_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
         "_score": null,
         "_source": {
@@ -3799,8 +3802,8 @@
           "min_date": "0855-04-07",
           "max_date": "0855-04-07",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Christi disponente providentia Grimaldus abba coenobii sancti Galli ... nos una cum consensu fratrum nostrorum et advocati Emichonis",
@@ -3818,8 +3821,8 @@
         ]
       },
       {
-        "_index": "weissenburg_v12",
-        "_type": "weissenburg",
+        "_index": "weissenburg_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
         "_score": null,
         "_source": {
@@ -3848,8 +3851,8 @@
           "min_date": "0731-04-01",
           "max_date": "0731-04-01",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -3859,8 +3862,8 @@
         ]
       },
       {
-        "_index": "zuerich_v12",
-        "_type": "zuerich",
+        "_index": "zuerich_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:zuerich.escher0113.lat001",
         "_score": null,
         "_source": {
@@ -3907,9 +3910,9 @@
           "min_date": "0870-03-05",
           "max_date": "0870-03-26",
           "days": [
-            "Easter",
             "Lent",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1,
           "Invocatio": "In dei nomine",
@@ -3942,25 +3945,25 @@
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Angers": {
-            "doc_count": 62
+            "doc_count": 0
           },
           "Archives d’Anjou": {
-            "doc_count": 74
+            "doc_count": 0
           },
           "Arnulfinger": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
-            "doc_count": 391
+            "doc_count": 0
           },
           "Chartae Latinae X": {
             "doc_count": 0
@@ -3975,127 +3978,130 @@
             "doc_count": 0
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 10
+            "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 48
+            "doc_count": 0
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
-            "doc_count": 152
+            "doc_count": 0
           },
           "Eudes": {
             "doc_count": 0
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 38
+            "doc_count": 0
           },
           "Freising": {
-            "doc_count": 1383
+            "doc_count": 0
           },
           "Fulda (Dronke)": {
-            "doc_count": 8
+            "doc_count": 0
           },
           "Fulda (Stengel)": {
-            "doc_count": 563
+            "doc_count": 0
           },
           "Gorze": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Hersfeld": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Katalonien": {
-            "doc_count": 2247
+            "doc_count": 0
           },
           "Lorsch": {
-            "doc_count": 4130
+            "doc_count": 0
           },
           "Luzern": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 0
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 108
+            "doc_count": 0
           },
           "Marmoutier - Dunois": {
-            "doc_count": 281
+            "doc_count": 0
           },
           "Marmoutier - Fougères": {
-            "doc_count": 7
+            "doc_count": 0
           },
           "Marmoutier - Manceau": {
-            "doc_count": 189
+            "doc_count": 0
           },
           "Marmoutier - Pour le perche": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
-            "doc_count": 187
+            "doc_count": 0
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 163
+            "doc_count": 0
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
+            "doc_count": 0
           },
           "Merowinger": {
-            "doc_count": 196
+            "doc_count": 0
           },
           "Mittelrheinisch": {
-            "doc_count": 98
+            "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 259
+            "doc_count": 0
           },
           "Passau": {
-            "doc_count": 102
+            "doc_count": 0
           },
           "Regensburg": {
-            "doc_count": 269
+            "doc_count": 0
           },
           "Rheinisch": {
-            "doc_count": 78
+            "doc_count": 0
           },
           "Rätien": {
-            "doc_count": 60
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
-            "doc_count": 229
+            "doc_count": 0
           },
           "Schäftlarn": {
-            "doc_count": 37
+            "doc_count": 0
           },
           "St. Gallen": {
-            "doc_count": 779
+            "doc_count": 0
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Weißenburg": {
-            "doc_count": 276
+            "doc_count": 0
           },
           "Werden": {
-            "doc_count": 66
+            "doc_count": 0
           },
           "Zürich": {
-            "doc_count": 53
+            "doc_count": 0
           }
         }
       },
@@ -4179,10 +4185,10 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "Cartulaire de Redon": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Chartae Latinae X": {
           "doc_count": 0
@@ -4215,7 +4221,7 @@
           "doc_count": 0
         },
         "Freising": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Fulda (Dronke)": {
           "doc_count": 0
@@ -4230,10 +4236,10 @@
           "doc_count": 0
         },
         "Katalonien": {
-          "doc_count": 8
+          "doc_count": 0
         },
         "Lorsch": {
-          "doc_count": 15
+          "doc_count": 0
         },
         "Luzern": {
           "doc_count": 0
@@ -4269,7 +4275,7 @@
           "doc_count": 0
         },
         "Merowinger": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Mittelrheinisch": {
           "doc_count": 0
@@ -4292,17 +4298,20 @@
         "Rätien": {
           "doc_count": 0
         },
+        "Saint-Bénigne de Dijon": {
+          "doc_count": 0
+        },
         "Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
         "Salzburg": {
-          "doc_count": 6
+          "doc_count": 0
         },
         "Schäftlarn": {
           "doc_count": 0
         },
         "St. Gallen": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Un acte faux de Marmoutier": {
           "doc_count": 0
@@ -4311,13 +4320,13 @@
           "doc_count": 0
         },
         "Weißenburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Werden": {
           "doc_count": 0
         },
         "Zürich": {
-          "doc_count": 1
+          "doc_count": 0
         }
       }
     },

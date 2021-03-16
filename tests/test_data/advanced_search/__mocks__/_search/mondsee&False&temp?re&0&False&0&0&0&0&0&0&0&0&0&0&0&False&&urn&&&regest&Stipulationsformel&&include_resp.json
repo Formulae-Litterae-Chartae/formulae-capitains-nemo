@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 13,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 45,
+    "total": {
+      "value": 45,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0002.lat001",
         "_score": null,
         "_source": {
@@ -92,8 +95,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
         "_source": {
@@ -166,8 +169,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0007.lat001",
         "_score": null,
         "_source": {
@@ -247,8 +250,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
         "_score": null,
         "_source": {
@@ -344,12 +347,12 @@
           "max_date": "0800-05-16",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Sunday",
-            "Friday",
+            "Saturday",
             "Monday",
+            "Sunday",
             "Tuesday",
-            "Saturday"
+            "Wednesday",
+            "Friday"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in dei nomine Alhart",
@@ -398,8 +401,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0011.lat001",
         "_score": null,
         "_source": {
@@ -482,8 +485,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0014.lat001",
         "_score": null,
         "_source": {
@@ -567,8 +570,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0021.lat001",
         "_score": null,
         "_source": {
@@ -652,8 +655,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0024.lat001",
         "_score": null,
         "_source": {
@@ -682,8 +685,8 @@
           "min_date": "0829-03-16",
           "max_date": "0829-03-16",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Arenga": "Nihil sibi quispiam cernitur minuendo, que sibi econtra recipit in augmentum",
@@ -732,8 +735,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0025.lat001",
         "_score": null,
         "_source": {
@@ -808,8 +811,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0026.lat001",
         "_score": null,
         "_source": {
@@ -884,8 +887,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0028.lat001",
         "_score": null,
         "_source": {
@@ -961,8 +964,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0029.lat001",
         "_score": null,
         "_source": {
@@ -1042,8 +1045,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0030.lat001",
         "_score": null,
         "_source": {
@@ -1072,8 +1075,8 @@
           "min_date": "0808-03-28",
           "max_date": "0808-03-28",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Mihhaelis archangeli in loco nuncupante Maninseo, ubi preest venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat me non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae meae remedium seu pro eterna retribucione",
@@ -1124,8 +1127,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0031.lat001",
         "_score": null,
         "_source": {
@@ -1205,8 +1208,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0032.lat001",
         "_score": null,
         "_source": {
@@ -1284,8 +1287,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
         "_score": null,
         "_source": {
@@ -1801,11 +1804,11 @@
           "max_date": "0829-05-07",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Sunday",
-            "Tuesday",
-            "Monday",
             "Saturday",
+            "Monday",
+            "Tuesday",
+            "Sunday",
+            "Wednesday",
             "Friday"
           ],
           "sort_prefix": 1,
@@ -1857,8 +1860,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0044.lat001",
         "_score": null,
         "_source": {
@@ -1935,8 +1938,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0047.lat001",
         "_score": null,
         "_source": {
@@ -1965,8 +1968,8 @@
           "min_date": "0808-04-12",
           "max_date": "0808-04-12",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in die nomine Cozpald",
@@ -2017,8 +2020,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
         "_source": {
@@ -2091,8 +2094,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
         "_source": {
@@ -2169,8 +2172,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0059.lat001",
         "_score": null,
         "_source": {
@@ -2248,8 +2251,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0063.lat001",
         "_score": null,
         "_source": {
@@ -2324,8 +2327,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0068.lat001",
         "_score": null,
         "_source": {
@@ -2354,8 +2357,8 @@
           "min_date": "0822-03-19",
           "max_date": "0822-03-19",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Arenga": "Latores legum sanxerunt, ut, qui de iure propria alicui aliquid tradere volverit, inconvulsum valeat permanere",
@@ -2406,8 +2409,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0069.lat001",
         "_score": null,
         "_source": {
@@ -2442,8 +2445,8 @@
           "min_date": "0792-07-06",
           "max_date": "0793-07-06",
           "days": [
-            "Saturday",
-            "Friday"
+            "Friday",
+            "Saturday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini venerabile in Christo Hunriho abbati in Ioco nuncupante Maninseo",
@@ -2498,8 +2501,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
         "_source": {
@@ -2580,8 +2583,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0071.lat001",
         "_score": null,
         "_source": {
@@ -2663,8 +2666,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0072.lat001",
         "_score": null,
         "_source": {
@@ -2746,8 +2749,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0073.lat001",
         "_score": null,
         "_source": {
@@ -2831,8 +2834,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0075.lat001",
         "_score": null,
         "_source": {
@@ -2910,8 +2913,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0078.lat001",
         "_score": null,
         "_source": {
@@ -2989,8 +2992,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0080.lat001",
         "_score": null,
         "_source": {
@@ -3078,8 +3081,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0088.lat001",
         "_score": null,
         "_source": {
@@ -3161,8 +3164,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0091.lat001",
         "_score": null,
         "_source": {
@@ -3244,8 +3247,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0092.lat001",
         "_score": null,
         "_source": {
@@ -3326,8 +3329,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
         "_source": {
@@ -3771,12 +3774,12 @@
           "max_date": "0800-08-06",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Sunday",
-            "Friday",
+            "Saturday",
             "Monday",
             "Tuesday",
-            "Saturday"
+            "Sunday",
+            "Wednesday",
+            "Friday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -3831,8 +3834,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0098.lat001",
         "_score": null,
         "_source": {
@@ -3861,8 +3864,8 @@
           "min_date": "0809-04-04",
           "max_date": "0809-04-04",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis archangeli in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae remedium seu pro eterna retribucione",
@@ -3917,8 +3920,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
         "_score": null,
         "_source": {
@@ -4000,8 +4003,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0112.lat001",
         "_score": null,
         "_source": {
@@ -4030,8 +4033,8 @@
           "min_date": "0803-03-21",
           "max_date": "0803-03-21",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hiltipaldus archiepiscopus et sacri palatii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae et pro filiis meis",
@@ -4084,8 +4087,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0114.lat001",
         "_score": null,
         "_source": {
@@ -4165,8 +4168,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0121.lat001",
         "_score": null,
         "_source": {
@@ -4250,8 +4253,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0123.lat001",
         "_score": null,
         "_source": {
@@ -4331,8 +4334,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
         "_source": {
@@ -4405,8 +4408,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,
         "_source": {
@@ -4481,8 +4484,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
         "_source": {
@@ -4561,8 +4564,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v1",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0135.lat001",
         "_score": null,
         "_source": {
@@ -4764,7 +4767,7 @@
             "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
             "doc_count": 0
@@ -4779,6 +4782,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -4986,7 +4992,7 @@
           "doc_count": 0
         },
         "Mondsee": {
-          "doc_count": 45
+          "doc_count": 0
         },
         "Papsturkunden Frankreich": {
           "doc_count": 0
@@ -5001,6 +5007,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {
