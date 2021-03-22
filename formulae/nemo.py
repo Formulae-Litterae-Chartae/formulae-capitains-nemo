@@ -741,7 +741,7 @@ class NemoFormulae(Nemo):
                         if name_part:
                             work_name = name_part.group(0)
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
-                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else str(m.metadata.get_single(DC.description)).split('***'),
+                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
@@ -1093,7 +1093,7 @@ class NemoFormulae(Nemo):
                     "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": str(metadata.metadata.get_single(DC.description)) or '',
+                    "description": Markup(str(metadata.metadata.get_single(DC.description))) or '',
                     "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
