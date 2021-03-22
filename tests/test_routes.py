@@ -1963,7 +1963,7 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
+                                 ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
                                  ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include")]),
                  'test_suggest_composition_places': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
@@ -1987,6 +1987,13 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'sche'),
                                  ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include")]),
+                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'schenkt'),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include")]),
                  'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'illam'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -1998,7 +2005,7 @@ class TestES(Formulae_Testing):
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", '(Basel-)Augst'),
+                                 ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
                                  ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include")]),
                  'test_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
@@ -2431,6 +2438,7 @@ class TestES(Formulae_Testing):
                               'Cartulaire de Redon': {'match': {'_type': 'redon'}},
                               'Regensburg': {'match': {'_type': 'regensburg'}},
                               'Rheinisch': {'match': {'_type': 'rheinisch'}},
+                              'Saint-Bénigne de Dijon': {'match': {'_type': 'saint_bénigne'}},
                               'Cormery (TELMA)': {'match': {'_type': 'telma_cormery'}},
                               'Marmoutier (TELMA)': {'match': {'_type': 'telma_marmoutier'}},
                               'Saint-Martin de Tours (TELMA)': {'match': {'_type': 'telma_martin_tours'}},
@@ -3724,7 +3732,8 @@ class TestES(Formulae_Testing):
                                         'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.'],
                                         'lemmas': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']
                                     }}],
-                                             'total': 0},
+                                             'total': {'value': 0,
+                                                       "relation": "eq"}},
                                     'aggregations': {"corpus": {
                                                       "buckets": {
                                                         "Angers": {
@@ -4062,7 +4071,7 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     def test_regest_word_search_highlighting(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
@@ -4168,7 +4177,7 @@ class TestES(Formulae_Testing):
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            #recreate = True
+            # recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())
@@ -4190,7 +4199,7 @@ class TestES(Formulae_Testing):
             mock_search.return_value = resp
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            c.get('/search/results?source=advanced&sort=urn&q=christi&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='wb') as f:
@@ -4204,7 +4213,7 @@ class TestES(Formulae_Testing):
             mock_search.return_value = resp
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            c.get('/search/results?source=advanced&sort=urn&q=&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='wb') as f:

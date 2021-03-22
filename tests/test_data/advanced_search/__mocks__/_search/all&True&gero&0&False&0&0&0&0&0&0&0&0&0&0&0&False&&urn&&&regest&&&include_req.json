@@ -33,6 +33,26 @@
                         "match": {
                           "fuzzy": {
                             "lemmas": {
+                              "value": "gerereve",
+                              "fuzziness": "0"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              },
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "lemmas": {
                               "value": "gesta",
                               "fuzziness": "0"
                             }
@@ -54,26 +74,6 @@
                           "fuzzy": {
                             "lemmas": {
                               "value": "gestus",
-                              "fuzziness": "0"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ],
-                  "slop": "0",
-                  "in_order": false
-                }
-              },
-              {
-                "span_near": {
-                  "clauses": [
-                    {
-                      "span_multi": {
-                        "match": {
-                          "fuzzy": {
-                            "lemmas": {
-                              "value": "gerereve",
                               "fuzziness": "0"
                             }
                           }
@@ -367,6 +367,11 @@
           "Rheinisch": {
             "match": {
               "_type": "rheinisch"
+            }
+          },
+          "Saint-Bénigne de Dijon": {
+            "match": {
+              "_type": "saint_bénigne"
             }
           },
           "Cormery (TELMA)": {
@@ -683,6 +688,11 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Saint-Bénigne de Dijon": {
+                "match": {
+                  "_type": "saint_bénigne"
                 }
               },
               "Cormery (TELMA)": {

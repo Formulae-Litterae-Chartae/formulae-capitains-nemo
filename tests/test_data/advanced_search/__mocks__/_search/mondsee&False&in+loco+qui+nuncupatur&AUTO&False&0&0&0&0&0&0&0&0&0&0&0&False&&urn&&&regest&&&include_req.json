@@ -388,6 +388,11 @@
               "_type": "rheinisch"
             }
           },
+          "Saint-Bénigne de Dijon": {
+            "match": {
+              "_type": "saint_bénigne"
+            }
+          },
           "Cormery (TELMA)": {
             "match": {
               "_type": "telma_cormery"
@@ -702,6 +707,11 @@
               "Rheinisch": {
                 "match": {
                   "_type": "rheinisch"
+                }
+              },
+              "Saint-Bénigne de Dijon": {
+                "match": {
+                  "_type": "saint_bénigne"
                 }
               },
               "Cormery (TELMA)": {

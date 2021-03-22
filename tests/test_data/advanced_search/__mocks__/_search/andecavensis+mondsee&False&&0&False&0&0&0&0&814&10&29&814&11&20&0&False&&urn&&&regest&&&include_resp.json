@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 17,
+    "total": {
+      "value": 17,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
         "_source": {
@@ -63,8 +66,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
         "_source": {
@@ -112,8 +115,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
         "_source": {
@@ -159,8 +162,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
         "_source": {
@@ -208,8 +211,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
         "_source": {
@@ -253,8 +256,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
         "_source": {
@@ -304,8 +307,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
         "_source": {
@@ -357,8 +360,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
         "_source": {
@@ -412,8 +415,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
         "_source": {
@@ -453,8 +456,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
         "_source": {
@@ -504,8 +507,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0083.lat001",
         "_score": null,
         "_source": {
@@ -553,8 +556,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0084.lat001",
         "_score": null,
         "_source": {
@@ -600,8 +603,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
         "_score": null,
         "_source": {
@@ -649,8 +652,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0094.lat001",
         "_score": null,
         "_source": {
@@ -698,8 +701,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0127.lat001",
         "_score": null,
         "_source": {
@@ -745,8 +748,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0131.lat001",
         "_score": null,
         "_source": {
@@ -792,8 +795,8 @@
         ]
       },
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,
         "_source": {
@@ -855,7 +858,7 @@
             "doc_count": 0
           },
           "Angers": {
-            "doc_count": 62
+            "doc_count": 0
           },
           "Archives d’Anjou": {
             "doc_count": 0
@@ -963,7 +966,7 @@
             "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
             "doc_count": 0
@@ -978,6 +981,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -1185,7 +1191,7 @@
           "doc_count": 0
         },
         "Mondsee": {
-          "doc_count": 17
+          "doc_count": 0
         },
         "Papsturkunden Frankreich": {
           "doc_count": 0
@@ -1200,6 +1206,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

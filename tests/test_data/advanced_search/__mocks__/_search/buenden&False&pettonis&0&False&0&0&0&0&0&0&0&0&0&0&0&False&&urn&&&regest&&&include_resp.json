@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 2,
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
         "_source": {
@@ -306,15 +309,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Lent",
             "Thursday",
-            "Easter",
-            "Wednesday",
             "Sunday",
-            "Monday",
             "Saturday",
             "Tuesday",
-            "Friday"
+            "Monday",
+            "Wednesday",
+            "Lent",
+            "Friday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -329,8 +332,8 @@
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
@@ -399,7 +402,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -512,6 +515,9 @@
           "Rätien": {
             "doc_count": 0
           },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
           "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
@@ -621,7 +627,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "Cartulaire de Redon": {
           "doc_count": 0
@@ -732,6 +738,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

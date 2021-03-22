@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 1,
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {
@@ -82,7 +85,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -195,6 +198,9 @@
           "Rätien": {
             "doc_count": 0
           },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
           "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
@@ -304,7 +310,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Cartulaire de Redon": {
           "doc_count": 0
@@ -415,6 +421,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

@@ -1,19 +1,22 @@
 {
-  "took": 10,
+  "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 46,
-    "successful": 46,
+    "total": 52,
+    "successful": 52,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
-    "total": 11,
+    "total": {
+      "value": 9,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v12",
-        "_type": "andecavensis",
+        "_index": "andecavensis_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
         "_source": {
@@ -57,8 +60,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v12",
-        "_type": "andecavensis",
+        "_index": "andecavensis_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form010.lat001",
         "_score": null,
         "_source": {
@@ -102,8 +105,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v12",
-        "_type": "andecavensis",
+        "_index": "andecavensis_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form029.lat001",
         "_score": null,
         "_source": {
@@ -147,8 +150,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v12",
-        "_type": "andecavensis",
+        "_index": "andecavensis_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form046.lat001",
         "_score": null,
         "_source": {
@@ -192,8 +195,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v12",
-        "_type": "andecavensis",
+        "_index": "andecavensis_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form047.lat001",
         "_score": null,
         "_source": {
@@ -237,8 +240,8 @@
         ]
       },
       {
-        "_index": "marculf_v12",
-        "_type": "marculf",
+        "_index": "marculf_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form006.lat001",
         "_score": null,
         "_source": {
@@ -282,8 +285,8 @@
         ]
       },
       {
-        "_index": "marculf_v12",
-        "_type": "marculf",
+        "_index": "marculf_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form015.lat001",
         "_score": null,
         "_source": {
@@ -327,8 +330,8 @@
         ]
       },
       {
-        "_index": "marculf_v12",
-        "_type": "marculf",
+        "_index": "marculf_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form024.lat001",
         "_score": null,
         "_source": {
@@ -372,8 +375,8 @@
         ]
       },
       {
-        "_index": "marculf_v12",
-        "_type": "marculf",
+        "_index": "marculf_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form035.lat001",
         "_score": null,
         "_source": {
@@ -415,124 +418,34 @@
           0,
           "urn:cts:formulae:marculf.form035.lat001"
         ]
-      },
-      {
-        "_index": "marculf_v12",
-        "_type": "marculf",
-        "_id": "urn:cts:formulae:marculf.form2_023.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,23",
-          "urn": "urn:cts:formulae:marculf.form2_023.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_023.lat001"
-        ]
-      },
-      {
-        "_index": "marculf_v12",
-        "_type": "marculf",
-        "_id": "urn:cts:formulae:marculf.form2_037.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,37",
-          "urn": "urn:cts:formulae:marculf.form2_037.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ],
-          "text": [
-            "text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_037.lat001"
-        ]
       }
     ]
   },
   "aggregations": {
     "all_docs": {
-      "doc_count": 13156,
+      "doc_count": 13232,
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Angers": {
-            "doc_count": 62
+            "doc_count": 0
           },
           "Archives d’Anjou": {
-            "doc_count": 74
+            "doc_count": 0
           },
           "Arnulfinger": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
-            "doc_count": 391
+            "doc_count": 0
           },
           "Chartae Latinae X": {
             "doc_count": 0
@@ -547,127 +460,130 @@
             "doc_count": 0
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 10
+            "doc_count": 0
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 48
+            "doc_count": 0
           },
           "Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "Echternach": {
-            "doc_count": 152
+            "doc_count": 0
           },
           "Eudes": {
             "doc_count": 0
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 38
+            "doc_count": 0
           },
           "Freising": {
-            "doc_count": 1383
+            "doc_count": 0
           },
           "Fulda (Dronke)": {
-            "doc_count": 8
+            "doc_count": 0
           },
           "Fulda (Stengel)": {
-            "doc_count": 563
+            "doc_count": 0
           },
           "Gorze": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Hersfeld": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "Katalonien": {
-            "doc_count": 2247
+            "doc_count": 0
           },
           "Lorsch": {
-            "doc_count": 4130
+            "doc_count": 0
           },
           "Luzern": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marculf": {
-            "doc_count": 95
+            "doc_count": 0
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 108
+            "doc_count": 0
           },
           "Marmoutier - Dunois": {
-            "doc_count": 281
+            "doc_count": 0
           },
           "Marmoutier - Fougères": {
-            "doc_count": 7
+            "doc_count": 0
           },
           "Marmoutier - Manceau": {
-            "doc_count": 189
+            "doc_count": 0
           },
           "Marmoutier - Pour le perche": {
             "doc_count": 0
           },
           "Marmoutier - Serfs": {
-            "doc_count": 187
+            "doc_count": 0
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 163
+            "doc_count": 0
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
+            "doc_count": 0
           },
           "Merowinger": {
-            "doc_count": 196
+            "doc_count": 0
           },
           "Mittelrheinisch": {
-            "doc_count": 98
+            "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 259
+            "doc_count": 0
           },
           "Passau": {
-            "doc_count": 102
+            "doc_count": 0
           },
           "Regensburg": {
-            "doc_count": 269
+            "doc_count": 0
           },
           "Rheinisch": {
-            "doc_count": 78
+            "doc_count": 0
           },
           "Rätien": {
-            "doc_count": 60
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "Salzburg": {
-            "doc_count": 229
+            "doc_count": 0
           },
           "Schäftlarn": {
-            "doc_count": 37
+            "doc_count": 0
           },
           "St. Gallen": {
-            "doc_count": 779
+            "doc_count": 0
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "Weißenburg": {
-            "doc_count": 276
+            "doc_count": 0
           },
           "Werden": {
-            "doc_count": 66
+            "doc_count": 0
           },
           "Zürich": {
-            "doc_count": 53
+            "doc_count": 0
           }
         }
       },
@@ -679,7 +595,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 7
+            "doc_count": 11
           },
           {
             "key": "500-599",
@@ -695,7 +611,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 154
+            "doc_count": 156
           },
           {
             "key": "700-799",
@@ -703,7 +619,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4397
+            "doc_count": 4416
           },
           {
             "key": "800-899",
@@ -711,7 +627,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3363
+            "doc_count": 3362
           },
           {
             "key": "900-999",
@@ -719,18 +635,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2944
+            "doc_count": 2958
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1433
+            "doc_count": 1522
           }
         ]
       },
       "no_date": {
-        "doc_count": 700
+        "doc_count": 649
       }
     },
     "corpus": {
@@ -739,7 +655,7 @@
           "doc_count": 0
         },
         "Angers": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "Archives d’Anjou": {
           "doc_count": 0
@@ -811,7 +727,7 @@
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 6
+          "doc_count": 0
         },
         "Marmoutier (TELMA)": {
           "doc_count": 0
@@ -862,6 +778,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {
@@ -952,7 +871,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 11
+      "doc_count": 9
     }
   }
 }

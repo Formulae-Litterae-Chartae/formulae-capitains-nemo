@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 7,
+    "total": {
+      "value": 7,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
         "_source": {
@@ -43,19 +46,14 @@
           "max_date": "0760-12-31",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0016.lat001"
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
         "_source": {
@@ -88,19 +86,14 @@
           ],
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat&#x2F;Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0017.lat001"
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
         "_source": {
@@ -136,19 +129,14 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
         "_source": {
@@ -369,22 +357,17 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Lent",
             "Thursday",
-            "Easter",
-            "Wednesday",
             "Sunday",
             "Tuesday",
             "Saturday",
             "Monday",
-            "Friday"
+            "Wednesday",
+            "Lent",
+            "Friday",
+            "Easter"
           ],
           "sort_prefix": 1
-        },
-        "highlight": {
-          "autocomplete_regest": [
-            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur."
-          ]
         },
         "sort": [
           1,
@@ -392,8 +375,8 @@
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {
@@ -429,19 +412,14 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
         "_source": {
@@ -477,19 +455,14 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
         ]
       },
       {
-        "_index": "buenden_v12",
-        "_type": "buenden",
+        "_index": "buenden_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
         "_source": {
@@ -517,11 +490,6 @@
           "min_date": "0975-02",
           "max_date": "0975-02",
           "sort_prefix": 1
-        },
-        "highlight": {
-          "autocomplete_regest": [
-            "Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld."
-          ]
         },
         "sort": [
           1,
@@ -551,7 +519,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -664,6 +632,9 @@
           "Rätien": {
             "doc_count": 0
           },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
           "Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
@@ -773,7 +744,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 7
+          "doc_count": 0
         },
         "Cartulaire de Redon": {
           "doc_count": 0
@@ -884,6 +855,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

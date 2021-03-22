@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -8,12 +8,15 @@
     "failed": 0
   },
   "hits": {
-    "total": 1,
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v12",
-        "_type": "mondsee",
+        "_index": "mondsee_v7",
+        "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,
         "_source": {
@@ -208,7 +211,7 @@
             "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 137
+            "doc_count": 0
           },
           "Papsturkunden Frankreich": {
             "doc_count": 0
@@ -223,6 +226,9 @@
             "doc_count": 0
           },
           "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
@@ -430,7 +436,7 @@
           "doc_count": 0
         },
         "Mondsee": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "Papsturkunden Frankreich": {
           "doc_count": 0
@@ -445,6 +451,9 @@
           "doc_count": 0
         },
         "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
           "doc_count": 0
         },
         "Saint-Martin de Tours (TELMA)": {

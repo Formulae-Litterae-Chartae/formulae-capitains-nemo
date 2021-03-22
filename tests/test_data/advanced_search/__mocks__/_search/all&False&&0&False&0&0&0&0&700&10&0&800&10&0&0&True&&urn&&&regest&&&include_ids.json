@@ -1,5 +1,8 @@
 [
   {
+    "id": "urn:cts:formulae:chartae_latinae_xii.bruckner0536.lat001"
+  },
+  {
     "id": "urn:cts:formulae:echternach.wampach0011.lat001"
   },
   {
@@ -535,6 +538,9 @@
   },
   {
     "id": "urn:cts:formulae:lorsch.gloeckner4173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lorsch.gloeckner4176.lat001"
   },
   {
     "id": "urn:cts:formulae:lorsch.gloeckner4177.lat001"
