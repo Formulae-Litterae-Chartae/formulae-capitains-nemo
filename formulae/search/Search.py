@@ -184,7 +184,8 @@ def highlight_segment(orig_str: str) -> str:
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
                           search_field: Union[str, list], highlight_field: str, fuzz: str,
-                          download_id: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+                          download_id: str = '', compare_term: str = '',
+                          compare_field: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -205,6 +206,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     if download_id:
         current_app.redis.set(download_id, '50%')
     for list_index, hit in enumerate(search['hits']['hits']):
+        hit_highlight_positions = list()
         sentences = [_('Text nicht zugänglich.')]
         sentence_spans = [range(0, 1)]
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
@@ -214,13 +216,16 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             sentences = []
             sentence_spans = []
             vectors = corp_vectors[hit['_id']]['term_vectors']
-            highlight_offsets = dict()
-            if highlight_field == search_field:
-                for v in vectors[search_field]['terms'].values():
-                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
-            else:
-                for v in vectors[highlight_field]['terms'].values():
-                    highlight_offsets.update({o['position']: (o['start_offset'], o['end_offset']) for o in v['tokens']})
+            highlight_offsets = {x: dict() for x in (highlight_field, search_field, compare_field) if x}
+            if search_field in [highlight_field, compare_field]:
+                for k, v in vectors[search_field]['terms'].items():
+                    highlight_offsets[search_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+            if search_field != highlight_field:
+                for k, v in vectors[highlight_field]['terms'].items():
+                    highlight_offsets[highlight_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+            if compare_field and compare_field not in [highlight_field, search_field]:
+                for k, v in vectors[compare_field]['terms'].items():
+                    highlight_offsets[compare_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
             highlighted_words = set(q.split())
             for highlight in hit['highlight'][search_field]:
                 for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
@@ -281,11 +286,15 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 if ordered_terms:
                     search_range_start = -1
                 for pos in positions[q_words[0]]:
+                    if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                        continue
                     index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
                     used_q_words = {q_words[0]}
                     span = {pos}
                     for w in q_words[1:]:
                         for next_pos in positions[w]:
+                            if compare_term and highlight_offsets[compare_field][next_pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                                continue
                             if next_pos in index_range and next_pos not in span:
                                 span.add(next_pos)
                                 used_q_words.add(w)
@@ -293,10 +302,11 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     if set(q_words) == used_q_words and len(span) == len(q_words):
                         ordered_span = sorted(span)
                         if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                            start_offsets = [highlight_offsets[x][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[x][1] - 1 for x in ordered_span]
-                            start_index = highlight_offsets[max(0, ordered_span[0] - 10)][0]
-                            end_index = highlight_offsets[min(len(highlight_offsets) - 1, ordered_span[-1] + 10)][1] + 1
+                            hit_highlight_positions.append(ordered_span)
+                            start_offsets = [highlight_offsets[highlight_field][x][0] for x in ordered_span]
+                            end_offsets = [highlight_offsets[highlight_field][x][1] - 1 for x in ordered_span]
+                            start_index = highlight_offsets[highlight_field][max(0, ordered_span[0] - 10)][0]
+                            end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, ordered_span[-1] + 10)][1] + 1
                             sentence = ''
                             for i, x in enumerate(text[start_index:end_index]):
                                 if i + start_index in start_offsets and i + start_index in end_offsets:
@@ -311,7 +321,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                             if marked_sent not in sentences:
                                 sentences.append(marked_sent)
                                 sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                            min(len(highlight_offsets), ordered_span[-1] + 11)))
+                                                            min(len(highlight_offsets[highlight_field]), ordered_span[-1] + 11)))
             else:
                 terms = highlighted_words
                 positions = set()
@@ -325,12 +335,14 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                     else:
                         if w in vectors[search_field]['terms']:
                             positions.update([i['position'] for i in vectors[search_field]['terms'][w]['tokens']])
-                positions = sorted(positions)
-                for pos in positions:
-                    start_offset = highlight_offsets[pos][0]
-                    end_offset = highlight_offsets[pos][1] - 1
-                    start_index = highlight_offsets[max(0, pos - 10)][0]
-                    end_index = highlight_offsets[min(len(highlight_offsets) - 1, pos + 10)][1] + 1
+                hit_highlight_positions = sorted(positions)
+                for pos in hit_highlight_positions:
+                    if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                        continue
+                    start_offset = highlight_offsets[highlight_field][pos][0]
+                    end_offset = highlight_offsets[highlight_field][pos][1] - 1
+                    start_index = highlight_offsets[highlight_field][max(0, pos - 10)][0]
+                    end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, pos + 10)][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
                         if i + start_index == start_offset and i + start_index == end_offset:
@@ -342,7 +354,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         else:
                             sentence += x
                     sentences.append(Markup(sentence))
-                    sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets), pos + 11)))
+                    sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets[highlight_field]), pos + 11)))
         if download_id and list_index % 500 == 0:
             current_app.redis.set(download_id, str(50 + floor((list_index / len(search['hits']['hits'])) * 50)) + '%')
         regest_sents = []
@@ -383,6 +395,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                             List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     prev_search = None
+    compare_term = ''
+    compare_field = ''
     if q == '' and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
@@ -394,7 +408,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     else:
         proper_name = []
     search_field = 'text'
-    if formulaic_parts != '':
+    if proper_name and proper_name_q not in ['y', 'True', True]:
+        search_field = "lemmas"
+    elif formulaic_parts != '':
         search_field = formulaic_parts.split('+')
     elif lemma_search == 'True':
         search_field = 'lemmas'
@@ -446,15 +462,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             clauses += sub_clauses
         body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
     if q:
-        proper_name_bool_must = []
-        if proper_name and proper_name_q == 'y':
-            clauses = list()
-            for term in proper_name:
-                sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
-                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                    sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
-                clauses += sub_clauses
-            proper_name_bool_must = [{'bool': {'should': clauses, 'minimum_should_match': 1}}]
+        if proper_name and proper_name_q in ['y', 'True', True]:
+            compare_term = ' '.join(proper_name)
+            compare_field = 'lemmas'
         if isinstance(search_field, list):
             bool_clauses = []
             for s_field in search_field:
@@ -463,9 +473,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                     u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                     if u_term != term:
                         if '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'bool_must':
-                                                                    [{'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}] + proper_name_bool_must,
-                                                                }}])
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
                         else:
                             words = [u_term]
                             sub_clauses = {'span_or': {'clauses': []}}
@@ -493,16 +501,13 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'bool_must':
-                                                                                                 [{'match': {'regexp': {s_field: w}}}] + proper_name_bool_must}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
                             clauses.append([sub_clauses])
                     else:
                         if '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'bool_must':
-                                                                    [{'match': {'wildcard': {s_field: term}}}] + proper_name_bool_must}}])
+                            clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
                         else:
-                            clauses.append([{'span_multi': {'bool_must':
-                                                                    [{'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}] + proper_name_bool_must}}])
+                            clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
                 for clause in product(*clauses):
                     bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
         else:
@@ -513,18 +518,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                     u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                 if '*' in term or '?' in term:
                     if u_term != term:
-                        clauses.append([{'span_multi': {'bool_must':
-                                                                [{'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}] + proper_name_bool_must}}])
+                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
                     else:
-                        clauses.append([{'span_multi': {'bool_must':
-                                                                [{'match': {'wildcard': {search_field: term}}}] + proper_name_bool_must}}])
+                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
                 else:
                     if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                        sub_clauses = [{'span_multi': {'bool_must':
-                                                           [{'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}] + proper_name_bool_must}}]
+                        sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
                         for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                            sub_clauses.append({'span_multi': {'bool_must':
-                                                                   [{'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}] + proper_name_bool_must}})
+                            sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
                         clauses.append(sub_clauses)
                     else:
                         if u_term != term:
@@ -554,12 +555,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'bool_must':
-                                                                                             [{'match': {'regexp': {search_field: w}}}] + proper_name_bool_must}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
                             clauses.append([sub_clauses])
                         else:
-                            clauses.append([{'bool': {'must': [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}] + proper_name_bool_must}}])
-            print(clauses)
+                            clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
             bool_clauses = []
             for clause in product(*clauses):
                 bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
@@ -648,7 +647,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                            search_field=search_field,
                                                            highlight_field='text',
                                                            fuzz=fuzz,
-                                                           download_id=search_id)
+                                                           download_id=search_id,
+                                                           compare_term=compare_term,
+                                                           compare_field=compare_field)
         else:
             if isinstance(search_field, list):
                 ids = []
