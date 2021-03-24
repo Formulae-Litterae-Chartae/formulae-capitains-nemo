@@ -4,7 +4,7 @@ from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
 from formulae.models import User
 from formulae.search.Search import advanced_query_index, build_sort_list, \
-    set_session_token, suggest_word_search, PRE_TAGS, POST_TAGS
+    suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
 import flask_testing
@@ -101,6 +101,7 @@ class Formulae_Testing(flask_testing.TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0025.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0027.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0028.lat001',
+                                 'urn:cts:formulae:buenden.meyer-marthaler0086.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                  'urn:cts:formulae:freising.bitterauf0090.lat001',
                                  'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
@@ -878,7 +879,7 @@ class TestIndividualRoutes(Formulae_Testing):
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         mock_highlight.return_value = [[{'sents': search_string, 'sentence_spans': [range(0, 6)]}], []]
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(0, 6)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
         # Should be able to deal with editorial punctuation in the text
         search_string = ['Text with special editorial signs in it']
@@ -887,25 +888,25 @@ class TestIndividualRoutes(Formulae_Testing):
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
         # Make sure that results are also returned whether lemma or text, simple or advanced
         session['previous_search_args']['lemma_search'] = 'False'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with text should work.')
         session['previous_search_args']['lemma_search'] = 'True'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with lemmas should work.')
         session['previous_search_args'].pop('lemma_search', None)
         session['previous_search_args']['lemma_search'] = 'True'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with lemmas should work.')
         session['previous_search_args'].pop('lemma_search', None)
         session['previous_search_args']['lemma_search'] = 'False'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, []))
+        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with text should work.')
         # Should return the same result when passed in the session variable to r_multipassage
-        session['previous_search'] = [{'_id': obj_id,
+        session['previous_search'] = [{'id': obj_id,
                                        'title': 'Salzburg A1',
                                        'sents': search_string,
                                        'sentence_spans': [range(6, 13)]}]
@@ -950,10 +951,10 @@ class TestIndividualRoutes(Formulae_Testing):
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            results = set_session_token(['all'], body, search_field='text', q='text')
+            _, _, _, results = advanced_query_index(**test_args)
             session['previous_search'] = results
-            self.assertEqual(results,
-                             [hit for hit in resp['hits']['hits']])
+            self.assertEqual([x['id'] for x in results],
+                             [hit['_id'] for hit in resp['hits']['hits']])
             updated_args = copy(test_args)
             updated_args['q'] = 'tex?'
             url = '/search/results?source=advanced&' + '&'.join(['{}={}'.format(x, y) for x, y in updated_args.items()])
@@ -973,8 +974,8 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get(url.replace('q=tex?', 'q=soem') + '&old_search=False')
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
-            self.assertEqual(session['previous_search'],
-                             [hit for hit in resp['hits']['hits']],
+            self.assertEqual([x['id'] for x in session['previous_search']],
+                             [hit['_id'] for hit in resp['hits']['hits']],
                              'Session should reflect whether a text can be shown or not.')
 
     def test_session_previous_result_unset(self):
@@ -2882,15 +2883,15 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_vectors.side_effect = self.vector_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3285,7 +3286,7 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_vectors.return_value = self.term_vectors
+        mock_vectors.side_effect = self.vector_side_effect
         sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3385,10 +3386,10 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
-                 {'sents': ['Text nicht zugänglich.']},
+                 {'sents': [Markup('aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum </small><strong>Hattone</strong><small> venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius ')]},
                  {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.return_value = resp
-        mock_vectors.return_value = self.term_vectors
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3471,7 +3472,7 @@ class TestES(Formulae_Testing):
                             Markup('Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter </small><strong>a</strong><small> vice Lubucionis diaconi scripsi et suscripsi.')]},
                  {'sents': [Markup('In Christi nomine. Ego itaque bresbiter Valencio sanus </small><strong>a</strong><small> sana mente per comiatu senioris Iltebaldi et cum manu – – dono ')]}]
         mock_search.return_value = resp
-        mock_vectors.return_value = self.term_vectors
+        mock_vectors.side_effect = self.vector_side_effect
         actual, _, _, _ = advanced_query_index(**test_args)
         for s in sents:
             self.assertIn(s, [{"sents": x['sents']} for x in actual])
@@ -3612,8 +3613,7 @@ class TestES(Formulae_Testing):
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []},
-                 {'sents': []}]
+        sents = []
         mock_search.return_value = resp
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3639,8 +3639,7 @@ class TestES(Formulae_Testing):
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []},
-                 {'sents': [Markup('Facta donacio in loco Fortunes, sub '
+        sents = [{'sents': [Markup('Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli '
                                    '</small><strong>regis</strong><small>, Sub die, quod est '
@@ -3670,8 +3669,7 @@ class TestES(Formulae_Testing):
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []},
-                 {'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
+        sents = [{'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium </small><strong>sub</strong><small> regnum '
                                    'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
