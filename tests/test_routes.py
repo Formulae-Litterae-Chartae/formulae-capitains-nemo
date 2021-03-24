@@ -3024,10 +3024,13 @@ class TestES(Formulae_Testing):
         mock_search.return_value = resp
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['search_id'] = '1234'
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.assertEqual(self.app.redis.get('search_progress_1234').decode('utf-8'), '100%',
+                         "Redis should keep track of download progress")
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, "lem_highlight_to_text")
