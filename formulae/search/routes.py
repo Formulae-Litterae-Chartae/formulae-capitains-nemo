@@ -253,7 +253,6 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
-        search_field = 'text'
         if prev_args.get('formulaic_parts', None):
             ids = []
             for list_index, hit in enumerate(session['previous_search']):
@@ -261,20 +260,10 @@ def download_search_results(download_id: str) -> Response:
                 if 'highlight' in hit:
                     for highlight in hit['highlight']:
                         sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(highlight)))
-                else:
-                    for p in prev_args.get('formulaic_parts').split('+'):
-                        if p in hit['info']:
-                            sents.append('<b>{part}</b>: {text}'.format(part=p, text=hit['info'][p]))
                 regest_sents = []
-                open_text = hit['id'] in current_app.config['nemo_app'].open_texts
-                half_open_text = hit['id'] in current_app.config['nemo_app'].half_open_texts
-                show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
-                regest_field=prev_args.get('regest_field', 'regest')
-                if 'highlight' in hit and regest_field in hit['highlight']:
-                    if show_regest is False:
-                        regest_sents = [_('Regest nicht zugänglich.')]
-                    else:
-                        regest_sents = hit['highlight'][regest_field]
+                if 'regest_sents' in hit:
+                    for s in hit['regest_sents']:
+                        regest_sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(s)))
                 ids.append({'id': hit['id'],
                             'info': hit['info'],
                             'sents': sents,
@@ -283,8 +272,6 @@ def download_search_results(download_id: str) -> Response:
                 current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
         else:
-            if prev_args.get('lemma_search', None) == "True":
-                search_field = 'lemmas'
             try:
                 ids = session['previous_search']
             # This finally statement makes sure that the JS function to get the progress halts on an error.
