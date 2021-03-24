@@ -2414,6 +2414,31 @@ class TestES(Formulae_Testing):
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
                                                       ("proper_name_q", "True"), ("forgeries", "include")]),
+                 'test_single_word_proper_name_no_match': OrderedDict([("corpus", "all"),
+                                                               ("lemma_search", "False"),
+                                                               ("q", 'regnum'),
+                                                               ("fuzziness", "0"),
+                                                               ("in_order", "False"),
+                                                               ("year", 0),
+                                                               ("slop", "0"),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("regest_q", ''),
+                                                               ("regest_field", "regest"),
+                                                                           ("formulaic_parts", ""),
+                                                                           ("proper_name", "personenname"),
+                                                      ("proper_name_q", "True"), ("forgeries", "include")]),
                  'test_single_word_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'adam'),
@@ -3393,6 +3418,23 @@ class TestES(Formulae_Testing):
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+        self.assertEqual(ids, [{"id": x['id']} for x in actual],
+                         "Proper name matching where neither term is a proper name should produce no results.")
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_word_proper_name_no_match(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_word_proper_name_no_match'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        ids = fake.load_ids()
+        mock_search.return_value = resp
+        mock_vectors.side_effect = self.vector_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
