@@ -344,9 +344,8 @@ class TestIndividualRoutes(Formulae_Testing):
             # Make sure session variables are correctly set from g
             attributes = ['previous_search',
                           'previous_search_args',
-                          'previous_search_args',
                           'previous_aggregations',
-                          'previous_aggregations']
+                          'highlighted_words']
             for a in attributes:
                 setattr(g, a, 'some_value')
             c.get('/', follow_redirects=True)
