@@ -341,7 +341,17 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
             self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cd', 'd', 'cm', 'm'],
                              self.get_context_variable('numbers'))
-
+            # Make sure session variables are correctly set from g
+            attributes = ['previous_search',
+                          'previous_search_args',
+                          'previous_search_args',
+                          'previous_aggregations',
+                          'previous_aggregations']
+            for a in attributes:
+                setattr(g, a, 'some_value')
+            c.get('/', follow_redirects=True)
+            for a in attributes:
+                self.assertEqual(session[a], 'some_value')
 
     def test_authorized_project_member(self):
 
