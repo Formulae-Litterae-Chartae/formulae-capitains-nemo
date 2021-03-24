@@ -197,6 +197,8 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
         sentences = []
         sentence_spans = []
         vectors = corp_vectors[hit['_id']]['term_vectors']
+        if compare_field and compare_field not in vectors:
+            continue
         highlight_offsets = {x: dict() for x in (highlight_field, search_field, compare_field) if x}
         if search_field in [highlight_field, compare_field]:
             for k, v in vectors[search_field]['terms'].items():
@@ -687,21 +689,23 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}&{proper_name}&" \
-                   "{forgeries}".format(corpus='+'.join(corpus), field=lemma_search,
-                                                                         q=q.replace(' ', '+'), fuzz=fuzziness,
-                                                                         in_order=in_order, slop=slop, y=year, m=month,
-                                                                         d=day, y_s=year_start,
-                                                                         m_s=month_start, d_s=day_start, y_e=year_end,
-                                                                         m_e=month_end, d_e=day_end,
-                                                                         d_p_m=date_plus_minus,
-                                                                         e_d_r=exclusive_date_range,
-                                                                         c_p=composition_place, sort=old_sort,
-                                                                         spec_days='+'.join(special_days),
-                                                                         regest_q=regest_q.replace(' ', '+'),
-                                                                         regest_field=regest_field,
-                                                                         charter_parts=formulaic_parts.replace(' ', '+'),
-                                                                         proper_name='+'.join(proper_name),
+                   "{regest_field}&{charter_parts}&{proper_name}&{proper_name_q}&" \
+                   "{forgeries}".format(corpus='+'.join(corpus),
+                                        field=lemma_search,
+                                        q=q.replace(' ', '+'), fuzz=fuzziness,
+                                        in_order=in_order, slop=slop, y=year, m=month,
+                                        d=day, y_s=year_start,
+                                        m_s=month_start, d_s=day_start, y_e=year_end,
+                                        m_e=month_end, d_e=day_end,
+                                        d_p_m=date_plus_minus,
+                                        e_d_r=exclusive_date_range,
+                                        c_p=composition_place, sort=old_sort,
+                                        spec_days='+'.join(special_days),
+                                        regest_q=regest_q.replace(' ', '+'),
+                                        regest_field=regest_field,
+                                        charter_parts=formulaic_parts.replace(' ', '+'),
+                                        proper_name='+'.join(proper_name),
+                                        proper_name_q=proper_name_q,
                                         forgeries=forgeries)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
