@@ -16,9 +16,10 @@
         <!-- Notes in individual boxes, triggered by a click on their labels inside the text. -->
         <div class="card-body p-2">
         {% for hit in session['previous_search'] %}
-            {% if hit['_id'] not in request.url %}
+            {% if hit['id'] not in request.url %}
             <div class="card search-hit">
-            <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, hit['_id']]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}"><span>{{ hit['_source']['title'] }}</span></a>
+            <a
+                    href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, hit['id']]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}"><span>{{ hit['info']['title'] }}</span></a>
             </div>
             {% endif %}
         {% endfor %}

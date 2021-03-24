@@ -122,6 +122,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
+                        'urn:cts:formulae:saint_bénigne',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
@@ -146,6 +147,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
+                             'urn:cts:formulae:saint_bénigne',
                              'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:tours_gasnault',
                              'urn:cts:formulae:weissenburg',
@@ -1196,7 +1198,7 @@ class NemoFormulae(Nemo):
                                                     transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
 
                     if 'previous_search' in session:
-                        result_ids = [x for x in session['previous_search'] if x['_id'] == id]
+                        result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and session['previous_search_args'].get('q'):
                             d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                 passage_data['objects'].append(d)
@@ -1232,14 +1234,7 @@ class NemoFormulae(Nemo):
             search_field = 'text'
             if prev_args.get('lemma_search', None) == "True":
                 search_field = 'lemmas'
-            ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
-                                               q=prev_args.get('q', ''),
-                                               ordered_terms=prev_args.get('ordered_terms', False),
-                                               slop=prev_args.get('slop', 0),
-                                               regest_field=prev_args.get('regest_field', 'regest'),
-                                               search_field=search_field,
-                                               highlight_field='text',
-                                               fuzz=prev_args.get('fuzziness', '0'))
+            ids = results
             if not any(ids):
                 return html
             if 'sentence_spans' in ids[0]:

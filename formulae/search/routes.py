@@ -97,6 +97,7 @@ def r_results():
                        regest_field=request.args.get('regest_field', 'regest'),
                        formulaic_parts=request.args.get('formulaic_parts', ''),
                        proper_name=request.args.get('proper_name', ''),
+                       proper_name_q=request.args.get('proper_name_q', ''),
                        search_id=request.args.get('search_id', ''),
                        forgeries=request.args.get('forgeries', 'include'))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
@@ -252,49 +253,27 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
-        search_field = 'text'
         if prev_args.get('formulaic_parts', None):
             ids = []
             for list_index, hit in enumerate(session['previous_search']):
                 sents = []
                 if 'highlight' in hit:
-                    for k, v in hit['highlight'].items():
-                        for t in v:
-                            sents.append('<b>{part}</b>: {text}'.format(part=k, text=t))
-                else:
-                    for p in prev_args.get('formulaic_parts').split('+'):
-                        if p in hit['_source']:
-                            sents.append('<b>{part}</b>: {text}'.format(part=p, text=hit['_source'][p]))
+                    for highlight in hit['highlight']:
+                        sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(highlight)))
                 regest_sents = []
-                open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-                half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-                show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
-                regest_field=prev_args.get('regest_field', 'regest')
-                if 'highlight' in hit and regest_field in hit['highlight']:
-                    if show_regest is False:
-                        regest_sents = [_('Regest nicht zugänglich.')]
-                    else:
-                        regest_sents = hit['highlight'][regest_field]
-                ids.append({'id': hit['_id'],
-                            'info': hit['_source'],
+                if 'regest_sents' in hit:
+                    for s in hit['regest_sents']:
+                        regest_sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(s)))
+                ids.append({'id': hit['id'],
+                            'info': hit['info'],
                             'sents': sents,
-                            'title': hit['_source']['title'],
+                            'title': hit['info']['title'],
                             'regest_sents': regest_sents})
                 current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
         else:
-            if prev_args.get('lemma_search', None) == "True":
-                search_field = 'lemmas'
             try:
-                ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
-                                                   q=prev_args.get('q', ''),
-                                                   ordered_terms=prev_args.get('ordered_terms', False),
-                                                   slop=prev_args.get('slop', 0),
-                                                   regest_field=prev_args.get('regest_field', 'regest'),
-                                                   search_field=search_field,
-                                                   highlight_field='text',
-                                                   fuzz=prev_args.get('fuzz', '0'),
-                                                   download_id=download_id)
+                ids = session['previous_search']
             # This finally statement makes sure that the JS function to get the progress halts on an error.
             finally:
                 current_app.redis.setex(download_id, 60, '99%')
