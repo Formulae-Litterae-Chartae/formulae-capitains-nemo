@@ -2505,6 +2505,12 @@ class TestES(Formulae_Testing):
                                                                                                      'end_offset': 13}]},
                                                                'usque': {'term_freq': 1, 'tokens': [{'position': 10,
                                                                                                      'start_offset': 10,
+                                                                                                     'end_offset': 13}]},
+                                                               'facus': {'term_freq': 1, 'tokens': [{'position': 11,
+                                                                                                     'start_offset': 10,
+                                                                                                     'end_offset': 13}]},
+                                                               'geribus': {'term_freq': 1, 'tokens': [{'position': 12,
+                                                                                                     'start_offset': 10,
                                                                                                      'end_offset': 13}]}
                                                                }
                                                           },
@@ -2526,6 +2532,9 @@ class TestES(Formulae_Testing):
                                                                                                         'end_offset': 19}]},
                                                                  'gesta': {'term_freq': 1, 'tokens': [{'position': 5,
                                                                                                        'start_offset': 20,
+                                                                                                       'end_offset': 24},
+                                                                                                      {'position': 12,
+                                                                                                       'start_offset': 20,
                                                                                                        'end_offset': 24}]},
                                                                  'personenname': {'term_freq': 4, 'tokens': [{'position': 6,
                                                                                                               'start_offset': 10,
@@ -2540,6 +2549,9 @@ class TestES(Formulae_Testing):
                                                                                                               'start_offset': 10,
                                                                                                               'end_offset': 13}]},
                                                                  'usque': {'term_freq': 1, 'tokens': [{'position': 10,
+                                                                                                       'start_offset': 10,
+                                                                                                       'end_offset': 13}]},
+                                                                 'facere': {'term_freq': 1, 'tokens': [{'position': 11,
                                                                                                        'start_offset': 10,
                                                                                                        'end_offset': 13}]}
                                                                  }
@@ -3033,15 +3045,15 @@ class TestES(Formulae_Testing):
                          "Redis should keep track of download progress")
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, "lem_highlight_to_text")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         ids = fake.load_ids()
         mock_search.return_value = resp
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
