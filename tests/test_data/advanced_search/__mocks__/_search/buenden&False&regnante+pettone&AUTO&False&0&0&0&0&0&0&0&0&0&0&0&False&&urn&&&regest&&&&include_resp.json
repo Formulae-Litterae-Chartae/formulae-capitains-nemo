@@ -1,5 +1,5 @@
 {
-  "took": 7,
+  "took": 14,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
           "orig_comp_ort": "Maienfeld",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -78,7 +79,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -303,7 +304,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Cartulaire de Redon": {
           "doc_count": 0

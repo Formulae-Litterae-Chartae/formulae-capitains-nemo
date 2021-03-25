@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v8",
+        "_index": "mondsee_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Altötting",
+          "collection": "mondsee",
           "forgery": false,
           "specific_date": [
             {
@@ -214,7 +215,7 @@
             "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 0
+            "doc_count": 137
           },
           "Papsturkunden Frankreich": {
             "doc_count": 0
@@ -439,7 +440,7 @@
           "doc_count": 0
         },
         "Mondsee": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Papsturkunden Frankreich": {
           "doc_count": 0

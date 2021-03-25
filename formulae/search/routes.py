@@ -14,7 +14,7 @@ from math import floor
 from json import load
 
 
-CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
+CORP_MAP = {y['match']['collection']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
 
 
 @bp.route("/simple", methods=["GET"])

@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -309,15 +310,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Saturday",
-            "Lent",
-            "Friday",
-            "Thursday",
-            "Tuesday",
-            "Sunday",
             "Monday",
+            "Wednesday",
+            "Friday",
             "Easter",
-            "Wednesday"
+            "Tuesday",
+            "Saturday",
+            "Sunday",
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -332,7 +333,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -348,6 +349,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -554,15 +556,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Saturday",
-            "Lent",
+            "Monday",
+            "Wednesday",
             "Friday",
+            "Easter",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Thursday",
-            "Monday",
-            "Easter",
-            "Wednesday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -599,7 +601,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -824,7 +826,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Cartulaire de Redon": {
           "doc_count": 0
