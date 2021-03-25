@@ -28,6 +28,7 @@ from datetime import date
 from copy import copy
 from io import StringIO
 from lxml import etree
+from itertools import cycle
 
 
 class TestConfig(Config):
@@ -124,6 +125,8 @@ class Formulae_Testing(flask_testing.TestCase):
         self.maxDiff = None
         with open('tests/test_data/advanced_search/all_term_vectors.json') as f:
             self.term_vectors = load(f)
+        self.search_response = dict()
+        self.search_aggs = dict()
 
     def tearDown(self):
         db.session.remove()
@@ -955,9 +958,10 @@ class TestIndividualRoutes(Formulae_Testing):
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['text'][0] = PRE_TAGS + hit['highlight']['text'][0] + POST_TAGS
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -1029,7 +1033,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                  ("formulaic_parts", ""), ("proper_name", ""), ("proper_name_q", ""), ("forgeries", "include")])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        mock_search.return_value = resp
+        aggs = fake.load_aggs()
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             session['previous_search_args'] = previous_args
@@ -2672,6 +2677,13 @@ class TestES(Formulae_Testing):
                 rv['docs'].append(new_vector)
         return rv
 
+    def search_side_effect(self, **kwargs):
+        if 'suggest' in kwargs['body']:
+            return self.suggest_side_effect(**kwargs)
+        if 'query' in kwargs['body'] and 'ids' in kwargs['body']['query'].keys():
+            return self.search_aggs
+        return self.search_response
+
     def suggest_side_effect(self, **kwargs):
         if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
             resp = {}
@@ -2787,8 +2799,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2800,8 +2813,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2813,8 +2827,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2826,8 +2841,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2839,8 +2855,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2852,8 +2869,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2865,8 +2883,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, total, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2883,8 +2902,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2896,8 +2916,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args = self.TEST_ARGS['test_no_corpus_given']
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['all'], doc_type="", body=body)
@@ -2908,8 +2929,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2921,8 +2943,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2934,8 +2957,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2947,8 +2971,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2960,8 +2985,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2973,8 +2999,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2986,8 +3013,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -2999,8 +3027,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -3012,8 +3041,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -3026,8 +3056,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3042,8 +3073,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3057,14 +3089,15 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['search_id'] = '1234'
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
+                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(self.app.redis.get('search_progress_1234').decode('utf-8'), '100%',
                          "Redis should keep track of download progress")
@@ -3076,14 +3109,15 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
+                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3136,49 +3170,6 @@ class TestES(Formulae_Testing):
                 'sort': ['sort_prefix', 'urn'],
                 'from': 0,
                 'size': 10,
-                'aggs':
-                    {'range':
-                         {'date_range':
-                              {'field': 'min_date',
-                               'format': 'yyyy',
-                               'ranges': [
-                                   {'key': '<499', 'from': '0002', 'to': '0499'},
-                                   {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                   {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                   {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                   {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                   {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                   {'key': '>1000', 'from': '1000'}
-                               ]
-                               }
-                          },
-                     'corpus':
-                         {'filters':
-                              {'filters': self.SEARCH_FILTERS_CORPORA}
-                          },
-                     'no_date':
-                         {'missing': {'field': 'min_date'}},
-                     'all_docs':
-                         {'global': {},
-                          'aggs':
-                              {'range':
-                                   {'date_range':
-                                        {'field': 'min_date',
-                                         'format': 'yyyy',
-                                         'ranges': [
-                                             {'key': '<499', 'from': '0002', 'to': '0499'},
-                                             {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                             {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                             {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                             {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                             {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                             {'key': '>1000', 'from': '1000'}
-                                         ]
-                                         }
-                                    },
-                               'corpus': {'filters':
-                                              {'filters': self.SEARCH_FILTERS_CORPORA}},
-                               'no_date': {'missing': {'field': 'min_date'}}}}},
                 'highlight':
                     {'fields':
                          {'lemmas': {'fragment_size': 1000},
@@ -3189,11 +3180,12 @@ class TestES(Formulae_Testing):
                 }
 
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
         for hit in resp['hits']['hits']:
             if 'lemmas' not in hit['highlight']:
                 hit['highlight']['lemmas'] = hit['highlight']['text']
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
@@ -3361,14 +3353,15 @@ class TestES(Formulae_Testing):
                 }
 
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
                                                per_page=10)
         self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args[1]['body']['query']['bool']['must'][0]['bool']['should'])
+                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -3379,12 +3372,13 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -3395,13 +3389,14 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching of only a single term in a multi-term q should produce no results.")
@@ -3413,13 +3408,14 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
@@ -3431,12 +3427,13 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
@@ -3448,8 +3445,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         vector_return_value = {'docs': []}
         non_lemma_vector = dict()
         for k, v in self.MOCK_VECTOR_RETURN_VALUE.items():
@@ -3467,7 +3465,7 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = vector_return_value
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Single word proper name matching with text search should work.")
@@ -3478,14 +3476,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multiword_proper_name_match_text'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
+        self.search_response = fake.load_response()
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args.kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Multi-word proper name matching with text search should work.")
@@ -3496,8 +3495,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -3510,8 +3510,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3524,8 +3525,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -3538,8 +3540,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3554,8 +3557,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         sents = [{'sents':
                       [Markup('seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis ')]}]
@@ -3573,8 +3577,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3593,9 +3598,10 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3612,6 +3618,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for i1, hit in enumerate(resp['hits']['hits']):
             for i2, t in enumerate(hit['highlight']['text']):
                 resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
@@ -3623,7 +3630,7 @@ class TestES(Formulae_Testing):
                       [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl.'),
                        Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et '),
                        Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg*'
@@ -3637,11 +3644,12 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3655,8 +3663,9 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3673,11 +3682,12 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum </small><strong>Hattone</strong><small> venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius ')]},
                  {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3690,12 +3700,13 @@ class TestES(Formulae_Testing):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches with wildcards"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
+        self.search_response = fake.load_response()
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3709,8 +3720,9 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3727,6 +3739,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for i1, hit in enumerate(resp['hits']['hits']):
             for i2, t in enumerate(hit['highlight']['text']):
                 resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
@@ -3736,7 +3749,7 @@ class TestES(Formulae_Testing):
                  {'sents':
                       [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
                        Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni</strong><small> nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg* domni'
@@ -3752,6 +3765,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_one_word'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('</small><strong>a</strong><small> quem dimisit filio suo Rofino et agrum in Pulueraria modios ')]},
                  {'sents': [Markup('de supra in Theudoranes, dabtus in sancti Petri; alium pratum </small><strong>a</strong><small> Sanguinetum honus I, confinat da una parte in Canilias, da '),
                             Markup('da una parte in Canilias, da alia in via; agrum </small><strong>a</strong><small> Tonbeclo modios II, confinat in Scolchengus, da alia in sancti '),
@@ -3760,7 +3774,7 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.'),
                             Markup('Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter </small><strong>a</strong><small> vice Lubucionis diaconi scripsi et suscripsi.')]},
                  {'sents': [Markup('In Christi nomine. Ego itaque bresbiter Valencio sanus </small><strong>a</strong><small> sana mente per comiatu senioris Iltebaldi et cum manu – – dono ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         actual, _, _, _ = advanced_query_index(**test_args)
         for s in sents:
@@ -3774,8 +3788,9 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_multiword'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         sents = [{'sents': [Markup('da alia in Uictoriani coloni, da supra in Massanesco. Signum </small><strong>Daumerii</strong><small> </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -3795,6 +3810,7 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
@@ -3811,7 +3827,7 @@ class TestES(Formulae_Testing):
                             Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et '
                                    '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3832,6 +3848,7 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
@@ -3844,7 +3861,7 @@ class TestES(Formulae_Testing):
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3865,6 +3882,7 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
@@ -3877,7 +3895,7 @@ class TestES(Formulae_Testing):
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3898,12 +3916,13 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
             resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
         sents = []
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3924,6 +3943,7 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
@@ -3933,7 +3953,7 @@ class TestES(Formulae_Testing):
                                    '</small><strong>domni</strong><small> nostri Caroli '
                                    '</small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3954,6 +3974,7 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
             hit['highlight']['lemmas'] = hit['highlight']['text']
         for i, h in enumerate(resp['hits']['hits']):
@@ -3962,7 +3983,7 @@ class TestES(Formulae_Testing):
                                    'presencia virorum testium </small><strong>sub</strong><small> regnum '
                                    'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
@@ -3998,8 +4019,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4153,55 +4175,6 @@ class TestES(Formulae_Testing):
                 'sort': ['sort_prefix', 'urn'],
                 'from': 0,
                 'size': 10,
-                'aggs':
-                    {'range':
-                         {'date_range':
-                              {'field': 'min_date',
-                               'format': 'yyyy',
-                               'ranges':
-                                   [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                    {'key': '>1000', 'from': '1000'}
-                                    ]
-                               }
-                          },
-                     'corpus':
-                         {'filters':
-                              {'filters': self.SEARCH_FILTERS_CORPORA}
-                          },
-                     'no_date':
-                         {'missing': {'field': 'min_date'}},
-                     'all_docs':
-                         {'global': {},
-                          'aggs':
-                              {'range':
-                                   {'date_range':
-                                        {'field': 'min_date',
-                                         'format': 'yyyy',
-                                         'ranges':
-                                             [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                              {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                              {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                              {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                              {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                              {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                              {'key': '>1000', 'from': '1000'}
-                                              ]
-                                         }
-                                    },
-                               'corpus':
-                                   {'filters':
-                                        {'filters': self.SEARCH_FILTERS_CORPORA}
-                                    },
-                               'no_date':
-                                   {'missing': {'field': 'min_date'}}
-                               }
-                          }
-                     },
                 'highlight':
                     {'fields':
                          {'text': {'fragment_size': 1000},
@@ -4290,7 +4263,7 @@ class TestES(Formulae_Testing):
     #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
     #     resp = fake.load_response()
     #     expected = [' ', 'Bettingen', 'Freising', 'Isen', 'Süstern', 'Weimodo regia villa']
-    #     mock_search.return_value = resp
+    #     mock_search.side_effect = cycle([resp, aggs])
     #     results = suggest_composition_places()
     #     self.assertEqual(results, expected, 'The true results should match the expected results.')
 
@@ -4299,6 +4272,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         expected = ['scripsi',
                     'scripsi diemque et tempus designavi',
                     'scripsi et manu mea propria subscripsi',
@@ -4309,7 +4283,7 @@ class TestES(Formulae_Testing):
                     'scripsi et suscripsi',
                     'scripsi et teste me suscripsi',
                     'scripsi signum baselii et filii sui rofini']
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['qSource'] = 'text'
         results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -4332,6 +4306,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         expected = ['schenkt dem kloster disentis auf ableben',
                     'schenkt dem kloster disentis güter',
                     'schenkt der kirche st hilarius zu seinem',
@@ -4339,7 +4314,7 @@ class TestES(Formulae_Testing):
                     'schenkt zu seinem und seiner eltern',
                     'schenkt zu seinem und seiner gattin',
                     'schenkt zum seelenheil seines bruders']
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['qSource'] = 'regest'
         results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
@@ -4362,6 +4337,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
                     {'regest_sents': [Markup('Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der')]},
                     {'regest_sents': [Markup('Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der')]},
@@ -4369,7 +4345,7 @@ class TestES(Formulae_Testing):
                     {'regest_sents': [Markup('Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum')]},
                     {'regest_sents': [Markup('Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen')]},
                     {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         Search.HIGHLIGHT_CHARS_AFTER = 50
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
@@ -4398,8 +4374,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(file_name_base, 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         with patch('builtins.open', new_callable=mock_open()) as m:
@@ -4415,8 +4392,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4429,8 +4407,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4447,7 +4426,8 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_download_search_results'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
-        mock_search.return_value = resp
+        aggs = fake.load_aggs()
+        mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
@@ -4484,7 +4464,8 @@ class TestES(Formulae_Testing):
             test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
-            mock_search.return_value = resp
+            aggs = fake.load_aggs()
+            mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&q=christi&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
@@ -4498,7 +4479,8 @@ class TestES(Formulae_Testing):
             test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
-            mock_search.return_value = resp
+            aggs = fake.load_aggs()
+            mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&q=&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
@@ -4515,8 +4497,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4528,8 +4511,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4542,8 +4526,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4556,8 +4541,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4570,8 +4556,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4584,10 +4571,10 @@ class TestES(Formulae_Testing):
         test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
+        self.search_response = fake.load_response()
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = self.suggest_side_effect
-        # mock_search.return_value = resp
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4599,11 +4586,11 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
+        self.search_response = fake.load_response()
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = self.suggest_side_effect
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        # mock_search.return_value = resp
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -4617,8 +4604,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4647,8 +4635,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
@@ -4660,8 +4649,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
+        aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.return_value = resp
+        mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
