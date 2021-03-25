@@ -1,0 +1,455 @@
+{
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 24,
+      "corpus": {
+        "buckets": {
+          "Accensement d'une vigne de Marmoutier": {
+            "doc_count": 0
+          },
+          "Angers": {
+            "doc_count": 0
+          },
+          "Archives d’Anjou": {
+            "doc_count": 0
+          },
+          "Arnulfinger": {
+            "doc_count": 0
+          },
+          "Auvergne": {
+            "doc_count": 0
+          },
+          "Bünden": {
+            "doc_count": 24
+          },
+          "Cartulaire de Redon": {
+            "doc_count": 0
+          },
+          "Chartae Latinae X": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XI": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XII": {
+            "doc_count": 0
+          },
+          "Chartae Latinae XLVI": {
+            "doc_count": 0
+          },
+          "Chroniques des comtes d’Anjou": {
+            "doc_count": 0
+          },
+          "Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "Cormery (TELMA)": {
+            "doc_count": 0
+          },
+          "Echternach": {
+            "doc_count": 0
+          },
+          "Eudes": {
+            "doc_count": 0
+          },
+          "Fragments de Saint-Julien de Tours": {
+            "doc_count": 0
+          },
+          "Freising": {
+            "doc_count": 0
+          },
+          "Fulda (Dronke)": {
+            "doc_count": 0
+          },
+          "Fulda (Stengel)": {
+            "doc_count": 0
+          },
+          "Gorze": {
+            "doc_count": 0
+          },
+          "Hersfeld": {
+            "doc_count": 0
+          },
+          "Katalonien": {
+            "doc_count": 0
+          },
+          "Lorsch": {
+            "doc_count": 0
+          },
+          "Luzern": {
+            "doc_count": 0
+          },
+          "Marculf": {
+            "doc_count": 0
+          },
+          "Marmoutier (TELMA)": {
+            "doc_count": 0
+          },
+          "Marmoutier - Dunois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Fougères": {
+            "doc_count": 0
+          },
+          "Marmoutier - Manceau": {
+            "doc_count": 0
+          },
+          "Marmoutier - Pour le perche": {
+            "doc_count": 0
+          },
+          "Marmoutier - Serfs": {
+            "doc_count": 0
+          },
+          "Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois": {
+            "doc_count": 0
+          },
+          "Marmoutier - Vendômois, Appendix": {
+            "doc_count": 0
+          },
+          "Merowinger": {
+            "doc_count": 0
+          },
+          "Mittelrheinisch": {
+            "doc_count": 0
+          },
+          "Mondsee": {
+            "doc_count": 0
+          },
+          "Papsturkunden Frankreich": {
+            "doc_count": 0
+          },
+          "Passau": {
+            "doc_count": 0
+          },
+          "Regensburg": {
+            "doc_count": 0
+          },
+          "Rheinisch": {
+            "doc_count": 0
+          },
+          "Rätien": {
+            "doc_count": 0
+          },
+          "Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
+          "Saint-Martin de Tours (TELMA)": {
+            "doc_count": 0
+          },
+          "Salzburg": {
+            "doc_count": 0
+          },
+          "Schäftlarn": {
+            "doc_count": 0
+          },
+          "St. Gallen": {
+            "doc_count": 0
+          },
+          "Un acte faux de Marmoutier": {
+            "doc_count": 0
+          },
+          "Une nouvelle charte de Théotolon": {
+            "doc_count": 0
+          },
+          "Weißenburg": {
+            "doc_count": 0
+          },
+          "Werden": {
+            "doc_count": 0
+          },
+          "Zürich": {
+            "doc_count": 0
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 1
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 0
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 0
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 11
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 8
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 4
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 0
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 0
+      }
+    },
+    "corpus": {
+      "buckets": {
+        "Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "Angers": {
+          "doc_count": 0
+        },
+        "Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "Arnulfinger": {
+          "doc_count": 0
+        },
+        "Auvergne": {
+          "doc_count": 0
+        },
+        "Bünden": {
+          "doc_count": 4
+        },
+        "Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "Chartae Latinae X": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XI": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XII": {
+          "doc_count": 0
+        },
+        "Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
+        "Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "Cormery (TELMA)": {
+          "doc_count": 0
+        },
+        "Echternach": {
+          "doc_count": 0
+        },
+        "Eudes": {
+          "doc_count": 0
+        },
+        "Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "Freising": {
+          "doc_count": 0
+        },
+        "Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "Gorze": {
+          "doc_count": 0
+        },
+        "Hersfeld": {
+          "doc_count": 0
+        },
+        "Katalonien": {
+          "doc_count": 0
+        },
+        "Lorsch": {
+          "doc_count": 0
+        },
+        "Luzern": {
+          "doc_count": 0
+        },
+        "Marculf": {
+          "doc_count": 0
+        },
+        "Marmoutier (TELMA)": {
+          "doc_count": 0
+        },
+        "Marmoutier - Dunois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "Marmoutier - Pour le perche": {
+          "doc_count": 0
+        },
+        "Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "Marmoutier - Vendômois, Appendix": {
+          "doc_count": 0
+        },
+        "Merowinger": {
+          "doc_count": 0
+        },
+        "Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "Mondsee": {
+          "doc_count": 0
+        },
+        "Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
+        "Passau": {
+          "doc_count": 0
+        },
+        "Regensburg": {
+          "doc_count": 0
+        },
+        "Rheinisch": {
+          "doc_count": 0
+        },
+        "Rätien": {
+          "doc_count": 0
+        },
+        "Saint-Bénigne de Dijon": {
+          "doc_count": 0
+        },
+        "Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
+        "Salzburg": {
+          "doc_count": 0
+        },
+        "Schäftlarn": {
+          "doc_count": 0
+        },
+        "St. Gallen": {
+          "doc_count": 0
+        },
+        "Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "Weißenburg": {
+          "doc_count": 0
+        },
+        "Werden": {
+          "doc_count": 0
+        },
+        "Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 2
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 2
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

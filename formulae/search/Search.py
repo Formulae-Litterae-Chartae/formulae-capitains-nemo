@@ -410,7 +410,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if old_search is False:
         session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
-                          'size': per_page, 'aggs': AGGREGATIONS})
+                          'size': per_page})
 
     if isinstance(search_field, list):
         search_highlight = {x: {"fragment_size": 1000} for x in search_field}
@@ -683,6 +683,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                for hit in search['hits']['hits']]
     if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
         prev_search = ids
+    agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
+    aggregations = current_app.elasticsearch.search(index=corpus,
+                                                    doc_type="",
+                                                    body=agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
         req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
@@ -712,7 +716,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         # Remove the textual parts from the results
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
-    return ids, search['hits']['total']['value'], search['aggregations'], prev_search
+        fake.save_aggs(aggregations)
+    return ids, search['hits']['total']['value'], aggregations, prev_search
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,
