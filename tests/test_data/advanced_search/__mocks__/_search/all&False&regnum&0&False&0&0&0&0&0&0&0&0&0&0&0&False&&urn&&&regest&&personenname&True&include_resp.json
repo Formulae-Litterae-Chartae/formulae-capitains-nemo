@@ -1,5 +1,5 @@
 {
-  "took": 21,
+  "took": 39,
   "timed_out": false,
   "_shards": {
     "total": 52,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v8",
+        "_index": "andecavensis_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.computus.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "andecavensis",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -60,7 +61,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v8",
+        "_index": "andecavensis_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -76,6 +77,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "andecavensis",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -105,7 +107,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v8",
+        "_index": "andecavensis_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -121,6 +123,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "andecavensis",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -150,7 +153,7 @@
         ]
       },
       {
-        "_index": "marculf_v8",
+        "_index": "marculf_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form001.lat001",
         "_score": null,
@@ -166,6 +169,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marculf",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -195,7 +199,7 @@
         ]
       },
       {
-        "_index": "marculf_v8",
+        "_index": "marculf_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form002.lat001",
         "_score": null,
@@ -211,6 +215,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marculf",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -240,7 +245,7 @@
         ]
       },
       {
-        "_index": "marculf_v8",
+        "_index": "marculf_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form016.lat001",
         "_score": null,
@@ -256,6 +261,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marculf",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -285,7 +291,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -301,6 +307,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -579,15 +586,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Saturday",
-            "Lent",
-            "Friday",
-            "Thursday",
-            "Tuesday",
-            "Sunday",
             "Monday",
+            "Wednesday",
+            "Friday",
             "Easter",
-            "Wednesday"
+            "Tuesday",
+            "Saturday",
+            "Sunday",
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -602,7 +609,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -618,6 +625,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -824,15 +832,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Saturday",
-            "Lent",
+            "Monday",
+            "Wednesday",
             "Friday",
+            "Easter",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Thursday",
-            "Monday",
-            "Easter",
-            "Wednesday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -847,7 +855,7 @@
         ]
       },
       {
-        "_index": "chartae_latinae_xii_v7",
+        "_index": "chartae_latinae_xii_v8",
         "_type": "_doc",
         "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
         "_score": null,
@@ -863,6 +871,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Attigny",
+          "collection": "chartae_latinae_xii",
           "forgery": false,
           "dating": [
             {
@@ -904,7 +913,7 @@
         ]
       },
       {
-        "_index": "echternach_v8",
+        "_index": "echternach_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
         "_score": null,
@@ -920,6 +929,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "echternach",
           "forgery": false,
           "dating": [
             {
@@ -961,7 +971,7 @@
         ]
       },
       {
-        "_index": "eudes_v7",
+        "_index": "eudes_v8",
         "_type": "_doc",
         "_id": "urn:cts:formulae:eudes.lex0018.lat001",
         "_score": null,
@@ -977,6 +987,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "eudes",
           "forgery": false,
           "dating": [
             {
@@ -1018,7 +1029,7 @@
         ]
       },
       {
-        "_index": "eudes_v7",
+        "_index": "eudes_v8",
         "_type": "_doc",
         "_id": "urn:cts:formulae:eudes.lex0029.lat001",
         "_score": null,
@@ -1034,6 +1045,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "eudes",
           "forgery": false,
           "specific_date": [
             {
@@ -1075,7 +1087,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
         "_score": null,
@@ -1091,6 +1103,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Tassilo macht eine Schenkung zu Aufhausen an die Kirche zu Moosen.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1127,7 +1140,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
         "_score": null,
@@ -1143,6 +1156,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Alpolt und sein Sohn Huasuni schenken dem Kloster Schäftlarn Besitz zu Schwabing und Sendling.",
           "orig_comp_ort": "Neuching",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1183,7 +1197,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
         "_score": null,
@@ -1199,6 +1213,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Zeizo macht eine Schenkung zu Rott am Inn.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1242,7 +1257,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
         "_score": null,
@@ -1258,6 +1273,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Rihperht schenkt Grundstücke zu Eggersdorf und Winhöring.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1293,7 +1309,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0365.lat001",
         "_score": null,
@@ -1309,6 +1325,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Graf Engilhart und seine Gattin Ermansuuind übergeben ihren Besitz zu Allach.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1354,7 +1371,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0394.lat001",
         "_score": null,
@@ -1370,6 +1387,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Imihho übergibt ein Bethaus zu Holzhausen am Würmsee.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1384,8 +1402,8 @@
           "min_date": "0818-03-25",
           "max_date": "0818-03-25",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Publicatio": "Sit autem omnibus in episcopio beate Mariae\n                            nuntiatum commorantibus tam eclesiasticis quam etiam et secularibus,\n                            quomodo Imihho presbiter oratorium in curte sua construxit in loco\n                            condicto Holzhusir iuxta pelagum Uuirmseo iacentem. Proinde ad virum\n                            venerabilem Hittonem antistem suppliciter obsecrando perveniens, ut\n                            ibidem venire dignaretur quodque tamen paefatus episcopus suae videlicet\n                            anxie petitioni obtemperans et ibidem perrecturus ceterique multi\n                            veraces bonive nobiles viri partier apud illum aderant. Tunc utique iam\n                            fatus episcopus percunctavit, quemadmodum praefatum oritorium hereditare\n                            praefiniret et ille omni intentione statim adpropriavit ... Proinde omnino supramemoratus\n                            episcopus in grediens oratorium consecravit necnon et altarem insuper\n                            autem et patrocinias infecit. Tunc accedens iam insinuates presbiter et\n                            tradidit omnia propria hereditatis in ipsum altarem et ipsum postea\n                            altarem in manus iam notati episcopi",
@@ -1408,7 +1426,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0396.lat001",
         "_score": null,
@@ -1424,6 +1442,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Tompurc übergibt ihren Besitz zu Ober(Unter)funning.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1467,7 +1486,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0397.lat001",
         "_score": null,
@@ -1483,6 +1502,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "a) Der Laie Engilpoto übergibt den Besitz, den er von der\n            Edlen Alpsuuind erworben hatte, zu Kinzlbach. b) Erneuerung. c) Bestätigung durch Audulf\n            und seine Mutter Keyla.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1544,7 +1564,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
         "_score": null,
@@ -1560,6 +1580,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "a) Bischof Andreas von Vicenza übergibt seinen Besitz zu „Suuindaha“ und „Asc“. b) Bestätigung und Investitur. c) Bischof Andreas erneuert die Schenkung bei der Rückkehr von Achen.",
           "orig_comp_ort": "a) Vicenza",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1600,7 +1621,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0401.lat001",
         "_score": null,
@@ -1616,6 +1637,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "a) Uuadalker begibt sich seiner Ansprüche auf die Kirche zu Langenbach. b) Chunibert gibt entfremdetes Kirchengut zurück. c) Bischof Hitto lässt sich Uualdperht als Sklaven zusprechen.",
           "orig_comp_ort": "Allershausen",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1645,7 +1667,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
         "_score": null,
@@ -1661,6 +1683,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Deotpald gibt sein und seines Bruders Schenkung zu Holzhausen vor seiner Romfahrt zurück an Bischof Hitto.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1675,8 +1698,8 @@
           "min_date": "0819-04-14",
           "max_date": "0819-04-14",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Publicatio": "Nunc quoque ac deinceps universis facientibus necnon\n                            exercentibus verum etiam iustitiam consentientibus immo volentibus per\n                            cuncta Baiouuaria nobilibus ac degeneris perspicue sit dilucidatum",
@@ -1705,7 +1728,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
         "_score": null,
@@ -1721,6 +1744,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Sigifuns erneuert durch Priester Hrodolf die Schenkung seines Besitzes zu Puppling.",
           "orig_comp_ort": "(Freising)",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1758,7 +1782,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0414.lat001",
         "_score": null,
@@ -1774,6 +1798,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Graf Job übergibt seinen Eigenbesitz zu Eching und Berg.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1819,7 +1844,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
         "_score": null,
@@ -1835,6 +1860,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Úo übergibt seinen und seiner Gattin Anteil an Adalperhts Schenkung zu Seeon.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1876,7 +1902,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0419.lat001",
         "_score": null,
@@ -1892,6 +1918,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Vassus Meginhart übergibt einen Reliquienbehälter und Weidevieh.",
           "orig_comp_ort": "Pannonien",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1937,7 +1964,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0426.lat001",
         "_score": null,
@@ -1953,6 +1980,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Pernuuin übergibt seinen Besitz zu Überacker und Fussberg.",
           "orig_comp_ort": "(Freising)",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -1982,7 +2010,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0427.lat001",
         "_score": null,
@@ -1998,6 +2026,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Abt Salomon und seine Schwester Engilsuind übergeben eine Kirche zu „Sindpaldeshusun“.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2027,7 +2056,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
         "_score": null,
@@ -2043,6 +2072,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Asolt erneuert die Schenkung seines † Oheims, des Priesters Isaak zu Ober(Unter)handenzhofen.",
           "orig_comp_ort": "„Prenpruc“",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2084,7 +2114,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0459.lat001",
         "_score": null,
@@ -2100,6 +2130,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Podalunc und sein Sohn Reginolt übergeben ihren Besitz nebst Kirche zu Maxlrain und Höglingen.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2143,7 +2174,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0460.lat001",
         "_score": null,
@@ -2159,6 +2190,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Elizo übergibt seinen Besitz zu Ober(Unter)schweinbach.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2173,8 +2205,8 @@
           "min_date": "0822-03-01",
           "max_date": "0822-03-01",
           "days": [
-            "Saturday",
-            "Lent"
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1,
           "Invocatio": "In\n                            nomine domini dei et salvatoris nostri Jesu Christi",
@@ -2205,7 +2237,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0472.lat001",
         "_score": null,
@@ -2221,6 +2253,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Mahtheri übergibt dem Kloster Innichen seinen Besitz zu Trixen und Griffen.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2264,7 +2297,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0489.lat001",
         "_score": null,
@@ -2280,6 +2313,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Tenil übergibt die Hälfte seines Vermögens am Fischbach und an der Pfettrach.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2323,7 +2357,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0493.lat001",
         "_score": null,
@@ -2339,6 +2373,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Diakon Engilman übergibt die Hälfte seines Besitzes zu Ober(Unter)bachern.",
           "orig_comp_ort": "Freising",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2386,7 +2421,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0608.lat001",
         "_score": null,
@@ -2402,6 +2437,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Tota übergibt eine Kolonie zu Mammendorf.",
           "orig_comp_ort": "Kottgeisering",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2416,8 +2452,8 @@
           "min_date": "0835-04-13",
           "max_date": "0835-04-13",
           "days": [
-            "Lent",
-            "Tuesday"
+            "Tuesday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Invocatio": "Dei omnipotentis\n                            gratia",
@@ -2446,7 +2482,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0785.lat001",
         "_score": null,
@@ -2462,6 +2498,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Edle Engilpreht und sein Sohn Richpreht übergeben ihren Besitz zu Eching (Eging).",
           "orig_comp_ort": "Freising",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -2503,7 +2540,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v8",
+        "_index": "fulda_stengel_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
         "_score": null,
@@ -2519,6 +2556,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "fulda_stengel",
           "forgery": false,
           "dating": [
             {
@@ -2560,7 +2598,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v8",
+        "_index": "fulda_stengel_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0067.lat001",
         "_score": null,
@@ -2576,6 +2614,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "fulda_stengel",
           "forgery": false,
           "specific_date": [
             {
@@ -2620,7 +2659,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v8",
+        "_index": "fulda_stengel_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0067.lat002",
         "_score": null,
@@ -2636,6 +2675,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "fulda_stengel",
           "forgery": false,
           "specific_date": [
             {
@@ -2680,7 +2720,7 @@
         ]
       },
       {
-        "_index": "gorze_v8",
+        "_index": "gorze_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:gorze.dherbomez0088.lat001",
         "_score": null,
@@ -2696,6 +2736,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Boloneias",
+          "collection": "gorze",
           "forgery": false,
           "dating": [
             {
@@ -2737,7 +2778,7 @@
         ]
       },
       {
-        "_index": "gorze_v8",
+        "_index": "gorze_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:gorze.dherbomez0090.lat001",
         "_score": null,
@@ -2753,6 +2794,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Verdun ",
+          "collection": "gorze",
           "forgery": false,
           "dating": [
             {
@@ -2794,7 +2836,7 @@
         ]
       },
       {
-        "_index": "gorze_v8",
+        "_index": "gorze_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:gorze.dherbomez0100.lat001",
         "_score": null,
@@ -2810,6 +2852,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gorze",
+          "collection": "gorze",
           "forgery": false,
           "specific_date": [
             {
@@ -2854,7 +2897,7 @@
         ]
       },
       {
-        "_index": "gorze_v8",
+        "_index": "gorze_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:gorze.dherbomez0105.lat001",
         "_score": null,
@@ -2870,6 +2913,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gorze",
+          "collection": "gorze",
           "forgery": false,
           "dating": [
             {
@@ -2911,7 +2955,7 @@
         ]
       },
       {
-        "_index": "gorze_v8",
+        "_index": "gorze_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:gorze.dherbomez0106.lat001",
         "_score": null,
@@ -2927,6 +2971,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Destry",
+          "collection": "gorze",
           "forgery": false,
           "dating": [
             {
@@ -2968,7 +3013,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v8",
+        "_index": "hersfeld_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
         "_score": null,
@@ -2984,6 +3029,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Düren",
+          "collection": "hersfeld",
           "forgery": false,
           "specific_date": [
             {
@@ -3028,7 +3074,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0207.lat001",
         "_score": null,
@@ -3044,6 +3090,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3083,7 +3130,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0309.lat001",
         "_score": null,
@@ -3099,6 +3146,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3179,7 +3227,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0311.lat001",
         "_score": null,
@@ -3195,6 +3243,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3275,7 +3324,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0455.lat001",
         "_score": null,
@@ -3291,6 +3340,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3335,7 +3385,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0535.lat001",
         "_score": null,
@@ -3351,6 +3401,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3395,7 +3446,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0621.lat001",
         "_score": null,
@@ -3411,6 +3462,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3455,7 +3507,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1080.lat001",
         "_score": null,
@@ -3471,6 +3523,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "dating": [
             {
@@ -3512,7 +3565,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1705.lat001",
         "_score": null,
@@ -3528,6 +3581,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3572,7 +3626,7 @@
         ]
       },
       {
-        "_index": "katalonien_v8",
+        "_index": "katalonien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0026.lat001",
         "_score": null,
@@ -3588,6 +3642,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Saint-Denis",
+          "collection": "katalonien",
           "forgery": false,
           "specific_date": [
             {
@@ -3633,7 +3688,7 @@
         ]
       },
       {
-        "_index": "langobardisch_v8",
+        "_index": "langobardisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:langobardisch.bruehl0009.lat001",
         "_score": null,
@@ -3649,6 +3704,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Pavia",
+          "collection": "langobardisch",
           "forgery": false,
           "specific_date": [
             {
@@ -3694,7 +3750,7 @@
         ]
       },
       {
-        "_index": "langobardisch_v8",
+        "_index": "langobardisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:langobardisch.bruehl0011.lat001",
         "_score": null,
@@ -3710,6 +3766,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Pavia",
+          "collection": "langobardisch",
           "forgery": false,
           "specific_date": [
             {
@@ -3754,7 +3811,7 @@
         ]
       },
       {
-        "_index": "langobardisch_v8",
+        "_index": "langobardisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:langobardisch.bruehl0033.lat001",
         "_score": null,
@@ -3770,6 +3827,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Pavia",
+          "collection": "langobardisch",
           "forgery": false,
           "specific_date": [
             {
@@ -3814,7 +3872,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0041.lat001",
         "_score": null,
@@ -3830,6 +3888,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -3859,7 +3918,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0077.lat001",
         "_score": null,
@@ -3875,6 +3934,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -3904,7 +3964,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0100.lat001",
         "_score": null,
@@ -3920,6 +3980,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -3949,7 +4010,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0106.lat001",
         "_score": null,
@@ -3965,6 +4026,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -3994,7 +4056,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0111.lat001",
         "_score": null,
@@ -4010,6 +4072,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4039,7 +4102,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0146.lat001",
         "_score": null,
@@ -4055,6 +4118,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4084,7 +4148,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0214.lat001",
         "_score": null,
@@ -4100,6 +4164,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4129,7 +4194,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0217.lat001",
         "_score": null,
@@ -4145,6 +4210,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4174,7 +4240,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0238.lat001",
         "_score": null,
@@ -4190,6 +4256,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4219,7 +4286,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1019.lat001",
         "_score": null,
@@ -4235,6 +4302,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -4279,7 +4347,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -4295,6 +4363,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -4339,7 +4408,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -4355,6 +4424,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -4399,7 +4469,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3823.lat001",
         "_score": null,
@@ -4415,6 +4485,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4444,7 +4515,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3824.lat001",
         "_score": null,
@@ -4460,6 +4531,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -4489,7 +4561,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4099.lat001",
         "_score": null,
@@ -4505,6 +4577,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -4549,7 +4622,7 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v8",
+        "_index": "marmoutier_dunois_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0162.lat001",
         "_score": null,
@@ -4565,6 +4638,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_dunois",
           "forgery": false,
           "dating": [
             {
@@ -4606,7 +4680,7 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v8",
+        "_index": "marmoutier_dunois_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0077.lat001",
         "_score": null,
@@ -4622,6 +4696,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_dunois",
           "forgery": false,
           "dating": [
             {
@@ -4663,7 +4738,7 @@
         ]
       },
       {
-        "_index": "marmoutier_fougères_v8",
+        "_index": "marmoutier_fougères_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_fougères.mazel0001.lat001",
         "_score": null,
@@ -4679,6 +4754,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Saint-Sauveur-des-Landes",
+          "collection": "marmoutier_fougères",
           "forgery": false,
           "dating": [
             {
@@ -4720,7 +4796,7 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v8",
+        "_index": "marmoutier_manceau_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_sablé_0013.lat001",
         "_score": null,
@@ -4736,6 +4812,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Marmoutier",
+          "collection": "marmoutier_manceau",
           "forgery": false,
           "dating": [
             {
@@ -4777,7 +4854,7 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v8",
+        "_index": "marmoutier_manceau_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_vivoin_0002.lat001",
         "_score": null,
@@ -4793,6 +4870,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_manceau",
           "forgery": false,
           "dating": [
             {
@@ -4834,7 +4912,7 @@
         ]
       },
       {
-        "_index": "marmoutier_vendomois_v8",
+        "_index": "marmoutier_vendomois_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
         "_score": null,
@@ -4850,6 +4928,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_vendomois",
           "forgery": false,
           "dating": [
             {
@@ -4891,7 +4970,7 @@
         ]
       },
       {
-        "_index": "marmoutier_vendomois_appendix_v8",
+        "_index": "marmoutier_vendomois_appendix_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0011.lat001",
         "_score": null,
@@ -4907,6 +4986,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_vendomois_appendix",
           "forgery": false,
           "dating": [
             {
@@ -4948,7 +5028,7 @@
         ]
       },
       {
-        "_index": "marmoutier_vendomois_appendix_v8",
+        "_index": "marmoutier_vendomois_appendix_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0015.lat001",
         "_score": null,
@@ -4964,6 +5044,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "marmoutier_vendomois_appendix",
           "forgery": false,
           "dating": [
             {
@@ -5005,7 +5086,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
         "_score": null,
@@ -5021,6 +5102,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Reims",
+          "collection": "merowinger1",
           "forgery": true,
           "specific_date": [
             {
@@ -5062,7 +5144,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0012.lat001",
         "_score": null,
@@ -5078,6 +5160,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Paris",
+          "collection": "merowinger1",
           "forgery": true,
           "dating": [
             {
@@ -5119,7 +5202,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0033.lat001",
         "_score": null,
@@ -5135,6 +5218,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "merowinger1",
           "forgery": true,
           "dating": [
             {
@@ -5176,7 +5260,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0049.lat001",
         "_score": null,
@@ -5192,6 +5276,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Clichy",
+          "collection": "merowinger1",
           "forgery": true,
           "specific_date": [
             {
@@ -5236,7 +5321,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
         "_score": null,
@@ -5252,6 +5337,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Isenburg",
+          "collection": "merowinger1",
           "forgery": true,
           "specific_date": [
             {
@@ -5266,8 +5352,8 @@
           "min_date": "0662-04-02",
           "max_date": "0662-04-02",
           "days": [
-            "Saturday",
-            "Lent"
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -5297,7 +5383,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0087.lat001",
         "_score": null,
@@ -5313,6 +5399,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "merowinger1",
           "forgery": true,
           "dating": [
             {
@@ -5354,7 +5441,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0180.lat001",
         "_score": null,
@@ -5370,6 +5457,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Conflans",
+          "collection": "merowinger1",
           "forgery": true,
           "specific_date": [
             {
@@ -5414,7 +5502,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0191.lat001",
         "_score": null,
@@ -5430,6 +5518,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Crecy",
+          "collection": "merowinger1",
           "forgery": true,
           "specific_date": [
             {
@@ -5474,7 +5563,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v8",
+        "_index": "merowinger1_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0192.lat001",
         "_score": null,
@@ -5490,6 +5579,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "merowinger1",
           "forgery": true,
           "dating": [
             {
@@ -5537,7 +5627,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0135.lat001",
         "_score": null,
@@ -5553,6 +5643,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "dating": [
             {
@@ -5594,7 +5685,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0137.lat001",
         "_score": null,
@@ -5610,6 +5701,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "dating": [
             {
@@ -5651,7 +5743,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0167.lat001",
         "_score": null,
@@ -5667,6 +5759,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "dating": [
             {
@@ -5708,7 +5801,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0169.lat001",
         "_score": null,
@@ -5724,6 +5817,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "dating": [
             {
@@ -5765,7 +5859,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0171.lat001",
         "_score": null,
@@ -5781,6 +5875,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "dating": [
             {
@@ -5822,7 +5917,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0193.lat001",
         "_score": null,
@@ -5838,6 +5933,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "specific_date": [
             {
@@ -5882,7 +5978,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v8",
+        "_index": "mittelrheinisch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0220.lat001",
         "_score": null,
@@ -5898,6 +5994,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
           "forgery": false,
           "specific_date": [
             {
@@ -5942,7 +6039,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v8",
+        "_index": "papsturkunden_frankreich_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0014.lat001",
         "_score": null,
@@ -5958,6 +6055,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "papsturkunden_frankreich",
           "forgery": false,
           "dating": [
             {
@@ -5990,7 +6088,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0001.lat001",
         "_score": null,
@@ -6006,6 +6104,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gebhardwil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6050,7 +6149,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
         "_score": null,
@@ -6066,6 +6165,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "[Gebhardwil]",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6110,7 +6210,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -6126,6 +6226,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -6173,7 +6274,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -6189,6 +6290,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -6236,7 +6338,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0011.lat001",
         "_score": null,
@@ -6252,6 +6354,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6296,7 +6399,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0012.lat001",
         "_score": null,
@@ -6312,6 +6415,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6356,7 +6460,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
         "_score": null,
@@ -6372,6 +6476,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6416,7 +6521,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
         "_score": null,
@@ -6432,6 +6537,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Nüziders",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6477,7 +6583,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
         "_score": null,
@@ -6493,6 +6599,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6544,7 +6651,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
         "_score": null,
@@ -6560,6 +6667,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6604,7 +6712,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0018.lat001",
         "_score": null,
@@ -6620,6 +6728,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6664,7 +6773,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
         "_score": null,
@@ -6680,6 +6789,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6724,7 +6834,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
         "_score": null,
@@ -6740,6 +6850,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6784,7 +6895,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
         "_score": null,
@@ -6800,6 +6911,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6838,11 +6950,11 @@
           "min_date": "0817-10-13",
           "max_date": "0821-10-13",
           "days": [
-            "Saturday",
-            "Thursday",
+            "Wednesday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -6872,7 +6984,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
         "_score": null,
@@ -6888,6 +7000,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlin",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -6929,7 +7042,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
         "_score": null,
@@ -6945,6 +7058,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -6989,7 +7103,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0025.lat001",
         "_score": null,
@@ -7005,6 +7119,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -7046,7 +7161,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
         "_score": null,
@@ -7062,6 +7177,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -7103,7 +7219,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
         "_score": null,
@@ -7119,6 +7235,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7133,8 +7250,8 @@
           "min_date": "0821-03-07",
           "max_date": "0821-03-07",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -7164,7 +7281,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
         "_score": null,
@@ -7180,6 +7297,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "(Schlins)",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7194,8 +7312,8 @@
           "min_date": "0821-03-07",
           "max_date": "0821-03-07",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -7225,7 +7343,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
         "_score": null,
@@ -7241,6 +7359,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7285,7 +7404,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0032.lat001",
         "_score": null,
@@ -7301,6 +7420,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7345,7 +7465,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0033.lat001",
         "_score": null,
@@ -7361,6 +7481,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7405,7 +7526,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
         "_score": null,
@@ -7421,6 +7542,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7465,7 +7587,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0038.lat001",
         "_score": null,
@@ -7481,6 +7603,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7525,7 +7648,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0039.lat001",
         "_score": null,
@@ -7541,6 +7664,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gams",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7585,7 +7709,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
         "_score": null,
@@ -7601,6 +7725,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7621,8 +7746,8 @@
           "min_date": "0844-06-11",
           "max_date": "0851-06-11",
           "days": [
-            "Wednesday",
-            "Thursday"
+            "Thursday",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -7652,7 +7777,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0042.lat001",
         "_score": null,
@@ -7668,6 +7793,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7688,8 +7814,8 @@
           "min_date": "0851-06-12",
           "max_date": "0858-06-12",
           "days": [
-            "Friday",
-            "Sunday"
+            "Sunday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -7719,7 +7845,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0043.lat001",
         "_score": null,
@@ -7735,6 +7861,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7755,8 +7882,8 @@
           "min_date": "0852-12-30",
           "max_date": "0865-12-30",
           "days": [
-            "Friday",
-            "Sunday"
+            "Sunday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -7786,7 +7913,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -7802,6 +7929,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7853,7 +7981,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0045.lat001",
         "_score": null,
@@ -7869,6 +7997,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7913,7 +8042,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
         "_score": null,
@@ -7929,6 +8058,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -7973,7 +8103,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0047.lat001",
         "_score": null,
@@ -7989,6 +8119,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8033,7 +8164,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0048.lat001",
         "_score": null,
@@ -8049,6 +8180,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8093,7 +8225,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0049.lat001",
         "_score": null,
@@ -8109,6 +8241,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8123,8 +8256,8 @@
           "min_date": "0883-02-23",
           "max_date": "0883-02-23",
           "days": [
-            "Saturday",
-            "Lent"
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -8154,7 +8287,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0050.lat001",
         "_score": null,
@@ -8170,6 +8303,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8184,8 +8318,8 @@
           "min_date": "0883-02-23",
           "max_date": "0883-02-23",
           "days": [
-            "Saturday",
-            "Lent"
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -8215,7 +8349,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
         "_score": null,
@@ -8231,6 +8365,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "St. Gallen",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8275,7 +8410,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0052.lat001",
         "_score": null,
@@ -8291,6 +8426,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "[Mon…]",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8335,7 +8471,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0053.lat001",
         "_score": null,
@@ -8351,6 +8487,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankweil",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -8395,7 +8532,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0007.lat001",
         "_score": null,
@@ -8411,6 +8548,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -8455,7 +8593,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0008.lat001",
         "_score": null,
@@ -8471,6 +8609,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -8515,7 +8654,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0009.lat001",
         "_score": null,
@@ -8531,6 +8670,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -8572,7 +8712,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0011.lat001",
         "_score": null,
@@ -8588,6 +8728,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -8632,7 +8773,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0014.lat001",
         "_score": null,
@@ -8648,6 +8789,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -8689,7 +8831,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0079.lat001",
         "_score": null,
@@ -8705,6 +8847,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -8750,7 +8893,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0243.lat001",
         "_score": null,
@@ -8766,6 +8909,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -8810,7 +8954,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0286.lat001",
         "_score": null,
@@ -8826,6 +8970,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -8867,7 +9012,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0290.lat001",
         "_score": null,
@@ -8883,6 +9028,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -8924,7 +9070,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0293.lat001",
         "_score": null,
@@ -8940,6 +9086,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -8981,7 +9128,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0294.lat001",
         "_score": null,
@@ -8997,6 +9144,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -9038,7 +9186,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0296.lat001",
         "_score": null,
@@ -9054,6 +9202,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -9095,7 +9244,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0299.lat001",
         "_score": null,
@@ -9111,6 +9260,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -9152,7 +9302,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0346.lat001",
         "_score": null,
@@ -9168,6 +9318,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "specific_date": [
             {
@@ -9209,7 +9360,7 @@
         ]
       },
       {
-        "_index": "redon_v8",
+        "_index": "redon_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0373.lat001",
         "_score": null,
@@ -9225,6 +9376,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "redon",
           "forgery": false,
           "dating": [
             {
@@ -9266,7 +9418,7 @@
         ]
       },
       {
-        "_index": "regensburg_v8",
+        "_index": "regensburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
         "_score": null,
@@ -9282,6 +9434,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "regensburg",
           "forgery": false,
           "specific_date": [
             {
@@ -9321,7 +9474,7 @@
         ]
       },
       {
-        "_index": "salzburg_v8",
+        "_index": "salzburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-bn08.lat001",
         "_score": null,
@@ -9337,6 +9490,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "salzburg",
           "forgery": false,
           "sort_prefix": 1
         },
@@ -9366,7 +9520,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v8",
+        "_index": "schaeftlarn_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
         "_score": null,
@@ -9382,6 +9536,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "(Ober-)Neuching",
+          "collection": "schaeftlarn",
           "forgery": false,
           "specific_date": [
             {
@@ -9437,7 +9592,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0008.lat001",
         "_score": null,
@@ -9453,6 +9608,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gebhardswil(er)",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9511,7 +9667,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
         "_score": null,
@@ -9527,6 +9683,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9589,7 +9746,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -9605,6 +9762,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9667,7 +9825,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
         "_score": null,
@@ -9683,6 +9841,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Vinomna (Rankwil)",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9743,7 +9902,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0165.lat001",
         "_score": null,
@@ -9759,6 +9918,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9816,7 +9976,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0173.lat001",
         "_score": null,
@@ -9832,6 +9992,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9890,7 +10051,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0174.lat001",
         "_score": null,
@@ -9906,6 +10067,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -9964,7 +10126,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
         "_score": null,
@@ -9980,6 +10142,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Kloster St. Gallen",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10042,7 +10205,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0216.lat001",
         "_score": null,
@@ -10058,6 +10221,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "stgallen",
           "forgery": false,
           "dating": [
             {
@@ -10111,7 +10275,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0224.lat001",
         "_score": null,
@@ -10127,6 +10291,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10187,7 +10352,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0235.lat001",
         "_score": null,
@@ -10203,6 +10368,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10259,7 +10425,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
         "_score": null,
@@ -10275,6 +10441,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10335,7 +10502,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
         "_score": null,
@@ -10351,6 +10518,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Nüziders",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10414,7 +10582,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
         "_score": null,
@@ -10430,6 +10598,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10490,7 +10659,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
         "_score": null,
@@ -10506,6 +10675,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10570,7 +10740,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
         "_score": null,
@@ -10586,6 +10756,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10644,7 +10815,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
         "_score": null,
@@ -10660,6 +10831,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10722,7 +10894,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
         "_score": null,
@@ -10738,6 +10910,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10796,7 +10969,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
         "_score": null,
@@ -10812,6 +10985,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10876,7 +11050,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0262.lat001",
         "_score": null,
@@ -10892,6 +11066,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10952,7 +11127,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
         "_score": null,
@@ -10968,6 +11143,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -10982,8 +11158,8 @@
           "min_date": "0821-03-07",
           "max_date": "0821-03-07",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",
@@ -11027,7 +11203,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
         "_score": null,
@@ -11043,6 +11219,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11057,8 +11234,8 @@
           "min_date": "0821-03-07",
           "max_date": "0821-03-07",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",
@@ -11100,7 +11277,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
         "_score": null,
@@ -11116,6 +11293,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11130,8 +11308,8 @@
           "min_date": "0821-03-07",
           "max_date": "0821-03-07",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",
@@ -11177,7 +11355,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
         "_score": null,
@@ -11193,6 +11371,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Schlins",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11251,7 +11430,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
         "_score": null,
@@ -11267,6 +11446,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11327,7 +11507,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0290.lat001",
         "_score": null,
@@ -11343,6 +11523,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11399,7 +11580,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0293.lat001",
         "_score": null,
@@ -11415,6 +11596,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11473,7 +11655,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0296.lat001",
         "_score": null,
@@ -11489,6 +11671,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11545,7 +11728,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0344.lat001",
         "_score": null,
@@ -11561,6 +11744,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Frankfurt",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11605,7 +11789,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0353.lat001",
         "_score": null,
@@ -11621,6 +11805,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Gambs",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11679,7 +11864,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
         "_score": null,
@@ -11695,6 +11880,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Kloster St. Gallen",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11759,7 +11945,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
         "_score": null,
@@ -11775,6 +11961,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11795,8 +11982,8 @@
           "min_date": "0844-06-11",
           "max_date": "0851-06-11",
           "days": [
-            "Wednesday",
-            "Thursday"
+            "Thursday",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Inscriptio": "Sacrosancta eclesia, que constructa videtur esse ad honorem domini nostri iesu Christi et sancti Gallonis confessoris necnon et ceterorum sanctorum",
@@ -11842,7 +12029,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0401.lat001",
         "_score": null,
@@ -11858,6 +12045,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -11925,7 +12113,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0407.lat001",
         "_score": null,
@@ -11941,6 +12129,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "(Ober- oder Unter-)Rindal",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12001,7 +12190,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0415.lat001",
         "_score": null,
@@ -12017,6 +12206,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12037,8 +12227,8 @@
           "min_date": "0851-06-12",
           "max_date": "0858-06-12",
           "days": [
-            "Friday",
-            "Sunday"
+            "Sunday",
+            "Friday"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",
@@ -12084,7 +12274,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0421.lat001",
         "_score": null,
@@ -12100,6 +12290,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12120,8 +12311,8 @@
           "min_date": "0852-12-30",
           "max_date": "0859-12-30",
           "days": [
-            "Friday",
-            "Saturday"
+            "Saturday",
+            "Friday"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",
@@ -12165,7 +12356,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0434.lat001",
         "_score": null,
@@ -12181,6 +12372,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Ulm",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12225,7 +12417,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -12241,6 +12433,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12306,7 +12499,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0501.lat001",
         "_score": null,
@@ -12322,6 +12515,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12385,7 +12579,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0685.lat001",
         "_score": null,
@@ -12401,6 +12595,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Ranshofen",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12445,7 +12640,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0705.lat001",
         "_score": null,
@@ -12461,6 +12656,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Rankwil",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12521,7 +12717,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0706.lat001",
         "_score": null,
@@ -12537,6 +12733,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Forchheim",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12581,7 +12778,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
         "_score": null,
@@ -12597,6 +12794,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Pavia",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -12641,7 +12839,7 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v3",
+        "_index": "telma_marmoutier_v4",
         "_type": "_doc",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001",
         "_score": null,
@@ -12657,6 +12855,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "telma_marmoutier",
           "forgery": false,
           "dating": [
             {
@@ -12698,7 +12897,7 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v3",
+        "_index": "telma_marmoutier_v4",
         "_type": "_doc",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud2848.lat001",
         "_score": null,
@@ -12714,6 +12913,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "telma_marmoutier",
           "forgery": false,
           "dating": [
             {
@@ -12755,7 +12955,7 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v3",
+        "_index": "telma_marmoutier_v4",
         "_type": "_doc",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001",
         "_score": null,
@@ -12771,6 +12971,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "telma_marmoutier",
           "forgery": false,
           "specific_date": [
             {
@@ -12812,7 +13013,7 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v3",
+        "_index": "telma_marmoutier_v4",
         "_type": "_doc",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud3534.lat001",
         "_score": null,
@@ -12828,6 +13029,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "telma_marmoutier",
           "forgery": false,
           "specific_date": [
             {
@@ -12869,7 +13071,7 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v3",
+        "_index": "telma_marmoutier_v4",
         "_type": "_doc",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001",
         "_score": null,
@@ -12885,6 +13087,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "telma_marmoutier",
           "forgery": false,
           "specific_date": [
             {
@@ -12926,7 +13129,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v8",
+        "_index": "weissenburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
         "_score": null,
@@ -12942,6 +13145,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Weißenburg",
+          "collection": "weissenburg",
           "forgery": false,
           "specific_date": [
             {
@@ -12986,7 +13190,7 @@
         ]
       },
       {
-        "_index": "zuerich_v8",
+        "_index": "zuerich_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:zuerich.escher0139.lat001",
         "_score": null,
@@ -13002,6 +13206,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "zuerich",
           "forgery": false,
           "dating": [
             {
@@ -13050,163 +13255,163 @@
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Angers": {
-            "doc_count": 0
+            "doc_count": 62
           },
           "Archives d’Anjou": {
-            "doc_count": 0
+            "doc_count": 74
           },
           "Arnulfinger": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
-            "doc_count": 0
+            "doc_count": 391
           },
           "Chartae Latinae X": {
-            "doc_count": 0
+            "doc_count": 3
           },
           "Chartae Latinae XI": {
-            "doc_count": 0
+            "doc_count": 2
           },
           "Chartae Latinae XII": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Chartae Latinae XLVI": {
-            "doc_count": 0
+            "doc_count": 4
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 0
+            "doc_count": 10
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 0
+            "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 0
+            "doc_count": 5
           },
           "Echternach": {
-            "doc_count": 0
+            "doc_count": 152
           },
           "Eudes": {
-            "doc_count": 0
+            "doc_count": 34
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 0
+            "doc_count": 38
           },
           "Freising": {
-            "doc_count": 0
+            "doc_count": 1383
           },
           "Fulda (Dronke)": {
-            "doc_count": 0
+            "doc_count": 8
           },
           "Fulda (Stengel)": {
-            "doc_count": 0
+            "doc_count": 563
           },
           "Gorze": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Hersfeld": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 0
+            "doc_count": 4130
           },
           "Luzern": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 95
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 0
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
-            "doc_count": 0
+            "doc_count": 281
           },
           "Marmoutier - Fougères": {
-            "doc_count": 0
+            "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 0
+            "doc_count": 189
           },
           "Marmoutier - Pour le perche": {
-            "doc_count": 0
+            "doc_count": 71
           },
           "Marmoutier - Serfs": {
-            "doc_count": 0
+            "doc_count": 187
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 0
+            "doc_count": 163
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 0
+            "doc_count": 50
           },
           "Merowinger": {
-            "doc_count": 0
+            "doc_count": 196
           },
           "Mittelrheinisch": {
-            "doc_count": 0
+            "doc_count": 98
           },
           "Mondsee": {
-            "doc_count": 0
+            "doc_count": 137
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 0
+            "doc_count": 259
           },
           "Passau": {
-            "doc_count": 0
+            "doc_count": 102
           },
           "Regensburg": {
-            "doc_count": 0
+            "doc_count": 269
           },
           "Rheinisch": {
-            "doc_count": 0
+            "doc_count": 78
           },
           "Rätien": {
-            "doc_count": 0
+            "doc_count": 60
           },
           "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Salzburg": {
-            "doc_count": 0
+            "doc_count": 229
           },
           "Schäftlarn": {
-            "doc_count": 0
+            "doc_count": 37
           },
           "St. Gallen": {
-            "doc_count": 0
+            "doc_count": 779
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Weißenburg": {
-            "doc_count": 0
+            "doc_count": 276
           },
           "Werden": {
-            "doc_count": 0
+            "doc_count": 66
           },
           "Zürich": {
-            "doc_count": 0
+            "doc_count": 53
           }
         }
       },
@@ -13264,12 +13469,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1522
+            "doc_count": 1523
           }
         ]
       },
       "no_date": {
-        "doc_count": 702
+        "doc_count": 701
       }
     },
     "corpus": {
@@ -13278,7 +13483,7 @@
           "doc_count": 0
         },
         "Angers": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Archives d’Anjou": {
           "doc_count": 0
@@ -13290,10 +13495,10 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Cartulaire de Redon": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "Chartae Latinae X": {
           "doc_count": 0
@@ -13302,7 +13507,7 @@
           "doc_count": 0
         },
         "Chartae Latinae XII": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Chartae Latinae XLVI": {
           "doc_count": 0
@@ -13311,58 +13516,58 @@
           "doc_count": 0
         },
         "Codice Diplomatico Longobardo": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Cormery (TELMA)": {
           "doc_count": 0
         },
         "Echternach": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Eudes": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Fragments de Saint-Julien de Tours": {
           "doc_count": 0
         },
         "Freising": {
-          "doc_count": 0
+          "doc_count": 25
         },
         "Fulda (Dronke)": {
           "doc_count": 0
         },
         "Fulda (Stengel)": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Gorze": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "Hersfeld": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Katalonien": {
-          "doc_count": 0
+          "doc_count": 9
         },
         "Lorsch": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "Luzern": {
           "doc_count": 0
         },
         "Marculf": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Marmoutier (TELMA)": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "Marmoutier - Dunois": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Marmoutier - Fougères": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Marmoutier - Manceau": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Marmoutier - Pour le perche": {
           "doc_count": 0
@@ -13374,34 +13579,34 @@
           "doc_count": 0
         },
         "Marmoutier - Vendômois": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Marmoutier - Vendômois, Appendix": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Merowinger": {
-          "doc_count": 0
+          "doc_count": 9
         },
         "Mittelrheinisch": {
-          "doc_count": 0
+          "doc_count": 7
         },
         "Mondsee": {
           "doc_count": 0
         },
         "Papsturkunden Frankreich": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Passau": {
           "doc_count": 0
         },
         "Regensburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Rheinisch": {
           "doc_count": 0
         },
         "Rätien": {
-          "doc_count": 0
+          "doc_count": 39
         },
         "Saint-Bénigne de Dijon": {
           "doc_count": 0
@@ -13410,13 +13615,13 @@
           "doc_count": 0
         },
         "Salzburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Schäftlarn": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "St. Gallen": {
-          "doc_count": 0
+          "doc_count": 43
         },
         "Un acte faux de Marmoutier": {
           "doc_count": 0
@@ -13425,13 +13630,13 @@
           "doc_count": 0
         },
         "Weißenburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Werden": {
           "doc_count": 0
         },
         "Zürich": {
-          "doc_count": 0
+          "doc_count": 1
         }
       }
     },

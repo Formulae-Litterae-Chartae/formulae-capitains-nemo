@@ -1,5 +1,5 @@
 {
-  "took": 13,
+  "took": 71,
   "timed_out": false,
   "_shards": {
     "total": 52,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v8",
+        "_index": "andecavensis_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "andecavensis",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -60,7 +61,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v8",
+        "_index": "andecavensis_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -76,6 +77,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "andecavensis",
           "forgery": false,
           "sort_prefix": 0
         },
@@ -105,7 +107,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -121,6 +123,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -399,15 +402,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Saturday",
-            "Lent",
-            "Friday",
-            "Thursday",
-            "Tuesday",
-            "Sunday",
             "Monday",
+            "Wednesday",
+            "Friday",
             "Easter",
-            "Wednesday"
+            "Tuesday",
+            "Saturday",
+            "Sunday",
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -422,7 +425,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -438,6 +441,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -644,15 +648,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Saturday",
-            "Lent",
+            "Monday",
+            "Wednesday",
             "Friday",
+            "Easter",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Thursday",
-            "Monday",
-            "Easter",
-            "Wednesday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -667,7 +671,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -683,6 +687,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -727,7 +732,7 @@
         ]
       },
       {
-        "_index": "lorsch_v8",
+        "_index": "lorsch_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -743,6 +748,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Lorsch",
+          "collection": "lorsch",
           "forgery": false,
           "specific_date": [
             {
@@ -787,7 +793,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -803,6 +809,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -850,7 +857,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -866,6 +873,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "raetien",
           "forgery": false,
           "dating": [
             {
@@ -913,7 +921,7 @@
         ]
       },
       {
-        "_index": "raetien_v8",
+        "_index": "raetien_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -929,6 +937,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
+          "collection": "raetien",
           "forgery": false,
           "specific_date": [
             {
@@ -980,7 +989,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -996,6 +1005,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -1058,7 +1068,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -1074,6 +1084,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Grabs",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -1146,163 +1157,163 @@
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Angers": {
-            "doc_count": 0
+            "doc_count": 62
           },
           "Archives d’Anjou": {
-            "doc_count": 0
+            "doc_count": 74
           },
           "Arnulfinger": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
-            "doc_count": 0
+            "doc_count": 391
           },
           "Chartae Latinae X": {
-            "doc_count": 0
+            "doc_count": 3
           },
           "Chartae Latinae XI": {
-            "doc_count": 0
+            "doc_count": 2
           },
           "Chartae Latinae XII": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Chartae Latinae XLVI": {
-            "doc_count": 0
+            "doc_count": 4
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 0
+            "doc_count": 10
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 0
+            "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 0
+            "doc_count": 5
           },
           "Echternach": {
-            "doc_count": 0
+            "doc_count": 152
           },
           "Eudes": {
-            "doc_count": 0
+            "doc_count": 34
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 0
+            "doc_count": 38
           },
           "Freising": {
-            "doc_count": 0
+            "doc_count": 1383
           },
           "Fulda (Dronke)": {
-            "doc_count": 0
+            "doc_count": 8
           },
           "Fulda (Stengel)": {
-            "doc_count": 0
+            "doc_count": 563
           },
           "Gorze": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Hersfeld": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 0
+            "doc_count": 4130
           },
           "Luzern": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 95
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 0
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
-            "doc_count": 0
+            "doc_count": 281
           },
           "Marmoutier - Fougères": {
-            "doc_count": 0
+            "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 0
+            "doc_count": 189
           },
           "Marmoutier - Pour le perche": {
-            "doc_count": 0
+            "doc_count": 71
           },
           "Marmoutier - Serfs": {
-            "doc_count": 0
+            "doc_count": 187
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 0
+            "doc_count": 163
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 0
+            "doc_count": 50
           },
           "Merowinger": {
-            "doc_count": 0
+            "doc_count": 196
           },
           "Mittelrheinisch": {
-            "doc_count": 0
+            "doc_count": 98
           },
           "Mondsee": {
-            "doc_count": 0
+            "doc_count": 137
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 0
+            "doc_count": 259
           },
           "Passau": {
-            "doc_count": 0
+            "doc_count": 102
           },
           "Regensburg": {
-            "doc_count": 0
+            "doc_count": 269
           },
           "Rheinisch": {
-            "doc_count": 0
+            "doc_count": 78
           },
           "Rätien": {
-            "doc_count": 0
+            "doc_count": 60
           },
           "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Salzburg": {
-            "doc_count": 0
+            "doc_count": 229
           },
           "Schäftlarn": {
-            "doc_count": 0
+            "doc_count": 37
           },
           "St. Gallen": {
-            "doc_count": 0
+            "doc_count": 779
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Weißenburg": {
-            "doc_count": 0
+            "doc_count": 276
           },
           "Werden": {
-            "doc_count": 0
+            "doc_count": 66
           },
           "Zürich": {
-            "doc_count": 0
+            "doc_count": 53
           }
         }
       },
@@ -1360,12 +1371,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1522
+            "doc_count": 1523
           }
         ]
       },
       "no_date": {
-        "doc_count": 702
+        "doc_count": 701
       }
     },
     "corpus": {
@@ -1374,7 +1385,7 @@
           "doc_count": 0
         },
         "Angers": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Archives d’Anjou": {
           "doc_count": 0
@@ -1386,7 +1397,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Cartulaire de Redon": {
           "doc_count": 0
@@ -1440,7 +1451,7 @@
           "doc_count": 0
         },
         "Lorsch": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Luzern": {
           "doc_count": 0
@@ -1497,7 +1508,7 @@
           "doc_count": 0
         },
         "Rätien": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Saint-Bénigne de Dijon": {
           "doc_count": 0
@@ -1512,7 +1523,7 @@
           "doc_count": 0
         },
         "St. Gallen": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Un acte faux de Marmoutier": {
           "doc_count": 0

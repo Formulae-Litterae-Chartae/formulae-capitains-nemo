@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v8",
+        "_index": "mondsee_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Buch/Wörth",
+          "collection": "mondsee",
           "forgery": false,
           "dating": [
             {
@@ -92,7 +93,7 @@
         ]
       },
       {
-        "_index": "mondsee_v8",
+        "_index": "mondsee_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
@@ -108,6 +109,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Langkampfen",
+          "collection": "mondsee",
           "forgery": false,
           "dating": [
             {
@@ -293,7 +295,7 @@
             "doc_count": 0
           },
           "Mondsee": {
-            "doc_count": 0
+            "doc_count": 137
           },
           "Papsturkunden Frankreich": {
             "doc_count": 0
@@ -518,7 +520,7 @@
           "doc_count": 0
         },
         "Mondsee": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Papsturkunden Frankreich": {
           "doc_count": 0

@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Graf Wido von Lomello schenkt dem Kloster Disentis Güter und Rechte.",
           "orig_comp_ort": "Disentis",
+          "collection": "buenden",
           "forgery": false,
           "dating": [
             {
@@ -52,7 +53,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -68,6 +69,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Tello von Chur schenkt dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat/Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz.",
           "orig_comp_ort": "Chur",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -92,7 +94,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -108,6 +110,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "dating": [
             {
@@ -135,7 +138,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -151,6 +154,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -357,15 +361,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Saturday",
-            "Lent",
+            "Monday",
+            "Wednesday",
             "Friday",
+            "Easter",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Thursday",
-            "Monday",
-            "Easter",
-            "Wednesday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -375,7 +379,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -391,6 +395,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "dating": [
             {
@@ -418,7 +423,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -434,6 +439,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
           "orig_comp_ort": " ",
+          "collection": "buenden",
           "forgery": false,
           "dating": [
             {
@@ -461,7 +467,7 @@
         ]
       },
       {
-        "_index": "buenden_v8",
+        "_index": "buenden_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -477,6 +483,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
           "orig_comp_ort": "Maienfeld",
+          "collection": "buenden",
           "forgery": false,
           "specific_date": [
             {
@@ -519,7 +526,7 @@
             "doc_count": 0
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
             "doc_count": 0
@@ -744,7 +751,7 @@
           "doc_count": 0
         },
         "Bünden": {
-          "doc_count": 0
+          "doc_count": 7
         },
         "Cartulaire de Redon": {
           "doc_count": 0

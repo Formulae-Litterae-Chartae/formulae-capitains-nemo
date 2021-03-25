@@ -1,5 +1,5 @@
 {
-  "took": 13,
+  "took": 21,
   "timed_out": false,
   "_shards": {
     "total": 52,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
         "_score": null,
@@ -31,6 +31,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung.",
           "orig_comp_ort": "Freising",
+          "collection": "freising",
           "forgery": false,
           "specific_date": [
             {
@@ -72,7 +73,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
         "_score": null,
@@ -88,6 +89,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "dating": [
             {
@@ -124,7 +126,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
         "_score": null,
@@ -140,6 +142,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "dating": [
             {
@@ -176,7 +179,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
         "_score": null,
@@ -192,6 +195,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "dating": [
             {
@@ -228,7 +232,7 @@
         ]
       },
       {
-        "_index": "freising_v8",
+        "_index": "freising_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
         "_score": null,
@@ -244,6 +248,7 @@
           "autocomplete_lemmas": null,
           "autocomplete_regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung.",
           "orig_comp_ort": " ",
+          "collection": "freising",
           "forgery": false,
           "dating": [
             {
@@ -280,7 +285,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v8",
+        "_index": "hersfeld_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -296,6 +301,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Frankfurt",
+          "collection": "hersfeld",
           "forgery": false,
           "specific_date": [
             {
@@ -340,7 +346,7 @@
         ]
       },
       {
-        "_index": "passau_v8",
+        "_index": "passau_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
         "_score": null,
@@ -356,6 +362,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Regensburg",
+          "collection": "passau",
           "forgery": false,
           "specific_date": [
             {
@@ -400,7 +407,7 @@
         ]
       },
       {
-        "_index": "regensburg_v8",
+        "_index": "regensburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
         "_score": null,
@@ -416,6 +423,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "regensburg",
           "forgery": false,
           "dating": [
             {
@@ -469,7 +477,7 @@
         ]
       },
       {
-        "_index": "regensburg_v8",
+        "_index": "regensburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
         "_score": null,
@@ -485,6 +493,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": " ",
+          "collection": "regensburg",
           "forgery": false,
           "dating": [
             {
@@ -538,7 +547,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -554,6 +563,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Wasserburg",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -616,7 +626,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
         "_score": null,
@@ -632,6 +642,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Bettenweiler",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -692,7 +703,7 @@
         ]
       },
       {
-        "_index": "stgallen_v8",
+        "_index": "stgallen_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -708,6 +719,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Regensburg",
+          "collection": "stgallen",
           "forgery": false,
           "specific_date": [
             {
@@ -752,7 +764,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v8",
+        "_index": "weissenburg_v9",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
@@ -768,6 +780,7 @@
           "autocomplete_lemmas": "autocomplete lemma text",
           "autocomplete_regest": "autocomplete regest text",
           "orig_comp_ort": "Quierzy-s.-Oise",
+          "collection": "weissenburg",
           "forgery": false,
           "specific_date": [
             {
@@ -819,163 +832,163 @@
       "corpus": {
         "buckets": {
           "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Angers": {
-            "doc_count": 0
+            "doc_count": 62
           },
           "Archives d’Anjou": {
-            "doc_count": 0
+            "doc_count": 74
           },
           "Arnulfinger": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Auvergne": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Bünden": {
-            "doc_count": 0
+            "doc_count": 24
           },
           "Cartulaire de Redon": {
-            "doc_count": 0
+            "doc_count": 391
           },
           "Chartae Latinae X": {
-            "doc_count": 0
+            "doc_count": 3
           },
           "Chartae Latinae XI": {
-            "doc_count": 0
+            "doc_count": 2
           },
           "Chartae Latinae XII": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Chartae Latinae XLVI": {
-            "doc_count": 0
+            "doc_count": 4
           },
           "Chroniques des comtes d’Anjou": {
-            "doc_count": 0
+            "doc_count": 10
           },
           "Codice Diplomatico Longobardo": {
-            "doc_count": 0
+            "doc_count": 48
           },
           "Cormery (TELMA)": {
-            "doc_count": 0
+            "doc_count": 5
           },
           "Echternach": {
-            "doc_count": 0
+            "doc_count": 152
           },
           "Eudes": {
-            "doc_count": 0
+            "doc_count": 34
           },
           "Fragments de Saint-Julien de Tours": {
-            "doc_count": 0
+            "doc_count": 38
           },
           "Freising": {
-            "doc_count": 0
+            "doc_count": 1383
           },
           "Fulda (Dronke)": {
-            "doc_count": 0
+            "doc_count": 8
           },
           "Fulda (Stengel)": {
-            "doc_count": 0
+            "doc_count": 563
           },
           "Gorze": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Hersfeld": {
-            "doc_count": 0
+            "doc_count": 121
           },
           "Katalonien": {
-            "doc_count": 0
+            "doc_count": 2247
           },
           "Lorsch": {
-            "doc_count": 0
+            "doc_count": 4130
           },
           "Luzern": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marculf": {
-            "doc_count": 0
+            "doc_count": 95
           },
           "Marmoutier (TELMA)": {
-            "doc_count": 0
+            "doc_count": 108
           },
           "Marmoutier - Dunois": {
-            "doc_count": 0
+            "doc_count": 281
           },
           "Marmoutier - Fougères": {
-            "doc_count": 0
+            "doc_count": 7
           },
           "Marmoutier - Manceau": {
-            "doc_count": 0
+            "doc_count": 189
           },
           "Marmoutier - Pour le perche": {
-            "doc_count": 0
+            "doc_count": 71
           },
           "Marmoutier - Serfs": {
-            "doc_count": 0
+            "doc_count": 187
           },
           "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 0
+            "doc_count": 6
           },
           "Marmoutier - Vendômois": {
-            "doc_count": 0
+            "doc_count": 163
           },
           "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 0
+            "doc_count": 50
           },
           "Merowinger": {
-            "doc_count": 0
+            "doc_count": 196
           },
           "Mittelrheinisch": {
-            "doc_count": 0
+            "doc_count": 98
           },
           "Mondsee": {
-            "doc_count": 0
+            "doc_count": 137
           },
           "Papsturkunden Frankreich": {
-            "doc_count": 0
+            "doc_count": 259
           },
           "Passau": {
-            "doc_count": 0
+            "doc_count": 102
           },
           "Regensburg": {
-            "doc_count": 0
+            "doc_count": 269
           },
           "Rheinisch": {
-            "doc_count": 0
+            "doc_count": 78
           },
           "Rätien": {
-            "doc_count": 0
+            "doc_count": 60
           },
           "Saint-Bénigne de Dijon": {
             "doc_count": 0
           },
           "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 0
+            "doc_count": 15
           },
           "Salzburg": {
-            "doc_count": 0
+            "doc_count": 229
           },
           "Schäftlarn": {
-            "doc_count": 0
+            "doc_count": 37
           },
           "St. Gallen": {
-            "doc_count": 0
+            "doc_count": 779
           },
           "Un acte faux de Marmoutier": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Une nouvelle charte de Théotolon": {
-            "doc_count": 0
+            "doc_count": 1
           },
           "Weißenburg": {
-            "doc_count": 0
+            "doc_count": 276
           },
           "Werden": {
-            "doc_count": 0
+            "doc_count": 66
           },
           "Zürich": {
-            "doc_count": 0
+            "doc_count": 53
           }
         }
       },
@@ -1033,12 +1046,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1522
+            "doc_count": 1523
           }
         ]
       },
       "no_date": {
-        "doc_count": 702
+        "doc_count": 701
       }
     },
     "corpus": {
@@ -1095,7 +1108,7 @@
           "doc_count": 0
         },
         "Freising": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "Fulda (Dronke)": {
           "doc_count": 0
@@ -1107,7 +1120,7 @@
           "doc_count": 0
         },
         "Hersfeld": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Katalonien": {
           "doc_count": 0
@@ -1161,10 +1174,10 @@
           "doc_count": 0
         },
         "Passau": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Regensburg": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "Rheinisch": {
           "doc_count": 0
@@ -1185,7 +1198,7 @@
           "doc_count": 0
         },
         "St. Gallen": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "Un acte faux de Marmoutier": {
           "doc_count": 0
@@ -1194,7 +1207,7 @@
           "doc_count": 0
         },
         "Weißenburg": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "Werden": {
           "doc_count": 0
