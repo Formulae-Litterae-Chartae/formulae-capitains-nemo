@@ -128,9 +128,9 @@ class AdvancedSearchForm(SearchForm):
     proper_name_q = BooleanField(_l('Auf Suchterminus anwenden'))
     forgeries = RadioField(_l("Fälschungen"),
                            choices=[("", ""),
-                                    ("include", _('mit Fälschungen')),
-                                    ("exclude", _('ohne Fälschungen')),
-                                    ('only', _('nur in Fälschungen'))],
+                                    ("include", _l('mit Fälschungen')),
+                                    ("exclude", _l('ohne Fälschungen')),
+                                    ('only', _l('nur in Fälschungen'))],
                            default="include")
     search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
     submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")
