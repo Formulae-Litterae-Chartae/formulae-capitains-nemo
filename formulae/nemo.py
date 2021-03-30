@@ -684,7 +684,7 @@ class NemoFormulae(Nemo):
             elif set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
                 data['collections']['members'] = []
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
-        if not from_four_level_collection and 'defaultTic' not in direct_parents and 'display_collection' not in direct_parents:
+        if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
