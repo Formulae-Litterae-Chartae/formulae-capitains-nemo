@@ -20,13 +20,19 @@
                             <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> <label for="formulae">Formulae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#formulaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse"><span  id="show-all-formulae-corpora" data-toggle="tooltip" data-container="#show-all-formulae-corpora" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
                                     <ul class="corpus-ul collapse" id="formulaeCorporaCollapse">
                                     {% for choice in categories['formulae_collection']|sort %}
-                                        <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
+                                        <li><input class="under-formulae under-all" id="{{ choice[1] }}"
+                                                   name="corpus" type="checkbox" value="{{ choice[1] }}"{% if
+                                                   choice[1] in form.data.corpus %} checked=""{% endif %}> <label
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
                                     {% endfor %}
                                     </ul>
                             <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> <label for="chartae">Chartae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#chartaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="chartaeCorporaCollapse"><span id="show-all-charter-corpora" data-toggle="tooltip" data-container="#show-all-charter-corpora" data-placement="bottom" title="{{ _('Alle Urkundencorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
                                     <ul class="corpus-ul collapse" id="chartaeCorporaCollapse">
                                     {% for choice in categories['other_collection']|sort %}
-                                        <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
+                                        <li><input class="under-chartae under-all" id="{{ choice[1] }}" name="corpus"
+                                                   type="checkbox" value="{{ choice[1] }}"{% if choice[1] in
+                                                   form.data.corpus %} checked=""{% endif %}> <label
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
                                     {% endfor %}
                                     </ul>
                         </ul>

@@ -142,7 +142,7 @@ def r_advanced_search():
     form = AdvancedSearchForm()
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
-    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
+    coll_cats = dict([(k, [('<b>' + x['coverage'] + '</b>: ' + x['short_title'].strip(), x['id'].split(':')[-1]) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
                       'search_id', 'simple_search_id')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
