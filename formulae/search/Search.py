@@ -717,7 +717,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         fake.save_ids([{"id": x['id']} for x in ids])
         fake.save_response(search)
         fake.save_aggs(aggregations)
-    return ids, search['hits']['total']['value'], aggregations, prev_search
+    return ids, len(ids), aggregations, prev_search
 
 
 def build_spec_date_range_template(spec_year_start, spec_month_start, spec_day_start, spec_year_end, spec_month_end,
