@@ -67,9 +67,13 @@
                     </div>
                     <div class="table-row">
                         <div class="table-cell">
-                        {% for corp in g.corpora %}
-                            {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
-                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                        {% for corp in g.corpora|sort %}
+                            {% if 'corpus' in previous_aggregations and
+                            previous_aggregations['corpus']['buckets'][corp[0]]['doc_count'] != 0 %}
+                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox"
+                                                               value="{{ corp[1] }}"
+                                                               id="corp-restrict-{{ corp[1] }}"></input><label
+                                    for="corp-restrict-{{ corp[1] }}">{{ corp[0]|safe }}</label></span>
                             {% endif %}
                         {% endfor %}
                         </div>

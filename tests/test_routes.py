@@ -631,97 +631,12 @@ class TestIndividualRoutes(Formulae_Testing):
         """ Make sure that the correct search results are passed to the search results form"""
         params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
-        aggs = {"corpus": {
-                  "buckets": {
-                    "Angers": {
-                      "doc_count": 2
-                    },
-                    "Arnulfinger": {
-                      "doc_count": 0
-                    },
-                    "B\u00fcnden": {
-                      "doc_count": 0
-                    },
-                    "Echternach": {
-                        "doc_count": 0
-                    },
-                    "Freising": {
-                        "doc_count": 0
-                    },
-                    "Fulda (Dronke)": {
-                      "doc_count": 0
-                    },
-                    "Fulda (Stengel)": {
-                      "doc_count": 0
-                    },
-                    "Katalonien": {
-                        "doc_count": 0
-                    },
-                    "Lorsch": {
-                        "doc_count": 0
-                    },
-                    "Luzern": {
-                      "doc_count": 0
-                    },
-                    "Marculf": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Fougères": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Manceau": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Vendômois": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Vendômois, Saint-Marc": {
-                      "doc_count": 0
-                    },
-                    "Marmoutier - Serfs": {
-                      "doc_count": 0
-                    },
-                    "Merowinger": {
-                      "doc_count": 0
-                    },
-                    "Mittelrheinisch": {
-                      "doc_count": 0
-                    },
-                    "Mondsee": {
-                      "doc_count": 0
-                    },
-                    "Papsturkunden Frankreich": {
-                      "doc_count": 0
-                    },
-                    "Passau": {
-                      "doc_count": 0
-                    },
-                    "Regensburg": {
-                      "doc_count": 0
-                    },
-                    "Rheinisch": {
-                      "doc_count": 0
-                    },
-                    "R\u00e4tien": {
-                      "doc_count": 0
-                    },
-                    "Salzburg": {
-                      "doc_count": 0
-                    },
-                    "Sch\u00e4ftlarn": {
-                      "doc_count": 0
-                    },
-                    "St. Gallen": {
-                      "doc_count": 0
-                    },
-                    "Werden": {
-                      "doc_count": 0
-                    },
-                    "Z\u00fcrich": {
-                      "doc_count": 0
-                    }
-                  }
-                }}
+        aggs = {"corpus": {"buckets":
+                               {k: {'doc_count': 0} if k != '<b>Angers</b>: Angers' else
+                               {k: {'doc_count': 2}} for k in TestES.AGGS_ALL_DOCS['corpus']['buckets']
+                                }
+                           }
+                }
         mock_search.return_value = [[], 0, aggs, []]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
@@ -735,7 +650,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                   'date_plus_minus=0&submit=Search', follow_redirects=True)
             # Check g.corpora
-            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+            self.assertIn(('<b>St. Gallen</b>: St. Gallen', 'stgallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -841,7 +756,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assert_context('searched_lems', [],
                                 'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
-            self.assertIn(('andecavensis', 'Angers'), g.corpora,
+            self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q'] = 'regnum'
@@ -857,7 +772,7 @@ class TestIndividualRoutes(Formulae_Testing):
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                   'date_plus_minus=0&search_id=1234&submit=Search', follow_redirects=True)
             # Check g.corpora
-            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+            self.assertIn(('<b>St. Gallen</b>: St. Gallen', 'stgallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
 
     @patch("formulae.search.routes.advanced_query_index")
@@ -1043,23 +958,23 @@ class TestIndividualRoutes(Formulae_Testing):
                              'andecavensis\+[\w\+]*raetien+[\w\+]*salzburg+[\w\+]*stgallen',
                              'Corpus "all" should be expanded to a string with all corpora.')
             c.get(search_url, follow_redirects=True)
-            self.assertIn(('stgallen', 'St. Gallen'), g.corpora,
+            self.assertIn(('<b>St. Gallen</b>: St. Gallen', 'stgallen'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
             for old_search_arg in ['&old_search=False', '&old_search=True']:
                 c.get(search_url + old_search_arg, follow_redirects=True)
-                self.assertIn(('andecavensis', 'Angers'), g.corpora, 'Angers should be in all.')
-                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in all.')
-                self.assertIn(('marculf', 'Marculf'), g.corpora, 'Marculf should be in all.')
+                self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora, 'Angers should be in all.')
+                self.assertIn(('<b>Lorsch</b>: Lorsch', 'lorsch'), g.corpora, 'Lorsch should be in all.')
+                self.assertIn(('<b>Marculf</b>: Marculf', 'marculf'), g.corpora, 'Marculf should be in all.')
                 c.get(search_url.replace('corpus=all', 'corpus=formulae') + old_search_arg, follow_redirects=True)
-                self.assertIn(('andecavensis', 'Angers'), g.corpora, 'Angers should be in formulae.')
-                self.assertNotIn(('lorsch', 'Lorsch'), g.corpora, 'Bünden should not be in formulae.')
+                self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora, 'Angers should be in formulae.')
+                self.assertNotIn(('<b>Lorsch</b>: Lorsch', 'lorsch'), g.corpora, 'Bünden should not be in formulae.')
                 c.get(search_url.replace('corpus=all', 'corpus=chartae') + old_search_arg, follow_redirects=True)
-                self.assertNotIn(('andecavensis', 'Angers'), g.corpora, 'Angers should not be in chartae.')
-                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in chartae.')
+                self.assertNotIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora, 'Angers should not be in chartae.')
+                self.assertIn(('<b>Lorsch</b>: Lorsch', 'lorsch'), g.corpora, 'Lorsch should be in chartae.')
                 c.get(search_url.replace('corpus=all', 'corpus=marculf+lorsch') + old_search_arg, follow_redirects=True)
-                self.assertNotIn(('andecavensis', 'Angers'), g.corpora, 'Angers should not in marculf+buenden.')
-                self.assertIn(('lorsch', 'Lorsch'), g.corpora, 'Lorsch should be in marculf+lorsch.')
-                self.assertIn(('marculf', 'Marculf'), g.corpora, 'Marculf should be in marculf+lorsch.')
+                self.assertNotIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora, 'Angers should not in marculf+buenden.')
+                self.assertIn(('<b>Lorsch</b>: Lorsch', 'lorsch'), g.corpora, 'Lorsch should be in marculf+lorsch.')
+                self.assertIn(('<b>Marculf</b>: Marculf', 'marculf'), g.corpora, 'Marculf should be in marculf+lorsch.')
 
     @patch.object(Elasticsearch, "search")
     def test_flashed_search_form_errors(self, mock_search):
@@ -2646,167 +2561,166 @@ class TestES(Formulae_Testing):
       "doc_count": 13285,
       "corpus": {
         "buckets": {
-          "Accensement d'une vigne de Marmoutier": {
-            "doc_count": 1
-          },
-          "Angers": {
+          "<b>Angers</b>: Angers": {
             "doc_count": 62
           },
-          "Archives d’Anjou": {
+          "<b>Anjou</b>: Archives d’Anjou": {
             "doc_count": 74
           },
-          "Arnulfinger": {
-            "doc_count": 24
-          },
-          "Auvergne": {
-            "doc_count": 6
-          },
-          "Bünden": {
-            "doc_count": 24
-          },
-          "Cartulaire de Redon": {
-            "doc_count": 391
-          },
-          "Chartae Latinae X": {
-            "doc_count": 3
-          },
-          "Chartae Latinae XI": {
-            "doc_count": 2
-          },
-          "Chartae Latinae XII": {
-            "doc_count": 15
-          },
-          "Chartae Latinae XLVI": {
-            "doc_count": 4
-          },
-          "Chroniques des comtes d’Anjou": {
+          "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
             "doc_count": 10
           },
-          "Codice Diplomatico Longobardo": {
-            "doc_count": 48
+          "<b>Arnulfinger</b>: Arnulfinger": {
+            "doc_count": 24
           },
-          "Cormery (TELMA)": {
-            "doc_count": 5
+          "<b>Auvergne</b>: Auvergne": {
+            "doc_count": 6
           },
-          "Echternach": {
-            "doc_count": 152
-          },
-          "Eudes": {
-            "doc_count": 34
-          },
-          "Fragments de Saint-Julien de Tours": {
-            "doc_count": 38
-          },
-          "Freising": {
-            "doc_count": 1383
-          },
-          "Fulda (Dronke)": {
-            "doc_count": 8
-          },
-          "Fulda (Stengel)": {
-            "doc_count": 563
-          },
-          "Gorze": {
-            "doc_count": 121
-          },
-          "Hersfeld": {
-            "doc_count": 121
-          },
-          "Katalonien": {
+          "<b>Catalunya</b>: Katalonien": {
             "doc_count": 2247
           },
-          "Lorsch": {
-            "doc_count": 4130
+          "<b>Chartae Latinae</b>: Chartae Latinae X": {
+            "doc_count": 3
           },
-          "Luzern": {
-            "doc_count": 6
+          "<b>Chartae Latinae</b>: Chartae Latinae XI": {
+            "doc_count": 2
           },
-          "Marculf": {
-            "doc_count": 95
-          },
-          "Marmoutier (TELMA)": {
-            "doc_count": 108
-          },
-          "Marmoutier - Dunois": {
-            "doc_count": 281
-          },
-          "Marmoutier - Fougères": {
-            "doc_count": 7
-          },
-          "Marmoutier - Manceau": {
-            "doc_count": 189
-          },
-          "Marmoutier - Pour le perche": {
-            "doc_count": 71
-          },
-          "Marmoutier - Serfs": {
-            "doc_count": 187
-          },
-          "Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 6
-          },
-          "Marmoutier - Vendômois": {
-            "doc_count": 163
-          },
-          "Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
-          },
-          "Merowinger": {
-            "doc_count": 196
-          },
-          "Mittelrheinisch": {
-            "doc_count": 98
-          },
-          "Mondsee": {
-            "doc_count": 137
-          },
-          "Papsturkunden Frankreich": {
-            "doc_count": 259
-          },
-          "Passau": {
-            "doc_count": 102
-          },
-          "Regensburg": {
-            "doc_count": 269
-          },
-          "Rheinisch": {
-            "doc_count": 78
-          },
-          "Rätien": {
-            "doc_count": 60
-          },
-          "Saint-Bénigne de Dijon": {
-            "doc_count": 0
-          },
-          "Saint-Martin de Tours (TELMA)": {
+          "<b>Chartae Latinae</b>: Chartae Latinae XII": {
             "doc_count": 15
           },
-          "Salzburg": {
+          "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+            "doc_count": 4
+          },
+          "<b>Dijon</b>: Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
+          "<b>Echternach</b>: Echternach": {
+            "doc_count": 152
+          },
+          "<b>Freising</b>: Freising": {
+            "doc_count": 1383
+          },
+          "<b>Fulda</b>: Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "<b>Fulda</b>: Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "<b>Gorze</b>: Gorze": {
+            "doc_count": 121
+          },
+          "<b>Graubünden</b>: Bünden": {
+            "doc_count": 24
+          },
+          "<b>Hersfeld</b>: Hersfeld": {
+            "doc_count": 121
+          },
+          "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "<b>Lorsch</b>: Lorsch": {
+            "doc_count": 4130
+          },
+          "<b>Luzern</b>: Luzern": {
+            "doc_count": 6
+          },
+          "<b>Marculf</b>: Marculf": {
+            "doc_count": 95
+          },
+          "<b>Merowinger</b>: Merowinger": {
+            "doc_count": 196
+          },
+          "<b>Mondsee</b>: Mondsee": {
+            "doc_count": 137
+          },
+          "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
+            "doc_count": 259
+          },
+          "<b>Passau</b>: Passau": {
+            "doc_count": 102
+          },
+          "<b>Redon</b>: Cartulaire de Redon": {
+            "doc_count": 391
+          },
+          "<b>Regensburg</b>: Regensburg": {
+            "doc_count": 269
+          },
+          "<b>Rheinland</b>: Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "<b>Rheinland</b>: Rheinisch": {
+            "doc_count": 78
+          },
+          "<b>Rätien</b>: Rätien": {
+            "doc_count": 60
+          },
+          "<b>Salzburg</b>: Salzburg": {
             "doc_count": 229
           },
-          "Schäftlarn": {
+          "<b>Schäftlarn</b>: Schäftlarn": {
             "doc_count": 37
           },
-          "St. Gallen": {
+          "<b>St. Gallen</b>: St. Gallen": {
             "doc_count": 779
           },
-          "Un acte faux de Marmoutier": {
+          "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
             "doc_count": 1
           },
-          "Une nouvelle charte de Théotolon": {
+          "<b>Touraine</b>: Cormery (TELMA)": {
+            "doc_count": 5
+          },
+          "<b>Touraine</b>: Eudes": {
+            "doc_count": 34
+          },
+          "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
+          },
+          "<b>Touraine</b>: Marmoutier (TELMA)": {
+            "doc_count": 108
+          },
+          "<b>Touraine</b>: Marmoutier - Dunois": {
+            "doc_count": 281
+          },
+          "<b>Touraine</b>: Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "<b>Touraine</b>: Marmoutier - Manceau": {
+            "doc_count": 189
+          },
+          "<b>Touraine</b>: Marmoutier - Pour le perche": {
+            "doc_count": 71
+          },
+          "<b>Touraine</b>: Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
+          "<b>Touraine</b>: Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
+          },
+          "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
+          },
+          "<b>Touraine</b>: Un acte faux de Marmoutier": {
             "doc_count": 1
           },
-          "Weißenburg": {
-            "doc_count": 276
+          "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
+            "doc_count": 1
           },
-          "Werden": {
+          "<b>Werden</b>: Werden": {
             "doc_count": 66
           },
-          "Zürich": {
+          "<b>Wissembourg</b>: Weißenburg": {
+            "doc_count": 276
+          },
+          "<b>Zürich</b>: Zürich": {
             "doc_count": 53
           }
-        }
-      },
+        }},
       "range": {
         "buckets": [
           {
@@ -4335,101 +4249,10 @@ class TestES(Formulae_Testing):
                                                           ]
                                                         },
                                                      "corpus": {
-                                                      "buckets": {
-                                                        "Angers": {
-                                                          "doc_count": 2
-                                                        },
-                                                        "Arnulfinger": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "B\u00fcnden": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Echternach": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Freising": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Fulda (Dronke)": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Fulda (Stengel)": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Hersfeld": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Katalonien": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Lorsch": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Luzern": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marculf": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Fougères": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Manceau": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Vendômois": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Vendômois, Appendix": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Marmoutier - Serfs": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Merowinger": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Mittelrheinisch": {
-                                                            "doc_count": 0
-                                                        },
-                                                        "Mondsee": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Papsturkunden Frankreich": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Passau": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Regensburg": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Rheinisch": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "R\u00e4tien": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Salzburg": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Sch\u00e4ftlarn": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "St. Gallen": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Weißenburg": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Werden": {
-                                                          "doc_count": 0
-                                                        },
-                                                        "Z\u00fcrich": {
-                                                          "doc_count": 0
-                                                        }
-                                                      }
+                                                      "buckets": {k: {'doc_count': 0} if k != '<b>Angers</b>: Angers' else
+                                                      {k: {'doc_count': 2}}
+                                                                  for k in self.AGGS_ALL_DOCS['corpus']['buckets']
+                                                                  }
                                                     }}}
         body = {'query':
                     {'bool':

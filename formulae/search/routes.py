@@ -57,7 +57,7 @@ def r_results():
         corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     else:
         corps = corpus
-    g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    g.corpora = [(CORP_MAP[x], x) for x in corps]
     g.form_parts = []
     if request.args.get('formulaic_parts'):
         g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]

@@ -4,163 +4,163 @@
       "doc_count": 24,
       "corpus": {
         "buckets": {
-          "Accensement d'une vigne de Marmoutier": {
+          "<b>Angers</b>: Angers": {
             "doc_count": 0
           },
-          "Angers": {
+          "<b>Anjou</b>: Archives d’Anjou": {
             "doc_count": 0
           },
-          "Archives d’Anjou": {
+          "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
             "doc_count": 0
           },
-          "Arnulfinger": {
+          "<b>Arnulfinger</b>: Arnulfinger": {
             "doc_count": 0
           },
-          "Auvergne": {
+          "<b>Auvergne</b>: Auvergne": {
             "doc_count": 0
           },
-          "Bünden": {
+          "<b>Catalunya</b>: Katalonien": {
+            "doc_count": 0
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae X": {
+            "doc_count": 0
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XI": {
+            "doc_count": 0
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XII": {
+            "doc_count": 0
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+            "doc_count": 0
+          },
+          "<b>Dijon</b>: Saint-Bénigne de Dijon": {
+            "doc_count": 0
+          },
+          "<b>Echternach</b>: Echternach": {
+            "doc_count": 0
+          },
+          "<b>Freising</b>: Freising": {
+            "doc_count": 0
+          },
+          "<b>Fulda</b>: Fulda (Dronke)": {
+            "doc_count": 0
+          },
+          "<b>Fulda</b>: Fulda (Stengel)": {
+            "doc_count": 0
+          },
+          "<b>Gorze</b>: Gorze": {
+            "doc_count": 0
+          },
+          "<b>Graubünden</b>: Bünden": {
             "doc_count": 24
           },
-          "Cartulaire de Redon": {
+          "<b>Hersfeld</b>: Hersfeld": {
             "doc_count": 0
           },
-          "Chartae Latinae X": {
+          "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
             "doc_count": 0
           },
-          "Chartae Latinae XI": {
+          "<b>Lorsch</b>: Lorsch": {
             "doc_count": 0
           },
-          "Chartae Latinae XII": {
+          "<b>Luzern</b>: Luzern": {
             "doc_count": 0
           },
-          "Chartae Latinae XLVI": {
+          "<b>Marculf</b>: Marculf": {
             "doc_count": 0
           },
-          "Chroniques des comtes d’Anjou": {
+          "<b>Merowinger</b>: Merowinger": {
             "doc_count": 0
           },
-          "Codice Diplomatico Longobardo": {
+          "<b>Mondsee</b>: Mondsee": {
             "doc_count": 0
           },
-          "Cormery (TELMA)": {
+          "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
             "doc_count": 0
           },
-          "Echternach": {
+          "<b>Passau</b>: Passau": {
             "doc_count": 0
           },
-          "Eudes": {
+          "<b>Redon</b>: Cartulaire de Redon": {
             "doc_count": 0
           },
-          "Fragments de Saint-Julien de Tours": {
+          "<b>Regensburg</b>: Regensburg": {
             "doc_count": 0
           },
-          "Freising": {
+          "<b>Rheinland</b>: Mittelrheinisch": {
             "doc_count": 0
           },
-          "Fulda (Dronke)": {
+          "<b>Rheinland</b>: Rheinisch": {
             "doc_count": 0
           },
-          "Fulda (Stengel)": {
+          "<b>Rätien</b>: Rätien": {
             "doc_count": 0
           },
-          "Gorze": {
+          "<b>Salzburg</b>: Salzburg": {
             "doc_count": 0
           },
-          "Hersfeld": {
+          "<b>Schäftlarn</b>: Schäftlarn": {
             "doc_count": 0
           },
-          "Katalonien": {
+          "<b>St. Gallen</b>: St. Gallen": {
             "doc_count": 0
           },
-          "Lorsch": {
+          "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
             "doc_count": 0
           },
-          "Luzern": {
+          "<b>Touraine</b>: Cormery (TELMA)": {
             "doc_count": 0
           },
-          "Marculf": {
+          "<b>Touraine</b>: Eudes": {
             "doc_count": 0
           },
-          "Marmoutier (TELMA)": {
+          "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
             "doc_count": 0
           },
-          "Marmoutier - Dunois": {
+          "<b>Touraine</b>: Marmoutier (TELMA)": {
             "doc_count": 0
           },
-          "Marmoutier - Fougères": {
+          "<b>Touraine</b>: Marmoutier - Dunois": {
             "doc_count": 0
           },
-          "Marmoutier - Manceau": {
+          "<b>Touraine</b>: Marmoutier - Fougères": {
             "doc_count": 0
           },
-          "Marmoutier - Pour le perche": {
+          "<b>Touraine</b>: Marmoutier - Manceau": {
             "doc_count": 0
           },
-          "Marmoutier - Serfs": {
+          "<b>Touraine</b>: Marmoutier - Pour le perche": {
             "doc_count": 0
           },
-          "Marmoutier - Trois actes faux ou interpolés": {
+          "<b>Touraine</b>: Marmoutier - Serfs": {
             "doc_count": 0
           },
-          "Marmoutier - Vendômois": {
+          "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
             "doc_count": 0
           },
-          "Marmoutier - Vendômois, Appendix": {
+          "<b>Touraine</b>: Marmoutier - Vendômois": {
             "doc_count": 0
           },
-          "Merowinger": {
+          "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
             "doc_count": 0
           },
-          "Mittelrheinisch": {
+          "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
-          "Mondsee": {
+          "<b>Touraine</b>: Un acte faux de Marmoutier": {
             "doc_count": 0
           },
-          "Papsturkunden Frankreich": {
+          "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
             "doc_count": 0
           },
-          "Passau": {
+          "<b>Werden</b>: Werden": {
             "doc_count": 0
           },
-          "Regensburg": {
+          "<b>Wissembourg</b>: Weißenburg": {
             "doc_count": 0
           },
-          "Rheinisch": {
-            "doc_count": 0
-          },
-          "Rätien": {
-            "doc_count": 0
-          },
-          "Saint-Bénigne de Dijon": {
-            "doc_count": 0
-          },
-          "Saint-Martin de Tours (TELMA)": {
-            "doc_count": 0
-          },
-          "Salzburg": {
-            "doc_count": 0
-          },
-          "Schäftlarn": {
-            "doc_count": 0
-          },
-          "St. Gallen": {
-            "doc_count": 0
-          },
-          "Un acte faux de Marmoutier": {
-            "doc_count": 0
-          },
-          "Une nouvelle charte de Théotolon": {
-            "doc_count": 0
-          },
-          "Weißenburg": {
-            "doc_count": 0
-          },
-          "Werden": {
-            "doc_count": 0
-          },
-          "Zürich": {
+          "<b>Zürich</b>: Zürich": {
             "doc_count": 0
           }
         }
@@ -229,163 +229,163 @@
     },
     "corpus": {
       "buckets": {
-        "Accensement d'une vigne de Marmoutier": {
+        "<b>Angers</b>: Angers": {
           "doc_count": 0
         },
-        "Angers": {
+        "<b>Anjou</b>: Archives d’Anjou": {
           "doc_count": 0
         },
-        "Archives d’Anjou": {
+        "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
           "doc_count": 0
         },
-        "Arnulfinger": {
+        "<b>Arnulfinger</b>: Arnulfinger": {
           "doc_count": 0
         },
-        "Auvergne": {
+        "<b>Auvergne</b>: Auvergne": {
           "doc_count": 0
         },
-        "Bünden": {
+        "<b>Catalunya</b>: Katalonien": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae X": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XI": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XII": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
+        "<b>Dijon</b>: Saint-Bénigne de Dijon": {
+          "doc_count": 0
+        },
+        "<b>Echternach</b>: Echternach": {
+          "doc_count": 0
+        },
+        "<b>Freising</b>: Freising": {
+          "doc_count": 0
+        },
+        "<b>Fulda</b>: Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "<b>Fulda</b>: Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "<b>Gorze</b>: Gorze": {
+          "doc_count": 0
+        },
+        "<b>Graubünden</b>: Bünden": {
           "doc_count": 14
         },
-        "Cartulaire de Redon": {
+        "<b>Hersfeld</b>: Hersfeld": {
           "doc_count": 0
         },
-        "Chartae Latinae X": {
+        "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
           "doc_count": 0
         },
-        "Chartae Latinae XI": {
+        "<b>Lorsch</b>: Lorsch": {
           "doc_count": 0
         },
-        "Chartae Latinae XII": {
+        "<b>Luzern</b>: Luzern": {
           "doc_count": 0
         },
-        "Chartae Latinae XLVI": {
+        "<b>Marculf</b>: Marculf": {
           "doc_count": 0
         },
-        "Chroniques des comtes d’Anjou": {
+        "<b>Merowinger</b>: Merowinger": {
           "doc_count": 0
         },
-        "Codice Diplomatico Longobardo": {
+        "<b>Mondsee</b>: Mondsee": {
           "doc_count": 0
         },
-        "Cormery (TELMA)": {
+        "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
         },
-        "Echternach": {
+        "<b>Passau</b>: Passau": {
           "doc_count": 0
         },
-        "Eudes": {
+        "<b>Redon</b>: Cartulaire de Redon": {
           "doc_count": 0
         },
-        "Fragments de Saint-Julien de Tours": {
+        "<b>Regensburg</b>: Regensburg": {
           "doc_count": 0
         },
-        "Freising": {
+        "<b>Rheinland</b>: Mittelrheinisch": {
           "doc_count": 0
         },
-        "Fulda (Dronke)": {
+        "<b>Rheinland</b>: Rheinisch": {
           "doc_count": 0
         },
-        "Fulda (Stengel)": {
+        "<b>Rätien</b>: Rätien": {
           "doc_count": 0
         },
-        "Gorze": {
+        "<b>Salzburg</b>: Salzburg": {
           "doc_count": 0
         },
-        "Hersfeld": {
+        "<b>Schäftlarn</b>: Schäftlarn": {
           "doc_count": 0
         },
-        "Katalonien": {
+        "<b>St. Gallen</b>: St. Gallen": {
           "doc_count": 0
         },
-        "Lorsch": {
+        "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
         },
-        "Luzern": {
+        "<b>Touraine</b>: Cormery (TELMA)": {
           "doc_count": 0
         },
-        "Marculf": {
+        "<b>Touraine</b>: Eudes": {
           "doc_count": 0
         },
-        "Marmoutier (TELMA)": {
+        "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
           "doc_count": 0
         },
-        "Marmoutier - Dunois": {
+        "<b>Touraine</b>: Marmoutier (TELMA)": {
           "doc_count": 0
         },
-        "Marmoutier - Fougères": {
+        "<b>Touraine</b>: Marmoutier - Dunois": {
           "doc_count": 0
         },
-        "Marmoutier - Manceau": {
+        "<b>Touraine</b>: Marmoutier - Fougères": {
           "doc_count": 0
         },
-        "Marmoutier - Pour le perche": {
+        "<b>Touraine</b>: Marmoutier - Manceau": {
           "doc_count": 0
         },
-        "Marmoutier - Serfs": {
+        "<b>Touraine</b>: Marmoutier - Pour le perche": {
           "doc_count": 0
         },
-        "Marmoutier - Trois actes faux ou interpolés": {
+        "<b>Touraine</b>: Marmoutier - Serfs": {
           "doc_count": 0
         },
-        "Marmoutier - Vendômois": {
+        "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
           "doc_count": 0
         },
-        "Marmoutier - Vendômois, Appendix": {
+        "<b>Touraine</b>: Marmoutier - Vendômois": {
           "doc_count": 0
         },
-        "Merowinger": {
+        "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
           "doc_count": 0
         },
-        "Mittelrheinisch": {
+        "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
-        "Mondsee": {
+        "<b>Touraine</b>: Un acte faux de Marmoutier": {
           "doc_count": 0
         },
-        "Papsturkunden Frankreich": {
+        "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
           "doc_count": 0
         },
-        "Passau": {
+        "<b>Werden</b>: Werden": {
           "doc_count": 0
         },
-        "Regensburg": {
+        "<b>Wissembourg</b>: Weißenburg": {
           "doc_count": 0
         },
-        "Rheinisch": {
-          "doc_count": 0
-        },
-        "Rätien": {
-          "doc_count": 0
-        },
-        "Saint-Bénigne de Dijon": {
-          "doc_count": 0
-        },
-        "Saint-Martin de Tours (TELMA)": {
-          "doc_count": 0
-        },
-        "Salzburg": {
-          "doc_count": 0
-        },
-        "Schäftlarn": {
-          "doc_count": 0
-        },
-        "St. Gallen": {
-          "doc_count": 0
-        },
-        "Un acte faux de Marmoutier": {
-          "doc_count": 0
-        },
-        "Une nouvelle charte de Théotolon": {
-          "doc_count": 0
-        },
-        "Weißenburg": {
-          "doc_count": 0
-        },
-        "Werden": {
-          "doc_count": 0
-        },
-        "Zürich": {
+        "<b>Zürich</b>: Zürich": {
           "doc_count": 0
         }
       }
