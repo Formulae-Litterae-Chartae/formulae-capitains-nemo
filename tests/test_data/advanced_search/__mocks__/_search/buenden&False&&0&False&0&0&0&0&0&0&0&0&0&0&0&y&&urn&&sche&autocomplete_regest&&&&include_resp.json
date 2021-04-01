@@ -1,5 +1,5 @@
 {
-  "took": 1,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -47,6 +47,11 @@
           "max_date": "0760-12-31",
           "sort_prefix": 1
         },
+        "highlight": {
+          "autocomplete_regest": [
+            "Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte."
+          ]
+        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0016.lat001"
@@ -87,6 +92,11 @@
             "Sunday"
           ],
           "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat&#x2F;Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz."
+          ]
         },
         "sort": [
           1,
@@ -131,6 +141,11 @@
           "min_date": "0769",
           "max_date": "0814",
           "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten."
+          ]
         },
         "sort": [
           1,
@@ -373,6 +388,11 @@
           ],
           "sort_prefix": 1
         },
+        "highlight": {
+          "autocomplete_regest": [
+            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur."
+          ]
+        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
@@ -416,6 +436,11 @@
           "min_date": "0768",
           "max_date": "0814",
           "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene."
+          ]
         },
         "sort": [
           1,
@@ -461,6 +486,11 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
+        "highlight": {
+          "autocomplete_regest": [
+            "Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur."
+          ]
+        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
@@ -497,6 +527,11 @@
           "min_date": "0975-02",
           "max_date": "0975-02",
           "sort_prefix": 1
+        },
+        "highlight": {
+          "autocomplete_regest": [
+            "Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld."
+          ]
         },
         "sort": [
           1,
