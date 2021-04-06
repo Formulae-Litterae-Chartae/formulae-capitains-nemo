@@ -7,7 +7,6 @@ from formulae.search.Search import advanced_query_index, build_sort_list, \
     suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
 from flask_nemo.filters import slugify
-# import flask_testing
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
     ResetPasswordRequestForm, RegistrationForm, ValidationError, EmailChangeForm
@@ -17,17 +16,14 @@ from elasticsearch import Elasticsearch
 from unittest.mock import patch, mock_open
 from unittest import TestCase
 from tests.fake_es import FakeElasticsearch
-from collections import OrderedDict, defaultdict
+from collections import OrderedDict
 import os
 from MyCapytain.common.constants import Mimetypes
-from flask import Markup, session, g, url_for, abort, template_rendered, message_flashed, request, current_app
-from contextlib import contextmanager
-from json import dumps, load, JSONDecodeError
+from flask import Markup, session, g, url_for, abort, template_rendered, message_flashed
+from json import dumps, load
 import re
-from math import ceil
 from datetime import date
 from copy import copy
-from io import StringIO
 from lxml import etree
 from itertools import cycle
 
