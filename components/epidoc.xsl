@@ -45,6 +45,7 @@
             <xsl:text> </xsl:text>
         </xsl:if> -->       
         <xsl:element name="span">
+            <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
             <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
@@ -60,13 +61,27 @@
             <xsl:if test="@lemma">
                 <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
             </xsl:if>
+            <xsl:if test="@n">
+                <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
+            </xsl:if>
             <xsl:if test="current()[@lemmaRef]">
                 <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                 <xsl:attribute name="tabindex">0</xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
+                <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+            </xsl:if>
+            <xsl:if test="contains(parent::t:seg/@type, 'latin-word')">
+                <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
             </xsl:if>
             <xsl:if test="current()[@type]">
-                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                <xsl:choose>
+                    <xsl:when test="@type='latin-word'">
+                        <xsl:attribute name="lang">la</xsl:attribute>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
@@ -304,7 +319,7 @@
                 <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                 <xsl:attribute name="role">button</xsl:attribute>
                 <xsl:attribute name="aria-expanded">false</xsl:attribute>
-                <xsl:attribute name="aria-controls"><xsl:value-of select="concat('multiCollapseExample', $note_num)"/></xsl:attribute>
+                <xsl:attribute name="aria-controls"><xsl:value-of select="generate-id()"/></xsl:attribute>
                 <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
                 <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
                 <xsl:value-of select="$note_num"/>
@@ -400,6 +415,9 @@
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="class"><xsl:value-of select="normalize-space(translate(./@type, ';', ' '))"/><xsl:if test="./@rend='italic'"> italic</xsl:if></xsl:attribute>
+                    <xsl:if test="./@rend='italic' or contains(./@type, 'italic')">
+                        <xsl:attribute name="lang">la</xsl:attribute>
+                    </xsl:if>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:otherwise>
@@ -422,7 +440,7 @@
     </xsl:template>-->
     
     <xsl:template match="t:seg[@type='lex-title']">
-        <strong><xsl:apply-templates/></strong>
+        <strong lang="la"><xsl:apply-templates/></strong>
     </xsl:template>
     
     <xsl:template match="t:seg[@type='foreign-text']">

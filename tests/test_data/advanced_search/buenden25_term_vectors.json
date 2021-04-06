@@ -1,11 +1,4 @@
 {
-	"_index": "buenden_v1",
-	"_type": "buenden",
-	"_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
-	"_version": 1,
-	"found": true,
-	"took": 27,
-	"term_vectors": {
 		"text": {
 			"field_statistics": {
 				"sum_doc_freq": 5170,
@@ -1040,5 +1033,4 @@
 				}
 			}
 		}
-	}
 }

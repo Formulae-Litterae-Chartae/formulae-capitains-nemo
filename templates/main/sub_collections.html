@@ -29,6 +29,14 @@
             </li>
             {% endif %}
         {% endfor %}
+    {% elif collections.parents|length > 0 and collections.parents[0]['id'] == 'display_collection' %}
+        {% for coll in collections.members|sort(attribute="label") %}
+            <li class="list-group-item py-0">
+                <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
+                    <h5 class="my-2">{{ coll.label|safe }}</h5>
+                </a>
+            </li>
+        {% endfor %}
     {% else %}
         {% for coll in collections.members|sort(attribute="id") %}
             <li class="list-group-item py-0">

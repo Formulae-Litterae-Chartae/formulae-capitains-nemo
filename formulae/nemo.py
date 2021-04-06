@@ -91,21 +91,27 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
+                        'urn:cts:formulae:chartae_latinae_x',
+                        'urn:cts:formulae:chartae_latinae_xi',
+                        'urn:cts:formulae:chartae_latinae_xii',
+                        'urn:cts:formulae:chartae_latinae_xlvi',
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
+                        'urn:cts:formulae:eudes',
                         'urn:cts:formulae:freising',
                         'urn:cts:formulae:fu2',
                         'urn:cts:formulae:fulda_dronke',
                         'urn:cts:formulae:fulda_stengel',
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
-                        'urn:cts:formulae:langobardisch',
+                        # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:marmoutier_dunois',
                         'urn:cts:formulae:marmoutier_laurain',
                         'urn:cts:formulae:marmoutier_leveque',
                         'urn:cts:formulae:marmoutier_manceau',
+                        'urn:cts:formulae:marmoutier_pour_le_perche',
                         'urn:cts:formulae:marmoutier_serfs',
                         'urn:cts:formulae:marmoutier_vendomois',
                         'urn:cts:formulae:marmoutier_vendomois_appendix',
@@ -116,6 +122,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
+                        'urn:cts:formulae:saint_bénigne',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:stgallen',
@@ -128,14 +135,19 @@ class NemoFormulae(Nemo):
     # Half-open collections are those that are newer than death-of-editor plus 70 years.
     # We do not show the regesten for these collections since those are still protected under copyright.
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
+                             'urn:cts:formulae:chartae_latinae_x',
+                             'urn:cts:formulae:chartae_latinae_xi',
+                             'urn:cts:formulae:chartae_latinae_xii',
+                             'urn:cts:formulae:chartae_latinae_xlvi',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
-                             'urn:cts:formulae:langobardisch',
+                             # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
+                             'urn:cts:formulae:saint_bénigne',
                              'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:tours_gasnault',
                              'urn:cts:formulae:weissenburg',
@@ -187,9 +199,12 @@ class NemoFormulae(Nemo):
         self.register_font()
         self.inflected_to_lemma_mapping = self.make_inflected_to_lem_mapping()
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
+        self.dead_urls = self.make_dead_url_mapping()
+        self.comp_places = self.make_comp_places_list()
+        # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
-    def make_inflected_to_lem_mapping(self):
+    def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['INFLECTED_LEM_JSONS']:
@@ -203,7 +218,7 @@ class NemoFormulae(Nemo):
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
 
-    def make_lem_to_lem_mapping(self):
+    def make_lem_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps theoretical lemmas onto the used lemmas, e.g., gero -> gerere"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['LEM_TO_LEM_JSONS']:
@@ -216,6 +231,40 @@ class NemoFormulae(Nemo):
             for k, v in lem_to_lem.items():
                 lem_mapping[k].update(v)
         return dict(lem_mapping)
+
+    def make_dead_url_mapping(self) -> dict:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        dead_url_mapping = dict()
+        for j in self.app.config['DEAD_URLS']:
+            with open(j) as f:
+                try:
+                    dead_urls = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid dead url mapping from it.')
+                    continue
+            for k, v in dead_urls.items():
+                dead_url_mapping[k] = v
+        return dict(dead_url_mapping)
+
+    def make_comp_places_list(self) -> list:
+        """ Ingests an existing JSON file that maps dead urls to active ones, e.g., urn:cts:formulae:lorsch.gloeckner4233 ->urn:cts:formulae:lorsch.gloeckner1134"""
+        comp_places = list()
+        for j in self.app.config['COMP_PLACES']:
+            with open(j) as f:
+                try:
+                    comp_places += json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid composition place list from it.')
+                    continue
+        return sorted(list(comp_places))
+
+    # def make_termvectors(self) -> dict:
+    #     """ Load the ES term vectors from a saved JSON file"""
+    #     with open(self.app.config['TERM_VECTORS']) as f:
+    #         try:
+    #             return json_load(f)
+    #         except JSONDecodeError:
+    #             self.app.logger.warning(self.app.config['TERM_VECTORS'] + ' is not a valid JSON file. Unable to load valid term vector dictionary from it.')
 
     @staticmethod
     def register_font():
@@ -240,7 +289,7 @@ class NemoFormulae(Nemo):
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
                 m.update({'coverage':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(DC.coverage))})
-            if member['id'] != 'other_collection':
+            if member['id'] not in ['other_collection', 'display_collection']:
                 colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
             else:
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
@@ -329,6 +378,8 @@ class NemoFormulae(Nemo):
                     par = _('(Prolog)')
             elif 'computus' in par:
                 par = '057(Computus)'
+            elif '2_capitula' in par:
+                par = '2_0'
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
@@ -626,13 +677,14 @@ class NemoFormulae(Nemo):
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
                 data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
             elif set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
                 data['collections']['members'] = []
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
-        if not from_four_level_collection and 'defaultTic' not in [x for x in self.resolver.getMetadata(objectId).parent]:
+        if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
@@ -678,18 +730,20 @@ class NemoFormulae(Nemo):
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'Computus' in work_name:
+                    if 'urn:cts:formulae:marculf' in m.ancestors:
+                        work_name = str(parent_title).replace('Marculf ', '')
+                        if 'Prolog' in work_name:
+                            work_name = _('(Prolog)')
+                    elif 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
                         work_name = _('(Titel)')
-                    elif 'Prolog' in work_name:
-                        work_name = _('(Prolog)')
                     elif 'urn:cts:formulae:lorsch' in m.ancestors:
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = name_part.group(0)
                     r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
-                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else str(m.metadata.get_single(DC.description)).split('***'),
+                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
@@ -997,6 +1051,12 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        secondary_language = 'de'
+        all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
+        if len(all_langs) > 0:
+            for l in all_langs:
+                if l != 'lat':
+                    secondary_language = l[:2]
         # metadata1 = self.resolver.getMetadata(objectId=objectId)
         if 'notes' in self._transform:
             notes = self.extract_notes(passage)
@@ -1035,12 +1095,13 @@ class NemoFormulae(Nemo):
                     "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": str(metadata.metadata.get_single(DC.description)) or '',
+                    "description": Markup(str(metadata.metadata.get_single(DC.description))) or '',
                     "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
                     'lang': metadata.lang,
+                    'secondary_lang': secondary_language,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
@@ -1078,6 +1139,8 @@ class NemoFormulae(Nemo):
         subrefers = subreferences.split('+')
         for i, id in enumerate(ids):
             v = False
+            if id in self.dead_urls:
+                id = self.dead_urls[id]
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
                 v = True
@@ -1135,7 +1198,7 @@ class NemoFormulae(Nemo):
                                                     transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
 
                     if 'previous_search' in session:
-                        result_ids = [x for x in session['previous_search'] if x['_id'] == id]
+                        result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and session['previous_search_args'].get('q'):
                             d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                 passage_data['objects'].append(d)
@@ -1171,14 +1234,7 @@ class NemoFormulae(Nemo):
             search_field = 'text'
             if prev_args.get('lemma_search', None) == "True":
                 search_field = 'lemmas'
-            ids, words = lem_highlight_to_text(search={'hits': {'hits': results}},
-                                               q=prev_args.get('q', ''),
-                                               ordered_terms=prev_args.get('ordered_terms', False),
-                                               slop=prev_args.get('slop', 0),
-                                               regest_field=prev_args.get('regest_field', 'regest'),
-                                               search_field=search_field,
-                                               highlight_field='text',
-                                               fuzz=prev_args.get('fuzziness', '0'))
+            ids = results
             if not any(ids):
                 return html
             if 'sentence_spans' in ids[0]:
@@ -1195,7 +1251,7 @@ class NemoFormulae(Nemo):
                         spans[i].set('class', spans[i].get('class') + ' searched-end')
             xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                         with_tail=True, standalone=None)
-            span_pattern = re.compile(r'(<span class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+            span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
             xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 

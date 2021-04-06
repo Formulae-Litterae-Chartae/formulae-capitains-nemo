@@ -18,7 +18,7 @@
             <a class="dropdown-item">- <span>{{ r }}</span></a>
             {% else %}
             {% if r[0].id not in prev_texts %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r[0].id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string + ' (' + r[0].lang + ')' }}</span></a>
+            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, collections.current.id, r[0].id]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+'))}}">- <span class="text-primary">{{ r[0].get_label()|string }}</span></a>
             {% for c in r[1] %}
             <span class="dropdown-item ml-2">- {{ c }}</span>
             {% endfor %}

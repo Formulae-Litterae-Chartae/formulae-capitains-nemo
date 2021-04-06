@@ -1,15 +1,13 @@
 var lexModal = $('#lexicon-modal');
-var scrollControl = document.getElementById('scroll-control-image');
+var scrollControl = document.getElementById('scroll-text-separate');
 
 $(document).ready(function(){
-    var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList;
-    myDefaultWhiteList.button = ['type', 'onclick'];
-    $('.apparatus-title').append(appHeading);
-    $('.commentary-title').append(comHeading);
-    $('[id$="a1-hide-button"]').attr('title', appCloseButton)
-    $('[id$="a1-show-button"]').attr('title', appOpenButton)
-    $('[id$="n1-hide-button"]').attr('title', comCloseButton)
-    $('[id$="n1-show-button"]').attr('title', comOpenButton)
+//     $('.apparatus-title').append(appHeading);
+//     $('.commentary-title').append(comHeading);
+//     $('[id$="a1-hide-button"]').attr('title', appCloseButton)
+//     $('[id$="a1-show-button"]').attr('title', appOpenButton)
+//     $('[id$="n1-hide-button"]').attr('title', comCloseButton)
+//     $('[id$="n1-show-button"]').attr('title', comOpenButton)
     
     // These are the popovers for the notes in the right column of the normal text view.
     $('[data-toggle="bibl-popover"]').popover(
@@ -23,6 +21,10 @@ $(document).ready(function(){
           boundary: 'window',
           template: '<div class="popover charter-bibl-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
           html: true
+    })
+    
+    $('body').on('click', '.bibl-popover a.close', function() {
+        $( this ).closest('.bibl-popover').popover('hide');
     })
     
     // These are the popups in the elexicon modal notes.
@@ -77,16 +79,26 @@ $(document).ready(function(){
     $('.expand').each(function() {
         $(this).attr('title', expMess);
     })
-
-    $('.note').click(function() {
-        var linkTarget = $(this).attr('href');
-        $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
-        $( linkTarget ).addClass( 'flash-yellow' );
-        if ($(linkTarget).hasClass('fade-out')) {
-            $(linkTarget).toggleClass('expanded fade-out');
-            $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
-        }
-    })
+    
+    if ( screen.width > 767 ) {
+        $('.note').click(function() {
+            var linkTarget = $(this).attr('href');
+            $( linkTarget ).on("animationend", function() {this.classList.remove('flash-yellow')})
+            $( linkTarget ).addClass( 'flash-yellow' );
+            if ($(linkTarget).hasClass('fade-out')) {
+                $(linkTarget).toggleClass('expanded fade-out');
+                $( '[toexpand=' + linkTarget.replace('#', '') + ']' ).attr('title', conMess);
+            }
+        })
+    } else {
+        $('.note').click( function() {
+            var text = $( $(this).attr('href') ).children('div').children('span').clone();
+            text.children('button').remove();
+            text.find('a[data-container]').attr({'data-toggle': 'elex-modal-popover', 'class': 'modal-popover'});
+            $('#note-modal div.modal-body').html(text.html());
+            $('#note-modal').modal('show');
+        })
+    }
     
     // AJAX request to change reading format and then refresh the page
     $('.reading-format-setter').on('click', function(event) {
@@ -131,15 +143,19 @@ $(document).ready(function(){
         },
         mouseover: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         mouseout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         },
         focusin: function() {
             $( this ).tooltip('show');
+            showLemma($( this ));
         },
         focusout: function() {
             $( this ).tooltip('hide');
+            hideLemma($( this ));
         }
     });
     
@@ -178,16 +194,16 @@ function closeNote(id) {
 }
 
 function showLemma(x) {
-    var lemma = x.attr("lemma");
+    var lemma = x.attr("n");
     var lem_box = document.getElementById("lem_box");
-    lem_box.setAttribute("default-data", lem_box.innerHTML);
+//     lem_box.setAttribute("default-data", lem_box.innerHTML);
     lem_box.innerHTML = lemma;
 }
 
 function hideLemma() {
     var lem_box = document.getElementById("lem_box");
     lem_box.innerHTML = lem_box.getAttribute("default-data");
-    lem_box.removeAttribute("default-data");
+//     lem_box.removeAttribute("default-data");
 }
 
 function hideNotes(c) {
@@ -308,12 +324,13 @@ window.onclick = function(event) {
 }
 
 function changeScrollMode(el) {
-    if (el.getAttribute('title') == toScrollingTexts) {
+    var imgChild = el.children[0];
+    if (el.getAttribute('title') == toScrollingTexts || el.getAttribute('title') == '') {
         el.setAttribute('title', fromScrollingTexts);
-        el.setAttribute('src', scrollTogetherSrc);
+        imgChild.setAttribute('src', scrollTogetherSrc);
     } else {
         el.setAttribute('title', toScrollingTexts);
-        el.setAttribute('src', scrollIndependentSrc);
+        imgChild.setAttribute('src', scrollIndependentSrc);
     };
     var textSections = document.querySelectorAll('.text-section');
     for (let section of textSections) {
@@ -322,10 +339,11 @@ function changeScrollMode(el) {
 }
 
 function goToLinkedParagraph(h, t) {
-    el = document.getElementById(t);
-    if (scrollControl && scrollControl.getAttribute('title') == toScrollingTexts) {
+    var el = document.getElementById(t);
+    var imgChild = scrollControl.children[0];
+    if (scrollControl && (scrollControl.getAttribute('title') == toScrollingTexts || scrollControl.getAttribute('title') == '')) {
         scrollControl.setAttribute('title', fromScrollingTexts);
-        scrollControl.setAttribute('src', scrollTogetherSrc);
+        imgChild.setAttribute('src', scrollTogetherSrc);
         var textSections = document.querySelectorAll('.text-section');
         for (let section of textSections) {
             section.classList.toggle('scrolling');

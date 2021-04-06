@@ -42,7 +42,7 @@ class FakeElasticsearch(object):
     def save_response(self, resp: dict):
         file_name = self.build_path('_resp.json')
         for i, h in enumerate(resp['hits']['hits']):
-            if 'buenden' not in h['_id']:
+            if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']:
                 resp['hits']['hits'][i]['_source']['text'] = 'some real text'
                 resp['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
                 resp['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'
@@ -56,6 +56,12 @@ class FakeElasticsearch(object):
                     resp['hits']['hits'][i]['highlight']['autocomplete_lemmas'] = ['autocomplete lemma text']
                     resp['hits']['hits'][i]['highlight']['regest'] = ['regest text']
                     resp['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
+            if 'papsturkunden_frankreich' in h['_id']:
+                resp['hits']['hits'][i]['_source']['regest'] = 'regest text'
+                resp['hits']['hits'][i]['_source']['autocomplete_regest'] = 'autocomplete regest text'
+                if 'highlight' in resp['hits']['hits'][i]:
+                    resp['hits']['hits'][i]['highlight']['regest'] = ['regest text']
+                    resp['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
         with open(file_name, 'w') as f:
             json.dump(resp, f, indent=2, ensure_ascii=False)
 
@@ -66,5 +72,15 @@ class FakeElasticsearch(object):
 
     def load_ids(self) -> dict:
         file_name = self.build_path('_ids.json')
+        with open(file_name, 'r') as f:
+            return json.load(f)
+
+    def save_aggs(self, aggs: dict):
+        file_name = self.build_path('_aggs.json')
+        with open(file_name, 'w') as f:
+            json.dump({'aggregations': aggs}, f, indent=2, ensure_ascii=False)
+
+    def load_aggs(self) -> dict:
+        file_name = self.build_path('_aggs.json')
         with open(file_name, 'r') as f:
             return json.load(f)

@@ -81,25 +81,6 @@
     to {opacity:1 ;}
 } 
 
-ol > li {
-  display: list-item;
-  list-style: none;
-}
-
-ol > li {
-  display: list-item;
-}
-
-ol > li:nth-child(5n) {
-  list-style: decimal;
-}
-ol > li:nth-child(1) {
-  list-style: decimal;
-}
-ol > li:hover {
-  list-style: decimal;
-}
-
 #reading-container article {
   width:100%;
 }
@@ -220,7 +201,7 @@ nav .dropdown-menu {
     display: none;
 }
 
-nav .dropdown:hover .dropdown-menu {
+nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     display: block;
 }
 
@@ -442,18 +423,24 @@ nav .dropdown:hover .dropdown-menu {
     font-weight: bold;
 }
 
-#search-stat-table .table-header {
+#search-stat-table .table-header,.corpora-search-results-dropdown .table-header {
     display: table-header-group;
 }
 
-#search-stat-table .table-header .table-cell {
+#search-stat-table .table-header .table-cell,.corpora-search-results-dropdown .table-header .table-cell {
     border-right: 1px solid #ddd;
     padding-left: 0.5rem;
     display: table-cell;
     font-weight: bold;
 }
 
-#search-stat-table .table-row {
+#search-stat-table .table-header .table-cell:only-of-type,.corpora-search-results-dropdown .table-header .table-cell:only-of-type {
+    padding-left: 0.5rem;
+    display: table-cell;
+    font-weight: bold;
+}
+
+#search-stat-table .table-row,.corpora-search-results-dropdown .table-row {
     display: table-row;
 }
 
@@ -470,8 +457,13 @@ nav .dropdown:hover .dropdown-menu {
     display: table-cell;
 }
 
-#search-stat-table .table-row .table-cell {
+#search-stat-table .table-row .table-cell,.corpora-search-results-dropdown .table-row .table-cell {
     border-right: 1px solid #ddd;
+    vertical-align:top;
+    display: table-cell;
+}
+
+#search-stat-table .table-row .table-cell:only-of-type,.corpora-search-results-dropdown .table-row .table-cell:only-of-type {
     vertical-align:top;
     display: table-cell;
 }
@@ -526,7 +518,6 @@ button.close {
 .search-subtitle {
     padding-top: 0rem;
     padding-bottom: 0rem;
-    padding-left: 1.5rem;
     font-size: 1.25rem;
 }
 
@@ -602,7 +593,7 @@ img[id$="-flag-navbar"] {
     animation-duration: 4s;
 }
 
-.hidden-button {
+.hidden-button, .hidden-cell, #results-max-date-column, #results-min-date-column {
     display: none;
 }
 
@@ -877,17 +868,7 @@ span.corpus_coverage {
 
 .Arenga-bg {
     border-bottom-style: solid;
-    border-color: navy;
-}
-
-.Beneficium-bg {
-    border-bottom-style: solid;
-    border-color: blue;
-}
-
-.Beurkundungsbeschluss-oder-Beurkundungsgewährung-bg {
-    border-bottom-style: solid;
-    border-color: darkblue;
+    border-color: darkgoldenrod;
 }
 
 .Corroboratio-bg {
@@ -895,29 +876,24 @@ span.corpus_coverage {
     border-color: lightslategrey;
 }
 
-.Datierung-bg {
-    border-bottom-style: solid;
-    border-color: teal;
-}
-
 .Dispositio-bg {
     border-bottom-style: solid;
-    border-color: olive;
+    border-color: red;
 }
 
-.Empfänger-bg {
+.Eschatokoll-bg {
     border-bottom-style: solid;
-    border-color: green;
-}
-
-.Erwähnung-der-Schenkung-bg {
-    border-bottom-style: solid;
-    border-color: darkgreen;
+    border-color: orange;
 }
 
 .Intitulatio-bg {
     border-bottom-style: solid;
-    border-color: cornflowerblue;
+    border-color: green;
+}
+
+.Inscriptio-bg {
+    border-bottom-style: solid;
+    border-color: blue;
 }
 
 .Invocatio-oder-Inscriptio-bg {
@@ -925,24 +901,9 @@ span.corpus_coverage {
     border-color: darkolivegreen;
 }
 
-.Konsensformel-bg {
+.Narratio-bg {
     border-bottom-style: solid;
-    border-color: orange;
-}
-
-.Leihebitte-bg {
-    border-bottom-style: solid;
-    border-color: red;
-}
-
-.Leihegewährung-bg {
-    border-bottom-style: solid;
-    border-color: maroon;
-}
-
-.Leiheklausel-bg {
-    border-bottom-style: solid;
-    border-color: lightblue;
+    border-color: darkblue;
 }
 
 .Narratives-Element-bg {
@@ -955,14 +916,9 @@ span.corpus_coverage {
     border-color: black;
 }
 
-.Pertinenzformel-des-Tauschpartners-bg {
-    border-bottom-style: solid;
-    border-color: gray;
-}
-
 .Poenformel-bg {
     border-bottom-style: solid;
-    border-color: silver;
+    border-color: gray;
 }
 
 .Provenienz-bg {
@@ -980,11 +936,6 @@ span.corpus_coverage {
     border-color: darkgray;
 }
 
-.Schreiber-bg {
-    border-bottom-style: solid;
-    border-color: darkgreen;
-}
-
 .Stipulationsformel-bg {
     border-bottom-style: solid;
     border-color: khaki;
@@ -993,26 +944,6 @@ span.corpus_coverage {
 .Strafe-bg {
     border-bottom-style: solid;
     border-color: olive;
-}
-
-.Subscriptiones-bg {
-    border-bottom-style: solid;
-    border-color: seagreen;
-}
-
-.Traditionsformel-bg {
-    border-bottom-style: solid;
-    border-color: steelblue;
-}
-
-.Überleitungsformel-bg {
-    border-bottom-style: solid;
-    border-color: tan;
-}
-
-.Übertragungsklausel-bg {
-    border-bottom-style: solid;
-    border-color: peru;
 }
 
 #manuscript-table tbody td:first-child p {
@@ -1086,4 +1017,67 @@ a.btn-primary,li.page-item.active .page-link {
 .part-menu-dropdown .dropdown-item label, .corpora-search-results-dropdown .dropdown-item label {
     margin-left: 0.3rem;
     display: initial;
+}
+
+#footerNavbar {
+    background-color: #263d3d;
+    top: 30px;
+}
+
+#footerNavbar .nav-link {
+    color: white;
+}
+
+#main-container {
+    min-height: 65%;
+}
+
+.relative-position {
+    position: relative;
+}
+
+#results-title-column {
+    width: 20%;
+}
+
+#results-date-column, #results-place-column {
+    width: 10%;
+}
+
+#table-view-link {
+    margin-left: 0;
+}
+
+#table-view-link a,  #table-view-link span {
+    margin-left: 5px;
+}
+
+#partsSearchResultTable thead {
+    font-size: large;
+}
+
+.small-text {
+    font-size: small;
+}
+
+#partsSearchResultTable > thead .sorting::before, #partsSearchResultTable > thead .sorting::after, #partsSearchResultTable > thead .sorting_asc::before, #partsSearchResultTable > thead .sorting_asc::after, #partsSearchResultTable > thead .sorting_desc::before, #partsSearchResultTable > thead .sorting_desc::after, #partsSearchResultTable > thead .sorting_asc_disabled::before, #partsSearchResultTable > thead .sorting_asc_disabled::after, #partsSearchResultTable > thead .sorting_desc_disabled::before, #partsSearchResultTable > thead .sorting_desc_disabled::after {
+	position: absolute;
+	bottom: 0.9em;
+	display: block;
+	opacity: 1;
+}
+
+#partsSearchResultTable > thead .sorting::after, #partsSearchResultTable > thead .sorting_asc::after, #partsSearchResultTable > thead .sorting_desc::after, #partsSearchResultTable > thead .sorting_asc_disabled::after, #partsSearchResultTable > thead .sorting_desc_disabled::after {
+	right: 0.3em;
+}
+
+#partsSearchResultTable > thead .sorting_asc::before, #partsSearchResultTable > thead .sorting_desc::after, .taq-down #taq-down-symbol, .taq-up #taq-up-symbol, .tpq-down #tpq-down-symbol, .tpq-up #tpq-up-symbol {
+    outline-style: dotted;
+    outline-offset: 0;
+    outline-width: thin;
+}
+
+#lem_box {
+    font-size: small;
+    line-height: 2em;
 }
