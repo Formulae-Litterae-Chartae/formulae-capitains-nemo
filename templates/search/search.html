@@ -8,7 +8,13 @@
     <article class="container-fluid">
     <header>
     {% if total_results > 0 %}
-            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
+            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }}
+                {{ _(' Treffer aus') }}
+                {% if request.args['forgeries'] == 'only' %} {{ aggs['all_docs']['forgeries']['doc_count']|string }}{{
+                _(' Fälschungen aus') }}{%
+                endif %}
+                <span
+                    id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
          <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">

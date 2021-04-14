@@ -149,7 +149,6 @@ class Formulae_Testing(TestCase):
             self.templates = []
         self.templates.append((template, context))
 
-
     def get_context_variable(self, name):
         """
         Returns a variable from the context passed to the

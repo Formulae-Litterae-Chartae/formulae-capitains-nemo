@@ -77,14 +77,17 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Wissembourg</b>: Weißenburg': {'match': {'collection': 'weissenburg'}},
                                       '<b>Zürich</b>: Zürich': {'match': {'collection': 'zuerich'}}}}}
 no_date_agg = {'missing': {'field': 'min_date'}}
+forgery_agg = {'filter': {'term': {'forgery': True}}}
 AGGREGATIONS = {'range': range_agg,
                 'corpus': corpus_agg,
                 'no_date': no_date_agg,
+                'forgeries': forgery_agg,
                 'all_docs': {'global': {},
                              'aggs': {
                                  'range': range_agg,
                                  'corpus': corpus_agg,
-                                 'no_date': no_date_agg
+                                 'no_date': no_date_agg,
+                                 'forgeries': forgery_agg
                              }}}
 HITS_TO_READER = 10000
 LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
