@@ -1,9 +1,9 @@
 {
-  "took": 88,
+  "took": 25,
   "timed_out": false,
   "_shards": {
-    "total": 52,
-    "successful": 52,
+    "total": 53,
+    "successful": 53,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v9",
+        "_index": "andecavensis_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v9",
+        "_index": "andecavensis_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -107,7 +107,7 @@
         ]
       },
       {
-        "_index": "buenden_v9",
+        "_index": "buenden_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -403,14 +403,14 @@
           "max_date": "0813-04-20",
           "days": [
             "Monday",
-            "Wednesday",
-            "Friday",
+            "Sunday",
+            "Saturday",
             "Easter",
             "Tuesday",
-            "Saturday",
-            "Sunday",
-            "Thursday",
-            "Lent"
+            "Wednesday",
+            "Friday",
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "_index": "buenden_v9",
+        "_index": "buenden_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -649,14 +649,14 @@
           "max_date": "0813-03-31",
           "days": [
             "Monday",
-            "Wednesday",
-            "Friday",
-            "Easter",
-            "Tuesday",
             "Sunday",
             "Saturday",
-            "Thursday",
-            "Lent"
+            "Easter",
+            "Tuesday",
+            "Wednesday",
+            "Friday",
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -671,7 +671,7 @@
         ]
       },
       {
-        "_index": "lorsch_v9",
+        "_index": "lorsch_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -732,7 +732,7 @@
         ]
       },
       {
-        "_index": "lorsch_v9",
+        "_index": "lorsch_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -793,7 +793,7 @@
         ]
       },
       {
-        "_index": "raetien_v9",
+        "_index": "raetien_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -857,7 +857,7 @@
         ]
       },
       {
-        "_index": "raetien_v9",
+        "_index": "raetien_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -921,7 +921,7 @@
         ]
       },
       {
-        "_index": "raetien_v9",
+        "_index": "raetien_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -958,8 +958,8 @@
           "min_date": "0858-02-12",
           "max_date": "0865-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -989,7 +989,7 @@
         ]
       },
       {
-        "_index": "stgallen_v9",
+        "_index": "stgallen_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -1068,7 +1068,7 @@
         ]
       },
       {
-        "_index": "stgallen_v9",
+        "_index": "stgallen_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -1105,8 +1105,8 @@
           "min_date": "0858-02-12",
           "max_date": "0865-02-12",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio": "In Christi nomine",

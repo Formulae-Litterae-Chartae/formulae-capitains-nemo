@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v9",
+        "_index": "mondsee_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,

@@ -272,20 +272,23 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             if ordered_terms:
                 search_range_start = -1
             for pos in positions[q_words[0]]:
-                if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
-                    continue
                 index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
                 used_q_words = {q_words[0]}
                 span = {pos}
                 for w in q_words[1:]:
                     for next_pos in positions[w]:
-                        if compare_term and highlight_offsets[compare_field][next_pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
-                            continue
                         if next_pos in index_range and next_pos not in span:
                             span.add(next_pos)
                             used_q_words.add(w)
                             break
-                if set(q_words) == used_q_words and len(span) == len(q_words):
+                compare_true = True
+                if compare_term:
+                    compare_true = False
+                    for position in span:
+                        if highlight_offsets[compare_field][position][-1] in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                            compare_true = True
+                            break
+                if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
                     ordered_span = sorted(span)
                     if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
                         hit_highlight_positions.append(ordered_span)

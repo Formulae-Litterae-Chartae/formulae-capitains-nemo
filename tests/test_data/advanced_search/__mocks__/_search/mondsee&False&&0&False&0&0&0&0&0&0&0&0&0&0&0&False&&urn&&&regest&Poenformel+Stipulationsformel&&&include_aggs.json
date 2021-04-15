@@ -2,6 +2,9 @@
   "aggregations": {
     "all_docs": {
       "doc_count": 137,
+      "forgeries": {
+        "doc_count": 0
+      },
       "corpus": {
         "buckets": {
           "<b>Angers</b>: Angers": {
@@ -226,6 +229,9 @@
       "no_date": {
         "doc_count": 0
       }
+    },
+    "forgeries": {
+      "doc_count": 0
     },
     "corpus": {
       "buckets": {

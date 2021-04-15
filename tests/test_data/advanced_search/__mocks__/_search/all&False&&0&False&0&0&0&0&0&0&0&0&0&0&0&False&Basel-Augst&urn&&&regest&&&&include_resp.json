@@ -1,9 +1,9 @@
 {
-  "took": 5,
+  "took": 3,
   "timed_out": false,
   "_shards": {
-    "total": 52,
-    "successful": 52,
+    "total": 53,
+    "successful": 53,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "stgallen_v9",
+        "_index": "stgallen_v13",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
         "_score": null,
