@@ -78,16 +78,18 @@
                                 data-container="#properNameLabel-tooltip"
                                 title="{{ _('Die Liste der suchbaren Eigennamenkategorien') }}"><i
                                 class="fas fa-caret-down"></i></span></button>
-                            <div class="collapse" id="properNameSearchCollapse">
-                                <div>
-                                <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Kategorien zu wählen.')
-                                    }}</p>
-                                {{ form.proper_name(class="w-100", size="2", **{"aria-labelledby":
-                                    "properNameLabel"}) }}
+                            <div class="collapse text-left" id="properNameSearchCollapse">
+                                {% for subfield in form.proper_name.choices %}
+                                <div class="form-check">
+                                    <input class="form-check-input mt-0" type="checkbox" name="proper_name"
+                                           id="{{ subfield[0] }}"
+                                           value="{{ subfield[0] }}"{% if form.data.proper_name == subfield[0] %}
+                                           checked{% endif %}>
+                                  <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                  </label>
                                 </div>
-                                <div class="text-left">{{ form.proper_name_q() }} {{
-                                    form.proper_name_q.label(class="smallfont")
-                                    }}</div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

@@ -125,7 +125,6 @@ class AdvancedSearchForm(SearchForm):
                                           choices=[(k, v) for k, v in FORM_PARTS.items()])
     proper_name = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
                                                                        ('ortsname', _l('Ortsname'))])
-    proper_name_q = BooleanField(_l('Auf Suchterminus anwenden'))
     forgeries = RadioField(_l("Fälschungen"),
                            choices=[("", ""),
                                     ("include", _l('alle Dokumente')),
