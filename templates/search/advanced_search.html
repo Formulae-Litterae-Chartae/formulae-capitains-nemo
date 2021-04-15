@@ -83,7 +83,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input mt-0" type="checkbox" name="proper_name"
                                            id="{{ subfield[0] }}"
-                                           value="{{ subfield[0] }}"{% if form.data.proper_name == subfield[0] %}
+                                           value="{{ subfield[0] }}"{% if subfield[0] in form.data.proper_name  %}
                                            checked{% endif %}>
                                   <label class="form-check-label" for="{{ subfield[0] }}">
                                     {{ subfield[1] }}

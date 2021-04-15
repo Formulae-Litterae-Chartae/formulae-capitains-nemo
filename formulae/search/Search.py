@@ -171,7 +171,7 @@ def highlight_segment(orig_str: str) -> str:
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
                           search_field: Union[str, list], highlight_field: str, fuzz: str,
-                          download_id: str = '', compare_term: str = '',
+                          download_id: str = '', compare_term: list = None,
                           compare_field: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
@@ -285,7 +285,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                 if compare_term:
                     compare_true = False
                     for position in span:
-                        if highlight_offsets[compare_field][position][-1] in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                        if highlight_offsets[compare_field][position][-1] in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
                             compare_true = True
                             break
                 if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
@@ -326,7 +326,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         positions.update([i['position'] for i in vectors[search_field]['terms'][w]['tokens']])
             hit_highlight_positions = sorted(positions)
             for pos in hit_highlight_positions:
-                if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                if compare_term and highlight_offsets[compare_field][pos][-1] not in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
                     continue
                 start_offset = highlight_offsets[highlight_field][pos][0]
                 end_offset = highlight_offsets[highlight_field][pos][1] - 1
@@ -456,7 +456,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
     if q:
         if proper_name:
-            compare_term = ' '.join(proper_name)
+            compare_term = proper_name
             compare_field = 'lemmas'
         if isinstance(search_field, list):
             bool_clauses = []
