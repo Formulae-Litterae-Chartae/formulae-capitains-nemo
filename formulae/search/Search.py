@@ -77,14 +77,17 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Wissembourg</b>: Weißenburg': {'match': {'collection': 'weissenburg'}},
                                       '<b>Zürich</b>: Zürich': {'match': {'collection': 'zuerich'}}}}}
 no_date_agg = {'missing': {'field': 'min_date'}}
+forgery_agg = {'filter': {'term': {'forgery': True}}}
 AGGREGATIONS = {'range': range_agg,
                 'corpus': corpus_agg,
                 'no_date': no_date_agg,
+                'forgeries': forgery_agg,
                 'all_docs': {'global': {},
                              'aggs': {
                                  'range': range_agg,
                                  'corpus': corpus_agg,
-                                 'no_date': no_date_agg
+                                 'no_date': no_date_agg,
+                                 'forgeries': forgery_agg
                              }}}
 HITS_TO_READER = 10000
 LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
@@ -168,7 +171,7 @@ def highlight_segment(orig_str: str) -> str:
 
 def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
                           search_field: Union[str, list], highlight_field: str, fuzz: str,
-                          download_id: str = '', compare_term: str = '',
+                          download_id: str = '', compare_term: list = None,
                           compare_field: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
@@ -269,20 +272,23 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
             if ordered_terms:
                 search_range_start = -1
             for pos in positions[q_words[0]]:
-                if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
-                    continue
                 index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
                 used_q_words = {q_words[0]}
                 span = {pos}
                 for w in q_words[1:]:
                     for next_pos in positions[w]:
-                        if compare_term and highlight_offsets[compare_field][next_pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
-                            continue
                         if next_pos in index_range and next_pos not in span:
                             span.add(next_pos)
                             used_q_words.add(w)
                             break
-                if set(q_words) == used_q_words and len(span) == len(q_words):
+                compare_true = True
+                if compare_term:
+                    compare_true = False
+                    for position in span:
+                        if highlight_offsets[compare_field][position][-1] in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
+                            compare_true = True
+                            break
+                if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
                     ordered_span = sorted(span)
                     if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
                         hit_highlight_positions.append(ordered_span)
@@ -320,7 +326,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
                         positions.update([i['position'] for i in vectors[search_field]['terms'][w]['tokens']])
             hit_highlight_positions = sorted(positions)
             for pos in hit_highlight_positions:
-                if compare_term and highlight_offsets[compare_field][pos][-1] not in [compare_term] + [x for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(compare_term, None)]:
+                if compare_term and highlight_offsets[compare_field][pos][-1] not in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
                     continue
                 start_offset = highlight_offsets[highlight_field][pos][0]
                 end_offset = highlight_offsets[highlight_field][pos][1] - 1
@@ -374,7 +380,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '', proper_name: str = '', proper_name_q: str = '', search_id: str = '',
+                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '',
                          forgeries: str = 'include',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
@@ -395,9 +401,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     else:
         proper_name = []
     search_field = 'text'
-    if proper_name and proper_name_q not in ['y', 'True', True]:
-        search_field = "lemmas"
-    elif formulaic_parts != '':
+    if formulaic_parts != '':
         search_field = formulaic_parts.split('+')
     elif lemma_search == 'True':
         search_field = 'lemmas'
@@ -440,7 +444,9 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         body_template['query']['bool']['must'].append({'term': {'forgery': False}})
     elif forgeries == 'only':
         body_template['query']['bool']['must'].append({'term': {'forgery': True}})
-    if proper_name and proper_name_q not in ['y', 'True', True]:
+    if proper_name and q == '':
+        search_field = 'lemmas'
+        body_template['highlight']['fields'].update({'lemmas': {'fragment_size': 1000}})
         clauses = list()
         for term in proper_name:
             sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
@@ -449,8 +455,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             clauses += sub_clauses
         body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
     if q:
-        if proper_name and proper_name_q in ['y', 'True', True]:
-            compare_term = ' '.join(proper_name)
+        if proper_name:
+            compare_term = proper_name
             compare_field = 'lemmas'
         if isinstance(search_field, list):
             bool_clauses = []
@@ -693,7 +699,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}&{proper_name}&{proper_name_q}&" \
+                   "{regest_field}&{charter_parts}&{proper_name}&" \
                    "{forgeries}".format(corpus='+'.join(corpus),
                                         field=lemma_search,
                                         q=q.replace(' ', '+'), fuzz=fuzziness,
@@ -709,7 +715,6 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                         regest_field=regest_field,
                                         charter_parts=formulaic_parts.replace(' ', '+'),
                                         proper_name='+'.join(proper_name),
-                                        proper_name_q=proper_name_q,
                                         forgeries=forgeries)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)

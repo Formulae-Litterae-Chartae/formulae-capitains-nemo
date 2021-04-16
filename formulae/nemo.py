@@ -1106,7 +1106,8 @@ class NemoFormulae(Nemo):
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
-                    "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or '')
+                    "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
+                    "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or '')
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
