@@ -26,6 +26,9 @@ jobs:
           # Maps port 6379 on service container to the host
           - 6379:6379
 
+    env:
+      ELASTICSEARCH_URL: http://localhost:9200
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
