@@ -49,6 +49,7 @@ jobs:
     - name: Code testing with coverage
       env:
         ELASTICSEARCH_URL: http://localhost:9200
+        CORPUS_FOLDERS: tests/test_data/formulae
       run: |
         coverage run --source=formulae -m unittest discover
     - name: Post test results
