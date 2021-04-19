@@ -51,3 +51,4 @@ jobs:
         coverage run --source=formulae -m unittest discover
         coverage combine
         coveralls
+        
