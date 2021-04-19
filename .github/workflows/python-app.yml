@@ -47,8 +47,15 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Code testing with coverage
+      env:
+        ELASTICSEARCH_URL: http://localhost:9200
       run: |
         coverage run --source=formulae -m unittest discover
+        ls
+    - name: Post test results
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ls
         coverage combine
         coveralls
-        
