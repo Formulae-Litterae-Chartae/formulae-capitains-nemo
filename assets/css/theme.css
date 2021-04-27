@@ -654,6 +654,11 @@ div.transcription p {
     font-size: small;
 }
 
+.verso-recto {
+    vertical-align: super;
+    font-size: small;
+}
+
 h1 .manuscript-number {
     vertical-align: sub;
     font-size: smaller;

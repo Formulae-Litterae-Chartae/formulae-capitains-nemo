@@ -10,9 +10,10 @@
     {% if total_results > 0 %}
             <h1>{{ _('Suchergebnisse: {} Treffer').format(total_results|string) }}
                 {% if request.args['forgeries'] == 'only' %} {{
-                _(' von {} Fälschungen').format(aggs['all_docs']['forgeries']['doc_count']|string) }}{%
-                endif %}
-                {{ _(' aus') }}
+                _(' in {} Fälschungen aus').format(aggs['all_docs']['forgeries']['doc_count']|string) }}
+                {% else %}
+                {{ _(' in') }}
+                {% endif %}
                 <span
                     id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
          <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>

@@ -13,6 +13,6 @@
         {% if object.collections.current.dating %}<br><span class="regest_collapse_heading">{{ _('Datierung: ') }}</span>{{ object.collections.current.dating }}{% endif %}
         {% if object.collections.current.issued_at %}<br><span class="regest_collapse_heading">{{ _('Ausstellungsort:') }}</span> {{ object.collections.current.issued_at }}{% endif %}
         {% if object.collections.current.ms_source %}<br><span class="regest_collapse_heading">{{ _('HS Signatur:')
-            }}</span> {{ object.collections.current.ms_source }}{% endif %}</p>
+            }}</span> {{ object.collections.current.ms_source|safe }}{% endif %}</p>
         </div>
     </div>
