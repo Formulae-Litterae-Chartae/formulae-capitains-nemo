@@ -289,6 +289,8 @@ class NemoFormulae(Nemo):
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.AbbreviatedTitle))})
                 m.update({'coverage':
                               str(self.resolver.getMetadata(m['id']).metadata.get_single(DC.coverage))})
+                m.update({'lemmatized':
+                              str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'})
             if member['id'] not in ['other_collection', 'display_collection']:
                 colls[member['id']] = sorted(members, key=lambda x: self.sort_transcriptions(self.resolver.id_to_coll[x['id']]))
             else:

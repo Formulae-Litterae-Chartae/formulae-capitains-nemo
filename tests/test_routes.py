@@ -382,6 +382,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
             self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cd', 'd', 'cm', 'm'],
                              self.get_context_variable('numbers'))
+            c.get('/search/advanced_search', follow_redirects=True)
+            self.assertIn(('Angers', 'andecavensis', True),
+                          self.get_context_variable('categories')['formulae_collection'])
+            self.assertIn(('<b>Fulda</b>: Cod. dipl. Fuldensis', 'fulda_dronke', False),
+                          self.get_context_variable('categories')['other_collection'])
             # Make sure session variables are correctly set from g
             attributes = ['previous_search',
                           'previous_search_args',

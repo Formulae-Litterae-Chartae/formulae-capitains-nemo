@@ -23,7 +23,12 @@
                                         <li><input class="under-formulae under-all" id="{{ choice[1] }}"
                                                    name="corpus" type="checkbox" value="{{ choice[1] }}"{% if
                                                    choice[1] in form.data.corpus %} checked=""{% endif %}> <label
-                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label>{% if choice[2]
+                                            %} <b>(<span id="{{choice[1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                                data-container="#{{choice[1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieser Korpus ist lemmatisiert') }}">L</span>)</b>{%
+                                                      endif
+                                                      %}</li>
                                     {% endfor %}
                                     </ul>
                             <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> <label for="chartae">Chartae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#chartaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="chartaeCorporaCollapse"><span id="show-all-charter-corpora" data-toggle="tooltip" data-container="#show-all-charter-corpora" data-placement="bottom" title="{{ _('Alle Urkundencorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
@@ -32,7 +37,12 @@
                                         <li><input class="under-chartae under-all" id="{{ choice[1] }}" name="corpus"
                                                    type="checkbox" value="{{ choice[1] }}"{% if choice[1] in
                                                    form.data.corpus %} checked=""{% endif %}> <label
-                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label>{% if choice[2]
+                                            %} <b>(<span id="{{choice[1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                                data-container="#{{choice[1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieser Korpus ist lemmatisiert') }}">L</span>)</b>{%
+                                                      endif
+                                                      %}</li>
                                     {% endfor %}
                                     </ul>
                         </ul>
