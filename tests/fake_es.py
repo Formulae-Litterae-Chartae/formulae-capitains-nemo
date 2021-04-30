@@ -74,3 +74,13 @@ class FakeElasticsearch(object):
         file_name = self.build_path('_ids.json')
         with open(file_name, 'r') as f:
             return json.load(f)
+
+    def save_aggs(self, aggs: dict):
+        file_name = self.build_path('_aggs.json')
+        with open(file_name, 'w') as f:
+            json.dump({'aggregations': aggs}, f, indent=2, ensure_ascii=False)
+
+    def load_aggs(self) -> dict:
+        file_name = self.build_path('_aggs.json')
+        with open(file_name, 'r') as f:
+            return json.load(f)

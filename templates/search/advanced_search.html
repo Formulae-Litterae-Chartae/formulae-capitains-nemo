@@ -20,13 +20,19 @@
                             <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> <label for="formulae">Formulae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#formulaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse"><span  id="show-all-formulae-corpora" data-toggle="tooltip" data-container="#show-all-formulae-corpora" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
                                     <ul class="corpus-ul collapse" id="formulaeCorporaCollapse">
                                     {% for choice in categories['formulae_collection']|sort %}
-                                        <li><input class="under-formulae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
+                                        <li><input class="under-formulae under-all" id="{{ choice[1] }}"
+                                                   name="corpus" type="checkbox" value="{{ choice[1] }}"{% if
+                                                   choice[1] in form.data.corpus %} checked=""{% endif %}> <label
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
                                     {% endfor %}
                                     </ul>
                             <li><input class="under-all" id="chartae" name="" type="checkbox" value="chartae" onclick="checkSubCorpora(this, 'under-chartae')"> <label for="chartae">Chartae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#chartaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="chartaeCorporaCollapse"><span id="show-all-charter-corpora" data-toggle="tooltip" data-container="#show-all-charter-corpora" data-placement="bottom" title="{{ _('Alle Urkundencorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
                                     <ul class="corpus-ul collapse" id="chartaeCorporaCollapse">
                                     {% for choice in categories['other_collection']|sort %}
-                                        <li><input class="under-chartae under-all" id="{{ choice[0] }}" name="corpus" type="checkbox" value="{{ choice[0] }}"{% if choice[0] in form.data.corpus %} checked=""{% endif %}> <label for="{{ choice[0] }}">{{ choice[1] }}</label></li>
+                                        <li><input class="under-chartae under-all" id="{{ choice[1] }}" name="corpus"
+                                                   type="checkbox" value="{{ choice[1] }}"{% if choice[1] in
+                                                   form.data.corpus %} checked=""{% endif %}> <label
+                                                for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
                                     {% endfor %}
                                     </ul>
                         </ul>
@@ -40,8 +46,54 @@
                             <datalist id="word-search-datalist">
                             </datalist>
                         </div>
-                        <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip" data-container="#lemma-search-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span></p>
-                        <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="mb-0 smallfont"><span id="lemma-search-tooltip" data-toggle="tooltip"
+                                                                data-container="#lemma-search-tooltip"
+                                                                title="{{ _('Die Lemmatasuche ist nur in ausgewählten Corpora möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span> <span class="position-relative" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none">({{ _('Lemmaliste') }})</a></span></p>
+                                <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                            </div>
+                            <div class="col-6">
+                                {% for subfield in form.forgeries.choices[1:] %}
+                                <div class="form-check smallfont">
+                                    <input class="form-check-input mt-0" type="radio" name="forgeries"
+                                           id="{{ subfield[0] }}"
+                                           value="{{ subfield[0] }}"{% if form.data.forgeries == subfield[0] %}
+                                           checked{% endif %}>
+                                  <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                  </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="col text-center"><strong>{{ form.proper_name.label(for="properNameButton",
+                            id="properNameLabel") }}</strong> <button id="properNameButton"
+                                                                     class="btn btn-link p-0 mb-2"
+                                                                 data-toggle="collapse"
+                                                                      data-target="#properNameSearchCollapse"
+                                                                      type="button" aria-expanded="false"
+                                                                      aria-controls="properNameSearchCollapse"><span
+                                class="position-relative" id="properNameLabel-tooltip" data-toggle="tooltip"
+                                data-container="#properNameLabel-tooltip"
+                                title="{{ _('Die Liste der suchbaren Eigennamenkategorien') }}"><i
+                                class="fas fa-caret-down"></i></span></button>
+                            <div class="collapse text-left" id="properNameSearchCollapse">
+                                {% for subfield in form.proper_name.choices %}
+                                <div class="form-check">
+                                    <input class="form-check-input mt-0" type="checkbox" name="proper_name"
+                                           id="{{ subfield[0] }}"
+                                           value="{{ subfield[0] }}"{% if subfield[0] in form.data.proper_name  %}
+                                           checked{% endif %}>
+                                  <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                  </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row mb-2">
                         <div class="col text-center"><strong>{{ form.formulaic_parts.label(for="partsButton", id="partsLabel") }}</strong> <button id="partsButton" class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#partSearchCollapse" type="button" aria-expanded="false" aria-controls="partSearchCollapse"><span class="position-relative" id="partsLabel-tooltip" data-toggle="tooltip" data-container="#partsLabel-tooltip" title="{{ _('Die Liste der Teile zeigen') }}"><i class="fas fa-caret-down"></i></span></button>
@@ -79,7 +131,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row justify-content-center pt-1"><button class="btn btn-sm btn-secondary" type="reset" id="advancedResetButton">{{ _(' Formular Zurücksetzen') }}</button></div>
+                    <div class="row justify-content-center pt-1"><a href="{{ url_for('search.r_advanced_search') }}"
+                                                                    class="btn btn-sm btn-secondary"
+                                                                    type="reset">{{ _(' Formular Zurücksetzen')
+                        }}</a></div>
                 </div>
                 <div class="col-xl-3 col-4 date-search">
                     <div class="text-center search-section-label"><strong>{{ _('Datumssuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}" aria-label="{{ _('Hilfe für Datumssuche') }}"><i class="fas fa-question-circle"></i></button></div>

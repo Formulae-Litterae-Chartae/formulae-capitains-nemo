@@ -8,7 +8,14 @@
     <article class="container-fluid">
     <header>
     {% if total_results > 0 %}
-            <h1>{{ _('Suchergebnisse') }}: {{ total_results|string }} {{ _(' Treffer aus') }} <span id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
+            <h1>{{ _('Suchergebnisse: {} Treffer').format(total_results|string) }}
+                {% if request.args['forgeries'] == 'only' %} {{
+                _(' in {} Fälschungen aus').format(aggs['all_docs']['forgeries']['doc_count']|string) }}
+                {% else %}
+                {{ _(' in') }}
+                {% endif %}
+                <span
+                    id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
          <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">
@@ -67,9 +74,13 @@
                     </div>
                     <div class="table-row">
                         <div class="table-cell">
-                        {% for corp in g.corpora %}
-                            {% if 'corpus' in previous_aggregations and previous_aggregations['corpus']['buckets'][corp[1]]['doc_count'] != 0 %}
-                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox" value="{{ corp[0] }}" id="corp-restrict-{{ corp[0] }}"></input><label for="corp-restrict-{{ corp[0] }}">{{ corp[1] }}</label></span>
+                        {% for corp in g.corpora|sort %}
+                            {% if 'corpus' in previous_aggregations and
+                            previous_aggregations['corpus']['buckets'][corp[0]]['doc_count'] != 0 %}
+                            <span class="dropdown-item"><input class="corp-restrict-to" name="corpus" type="checkbox"
+                                                               value="{{ corp[1] }}"
+                                                               id="corp-restrict-{{ corp[1] }}"></input><label
+                                    for="corp-restrict-{{ corp[1] }}">{{ corp[0]|safe }}</label></span>
                             {% endif %}
                         {% endfor %}
                         </div>

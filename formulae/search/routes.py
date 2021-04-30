@@ -14,7 +14,7 @@ from math import floor
 from json import load
 
 
-CORP_MAP = {y['match']['_type']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
+CORP_MAP = {y['match']['collection']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
 
 
 @bp.route("/simple", methods=["GET"])
@@ -57,7 +57,7 @@ def r_results():
         corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     else:
         corps = corpus
-    g.corpora = [(x, CORP_MAP[x]) for x in corps]
+    g.corpora = [(CORP_MAP[x], x) for x in corps]
     g.form_parts = []
     if request.args.get('formulaic_parts'):
         g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
@@ -96,7 +96,9 @@ def r_results():
                        source=request.args.get('source', 'advanced'),
                        regest_field=request.args.get('regest_field', 'regest'),
                        formulaic_parts=request.args.get('formulaic_parts', ''),
-                       search_id=request.args.get('search_id', ''))
+                       proper_name=request.args.get('proper_name', ''),
+                       search_id=request.args.get('search_id', ''),
+                       forgeries=request.args.get('forgeries', 'include'))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -139,16 +141,20 @@ def r_advanced_search():
     form = AdvancedSearchForm()
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
-    coll_cats = dict([(k, [(x['id'].split(':')[-1], x['short_title'].strip()) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
+    coll_cats = dict([(k, [('<b>' + x['coverage'] + '</b>: ' + x['short_title'].strip(), x['id'].split(':')[-1]) for x in v]) for k, v in colls.items() if k != 'lexicon_entries'])
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
                       'search_id', 'simple_search_id')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
+    if 'forgeries' in data_present and form.data['forgeries'] in ['include', 'exclude']:
+        data_present.remove('forgeries')
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
         form.special_days.data = form.special_days.data[0].split(' ')
     if form.formulaic_parts.data and len(form.formulaic_parts.data) == 1:
         form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
+    if form.proper_name.data and len(form.proper_name.data) == 1:
+        form.proper_name.data = form.proper_name.data[0].split(' ')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
@@ -161,6 +167,7 @@ def r_advanced_search():
             if lemma_search in ['y', 'True', True]:
                 data['lemma_search'] = 'True'
             data['special_days'] = '+'.join(data.pop('special_days')) or ''
+            data['proper_name'] = '+'.join(data.pop('proper_name')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
@@ -245,49 +252,27 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
-        search_field = 'text'
         if prev_args.get('formulaic_parts', None):
             ids = []
             for list_index, hit in enumerate(session['previous_search']):
                 sents = []
                 if 'highlight' in hit:
-                    for k, v in hit['highlight'].items():
-                        for t in v:
-                            sents.append('<b>{part}</b>: {text}'.format(part=k, text=t))
-                else:
-                    for p in prev_args.get('formulaic_parts').split('+'):
-                        if p in hit['_source']:
-                            sents.append('<b>{part}</b>: {text}'.format(part=p, text=hit['_source'][p]))
+                    for highlight in hit['highlight']:
+                        sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(highlight)))
                 regest_sents = []
-                open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-                half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-                show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
-                regest_field=prev_args.get('regest_field', 'regest')
-                if 'highlight' in hit and regest_field in hit['highlight']:
-                    if show_regest is False:
-                        regest_sents = [_('Regest nicht zugänglich.')]
-                    else:
-                        regest_sents = hit['highlight'][regest_field]
-                ids.append({'id': hit['_id'],
-                            'info': hit['_source'],
+                if 'regest_sents' in hit:
+                    for s in hit['regest_sents']:
+                        regest_sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(s)))
+                ids.append({'id': hit['id'],
+                            'info': hit['info'],
                             'sents': sents,
-                            'title': hit['_source']['title'],
+                            'title': hit['info']['title'],
                             'regest_sents': regest_sents})
                 current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
         else:
-            if prev_args.get('lemma_search', None) == "True":
-                search_field = 'lemmas'
             try:
-                ids, words = lem_highlight_to_text(search={'hits': {'hits': session['previous_search']}},
-                                                   q=prev_args.get('q', ''),
-                                                   ordered_terms=prev_args.get('ordered_terms', False),
-                                                   slop=prev_args.get('slop', 0),
-                                                   regest_field=prev_args.get('regest_field', 'regest'),
-                                                   search_field=search_field,
-                                                   highlight_field='text',
-                                                   fuzz=prev_args.get('fuzz', '0'),
-                                                   download_id=download_id)
+                ids = session['previous_search']
             # This finally statement makes sure that the JS function to get the progress halts on an error.
             finally:
                 current_app.redis.setex(download_id, 60, '99%')

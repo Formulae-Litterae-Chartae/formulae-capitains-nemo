@@ -1,0 +1,4632 @@
+{
+  "took": 9,
+  "timed_out": false,
+  "_shards": {
+    "total": 53,
+    "successful": 53,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 94,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 130",
+          "urn": "urn:cts:formulae:echternach.wampach0130.lat001",
+          "date_string": "[789–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0789-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0789-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0789-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0130.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 132",
+          "urn": "urn:cts:formulae:echternach.wampach0132.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0132.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 133",
+          "urn": "urn:cts:formulae:echternach.wampach0133.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0133.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 134",
+          "urn": "urn:cts:formulae:echternach.wampach0134.lat001",
+          "date_string": "[711–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0711-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0711-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0711-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0134.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 135",
+          "urn": "urn:cts:formulae:echternach.wampach0135.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0135.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 136",
+          "urn": "urn:cts:formulae:echternach.wampach0136.lat001",
+          "date_string": "[771–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0771-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0771-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0771-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0136.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:freising.bitterauf0329.lat001",
+        "_score": null,
+        "_source": {
+          "text": "TRADITIO RIHPALDI CLERICI AD CRAZUN. Dum in dei nomine ego Rihpald clericus cogitante vel tractante de anima mea seu de vita futura, ut in quantitate apud pio domino veniam delictorum meorum accipere merear, cogitavi mecum ut de hereditate quae mihi in partem de fratribus eveniebat, ut ad domum sanctae Mariae semper virginis tradidissem. Tractavi cum fratribus et parentibus meis quorum nomina Ermperht et Peigiri fratres mei, ut eo modo hoc fecissem, si mihi domnus Hitto episcopus in beneficio prestasset ecclesiam in loco nuncupato Pipurc. Consilio quidem inito pervenimus ad domnum Hittonem episcopum et aperte nuntiavimus ei omnia, quod consiliatum habuimus. Ipse quoque episcopus in sua misericordia videns necessitatem meam accepit bene omnia et secundum nostrum consilium fieri praecepit. Accepit enim traditionem mæam propriae hereditatis meae eo modo, ut nullus frater vel propinquus meus umquam amplius hanc partem hereditatis meae contradicere domui sanctae Mariae potuisset, et in hoc praestavit mihi iam dictam ecclesiam ad Pipurc Tunc enim ego Rihpald et frater meus Ermperht accessimus ad altare sanctae Mariae, tradidimus et confirmavimus traditionem propriae hereditatis meae partem die dominico ante missam multis quidem populis praesentibus Tamen haec sunt testes per aures tracti Einhart. Kernand. Krimperht. Sigiperht. Cundhart. Adalperht. Arahad. Nidhart. Alius Adalperht. Reginolf. Zello. Emicho. Sindeo. Uualbo. Spulit. Actum est haec die consule quod facit pridie id. novemb anno I. Hludouuigi imperatoris indictione VII Ecclesiastici vero viri isti praesentes fuerunt, inter multos primi Hitto episcopus. Heriperht archipresbiter. Oadalpald presbiter. Reginolf presbiter. Eio presbiter. Rupo diaconus. Nidperht diaconus. Hunolt diaconus seu alii sine numero. Ego Tagabertus indignus diaconus conscripsi iussione Hittonis episcopi",
+          "lemmas": null,
+          "regest": "Bischof Hitto gibt dem Kleriker Rihpald die Kirche zu Biburg zu Lehen.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 329",
+          "urn": "urn:cts:formulae:freising.bitterauf0329.lat001",
+          "date_string": "814 11 12",
+          "comp_ort": " ",
+          "autocomplete": "TRADITIO RIHPALDI CLERICI AD CRAZUN. Dum in dei nomine ego Rihpald clericus cogitante vel tractante de anima mea seu de vita futura, ut in quantitate apud pio domino veniam delictorum meorum accipere merear, cogitavi mecum ut de hereditate quae mihi in partem de fratribus eveniebat, ut ad domum sanctae Mariae semper virginis tradidissem. Tractavi cum fratribus et parentibus meis quorum nomina Ermperht et Peigiri fratres mei, ut eo modo hoc fecissem, si mihi domnus Hitto episcopus in beneficio prestasset ecclesiam in loco nuncupato Pipurc. Consilio quidem inito pervenimus ad domnum Hittonem episcopum et aperte nuntiavimus ei omnia, quod consiliatum habuimus. Ipse quoque episcopus in sua misericordia videns necessitatem meam accepit bene omnia et secundum nostrum consilium fieri praecepit. Accepit enim traditionem mæam propriae hereditatis meae eo modo, ut nullus frater vel propinquus meus umquam amplius hanc partem hereditatis meae contradicere domui sanctae Mariae potuisset, et in hoc praestavit mihi iam dictam ecclesiam ad Pipurc Tunc enim ego Rihpald et frater meus Ermperht accessimus ad altare sanctae Mariae, tradidimus et confirmavimus traditionem propriae hereditatis meae partem die dominico ante missam multis quidem populis praesentibus Tamen haec sunt testes per aures tracti Einhart. Kernand. Krimperht. Sigiperht. Cundhart. Adalperht. Arahad. Nidhart. Alius Adalperht. Reginolf. Zello. Emicho. Sindeo. Uualbo. Spulit. Actum est haec die consule quod facit pridie id. novemb anno I. Hludouuigi imperatoris indictione VII Ecclesiastici vero viri isti praesentes fuerunt, inter multos primi Hitto episcopus. Heriperht archipresbiter. Oadalpald presbiter. Reginolf presbiter. Eio presbiter. Rupo diaconus. Nidperht diaconus. Hunolt diaconus seu alii sine numero. Ego Tagabertus indignus diaconus conscripsi iussione Hittonis episcopi",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Hitto gibt dem Kleriker Rihpald die Kirche zu Biburg zu Lehen.",
+          "orig_comp_ort": " ",
+          "collection": "freising",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 814,
+              "month": 11,
+              "day": 12
+            }
+          ],
+          "all_dates": [
+            "0814-11-12"
+          ],
+          "min_date": "0814-11-12",
+          "max_date": "0814-11-12",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1,
+          "Invocatio": "Dum in dei\n                            nomine",
+          "Invocatio-lems": null,
+          "Intitulatio": "ego Rihpald clericus",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitante vel tractante de anima mea seu de\n                            vita futura, ut in quantitate apud pio domino veniam delictorum meorum\n                            accipere merear, cogitavi mecum",
+          "Narratio-lems": null,
+          "Dispositio": "Tractavi cum fratribus et parentibus meis quorum nomina\n                            Ermperht et Peigiri fratres mei, ut eo modo hoc fecissem, si mihi domnus\n                            Hitto episcopus in beneficio prestasset ecclesiam in loco nuncupato\n                            Pipurc. Consilio quidem inito pervenimus ad domnum Hittonem episcopum et\n                            aperte nuntiavimus ei omnia, quod consiliatum habuimus. Ipse quoque\n                            episcopus in sua misericordia videns necessitatem meam accepit bene\n                            omnia et secundum nostrum consilium fieri praecepit. Accepit enim\n                            traditionem mæam propriae hereditatis meae eo modo, ut nullus frater vel\n                            propinquus meus umquam amplius hanc partem hereditatis meae contradicere\n                            domui sanctae Mariae potuisset, et in hoc praestavit mihi iam dictam\n                            ecclesiam ad Pipurc",
+          "Dispositio-lems": null,
+          "Publicatio": "Tunc enim ego Rihpald et frater meus Ermperht\n                            accessimus ad altare sanctae Mariae, tradidimus et confirmavimus\n                            traditionem propriae hereditatis meae partem die dominico ante missam\n                            multis quidem populis praesentibus",
+          "Publicatio-lems": null,
+          "Corroboratio": "Tamen haec sunt testes per aures\n                            tracti ... Ecclesiastici vero viri\n                            isti praesentes fuerunt, inter multos primi",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Actum est haec die consule quod facit pridie id. novemb ... anno I. Hludouuigi imperatoris indictione VII ... Ego Tagabertus indignus diaconus conscripsi iussione Hittonis\n                            episcopi",
+          "Eschatokoll-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0329.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:freising.bitterauf0330.lat001",
+        "_score": null,
+        "_source": {
+          "text": "TRADITIO SELIPERHTI. Constat multis in episcopio sanctae Mariae manentibus qualiter Selipertus construxit oratorium in curte suo in loco nominato Husir. Deinde venit obsecrando ad venerabilem Hittonem episcopum, ut ibidem venire dignaretur. Et sic fecit et venerabilis episcopus ibidem veniens et alii multi nobiles viri cum eo adfuerunt. Tunc querens episcopus, quomodo praedictum oratorium hereditare voluisset et ille libenter adfuisset et statim fatebat se cum V mancipiis et XXX iugeras et XII carradas de pratis ipsum altarem hereditare. Tunc venerabilis episcopus consecravit hanc ecclesiam necnon et altarem insuper et reliquias addidit. Tunc demum venit praefatus Selipertus coram multitudinem populi, qui ad illam celebritatem venerant et tulit pallium ipsius altaris in manu sua et tradidit illum altarem in manus Hittoni episcopi cum V mancipiis et XXX iugeras et XII carradas de pratis et illum curtem qui circa illam ecclesiam cum sepe circumsepta est cum casis vel cunctis aliis aedificiis ad domo sanctae Mariae in castro sito Frigisinensis in ea vero ratione, ut ille ipse et filius eius nomine Job, quousque in hac fragili vita viverent, ad eorum usum et potestatem haberent et post obitum eorum firmiter teneatur ad domo sanctae Mariae. Et hoc cum testium munitione firmavit ut stabilis usque in perpetuum fuisset absque ulla contradictione Et haec sunt testes quorum nomina hic inseruntur Kaganhart. Liutunc. Emilo. Spulit. Deotmar. Sigideo Reginhoh. Jacob. Uualho. Hroadperht. Marchuni. Arahad. Reginperht. Toto. Scalco. Otilo. Engilnod. Uualtheri. Uualtilo. Unichart. Oadalrih. Uualtrih. Oadalker. Uuolfhart. Uuictarp Isanhart. Hartnid. Actum hoc sub die consule quod fecit Selibertus in XV. kal. decemb anno glorisissimo regnante Hludouuico primo luna XXX. indictione VII",
+          "lemmas": null,
+          "regest": "Selipert übergibt ein Bethaus zu Nassenhausen (?).",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 330",
+          "urn": "urn:cts:formulae:freising.bitterauf0330.lat001",
+          "date_string": "814 11 17",
+          "comp_ort": " ",
+          "autocomplete": "TRADITIO SELIPERHTI. Constat multis in episcopio sanctae Mariae manentibus qualiter Selipertus construxit oratorium in curte suo in loco nominato Husir. Deinde venit obsecrando ad venerabilem Hittonem episcopum, ut ibidem venire dignaretur. Et sic fecit et venerabilis episcopus ibidem veniens et alii multi nobiles viri cum eo adfuerunt. Tunc querens episcopus, quomodo praedictum oratorium hereditare voluisset et ille libenter adfuisset et statim fatebat se cum V mancipiis et XXX iugeras et XII carradas de pratis ipsum altarem hereditare. Tunc venerabilis episcopus consecravit hanc ecclesiam necnon et altarem insuper et reliquias addidit. Tunc demum venit praefatus Selipertus coram multitudinem populi, qui ad illam celebritatem venerant et tulit pallium ipsius altaris in manu sua et tradidit illum altarem in manus Hittoni episcopi cum V mancipiis et XXX iugeras et XII carradas de pratis et illum curtem qui circa illam ecclesiam cum sepe circumsepta est cum casis vel cunctis aliis aedificiis ad domo sanctae Mariae in castro sito Frigisinensis in ea vero ratione, ut ille ipse et filius eius nomine Job, quousque in hac fragili vita viverent, ad eorum usum et potestatem haberent et post obitum eorum firmiter teneatur ad domo sanctae Mariae. Et hoc cum testium munitione firmavit ut stabilis usque in perpetuum fuisset absque ulla contradictione Et haec sunt testes quorum nomina hic inseruntur Kaganhart. Liutunc. Emilo. Spulit. Deotmar. Sigideo Reginhoh. Jacob. Uualho. Hroadperht. Marchuni. Arahad. Reginperht. Toto. Scalco. Otilo. Engilnod. Uualtheri. Uualtilo. Unichart. Oadalrih. Uualtrih. Oadalker. Uuolfhart. Uuictarp Isanhart. Hartnid. Actum hoc sub die consule quod fecit Selibertus in XV. kal. decemb anno glorisissimo regnante Hludouuico primo luna XXX. indictione VII",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Selipert übergibt ein Bethaus zu Nassenhausen (?).",
+          "orig_comp_ort": " ",
+          "collection": "freising",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 814,
+              "month": 11,
+              "day": 17
+            }
+          ],
+          "all_dates": [
+            "0814-11-17"
+          ],
+          "min_date": "0814-11-17",
+          "max_date": "0814-11-17",
+          "days": [
+            "Friday"
+          ],
+          "sort_prefix": 1,
+          "Publicatio": "Constat multis in\n                            episcopio sanctae Mariae manentibus ... construxit\n                            oratorium in curte suo ... Deinde venit obsecrando\n                            ad venerabilem Hittonem episcopum, ut ibidem venire dignaretur. Et sic\n                            fecit et venerabilis episcopus ibidem veniens et alii multi nobiles viri\n                            cum eo adfuerunt. Tunc querens episcopus, quomodo praedictum oratorium\n                            hereditare voluisset et ille libenter adfuisset ... Tunc venerabilis episcopus consecravit hanc ecclesiam necnon\n                            et altarem insuper et reliquias addidit. Tunc demum venit praefatus\n                            Selipertus coram multitudinem populi, qui ad illam celebritatem venerant\n                            et tulit pallium ipsius altaris in manu sua",
+          "Publicatio-lems": null,
+          "Intitulatio": "Selipertus",
+          "Intitulatio-lems": null,
+          "Dispositio": "in ea vero ratione, ut ille ipse et filius\n                            eius nomine Job, quousque in hac fragili vita viverent, ad eorum usum et\n                            potestatem haberent",
+          "Dispositio-lems": null,
+          "Stipulationsformel": "post obitum eorum firmiter teneatur ad domo\n                            sanctae Mariae. Et hoc cum testium munitione firmavit ut stabilis usque\n                            in perpetuum fuisset absque ulla contradictione ",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Et hoc cum testium munitione firmavit ... Et haec sunt testes\n                            quorum nomina hic inseruntur",
+          "Corroboratio-lems": null,
+          "Poenformel": "absque ulla contradictione",
+          "Poenformel-lems": null,
+          "Eschatokoll": "Actum hoc sub die consule quod fecit Selibertus in XV. kal.\n                            decemb ... anno glorisissimo regnante Hludouuico primo luna XXX. indictione\n                            VII",
+          "Eschatokoll-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0330.lat001"
+        ]
+      },
+      {
+        "_index": "freising_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:freising.bitterauf0470.lat001",
+        "_score": null,
+        "_source": {
+          "text": "ERCHANPERHT PRESBITER AD RATINUUEGE. Notitia de traditione quam fecit Erchanperht in loco nominato ad Ratinuuege. Construxit Erchanperht oratorium in curte sua, deinde supplicando veniens venerabilem virum Hittonem episcopum, ut ibidem venire dignaretur. Et sic fecit et venerabiles episcopas ibidem veniens et plerique nobiles viri simul cum eo adfuissent. Tunc domnus episcopus querens, quomodo hereditare ipsam ecclesiam praedictus Erchanperht voluisset et ille prumptus adesset statim in loco hereditare iam dictum oratorium cum tribus mancipiis quorum nomina hic inseruntur. Tunc domnus episcopus consecravit illud oratorium necnon insuper et reliquias addidit. Tum demum veniens praefatus Erchanperht coram multitudine populi qui ad illam celebritatem convenerunt, tulit wadium in manu sua et tradidit omnia iura proprii sui alodis ad illo altare et in manus Hittoni episcopi ad domo sanctae Mariae semper virginis Frigisinensis, nihil omnino pretermittens quod sibi de paterno in patrimonio accidisse videbatur ea vero ratione, ut ipse Erchanperht quousque in hac fragili vita degerent, ad eorum usum et potestatem aberentur et post obitum eorum sicut supra commemoratur firmiter teneatur. Et hoc testium munitione firmavit quorum nomina hic inseruntur Ellanperht. Liutprant. Uualho. Uuillipato. Ermperht. Alpheri. Reginpald.. Kiso. Selprat. Arnolt. Emicho. Hiltiperht. Rihpert. Uuolfleoz. Actum in loco vulgo nominato ad Ratinuuege non. septembr Ego itaque Starholf iussus a domno Hittone episcopo ex ore Emichoni scripsi istam paginolam",
+          "lemmas": null,
+          "regest": "Der Priester Erchanperht übergibt ein Bethaus nebst Eigenbesitz zu Erdweg.",
+          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 470",
+          "urn": "urn:cts:formulae:freising.bitterauf0470.lat001",
+          "date_string": "Vor 822 09 05",
+          "comp_ort": "Erdweg",
+          "autocomplete": "ERCHANPERHT PRESBITER AD RATINUUEGE. Notitia de traditione quam fecit Erchanperht in loco nominato ad Ratinuuege. Construxit Erchanperht oratorium in curte sua, deinde supplicando veniens venerabilem virum Hittonem episcopum, ut ibidem venire dignaretur. Et sic fecit et venerabiles episcopas ibidem veniens et plerique nobiles viri simul cum eo adfuissent. Tunc domnus episcopus querens, quomodo hereditare ipsam ecclesiam praedictus Erchanperht voluisset et ille prumptus adesset statim in loco hereditare iam dictum oratorium cum tribus mancipiis quorum nomina hic inseruntur. Tunc domnus episcopus consecravit illud oratorium necnon insuper et reliquias addidit. Tum demum veniens praefatus Erchanperht coram multitudine populi qui ad illam celebritatem convenerunt, tulit wadium in manu sua et tradidit omnia iura proprii sui alodis ad illo altare et in manus Hittoni episcopi ad domo sanctae Mariae semper virginis Frigisinensis, nihil omnino pretermittens quod sibi de paterno in patrimonio accidisse videbatur ea vero ratione, ut ipse Erchanperht quousque in hac fragili vita degerent, ad eorum usum et potestatem aberentur et post obitum eorum sicut supra commemoratur firmiter teneatur. Et hoc testium munitione firmavit quorum nomina hic inseruntur Ellanperht. Liutprant. Uualho. Uuillipato. Ermperht. Alpheri. Reginpald.. Kiso. Selprat. Arnolt. Emicho. Hiltiperht. Rihpert. Uuolfleoz. Actum in loco vulgo nominato ad Ratinuuege non. septembr Ego itaque Starholf iussus a domno Hittone episcopo ex ore Emichoni scripsi istam paginolam",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Priester Erchanperht übergibt ein Bethaus nebst Eigenbesitz zu Erdweg.",
+          "orig_comp_ort": "Erdweg",
+          "collection": "freising",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0810",
+              "lte": "0822-09-05"
+            }
+          ],
+          "all_dates": [
+            "0810",
+            "0822-09-05"
+          ],
+          "min_date": "0810",
+          "max_date": "0822-09-05",
+          "sort_prefix": 1,
+          "Dispositio": "Notitia de\n                            traditione quam fecit",
+          "Dispositio-lems": null,
+          "Intitulatio": "Erchanperht",
+          "Intitulatio-lems": null,
+          "Corroboratio": "Et hoc testium\n                            munitione firmavit quorum nomina hic inseruntur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Actum in loco vulgo\n                            nominato ad Ratinuuege non. septembr ... Ego itaque Starholf iussus a domno\n                            Hittone episcopo ex ore Emichoni scripsi istam paginolam",
+          "Eschatokoll-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:freising.bitterauf0470.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:hersfeld.weirich0025.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 25",
+          "urn": "urn:cts:formulae:hersfeld.weirich0025.lat001",
+          "date_string": "[814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "hersfeld",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0025.lat001"
+        ]
+      },
+      {
+        "_index": "hersfeld_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Reichsabtei Hersfeld. Erster Band (Ed. Weirich) Nr. 38",
+          "urn": "urn:cts:formulae:hersfeld.weirich0038.lat001",
+          "date_string": "[9. Jahrhundert]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "hersfeld",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0799-12-31",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0799-12-31",
+            "0899-12-31"
+          ],
+          "min_date": "0799-12-31",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:hersfeld.weirich0038.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats de Pallars i Ribagorça, Nr. 2",
+          "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0002.lat001",
+          "date_string": "[806–814]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0806",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0806",
+            "0814-12-31"
+          ],
+          "min_date": "0806",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0002.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_lesescaulesmartí_0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Les Escaules, Monestir de Sant Martí, Nr. 1",
+          "urn": "urn:cts:formulae:katalonien.vinyals_lesescaulesmartí_0001.lat001",
+          "date_string": "[814-840]",
+          "comp_ort": "Les Escaules, Monestir de Sant Martí",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Les Escaules, Monestir de Sant Martí",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814",
+            "0840-12-31"
+          ],
+          "min_date": "0814",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_lesescaulesmartí_0001.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0008.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 8",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0008.lat001",
+          "date_string": "[814-815]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814",
+              "lte": "0815-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814",
+            "0815-12-31"
+          ],
+          "min_date": "0814",
+          "max_date": "0815-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0008.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0012.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 12",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0012.lat001",
+          "date_string": "[before 838]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0713-12-31",
+              "lte": "0837-12-31"
+            }
+          ],
+          "all_dates": [
+            "0713-12-31",
+            "0837-12-31"
+          ],
+          "min_date": "0713-12-31",
+          "max_date": "0837-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0012.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0013.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 13",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0013.lat001",
+          "date_string": "[before 838]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0713-12-31",
+              "lte": "0837-12-31"
+            }
+          ],
+          "all_dates": [
+            "0713-12-31",
+            "0837-12-31"
+          ],
+          "min_date": "0713-12-31",
+          "max_date": "0837-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0013.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0014.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 14",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0014.lat001",
+          "date_string": "[814-840]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814",
+            "0840-12-31"
+          ],
+          "min_date": "0814",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0014.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 22",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0022.lat001",
+          "date_string": "[before 858]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0713-12-31",
+              "lte": "0857-12-31"
+            }
+          ],
+          "all_dates": [
+            "0713-12-31",
+            "0857-12-31"
+          ],
+          "min_date": "0713-12-31",
+          "max_date": "0857-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0022.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0023.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Preceptes per a Particulars, Nr. 23",
+          "urn": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0023.lat001",
+          "date_string": "[before 858]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0713-12-31",
+              "lte": "0857-12-31"
+            }
+          ],
+          "all_dates": [
+            "0713-12-31",
+            "0857-12-31"
+          ],
+          "min_date": "0713-12-31",
+          "max_date": "0857-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0023.lat001"
+        ]
+      },
+      {
+        "_index": "katalonien_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:katalonien.vinyals_urgellesglésiamaria_0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Urgell, Església Catedral de Santa Maria, Nr. 1",
+          "urn": "urn:cts:formulae:katalonien.vinyals_urgellesglésiamaria_0001.lat001",
+          "date_string": "[800-814]",
+          "comp_ort": "Urgell, Església Catedral de Santa Maria",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Urgell, Església Catedral de Santa Maria",
+          "collection": "katalonien",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0814-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:katalonien.vinyals_urgellesglésiamaria_0001.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0155.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 101 (Reg. 3077)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0155.lat001",
+          "date_string": "814 01 28 – 815 01 27",
+          "comp_ort": "Aachen/Gent",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Aachen/Gent",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-28",
+              "lte": "0815-01-27"
+            }
+          ],
+          "all_dates": [
+            "0814-01-28",
+            "0815-01-27"
+          ],
+          "min_date": "0814-01-28",
+          "max_date": "0815-01-27",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0155.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0156.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 102 (Reg. 3078)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0156.lat001",
+          "date_string": "814 01 28 – 815 01 27",
+          "comp_ort": "Aachen/Gent",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Aachen/Gent",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-28",
+              "lte": "0815-01-27"
+            }
+          ],
+          "all_dates": [
+            "0814-01-28",
+            "0815-01-27"
+          ],
+          "min_date": "0814-01-28",
+          "max_date": "0815-01-27",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0156.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0157.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 103 (Reg. 3079)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0157.lat001",
+          "date_string": "814 01 28 – 815 01 27",
+          "comp_ort": "Aachen/Gent",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Aachen/Gent",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-28",
+              "lte": "0815-01-27"
+            }
+          ],
+          "all_dates": [
+            "0814-01-28",
+            "0815-01-27"
+          ],
+          "min_date": "0814-01-28",
+          "max_date": "0815-01-27",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0157.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0158.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 104 (Reg. 3080)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0158.lat001",
+          "date_string": "814 01 28 – 815 01 27",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-28",
+              "lte": "0815-01-27"
+            }
+          ],
+          "all_dates": [
+            "0814-01-28",
+            "0815-01-27"
+          ],
+          "min_date": "0814-01-28",
+          "max_date": "0815-01-27",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0158.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0160.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 106 (Reg. 3419)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0160.lat001",
+          "date_string": "Meist 800 – 850 (rund)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0850-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0850-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0850-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0160.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0167.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 113 (Reg. 3415)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0167.lat001",
+          "date_string": "Ende 08. bis Anfang 09. Jahrhundert",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0760-01-01",
+              "lte": "0850-12-31"
+            }
+          ],
+          "all_dates": [
+            "0760-01-01",
+            "0850-12-31"
+          ],
+          "min_date": "0760-01-01",
+          "max_date": "0850-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0167.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0168.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 114 (Reg. 3416)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0168.lat001",
+          "date_string": "Ende 08. bis Anfang 09. Jahrhundert",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0760-01-01",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0760-01-01",
+            "0840-12-31"
+          ],
+          "min_date": "0760-01-01",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0168.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0169.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 115 (Reg. 3417)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0169.lat001",
+          "date_string": "Anfang 9. Jahrhundert",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0850-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0850-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0850-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0169.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0170.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 116 (Reg. 3418)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0170.lat001",
+          "date_string": "Anfang 9. Jahrhundert",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0850-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0850-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0850-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0170.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0171.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 117 (Reg. 3305)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0171.lat001",
+          "date_string": "806 – 841",
+          "comp_ort": "Lauresham",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lauresham",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0806-01-01",
+              "lte": "0841-12-31"
+            }
+          ],
+          "all_dates": [
+            "0806-01-01",
+            "0841-12-31"
+          ],
+          "min_date": "0806-01-01",
+          "max_date": "0841-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0171.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0330.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 225 (Reg. 3405)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0330.lat001",
+          "date_string": "806 – 841",
+          "comp_ort": "Lauresham",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Lauresham",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0806-01-01",
+              "lte": "0841-12-31"
+            }
+          ],
+          "all_dates": [
+            "0806-01-01",
+            "0841-12-31"
+          ],
+          "min_date": "0806-01-01",
+          "max_date": "0841-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0330.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0478.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 373 (Reg. 3402)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0478.lat001",
+          "date_string": "790 – 820",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0790-01-01",
+              "lte": "0820-12-31"
+            }
+          ],
+          "all_dates": [
+            "0790-01-01",
+            "0820-12-31"
+          ],
+          "min_date": "0790-01-01",
+          "max_date": "0820-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0478.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0483.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 378 (Reg. 3293)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0483.lat001",
+          "date_string": "806 – 837 (828/9?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0806-01-01",
+              "lte": "0837-12-31"
+            }
+          ],
+          "all_dates": [
+            "0806-01-01",
+            "0837-12-31"
+          ],
+          "min_date": "0806-01-01",
+          "max_date": "0837-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0483.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0484.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 379 (Reg. 3293a)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0484.lat001",
+          "date_string": "806 – 837 (828/9?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0806-01-01",
+              "lte": "0837-12-31"
+            }
+          ],
+          "all_dates": [
+            "0806-01-01",
+            "0837-12-31"
+          ],
+          "min_date": "0806-01-01",
+          "max_date": "0837-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0484.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1709.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1590 (Reg. 3423)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1709.lat001",
+          "date_string": "765-880 11 20",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 765,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 766,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 767,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 768,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 769,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 770,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 771,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 772,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 773,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 774,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 775,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 776,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 777,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 778,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 779,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 780,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 781,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 782,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 783,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 784,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 785,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 786,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 787,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 788,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 789,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 790,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 791,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 792,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 793,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 794,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 795,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 796,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 797,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 798,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 799,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 800,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 801,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 802,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 803,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 804,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 805,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 806,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 807,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 808,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 809,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 810,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 811,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 812,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 813,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 814,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 815,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 816,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 817,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 818,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 819,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 820,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 821,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 822,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 823,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 824,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 825,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 826,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 827,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 828,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 829,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 830,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 831,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 832,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 833,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 834,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 835,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 836,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 837,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 838,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 839,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 840,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 841,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 842,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 843,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 844,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 845,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 846,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 847,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 848,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 849,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 850,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 851,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 852,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 853,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 854,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 855,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 856,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 857,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 858,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 859,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 860,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 861,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 862,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 863,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 864,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 865,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 866,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 867,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 868,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 869,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 870,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 871,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 872,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 873,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 874,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 875,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 876,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 877,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 878,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 879,
+              "month": 11,
+              "day": 20
+            },
+            {
+              "year": 880,
+              "month": 11,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0765-11-20",
+            "0766-11-20",
+            "0767-11-20",
+            "0768-11-20",
+            "0769-11-20",
+            "0770-11-20",
+            "0771-11-20",
+            "0772-11-20",
+            "0773-11-20",
+            "0774-11-20",
+            "0775-11-20",
+            "0776-11-20",
+            "0777-11-20",
+            "0778-11-20",
+            "0779-11-20",
+            "0780-11-20",
+            "0781-11-20",
+            "0782-11-20",
+            "0783-11-20",
+            "0784-11-20",
+            "0785-11-20",
+            "0786-11-20",
+            "0787-11-20",
+            "0788-11-20",
+            "0789-11-20",
+            "0790-11-20",
+            "0791-11-20",
+            "0792-11-20",
+            "0793-11-20",
+            "0794-11-20",
+            "0795-11-20",
+            "0796-11-20",
+            "0797-11-20",
+            "0798-11-20",
+            "0799-11-20",
+            "0800-11-20",
+            "0801-11-20",
+            "0802-11-20",
+            "0803-11-20",
+            "0804-11-20",
+            "0805-11-20",
+            "0806-11-20",
+            "0807-11-20",
+            "0808-11-20",
+            "0809-11-20",
+            "0810-11-20",
+            "0811-11-20",
+            "0812-11-20",
+            "0813-11-20",
+            "0814-11-20",
+            "0815-11-20",
+            "0816-11-20",
+            "0817-11-20",
+            "0818-11-20",
+            "0819-11-20",
+            "0820-11-20",
+            "0821-11-20",
+            "0822-11-20",
+            "0823-11-20",
+            "0824-11-20",
+            "0825-11-20",
+            "0826-11-20",
+            "0827-11-20",
+            "0828-11-20",
+            "0829-11-20",
+            "0830-11-20",
+            "0831-11-20",
+            "0832-11-20",
+            "0833-11-20",
+            "0834-11-20",
+            "0835-11-20",
+            "0836-11-20",
+            "0837-11-20",
+            "0838-11-20",
+            "0839-11-20",
+            "0840-11-20",
+            "0841-11-20",
+            "0842-11-20",
+            "0843-11-20",
+            "0844-11-20",
+            "0845-11-20",
+            "0846-11-20",
+            "0847-11-20",
+            "0848-11-20",
+            "0849-11-20",
+            "0850-11-20",
+            "0851-11-20",
+            "0852-11-20",
+            "0853-11-20",
+            "0854-11-20",
+            "0855-11-20",
+            "0856-11-20",
+            "0857-11-20",
+            "0858-11-20",
+            "0859-11-20",
+            "0860-11-20",
+            "0861-11-20",
+            "0862-11-20",
+            "0863-11-20",
+            "0864-11-20",
+            "0865-11-20",
+            "0866-11-20",
+            "0867-11-20",
+            "0868-11-20",
+            "0869-11-20",
+            "0870-11-20",
+            "0871-11-20",
+            "0872-11-20",
+            "0873-11-20",
+            "0874-11-20",
+            "0875-11-20",
+            "0876-11-20",
+            "0877-11-20",
+            "0878-11-20",
+            "0879-11-20",
+            "0880-11-20"
+          ],
+          "min_date": "0765-11-20",
+          "max_date": "0880-11-20",
+          "days": [
+            "Monday",
+            "Sunday",
+            "Saturday",
+            "Tuesday",
+            "Wednesday",
+            "Friday",
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1709.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1711.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1592 (Reg. 3425)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1711.lat001",
+          "date_string": "765-880",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0765-01-01",
+              "lte": "0880-12-31"
+            }
+          ],
+          "all_dates": [
+            "0765-01-01",
+            "0880-12-31"
+          ],
+          "min_date": "0765-01-01",
+          "max_date": "0880-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1711.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1756.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1637 (Reg. 3426)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1756.lat001",
+          "date_string": "765-880",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0765-01-01",
+              "lte": "0880-12-31"
+            }
+          ],
+          "all_dates": [
+            "0765-01-01",
+            "0880-12-31"
+          ],
+          "min_date": "0765-01-01",
+          "max_date": "0880-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1756.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1919.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1800 (Reg. 2902)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1919.lat001",
+          "date_string": "Vor ode rum 800 (?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0700-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0700-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0700-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1919.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2509.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Enzgau, Nr. 2389 (Reg. 2904) B.",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2509.lat001",
+          "date_string": "Rund 800",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0750-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0750-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0750-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2509.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2582.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Neckar-, Linz-, Schmiegau, Nr. 2462 (Reg. 3403) B.",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2582.lat001",
+          "date_string": "Um 790-820",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0790-01-01",
+              "lte": "0820-12-31"
+            }
+          ],
+          "all_dates": [
+            "0790-01-01",
+            "0820-12-31"
+          ],
+          "min_date": "0790-01-01",
+          "max_date": "0820-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2582.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2664.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2544 (Reg. 3412)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2664.lat001",
+          "date_string": "9. Jh.",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2664.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2687.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2567",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2687.lat001",
+          "date_string": "9. Jh.",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2687.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2689.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Elsenzgau, Nr. 2568 (Reg. 3411)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2689.lat001",
+          "date_string": "9. Jh.",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2689.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner2810.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Breisgau, Nr. 2689 (Reg. 3081)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner2810.lat001",
+          "date_string": "814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner2810.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner3550.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Maingau, Nr. 3421 (Reg. 3294)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner3550.lat001",
+          "date_string": "804-837 (um 810)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0804-01-01",
+              "lte": "0837-12-31"
+            }
+          ],
+          "all_dates": [
+            "0804-01-01",
+            "0837-12-31"
+          ],
+          "min_date": "0804-01-01",
+          "max_date": "0837-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner3550.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner4462.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Nr. 3809 (Reg. 3399)",
+          "urn": "urn:cts:formulae:lorsch.gloeckner4462.lat001",
+          "date_string": "Vor 815",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0700-01-01",
+              "lte": "0815-01-01"
+            }
+          ],
+          "all_dates": [
+            "0700-01-01",
+            "0815-01-01"
+          ],
+          "min_date": "0700-01-01",
+          "max_date": "0815-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner4462.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.1",
+          "urn": "urn:cts:formulae:luzern.schiess0001.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0001.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.2",
+          "urn": "urn:cts:formulae:luzern.schiess0002.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0002.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.3",
+          "urn": "urn:cts:formulae:luzern.schiess0003.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0003.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.4",
+          "urn": "urn:cts:formulae:luzern.schiess0004.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0004.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.5",
+          "urn": "urn:cts:formulae:luzern.schiess0005.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0005.lat001"
+        ]
+      },
+      {
+        "_index": "luzern_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Quellenwerk zur Entstehung der Schweizerischen Eidgenossenschaft, 9.6",
+          "urn": "urn:cts:formulae:luzern.schiess0006.lat001",
+          "date_string": "Vor 840",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "luzern",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0840-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0840-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0840-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:luzern.schiess0006.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
+          "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego in dei nomine Engilscalh",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans molem peccaminum meorum vel pro aeterna retributione ... ad Maninseo, quod est constructus in honore sancti Michahelis archangeli cyterorumque sanctorum",
+          "Narratio-lems": null,
+          "Dispositio": "donavi",
+          "Dispositio-lems": null,
+          "Provenienz": "quicquid mihi pater meus Reginhelmus et Deothelmus dimisit",
+          "Provenienz-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, aut ego ipse aut ullus de hereditaribus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis et omnium sanctorum eius incurrere pertimescat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et haec carta a me facta omni tempore firma permaneat, stipulatione subnixa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Testes",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0003.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 12",
+          "urn": "urn:cts:formulae:mondsee.rath0012.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Megilo",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro anima mea seu pro anima uxori meae seu pro filiis meis ... ad sanctum Mihhaelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "trado ... Ego trado atque transfundo ... Sic trado post obitum meum et post obitum mulieris meae et deinceps, si unius de nobis alium supervixerit, in eius sit potestate dum vivit vel in monasterium introierit, et tune ibi sit stabilitas",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "hereditatem meam ... in villa nuncupante Marhcluppa, que in eodem loco [habui], omnia et in omnibus, cum tribus hominibus habitantibus cum mulieribus et cum filiabus eorum, sive domum, agris, campis, pratis, silvis, aquis, viis, omnia culta et inculta",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Sunt testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0012.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 41",
+          "urn": "urn:cts:formulae:mondsee.rath0041.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Poso",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro anima mea seu pro eterna retribucione ... ad sanctum Michahelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "trado ... Sic trado post obitum meum, et tunc ibi sit stabilitas",
+          "Dispositio-lems": null,
+          "Corroboratio": "Testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0041.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 43",
+          "urn": "urn:cts:formulae:mondsee.rath0043.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Cundpald",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro anima mea ... ad sanctum Michahelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Pertinenzformel": "hereditatem meam ... in villa nuncupante Pohhe, que in eodem loco [habui], omnia et in omnibus, cum duobus hominibus habitantibus cum mulieribus et cum filiabus eorum, sive domum, agris, pratis, silvis, aquis, viis, omnia culta et inculta",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "Sic trado post obitum meum, et tunc ibi sit stabilitas",
+          "Dispositio-lems": null,
+          "Corroboratio": "Testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0043.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 46",
+          "urn": "urn:cts:formulae:mondsee.rath0046.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Arenga": "Salvator et redemptor noster dominus lhesus Christus vivificare celestis presignans dicens: thesaurizate vobis [thesauros] in caelo et cetera; rursumque: facite vobis [sacculos], que non veterescunt, merces vestra non deficiet in celis",
+          "Arenga-lems": null,
+          "Narratio": "Quapropter ... cogitans de dei timore vel etaerna retribucione dono, trado ... ad sanctum Michahelem ad Maninseo",
+          "Narratio-lems": null,
+          "Intitulatio": "ego in dei nomine Thabricho",
+          "Intitulatio-lems": null,
+          "Dispositio": "dono, trado",
+          "Dispositio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0046.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
+          "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego in dei nomen Huno",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans de peccatis meis vel pro aeterna retributione ... ad sanctum Michahelem",
+          "Narratio-lems": null,
+          "Dispositio": "donavi",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "me ipsum vel meam partem",
+          "Pertinenzformel-lems": null,
+          "Provenienz": "quod mihi pater meus dimisit in Chessindorf, quod ego in portionem meam contra filios meos tuli et ego abui in ipsa diae",
+          "Provenienz-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, aut ego aut ullus de heredibus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis incurrere pertimescat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et haec carta a me facta omni tempore firma permaneat, stipulatione subnexa",
+          "Stipulationsformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0048.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 51",
+          "urn": "urn:cts:formulae:mondsee.rath0051.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego in dei nomen Aostarpald",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans de peccatis meis vel pro aeterna retributione ... ad sanctum Michahaelem",
+          "Narratio-lems": null,
+          "Dispositio": "dono",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "meam partem ... extra unum casetum",
+          "Pertinenzformel-lems": null,
+          "Provenienz": "quod mihi pater meus dimisit in Fangauuae, quod ego in portionem meam contra fratres meos tuli, quod ego habui in ipsa diae",
+          "Provenienz-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, aut ego aut ullus de heredibus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis incurrere pertimescat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et haec carta a me facta firma permaneat post cessum meum",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Et multi sunt testium",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0051.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
+          "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego in dei nomen Reginhelmus",
+          "Intitulatio-lems": null,
+          "Dispositio": "tradidi ... hoc tradidi ego ... a presente die, ut ego locum meum habeam in ipso monasterio",
+          "Dispositio-lems": null,
+          "Narratio": "ad sanctum Michahelem ... ut de me mercedem habeant, atque, ut et ego illis serviam omnibus diebus vitae meae",
+          "Narratio-lems": null,
+          "Pertinenzformel": "me ipsum vel meam partem ... Id est in loco, qui vocatur Fangauui, hoc est casis, mancipiis, campis, pratis, terris, aquis, silvis, aquarumve decursibus",
+          "Pertinenzformel-lems": null,
+          "Provenienz": "quod ego et pater meus partiti sumus ... vel quicquid mihi pater meus in meam partem dimisit",
+          "Provenienz-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, aut ego ipse aut ulla quislibet opposita persona contra hanc donationem venire temptaverit, inprimis iram dei et sanctis eius incurrere pertimescat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et haec carta a me facta omni tempore firma permaneat, stibulatione subnixa",
+          "Stipulationsformel-lems": null,
+          "Eschatokoll": "Signum Reginhelmo, qui hanc donationem fieri et firmare rogavit",
+          "Eschatokoll-lems": null,
+          "Corroboratio": "Testes multi, quia ego Reginhelmus firmam facio meam partem",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0054.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 58",
+          "urn": "urn:cts:formulae:mondsee.rath0058.lat001",
+          "date_string": "748-829?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Dispositio": "tradidit",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "res suas proprias sitas in loco, qui vocatur Uuanghi ... res suas proprias sitas in loco, qui vocatur Uuanghi",
+          "Pertinenzformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0058.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 81",
+          "urn": "urn:cts:formulae:mondsee.rath0081.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": "Niederfraunleiten",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Niederfraunleiten",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi igitur nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Etenim ego Rodbrandus indignus et peccator",
+          "Intitulatio-lems": null,
+          "Narratio": "coepi cogitare pro remedium anime meae et pro absolucione delictorum meorum ... ad monasterio Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "tradidi et transfundi",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "terram meam in orientale parte Sueinpah, cultam et incultam",
+          "Pertinenzformel-lems": null,
+          "Eschatokoll": "Actum est hoc in loco nuncupante Sueinpah",
+          "Eschatokoll-lems": null,
+          "Corroboratio": "Et sunt testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0081.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0083.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 83",
+          "urn": "urn:cts:formulae:mondsee.rath0083.lat001",
+          "date_string": "(748- vor 814 11 30)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0814-11-30"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0814-11-30"
+          ],
+          "min_date": "0748",
+          "max_date": "0814-11-30",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Engilscalh",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro anima mea ... ad sanctum Michahelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "trado ... trado ... in ea post obitum meum",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "hereditatem meam ... in villa nuncupante Sueinpah, que in eodem loco [habui], omnia et in omnibus, [cum hominibus] habitantibus ... et vineam meam ... in villa nuncupante Aschaha",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0083.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0084.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 84",
+          "urn": "urn:cts:formulae:mondsee.rath0084.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Uualthram",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro anima mea ... ad sanctum Michahelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "trado",
+          "Dispositio-lems": null,
+          "Corroboratio": "Sunt testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0084.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 93",
+          "urn": "urn:cts:formulae:mondsee.rath0093.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In nomine dei summi",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Rumolf",
+          "Intitulatio-lems": null,
+          "Publicatio": "constat mae concedere vel perdonare eclesiae sancti Michahelis pro anima mea",
+          "Publicatio-lems": null,
+          "Narratio": "constat mae concedere vel perdonare eclesiae sancti Michahelis pro anima mea ... ad monasterium Maninseo in loco, qui dicitur Steinpah, casa cum pristina, terra, prada, rivas, silvas, cultum vel incultum, mancipias V, VIII vasas, duo mulina ad flumen Agre, et ad locum, qui dicitur Skeroluinga, nostra parte de terra et omnia, que ibi habui",
+          "Narratio-lems": null,
+          "Pertinenzformel": "in loco, qui dicitur Steinpah",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Sunt testes multi",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0093.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0094.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 94",
+          "urn": "urn:cts:formulae:mondsee.rath0094.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego Reginhoh",
+          "Intitulatio-lems": null,
+          "Dispositio": "trado",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "hereditatem meam in Ioco nuncupante Agira ... hoc est terra, pratis, silvis, aquis, dimediam molendinum, quicquid ibi meum proprium cognovi",
+          "Pertinenzformel-lems": null,
+          "Narratio": "ad sanctum Michahelem ad monasterium nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Corroboratio": "Sunt multi testes",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0094.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0127.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 127",
+          "urn": "urn:cts:formulae:mondsee.rath0127.lat001",
+          "date_string": "(748-829?)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0829-12-31"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0829-12-31"
+          ],
+          "min_date": "0748",
+          "max_date": "0829-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Intitulatio": "Ego itaque Uuillihelm",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitavi pro anima mea seu pro anima patris vel matris maeae ... ad sanctum Michahelem in loco nuncupante Maninseo",
+          "Narratio-lems": null,
+          "Dispositio": "trado ... post obitum meum ... firmiter ac stabiliter permaneant et locum meum in eodem monasterio concessum [sit]",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "omnia, que ad me pertinent propriis meis ad Moringas, cum curtes, campis, silvis, viis, omnia, que me contingent",
+          "Pertinenzformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0127.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0131.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 131",
+          "urn": "urn:cts:formulae:mondsee.rath0131.lat001",
+          "date_string": "(Ende 811/ Anfang 812 – 817)",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0811-09",
+              "lte": "0817-12-31"
+            }
+          ],
+          "all_dates": [
+            "0811-09",
+            "0817-12-31"
+          ],
+          "min_date": "0811-09",
+          "max_date": "0817-12-31",
+          "sort_prefix": 1,
+          "Invocatio-oder-Inscriptio": "In Christi nomine",
+          "Invocatio-oder-Inscriptio-lems": null,
+          "Publicatio": "Noticia faciamus vobis domno nostro Hiltipaldo archiepiscopo",
+          "Publicatio-lems": null,
+          "Intitulatio": "nos tui servi indigni, qui sumus in vestro monasterio in loco nuncupante, qui dicitur Maninseo",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "et ipsam villam ... Ipsa villa habet nomen Forhheid, et ipsam villam habuerunt Oportunus abbas et Hunricus abbas in vestitura plus quam XX annorum, et ipsam villam rapuit Regino de monasterio nostro contra lege. Hoc sciunt multi de genere nobilium in ipsa provincia, et ipsam causam scit Hitto episcopus et est in sua parrochia, et alii multi sunt, qui hoc veraciter sciunt, et ipse Hitto sie amabiliter facit pro vestra causa in omnibus Iods sicut in lege iubet",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Hoc sciunt multi de genere nobilium in ipsa provincia, et ipsam causam scit Hitto episcopus et est in sua parrochia, et alii multi sunt, qui hoc veraciter sciunt, et ipse Hitto sie amabiliter facit pro vestra causa in omnibus Iods sicut in lege iubet",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0131.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 133",
+          "urn": "urn:cts:formulae:mondsee.rath0133.lat001",
+          "date_string": "Ca. 803-816",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0803",
+              "lte": "0816-12-31"
+            }
+          ],
+          "all_dates": [
+            "0803",
+            "0816-12-31"
+          ],
+          "min_date": "0803",
+          "max_date": "0816-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego in dei nomine Starcholf",
+          "Intitulatio-lems": null,
+          "Publicatio": "constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro anime meae remedium seu pro eterna retribucione",
+          "Publicatio-lems": null,
+          "Narratio": "constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro anime meae remedium seu pro eterna retribucione",
+          "Narratio-lems": null,
+          "Dispositio": "tradidi ... trado atque transfundo",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "aliquas res meas sitas in loco nuncupante Phetarah, id est una silva",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus seu proheredibus meis, quislibet ulla opposita persona, qui contra hanc tradicionem venire conaverit aut eam infrangere temptaverit, in iram dei incurrat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et [quod repetit], nullatenus evindicare non valeat, sed presens tradicio omni tempore firma permaneat",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Sunt multi testes",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0133.lat001"
+        ]
+      },
+      {
+        "_index": "passau_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:passau.heuwieser0065.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 65",
+          "urn": "urn:cts:formulae:passau.heuwieser0065.lat001",
+          "date_string": "812-817",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "passau",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0812",
+              "lte": "0817-12-31"
+            }
+          ],
+          "all_dates": [
+            "0812",
+            "0817-12-31"
+          ],
+          "min_date": "0812",
+          "max_date": "0817-12-31",
+          "sort_prefix": 1,
+          "Invocatio": "In Christi nomine et cum suo auxilio sancto",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego nomine proprio Ratolt",
+          "Intitulatio-lems": null,
+          "Dispositio": "tradidi ... De cetero notum sit omnibus deum timentibus et eius precepta servantibus quod in prestationem accipi ... dum vitam meam finiam. Et post meum quoque discessum stet haec traditio firmati ad sanctum Stephanum et veris vinculis conexa et firmior sit ferro et insolubili vinculo ligata ",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "omnes facultates meas ... cum campis et pratis cum culta terra atque inculta simulque et cum mancipiis et cum omnibus utensilibus eorum iuxta aquam nuncupatam Raota ... ipsam terram ab ipso altare sancti Stephani",
+          "Pertinenzformel-lems": null,
+          "Narratio": "ad altare sancti Stephani primi martiris ... pro remedio animarum genitorum meorum et pro absolutione delictorum meorum ...  De cetero notum sit omnibus deum timentibus et eius precepta servantibus quod in prestationem accipi ",
+          "Narratio-lems": null,
+          "Corroboratio": "coram omnibus presentibus nobilibus et ignobilibus qui tunc ibidem erant et testibus confirmavi et firmatum est ... Et haec sunt nomina testium",
+          "Corroboratio-lems": null,
+          "Stipulationsformel": "Et post meum quoque discessum stet haec traditio firmati ad sanctum Stephanum et veris vinculis conexa et firmior sit ferro et insolubili vinculo ligata",
+          "Stipulationsformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:passau.heuwieser0065.lat001"
+        ]
+      },
+      {
+        "_index": "passau_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:passau.heuwieser0066.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 66",
+          "urn": "urn:cts:formulae:passau.heuwieser0066.lat001",
+          "date_string": "Nach 812 März 13.",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "passau",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0812-03-13",
+              "lte": "0912-12-31"
+            }
+          ],
+          "all_dates": [
+            "0812-03-13",
+            "0912-12-31"
+          ],
+          "min_date": "0812-03-13",
+          "max_date": "0912-12-31",
+          "sort_prefix": 1,
+          "Invocatio": "In nomine Dei summi salvatoris nostri Jesu Christi",
+          "Invocatio-lems": null,
+          "Intitulatio": "Igitur etenim ego nomine Adalfrid servus servorum dei",
+          "Intitulatio-lems": null,
+          "Narratio": "in timore Christi et amore proximi ... ad aecclesiam beati Stephani prima marthyris ... pro remedium anime meae et absolutione delictorum meorum ...  prestationem accepi ab ipso altare sancti Stephani ",
+          "Narratio-lems": null,
+          "Dispositio": "tradidi ... prestationem accepi ab ipso altare sancti Stephani ... dum vitam meam finiam et post obitum meum quoque discessum stet ad ipsam altare",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "tercia pars hereditatis me unum servum cum uxore sua cum facultatibus suis et alias mancipias VIII nomine ... id ipsam terram",
+          "Pertinenzformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:passau.heuwieser0066.lat001"
+        ]
+      },
+      {
+        "_index": "passau_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:passau.heuwieser0079.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 79",
+          "urn": "urn:cts:formulae:passau.heuwieser0079.lat001",
+          "date_string": "Nach 814.",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "passau",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814",
+              "lte": "0914-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814",
+            "0914-12-31"
+          ],
+          "min_date": "0814",
+          "max_date": "0914-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:passau.heuwieser0079.lat001"
+        ]
+      },
+      {
+        "_index": "redon_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:redon.courson0135.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Cartulaire de l’Abbaye de Redon en Bretagne: [832–1124] (Ed. Courson) Nr. 135",
+          "urn": "urn:cts:formulae:redon.courson0135.lat001",
+          "date_string": "814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "redon",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:redon.courson0135.lat001"
+        ]
+      },
+      {
+        "_index": "redon_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:redon.courson0166.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Cartulaire de l’Abbaye de Redon en Bretagne: [832–1124] (Ed. Courson) Nr. 166",
+          "urn": "urn:cts:formulae:redon.courson0166.lat001",
+          "date_string": "797–814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "redon",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0797-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0797-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0797-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:redon.courson0166.lat001"
+        ]
+      },
+      {
+        "_index": "redon_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:redon.courson0212.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Cartulaire de l’Abbaye de Redon en Bretagne: [832–1124] (Ed. Courson) Nr. 212",
+          "urn": "urn:cts:formulae:redon.courson0212.lat001",
+          "date_string": "814–821",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "redon",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0821-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0821-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0821-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:redon.courson0212.lat001"
+        ]
+      },
+      {
+        "_index": "redon_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:redon.courson0267.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Cartulaire de l’Abbaye de Redon en Bretagne: [832–1124] (Ed. Courson) Nr. 267",
+          "urn": "urn:cts:formulae:redon.courson0267.lat001",
+          "date_string": "814–825",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "redon",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0825-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0825-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0825-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:redon.courson0267.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0009.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 9",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0009.lat001",
+          "date_string": "792-816",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "regensburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0792",
+              "lte": "0816-12-31"
+            }
+          ],
+          "all_dates": [
+            "0792",
+            "0816-12-31"
+          ],
+          "min_date": "0792",
+          "max_date": "0816-12-31",
+          "sort_prefix": 1,
+          "Invocatio": "In nomine patris et filii et spiritus sancti",
+          "Invocatio-lems": null,
+          "Narratio": "Cogitando cogitavimus ... ad monasterium Adaluuini episcopi, quod situm est iuxta fluenta quae vocatur Rehtratanze, ad sanctum Salvatorem ... pro remedio animarum nostrarum vel parentum nostrorum ... ad monasterium sancti Salvatoris, quod Adaluuinus episcopus gubernare visus est",
+          "Narratio-lems": null,
+          "Intitulatio": "ego Einhardus presbyter et Erhardus",
+          "Intitulatio-lems": null,
+          "Dispositio": "et haec firmata esse volumus perpetualiter ... Postmodum venerunt Adaluuinus episcopus cum multis nobilibus viris in ipso vico, qui vocatur Uuolfmuntingas, et tunc in presentia eorum Einhardus et Erhardus et uxor eius Uuillipurc traditionem fecerunt ... tradiderunt ... tradidit ... et convenire nos, ut Pernhardus filius Erhardi habeat ibidem suo pecori pascua et de silva utilitatem ad suum usum",
+          "Dispositio-lems": null,
+          "Publicatio": " Postmodum venerunt Adaluuinus episcopus cum multis nobilibus viris in ipso vico, qui vocatur Uuolfmuntingas, et tunc in presentia eorum Einhardus et Erhardus et uxor eius Uuillipurc traditionem fecerunt coram ipsis",
+          "Publicatio-lems": null,
+          "Pertinenzformel": "exceptis locis, que dicuntur Turunfeld et Altstat ... mancipia IIII",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credimus, aut nos ipsi aut aliquis de heredibus nostris aut ulla opposita persona, quod futurum esse non credimus, contra hanc cartulam tradicionis inire temptaverit, non valeat vindicare",
+          "Poenformel-lems": null,
+          "Corroboratio": "Haec autem traditio facta est in praesentia Adaluuini episcopi et aliorum nobilium, quorum nomina haec sunt ... et ceteri",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0009.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0014.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 14",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0014.lat001",
+          "date_string": "814 10 29 - 814 11 20",
+          "comp_ort": "Gundertshausen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Gundertshausen",
+          "collection": "regensburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-10-29",
+              "lte": "0814-11-20"
+            }
+          ],
+          "all_dates": [
+            "0814-10-29",
+            "0814-11-20"
+          ],
+          "min_date": "0814-10-29",
+          "max_date": "0814-11-20",
+          "sort_prefix": 1,
+          "Invocatio": "In nomine patris et filii et spiritus sancti",
+          "Invocatio-lems": null,
+          "Intitulatio": "Igitur in dei nomine ego Rihpaldus abbas",
+          "Intitulatio-lems": null,
+          "Dispositio": "tradidi ... ut si ego mortuus fuissem in isto itinere ad palatium eundo, tunc ipsi viri haec omnia pro anima mea ad sanctum Emmerammum tradidissent, petoque Adaluuinum episcopum vel eius successores, ut haec duo loca, id est ad Sezpah et ad Niuuinhusun, semper ad sanctum Emmerammum serviant et nemini in beneficio done[n]tur et manentes ipsi ... eandem traditionem, quam Rihpald abbas in eorum manus posuit, tradiderunt ... et vestierunt  ... vestierunt ... de omnibus quaecumque tradiderunt ... ad s. Emmerammum tradendi liberam potestatem in omnibus habuissent ... tradidit",
+          "Dispositio-lems": null,
+          "Narratio": "pro anima mea ... ad sanctum Emmerammum ... pro Rihpaldi abbatis animae aeterna mercede",
+          "Narratio-lems": null,
+          "Publicatio": "Defuncto vero Rihpaldo abbate venit Abbo una cum Paldrico et Ratolfo, similiter et Ano ad sanctum Emmerammum",
+          "Publicatio-lems": null,
+          "Pertinenzformel": "id est sex hominum, ut quicumque ex his voluissent, tam unus quam duo sive tres seu omnes simul ... de his duobus Iods, hoc est ad Sezpah et Niuuinhuson, et concessa sunt haec Ioca: ad Sezpah sedebat Ratolf monachus cum servis domini episcopi Adaluuini, ad Niuuinhuson Vuicrammus prepositus",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Praesentium nomina, qui viderunt ... Ad tumulum sancti Emmerammi factum est hoc. Isti sunt qui viderunt, quod Rihpald tradidit in manus Abbonis et aliorum, quod supra diximus, hereditatem suam",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Facta fuit haec traditio ad Cundhareshuson anno DCCCXIIII incarnationis domini nostri Jesu Christi, anno secundo imperii domini Hludouuici augusti, indictione VII ... Ellinhart diaconus iussus a domino meo Adaluuino episcopo ipsam traditionem scripsi",
+          "Eschatokoll-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0014.lat001"
+        ]
+      },
+      {
+        "_index": "regensburg_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:regensburg.wiedemann0037.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 37",
+          "urn": "urn:cts:formulae:regensburg.wiedemann0037.lat001",
+          "date_string": "vor 859",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "regensburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0759",
+              "lte": "0859-12-31"
+            }
+          ],
+          "all_dates": [
+            "0759",
+            "0859-12-31"
+          ],
+          "min_date": "0759",
+          "max_date": "0859-12-31",
+          "sort_prefix": 1,
+          "Invocatio": "In nomine domini nostri Jesu Christi",
+          "Invocatio-lems": null,
+          "Publicatio": "Notum igitur fieri volumus cunctis christianis fidelibus et infidelibus, praesentibus scilicet et absentibus necnon et futuris",
+          "Publicatio-lems": null,
+          "Intitulatio": "ego Chozil humillimus comes",
+          "Intitulatio-lems": null,
+          "Pertinenzformel": "de hereditate mea ... in proprietatem ad Stromogin, quantum Gundpoldus habuit in proprietatem et in beneficium, in villa nuncupante Reginuuartesdorf et in Rosdorf, cum terra aratura, vineis atque pratis, pascuis, aquis aquarumque decursibus, molendinis et in omnibus marchis",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "tradidi",
+          "Dispositio-lems": null,
+          "Narratio": "ad sanctum Emmerammum",
+          "Narratio-lems": null,
+          "Corroboratio": "Hi sunt testes",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:regensburg.wiedemann0037.lat001"
+        ]
+      },
+      {
+        "_index": "rheinisch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:rheinisch.wisplinghoff0054.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Rheinisches Urkundenbuch (Ed. Wisplinghoff) Nr. 54",
+          "urn": "urn:cts:formulae:rheinisch.wisplinghoff0054.lat001",
+          "date_string": "801 - 814",
+          "comp_ort": "Bonn",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bonn",
+          "collection": "rheinisch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0814-12-31"
+          ],
+          "min_date": "0801",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:rheinisch.wisplinghoff0054.lat001"
+        ]
+      },
+      {
+        "_index": "rheinisch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:rheinisch.wisplinghoff0055.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Rheinisches Urkundenbuch (Ed. Wisplinghoff) Nr. 55",
+          "urn": "urn:cts:formulae:rheinisch.wisplinghoff0055.lat001",
+          "date_string": "801 - 814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "rheinisch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0814-12-31"
+          ],
+          "min_date": "0801",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:rheinisch.wisplinghoff0055.lat001"
+        ]
+      },
+      {
+        "_index": "rheinisch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:rheinisch.wisplinghoff0059.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Rheinisches Urkundenbuch (Ed. Wisplinghoff) Nr. 59",
+          "urn": "urn:cts:formulae:rheinisch.wisplinghoff0059.lat001",
+          "date_string": "814 01 28 – 815 01 28",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "rheinisch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-28",
+              "lte": "0815-01-28"
+            }
+          ],
+          "all_dates": [
+            "0814-01-28",
+            "0815-01-28"
+          ],
+          "min_date": "0814-01-28",
+          "max_date": "0815-01-28",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:rheinisch.wisplinghoff0059.lat001"
+        ]
+      },
+      {
+        "_index": "rheinisch_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:rheinisch.wisplinghoff0215.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Rheinisches Urkundenbuch (Ed. Wisplinghoff) Nr. 215",
+          "urn": "urn:cts:formulae:rheinisch.wisplinghoff0215.lat001",
+          "date_string": "Um 787 - 818",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "rheinisch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0787",
+              "lte": "0818-12-31"
+            }
+          ],
+          "all_dates": [
+            "0787",
+            "0818-12-31"
+          ],
+          "min_date": "0787",
+          "max_date": "0818-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:rheinisch.wisplinghoff0215.lat001"
+        ]
+      },
+      {
+        "_index": "saint_bénigne_v4",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:saint_bénigne.maurice0009.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes et documents de Saint-Bénigne de Dijon. Prieurés et dépendances des origines à 1300. Tome premier. (Ed. Chevrier) Nr. 9",
+          "urn": "urn:cts:formulae:saint_bénigne.maurice0009.lat001",
+          "date_string": "Entre 584 et 869",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "saint_bénigne",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0584-01-01",
+              "lte": "0869-12-31"
+            }
+          ],
+          "all_dates": [
+            "0584-01-01",
+            "0869-12-31"
+          ],
+          "min_date": "0584-01-01",
+          "max_date": "0869-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:saint_bénigne.maurice0009.lat001"
+        ]
+      },
+      {
+        "_index": "saint_bénigne_v4",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:saint_bénigne.maurice0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes et documents de Saint-Bénigne de Dijon. Prieurés et dépendances des origines à 1300. Tome premier. (Ed. Chevrier) Nr. 22",
+          "urn": "urn:cts:formulae:saint_bénigne.maurice0022.lat001",
+          "date_string": "VIIIe-IXe siècles",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "saint_bénigne",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0700-01-01",
+              "lte": "0899-12-31"
+            }
+          ],
+          "all_dates": [
+            "0700-01-01",
+            "0899-12-31"
+          ],
+          "min_date": "0700-01-01",
+          "max_date": "0899-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:saint_bénigne.maurice0022.lat001"
+        ]
+      },
+      {
+        "_index": "saint_bénigne_v4",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:saint_bénigne.maurice0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes et documents de Saint-Bénigne de Dijon. Prieurés et dépendances des origines à 1300. Tome premier. (Ed. Chevrier) Nr. 26",
+          "urn": "urn:cts:formulae:saint_bénigne.maurice0026.lat001",
+          "date_string": "Entre 762 et 814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "saint_bénigne",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0762-01-01",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0762-01-01",
+            "0814-12-31"
+          ],
+          "min_date": "0762-01-01",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:saint_bénigne.maurice0026.lat001"
+        ]
+      },
+      {
+        "_index": "saint_bénigne_v4",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:saint_bénigne.maurice0033.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes et documents de Saint-Bénigne de Dijon. Prieurés et dépendances des origines à 1300. Tome premier. (Ed. Chevrier) Nr. 33",
+          "urn": "urn:cts:formulae:saint_bénigne.maurice0033.lat001",
+          "date_string": "Avant 814",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "saint_bénigne",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-12-25",
+              "lte": "0814-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-12-25",
+            "0814-12-31"
+          ],
+          "min_date": "0800-12-25",
+          "max_date": "0814-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:saint_bénigne.maurice0033.lat001"
+        ]
+      },
+      {
+        "_index": "saint_bénigne_v4",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:saint_bénigne.maurice0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes et documents de Saint-Bénigne de Dijon. Prieurés et dépendances des origines à 1300. Tome premier. (Ed. Chevrier) Nr. 34",
+          "urn": "urn:cts:formulae:saint_bénigne.maurice0034.lat001",
+          "date_string": "Entre 814 et 828",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "saint_bénigne",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0814-01-01",
+              "lte": "0828-12-31"
+            }
+          ],
+          "all_dates": [
+            "0814-01-01",
+            "0828-12-31"
+          ],
+          "min_date": "0814-01-01",
+          "max_date": "0828-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:saint_bénigne.maurice0034.lat001"
+        ]
+      },
+      {
+        "_index": "schaeftlarn_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:schaeftlarn.weissthanner0013.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 13",
+          "urn": "urn:cts:formulae:schaeftlarn.weissthanner0013.lat001",
+          "date_string": "ca. 800 – ca. 820",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "schaeftlarn",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800",
+              "lte": "0820-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0820-12-31"
+          ],
+          "min_date": "0800",
+          "max_date": "0820-12-31",
+          "sort_prefix": 1,
+          "Publicatio": "Dum et omnibus non est incognitum sed plurimis ponitur noticia",
+          "Publicatio-lems": null,
+          "Intitulatio": "venerabilis vir Albune presbiter ... prefatus presbiter atque nepos eius Engilfrid presbiter",
+          "Intitulatio-lems": null,
+          "Narratio": "post multum vero temporis iam eo cogitante prefato presbitero de diversis causis huius seculi seu de caducis rebus transitoriis, nisi qui tantum propter amorem dei largitate bona deo donaverit et ad domum dei tradiderit, in paenale iudicium deum contemnens inciderit, quapropter ... propter amorem dei donatumque in perpetuum permanere voluerunt  ... pro aeterna retributione",
+          "Narratio-lems": null,
+          "Dispositio": "donaverunt atque tradiderunt ... donatumque in perpetuum permanere voluerunt ... omnia ex integro tradiderunt ... ut ibidem perpetualiter permansisset",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "omnia, quae habuerunt ... hoc est in villa nuncupata Reginprehteshusen, quicquid genitores illorum Werinpreht et Reginpreht ipsis presbiteris reliquerunt, hoc est aecclesiam cum domo simulque alias omnes edificationes ad eas·pertinentes, servos et ancillas seu tributales, rura, prata, campos et silvas aquarumque decursus, mobile vel inmobile, cultum vel incultum",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Isti sunt testes",
+          "Corroboratio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:schaeftlarn.weissthanner0013.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:stgallen.wartmann0216.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 216",
+          "urn": "urn:cts:formulae:stgallen.wartmann0216.lat001",
+          "date_string": "813 - 816",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "stgallen",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0813",
+              "lte": "0816-12-31"
+            }
+          ],
+          "all_dates": [
+            "0813",
+            "0816-12-31"
+          ],
+          "min_date": "0813",
+          "max_date": "0816-12-31",
+          "sort_prefix": 1,
+          "Intitulatio": "Ego vero in Dei nomine Madius presbiter",
+          "Intitulatio-lems": null,
+          "Narratio": "cepi divino, ut credo, inflatu tractare, ut mihi secundum virium subpetitionem evangelica non recedissent, nisi completa eloquia, quae aiunt, ut agros vel aliarum rerum substantiam dimittendi regnum aeternum adipisci merear perfruendi",
+          "Narratio-lems": null,
+          "Pertinenzformel": "quicquid in loco subter nominato presenti die habere videor, quem etiam locum nominare volo, qui dicitur Maduncella, omnia quae ibidem in praesenti die perspicue possidere videor; id est terris, domibus, edificiis, vineis, pratis, pascuis, silvis, viis, aquis aquarumve decursibus, ortiferis, pomiferis, mobilibus atque immobilibus, cultis et incultis seu omne quod adquirere debeo vel adquirens augere potuero, omnia ex integro a praesenti die, quae habere in iam supradicto loco videor",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "traditum atque volo esse transfunditum",
+          "Dispositio-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, si ego ipse aut ullus de heredibus vel proheredibus meis vel qualibet persona contra hanc cartam traditionis a me factam venire temptaverit aut infrangere voluerit ... non solum quod ei hoc non liceat facere, sed damnum incurrat, id est tantum, quantum cartula ista contenit, de rebus suis ad ipsum monasterium restituat, insuper sociante fisco multa conponat, id est auri untias V et argenti pondera VII",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et quod repetit in nullo valeat evindicare, sed haec praesens carta firmitatis omni tempore firma et stabilis permaneat cum stibulatione subnexa",
+          "Stipulationsformel-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0216.lat001"
+        ]
+      },
+      {
+        "_index": "stgallen_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:stgallen.wartmann0217.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 217",
+          "urn": "urn:cts:formulae:stgallen.wartmann0217.lat001",
+          "date_string": "813 - 816",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Kloster St. Gallen",
+          "collection": "stgallen",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0813",
+              "lte": "0816-12-31"
+            }
+          ],
+          "all_dates": [
+            "0813",
+            "0816-12-31"
+          ],
+          "min_date": "0813",
+          "max_date": "0816-12-31",
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:stgallen.wartmann0217.lat001"
+        ]
+      },
+      {
+        "_index": "weissenburg_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:weissenburg.gloeckner0048.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 48",
+          "urn": "urn:cts:formulae:weissenburg.gloeckner0048.lat001",
+          "date_string": "Um 810",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "weissenburg",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0800-01-01",
+              "lte": "0820-12-31"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01",
+            "0820-12-31"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0820-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:weissenburg.gloeckner0048.lat001"
+        ]
+      },
+      {
+        "_index": "werden_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:werden.block0043.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Blok) Nr. 43",
+          "urn": "urn:cts:formulae:werden.block0043.lat001",
+          "date_string": "809 03 26 – 827 06 29",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "werden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0809-03-26",
+              "lte": "0827-06-29"
+            }
+          ],
+          "all_dates": [
+            "0809-03-26",
+            "0827-06-29"
+          ],
+          "min_date": "0809-03-26",
+          "max_date": "0827-06-29",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:werden.block0043.lat001"
+        ]
+      },
+      {
+        "_index": "werden_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:werden.block0044.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "De oudste particuliere oorkonden van Werden (Ed. Blok) Nr. 44",
+          "urn": "urn:cts:formulae:werden.block0044.lat001",
+          "date_string": "809 03 26 – 827 06 29",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "werden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0809-03-26",
+              "lte": "0827-06-29"
+            }
+          ],
+          "all_dates": [
+            "0809-03-26",
+            "0827-06-29"
+          ],
+          "min_date": "0809-03-26",
+          "max_date": "0827-06-29",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:werden.block0044.lat001"
+        ]
+      }
+    ]
+  }
+}

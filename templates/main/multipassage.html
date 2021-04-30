@@ -57,7 +57,11 @@
                 </div>
             {% endif %}
             <div class="col text-center">
-                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">{% if object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif %}{{object.collections.current.label|safe}}</h2>
+                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">{% if
+                    object.collections.current.sigla != '' %}{{ object.collections.current.sigla|safe }}: {% endif
+                    %}{{object.collections.current.label|safe}}{% if object.collections.current.ms_source %}<br>({{
+                    object.collections.current.ms_source|safe }}){%
+                    endif %}</h2>
                 <a href="#" id="{{ object.objectId|replace(':', '-')|replace('.', '-') }}" tabindex="0" type="button" class="btn btn-link px-1" data-container="body" data-toggle="charter-bibl-popover" data-placement="right" data-html="true" data-content="<button type=&quot;button&quot; class=&quot;close&quot; aria-label=&quot;Close&quot; onclick=&quot;closePopup('{{ object.objectId|replace(':', '-')|replace('.', '-') }}')&quot;&gt;☒&lt;/button&gt;{{ object.collections.current.citation }}"><i class="fas fa-quote-right" id="citation-{{ index }}" title="{{ _('Empfohlene Zitierweise') }}" data-toggle="tooltip" data-container="#citation-{{ index }}"></i></a>
                 {% if 'manifest' not in object.collections.current.id %}
                 <a class="internal-link" id="pdf-download-{{ index }}" href="{{ url_for('InstanceNemo.r_pdf', objectId=object.collections.current.id) }}" title="{{ _('Diesen Text als PDF herunterladen.') }}" data-toggle="tooltip" data-container="#pdf-download-{{ index }}"><i class="fas fa-file-download"></i></a>
