@@ -11,6 +11,7 @@
    <identifier>urn:cts:formulae:fulda_dronke</identifier>
    <dc:title xml:lang="deu">Codex diplomaticus &lt;span class="collection-origin"&gt;Fuldensis&lt;/span&gt;</dc:title>
    <dc:type>cts:textgroup</dc:type>
+   <dc:coverage>Fulda</dc:coverage>
    <structured-metadata>
       <bib:AbbreviatedTitle>Cod. dipl. Fuldensis</bib:AbbreviatedTitle>
    </structured-metadata>

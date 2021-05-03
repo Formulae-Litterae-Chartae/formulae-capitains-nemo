@@ -10,6 +10,7 @@
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
       <bib:AbbreviatedTitle>Marculf</bib:AbbreviatedTitle>
+      <bib:Annotations>Lemmas</bib:Annotations>
    </structured-metadata>
    <members>
       <collection path="./form000/__capitains__.xml" identifier="urn:cts:formulae:marculf.form000"/>
