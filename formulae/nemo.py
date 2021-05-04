@@ -1086,7 +1086,7 @@ class NemoFormulae(Nemo):
                           for m in self.get_transcriptions(metadata)]
         current_parents = self.make_parents(metadata, lang=lang)
         return {
-            "template": "main::text.html",
+            "template": "",
             "objectId": objectId,
             "subreference": subreference,
             "collections": {
