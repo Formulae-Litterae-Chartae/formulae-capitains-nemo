@@ -9,7 +9,8 @@ $(function() {
             var list_of_list = list.children[i].children[1].children
             for(j = 0; j < list_of_list.length; j++){
                 if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
-                    document.getElementById(list_of_list[j].parentNode.parentNode.attributes[0].nodeValue).scrollTop = list_of_list[j].offsetTop;
+                    var scrollParent = list_of_list[j].parentNode.parentNode;
+                    scrollParent.scrollTop = list_of_list[j].offsetTop - scrollParent.children[0].offsetHeight;
                     list_of_list[j].style.backgroundColor = "#DDDD22"
                 }else{
                     list_of_list[j].style.backgroundColor = "#FFF"

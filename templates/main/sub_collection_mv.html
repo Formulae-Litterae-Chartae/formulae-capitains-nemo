@@ -53,7 +53,7 @@
         </div>
         <ul class="list-group list-group-flush">
         {% for name in values['links'][0]%}
-            <li class="list-group-item">
+            <li class="list-group-item card search-hit">
                 {% if 'regesten' in values and values['regesten'][loop.index0] %}
                 {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
                 <div class="card-text p-2 search-hit-menu{{ copy_class }}">
