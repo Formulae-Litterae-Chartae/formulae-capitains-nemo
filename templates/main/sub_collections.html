@@ -11,7 +11,11 @@
 {% endif %}
 <header>
         <h1>
-        {{collections.current.label|striptags}}
+            {% if 'formulae_collection' in collections.parents %}
+            {{ _('Formeln') }}
+            {% else %}
+            {{ _('Urkunden + Briefe') }}
+            {% endif %}
         </h1>
     </header>
     </div>
