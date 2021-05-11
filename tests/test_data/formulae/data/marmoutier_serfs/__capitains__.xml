@@ -10,6 +10,7 @@
    <dc:title xml:lang="deu">Le livre des &lt;span class="collection-origin"&gt;serfs de Marmoutier&lt;/span&gt;</dc:title>
    <structured-metadata>
       <bib:AbbreviatedTitle>Marmoutier - Serfs</bib:AbbreviatedTitle>
+      <bib:Annotations>Lemmas</bib:Annotations>
    </structured-metadata>
    <dc:type>cts:textgroup</dc:type>
    <members>

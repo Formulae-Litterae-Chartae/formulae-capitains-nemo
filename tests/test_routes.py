@@ -283,9 +283,6 @@ class TestIndividualRoutes(Formulae_Testing):
             template, data = self.templates[0]
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             self.assertEqual(data['collections']['members'], [])
-            # r_references does not work right now
-            # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
-            # self.assertIn('main::references.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             # Check for backwards compatibility of URLs
@@ -382,6 +379,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(['goodbye', 'hello'], self.get_context_variable('lemmas'))
             self.assertEqual(['1', '8', '12', '45', 'iii', 'iv', 'v', 'xxviiii', 'xxx', 'xc', 'c', 'cd', 'd', 'cm', 'm'],
                              self.get_context_variable('numbers'))
+            c.get('/search/advanced_search', follow_redirects=True)
+            self.assertIn(('Angers', 'andecavensis', True),
+                          self.get_context_variable('categories')['formulae_collection'])
+            self.assertIn(('<b>Fulda</b>: Cod. dipl. Fuldensis', 'fulda_dronke', False),
+                          self.get_context_variable('categories')['other_collection'])
             # Make sure session variables are correctly set from g
             attributes = ['previous_search',
                           'previous_search_args',
@@ -443,9 +445,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
-            # r_references does not work right now.
-            # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
-            # self.assertIn('main::references.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             # Check for backwards compatibility of URLs
@@ -532,6 +531,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            c.get('/texts/manifest:urn:cts:formulae:le1.109v110v.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
@@ -615,9 +616,6 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             data = self.get_context_variable('collections')
             self.assertNotEqual(data['members'], [])
-            # r_references does not work right now.
-            # c.get('/text/urn:cts:formulae:stgallen.wartmann0001.lat001/references', follow_redirects=True)
-            # self.assertIn('main::references.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             # Check for backwards compatibility of URLs

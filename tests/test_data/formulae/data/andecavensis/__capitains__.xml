@@ -12,7 +12,8 @@
    <dc:title xml:lang="lat">Formulae &lt;span class="collection-origin"&gt;Andecavensis&lt;/span&gt;</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>Andecavensis</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Angers</bib:AbbreviatedTitle>
+      <bib:Annotations>Lemmas</bib:Annotations>
    </structured-metadata>
    <members>
       <collection path="./computus/__capitains__.xml"

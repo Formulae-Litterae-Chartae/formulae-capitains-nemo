@@ -11,7 +11,11 @@
 {% endif %}
 <header>
         <h1>
-        {{collections.current.label|striptags}}
+            {% if 'formulae_collection' in collections.current.id %}
+            {{ _('Formeln') }}
+            {% else %}
+            {{ _('Urkunden + Briefe') }}
+            {% endif %}
         </h1>
     </header>
     </div>
@@ -25,7 +29,11 @@
         {% for coll in g.sub_colls['other_collection'] %}
             {% if current_user.project_team or coll.id in g.open_collections %}
             <li class="list-group-item py-0">
-                <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}"><h5 class="my-1"><span class="corpus_coverage">{{ coll['coverage'] }}:</span> {{ coll['label']|safe }}</h5></a>
+                <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}"><h5 class="my-1"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
+                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                            tabindex="0">* </span></b><span class="corpus_coverage">{{ coll['coverage'] }}:</span> {{ coll['label']|safe }}</h5></a>
             </li>
             {% endif %}
         {% endfor %}
@@ -33,7 +41,11 @@
         {% for coll in collections.members|sort(attribute="label") %}
             <li class="list-group-item py-0">
                 <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
-                    <h5 class="my-2">{{ coll.label|safe }}</h5>
+                    <h5 class="my-2"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
+                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                            tabindex="0">* </span></b>{{ coll.label|safe }}</h5>
                 </a>
             </li>
         {% endfor %}
@@ -41,7 +53,11 @@
         {% for coll in collections.members|sort(attribute="id") %}
             <li class="list-group-item py-0">
                 <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
-                    <h5 class="my-2">{{ coll.label|safe }}</h5>
+                    <h5 class="my-2"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
+                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                            tabindex="0">* </span></b>{{ coll.label|safe }}</h5>
                 </a>
             </li>
         {% endfor %}

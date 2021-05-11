@@ -22,5 +22,9 @@
 	"manifest:urn:cts:formulae:p12.65r65v.lat001": {
 		"manifest": "urn:cts:formulae:markulf.form003.p12.json",
 		"title":"Fulda Hessische Landesbibliotheke D1"
+	},
+	"manifest:urn:cts:formulae:le1.109v110v.lat001": {
+		"manifest": "urn:cts:formulae:le1.109v110v.lat001.json",
+		"title": "Leiden BPL 114"
 	}
 }
