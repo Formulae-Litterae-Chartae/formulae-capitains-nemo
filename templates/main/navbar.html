@@ -20,7 +20,11 @@
                 <div class="dropdown-menu" aria-labelledby="formulaeDropdown">
                     {% for coll in g.sub_colls['formulae_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
+                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                            tabindex="0">* </span></b>{{ coll['label']|safe }}</a>
                     {% endif %}
                     {% endfor %}
                 </div>
@@ -33,7 +37,11 @@
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
                     {% for coll in g.sub_colls['display_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><span class="corpus_coverage">{{ coll['coverage'] }}</span>{% if 'urn:cts:formulae' in coll['id'] %}: {{ coll['label'] }}{% else %} ↗{% endif %}</a>
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
+                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
+                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                            tabindex="0">* </span></b><span class="corpus_coverage">{{ coll['coverage'] }}</span>{% if 'urn:cts:formulae' in coll['id'] %}: {{ coll['label'] }}{% else %} ↗{% endif %}</a>
                     {% endif %}
                     {% endfor %}
                 </div>

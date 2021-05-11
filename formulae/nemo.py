@@ -690,6 +690,8 @@ class NemoFormulae(Nemo):
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
         if len(data['collections']['members']) == 1:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
+        for m in data['collections']['members']:
+            m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
         data['template'] = "main::sub_collections.html"
         return data
 
@@ -917,6 +919,8 @@ class NemoFormulae(Nemo):
             return redirect(url_for('InstanceNemo.r_add_text_corpus', objectId=objectId,
                                     objectIds=objectIds, reffs=reffs, lang=lang))
         members = self.make_members(collection, lang=lang)
+        for m in members:
+            m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
         if self.check_project_team() is False:
             if not from_four_level_collection:
@@ -1185,6 +1189,11 @@ class NemoFormulae(Nemo):
                         # This works for resources from the Bayerische Staatsbibliothek
                         # (and perhaps other German digital libraries?)
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['@id'] + '/view'
+                    elif 'digitalcollections.universiteitleiden.nl' in this_manifest['@id']:
+                        # This works for resources from the Leiden University Library
+                        # This links to the manuscript as a whole.
+                        # I am not sure how to link to specific pages in their IIIF viewer.
+                        d['lib_link'] = 'https://iiifviewer.universiteitleiden.nl/?manifest=' + this_manifest['@id']
                     d["title"] = formulae["title"] + ' {}{}'.format(this_manifest['sequences'][0]['canvases'][0]['label'],
                                                                     ' - ' +
                                                                     this_manifest['sequences'][0]['canvases'][-1]['label']

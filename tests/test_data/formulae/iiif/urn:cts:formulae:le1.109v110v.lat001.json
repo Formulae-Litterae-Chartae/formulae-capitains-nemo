@@ -1,0 +1,164 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest",
+	"@type": "sc:Manifest",
+	"label": "Isidori Hispalensis Origines. - Aegidii Epitome legis Romani Visigothorum. - Marculphi Formulae intermixtis aliis Bituricensibus BPL 114",
+	"logo": "https://iiifviewer.universiteitleiden.nl/logo/",
+	"metadata": [
+		{
+			"label": "Title",
+			"value": "Isidori Hispalensis Origines. - Aegidii Epitome legis Romani Visigothorum. - Marculphi Formulae intermixtis aliis Bituricensibus BPL 114"
+		},
+		{
+			"label": "Country",
+			"value": {
+				"@value": "France",
+				"@language": "eng"
+			}
+		},
+		{
+			"label": "Language",
+			"value": {
+				"@value": "Latin",
+				"@language": "eng"
+			}
+		},
+		{
+			"label": "Extent",
+			"value": "elektronische bron"
+		},
+		{
+			"label": "Note",
+			"value": [
+				"Lokalisering en datering volgens Bischoff (2004): \"Wahrscheinlich Bourges, VIII./IX Jh.",
+				"Leiden, UB copy BPL 114"
+			]
+		},
+		{
+			"label": "Published",
+			"value": "[0775-0825?]"
+		},
+		{
+			"label": "Shelfmark",
+			"value": "BPL 114"
+		},
+		{
+			"label": "Persistent URL",
+			"value": "http://hdl.handle.net/1887.1/item:1610701"
+		}
+	],
+	"license": "Download provided. <a href=\"https://creativecommons.org/licenses/by/4.0/\">Use of this resource is governed by the terms and conditions of the Creative Commons CC BY License</a>",
+	"attribution": "Leiden University Libraries",
+	"viewingDirection": "left-to-right",
+	"viewingHint": "paged",
+	"sequences": [
+		{
+			"@type": "sc:Sequence",
+			"label": "Isidori Hispalensis Origines. - Aegidii Epitome legis Romani Visigothorum. - Marculphi Formulae intermixtis aliis Bituricensibus BPL 114",
+			"canvases": [
+				{
+					"@type": "sc:Canvas",
+					"@id": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610768/canvas/default",
+					"label": "109v",
+					"height": 3013,
+					"width": 1936,
+					"thumbnail": {
+						"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610768/full/80,/0/default.jpg",
+						"service": {
+							"@context": "http://iiif.io/api/image/2/context.json",
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610768",
+							"profile": "http://iiif.io/api/image/2/level2.json"
+						}
+					},
+					"images": [
+						{
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610768",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610768/full/pct:50/0/default.jpg",
+								"@type": "dctypes:Image",
+								"height": 3013,
+								"width": 1936,
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610768",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							},
+							"on": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610768/canvas/default"
+						}
+					]
+				},
+				{
+					"@type": "sc:Canvas",
+					"@id": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610925/canvas/default",
+					"label": "110r",
+					"height": 3007,
+					"width": 1947,
+					"thumbnail": {
+						"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610925/full/80,/0/default.jpg",
+						"service": {
+							"@context": "http://iiif.io/api/image/2/context.json",
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610925",
+							"profile": "http://iiif.io/api/image/2/level2.json"
+						}
+					},
+					"images": [
+						{
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610925",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610925/full/pct:50/0/default.jpg",
+								"@type": "dctypes:Image",
+								"height": 3007,
+								"width": 1947,
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610925",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							},
+							"on": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610925/canvas/default"
+						}
+					]
+				},
+				{
+					"@type": "sc:Canvas",
+					"@id": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610804/canvas/default",
+					"label": "110v",
+					"height": 3013,
+					"width": 1936,
+					"thumbnail": {
+						"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610804/full/80,/0/default.jpg",
+						"service": {
+							"@context": "http://iiif.io/api/image/2/context.json",
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610804",
+							"profile": "http://iiif.io/api/image/2/level2.json"
+						}
+					},
+					"images": [
+						{
+							"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610804",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610804/full/pct:50/0/default.jpg",
+								"@type": "dctypes:Image",
+								"height": 3013,
+								"width": 1936,
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://iiif.universiteitleiden.nl/iiif/2/hdl%3A1887.1%2Fitem%3A1610804",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							},
+							"on": "https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610804/canvas/default"
+						}
+					]
+				}
+			]
+		}
+	]
+}
