@@ -87,11 +87,15 @@ class NemoFormulae(Nemo):
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
     ]
 
-    OPEN_COLLECTIONS = ['urn:cts:formulae:andecavensis',
+    OPEN_COLLECTIONS = ['anjou',
+                        'chartae_latinae',
+                        'fulda',
+                        'rheinland',
+                        'touraine',
+                        'urn:cts:formulae:andecavensis',
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:buenden',
-                        'urn:cts:formulae:chartae_latinae_x',
                         'urn:cts:formulae:chartae_latinae_xi',
                         'urn:cts:formulae:chartae_latinae_xii',
                         'urn:cts:formulae:chartae_latinae_xlvi',
@@ -135,7 +139,6 @@ class NemoFormulae(Nemo):
     # Half-open collections are those that are newer than death-of-editor plus 70 years.
     # We do not show the regesten for these collections since those are still protected under copyright.
     HALF_OPEN_COLLECTIONS = ['urn:cts:formulae:buenden',
-                             'urn:cts:formulae:chartae_latinae_x',
                              'urn:cts:formulae:chartae_latinae_xi',
                              'urn:cts:formulae:chartae_latinae_xii',
                              'urn:cts:formulae:chartae_latinae_xlvi',
