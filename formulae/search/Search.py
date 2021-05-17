@@ -478,11 +478,11 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 for term in q.split():
                     if regex_search == 'True':
                         # Replace these characters if they are within brackets
-                        temp_term = re.sub(r'[ij](?=[^\]]*\])',
+                        temp_term = re.sub(r'[ij](?=[^\[]*\])',
                                            r'ij',
-                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\]]*\])',
+                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
                                                   r'uv',
-                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\]]*)\]',
+                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
                                                          repl,
                                                          term)))
                         # And then to replace the characters if they are not in brackets
@@ -545,11 +545,11 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
                     if regex_search == 'True':
                         # Replace these characters if they are within brackets
-                        temp_term = re.sub(r'[ij](?=[^\]]*\])',
+                        temp_term = re.sub(r'[ij](?=[^\[]*\])',
                                            r'ij',
-                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\]]*\])',
+                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
                                                   r'uv',
-                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\]]*)\]',
+                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
                                                          repl,
                                                          term)))
                         # And then to replace the characters if they are not in brackets
@@ -754,8 +754,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}&{proper_name}&{regex}&" \
-                   "{forgeries}".format(corpus='+'.join(corpus),
+                   "{regest_field}&{charter_parts}&{proper_name}&" \
+                   "{forgeries}&{regex}".format(corpus='+'.join(corpus),
                                         field=lemma_search,
                                         q=q.replace(' ', '+'), fuzz=fuzziness,
                                         in_order=in_order, slop=slop, y=year, m=month,

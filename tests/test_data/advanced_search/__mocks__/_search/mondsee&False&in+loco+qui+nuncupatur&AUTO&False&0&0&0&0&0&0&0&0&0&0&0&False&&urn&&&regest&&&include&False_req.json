@@ -1,0 +1,157 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+              {
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "[ij]n"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "span_multi": {
+                        "match": {
+                          "fuzzy": {
+                            "text": {
+                              "value": "loco",
+                              "fuzziness": "AUTO"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv][ij]"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv][ij]s"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv]e"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv]a"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv][ij]a"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "q[uv]o"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "span_or": {
+                        "clauses": [
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "n[uv]nc[uv]pat[uv]r"
+                                }
+                              }
+                            }
+                          },
+                          {
+                            "span_multi": {
+                              "match": {
+                                "regexp": {
+                                  "text": "n[uv]nc[uv]pata"
+                                }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "slop": "0",
+                  "in_order": false
+                }
+              }
+            ],
+            "minimum_should_match": 1
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
+  "from": 0,
+  "size": 10000,
+  "highlight": {
+    "fields": {
+      "text": {
+        "fragment_size": 1000
+      },
+      "regest": {
+        "fragment_size": 1000
+      }
+    },
+    "pre_tags": [
+      "</small><strong>"
+    ],
+    "post_tags": [
+      "</strong><small>"
+    ],
+    "encoder": "html"
+  }
+}
