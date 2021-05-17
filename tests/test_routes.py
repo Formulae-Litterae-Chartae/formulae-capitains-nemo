@@ -800,9 +800,11 @@ class TestIndividualRoutes(Formulae_Testing):
             params['corpus'] = 'chartae'
             params['special_days'] = 'Easter%2BTuesday'
             params['proper_name'] = 'personenname%2Bortsname'
+            params['regex_search'] = 'True'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
-                             'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&search_id=1234&submit=Search')
+                             'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&'
+                             'regex_search=y&search_id=1234&submit=Search')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
@@ -2500,7 +2502,33 @@ class TestES(Formulae_Testing):
                                                   ("formulaic_parts", "Narratio"),
                                                   ("proper_name", "personenname"),
                                                   ("forgeries", "include"),
-                                                  ("regex_search", 'True')])
+                                                  ("regex_search", 'True')]),
+                 'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
+                                                                    ("lemma_search", "False"),
+                                                                    ("q", 'dos'),
+                                                                    ("fuzziness", "0"),
+                                                                    ("in_order", "False"),
+                                                                    ("year", 0),
+                                                                    ("slop", "0"),
+                                                                    ("month", 0),
+                                                                    ("day", 0),
+                                                                    ("year_start", 0),
+                                                                    ("month_start", 0),
+                                                                    ("day_start", 0),
+                                                                    ("year_end", 0),
+                                                                    ("month_end", 0),
+                                                                    ("day_end", 0),
+                                                                    ('date_plus_minus', 0),
+                                                                    ('exclusive_date_range', 'False'),
+                                                                    ("composition_place", ''),
+                                                                    ('sort', 'urn'),
+                                                                    ('special_days', ''),
+                                                                    ("regest_q", ''),
+                                                                    ("regest_field", "regest"),
+                                                                    ("formulaic_parts", "Narratio"),
+                                                                    ("proper_name", "personenname"),
+                                                                    ("forgeries", "include"),
+                                                                    ("regex_search", 'True')])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -4877,6 +4905,18 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_regex_parts(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_regex_parts'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        mock_search.side_effect = cycle([resp, aggs])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+
+    @patch.object(Elasticsearch, "search")
+    def test_regex_parts_no_uv_replacement(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regex_parts_no_uv_replacement'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
