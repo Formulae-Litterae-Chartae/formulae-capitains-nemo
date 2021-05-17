@@ -1061,7 +1061,8 @@ class TestIndividualRoutes(Formulae_Testing):
                              'Normal pages should not have "no-cache" in their Cache-Control header.')
             response = c.get('/texts/urn:cts:formulae:andecavensis.form003.deu001/passage/1')
             self.assertIn('no-cache', response.cache_control, 'Reading pages should not be cached')
-            response = c.get('/lang/de')
+            response = c.get('/lang/de',
+                             headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertIn('no-cache', response.cache_control,
                           'The response to changing the language should not be cached.')
             response = c.get('/auth/login')
@@ -1114,15 +1115,16 @@ class TestFunctions(Formulae_Testing):
 
     def test_NemoFormulae_get_locale(self):
         """ Make sure that the NemoFormulae.get_locale function returns the correct values"""
+        headers = {'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'}
         with self.client as c:
-            c.post('/lang/de')
+            c.post('/lang/de', headers=headers)
             self.assertEqual(self.nemo.get_locale(), 'ger')
-            c.post('/lang/fr')
+            c.post('/lang/fr', headers=headers)
             self.assertEqual(self.nemo.get_locale(), 'fre')
-            c.post('/lang/en')
+            c.post('/lang/en', headers=headers)
             self.assertEqual(self.nemo.get_locale(), 'eng')
             # The following should throw an UnknownLocaleError
-            c.post('/lang/none')
+            c.post('/lang/none', headers=headers)
             self.assertEqual(self.nemo.get_locale(), 'ger', 'An UnknownLocaleError should return German as the language')
 
     def test_r_passage_return_values(self):
