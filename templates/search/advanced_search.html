@@ -69,6 +69,12 @@
                                                                 data-container="#lemma-search-tooltip"
                                                                 title="{{ _('Die Lemmatasuche ist nur in ausgewählten Corpora möglich') }}">{{ form.lemma_search() }} <span class="align-top">{{ form.lemma_search.label(class="mb-0") }}</span></span> <span class="position-relative" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none">({{ _('Lemmaliste') }})</a></span></p>
                                 <p class="mb-0 smallfont"><span id="word-order-tooltip" data-toggle="tooltip" data-container="#word-order-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order() }} <span class="align-top">{{ form.in_order.label(class="mb-0") }}</span></span></p>
+                                <p class="mb-0 smallfont"><span id="regex-search-tooltip" data-toggle="tooltip"
+                                                                data-container="#regex-search-tooltip"
+                                                                title="{{ _('Reguläre Ausdrücke (regular expressions) benutzen') }}">{{
+                                    form.regex_search() }} <span
+                                        class="align-top">{{ form.regex_search.label(class="mb-0") }}</span></span></p>
+
                             </div>
                             <div class="col-6">
                                 {% for subfield in form.forgeries.choices[1:] %}
