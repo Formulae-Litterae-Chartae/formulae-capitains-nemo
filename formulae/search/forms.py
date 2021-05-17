@@ -61,6 +61,7 @@ class SearchForm(FlaskForm):
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
     lemma_search = BooleanField(_l('Lemma'))
+    regex_search = BooleanField(_l('Regulärer Ausdruck'))
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")

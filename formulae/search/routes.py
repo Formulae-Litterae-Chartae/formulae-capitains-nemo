@@ -98,7 +98,8 @@ def r_results():
                        formulaic_parts=request.args.get('formulaic_parts', ''),
                        proper_name=request.args.get('proper_name', ''),
                        search_id=request.args.get('search_id', ''),
-                       forgeries=request.args.get('forgeries', 'include'))
+                       forgeries=request.args.get('forgeries', 'include'),
+                       regex_search=request.args.get('regex_search', 'False') or 'False')
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -151,7 +152,7 @@ def r_advanced_search():
                 else:
                     coll_cats[k].append((x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
-                      'search_id', 'simple_search_id')
+                      'search_id', 'simple_search_id', 'regex_search')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if 'forgeries' in data_present and form.data['forgeries'] in ['include', 'exclude']:
         data_present.remove('forgeries')
@@ -171,9 +172,13 @@ def r_advanced_search():
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
             lemma_search = data.pop('lemma_search')
+            regex_search = data.pop('regex_search')
             data['lemma_search'] = 'False'
             if lemma_search in ['y', 'True', True]:
                 data['lemma_search'] = 'True'
+            data['regex_search'] = 'False'
+            if regex_search in ['y', 'True', True]:
+                data['regex_search'] = 'True'
             data['special_days'] = '+'.join(data.pop('special_days')) or ''
             data['proper_name'] = '+'.join(data.pop('proper_name')) or ''
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
