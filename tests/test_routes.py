@@ -4992,25 +4992,29 @@ class TestES(Formulae_Testing):
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
-    def test_exclude_q(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_exclude_q(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_exclude_q'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
         mock_search.side_effect = cycle([resp, aggs])
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
 
     @patch.object(Elasticsearch, "search")
-    def test_exclude_q_parts(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_exclude_q_parts(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_exclude_q_parts'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
         mock_search.side_effect = cycle([resp, aggs])
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
