@@ -497,7 +497,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                         u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                     exclude_ending = ''
                     if exclude_q:
-                        exclude_ending = '&~({})'.format(exclude_q)
+                        exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
                     if u_term + exclude_ending != term:
                         if regex_search == 'True':
                             clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term + exclude_ending,
@@ -574,7 +574,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                         u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
                 exclude_ending = ''
                 if exclude_q:
-                    exclude_ending = '&~({})'.format(exclude_q)
+                    exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
                 if regex_search == 'True':
                     clauses.append([{'span_multi': {'match': {'regexp': {search_field: {'value': u_term + exclude_ending,
                                                                                         'flags': 'ALL',
