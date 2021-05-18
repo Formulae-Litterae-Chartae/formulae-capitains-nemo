@@ -90,6 +90,23 @@
                                 {% endfor %}
                             </div>
                         </div>
+                    </div><div class="form-row mb-2">
+                        <div class="col text-center"><strong>{{ form.exclude_q.label(for="excludeQButton",
+                            id="excludeQLabel") }}</strong> <button id="excludeQButton"
+                                                                     class="btn btn-link p-0 mb-2"
+                                                                 data-toggle="collapse"
+                                                                      data-target="#excludeQSearchCollapse"
+                                                                      type="button" aria-expanded="false"
+                                                                      aria-controls="excludeQSearchCollapse"><span
+                                class="position-relative" id="excludeQLabel-tooltip" data-toggle="tooltip"
+                                data-container="#excludeQLabel-tooltip"
+                                title="{{ _('Ein Wort oder Wortmuster aus der Suche ausschließen') }}"><i
+                                class="fas fa-caret-down"></i></span></button>
+                            <div class="collapse text-left" id="excludeQSearchCollapse">
+                                {{ form.exclude_q(class="form-control my-0", placeholder=form.exclude_q.label.text,
+                                id="exclude_q-search-box", default=form.exclude_q.label.text) }}
+                            </div>
+                        </div>
                     </div>
                     <div class="form-row mb-2">
                         <div class="col text-center"><strong>{{ form.proper_name.label(for="properNameButton",
