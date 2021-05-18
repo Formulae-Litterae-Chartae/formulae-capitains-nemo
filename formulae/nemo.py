@@ -1,4 +1,4 @@
-from flask import url_for, Markup, g, session, flash, request, Response, Blueprint
+from flask import url_for, Markup, g, session, flash, request, Response, Blueprint, send_from_directory, abort
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
 from flask_babel import lazy_gettext as _l
@@ -672,6 +672,20 @@ class NemoFormulae(Nemo):
         ]
         parents = sorted(parents, key=self.sort_parents)
         return parents
+
+    def r_assets(self, filetype, asset):
+        """ Route for specific assets.
+
+        :param filetype: Asset Type
+        :param asset: Filename of an asset
+        :return: Response
+        """
+        if filetype in self.assets and asset in self.assets[filetype] and self.assets[filetype][asset]:
+            return send_from_directory(
+                directory=self.assets[filetype][asset],
+                path=asset
+            )
+        abort(404)
 
     def r_collection(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Route to show a collection of different corpora, e.g., all formulae collections

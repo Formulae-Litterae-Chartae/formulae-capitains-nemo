@@ -132,5 +132,6 @@ class AdvancedSearchForm(SearchForm):
                                     ("exclude", _l('ohne Fälschungen')),
                                     ('only', _l('nur Fälschungen'))],
                            default="include")
+    exclude_q = StringField(_l('Ausschlusskriterium'))
     search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
     submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")

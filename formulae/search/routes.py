@@ -76,7 +76,7 @@ def r_results():
                        page=page,
                        in_order=request.args.get('in_order', 'False'),
                        slop=request.args.get('slop', '0'),
-                       regest_q=request.args.get('regest_q'),
+                       regest_q=request.args.get('regest_q', ''),
                        year=request.args.get('year', 0, type=int),
                        month=request.args.get('month', 0, type=int),
                        day=request.args.get('day', 0, type=int),
@@ -99,7 +99,8 @@ def r_results():
                        proper_name=request.args.get('proper_name', ''),
                        search_id=request.args.get('search_id', ''),
                        forgeries=request.args.get('forgeries', 'include'),
-                       regex_search=request.args.get('regex_search', 'False') or 'False')
+                       regex_search=request.args.get('regex_search', 'False') or 'False',
+                       exclude_q=request.args.get('exclude_q', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -169,6 +170,7 @@ def r_advanced_search():
             data = form.data
             data['q'] = data['q'].lower()
             data['regest_q'] = data['regest_q'].lower()
+            data['exclude_q'] = data['exclude_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
             lemma_search = data.pop('lemma_search')
