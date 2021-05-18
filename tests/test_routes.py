@@ -26,6 +26,7 @@ from datetime import date
 from copy import copy
 from lxml import etree
 from itertools import cycle
+from werkzeug import exceptions
 
 
 class TestConfig(Config):
@@ -1357,6 +1358,15 @@ class TestFunctions(Formulae_Testing):
             self.nemo.make_dead_url_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid dead url mapping from it.')
 
+    def test_r_assets(self):
+        """ Test return values from assets route"""
+        r = self.nemo.r_assets('js', 'empty.js')
+        self.assertEqual(r.status_code, 200)
+        with self.assertRaises(exceptions.NotFound):
+            self.nemo.r_assets('weird_type', 'empty.js')
+        with self.assertRaises(exceptions.NotFound):
+            self.nemo.r_assets('js', 'some_weird.js')
+
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
     #     self.assertEqual(self.nemo.term_vectors["urn:cts:formulae:buenden.meyer-marthaler0027.lat001"]["term_vectors"]["text"]["terms"]["a"]["term_freq"],
@@ -1366,6 +1376,7 @@ class TestFunctions(Formulae_Testing):
     #     with patch.object(self.app.logger, 'warning') as mock:
     #         self.nemo.make_termvectors()
     #         mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid term vector dictionary from it.')
+
 
 class TestForms(Formulae_Testing):
     def test_validate_success_login_form(self):
