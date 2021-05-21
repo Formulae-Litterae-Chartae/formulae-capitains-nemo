@@ -1211,12 +1211,12 @@ class NemoFormulae(Nemo):
                         # This links to the manuscript as a whole.
                         # I am not sure how to link to specific pages in their IIIF viewer.
                         d['lib_link'] = 'https://iiifviewer.universiteitleiden.nl/?manifest=' + this_manifest['@id']
-                    d["title"] = formulae["title"] + ' {}{}'.format(this_manifest['sequences'][0]['canvases'][0]['label'],
-                                                                    ' - ' +
-                                                                    this_manifest['sequences'][0]['canvases'][-1]['label']
-                                                                    if
-                                                                    len(this_manifest['sequences'][0]['canvases']) > 1
-                                                                    else '')
+                    folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
+                                    this_manifest['sequences'][0]['canvases'][0]['label'])
+                    if len(this_manifest['sequences'][0]['canvases']) > 1:
+                        folios += ' - ' + re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
+                                                 this_manifest['sequences'][0]['canvases'][-1]['label'])
+                    d["title"] = formulae["title"] + ' [fol.' + folios + ']'
                 else:
                     d["IIIFviewer"] = []
                     for transcription in d['transcriptions']:
