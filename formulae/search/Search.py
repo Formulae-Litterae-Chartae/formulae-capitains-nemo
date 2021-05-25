@@ -381,7 +381,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                          composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
                          regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
                          formulaic_parts: str = '', proper_name: str = '', search_id: str = '',
-                         forgeries: str = 'include',
+                         forgeries: str = 'include', regex_search: str = 'False', exclude_q: str = '',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -390,6 +390,19 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     prev_search = None
     compare_term = ''
     compare_field = ''
+
+    # Function to control the replacement of uu, vu, vv, uv, and w when in brackets
+    def repl(m):
+        first = ''
+        if m.group(1):
+            if len(m.group(1)) > 1:
+                first = '[' + m.group(1) + ']|'
+            else:
+                first = m.group(1) + '|'
+        second = 'w|uu|vu|uv|vv'
+        third = '|[' + m.group(2) + m.group(3) + ']'
+        return '(' + ''.join([first, second, third]) + ')'
+
     if q == '' and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
@@ -433,7 +446,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         ordered_terms = False
     if search_field == 'lemmas':
         fuzz = '0'
-        if '*' in q or '?' in q:
+        if '*' in q or '?' in q and regex_search == 'False':
             flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
             return [], 0, {}, []
     else:
@@ -463,10 +476,38 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_field in search_field:
                 clauses = []
                 for term in q.split():
-                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                    if u_term != term:
-                        if '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                    if regex_search == 'True':
+                        # Replace these characters if they are within brackets
+                        temp_term = re.sub(r'[ij](?=[^\[]*\])',
+                                           r'ij',
+                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
+                                                  r'uv',
+                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
+                                                         repl,
+                                                         term)))
+                        # And then to replace the characters if they are not in brackets
+                        u_term = re.sub(r'[ij](?![^[]*])',
+                                        '[ij]',
+                                        re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
+                                               r'[uv]',
+                                               re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
+                                                      '(w|uu|vu|uv|vv)',
+                                                      temp_term)))
+                    else:
+                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                    exclude_ending = ''
+                    if exclude_q:
+                        exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
+                    if u_term + exclude_ending != term:
+                        if regex_search == 'True':
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term + exclude_ending,
+                                                                                           'flags': 'ALL',
+                                                                                           'case_insensitive': True}}}}}])
+                        elif '*' in term or '?' in term:
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: {
+                                'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
+                                'flags': 'ALL',
+                                'case_insensitive': True}}}}}])
                         else:
                             words = [u_term]
                             sub_clauses = {'span_or': {'clauses': []}}
@@ -494,10 +535,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: w}}}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w + exclude_ending,
+                                                                                                                        'flags': 'ALL',
+                                                                                                                        'case_insensitive': True}}}}})
                             clauses.append([sub_clauses])
                     else:
-                        if '*' in term or '?' in term:
+                        if regex_search == 'True':
+                            clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term, 'flags': 'ALL', 'case_insensitive': True}}}}}])
+                        elif '*' in term or '?' in term:
                             clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
                         else:
                             clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
@@ -508,12 +553,36 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for term in q.split():
                 u_term = term
                 if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
-                    u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                if '*' in term or '?' in term:
-                    if u_term != term:
-                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: u_term.replace('*', '.+').replace('?', '.')}}}}])
+                    if regex_search == 'True':
+                        # Replace these characters if they are within brackets
+                        temp_term = re.sub(r'[ij](?=[^\[]*\])',
+                                           r'ij',
+                                           re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
+                                                  r'uv',
+                                                  re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
+                                                         repl,
+                                                         term)))
+                        # And then to replace the characters if they are not in brackets
+                        u_term = re.sub(r'[ij](?![^[]*])',
+                                        '[ij]',
+                                        re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
+                                               r'[uv]',
+                                               re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
+                                                      '(w|uu|vu|uv|vv)',
+                                                      temp_term)))
                     else:
-                        clauses.append([{'span_multi': {'match': {'wildcard': {search_field: term}}}}])
+                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                exclude_ending = ''
+                if exclude_q:
+                    exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
+                if regex_search == 'True':
+                    clauses.append([{'span_multi': {'match': {'regexp': {search_field: {'value': u_term + exclude_ending,
+                                                                                        'flags': 'ALL',
+                                                                                        'case_insensitive': True}}}}}])
+                elif '*' in term or '?' in term:
+                    clauses.append([{'span_multi': {'match': {'regexp': {search_field: {'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
+                                                                                        'flags': 'ALL',
+                                                                                        'case_insensitive': True}}}}}])
                 else:
                     if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
                         sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
@@ -521,7 +590,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                             sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
                         clauses.append(sub_clauses)
                     else:
-                        if u_term != term:
+                        if u_term + exclude_ending != term:
                             words = [u_term]
                             sub_clauses = {'span_or': {'clauses': []}}
                             if fuzz == 'AUTO':
@@ -548,7 +617,8 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                     for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                         words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                             for w in words:
-                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: w}}}})
+                                sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: {
+                                    'value': w + exclude_ending, 'flags': 'ALL', 'case_insensitive': True}}}}})
                             clauses.append([sub_clauses])
                         else:
                             clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
@@ -700,22 +770,13 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
                    "{regest_field}&{charter_parts}&{proper_name}&" \
-                   "{forgeries}".format(corpus='+'.join(corpus),
-                                        field=lemma_search,
-                                        q=q.replace(' ', '+'), fuzz=fuzziness,
-                                        in_order=in_order, slop=slop, y=year, m=month,
-                                        d=day, y_s=year_start,
-                                        m_s=month_start, d_s=day_start, y_e=year_end,
-                                        m_e=month_end, d_e=day_end,
-                                        d_p_m=date_plus_minus,
-                                        e_d_r=exclusive_date_range,
-                                        c_p=composition_place, sort=old_sort,
-                                        spec_days='+'.join(special_days),
-                                        regest_q=regest_q.replace(' ', '+'),
-                                        regest_field=regest_field,
-                                        charter_parts=formulaic_parts.replace(' ', '+'),
-                                        proper_name='+'.join(proper_name),
-                                        forgeries=forgeries)
+                   "{forgeries}&{regex}&{exclude_q}".format(
+            corpus='+'.join(corpus), field=lemma_search, q=q.replace(' ', '+'), fuzz=fuzziness, in_order=in_order,
+            slop=slop, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
+            m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
+            sort=old_sort, spec_days='+'.join(special_days), regest_q=regest_q.replace(' ', '+'),
+            regest_field=regest_field, charter_parts=formulaic_parts.replace(' ', '+'),
+            proper_name='+'.join(proper_name), regex=regex_search, forgeries=forgeries, exclude_q=exclude_q)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

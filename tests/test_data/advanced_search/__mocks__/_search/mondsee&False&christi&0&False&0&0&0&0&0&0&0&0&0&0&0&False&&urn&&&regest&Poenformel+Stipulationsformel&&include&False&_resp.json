@@ -1,0 +1,181 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 128",
+          "urn": "urn:cts:formulae:mondsee.rath0128.lat001",
+          "date_string": "(Anfang 784- nach 799 04)",
+          "comp_ort": "Buch/Wörth",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Buch/Wörth",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0784",
+              "lte": "0803-12-31"
+            }
+          ],
+          "all_dates": [
+            "0784",
+            "0803-12-31"
+          ],
+          "min_date": "0784",
+          "max_date": "0803-12-31",
+          "sort_prefix": 1,
+          "Arenga": "Vox divina clamat per prophetam in universo orbe dicens: nolo mortem peccatoris sed magis, ut convertatur et vivat; et in alio loco scriptura dicit: abscondite aelimosinam in sinu pauperis et ipse orat pro vobis [et] pro peccatis vestris ad dominum; et iterum dicit: quia sicut aqua extinguit ignem, ita elimosina extinguit peccatum. Ego in dei nomine Tato considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiaent vobis, de tanta igitur miseracione et pietate domini confisus, idcirco hanc epistolam donabimus donatumque in perpetuum esse volumus atque de iure nostro in potestatem et dominacionem monasterii sancti Michahelis, cuius vocabulum est Maninseo in pago Matahgouue constructum, ubi preest venerabilis Hunricus abbas vel turba plurima monachorum adunata",
+          "Arenga-lems": null,
+          "Intitulatio": "Ego in dei nomine Tato",
+          "Intitulatio-lems": null,
+          "Narratio": "considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiaent vobis ... in potestatem et dominacionem ... Ea scilicet racione, ut, dum pariter vivimus, antedicta domo vel servi seu terra sub usu [vel] beneficio in potestate nostra consistat",
+          "Narratio-lems": null,
+          "Dispositio": "idcirco ... Ea scilicet racione, ut, dum pariter vivimus, antedicta domo vel servi seu terra sub usu [vel] beneficio in potestate nostra consistat, post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium adiuvante deo consistant ... post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium adiuvante deo consistant",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "in villa nuncupante Pooh domum meam et curtem meam et mediam terram meam seu media prata mea, et servum cum uxore sua et cum domo sua et peculium utriusque sexus et terra sua, et alius homo cum uxore sua et cum domo sua et cum terra sua vel quicquid habere videtur, sicut a nobis hodierno tempore possidetur ... antedicta domo vel servi seu terra",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel qualibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus habeatur, et Iuda traditoris domini nostri Ihesu Christi perfruatur consorcio",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "ut haec presens donatio, quae a nobis pro timore die [et pro amore Christi conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa]",
+          "Stipulationsformel-lems": null
+        },
+        "highlight": {
+          "Poenformel": [
+            "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel qualibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus habeatur, et Iuda traditoris domini nostri Ihesu </small><strong>Christi</strong><small> perfruatur consorcio"
+          ],
+          "Stipulationsformel": [
+            "ut haec presens donatio, quae a nobis pro timore die [et pro amore </small><strong>Christi</strong><small> conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa]"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0128.lat001"
+        ]
+      },
+      {
+        "_index": "mondsee_v13",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 134",
+          "urn": "urn:cts:formulae:mondsee.rath0134.lat001",
+          "date_string": "Anfang 748- vor 799 04 11",
+          "comp_ort": "Langkampfen",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Langkampfen",
+          "collection": "mondsee",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0748",
+              "lte": "0799-04-11"
+            }
+          ],
+          "all_dates": [
+            "0748",
+            "0799-04-11"
+          ],
+          "min_date": "0748",
+          "max_date": "0799-04-11",
+          "sort_prefix": 1,
+          "Arenga": "Vox divina clamat per prophetam in universo orbe dicens: nolo mortem peccatoris sed magis, ut convertatur et vivat; et in alio loco scriptura dicit: abscondite aelimosinam in sinu pauperis et ipse orat pro vobis et pro peccatis vestris ad dominum; et iterum dicit: quia sicut aqua extinguit ignem, ita elimosina extinguit peccatum",
+          "Arenga-lems": null,
+          "Narratio": "Ergo ... considerans quia gravor sarcina peccatorum et reminiscens bonitatis dei dicentis: date aelimosinam et omnia munda fiant vobis, de tanta igitur miseracione et pietate domini confisus ... meo in potestatem et dominacionem ... Ea scilicet racione, ut, dum pariter vivimus ... sub usu vel beneficio in potestate nostra consistat",
+          "Narratio-lems": null,
+          "Intitulatio": "ego in dei nomine Hrodperht",
+          "Intitulatio-lems": null,
+          "Dispositio": "idcirco hanc epistolam dono atque donatumque in perpetuum esse volo atque de iure meo in potestatem et dominacionem monasterii sancti Michahelis, cuius vocabulum est Maninseo in pago Matahgouue constructum, ubi preest venerabilis Hunricus abbas vel turba plurima monachorum adunata ... post obitum vero meum, quando quidem deus volverit, omnia meliorata ad ipsum monasterium consistant",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "in villa nuncupante Lantchampha domum meam et omnia terra mea, cum domibus, edificiis, terris, pratis, aquis aquarumve decursibus, et duos servos meos cum uxoribus eorum et cum domibus eorum et cum terra eorum vel quicquid habere videntur, sicut a nobis hodierno tempore possidetur ... antedicta villa vel edificia seu servi vel quicquid ad ipsum locum pertinet",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel quelibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus abeatur, et Iuda traditoris domini nostri Ihesu Christi perfruatur consorcio",
+          "Poenformel-lems": null,
+          "Strafe": "insuper etiam, quod repetit, non valeat vindicare, et inferat partibus ipsius monasterii vel fratrum ibidem consistencium duplicem pecuniam atque substanciam, et in sacratissimo fisco auri libras II, argenti pondera V",
+          "Strafe-lems": null,
+          "Stipulationsformel": "ut haec presens donatio, que a me pro timore dei et pro amore Christi conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa",
+          "Stipulationsformel-lems": null,
+          "Eschatokoll": "Facta est autem haec cartula in loco, qui dicitur Lantchampha",
+          "Eschatokoll-lems": null,
+          "Corroboratio": "Sunt multi testes",
+          "Corroboratio-lems": null
+        },
+        "highlight": {
+          "Poenformel": [
+            "Si quis vero, quod futurum esse non credo, huic voluntati nostre quibuslibet aliquis de heredibus nostris aut iudicum seva cupiditas vel quelibet persona obvius vel repetitor extiterit, a conventu omnium Christianorum vel liminibus eclesiarum extraneus abeatur, et Iuda traditoris domini nostri Ihesu </small><strong>Christi</strong><small> perfruatur consorcio"
+          ],
+          "Stipulationsformel": [
+            "ut haec presens donatio, que a me pro timore dei et pro amore </small><strong>Christi</strong><small> conscripta est, firma et inlibata omni tempore debeat permanere, stipulacione subnixa"
+          ],
+          "text": [
+            "text"
+          ],
+          "lemmas": [
+            "lemma text"
+          ],
+          "autocomplete": [
+            "autocomplete text"
+          ],
+          "autocomplete_lemmas": [
+            "autocomplete lemma text"
+          ],
+          "regest": [
+            "regest text"
+          ],
+          "autocomplete_regest": [
+            "autocomplete regest text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mondsee.rath0134.lat001"
+        ]
+      }
+    ]
+  }
+}

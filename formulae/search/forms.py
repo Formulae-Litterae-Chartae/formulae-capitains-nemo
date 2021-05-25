@@ -61,6 +61,7 @@ class SearchForm(FlaskForm):
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
     lemma_search = BooleanField(_l('Lemma'))
+    regex_search = BooleanField(_l('Regulärer Ausdruck'))
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
@@ -131,5 +132,6 @@ class AdvancedSearchForm(SearchForm):
                                     ("exclude", _l('ohne Fälschungen')),
                                     ('only', _l('nur Fälschungen'))],
                            default="include")
+    exclude_q = StringField(_l('Ausschlusskriterium'))
     search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
     submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")
