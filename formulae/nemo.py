@@ -768,7 +768,7 @@ class NemoFormulae(Nemo):
                               "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                               "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                               "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': work_name, 'title': str(parent_title)}
+                              'name': Markup(work_name), 'title': Markup(str(parent_title))}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
