@@ -100,7 +100,7 @@ def get_locale():
         return current_user.default_locale
     if 'locale' in session:
         return session['locale']
-    return request.accept_languages.best_match(current_app.config['LANGUAGES'])
+    return request.accept_languages.best_match(current_app.config['LANGUAGES'], default='de')
 
 
 from formulae import models
