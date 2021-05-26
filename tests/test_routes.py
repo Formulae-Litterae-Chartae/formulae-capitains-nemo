@@ -1311,9 +1311,16 @@ class TestFunctions(Formulae_Testing):
 
     def test_sort_folia(self):
         """ Makes sure that the sort_folia function returns correct strings"""
-        test_strings = {'urn:cts:formulae:p16.4v6r': '0004v-6r', 'urn:cts:formulae:m4.39r24r': '0039r-24r',
-                        'urn:cts:formulae:p3.130va131rb': '0130va-131rb', 'urn:cts:formulae:fu2.148v': '0148v',
-                        'urn:cts:formulae:p3.134vb': '0134vb'}
+        test_strings = {'urn:cts:formulae:p16.4v6r':
+                            '0004<span class="verso-recto">v</span>-6<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:m4.39r24r':
+                            '0039<span class="verso-recto">r</span>-24<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:p3.130va131rb':
+                            '0130<span class="verso-recto">va</span>-131<span class="verso-recto">rb</span>',
+                        'urn:cts:formulae:fu2.148v':
+                            '0148<span class="verso-recto">v</span>',
+                        'urn:cts:formulae:p3.134vb':
+                            '0134<span class="verso-recto">vb</span>'}
         for k, v in test_strings.items():
             par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
