@@ -680,6 +680,12 @@ h1 .manuscript-number {
     margin-bottom: 0;
 }
 
+.entry-folia {
+    font-size: larger;
+    line-height: 1em;
+    margin-bottom: 0;
+}
+
 .kurz-regest {
     color: #595959;
     font-weight: bold;
