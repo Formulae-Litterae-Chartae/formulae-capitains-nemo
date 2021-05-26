@@ -44,7 +44,7 @@
                                         <li><b><span id="{{choice[1]}}-corpus-tooltip" data-toggle="tooltip"
                                                      {% if not choice[2] %} class="invisible"{%endif %}
                                                                 data-container="#{{choice[1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieser Korpus ist lemmatisiert') }}"
+                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
                                         tabindex="0">*</span></b>
                                             <input class="under-chartae under-all" id="{{ choice[1] }}" name="corpus"
                                                    type="checkbox" value="{{ choice[1] }}"{% if choice[1] in
@@ -73,7 +73,7 @@
                                                                 data-container="#regex-search-tooltip"
                                                                 title="{{ _('Reguläre Ausdrücke (regular expressions) benutzen') }}">{{
                                     form.regex_search() }} <span
-                                        class="align-top">{{ form.regex_search.label(class="mb-0") }}</span></span></p>
+                                        class="align-top">{{ form.regex_search.label(class="mb-0") }}</span></span><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regexSearchMessage }}" aria-label="{{ _('Hilfe für regulärer Ausdruck-Suche') }}"><i class="fas fa-question-circle align-top"></i></button></p>
 
                             </div>
                             <div class="col-6">
