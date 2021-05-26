@@ -306,12 +306,13 @@ class NemoFormulae(Nemo):
         """Sets up the folia ranges of manuscripts for better sorting"""
         groups = []
         sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
-        groups.append('{:04}{}'.format(int(sub_groups[0]), sub_groups[1]))
+        groups.append('{:04}<span class="verso-recto">{}</span>'.format(int(sub_groups[0]), sub_groups[1]))
         if matchobj.group(2):
-            groups.append(matchobj.group(2))
+            new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
+            groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
         return '-'.join(groups)
 
-    def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: XmlCapitainsCollectionMetadata)\
+    def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
                      Union[List[Sequence[str]], list],
                      XmlCapitainsReadableMetadata]:
@@ -744,14 +745,14 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    work_name = par.lstrip('0') if type(par) is str else ''
+                    work_name = par.lstrip('0') if isinstance(par, str) else ''
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'urn:cts:formulae:marculf' in m.ancestors:
+                    if 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
                         work_name = str(parent_title).replace('Marculf ', '')
                         if 'Prolog' in work_name:
                             work_name = _('(Prolog)')
@@ -1216,7 +1217,8 @@ class NemoFormulae(Nemo):
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
                         folios += ' - ' + re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                                  this_manifest['sequences'][0]['canvases'][-1]['label'])
-                    d["title"] = formulae["title"] + ' [fol.' + folios + ']'
+                    d["label"] = [formulae["title"], ' [fol.' + folios + ']']
+
                 else:
                     d["IIIFviewer"] = []
                     for transcription in d['transcriptions']:
@@ -1230,6 +1232,9 @@ class NemoFormulae(Nemo):
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and session['previous_search_args'].get('q'):
                             d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
+                    if d['collections']['current']['sigla'] != '':
+                        d['collections']['current']['label'] = d['collections']['current']['label'].split(' [')
+                        d['collections']['current']['label'][-1] = ' [' + d['collections']['current']['label'][-1]
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
