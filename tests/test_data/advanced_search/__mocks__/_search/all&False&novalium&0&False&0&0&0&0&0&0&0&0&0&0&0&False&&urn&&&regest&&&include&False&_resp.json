@@ -1,9 +1,9 @@
 {
-  "took": 26,
+  "took": 24,
   "timed_out": false,
   "_shards": {
-    "total": 53,
-    "successful": 53,
+    "total": 56,
+    "successful": 56,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "lorsch_v13",
+        "_index": "lorsch_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
         "_score": null,
@@ -73,7 +73,7 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v13",
+        "_index": "marmoutier_dunois_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
         "_score": null,
@@ -131,7 +131,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
         "_score": null,
@@ -180,7 +180,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
         "_score": null,
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
         "_score": null,
@@ -278,7 +278,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
         "_score": null,
@@ -327,7 +327,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
         "_score": null,
@@ -376,7 +376,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
         "_score": null,
@@ -425,7 +425,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
         "_score": null,
@@ -474,7 +474,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
         "_score": null,
@@ -523,7 +523,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
         "_score": null,
@@ -572,7 +572,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
         "_score": null,
@@ -621,7 +621,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
         "_score": null,
@@ -670,7 +670,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v13",
+        "_index": "papsturkunden_frankreich_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
         "_score": null,
