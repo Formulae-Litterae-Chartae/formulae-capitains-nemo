@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13459,
+      "doc_count": 13596,
       "forgeries": {
         "doc_count": 151
       },
@@ -29,13 +29,16 @@
             "doc_count": 3
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XI": {
-            "doc_count": 2
+            "doc_count": 1
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XII": {
             "doc_count": 15
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
             "doc_count": 4
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XLVII": {
+            "doc_count": 7
           },
           "<b>Dijon</b>: Saint-Bénigne de Dijon": {
             "doc_count": 174
@@ -71,7 +74,7 @@
             "doc_count": 6
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "<b>Merowinger</b>: Merowinger": {
             "doc_count": 196
@@ -112,6 +115,9 @@
           "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
             "doc_count": 1
           },
+          "<b>Touraine</b>: Accord entre Bonneval et Marmoutier": {
+            "doc_count": 1
+          },
           "<b>Touraine</b>: Cormery (TELMA)": {
             "doc_count": 5
           },
@@ -148,6 +154,9 @@
           "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
             "doc_count": 50
           },
+          "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+            "doc_count": 184
+          },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 15
           },
@@ -176,7 +185,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 11
+            "doc_count": 14
           },
           {
             "key": "500-599",
@@ -192,7 +201,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 162
+            "doc_count": 163
           },
           {
             "key": "700-799",
@@ -200,7 +209,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4427
+            "doc_count": 4429
           },
           {
             "key": "800-899",
@@ -216,18 +225,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2990
+            "doc_count": 2996
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1524
+            "doc_count": 1702
           }
         ]
       },
       "no_date": {
-        "doc_count": 702
+        "doc_count": 649
       }
     },
     "forgeries": {
@@ -263,6 +272,9 @@
           "doc_count": 1
         },
         "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XLVII": {
           "doc_count": 0
         },
         "<b>Dijon</b>: Saint-Bénigne de Dijon": {
@@ -320,7 +332,7 @@
           "doc_count": 261
         },
         "<b>Rheinland</b>: Mittelrheinisch": {
-          "doc_count": 80
+          "doc_count": 79
         },
         "<b>Rheinland</b>: Rheinisch": {
           "doc_count": 71
@@ -338,6 +350,9 @@
           "doc_count": 610
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
+          "doc_count": 1
+        },
+        "<b>Touraine</b>: Accord entre Bonneval et Marmoutier": {
           "doc_count": 1
         },
         "<b>Touraine</b>: Cormery (TELMA)": {
@@ -375,6 +390,9 @@
         },
         "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
           "doc_count": 50
+        },
+        "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 184
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 15
@@ -444,13 +462,13 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 2990
+          "doc_count": 2996
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 1524
+          "doc_count": 1702
         }
       ]
     },

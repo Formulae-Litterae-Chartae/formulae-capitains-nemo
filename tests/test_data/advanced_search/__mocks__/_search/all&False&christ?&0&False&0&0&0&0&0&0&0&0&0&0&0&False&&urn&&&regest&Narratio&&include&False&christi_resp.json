@@ -1,279 +1,21 @@
 {
-  "took": 16,
+  "took": 17,
   "timed_out": false,
   "_shards": {
-    "total": 53,
-    "successful": 53,
+    "total": 56,
+    "successful": 56,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
     "total": {
-      "value": 15,
+      "value": 7,
       "relation": "eq"
     },
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:freising.bitterauf0018.lat001",
-        "_score": null,
-        "_source": {
-          "text": "DONATIO ERCHANPALDI DE PERAHAH. In nomine domini nostri Jesu Christi salvatoris dei Ego Erchanpald cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura proprietatis meae quod pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Perahah et Munirihhinga Enimvero tradidi de Perahah domum cum omnibus aedificiis curtiferis sepe circumcinctis et tres familias cum coloniis et cum omnibus quaecunque habent quorum nomina Nordperht et alii quinque nomine Lantfrid et uxor sua Otrih et mater eius et Alarih frater eius et in vico Muni­rihhinga duas familias cum omnibus illorum utensiliis quorum nomina Pirhtilo et uxor sua Hroadheri cum sua uxore et omnem territorium sub nostro iure et alode pratis pascuis silvis quod ad me pertinere legibus videbatur post obitum vero meum donatum ad ecclesiam sanctae Mariae domum episcopalem sicut supradictum est donatum in perpetuum esse volo tam pro me quam pro patrem meum Reginpaldum et matrem meam Cotafrita et Oadalkerum, ut hereditas mea hereditas sit sanctorum",
-          "lemmas": null,
-          "regest": "Erchanpald schenkt Besitz zu Hohen(Ach)percha und Mintraching.",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 18",
-          "urn": "urn:cts:formulae:freising.bitterauf0018.lat001",
-          "date_string": "762-764",
-          "comp_ort": " ",
-          "autocomplete": "DONATIO ERCHANPALDI DE PERAHAH. In nomine domini nostri Jesu Christi salvatoris dei Ego Erchanpald cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura proprietatis meae quod pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Perahah et Munirihhinga Enimvero tradidi de Perahah domum cum omnibus aedificiis curtiferis sepe circumcinctis et tres familias cum coloniis et cum omnibus quaecunque habent quorum nomina Nordperht et alii quinque nomine Lantfrid et uxor sua Otrih et mater eius et Alarih frater eius et in vico Muni­rihhinga duas familias cum omnibus illorum utensiliis quorum nomina Pirhtilo et uxor sua Hroadheri cum sua uxore et omnem territorium sub nostro iure et alode pratis pascuis silvis quod ad me pertinere legibus videbatur post obitum vero meum donatum ad ecclesiam sanctae Mariae domum episcopalem sicut supradictum est donatum in perpetuum esse volo tam pro me quam pro patrem meum Reginpaldum et matrem meam Cotafrita et Oadalkerum, ut hereditas mea hereditas sit sanctorum",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Erchanpald schenkt Besitz zu Hohen(Ach)percha und Mintraching.",
-          "orig_comp_ort": " ",
-          "collection": "freising",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0762",
-              "lte": "0764-12-31"
-            }
-          ],
-          "all_dates": [
-            "0762",
-            "0764-12-31"
-          ],
-          "min_date": "0762",
-          "max_date": "0764-12-31",
-          "sort_prefix": 1,
-          "Invocatio": "In nomine\n                            domini nostri Jesu Christi salvatoris dei",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Erchanpald",
-          "Intitulatio-lems": null,
-          "Narratio": "cogitans enim\n                            aeternam beatitudinem possidere vel poenalem iudicium evadere et\n                            considerans, qualiter contemnentes deum poenam incidunt aeternam et\n                            Christo adherentes vitam adipiscunt sempiternam, propterea igitur\n                            statui ut de iura proprietatis meae quod pater meus mihi in hereditatem\n                            reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei\n                            genetricis Mariae semper virginis in locis nominatis Perahah et\n                            Munirihhinga",
-          "Narratio-lems": null,
-          "Dispositio": "propterea igitur\n                            statui ... Enimvero tradidi ... post obitum vero meum donatum ad ecclesiam sanctae\n                            Mariae domum episcopalem sicut supradictum est donatum in perpetuum esse\n                            volo tam pro me quam pro patrem meum Reginpaldum et matrem meam\n                            Cotafrita et Oadalkerum, ut hereditas mea hereditas sit\n                        sanctorum ",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "de Perahah domum cum omnibus aedificiis\n                            curtiferis sepe circumcinctis et tres familias cum coloniis et cum\n                            omnibus quaecunque habent quorum nomina Nordperht et alii quinque nomine\n                            Lantfrid et uxor sua Otrih et mater eius et Alarih frater eius et in\n                            vico Muni­rihhinga duas familias cum omnibus illorum utensiliis quorum\n                            nomina Pirhtilo et uxor sua Hroadheri cum sua uxore et omnem territorium\n                            sub nostro iure et alode pratis pascuis silvis quod ad me pertinere\n                            legibus videbatur",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "donatum in perpetuum esse\n                            volo tam pro me quam pro patrem meum Reginpaldum et matrem meam\n                            Cotafrita et Oadalkerum, ut hereditas mea hereditas sit\n                        sanctorum",
-          "Corroboratio-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "cogitans enim\n                            aeternam beatitudinem possidere vel poenalem iudicium evadere et\n                            considerans, qualiter contemnentes deum poenam incidunt aeternam et\n                            </small><strong>Christo</strong><small> adherentes vitam adipiscunt sempiternam, propterea igitur\n                            statui ut de iura proprietatis meae quod pater meus mihi in hereditatem\n                            reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei\n                            genetricis Mariae semper virginis in locis nominatis Perahah et\n                            Munirihhinga"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:freising.bitterauf0018.lat001"
-        ]
-      },
-      {
-        "_index": "freising_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:freising.bitterauf0022.lat001",
-        "_score": null,
-        "_source": {
-          "text": "TRADITIO PERCHAK. In nomine domini nostri Jesu Christi Ego Reginolt et germanus meus Egeno pro remedio anime nostrae sive parentum nostrorum, id est pro patre vel matre seu avones et pro omnibus qui de propinquitate nostra sunt qui in Christo crediderunt tradidimus atque transfundavimus de paterna seu qualibet hereditate totum et integrum ad ecclesiam sancti Michahelis in loco qui vocatur Perchak, omnia ad ipsum locum dedimus atque transfundavimus per licentiam et hortamentum parentum nostrorum et ipsos presentes et testes tradentes ex integro qui presentes fuerunt secundum quod ecclesiasticis viris didicimus ut hec donatio firma et stabilis permaneat Et si quis de heredibus meis vel propinquis seu oppositia persona qui contra hanc donationem ire aut frangere voluerit, inprimis iram dei incurrat et iudici qui eodem tempore fuerit solvat auri uncias XII et in conspectu dei cum omnibus sanctis seu patribus CCCXVIII sciat se rationem redditurum qui ullo modo hanc donationem frangere voluerit, si se non emendaverit, dampnetur et anathematizetur ab omni aecclesia sancta dei. Nomina testium in libro traditionum habentur. Facta est hec epistula tempore excellentissimi viri Pippini regis et Tassiloni ducis mense VII. X. die mensi VII. Et ego Reginolt et germanus meus Egino per licentiam omnium servorum dei usque dum vita nostra est, si revertimus, petimus, ut ipsa causa que pro nos tradimus nobis deserviat et ad locum ubi nos deservimus et consolationem habemus seu et mater nostra ipso modo cum ipsa causa, usque dum vivat, in ea vivat et deserviat ad ipsos sanctos ut supra scriptum est.",
-          "lemmas": null,
-          "regest": "Reginolt und Egeno geben ihren Besitz an die Kirche zu Hohenbercha.",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 22",
-          "urn": "urn:cts:formulae:freising.bitterauf0022.lat001",
-          "date_string": "Vor 765-767 07 10",
-          "comp_ort": " ",
-          "autocomplete": "TRADITIO PERCHAK. In nomine domini nostri Jesu Christi Ego Reginolt et germanus meus Egeno pro remedio anime nostrae sive parentum nostrorum, id est pro patre vel matre seu avones et pro omnibus qui de propinquitate nostra sunt qui in Christo crediderunt tradidimus atque transfundavimus de paterna seu qualibet hereditate totum et integrum ad ecclesiam sancti Michahelis in loco qui vocatur Perchak, omnia ad ipsum locum dedimus atque transfundavimus per licentiam et hortamentum parentum nostrorum et ipsos presentes et testes tradentes ex integro qui presentes fuerunt secundum quod ecclesiasticis viris didicimus ut hec donatio firma et stabilis permaneat Et si quis de heredibus meis vel propinquis seu oppositia persona qui contra hanc donationem ire aut frangere voluerit, inprimis iram dei incurrat et iudici qui eodem tempore fuerit solvat auri uncias XII et in conspectu dei cum omnibus sanctis seu patribus CCCXVIII sciat se rationem redditurum qui ullo modo hanc donationem frangere voluerit, si se non emendaverit, dampnetur et anathematizetur ab omni aecclesia sancta dei. Nomina testium in libro traditionum habentur. Facta est hec epistula tempore excellentissimi viri Pippini regis et Tassiloni ducis mense VII. X. die mensi VII. Et ego Reginolt et germanus meus Egino per licentiam omnium servorum dei usque dum vita nostra est, si revertimus, petimus, ut ipsa causa que pro nos tradimus nobis deserviat et ad locum ubi nos deservimus et consolationem habemus seu et mater nostra ipso modo cum ipsa causa, usque dum vivat, in ea vivat et deserviat ad ipsos sanctos ut supra scriptum est.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Reginolt und Egeno geben ihren Besitz an die Kirche zu Hohenbercha.",
-          "orig_comp_ort": " ",
-          "collection": "freising",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0764-07-10",
-              "lte": "0767-07-10"
-            }
-          ],
-          "specific_date": [
-            {
-              "year": 764,
-              "month": 7,
-              "day": 10
-            },
-            {
-              "year": 765,
-              "month": 7,
-              "day": 10
-            },
-            {
-              "year": 766,
-              "month": 7,
-              "day": 10
-            },
-            {
-              "year": 767,
-              "month": 7,
-              "day": 10
-            }
-          ],
-          "all_dates": [
-            "0764-07-10",
-            "0767-07-10",
-            "0764-07-10",
-            "0765-07-10",
-            "0766-07-10",
-            "0767-07-10"
-          ],
-          "min_date": "0764-07-10",
-          "max_date": "0767-07-10",
-          "days": [
-            "Wednesday",
-            "Friday",
-            "Tuesday",
-            "Thursday"
-          ],
-          "sort_prefix": 1,
-          "Invocatio": "In nomine domini nostri Jesu\n                            Christi",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Reginolt et germanus meus Egeno",
-          "Intitulatio-lems": null,
-          "Narratio": "pro remedio anime nostrae\n                            sive parentum nostrorum, id est pro patre vel matre seu avones et pro\n                            omnibus qui de propinquitate nostra sunt qui in Christo crediderunt",
-          "Narratio-lems": null,
-          "Dispositio": "tradidimus atque transfundavimus ... dedimus atque transfundavimus per\n                            licentiam et hortamentum parentum nostrorum et ipsos presentes et testes\n                            tradentes ex integro qui presentes fuerunt secundum quod ecclesiasticis\n                            viris didicimus",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "de paterna seu qualibet hereditate\n                            totum et integrum ... omnia ... ex integro",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "transfundavimus",
-          "Corroboratio-lems": null,
-          "Stipulationsformel": "ut hec donatio firma et stabilis permaneat",
-          "Stipulationsformel-lems": null,
-          "Poenformel": "Et si quis\n                            de heredibus meis vel propinquis seu oppositia persona qui contra hanc\n                            donationem ire aut frangere voluerit, inprimis iram dei incurrat ... iudici qui eodem tempore fuerit solvat auri uncias XII et in conspectu\n                            dei cum omnibus sanctis seu patribus CCCXVIII sciat se rationem\n                            redditurum",
-          "Poenformel-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "pro remedio anime nostrae\n                            sive parentum nostrorum, id est pro patre vel matre seu avones et pro\n                            omnibus qui de propinquitate nostra sunt qui in </small><strong>Christo</strong><small> crediderunt"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:freising.bitterauf0022.lat001"
-        ]
-      },
-      {
-        "_index": "freising_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:freising.bitterauf0093.lat001",
-        "_score": null,
-        "_source": {
-          "text": "TRADITIO UUILLAPATONIS PRESBITERI DE RUPILINGA ET AGUSINGA. In nomine domini nostri Jesu Christi salvatoris dei Ego Uuillapato presbiter cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura propriis meis quae pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Rupilinga et Agusinga, sunt exinde colonias II de territorio et lucrum meum quicquid ab eo die adipiscere aut emeliorare possim, totum et integrum post die discessionis meae ab ac luce redeat ad servitium domui supradicto firma et stabilis pro remedium animae meae Et haec sunt testes Umfrid presbiter. Samuel diaconus. Uuilliperht testis. Adalhart comes. Kerpato comes. Uualtrih testis.",
-          "lemmas": null,
-          "regest": "Der Priester Uuillapato schenkt Besitz zu Raubling und Aysing.",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 93",
-          "urn": "urn:cts:formulae:freising.bitterauf0093.lat001",
-          "date_string": "778-783",
-          "comp_ort": " ",
-          "autocomplete": "TRADITIO UUILLAPATONIS PRESBITERI DE RUPILINGA ET AGUSINGA. In nomine domini nostri Jesu Christi salvatoris dei Ego Uuillapato presbiter cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura propriis meis quae pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Rupilinga et Agusinga, sunt exinde colonias II de territorio et lucrum meum quicquid ab eo die adipiscere aut emeliorare possim, totum et integrum post die discessionis meae ab ac luce redeat ad servitium domui supradicto firma et stabilis pro remedium animae meae Et haec sunt testes Umfrid presbiter. Samuel diaconus. Uuilliperht testis. Adalhart comes. Kerpato comes. Uualtrih testis.",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Der Priester Uuillapato schenkt Besitz zu Raubling und Aysing.",
-          "orig_comp_ort": " ",
-          "collection": "freising",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0778",
-              "lte": "0783-12-31"
-            }
-          ],
-          "all_dates": [
-            "0778",
-            "0783-12-31"
-          ],
-          "min_date": "0778",
-          "max_date": "0783-12-31",
-          "sort_prefix": 1,
-          "Invocatio": "In nomine domini nostri Jesu Christi salvatoris dei",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Uuillapato presbiter",
-          "Intitulatio-lems": null,
-          "Narratio": "cogitans enim aeternam beatitudinem possidere\n                            vel poenalem iudicium evadere et considerans, qualiter contemnentes deum\n                            poenam incidunt aeternam et Christo adherentes vitam adipiscunt\n                            sempiternam, propterea igitur statui",
-          "Narratio-lems": null,
-          "Pertinenzformel": "de iura propriis meis quae\n                            pater meus mihi in hereditatem reliquid ... in locis\n                            nominatis Rupilinga et Agusinga, sunt exinde colonias II de territorio\n                            et lucrum meum quicquid ab eo die adipiscere aut emeliorare possim,\n                            totum et integrum",
-          "Pertinenzformel-lems": null,
-          "Dispositio": "tradidi ... post die discessionis meae ab ac luce redeat ad\n                            servitium domui supradicto firma et stabilis pro remedium animae meae",
-          "Dispositio-lems": null,
-          "Corroboratio": "Et haec sunt testes",
-          "Corroboratio-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "cogitans enim aeternam beatitudinem possidere\n                            vel poenalem iudicium evadere et considerans, qualiter contemnentes deum\n                            poenam incidunt aeternam et </small><strong>Christo</strong><small> adherentes vitam adipiscunt\n                            sempiternam, propterea igitur statui"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:freising.bitterauf0093.lat001"
-        ]
-      },
-      {
-        "_index": "freising_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:freising.bitterauf1031.lat001",
-        "_score": null,
-        "_source": {
-          "text": "COMMUTATIO WALDONIS EPISCOPI ET VIDUAE IRMBURC NOMINE. In nomine dei et salvatoris nostri Agnoscant omnes Christiane religionis cultores, qualiter nobilis quedam vidua Irmburc nominata cogitans, quia unicuique incertus est dies erit sui et quia qui Christo dat ista transitoria secundum evangelium eterna recipiet premia. Huius evangelici promissi memor et etiam presentis vitae cauta inspectatrix venit cum aliquibus amicis suis in Frigisingam ad Uualdonem eidem sedis venerabilem rectorem inplorans, ut eius consultu et adiutorio et eternae et presentis vitae subsidium possidere mereretur. Cuius etiam peticioni pie annuens et consultu fidelium suorum consilium dedit et sicut secum de domo dei complacitare voluit rite et legaliter implevit Tradidit namque eadem prefata vidua cum advocato suo Richolfo nullo contradicente presente et eandem traditionem accipiende eodem episcopo cum advocato suo Erphhario necnon astante clericorum et nobilium laicorum non modica turba quicquid ad Murun proprietatis habuit in altare sanctae genitricis dei et sancti Corbiniani confessoris atque deinde ad Mosapurg in aram sancti Castuli martyris Christi, id est ecclesiam cum omnibus ecclesiasticis rebus infra ecclesiam campanas II altaria III capsas VI cruces in cornu paratas palliola serica IIII et alia VIIII calices II unum arg( enteum), alterum plumpeum patenas II unam arg( enteam), alteram cupream corporalem I casulam I sericam, alteram lineam, tertiam laneam stolam I albam I mappulas II zonas II missales II lectionarium I antiphonarium I gradalem I librum omeliarum I coronam I cortinas IIII vexillas IIII et omnem decimationem atque curtám cum domo et horreo atque aedificiis et etiam terram prata silvulas aquas aquarumve decursus vias et invias cum exitibus et reditibus et unum litus super Ysaram fluvium et quicquid ad eundem locum pertinuit in adquisitis et adquirendis totum et integrum tradidit et nihil pretermisit; mancipia vero tantum XX tradidit quorum nomina sunt: Liutperht, alius Livtperht, Adalger, Vuolfpero, Irmperht, Engilgoz, Plidker .. Ŏdalrih, Uuillipolt, Waldni, Sigini, Ruodhilt, Kerhilt, Uuilla, Vuentilpurc, Vuillidrud, Sigipirc, alia Sigipirc. Isti sunt testes tradicionis quam eadem Irmpurc fecit Helmpreht. Ratolt. Engilhart. Asperht. Helmperht. Egilolf. Ruodperht. Rihheri. Ratolt. Epo. Diotperht. Wiccȏ. Uȏdalperht. Hunolf. Vuillihelm. Rihholf. Econtra vero prout voluit et complacitare libuit eadem prefata vidua tradente episcopo et advocato suo Erphhario coram altari sanctae Mariae cum advocato suo Rihholfo in proprietatem accepit quendam locum ad Mosapurc pertinentem qui dicitur Perchoua et quicquid ad eundem locum iure pertinere videbatur exceptis pratis de quibus tantum C carradas accepit. Haec sunt mancipia ad eundem locum pertinentia: Immo, Adalpold, alius Immo, Ellanpold, Egilolf, Liupuni, Heripold, Cotafrid, Altheri, Otker, Diotlind, Wasapurc, Adalmuot, Irmpurc, Vuillihilt, Perchkart, Cȏtila, Rihpirc, insuper etiam mansos II et in eisdem mancipia VIII quorum nomina sunt Adalolf et Emita, Adalger et Kundila, Adaluni et Himildrud, Rûoheri et Cozila adque molas duas in una domo et unum molinarium, insuper vero ad Grantouuva mansos II accepit et in eisdem mancipia VIII quorum nomina sunt Vuaninc et Adalmuȏt, Ruodmunt et Hiltidrud, Liutram et Patihilt, Etih et Irminhilt Haec omnia de domo dei ita accepit, ut usque in finem vitae suae eadem Irmpurc easdem res idem et quas tradidit et quas accepit teneat possideat et quamdiu vivat rite in eis faciat; post transitum vero et finem dierum suorum ambe res ad domum dei et curam rectorem eiusdem ecclesiae redeant et stabili nutu perenniter fixe permaneant. Actum ad Frigisingam in ecclesia beatae Mariae anno DCCCXCVIIII",
-          "lemmas": null,
-          "regest": "Die Edle Witwe Irmburc übergibt der Kirche zu Moosburg bezw. Freising ihren Besitz zu Mauern gegen Anweisung von Liegenschaften und Unfreien zu Berg¬hofen und ,,Grantouua“.",
-          "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1031",
-          "urn": "urn:cts:formulae:freising.bitterauf1031.lat001",
-          "date_string": "899",
-          "comp_ort": "Freising",
-          "autocomplete": "COMMUTATIO WALDONIS EPISCOPI ET VIDUAE IRMBURC NOMINE. In nomine dei et salvatoris nostri Agnoscant omnes Christiane religionis cultores, qualiter nobilis quedam vidua Irmburc nominata cogitans, quia unicuique incertus est dies erit sui et quia qui Christo dat ista transitoria secundum evangelium eterna recipiet premia. Huius evangelici promissi memor et etiam presentis vitae cauta inspectatrix venit cum aliquibus amicis suis in Frigisingam ad Uualdonem eidem sedis venerabilem rectorem inplorans, ut eius consultu et adiutorio et eternae et presentis vitae subsidium possidere mereretur. Cuius etiam peticioni pie annuens et consultu fidelium suorum consilium dedit et sicut secum de domo dei complacitare voluit rite et legaliter implevit Tradidit namque eadem prefata vidua cum advocato suo Richolfo nullo contradicente presente et eandem traditionem accipiende eodem episcopo cum advocato suo Erphhario necnon astante clericorum et nobilium laicorum non modica turba quicquid ad Murun proprietatis habuit in altare sanctae genitricis dei et sancti Corbiniani confessoris atque deinde ad Mosapurg in aram sancti Castuli martyris Christi, id est ecclesiam cum omnibus ecclesiasticis rebus infra ecclesiam campanas II altaria III capsas VI cruces in cornu paratas palliola serica IIII et alia VIIII calices II unum arg( enteum), alterum plumpeum patenas II unam arg( enteam), alteram cupream corporalem I casulam I sericam, alteram lineam, tertiam laneam stolam I albam I mappulas II zonas II missales II lectionarium I antiphonarium I gradalem I librum omeliarum I coronam I cortinas IIII vexillas IIII et omnem decimationem atque curtám cum domo et horreo atque aedificiis et etiam terram prata silvulas aquas aquarumve decursus vias et invias cum exitibus et reditibus et unum litus super Ysaram fluvium et quicquid ad eundem locum pertinuit in adquisitis et adquirendis totum et integrum tradidit et nihil pretermisit; mancipia vero tantum XX tradidit quorum nomina sunt: Liutperht, alius Livtperht, Adalger, Vuolfpero, Irmperht, Engilgoz, Plidker .. Ŏdalrih, Uuillipolt, Waldni, Sigini, Ruodhilt, Kerhilt, Uuilla, Vuentilpurc, Vuillidrud, Sigipirc, alia Sigipirc. Isti sunt testes tradicionis quam eadem Irmpurc fecit Helmpreht. Ratolt. Engilhart. Asperht. Helmperht. Egilolf. Ruodperht. Rihheri. Ratolt. Epo. Diotperht. Wiccȏ. Uȏdalperht. Hunolf. Vuillihelm. Rihholf. Econtra vero prout voluit et complacitare libuit eadem prefata vidua tradente episcopo et advocato suo Erphhario coram altari sanctae Mariae cum advocato suo Rihholfo in proprietatem accepit quendam locum ad Mosapurc pertinentem qui dicitur Perchoua et quicquid ad eundem locum iure pertinere videbatur exceptis pratis de quibus tantum C carradas accepit. Haec sunt mancipia ad eundem locum pertinentia: Immo, Adalpold, alius Immo, Ellanpold, Egilolf, Liupuni, Heripold, Cotafrid, Altheri, Otker, Diotlind, Wasapurc, Adalmuot, Irmpurc, Vuillihilt, Perchkart, Cȏtila, Rihpirc, insuper etiam mansos II et in eisdem mancipia VIII quorum nomina sunt Adalolf et Emita, Adalger et Kundila, Adaluni et Himildrud, Rûoheri et Cozila adque molas duas in una domo et unum molinarium, insuper vero ad Grantouuva mansos II accepit et in eisdem mancipia VIII quorum nomina sunt Vuaninc et Adalmuȏt, Ruodmunt et Hiltidrud, Liutram et Patihilt, Etih et Irminhilt Haec omnia de domo dei ita accepit, ut usque in finem vitae suae eadem Irmpurc easdem res idem et quas tradidit et quas accepit teneat possideat et quamdiu vivat rite in eis faciat; post transitum vero et finem dierum suorum ambe res ad domum dei et curam rectorem eiusdem ecclesiae redeant et stabili nutu perenniter fixe permaneant. Actum ad Frigisingam in ecclesia beatae Mariae anno DCCCXCVIIII",
-          "autocomplete_lemmas": null,
-          "autocomplete_regest": "Die Edle Witwe Irmburc übergibt der Kirche zu Moosburg bezw. Freising ihren Besitz zu Mauern gegen Anweisung von Liegenschaften und Unfreien zu Berg¬hofen und ,,Grantouua“.",
-          "orig_comp_ort": "Freising",
-          "collection": "freising",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 899
-            }
-          ],
-          "all_dates": [
-            "0899"
-          ],
-          "min_date": "0899",
-          "max_date": "0899",
-          "sort_prefix": 1,
-          "Invocatio": "In nomine dei et salvatoris nostri",
-          "Invocatio-lems": null,
-          "Publicatio": "Agnoscant omnes\n                            Christiane religionis cultores, qualiter",
-          "Publicatio-lems": null,
-          "Intitulatio": "nobilis quedam vidua Irmburc\n                            nominata",
-          "Intitulatio-lems": null,
-          "Narratio": "cogitans, quia unicuique incertus est dies erit sui et quia qui\n                            Christo dat ista transitoria secundum evangelium eterna recipiet premia.\n                            Huius evangelici promissi memor et etiam presentis vitae cauta\n                            inspectatrix venit cum aliquibus amicis suis in Frigisingam ad Uualdonem\n                            eidem sedis venerabilem rectorem inplorans, ut eius consultu et\n                            adiutorio et eternae et presentis vitae subsidium possidere mereretur.\n                            Cuius etiam peticioni pie annuens et consultu fidelium suorum consilium\n                            dedit et sicut secum de domo dei complacitare voluit rite et legaliter\n                            implevit",
-          "Narratio-lems": null,
-          "Dispositio": "Tradidit namque ... Econtra vero\n                            prout voluit et complacitare libuit eadem prefata vidua tradente\n                            episcopo et advocato suo Erphhario coram altari sanctae Mariae cum\n                            advocato suo Rihholfo in proprietatem accepit",
-          "Dispositio-lems": null,
-          "Corroboratio": "Isti sunt\n                            testes tradicionis quam eadem Irmpurc fecit",
-          "Corroboratio-lems": null,
-          "Pertinenzformel": "quendam locum ad Mosapurc\n                            pertinentem qui dicitur Perchoua et quicquid ad eundem locum iure\n                            pertinere videbatur exceptis pratis de quibus tantum C carradas accepit.\n                            Haec sunt mancipia ad eundem locum pertinentia: Immo, Adalpold, alius\n                            Immo, Ellanpold, Egilolf, Liupuni, Heripold, Cotafrid, Altheri, Otker,\n                            Diotlind, Wasapurc, Adalmuot, Irmpurc, Vuillihilt, Perchkart, Cȏtila,\n                            Rihpirc, insuper etiam mansos II et in eisdem mancipia VIII quorum\n                            nomina sunt Adalolf et Emita, Adalger et Kundila, Adaluni et Himildrud,\n                            Rûoheri et Cozila adque molas duas in una domo et unum molinarium,\n                            insuper vero ad Grantouuva mansos II accepit et in eisdem mancipia VIII\n                            quorum nomina sunt Vuaninc et Adalmuȏt, Ruodmunt et Hiltidrud, Liutram\n                            et Patihilt, Etih et Irminhilt",
-          "Pertinenzformel-lems": null,
-          "Eschatokoll": "Actum ad Frigisingam in ecclesia beatae Mariae anno\n                            [DCCCXCVIIII]",
-          "Eschatokoll-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "cogitans, quia unicuique incertus est dies erit sui et quia qui\n                            </small><strong>Christo</strong><small> dat ista transitoria secundum evangelium eterna recipiet premia.\n                            Huius evangelici promissi memor et etiam presentis vitae cauta\n                            inspectatrix venit cum aliquibus amicis suis in Frigisingam ad Uualdonem\n                            eidem sedis venerabilem rectorem inplorans, ut eius consultu et\n                            adiutorio et eternae et presentis vitae subsidium possidere mereretur.\n                            Cuius etiam peticioni pie annuens et consultu fidelium suorum consilium\n                            dedit et sicut secum de domo dei complacitare voluit rite et legaliter\n                            implevit"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:freising.bitterauf1031.lat001"
-        ]
-      },
-      {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
         "_score": null,
@@ -352,7 +94,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
         "_score": null,
@@ -432,7 +174,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
@@ -515,7 +257,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
         "_score": null,
@@ -594,7 +336,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
         "_score": null,
@@ -673,7 +415,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
@@ -1118,13 +860,13 @@
           "min_date": "0766-07-25",
           "max_date": "0800-08-06",
           "days": [
-            "Monday",
-            "Sunday",
-            "Saturday",
-            "Tuesday",
+            "Thursday",
             "Wednesday",
             "Friday",
-            "Thursday"
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Saturday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -1179,7 +921,7 @@
         ]
       },
       {
-        "_index": "mondsee_v13",
+        "_index": "mondsee_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
         "_score": null,
@@ -1257,315 +999,6 @@
         "sort": [
           1,
           "urn:cts:formulae:mondsee.rath0118.lat001"
-        ]
-      },
-      {
-        "_index": "passau_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:passau.heuwieser0029.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 29",
-          "urn": "urn:cts:formulae:passau.heuwieser0029.lat001",
-          "date_string": "789",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "passau",
-          "forgery": false,
-          "dating": [
-            {
-              "gte": "0789",
-              "lte": "0789-12-31"
-            }
-          ],
-          "all_dates": [
-            "0789",
-            "0789-12-31"
-          ],
-          "min_date": "0789",
-          "max_date": "0789-12-31",
-          "sort_prefix": 1,
-          "Invocatio": "In nomine dei salvatoris nostri Jesu Christi",
-          "Invocatio-lems": null,
-          "Eschatokoll": "Temporibus gloriosimi rege nostro Carolo indictione XII anno XXI regni eius",
-          "Eschatokoll-lems": null,
-          "Narratio": "Cogitante me de aeterna beatitudine Rihperht de poenali iudicio, qualiter deum contemnentes poenam incidunt aeternam Christo quoque adherentes vitam adipiscunt sempiternam, ob hoc igitur statui in animo meo de propria hereditate mea aliquid deo conferre ",
-          "Narratio-lems": null,
-          "Dispositio": "ob hoc igitur statui in animo meo de propria hereditate mea aliquid deo conferre ... ut ibi sit firmum et stabilitum",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "omnia que illo loco dimidium habui ad Antesna ex integro servos ancillas pratas rures campos silvas aquarumque decursus mobile vel inmobile cultum vel incultum",
-          "Pertinenzformel-lems": null,
-          "Poenformel": "Scripsi autem haec cartam traditionis quilibet opposita persona contraire voluit, iram dei omnipotentis incurrat et parte habeat cum Juda traditore et causam cum beatissimo sancto Stephano atque sancti Ualentino",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "et carta haec nihilhominus firma permaneat",
-          "Stipulationsformel-lems": null,
-          "Corroboratio": "Et hii testes",
-          "Corroboratio-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "Cogitante me de aeterna beatitudine Rihperht de poenali iudicio, qualiter deum contemnentes poenam incidunt aeternam </small><strong>Christo</strong><small> quoque adherentes vitam adipiscunt sempiternam, ob hoc igitur statui in animo meo de propria hereditate mea aliquid deo conferre"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:passau.heuwieser0029.lat001"
-        ]
-      },
-      {
-        "_index": "regensburg_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:regensburg.wiedemann0005.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Die Traditonen des Hochstifts Regensburg und des Klosters S. Emmeram (Ed. Widemann) Nr. 5",
-          "urn": "urn:cts:formulae:regensburg.wiedemann0005.lat001",
-          "date_string": "778",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "regensburg",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 778
-            }
-          ],
-          "all_dates": [
-            "0778"
-          ],
-          "min_date": "0778",
-          "max_date": "0778",
-          "sort_prefix": 1,
-          "Invocatio": "In nomine domini et salvatoris nostri Jesu Christi",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Heriperht dei famulus",
-          "Intitulatio-lems": null,
-          "Narratio": "tractans tractavi de equissimo dei iudicio, qualiter contempnentes deum poenam incidunt et qui Christo adherent, vitam adipiscuntur aeternam. Quamobrem statui in animo meo, ut aliquid dei sanctis conferam de hereditate mea vel parentum meorum atque si quid cum laboribus adquisivi ... cum summi dei opitulatione et cum licentia ducis Tassilonis ... ad casam, quae constructa est in honore sancti Petri et sancti Emme[rammi]",
-          "Narratio-lems": null,
-          "Dispositio": "Idcirco trado",
-          "Dispositio-lems": null,
-          "Poenformel": "quia siquis hanc firmationem rumpere volverit, a subsequentibus testibus non sinatur",
-          "Poenformel-lems": null,
-          "Eschatokoll": "Actum est hoc anno ducatui Tassilonis XXXI, indictione II ... Et ego Taugolfus cum scriptione firmavi",
-          "Eschatokoll-lems": null,
-          "Corroboratio": "Isti sunt testes",
-          "Corroboratio-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "tractans tractavi de equissimo dei iudicio, qualiter contempnentes deum poenam incidunt et qui </small><strong>Christo</strong><small> adherent, vitam adipiscuntur aeternam. Quamobrem statui in animo meo, ut aliquid dei sanctis conferam de hereditate mea vel parentum meorum atque si quid cum laboribus adquisivi ... cum summi dei opitulatione et cum licentia ducis Tassilonis ... ad casam, quae constructa est in honore sancti Petri et sancti Emme[rammi]"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:regensburg.wiedemann0005.lat001"
-        ]
-      },
-      {
-        "_index": "stgallen_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:stgallen.wartmann0027.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 27",
-          "urn": "urn:cts:formulae:stgallen.wartmann0027.lat001",
-          "date_string": "761 03 27",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "stgallen",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 761,
-              "month": 3,
-              "day": 27
-            }
-          ],
-          "all_dates": [
-            "0761-03-27"
-          ],
-          "min_date": "0761-03-27",
-          "max_date": "0761-03-27",
-          "days": [
-            "Lent",
-            "Friday"
-          ],
-          "sort_prefix": 1,
-          "Intitulatio": "Ego in Dei nomine Hwicramnus",
-          "Intitulatio-lems": null,
-          "Narratio": "Christo opitulante tales mihi decrevit voluntas",
-          "Narratio-lems": null,
-          "Dispositio": "trado eum atque transfundo in dominationem ... trado in dominationem atque transfundo",
-          "Dispositio-lems": null,
-          "Poenformel": "Et si ullus est, qui hanc donationem meam, quam ego boni voluntatis pro anime salutis fieri rogavi, contrarius apparuerit vel ullam reverentiam contrarius voluerit inquietari, quidquid petierit, evindicare non valeat ... et partibus fische multa conponat, id est auri libera una, argenti duas coactus exsolvat; sed hec presens epistola cum traditione omni tempore firma et stabilis debeat perdurare",
-          "Poenformel-lems": null,
-          "Corroboratio": "Actuum in monastirio sancti Gallonis, ubi nunc preciosus corpus eius auxiliante Domino obtimam obtenuet requiem, presentibus quorum hic signacula contenuntur",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "Ego enim Audoinus lector ... anno septimo Pippino rege ... scripsi et subscripsi feliciter ... Data sub diem, quod fecit mensis marcius dies XXVII",
-          "Eschatokoll-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "</small><strong>Christo</strong><small> opitulante tales mihi decrevit voluntas"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:stgallen.wartmann0027.lat001"
-        ]
-      },
-      {
-        "_index": "stgallen_v13",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:stgallen.wartmann0074.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 74",
-          "urn": "urn:cts:formulae:stgallen.wartmann0074.lat001",
-          "date_string": "775 01 27",
-          "comp_ort": "Uster",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": "Uster",
-          "collection": "stgallen",
-          "forgery": false,
-          "specific_date": [
-            {
-              "year": 775,
-              "month": 1,
-              "day": 27
-            }
-          ],
-          "all_dates": [
-            "0775-01-27"
-          ],
-          "min_date": "0775-01-27",
-          "max_date": "0775-01-27",
-          "days": [
-            "Friday"
-          ],
-          "sort_prefix": 1,
-          "Invocatio": "In Christi nomine",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Unforahtus, filius Otgari condam",
-          "Intitulatio-lems": null,
-          "Narratio": "talis mihi decrevit voluntas pro animae meae remedio seu pro aeterna retributione, ut omnes res meas, quas mihi genitor meus moriens dereliquid vel ego ipse mihi adquisivi, ad monasterium sancti Galli, ubi eius sacrus in Christo requiescit corpus, condonare deberem, quod ita et feci",
-          "Narratio-lems": null,
-          "Pertinenzformel": "Et hoc est quod dono in pago Durgauginse in sito Zurihgauvia in villa, quae dicitur Tunriude, quae et Hadaleihinchova vocatur, id est casam, curtem clausam cum domibus, aedificiis, mancipiis, pecuniis, terris, campis, silvis, pratis, pascuis, viis aquarumque decursibus, omnia ex integro nihil praetermittendo",
-          "Pertinenzformel-lems": null,
-          "Dispositio": "trado atque transfundo ... ut quicquid rectores ipsius monasterii facere exinde voluerint, liberam ac firmissimam habeant potestatem faciendi",
-          "Dispositio-lems": null,
-          "Poenformel": "Si quis vero, quod fieri non credo, si ego ipse aut ullus de heredibus meis aut ulla opposita persona, qui hanc cartam irritam facere conaverit",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "et quod repetit non praevaleat evindicare, sed haec praesens epistola omni tempore firma et stabilis permaneat cum stipulatione subnixa",
-          "Stipulationsformel-lems": null,
-          "Corroboratio": "Actum Ustra villa publice, praesentibus quorum hic signacula contenuntur",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "Ego itaque Walto diaconus rogitus ab Unforatho ... anno IIII regnante Carolo rege Franchorum ... scripsi et subscripsi ... Notavi die veneris, VI kal. febr",
-          "Eschatokoll-lems": null
-        },
-        "highlight": {
-          "Narratio": [
-            "talis mihi decrevit voluntas pro animae meae remedio seu pro aeterna retributione, ut omnes res meas, quas mihi genitor meus moriens dereliquid vel ego ipse mihi adquisivi, ad monasterium sancti Galli, ubi eius sacrus in </small><strong>Christo</strong><small> requiescit corpus, condonare deberem, quod ita et feci"
-          ],
-          "text": [
-            "text"
-          ],
-          "lemmas": [
-            "lemma text"
-          ],
-          "autocomplete": [
-            "autocomplete text"
-          ],
-          "autocomplete_lemmas": [
-            "autocomplete lemma text"
-          ],
-          "regest": [
-            "regest text"
-          ],
-          "autocomplete_regest": [
-            "autocomplete regest text"
-          ]
-        },
-        "sort": [
-          1,
-          "urn:cts:formulae:stgallen.wartmann0074.lat001"
         ]
       }
     ]

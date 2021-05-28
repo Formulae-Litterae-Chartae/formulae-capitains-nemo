@@ -1,9 +1,9 @@
 {
-  "took": 8,
+  "took": 14,
   "timed_out": false,
   "_shards": {
-    "total": 53,
-    "successful": 53,
+    "total": 56,
+    "successful": 56,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v13",
+        "_index": "andecavensis_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form008.lat001",
         "_score": null,
@@ -61,19 +61,19 @@
         ]
       },
       {
-        "_index": "freising_v13",
+        "_index": "freising_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
         "_score": null,
         "_source": {
-          "text": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
+          "text": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset. Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
           "lemmas": null,
           "regest": "Bischof Arnold erneuert mit Graf Ermbert den Tausch einer Hufe zu Ausser(Inner)bittlbach gegen eine solche zu Isen.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 915",
           "urn": "urn:cts:formulae:freising.bitterauf0915.lat001",
           "date_string": "875-876",
           "comp_ort": " ",
-          "autocomplete": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
+          "autocomplete": "Postea veniens pretitulatus comes ad venerabilem Arnoldum episcopum eidem sedi preminenti in presentia serenissimi Hludouuici regis eandem cum eo commutationem firmare idque fecerunt. Utrorumque nempe petitioni rex consentiens concessit, ut inde agerent prout animo licuisset suo. Statim vero prenotatus episcopus cum licentia serenissimi regis totius- que familiae suae una cum consensu canonicorum seu monachorum dedit eandem hobam eidem ut prescriptum est comiti in proprietatem habendum, ut nullus deinceps hoc frangere potuisset. Ea ratione adiens comes Ermpertus tradidit eandem hobam ad Puotilinpahc iure hereditario domo dei possidendum. Unde—teneat atque possideat aevis temporibus feliciter (= 748) Unde et duas commutationes inter se fieri rogaverunt pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat aevis temporibus feliciter.).",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Arnold erneuert mit Graf Ermbert den Tausch einer Hufe zu Ausser(Inner)bittlbach gegen eine solche zu Isen.",
           "orig_comp_ort": " ",
@@ -91,9 +91,7 @@
           ],
           "min_date": "0875",
           "max_date": "0876-12-31",
-          "sort_prefix": 1,
-          "Poenformel": "ut nullus deinceps hoc frangere potuisset",
-          "Poenformel-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -106,19 +104,19 @@
         ]
       },
       {
-        "_index": "freising_v13",
+        "_index": "freising_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
         "_score": null,
         "_source": {
-          "text": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio",
+          "text": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine. Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente. Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam. Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem. Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio.",
           "lemmas": null,
           "regest": "Bischof Arnold beurkundet einen Tausch von Teilen eines Hofes zu Haindlfing gegen Ackerland ebenda zwischen zwei Dienstleuten der Kirche, dem Kleriker Engilrih und dem Laien Uualto.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 953",
           "urn": "urn:cts:formulae:freising.bitterauf0953.lat001",
           "date_string": "876-883",
           "comp_ort": " ",
-          "autocomplete": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio",
+          "autocomplete": "COMMUTATIO INTER CLERICUM ENGILRICUM ET LAICUM UUALTONEM LICENTIA ARNOLDI FRIGISINGICI EPISCOPI. In dei nomine. Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici clerici sui servi legitimi necnon Uualtonis laici domusque dei tributarii quandam commutationem inter eos ex rebus ecclesiae facere sicut et cum sua licentia fecerunt, suo advocato Heimberto committente. Dedit itaque predictus Engilricus cum advocato suo eidem Uualtoni in loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus retinendam. Et econtra in reconpensatione huius rei dedit prefatus tributarius eidem clerico in eodem loco de arabili terra equalem remensurative partem. Unde et duas commutationes in rebus ecclesiae inter se fieri predictum rogaverunt episcopum pari tenore conscriptas, ut uterque quod ab altero accepit teneat atque possideat feliciter in suo perdurantes servitio.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Arnold beurkundet einen Tausch von Teilen eines Hofes zu Haindlfing gegen Ackerland ebenda zwischen zwei Dienstleuten der Kirche, dem Kleriker Engilrih und dem Laien Uualto.",
           "orig_comp_ort": " ",
@@ -136,15 +134,7 @@
           ],
           "min_date": "0876",
           "max_date": "0883-12-31",
-          "sort_prefix": 1,
-          "Invocatio": "In dei nomine",
-          "Invocatio-lems": null,
-          "Dispositio": "Placuit Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici\n                            clerici sui servi legi[ti]mi necnon Uualtonis laici domusque dei\n                            tributarii quandam commutationem inter eos ex rebus ecclesiae facere\n                            sicut et cum sua licentia fecerunt, suo advocato Heimberto committente ... Dedit itaque ... Et econtra in reconpensatione huius rei dedit ... Unde et duas commutationes in rebus ecclesiae\n                            inter se fieri predictum rogaverunt episcopum pari tenore conscriptas,\n                            ut uterque quod ab altero accepit teneat atque possideat feliciter in\n                            suo perdurantes servitio",
-          "Dispositio-lems": null,
-          "Intitulatio": "Arnoldo laudabili Frigisingensis ecclesiae episcopo petitione Engilrici\n                            clerici sui servi legi[ti]mi necnon Uualtonis laici domusque dei\n                            tributarii",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "in\n                            loco nuncupato Heidolfinga partem curtiferi unius suis utilitatibus\n                            retinendam ... in eodem loco de arabili terra equalem\n                            remensurative partem",
-          "Pertinenzformel-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -157,19 +147,19 @@
         ]
       },
       {
-        "_index": "freising_v13",
+        "_index": "freising_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
         "_score": null,
         "_source": {
-          "text": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
+          "text": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat. Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum. Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum. Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt: Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
           "lemmas": null,
           "regest": "Bischof Lambert bestätigt einen Tausch seines Vorgängers mit dem Erzpriester Engilscalh, wonach dieser für Niederroth Besitz zu Gross(Klein)viecht, Pasing, Strassbach übergibt.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1118",
           "urn": "urn:cts:formulae:freising.bitterauf1118.lat001",
           "date_string": "Nach 938",
           "comp_ort": " ",
-          "autocomplete": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
+          "autocomplete": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat. Tradidit vero predictus episcopus Uuolframmus cum manu sui advocati Ratolhi locum qui dicitur Minora Rota in manus Engilscalhi et sui advocati perpetualiter possidendum. Econtra namque Engilscalhus et advocatus suus Kotescalhc vocitatus tradiderunt in potestatem prefati presulis et advocati sui prius nominate in quibusdam locis qui dicuntur Phioht et Pasinga et Strazpah aeternaliter retinendum. Post ipsius vero presulis Uuolframmi vitam rex Otto cunctis episcopis sibi subiectis precipiens, ut inlegales iniustasque commutationes que de aeclesiasticis rebus factae fuissent redire fecissent. Tunc Lantpertus ipsius cathedrae procurator eiusque successor predictum concanbium mutare volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde legaliter in conspectu idoneorum testium istam commutationem ita firmavit quorum nomina infra scripta sunt: Anzo comes. Arnolf. Reginpreht. Isangrim. Papo. Kozpreht. Sigimuot. Adalfrid. Irmanheri. Kepahart. Adalpreht. Engilpreht. Anno. Uuolfolt. Orendil. Managolt. Isanhart. Diothart. Eȏccho. Adalpreht. Vodalger.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Lambert bestätigt einen Tausch seines Vorgängers mit dem Erzpriester Engilscalh, wonach dieser für Niederroth Besitz zu Gross(Klein)viecht, Pasing, Strassbach übergibt.",
           "orig_comp_ort": " ",
@@ -187,17 +177,7 @@
           ],
           "min_date": "0938",
           "max_date": "0957-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Sciant itaque omnes fideles presentes et futuri, quo pacto Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero quoddam concanbium perfecerat",
-          "Publicatio-lems": null,
-          "Dispositio": "quo pacto ... Tradidit vero ... perpetualiter possidendum ... Econtra namque ... tradiderunt in\n                        potestatem ... aeternaliter retinendum",
-          "Dispositio-lems": null,
-          "Intitulatio": "Uuolframmus Frigisingicae sedis pastor cum Engilscalho archipresbitero",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "locum qui dicitur Minora Rota in manus\n                        Engilscalhi et sui advocati perpetualiter possidendum  ... in quibusdam\n                        locis qui dicuntur Phioht et Pasinga et Strazpah",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Tunc Lantpertus\n                        ipsius cathedrae procurator eiusque successor predictum concanbium mutare\n                        volens, sed eam utiliter aeclesiae conpletare inveniens ad usum sanctae\n                        Mariae sanctique Corbiniani firmiter stabilivit et ulterius post eodem\n                        concanbio prefatum Engilscalhum se inquietare denegavit firmiter ac valde\n                        legaliter in conspectu idoneorum testium istam commutationem ita firmavit\n                        quorum nomina infra scripta sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -210,19 +190,19 @@
         ]
       },
       {
-        "_index": "freising_v13",
+        "_index": "freising_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
         "_score": null,
         "_source": {
-          "text": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
+          "text": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit. Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant. Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti: Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
           "lemmas": null,
           "regest": "Bischof Abraham bestätigt einen Tausch von Unfreien zwischen Bischof Lambert und dem Diakon Ratolt.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1155",
           "urn": "urn:cts:formulae:freising.bitterauf1155.lat001",
           "date_string": "Nach 957",
           "comp_ort": " ",
-          "autocomplete": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
+          "autocomplete": "COMPLACITATIO ABRAHAE ET RATOLDI. Noverit igitur cunctorum Christi fidelium industria, qualiter Lantbertus episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem inter se fecerunt neglecta eorundem presentatione quam denuo successor eius Abraham venerabilis episcopus cum consilio suorum fidelium clericorum atque laicorum renovavit et cum testibus confirmavit. Dedit itaque idem prefatus diaconus cum manu sui advocati Ratoldi sua propria ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker, Hiltiperht, Altagund, Heripurch, Diethilt in manus predicti episcopi et advocati sui Paponis ad ecclesiam sanctae Mariae sanctique Corbiniani confessoris Christi existenda. Econtra vero in recompensatione eiusdem complacitationis idem prescriptus laudabilis episcopus una cum manu advocati sui Paponis de mancipiis prefatae dei aecclesiae ista mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz, Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt, Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind eidem iam prenominato diacono usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad exitum vitae suae firmiter habeat; post obitum vero amborum cuncta mancipia data et accepta sine obstaculo ullius personae ad predictam dei aecclesiam cum partu suo perpetualiter existenda redeant. Isti sunt testes eiusdem complacitationis sicut mos est per aurem attracti: Ŏdalrih. Anno. Reginloh. Jagob. Dietrih. Poppo. Egilolf. Uuillipato. Erchanperht. Liutpold. Aribo. Sigipold. Etih. Kotapold. Diotloh. Kerolt. Ûogo. Item Reginloh. Isanparto. Helmperht. Sigili.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Abraham bestätigt einen Tausch von Unfreien zwischen Bischof Lambert und dem Diakon Ratolt.",
           "orig_comp_ort": " ",
@@ -240,17 +220,7 @@
           ],
           "min_date": "0957",
           "max_date": "0972-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Noverit\n                            igitur cunctorum Christi fidelium industria, qualiter",
-          "Publicatio-lems": null,
-          "Intitulatio": " Lantbertus\n                            episcopus et Ratoldus nobilis diaconus unam mancipiorum complatitationem\n                            inter se fecerunt neglecta eorundem presentatione quam denuo successor\n                            eius Abraham venerabilis episcopus cum consilio suorum fidelium\n                            clericorum atque laicorum renovavit et cum testibus confirmavit",
-          "Intitulatio-lems": null,
-          "Dispositio": "Lantbertus\n                            episcopus et Ratoldus nobilis diaconus ... Dedit\n                            itaque ... Econtra vero in recompensatione\n                            eiusdem complacitationis ... usque in finem vitae suae potestativa manu tradidit habenda ea videlicet complacitatione et tenore, ut si pater\n                            eius Ratolt illum supervixisset, ipse omnia haec mancipia usque ad\n                            exitum vitae suae firmiter habeat; post obitum vero amborum cuncta\n                            mancipia data et accepta sine obstaculo ullius personae ad predictam dei\n                            aecclesiam cum partu suo perpetualiter existenda redeant ... tradidit habenda",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "sua propria\n                            ac hereditaria mancipia sic nominata: Starahholf, Adalmunt, Rihker,\n                            Hiltiperht, Altagund, Heripurch, Diethilt ... de mancipiis prefatae dei aecclesiae ista\n                            mancipia sic nominata: Diotmar, Liutrât, Perefrid, Sigihart, Perehkoz,\n                            Alprih, Reginolt, Ratpurch, Hiltipurch, Comihilt, Liutson, Irmanhilt,\n                            Tagani, Irmangund, Adalsuind, Perehkund, Diotpurch, Adalsuind, Peresuind",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Isti\n                            sunt testes eiusdem complacitationis sicut mos est per aurem attracti",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -263,19 +233,19 @@
         ]
       },
       {
-        "_index": "freising_v13",
+        "_index": "freising_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
         "_score": null,
         "_source": {
-          "text": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit Huius concambii testes sunt Ruotpreht. Ludolt. Diotrih. Guntpold.",
+          "text": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt. Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum. Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit. Huius concambii testes sunt: Ruotpreht. Ludolt. Diotrih. Guntpold.",
           "lemmas": null,
           "regest": "Tausch Bischof Abrahams mit der Nonne Hitta",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 1245",
           "urn": "urn:cts:formulae:freising.bitterauf1245.lat001",
           "date_string": "-",
           "comp_ort": " ",
-          "autocomplete": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit Huius concambii testes sunt Ruotpreht. Ludolt. Diotrih. Guntpold.",
+          "autocomplete": "COMMUTATIO ABRAHAE EPISCOPI ET (MONI) ALIAS FEMINAE HITIA. Noverint igitur omnes Christi fideles presentes scilicet ac futuri, qualiter venerabilis episcopus Abraham Frigisingensis aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam concambium fecerunt. Tradidit itaque predicta femina in manus episcopi et advocati sui Paponis ad locum qui dicitur Notha ... dorf LI arabilis terrae iugera ... XXVII et .. ta tria perpetualiter retinendum. Econtra idem episcopus in loco qui dicitur .... cum consenso omnium tantundem arabilis terrae et pratorum dedit. Huius concambii testes sunt: Ruotpreht. Ludolt. Diotrih. Guntpold.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Tausch Bischof Abrahams mit der Nonne Hitta",
           "orig_comp_ort": " ",
@@ -293,15 +263,7 @@
           ],
           "min_date": "0972",
           "max_date": "0976-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Noverint igitur omnes Christi fideles presentes scilicet\n                            ac futuri, qualiter",
-          "Publicatio-lems": null,
-          "Intitulatio": " venerabilis episcopus Abraham Frigisingensis\n                            aecclesiae et quedam fidissima monialis femina nomine Hitta quoddam\n                            concambium fecerunt",
-          "Intitulatio-lems": null,
-          "Dispositio": "venerabilis episcopus Abraham Frigisingensis\n                            aecclesiae et quedam fidissima monialis femina nomine Hitta ... Tradidit itaque ... perpetualiter retinendum ... Econtra ... dedit",
-          "Dispositio-lems": null,
-          "Corroboratio": "Huius concambii testes sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -314,7 +276,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
         "_score": null,
@@ -375,7 +337,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -436,7 +398,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
         "_score": null,
@@ -467,8 +429,8 @@
           "min_date": "0948-03-27",
           "max_date": "0948-03-27",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -498,7 +460,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
         "_score": null,
@@ -560,7 +522,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
         "_score": null,
@@ -622,7 +584,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0052.lat001",
         "_score": null,
@@ -680,7 +642,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0070.lat001",
         "_score": null,
@@ -741,7 +703,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0071.lat001",
         "_score": null,
@@ -802,7 +764,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v13",
+        "_index": "hersfeld_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0080.lat001",
         "_score": null,
@@ -860,7 +822,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v13",
+        "_index": "merowinger1_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
         "_score": null,
@@ -921,7 +883,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v13",
+        "_index": "mittelrheinisch_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
         "_score": null,
@@ -979,7 +941,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0023.lat001",
         "_score": null,
@@ -1009,19 +971,7 @@
           ],
           "min_date": "0826",
           "max_date": "0840-12-31",
-          "sort_prefix": 1,
-          "Invocatio": "C. In dei nomine",
-          "Invocatio-lems": null,
-          "Dispositio": "Placuit atque convenit inter venerabilem virum Baturicum sanctae Reginesburgensis ecclesiae episcopum quae est constructa in honore sancti Petri principis apostolorum et sancti Emmerami martyris, ubi ipse praetiosus sanctus corpore requiescit, necnon et quendam virum inlustrem nomine Maurentium, ut quasdam res pro communi utilitate et conpendio inter se conmutare deberent, quod ita et fecerunt ... Dedit igitur ... Unde et duas conmutationes pari tenore conscriptas inter se fieri et adfirmare rogaverunt, ut unusquisque hoc quod a pare suo accepit, habeat, teneat atque possideat et faciat, quicquid utilitatis suae perspexerit",
-          "Dispositio-lems": null,
-          "Intitulatio": "inter venerabilem virum Baturicum sanctae Reginesburgensis ecclesiae episcopum",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "ex ratione iam dicti monasterii sui ... ad suum proprium ad habendum in loco quae dicitur Traubidinga et Lodartinchoua, quos quaedam femina nomine Engildiu et filii sui eidem contulerunt monasterio, idest territorium cum casis desuper positis, cum mancipiis quinque, pratis, pascuis et omnia quicquid ibidem habere visus fuit",
-          "Pertinenzformel-lems": null,
-          "Poenformel": "Et taliter inter eos hic inserere placuit, quod si fuerit post hunc diem ullus ex ipsis aut alia quaelibet obposita aut emissa persona, quae contra hanc conmutationem, de qua duae cartulae uno tenore conscriptae esse videntur, venire temptaverit aut eam infringere conatus fuerit ... inferat parti, contra quem litem intulerit, sociante fisco auri libras duas multa conponat et sua repetitio nullum obtineat effectum",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "sed praesens conmutatio omni tempore firma permaneat cum stipulatione subnixa",
-          "Stipulationsformel-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1049,7 +999,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0025.lat001",
         "_score": null,
@@ -1077,11 +1027,7 @@
           ],
           "min_date": "0829",
           "max_date": "0829",
-          "sort_prefix": 1,
-          "Corroboratio": "Ibi fuerunt presentes",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "Actum est in vico suprascripto anno domini DCCCXXVIIII",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1109,7 +1055,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0030.lat001",
         "_score": null,
@@ -1139,23 +1085,7 @@
           ],
           "min_date": "0840",
           "max_date": "0846-09-02",
-          "sort_prefix": 1,
-          "Dispositio": "Placuit atque convenire inter venerabilem virum Baturicum Reganesburgensis aecclesiae episcopum necnon et quendam hominem Erchanpertum ut pro communi utilitate et conpendio quasdam res inter se commutarent, quod ita et fecerunt ... Dedit igitur",
-          "Dispositio-lems": null,
-          "Intitulatio": "inter venerabilem virum Baturicum Reganesburgensis aecclesiae episcopum necnon et quendam hominem Erchanpertum",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "ex suo proprio ... in pago qui dicitur Tonahgeuui in loco nominato Hahalinga mansos III, id est de terra iugera C, de pratis ad carras L, de silva iugera CXX",
-          "Pertinenzformel-lems": null,
-          "Publicatio": "Unde et duas commutationes pari tenore conscriptas inter se fieri et affirmare rogaverunt, unam praedictus episcopus ad partem aecclesiae suae poenes se habeat et alteram quam ipse Erchanpertus pro se retineat ut in futurum, quicquid pars ab altera accepit parte habeat, teneat adque possideat et faciat exinde, quicquid utilitati suae perspexerit",
-          "Publicatio-lems": null,
-          "Poenformel": "Et taliter eis hic inserere placuit, ut si fuerit post hunc diem ullus ex ipsis aut alia quaelibet obposita aut emissa persona, quae contra hanc commutationem, de qua duae kartulae uno tenore conscriptae esse videntur, venire temptaverit aut eam ullo modo infringere conatus fueirit ... inferat parti, contra quem item intulent, distringente fisco auri libras II multa conponat et sua repetitio nullum obtineat aeffectum",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "sed presens commutatio omni tempore firma permaneat cum stipulatione subnixa",
-          "Stipulationsformel-lems": null,
-          "Eschatokoll": "Actum Reganesburc civitate sub die IIII. non. sept",
-          "Eschatokoll-lems": null,
-          "Corroboratio": "Isti sunt testes per aures tracti, qui hoc viderunt et audierunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1183,7 +1113,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0035.lat001",
         "_score": null,
@@ -1213,17 +1143,7 @@
           ],
           "min_date": "0847",
           "max_date": "0863-12-31",
-          "sort_prefix": 1,
-          "Dispositio": "Convenire inter venerabilem virum Erchanfridum episcopum et quendam hominem nomine Suuidkerum de quadam commutatione aliquorum locorum, quod et ita fecerunt ... Dedit",
-          "Dispositio-lems": null,
-          "Intitulatio": "inter venerabilem virum Erchanfridum episcopum et quendam hominem nomine Suuidkerum",
-          "Intitulatio-lems": null,
-          "Narratio": "pro utilitate ambarum partium",
-          "Narratio-lems": null,
-          "Pertinenzformel": "in loco nuncupato Vuolamotasaha, quicquid Otram in beneficium habuit in illo Ioco ... propriam hereditatem suam ... quod est prope flumen quod dicitur Apansa, quicquid a filiis Sigihelmi emendo adquisivit",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Testes idonei sunt isti",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1251,7 +1171,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0038.lat001",
         "_score": null,
@@ -1279,17 +1199,7 @@
           ],
           "min_date": "0863",
           "max_date": "0863",
-          "sort_prefix": 1,
-          "Narratio": "Hoc etenim non pretermiserunt",
-          "Narratio-lems": null,
-          "Intitulatio": "Ambricho electus dei pontifex et quidam nobiles viri Rihho eiusque filius Freso",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "in loco nuncupato Atinga casam cum curte ac iugera XXVII ... domum cum fisco ac iugera XXVII",
-          "Pertinenzformel-lems": null,
-          "Dispositio": "tradiderunt",
-          "Dispositio-lems": null,
-          "Corroboratio": "Hoc namque ex utraque parte ad testificandum isti per aures tracti sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1317,7 +1227,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0039.lat001",
         "_score": null,
@@ -1345,21 +1255,7 @@
           ],
           "min_date": "0863",
           "max_date": "0863",
-          "sort_prefix": 1,
-          "Arenga": "Fructuosa valde ac non solum honesta sed etiam nimium utilis consuetudo iam olim inter homines inoleverat commutandi scilicet quasdam res pro commoditate utrarumque partium",
-          "Arenga-lems": null,
-          "Narratio": " Hac igitur ratione convenire quaedam commutatio inter Ambrichonem videlicet Reginensis aecclesiae episcopum et Otkarium Eistatensis aecclesiae praesulem ",
-          "Narratio-lems": null,
-          "Dispositio": "Hac igitur ratione convenire quaedam commutatio ... tradiderunt",
-          "Dispositio-lems": null,
-          "Intitulatio": "inter Ambrichonem videlicet Reginensis aecclesiae episcopum et Otkarium Eistatensis aecclesiae praesulem",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "talem proprietatem, ut a rege assecutus est ad Zullingon et ad Mammingon et ad Ustarlingon, et mancipia XX, quorum nomina sunt haec ... talem hereditatem, ut Teuit quidam nobilis ad sanctum Petrum pro remedio animae suae contradidit, ad Perga et ad Egiuuila scilicet in proprietatem habendam et mancipia iterum XX, quorum nomina sunt haec",
-          "Pertinenzformel-lems": null,
-          "Stipulationsformel": "Et [ut] haec commutatio et commoditas ambarum partium inconvulsa permaneat, placuit testes adhibere, quorum nomina hic sunt insignita",
-          "Stipulationsformel-lems": null,
-          "Eschatokoll": "Actum est in Regina civitate iuxta altare sancti Petri anno incarnationis domini DCCCLXIII",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1387,7 +1283,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0058.lat001",
         "_score": null,
@@ -1417,19 +1313,7 @@
           ],
           "min_date": "0863",
           "max_date": "0885-12-31",
-          "sort_prefix": 1,
-          "Arenga": "Olim igitur utilis et fructuosa inter homines consuetudo subolescere caepit, commutandi videlicet quasdam res pro ambarum commoditate partium, quod et moderni siquidem plerumque peragere conantur crebrius ac crebrius commutantes, vestigia imitando antecedentium patrum",
-          "Arenga-lems": null,
-          "Narratio": "Id etiam ... pretermittere noluit, sed propter utilitatem suam tradere studuit  ... ad sanctum dei martyrem Emmerammum",
-          "Narratio-lems": null,
-          "Intitulatio": "quidam nobilis vir nomine Poso",
-          "Intitulatio-lems": null,
-          "Dispositio": "tradere studuit ... tradiderunt",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "quandam partem proprietatis suae, quod et perficiebat, hoc est ad Perga et Hasalpah inter agros cultos et incultos pratorumque terminos iugera CXVIII ... de rebus sancti Emmerammi ad Hedinpah et Tecchinpah ... aequalem partem agrorum atque pratorum",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Et ut firmius in futuro permaneat, traxerunt testes, quorum nomina sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1457,7 +1341,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0079.lat001",
         "_score": null,
@@ -1487,19 +1371,7 @@
           ],
           "min_date": "0875",
           "max_date": "0885-12-31",
-          "sort_prefix": 1,
-          "Arenga": "Fructuosa valde et nimium rationabilis olim inter homines inholescere coeperat consuetudo, commutandi videlicet quasdam res pro ambarum utilitate partium. Hoc etiam regum celsitudo, cum in diversis terrarum Iods homines eodem usu utebantur, maxime in aecclesiasticis rebus fieri decrevit et quinque hobarum subplemento id constare permisit",
-          "Arenga-lems": null,
-          "Dispositio": "Proinde igitur ...   tradidit   ...  tradidit  ... tradidit",
-          "Dispositio-lems": null,
-          "Intitulatio": "quidam nobilis nomine Amalpertus",
-          "Intitulatio-lems": null,
-          "Narratio": "ad sanctum dei martyrem Emmerammum",
-          "Narratio-lems": null,
-          "Pertinenzformel": "proprietates suas, quas ad Perga et Hasalpah atque Gamminchoua habere visus est, in areis namque ac domibus cum uniuersis simul aedibus, exceptis autem servorum mansiunculis, reliqua vero omnia ... terris cultis et incultis, pratis, silvis, pascuis, aquis aquarumque decursibus, molendinis, nihil quidem pretermittens ... de rebus sancti Emmerammi ad Drudpah aecclesiam unam et areas III cum omnibus appenditiis earum, territoriis, pratis, pascvis, aquis, silvis necnon cum integro pariter termino illuc pertinente",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Testes quoque sunt per aures tracti ... et ceteri",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1527,7 +1399,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0097.lat001",
         "_score": null,
@@ -1557,19 +1429,7 @@
           ],
           "min_date": "0882",
           "max_date": "0885-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Nonnullorum cognoscat industria fidelium, quorumque auribus huius cartulae iniungatur effectio, quam utiliter ac honeste commutatio subsequens perficeretur",
-          "Publicatio-lems": null,
-          "Narratio": " Karolus igitur imperator licentiam donavit cuidam nobili Hahardo nomine quandam commutationem beneficii sui agere missosque prudentes direxit eam valde caute perficere, Vuillihelmum videlicet atque Sindbertum necnon et Hadamarum ... ad sanctum Emmerammum ... cum consensu domini sui caesaris ... in manum Ambrichonis venerabilis episcopi et vicarii sui Ogonis ...  Et ut haec commutatio firma ac inconvulsa habeatur, placuit duas cartulas pari tenore conscriptas utrimque continere ",
-          "Narratio-lems": null,
-          "Dispositio": "Karolus igitur imperator licentiam donavit ... Tunc quippe ... tradidit ... dederunt",
-          "Dispositio-lems": null,
-          "Intitulatio": "cuidam nobili Hahardo nomine",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "de terra arabili, et de pratis iugera CLXX iuxta fluenta Fattarae in loco Bozilinga nuncupato ... de rebus sancti Emmerammi terrae arabilis iugera LXX et silvae LX in loco qui dicitur Hitinchoua iuxta Isuram fluvium",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Et ut haec commutatio firma ac inconvulsa habeatur, placuit duas cartulas pari tenore conscriptas utrimque continere",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1597,7 +1457,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0131.lat001",
         "_score": null,
@@ -1627,19 +1487,7 @@
           ],
           "min_date": "0888",
           "max_date": "0889-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Per kartulam quae videlicet aperte ac veraciter nonnullorum inseratur auribus fidelium, qualiter haec complacitatio peracta sit",
-          "Publicatio-lems": null,
-          "Dispositio": "Tradidit namque ... tradiderunt ... quatenus ea usque in finem suum firmiter teneat atque possideat ac postea cuncta ad praedictos sanctos redigantur et revestiantur",
-          "Dispositio-lems": null,
-          "Intitulatio": "Hitto honorabilis abbas",
-          "Intitulatio-lems": null,
-          "Narratio": "ad sanctum Petrum sanctumque dei martyrem Emmerammum ... in manum Ambrichonis venerabilis episcopi et advocatorum suorum Gundberti atque Herrandi",
-          "Narratio-lems": null,
-          "Pertinenzformel": "proprietatis suae hobas VI cum aedificiis et mancipiis XV, nomine Meginheri, Adalger, Milo, Meginheri, Vuillihelm, Liupuni, Liupkis, Ratkis, Vuolfheri, Hiltipirc, Deotpurc, Adalsvuind, Liupdrud cum duobus filiis, in loco Sulzpah nuncupato ... de rebus sanctorum, qui supra dicti sunt, tria loca cum omnibus appendiciis suis, id est Chuningesfeld et Uuaso et Purcpah",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Et isti sunt testes eiusdem rationis ... et ceteri",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1667,7 +1515,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0169.lat001",
         "_score": null,
@@ -1697,13 +1545,7 @@
           ],
           "min_date": "0891",
           "max_date": "0894-12-31",
-          "sort_prefix": 1,
-          "Publicatio": "Noverit cunctorum industria fidelium, qualiter subsequens peracta est commutatio",
-          "Publicatio-lems": null,
-          "Intitulatio": "quidam nobilis vir nomine Ratfrid",
-          "Intitulatio-lems": null,
-          "Narratio": "ad sanctum dei martyrem Emmerammum in manum Asperti venerabilis episcopi et advocati eius Garaharii",
-          "Narratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1731,7 +1573,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0175.lat001",
         "_score": null,
@@ -1787,7 +1629,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0182.lat001",
         "_score": null,
@@ -1815,9 +1657,7 @@
           ],
           "min_date": "0900",
           "max_date": "0900",
-          "sort_prefix": 1,
-          "Corroboratio": "Et isti sunt testes per aures tracti",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1845,7 +1685,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0185.lat001",
         "_score": null,
@@ -1873,13 +1713,7 @@
           ],
           "min_date": "0901",
           "max_date": "0901",
-          "sort_prefix": 1,
-          "Publicatio": "Omnium fidelium conperiat industria",
-          "Publicatio-lems": null,
-          "Intitulatio": " inter venerabilem episcopum Tutonem et quendam virum Erchanbertum nomine facta fuerat complacitatio",
-          "Intitulatio-lems": null,
-          "Dispositio": "inter venerabilem episcopum Tutonem et quendam virum Erchanbertum ... tradidit",
-          "Dispositio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1907,7 +1741,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0202.lat001",
         "_score": null,
@@ -1937,19 +1771,7 @@
           ],
           "min_date": "0975",
           "max_date": "0980-12-31",
-          "sort_prefix": 1,
-          "Arenga": "Bona ex antiquis olim patribus consuetudinis origo inolescere coepit, ut predia sua circa res aecclesiarum pro utilitate utrarumque parcium, cum necesse esset, voluntarie commutare non pigeret",
-          "Arenga-lems": null,
-          "Intitulatio": "quidam nobilis nomine Folrat",
-          "Intitulatio-lems": null,
-          "Dispositio": "tradidit ... nihil extra dimittens, quin totum traderet ... Retradente vero ... accepit",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "quicquid habere videbatur in loco Erninga uocitato ... in loco Landpoldessteti nominato iuxta Cholinpah cum omnibus ad ipsum rite pertinentibus et illic ad beatum Emmerammum et ad fratres memoratos iuste attinentibus",
-          "Pertinenzformel-lems": null,
-          "Narratio": "in manum episcopi Wolfk[angi] et abbatis Ramuuoldi atque Hauuardi advocati",
-          "Narratio-lems": null,
-          "Corroboratio": "Actum autem eadem die et hora, qua supra. Testes etiam qui et supra",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -1977,7 +1799,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0207.lat001",
         "_score": null,
@@ -2007,19 +1829,7 @@
           ],
           "min_date": "0975",
           "max_date": "0980-12-31",
-          "sort_prefix": 1,
-          "Intitulatio": "Genere de nobili progenitus Odalrih uassallus episcopi W",
-          "Intitulatio-lems": null,
-          "Narratio": " suppliciter adiens abbatem R. ac caeteros de fratribus seniores postulavit, ut sibi cum illis quasdam res commutandi copia concederetur Quam petitionem benigne annuente tam abbate quam et fratribus  ... ad s. Emmerammum in servitium servorum dei inibi degentium ... in manum videlicet episcopi W. et abbatis R. necnon et advocatorum suorum Vuerinharti et Hauuarti, presentibus etiam quibusdam de fratribus",
-          "Narratio-lems": null,
-          "Publicatio": "suppliciter adiens abbatem R. ac caeteros de fratribus seniores postulavit, ut sibi cum illis quasdam res commutandi copia concederetur",
-          "Publicatio-lems": null,
-          "Dispositio": "Quam petitionem benigne annuente tam abbate quam et fratribus ... tradidit",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "quicquid proprietatis habere videbatur in loco Erninga dicto, cum curtilibus et aedificiis, agris, pratis, exitibus et reditibus, quaesitis et inquirendis ... de rebus s. Emmerammi et de prebenda eorundem fratrum locum unum intra confinia nemoris Tusinholz ac fluenta fluminis Regan coniacentem, Erigisinga nuncupatum, cum omnibus ad ipsum locum iuste pertinentibus simili modo quesitis et inquirendis in proprium",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Et isti sunt testes",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -2047,7 +1857,7 @@
         ]
       },
       {
-        "_index": "regensburg_v13",
+        "_index": "regensburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0216.lat001",
         "_score": null,
@@ -2077,17 +1887,7 @@
           ],
           "min_date": "0980",
           "max_date": "0985-12-31",
-          "sort_prefix": 1,
-          "Pertinenzformel": "Quicquid ergo proprietatis Adalhun clericus et camerarius Wolfkangi episcopi habere dinoscebatur in loco Erninga nuncupato, totum ex integro ... cum curtilibus et agris, nil extra dimittens, quin omne, ut supradictum est ... de prebenda fratrum Tiufunprunno nominato inter curtilia et agros arabiles equalem mensuram simili tenore ac stabilitate in perpetuam proprietatem",
-          "Pertinenzformel-lems": null,
-          "Intitulatio": "Adalhun clericus et camerarius Wolfkangi episcopi",
-          "Intitulatio-lems": null,
-          "Dispositio": "tradidit ... traderet ...  stabili firmitate in proprium Retradentibus vero ... accepit econtra",
-          "Dispositio-lems": null,
-          "Narratio": "ad sanctum dei martyrem Emmerammum suisque inquilinis sine intermissione ibidem famulantibus ... in manum venerabilis episcopi Vuolfkangi et abbatis Ramuoldi eorumque advocatorum Vuerinhardi et Hauuarti",
-          "Narratio-lems": null,
-          "Stipulationsformel": "stabili firmitate in proprium",
-          "Stipulationsformel-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -2115,7 +1915,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -2148,25 +1948,7 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1,
-          "Invocatio": "In Dei nomine",
-          "Invocatio-lems": null,
-          "Intitulatio": "Ego Hiltilind una cum voluntate filiorum meorum Witberti et Cotaberti",
-          "Intitulatio-lems": null,
-          "Dispositio": "trado ... tradimus ... atque transfundimus",
-          "Dispositio-lems": null,
-          "Pertinenzformel": " illam hobam quam accepi ab eisdem monachis in cambionem, sitam in Ratineshowa, et ipsi a me aliam acceperunt in Chlufturnun iacentem ... illam hobam ... cum omnibus, quicquid ad eam hobam pertinet, cum domo et ceteris edificiis, campis, pratis, pascuis, silvis, viis, aquis aquarumque decursibus, cultis et incultis",
-          "Pertinenzformel-lems": null,
-          "Narratio": "pro remedio animarum nostrarum et aeterna retributione",
-          "Narratio-lems": null,
-          "Poenformel": "Si quis vero surrexerit malo ingenio et si nos vel propinquus aut quislibet hominum istam presentem cartulam inrumpere conaverit ... socianti fisco in proximo iacenti multa conponet, id est auri untias III et argenti pondera V coactus persolvat",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "et quod quesivit omnino non aeveniet, sed presens cartula omni tempore firma et stabilis permaneat cum stipulatione subnixa",
-          "Stipulationsformel-lems": null,
-          "Corroboratio": "Actum in insula nuncupata Wazzarburc publice, presentibus quorum hic signacula continentur",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "Ego itaque Watto diaconus ... anno XIII regnante domno imperatore nostro Hludawico ... notavi in VI id. sept., et sub Ruachario comite ... scripsi et subscripsi",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "regest": [
@@ -2194,7 +1976,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0479.lat001",
         "_score": null,
@@ -2256,7 +2038,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0586.lat001",
         "_score": null,
@@ -2317,7 +2099,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0587.lat001",
         "_score": null,
@@ -2378,7 +2160,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0588.lat001",
         "_score": null,
@@ -2439,7 +2221,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -2500,7 +2282,7 @@
         ]
       },
       {
-        "_index": "stgallen_v13",
+        "_index": "stgallen_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0708.lat001",
         "_score": null,
@@ -2561,7 +2343,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v13",
+        "_index": "weissenburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
@@ -2622,7 +2404,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v13",
+        "_index": "weissenburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0090.lat001",
         "_score": null,
@@ -2680,7 +2462,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v13",
+        "_index": "weissenburg_v15",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0158.lat001",
         "_score": null,
