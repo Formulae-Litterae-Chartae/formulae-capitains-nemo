@@ -95,6 +95,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:andecavensis',
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
+                        'urn:cts:formulae:bonneval_marmoutier',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:chartae_latinae_xi',
                         'urn:cts:formulae:chartae_latinae_xii',
@@ -111,6 +112,7 @@ class NemoFormulae(Nemo):
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:luzern',
+                        'urn:cts:formulae:marmoutier_blésois',
                         'urn:cts:formulae:marmoutier_dunois',
                         'urn:cts:formulae:marmoutier_laurain',
                         'urn:cts:formulae:marmoutier_leveque',
