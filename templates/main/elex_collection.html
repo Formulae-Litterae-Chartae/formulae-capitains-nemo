@@ -10,11 +10,14 @@
 {% else %}
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
-<header>
-        <h1>
-        {{ _('Lexikon') }}
-        </h1>
-    </header>
+        <div class="col-3">
+        <header>
+            <h1>
+            {{ _('Lexikon') }}
+            </h1>
+        </header>
+        <p class="mb-0">{{ _('Das e-Lexikon erläutert zentrale Begriffe aus Rechts-, Sozial- und Geistesgeschichte und macht ihre Bedeutungsentwicklung von der Spätantike bis zum Ende des frühen Mittelalters nachvollziehbar. Aufgenommen werden ausschließlich Begriffe, die in den im Langzeitvorhaben edierten Formeln verwendet werden.') }}</p>
+        </div>
     </div>
     <h4>{{ _('Gehe zu Buchstabe:') }}</h4>
     {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
