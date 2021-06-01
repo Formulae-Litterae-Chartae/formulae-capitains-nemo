@@ -458,8 +458,8 @@
                             {% set all_reffs = all_reffs|insert_in_list(loop.index - 1, text.subreference) %}
                             {% endif %}
                         </div>
-                        <section class="text-section{{ copy_class }}{% if objects|length > 1 %} scrolling{% endif %}">
                         {% if  text.text_passage %}
+                        <section class="text-section{{ copy_class }}{% if objects|length > 1 %} scrolling{% endif %}">
                             <div class="row mx-0">
                                 {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                             </div>
@@ -467,6 +467,7 @@
                                 {{ text.text_passage }}
                             <footer>{% include "main::passage_footer.html" %}</footer>
                         {% else %}
+                        <section class="text-section{{ copy_class }}">
                             {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                             {% with manifest = text.manifest, div_v = text.div_v %}
                             {% include "viewer::embededmirador.html" %}
