@@ -173,6 +173,15 @@ $(document).ready(function(){
             hideLemma($( this ));
         }
     })
+    
+    $('div.mirador-viewer-pane').each(function() {
+        var minusHeight = $(this).prev().height();
+        var maxHeight = $(window).height() * .65;
+        console.log(minusHeight, maxHeight);
+        $(this).css({
+            'height': maxHeight - minusHeight
+        })
+    })
 })
 
 function makePopupNote(id) {
