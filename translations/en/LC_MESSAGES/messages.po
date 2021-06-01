@@ -1280,20 +1280,17 @@ msgstr "Texts in original size"
 
 #: templates/main/multipassage.html:273 templates/main/multipassage.html:282
 #: templates/main/multipassage.html:396 templates/main/multipassage.html:405
-#, fuzzy
 msgid "Manuskriptbilder hinzufügen"
-msgstr "Manuscript Images"
+msgstr "Add Manuscript Images"
 
 #: templates/main/multipassage.html:290 templates/main/multipassage.html:295
 #: templates/main/multipassage.html:413 templates/main/multipassage.html:418
-#, fuzzy
 msgid "Edition hinzufügen"
-msgstr "Add a column"
+msgstr "Add the edition"
 
 #: templates/main/multipassage.html:301 templates/main/multipassage.html:424
-#, fuzzy
 msgid "Weitere Texte hinzufügen"
-msgstr "Add a column"
+msgstr "Add another text"
 
 #: templates/main/multipassage.html:321 templates/main/multipassage.html:444
 msgid "Urkundenteile zeigen"
