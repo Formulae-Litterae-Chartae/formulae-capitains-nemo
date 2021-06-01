@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-31 10:10+0200\n"
+"POT-Creation-Date: 2021-06-01 13:16+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -22,40 +22,40 @@ msgstr "Please log in to access this page."
 msgid "Der Viewer konnte nicht gestartet werden."
 msgstr "The Viewer could not be started."
 
-#: formulae/nemo.py:165
+#: formulae/nemo.py:167
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:165
+#: formulae/nemo.py:167
 msgid "Deutsch"
 msgstr "German"
 
-#: formulae/nemo.py:165
+#: formulae/nemo.py:167
 msgid "Französisch"
 msgstr "French"
 
-#: formulae/nemo.py:166
+#: formulae/nemo.py:168
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:166
+#: formulae/nemo.py:168
 msgid "Katalanisch"
 msgstr "Catalan"
 
-#: formulae/nemo.py:166
+#: formulae/nemo.py:168
 msgid "Italienisch"
 msgstr "Italian"
 
-#: formulae/nemo.py:357 formulae/nemo.py:382 formulae/nemo.py:762
+#: formulae/nemo.py:359 formulae/nemo.py:384 formulae/nemo.py:764
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:371 formulae/nemo.py:384 formulae/nemo.py:758
+#: formulae/nemo.py:373 formulae/nemo.py:386 formulae/nemo.py:760
 #: tests/test_routes.py:1236
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
-#: formulae/nemo.py:551
+#: formulae/nemo.py:553
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
@@ -63,15 +63,15 @@ msgstr ""
 "Reading direction changed. You may need to refresh the page in your "
 "browser."
 
-#: formulae/nemo.py:706 formulae/nemo.py:783 formulae/nemo.py:886
-#: formulae/nemo.py:948 tests/test_routes.py:279 tests/test_routes.py:297
+#: formulae/nemo.py:708 formulae/nemo.py:785 formulae/nemo.py:888
+#: formulae/nemo.py:950 tests/test_routes.py:279 tests/test_routes.py:297
 #: tests/test_routes.py:310 tests/test_routes.py:326 tests/test_routes.py:328
 #: tests/test_routes.py:330 tests/test_routes.py:599 tests/test_routes.py:607
 #: tests/test_routes.py:611 tests/test_routes.py:640 tests/test_routes.py:642
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr "This collection is not publicly available."
 
-#: formulae/nemo.py:781 tests/test_routes.py:276 tests/test_routes.py:609
+#: formulae/nemo.py:783 tests/test_routes.py:276 tests/test_routes.py:609
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -79,44 +79,46 @@ msgstr ""
 "You may be able to view the images of this manuscript at the library's "
 "home page."
 
-#: formulae/nemo.py:812 templates/main/sub_collection.html:58
+#: formulae/nemo.py:814 templates/main/multipassage.html:290
+#: templates/main/multipassage.html:413 templates/main/sub_collection.html:58
 #: templates/search/part_results.html:94 templates/search/search.html:147
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:812
+#: formulae/nemo.py:814 templates/main/multipassage.html:295
+#: templates/main/multipassage.html:418
 msgid "Übersetzung"
 msgstr "Translation"
 
-#: formulae/nemo.py:883 tests/test_routes.py:442
+#: formulae/nemo.py:885 tests/test_routes.py:442
 msgid "Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar"
 msgstr "This view is only available for MARCULF and ANGERS."
 
-#: formulae/nemo.py:1066 formulae/viewer/routes.py:18 tests/test_routes.py:516
+#: formulae/nemo.py:1068 formulae/viewer/routes.py:18 tests/test_routes.py:516
 #: tests/test_routes.py:519
 msgid " hat keine Edition."
 msgstr " does not have an Edition."
 
-#: formulae/nemo.py:1075
+#: formulae/nemo.py:1077
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:1189
+#: formulae/nemo.py:1191
 msgid "Es gibt keine Manuskriptbilder für "
 msgstr "There are no manuscript images for "
 
-#: formulae/nemo.py:1240 tests/test_routes.py:346 tests/test_routes.py:348
+#: formulae/nemo.py:1242 tests/test_routes.py:346 tests/test_routes.py:348
 #: tests/test_routes.py:646
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1387 tests/test_routes.py:372
+#: formulae/nemo.py:1389 tests/test_routes.py:372
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1394
+#: formulae/nemo.py:1396
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
@@ -300,15 +302,15 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:353
+#: formulae/search/Search.py:356
 msgid "Regest nicht zugänglich."
 msgstr "Regest not available"
 
-#: formulae/search/Search.py:363
+#: formulae/search/Search.py:366
 msgid "Text nicht zugänglich."
 msgstr "Text not available"
 
-#: formulae/search/Search.py:450 tests/test_routes.py:4337
+#: formulae/search/Search.py:453 tests/test_routes.py:4337
 #: tests/test_routes.py:4349
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
@@ -374,7 +376,8 @@ msgid "Corpora"
 msgstr ""
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:72
-#: templates/main/multipassage.html:186 templates/main/navbar.html:19
+#: templates/main/multipassage.html:186 templates/main/multipassage.html:312
+#: templates/main/multipassage.html:435 templates/main/navbar.html:19
 #: templates/main/sub_collections.html:15
 msgid "Formeln"
 msgstr "Formulae"
@@ -933,7 +936,7 @@ msgstr "Close all commentary notes for this text"
 msgid "Alle Kommentaranmerkungen für diesen Text einblenden"
 msgstr "Open all commentary notes for this text"
 
-#: templates/main/container.html:135 templates/main/multipassage.html:235
+#: templates/main/container.html:135
 msgid "Texte unabhängig von einander scrollen."
 msgstr "Scroll the texts independently from each other."
 
@@ -953,12 +956,26 @@ msgstr " in the Elexicon"
 msgid "E-Lexikon Inhalt"
 msgstr "Elexicon Table of Contents"
 
-#: templates/main/elex_collection.html:15 templates/main/multipassage.html:187
+#: templates/main/elex_collection.html:16 templates/main/multipassage.html:187
+#: templates/main/multipassage.html:313 templates/main/multipassage.html:436
 #: templates/main/navbar.html:33
 msgid "Lexikon"
 msgstr "Lexicon"
 
 #: templates/main/elex_collection.html:19
+msgid ""
+"Das e-Lexikon erläutert zentrale Begriffe aus Rechts-, Sozial- und "
+"Geistesgeschichte und macht ihre Bedeutungsentwicklung von der Spätantike"
+" bis zum Ende des frühen Mittelalters nachvollziehbar. Aufgenommen werden"
+" ausschließlich Begriffe, die in den im Langzeitvorhaben edierten Formeln"
+" verwendet werden."
+msgstr ""
+"The e-Lexicon aims to explain terms from legal, social and intellectual "
+"history and document how their meanings developed from late antiquity "
+"through the end of the early middle ages. Only terms that appear in the "
+"project's formulae editions are included."
+
+#: templates/main/elex_collection.html:22
 msgid "Gehe zu Buchstabe:"
 msgstr "Jump to Letter:"
 
@@ -1188,7 +1205,9 @@ msgstr "Next search result"
 msgid "Eine Spalte hinzufügen"
 msgstr "Add a column"
 
-#: templates/main/multipassage.html:146
+#: templates/main/multipassage.html:146 templates/main/multipassage.html:273
+#: templates/main/multipassage.html:282 templates/main/multipassage.html:396
+#: templates/main/multipassage.html:405
 msgid "Manuskriptbilder"
 msgstr "Manuscript Images"
 
@@ -1196,15 +1215,18 @@ msgstr "Manuscript Images"
 msgid "Edition, Übersetzung, Transkription"
 msgstr "Edition, Translation, Transcription"
 
-#: templates/main/multipassage.html:178
+#: templates/main/multipassage.html:178 templates/main/multipassage.html:305
+#: templates/main/multipassage.html:428
 msgid "Verwandte Texte"
 msgstr "Related texts"
 
-#: templates/main/multipassage.html:185
+#: templates/main/multipassage.html:185 templates/main/multipassage.html:301
+#: templates/main/multipassage.html:424
 msgid "Weitere Texte"
 msgstr "More texts"
 
-#: templates/main/multipassage.html:188
+#: templates/main/multipassage.html:188 templates/main/multipassage.html:314
+#: templates/main/multipassage.html:437
 msgid "Urkunden und Briefe"
 msgstr "Charters and Letters"
 
@@ -1241,43 +1263,53 @@ msgid "Texte übereinander"
 msgstr "Show texts in rows"
 
 #: templates/main/multipassage.html:235
-msgid "Texte unabhängig scrollen"
-msgstr "Scroll texts independently"
-
-#: templates/main/multipassage.html:237
 msgid "Alle Texte maximiert anzeigen."
 msgstr "Maximize all texts."
 
-#: templates/main/multipassage.html:237
+#: templates/main/multipassage.html:235
 msgid "Texte maximieren"
 msgstr "Maximize texts"
 
-#: templates/main/multipassage.html:238
+#: templates/main/multipassage.html:236
 msgid "Alle Texte in original Größe anzeigen."
 msgstr "Return all texts to their original size."
 
-#: templates/main/multipassage.html:238
+#: templates/main/multipassage.html:236
 msgid "Texte in original Größe"
 msgstr "Texts in original size"
 
-#: templates/main/multipassage.html:271 templates/main/multipassage.html:342
+#: templates/main/multipassage.html:273 templates/main/multipassage.html:282
+#: templates/main/multipassage.html:396 templates/main/multipassage.html:405
+msgid "Manuskriptbilder hinzufügen"
+msgstr "Add Manuscript Images"
+
+#: templates/main/multipassage.html:290 templates/main/multipassage.html:295
+#: templates/main/multipassage.html:413 templates/main/multipassage.html:418
+msgid "Edition hinzufügen"
+msgstr "Add the edition"
+
+#: templates/main/multipassage.html:301 templates/main/multipassage.html:424
+msgid "Weitere Texte hinzufügen"
+msgstr "Add another text"
+
+#: templates/main/multipassage.html:321 templates/main/multipassage.html:444
 msgid "Urkundenteile zeigen"
 msgstr "Show charter parts"
 
-#: templates/main/multipassage.html:274 templates/main/multipassage.html:345
+#: templates/main/multipassage.html:324 templates/main/multipassage.html:447
 #: templates/main/text_container.html:59
 msgid "Alle zeigen"
 msgstr "Show all"
 
-#: templates/main/multipassage.html:282
+#: templates/main/multipassage.html:332
 msgid "Maximieren"
 msgstr "Maximize"
 
-#: templates/main/multipassage.html:285
+#: templates/main/multipassage.html:335
 msgid "Original Größe"
 msgstr "Original Size"
 
-#: templates/main/multipassage.html:290 templates/main/multipassage.html:353
+#: templates/main/multipassage.html:340 templates/main/multipassage.html:455
 msgid "Spalte ausblenden"
 msgstr "Remove column"
 
@@ -4083,4 +4115,7 @@ msgstr "This is a required field."
 #~ "    mehr\n"
 #~ "    Information."
 #~ msgstr ""
+
+#~ msgid "Texte unabhängig scrollen"
+#~ msgstr "Scroll texts independently"
 
