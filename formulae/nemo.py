@@ -537,7 +537,9 @@ class NemoFormulae(Nemo):
             return 'OK'
         else:
             flash('Language Changed. You may need to refresh the page in your browser.')
-            return redirect(request.referrer)
+            if request.referrer:
+                return redirect(request.referrer)
+            return redirect(url_for('InstanceNemo.r_index'))
 
     @staticmethod
     def r_reading_format(direction: str) -> Union[str, redirect]:
@@ -551,7 +553,9 @@ class NemoFormulae(Nemo):
             return 'OK'
         else:
             flash(_('Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt wird, dann laden Sie die Seite neu.'))
-            return redirect(request.referrer)
+            if request.referrer:
+                return redirect(request.referrer)
+            return redirect(url_for('InstanceNemo.r_index'))
 
     def before_request(self):
         g.search_form = SearchForm()
