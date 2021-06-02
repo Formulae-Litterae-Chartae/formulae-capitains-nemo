@@ -600,6 +600,8 @@ img[id$="-flag-navbar"] {
 .version-dropdown {
     z-index: 1030;
     position: relative;
+    overflow-y: auto;
+    max-height: 60vh;
 }
 
 .elex-word {
