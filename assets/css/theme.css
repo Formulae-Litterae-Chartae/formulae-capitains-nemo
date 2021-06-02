@@ -1094,3 +1094,7 @@ a.btn-primary,li.page-item.active .page-link {
     font-size: small;
     line-height: 2em;
 }
+
+p.short-regest {
+    font-size: larger;
+}
