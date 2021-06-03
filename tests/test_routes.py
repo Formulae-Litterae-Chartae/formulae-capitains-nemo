@@ -410,6 +410,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::bibliography.html', [x[0].name for x in self.templates])
             c.get('/contact', follow_redirects=True)
             self.assertIn('main::contact.html', [x[0].name for x in self.templates])
+            c.get('/feedback', follow_redirects=True)
+            self.assertIn('main::feedback.html', [x[0].name for x in self.templates])
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             c.get('/collections', follow_redirects=True)

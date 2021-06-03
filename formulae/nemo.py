@@ -48,6 +48,7 @@ class NemoFormulae(Nemo):
         ("/imprint", "r_impressum", ["GET"]),
         ("/bibliography", "r_bibliography", ["GET"]),
         ("/contact", "r_contact", ["GET"]),
+        ("/feedback", "r_feedback", ["GET"]),
         ("/pdf/<objectId>", "r_pdf", ["GET"]),
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
@@ -1335,6 +1336,15 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::contact.html"}
+
+    @staticmethod
+    def r_feedback() -> Dict[str, str]:
+        """ Feedback route function
+
+        :return: Template to use for Bibliography page
+        :rtype: {str: str}
+        """
+        return {"template": "main::feedback.html"}
 
     @staticmethod
     def r_man_desc(manuscript: str) -> Dict[str, str]:
