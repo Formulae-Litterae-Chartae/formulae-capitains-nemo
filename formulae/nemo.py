@@ -1437,7 +1437,10 @@ class NemoFormulae(Nemo):
             xslt = etree.XSLT(etree.parse(xml_file))
         d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
         pdf_buffer = BytesIO()
-        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>', str(metadata.metadata.get_single(DC.title, lang=None)))
+        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
+                           r'<sub>\1</sub>',
+                           re.sub(r'<span class="verso-recto">(\w+?)</span>', r'<super>\1</super>',
+                                  str(metadata.metadata.get_single(DC.title, lang=None))))
         description = '{} ({})'.format(doc_title, date.today().isoformat())
         trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
         filename = ''

@@ -374,6 +374,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::index.html', [x[0].name for x in self.templates])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
+            r = c.get('/pdf/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
+            self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertIn(_('Das PDF für diesen Text ist nicht zugänglich.'), [x[0] for x in self.flashed_messages])
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
