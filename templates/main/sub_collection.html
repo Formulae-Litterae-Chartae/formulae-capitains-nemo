@@ -3,10 +3,10 @@
 
 {% macro make_dates(values) %}
 
-{% if values['dating'] not in ['None', ''] %}
-<p class="mb-0 temp-place">{{ _('Datum') }}: {{ values['dating'] }}{% if values['ausstellungsort'] not in ['None', ''] %}<br>{{ _('Ausstellungsort') }}: {{ values['ausstellungsort'] }}{% endif %}</p>
+{% if values['ausstellungsort'] not in ['None', ''] or values['dating'] not in ['None', ''] %}
+    <p class="mb-0 temp-place">{% if values['dating'] not in ['None', ''] %}{{ _('Datum') }}: {{ values['dating'] }}{% endif %}{% if values['ausstellungsort'] not in ['None', ''] %}{% if values['dating'] not in ['None', ''] %}<br>{% endif %}{{ _('Ausstellungsort') }}: {{ values['ausstellungsort'] }}{% endif %}</p>
 {% endif %}
-
+    
 {% endmacro %}
 
 {% block article %}
@@ -103,12 +103,12 @@
                                 {% set copy_class = '' %}
                             {% endif %}
                             {% if values['short_regest'] %}
-                                <p class="mb-1{{ copy_class }}">{{ values['short_regest'] }}</p>
+                                <p class="mb-1 short-regest {{ copy_class }}">{{ values['short_regest'] }}</p>
                             {% endif %}
-                            {{ make_dates(values) }}
                             {% for p in values['regest'] %}
-                                <p class="{{ copy_class }}"><small>{% if p != 'None' %}{{ p|safe }}{% endif %}</small></p>
+                                <p class="full-regest {{ copy_class }}">{% if p != 'None' %}{{ p|safe }}{% endif %}</p>
                             {% endfor %}
+                            {{ make_dates(values) }}
                             <p class="mb-0 text-right"><a class="internal-link" href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% else %}
                             {{ make_dates(values) }}

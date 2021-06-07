@@ -600,6 +600,8 @@ img[id$="-flag-navbar"] {
 .version-dropdown {
     z-index: 1030;
     position: relative;
+    overflow-y: auto;
+    max-height: 60vh;
 }
 
 .elex-word {
@@ -675,6 +677,12 @@ h1 .manuscript-number {
 
 .entry-title {
     font-variant: small-caps;
+    font-size: larger;
+    line-height: 1em;
+    margin-bottom: 0;
+}
+
+.entry-folia {
     font-size: larger;
     line-height: 1em;
     margin-bottom: 0;
@@ -1085,4 +1093,8 @@ a.btn-primary,li.page-item.active .page-link {
 #lem_box {
     font-size: small;
     line-height: 2em;
+}
+
+p.short-regest {
+    font-size: larger;
 }

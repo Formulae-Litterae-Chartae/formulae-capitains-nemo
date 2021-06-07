@@ -1,0 +1,15 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Feedback') }}{% endblock %}
+
+{%block article%}
+<div class="container">
+    <header>
+        <h1 class="text-center">{{ _('Feedback') }}</h3>
+    </header>
+    <section id="contact-text">
+        <p>E-Mail: <a class="outside-link" href="mailto:formulae.geschichte@uni-hamburg.de">formulae.geschichte@uni-hamburg.de</a></p>
+        <h4>{{ _('Anmerkungen/Verbesserungsvorschläge') }}</h4>
+        <p>{{ _('Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge zur Formulae - Litterae - Chartae Werkstatt haben, schicken Sie uns einfach eine Email an die obengennante Emailadresse. Wenn es um eine bestimmte Seite in der Werkstatt handelt, nennen Sie bitte die volle URL in den Text Ihre Email. Wenn es um einen bestimmten Text handelt, nennen Sie bitte ebenso die volle URL mit dem vollen Titel des Textes und eine genaue Beschreibung des Problems und des Vorschlags, das Problem zu beheben.') }}</p>
+    </section>
+</div>
+{%endblock%}

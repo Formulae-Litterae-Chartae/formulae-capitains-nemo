@@ -1,5 +1,5 @@
 var lexModal = $('#lexicon-modal');
-var scrollControl = document.getElementById('scroll-text-separate');
+//var scrollControl = document.getElementById('scroll-text-separate');
 
 $(document).ready(function(){
 //     $('.apparatus-title').append(appHeading);
@@ -173,6 +173,15 @@ $(document).ready(function(){
             hideLemma($( this ));
         }
     })
+    
+    $('div.mirador-viewer-pane').each(function() {
+        var minusHeight = $(this).prev().height();
+        var maxHeight = $(window).height() * .65;
+        console.log(minusHeight, maxHeight);
+        $(this).css({
+            'height': maxHeight - minusHeight
+        })
+    })
 })
 
 function makePopupNote(id) {
@@ -323,24 +332,24 @@ window.onclick = function(event) {
     }
 }
 
-function changeScrollMode(el) {
-    var imgChild = el.children[0];
-    if (el.getAttribute('title') == toScrollingTexts || el.getAttribute('title') == '') {
-        el.setAttribute('title', fromScrollingTexts);
-        imgChild.setAttribute('src', scrollTogetherSrc);
-    } else {
-        el.setAttribute('title', toScrollingTexts);
-        imgChild.setAttribute('src', scrollIndependentSrc);
-    };
-    var textSections = document.querySelectorAll('.text-section');
-    for (let section of textSections) {
-        section.classList.toggle('scrolling');
-    }
-}
+//function changeScrollMode(el) {
+//    var imgChild = el.children[0];
+//    if (el.getAttribute('title') == toScrollingTexts || el.getAttribute('title') == '') {
+//        el.setAttribute('title', fromScrollingTexts);
+//        imgChild.setAttribute('src', scrollTogetherSrc);
+//    } else {
+//        el.setAttribute('title', toScrollingTexts);
+//        imgChild.setAttribute('src', scrollIndependentSrc);
+//    };
+//    var textSections = document.querySelectorAll('.text-section');
+//    for (let section of textSections) {
+//        section.classList.toggle('scrolling');
+//    }
+//}
 
 function goToLinkedParagraph(h, t) {
     var el = document.getElementById(t);
-    var imgChild = scrollControl.children[0];
+    /*var imgChild = scrollControl.children[0];
     if (scrollControl && (scrollControl.getAttribute('title') == toScrollingTexts || scrollControl.getAttribute('title') == '')) {
         scrollControl.setAttribute('title', fromScrollingTexts);
         imgChild.setAttribute('src', scrollTogetherSrc);
@@ -348,7 +357,7 @@ function goToLinkedParagraph(h, t) {
         for (let section of textSections) {
             section.classList.toggle('scrolling');
         }
-    }
+    }*/
     target = document.getElementById(h);
     el.scrollIntoView();
     el.onanimationend =  function() {this.classList.remove('flash-grey')};

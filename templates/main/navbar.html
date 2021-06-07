@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav my-0 mr-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="https://www.formulae.uni-hamburg.de/das-projekt.html" target="_blank">{{ _('Über das Projekt') }}</a>
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_index')}}">{{ _('Über das Projekt') }}</a>
             </li>
             <li class="nav-item">
             {% if current_user.is_anonymous %}
@@ -60,6 +60,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('InstanceNemo.r_feedback') }}">{{ _('Feedback') }}</a>
             </li>
         </ul>
         {% include "search::search_box.html" %}

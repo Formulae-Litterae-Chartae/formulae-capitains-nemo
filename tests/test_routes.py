@@ -264,7 +264,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
-            self.assertIn('<p class=" no-copy">', r.get_data(as_text=True))
+            self.assertIn('<p class="full-regest  no-copy">', r.get_data(as_text=True))
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
@@ -350,12 +350,18 @@ class TestIndividualRoutes(Formulae_Testing):
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(session['reading_format'], 'rows')
+            c.get('/reading_format/weird', follow_redirects=True)
+            self.assertIn('main::index.html', [x[0].name for x in self.templates])
+            self.assertEqual(session['reading_format'], 'weird')
             response = c.get('/reading_format/columns', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
             self.assertEqual(response.get_data(as_text=True), 'OK')
             self.assertEqual(session['reading_format'], 'columns')
             c.get('/lang/en', follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_bibliography')})
             self.assertIn('main::bibliography.html', [x[0].name for x in self.templates])
             self.assertEqual(session['locale'], 'en')
+            c.get('/lang/de', follow_redirects=True)
+            self.assertIn('main::index.html', [x[0].name for x in self.templates])
+            self.assertEqual(session['locale'], 'de')
             response = c.get('/lang/en', follow_redirects=True, headers={"X-Requested-With": "XMLHttpRequest"})
             self.assertEqual(response.get_data(as_text=True), 'OK')
             # Navigating to the results page with no search args should redirect the user to the index
@@ -410,6 +416,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::bibliography.html', [x[0].name for x in self.templates])
             c.get('/contact', follow_redirects=True)
             self.assertIn('main::contact.html', [x[0].name for x in self.templates])
+            c.get('/feedback', follow_redirects=True)
+            self.assertIn('main::feedback.html', [x[0].name for x in self.templates])
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             c.get('/collections', follow_redirects=True)
@@ -1311,9 +1319,16 @@ class TestFunctions(Formulae_Testing):
 
     def test_sort_folia(self):
         """ Makes sure that the sort_folia function returns correct strings"""
-        test_strings = {'urn:cts:formulae:p16.4v6r': '0004v-6r', 'urn:cts:formulae:m4.39r24r': '0039r-24r',
-                        'urn:cts:formulae:p3.130va131rb': '0130va-131rb', 'urn:cts:formulae:fu2.148v': '0148v',
-                        'urn:cts:formulae:p3.134vb': '0134vb'}
+        test_strings = {'urn:cts:formulae:p16.4v6r':
+                            '0004<span class="verso-recto">v</span>-6<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:m4.39r24r':
+                            '0039<span class="verso-recto">r</span>-24<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:p3.130va131rb':
+                            '0130<span class="verso-recto">va</span>-131<span class="verso-recto">rb</span>',
+                        'urn:cts:formulae:fu2.148v':
+                            '0148<span class="verso-recto">v</span>',
+                        'urn:cts:formulae:p3.134vb':
+                            '0134<span class="verso-recto">vb</span>'}
         for k, v in test_strings.items():
             par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
