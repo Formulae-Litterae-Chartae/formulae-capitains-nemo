@@ -152,9 +152,20 @@
         {% endfor %}
         {% if translation[objId] and object.collections.parents[-1]['id'] in ['formulae_collection', 'manuscript_collection'] %}
             <span class="dropdown-item-text">{{ _('Edition, Übersetzung, Transkription') }}</span>
-            {% for t in translation[objId] %}
-            <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if t[2] != '' %}{{ t[2]|safe }}: {% endif %}{{ t[1]|string|safe }}</span></a>
-
+            {% for t in translation[objId] if 'cts:edition' in t[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
+            <div class="col-3 text-center">
+                <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary"><span class="font-weight-bold">({{ _('Edition') }}) </span>{{ t[1]|string|safe }}</span></a>
+            </div>
+            {% endfor %}
+            {% for t in translation[objId] if 'cts:translation' in t[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
+            <div class="col-3 text-center">
+                <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary"><span class="font-weight-bold">({{ _('Übersetzung') }}) </span>{{ t[1]|string|safe }}</span></a>
+            </div>
+            {% endfor %}
+            {% for t in translation[objId] if 'transcription' in t[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
+            <div class="col-3 text-center">
+                <a class="dropdown-item" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, t[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">- <span class="text-primary"><span class="font-weight-bold">({{ _('Transkription') }}) </span>{% if t[2] != '' %}{{ t[2]|safe }}: {% endif %}{{ t[1]|string|safe }}</span></a>
+            </div>
             {% endfor %}
             <div class="dropdown-divider"></div>
         {% endif %}
