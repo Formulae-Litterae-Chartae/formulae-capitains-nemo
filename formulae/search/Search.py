@@ -423,7 +423,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             if '*' in elex_q or '?' in elex_q:
                 clauses.append({'wildcard': {'text': {'value': term}}})
             else:
-                clauses.append({'match': {'text': {'query': term}}})
+                clauses.append({'match': {'text': {'query': term, 'fuzziness': fuzziness}}})
         body_template['query']['bool']['must'] = clauses
         body_template['highlight'] = {'fields': {search_field: {}},
                                       'pre_tags': [PRE_TAGS],
