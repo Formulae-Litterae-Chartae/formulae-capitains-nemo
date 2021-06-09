@@ -68,6 +68,7 @@ class AdvancedSearchForm(SearchForm):
     slop = IntegerField(_l("Suchradius"), default=0)
     in_order = BooleanField(_l('Wortreihenfolge beachten?'))
     regest_q = StringField(_l('Regestensuche'))
+    elex_q = StringField(_l('E-Lexikonsuche'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln'))])
     year = StringField(_l('Jahr'), validators=[validate_optional_number_range(minimum=500, maximum=1000,
