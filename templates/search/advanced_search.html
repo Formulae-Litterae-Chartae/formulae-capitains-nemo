@@ -163,6 +163,15 @@
                         </div>
                     </div>
                     <div class="form-row mb-2">
+                        <div class="col text-center"><strong>{{ form.elex_q.label(for="elexButton", id="elexLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#elexSearchCollapse" type="button" aria-expanded="false" aria-controls="elexSearchCollapse"><span class="position-relative" id="elexSearchCollapse-tooltip" data-toggle="tooltip" data-container="#elexSearchCollapse-tooltip" title="{{ _('Eingabe für die E-Lexikonsuche zeigen') }}"><i class="fas fa-caret-down"></i></span></button> 
+                            <div class="collapse" id="elexSearchCollapse">
+                                {{ form.elex_q(class="form-control my-0", placeholder=form.elex_q.label.text, id="elex-word-search-box", list="elex-word-search-datalist", default=form.elex_q.label.text, autocomplete="off", **{'aria-labelledby': 'elexLabel'}) }}
+                                <datalist id="elex-word-search-datalist">
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
                         <div class="col">
                             <div class="text-center"><strong><label for="compositionButton" id="compositionLabel">{{ _('Ausstellungsortsuche') }}</label></strong> <button id="compositionButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#compositionSearchCollapse" type="button" aria-expanded="false" aria-controls="compositionSearchCollapse"><span class="position-relative" id="compositionSearchCollapse-tooltip" data-toggle="tooltip" data-container="#compositionSearchCollapse-tooltip" title="{{ _('Ausstellungsortsucheingabe zeigen') }}"><i class="fas fa-caret-down"></i></span></button></div>
                             <div class="collapse" id="compositionSearchCollapse">

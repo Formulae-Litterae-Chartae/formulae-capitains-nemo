@@ -1,0 +1,51 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "span_near": {
+            "clauses": [
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "autocomplete_regest": {
+                        "value": "sche",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              }
+            ],
+            "slop": "0",
+            "in_order": false
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
+  "from": 0,
+  "size": 10000,
+  "highlight": {
+    "fields": {
+      "text": {
+        "fragment_size": 1000
+      },
+      "autocomplete_regest": {
+        "fragment_size": 1000
+      }
+    },
+    "pre_tags": [
+      "</small><strong>"
+    ],
+    "post_tags": [
+      "</strong><small>"
+    ],
+    "encoder": "html"
+  }
+}
