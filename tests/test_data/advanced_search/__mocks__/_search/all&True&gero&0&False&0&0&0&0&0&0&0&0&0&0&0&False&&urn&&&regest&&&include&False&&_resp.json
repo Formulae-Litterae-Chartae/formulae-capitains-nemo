@@ -1,9 +1,9 @@
 {
-  "took": 7,
+  "took": 12,
   "timed_out": false,
   "_shards": {
-    "total": 57,
-    "successful": 57,
+    "total": 56,
+    "successful": 56,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v16",
+        "_index": "andecavensis_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v16",
+        "_index": "andecavensis_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form041.lat001",
         "_score": null,
@@ -107,7 +107,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v16",
+        "_index": "andecavensis_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form048.lat001",
         "_score": null,
@@ -153,7 +153,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v16",
+        "_index": "andecavensis_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form051.lat001",
         "_score": null,
@@ -199,7 +199,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v16",
+        "_index": "andecavensis_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form052.lat001",
         "_score": null,
@@ -245,7 +245,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
         "_score": null,
@@ -291,7 +291,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form000.lat001",
         "_score": null,
@@ -337,7 +337,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form2_003.lat001",
         "_score": null,
@@ -383,7 +383,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form2_017.lat001",
         "_score": null,
@@ -429,7 +429,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form2_031.lat001",
         "_score": null,
@@ -475,7 +475,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form2_037.lat001",
         "_score": null,
@@ -521,7 +521,7 @@
         ]
       },
       {
-        "_index": "marculf_v16",
+        "_index": "marculf_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form2_038.lat001",
         "_score": null,
@@ -567,7 +567,7 @@
         ]
       },
       {
-        "_index": "auvergne_v6",
+        "_index": "auvergne_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:auvergne.form001.lat001",
         "_score": null,
@@ -613,7 +613,7 @@
         ]
       },
       {
-        "_index": "auvergne_v6",
+        "_index": "auvergne_v7",
         "_type": "_doc",
         "_id": "urn:cts:formulae:auvergne.form002.lat001",
         "_score": null,
@@ -659,7 +659,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
         "_score": null,
@@ -717,7 +717,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
         "_score": null,
@@ -775,7 +775,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
         "_score": null,
@@ -833,7 +833,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
         "_score": null,
@@ -891,7 +891,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
         "_score": null,
@@ -949,7 +949,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
         "_score": null,
@@ -1007,7 +1007,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
         "_score": null,
@@ -1065,7 +1065,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
         "_score": null,
@@ -1123,7 +1123,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
         "_score": null,
@@ -1181,7 +1181,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
         "_score": null,
@@ -1239,7 +1239,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
         "_score": null,
@@ -1297,7 +1297,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
         "_score": null,
@@ -1355,7 +1355,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
         "_score": null,
@@ -1413,7 +1413,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
         "_score": null,
@@ -1471,7 +1471,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
         "_score": null,
@@ -1529,7 +1529,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
         "_score": null,
@@ -1587,7 +1587,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
         "_score": null,
@@ -1645,7 +1645,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
         "_score": null,
@@ -1703,7 +1703,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v16",
+        "_index": "marmoutier_serfs_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
         "_score": null,

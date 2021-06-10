@@ -154,15 +154,6 @@
                         </div>
                     </div>
                     <div class="form-row mb-2">
-                        <div class="col text-center"><strong>{{ form.regest_q.label(for="regestButton", id="regestLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#regestSearchCollapse" type="button" aria-expanded="false" aria-controls="regestSearchCollapse"><span class="position-relative" id="regestSearchCollapse-tooltip" data-toggle="tooltip" data-container="#regestSearchCollapse-tooltip" title="{{ _('Regestensucheingabe zeigen') }}"><i class="fas fa-caret-down"></i></span></button> <button type="button" class="btn btn-link p-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regestSearchMessage }}" aria-label="{{ _('Hilfe für Regestensuche') }}"><i class="fas fa-question-circle"></i></button>
-                            <div class="collapse" id="regestSearchCollapse">
-                                {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off", **{'aria-labelledby': 'regestLabel'}) }}
-                                <datalist id="regest-word-search-datalist">
-                                </datalist>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row mb-2">
                         <div class="col text-center"><strong>{{ form.elex_q.label(for="elexButton", id="elexLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#elexSearchCollapse" type="button" aria-expanded="false" aria-controls="elexSearchCollapse"><span class="position-relative" id="elexSearchCollapse-tooltip" data-toggle="tooltip" data-container="#elexSearchCollapse-tooltip" title="{{ _('Eingabe für die E-Lexikonsuche zeigen') }}"><i class="fas fa-caret-down"></i></span></button> 
                             <div class="collapse" id="elexSearchCollapse">
                                 {{ form.elex_q(class="form-control my-0", placeholder=form.elex_q.label.text, id="elex-word-search-box", list="elex-word-search-datalist", default=form.elex_q.label.text, autocomplete="off", **{'aria-labelledby': 'elexLabel'}) }}

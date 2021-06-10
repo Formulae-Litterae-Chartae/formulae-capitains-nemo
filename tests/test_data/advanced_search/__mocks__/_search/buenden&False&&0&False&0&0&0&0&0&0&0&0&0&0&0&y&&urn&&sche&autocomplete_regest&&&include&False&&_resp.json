@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 1,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -9,13 +9,51 @@
   },
   "hits": {
     "total": {
-      "value": 7,
+      "value": 24,
       "relation": "eq"
     },
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
+          "lemmas": null,
+          "regest": "Eine Bestallungsformel für den Dukat beider Rätien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem römischen Volk den Frieden zu wahren.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 3",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+          "date_string": "Vor 507",
+          "comp_ort": " ",
+          "autocomplete": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Eine Bestallungsformel für den Dukat beider Rätien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem römischen Volk den Frieden zu wahren.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0400",
+              "lte": "0507-12-31"
+            }
+          ],
+          "all_dates": [
+            "0400",
+            "0507-12-31"
+          ],
+          "min_date": "0400",
+          "max_date": "0507-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0003.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
         "_score": null,
@@ -47,18 +85,13 @@
           "max_date": "0760-12-31",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0016.lat001"
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -93,18 +126,402 @@
           ],
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat&#x2F;Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0017.lat001"
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem. Hunc nostrum negociatorem Italiae mercimonia ferentem, his litteris tuae paternitatis commendo protectioni, ut per vias vestrae patriae tutus eat et redeat; et in montium claustris a vestris non teneatus tolneariis constrictus, sed per latitudinem caritatis latam habeat eundi et redeundi semitam. Iubeas, obsecro, orare pro anima Ioseppi discipuli mei. „Floreas et proficias de virtute in virtutem, donec videas laetus et gaudens deum tuum in Sion“. Memorque mei sis, sanctissime pater, obsecro.",
+          "lemmas": null,
+          "regest": "Alkuin empfiehlt dem Bischof Remedius von Chur seinen Geschäftsträger zum Schutze bei der Hin- und Rückreise über die Alpen und bittet ihn, für Josephus beten zu lassen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 21",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
+          "date_string": "790-796",
+          "comp_ort": " ",
+          "autocomplete": "Dulcissimo patri Remigio episcopo Albinus humilis filius salutem. Hunc nostrum negociatorem Italiae mercimonia ferentem, his litteris tuae paternitatis commendo protectioni, ut per vias vestrae patriae tutus eat et redeat; et in montium claustris a vestris non teneatus tolneariis constrictus, sed per latitudinem caritatis latam habeat eundi et redeundi semitam. Iubeas, obsecro, orare pro anima Ioseppi discipuli mei. „Floreas et proficias de virtute in virtutem, donec videas laetus et gaudens deum tuum in Sion“. Memorque mei sis, sanctissime pater, obsecro.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Alkuin empfiehlt dem Bischof Remedius von Chur seinen Geschäftsträger zum Schutze bei der Hin- und Rückreise über die Alpen und bittet ihn, für Josephus beten zu lassen.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0790",
+              "lte": "0796-12-31"
+            }
+          ],
+          "all_dates": [
+            "0790",
+            "0796-12-31"
+          ],
+          "min_date": "0790",
+          "max_date": "0796-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0021.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis caritatis vestrae muneribus, multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis; sperans me misericordia divina participem esse per vestras sanctissimas orationes. Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis, ubi deus tantummodo considerat et remunerat. Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate, ut cum gaudio ante conspectum summi regis venire digni efficiamini, et vocem illam audire desiderabilem: „Euge, serve bone et fidelis, intra in gaudium domini tui“. Nunc tempus est laborandi, tunc quiescendi; nunc promerendi, tunc remunerandi. Fac ut sis, ut tibi veniat quod vis. Dilige diligentem te, quatenus ad beatissimam illius sessionem pervenire merearis et dicere: „Sicut audivimus, ita et vidimus in civitate dei nostri“, in qua est tota felicitas et nulla perturbatio, summa requies et sempiterna beatitudo. Vestram omnipotens deus sanctitatem in omni bono florere faciat, venerande pater.",
+          "lemmas": null,
+          "regest": "Alkuin dankt Bischof Remedius von Chur für seine Geschenke und ermahnt ihn.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 22",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0022.lat001",
+          "date_string": "792–796 (?)",
+          "comp_ort": " ",
+          "autocomplete": "Venerando patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis caritatis vestrae muneribus, multum laetati sumus de prosperitate vestra seu quod memoriam nostri habetis; sperans me misericordia divina participem esse per vestras sanctissimas orationes. Caritas vero inter amicos melior est auro et fides inter absentes praetiosior gemmis, ubi deus tantummodo considerat et remunerat. Vos quod vestrum est diligentissime exsequimini et accepta dominicae pecuniae talenta multiplicate, ut cum gaudio ante conspectum summi regis venire digni efficiamini, et vocem illam audire desiderabilem: „Euge, serve bone et fidelis, intra in gaudium domini tui“. Nunc tempus est laborandi, tunc quiescendi; nunc promerendi, tunc remunerandi. Fac ut sis, ut tibi veniat quod vis. Dilige diligentem te, quatenus ad beatissimam illius sessionem pervenire merearis et dicere: „Sicut audivimus, ita et vidimus in civitate dei nostri“, in qua est tota felicitas et nulla perturbatio, summa requies et sempiterna beatitudo. Vestram omnipotens deus sanctitatem in omni bono florere faciat, venerande pater.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Alkuin dankt Bischof Remedius von Chur für seine Geschenke und ermahnt ihn.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0792",
+              "lte": "0796-12-31"
+            }
+          ],
+          "all_dates": [
+            "0792",
+            "0796-12-31"
+          ],
+          "min_date": "0792",
+          "max_date": "0796-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0022.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+        "_score": null,
+        "_source": {
+          "text": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
+          "date_string": "(769–813 [813]) 04 20",
+          "comp_ort": " ",
+          "autocomplete": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 770,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 771,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 772,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 773,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 774,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 775,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 776,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 777,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 778,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 779,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 780,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 781,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 782,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 783,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 784,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 785,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 786,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 787,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 788,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 789,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 790,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 791,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 792,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 793,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 794,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 795,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 796,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 797,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 798,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 799,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 800,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 801,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 802,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 803,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 804,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 805,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 806,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 807,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 808,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 809,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 810,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 811,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 812,
+              "month": 4,
+              "day": 20
+            },
+            {
+              "year": 813,
+              "month": 4,
+              "day": 20
+            }
+          ],
+          "all_dates": [
+            "0769-04-20",
+            "0770-04-20",
+            "0771-04-20",
+            "0772-04-20",
+            "0773-04-20",
+            "0774-04-20",
+            "0775-04-20",
+            "0776-04-20",
+            "0777-04-20",
+            "0778-04-20",
+            "0779-04-20",
+            "0780-04-20",
+            "0781-04-20",
+            "0782-04-20",
+            "0783-04-20",
+            "0784-04-20",
+            "0785-04-20",
+            "0786-04-20",
+            "0787-04-20",
+            "0788-04-20",
+            "0789-04-20",
+            "0790-04-20",
+            "0791-04-20",
+            "0792-04-20",
+            "0793-04-20",
+            "0794-04-20",
+            "0795-04-20",
+            "0796-04-20",
+            "0797-04-20",
+            "0798-04-20",
+            "0799-04-20",
+            "0800-04-20",
+            "0801-04-20",
+            "0802-04-20",
+            "0803-04-20",
+            "0804-04-20",
+            "0805-04-20",
+            "0806-04-20",
+            "0807-04-20",
+            "0808-04-20",
+            "0809-04-20",
+            "0810-04-20",
+            "0811-04-20",
+            "0812-04-20",
+            "0813-04-20"
+          ],
+          "min_date": "0769-04-20",
+          "max_date": "0813-04-20",
+          "days": [
+            "Thursday",
+            "Wednesday",
+            "Friday",
+            "Saturday",
+            "Lent",
+            "Tuesday",
+            "Monday",
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -142,18 +559,57 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
+          "lemmas": null,
+          "regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 26",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
+          "date_string": "769–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Sacro sancte basilice sancti Carpofodi in fundo Tremune atque sancti Helarii in fundo Curia in loco qui nuncupatur Furtunes volumus dare.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Priester Viktor beschenkt die Kirchen St. Carpophorus zu Trimmis und St. Hilarius zu Chur.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0769",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0769",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0769",
+          "max_date": "0814",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0026.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -376,22 +832,17 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Lent",
-            "Friday",
-            "Sunday",
-            "Wednesday",
-            "Saturday",
             "Thursday",
+            "Wednesday",
+            "Friday",
+            "Saturday",
+            "Lent",
+            "Tuesday",
             "Monday",
             "Easter",
-            "Tuesday"
+            "Sunday"
           ],
           "sort_prefix": 1
-        },
-        "highlight": {
-          "autocomplete_regest": [
-            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur."
-          ]
         },
         "sort": [
           1,
@@ -399,7 +850,7 @@
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -437,18 +888,13 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -486,18 +932,485 @@
           "max_date": "0814",
           "sort_prefix": 1
         },
-        "highlight": {
-          "autocomplete_regest": [
-            "Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur."
-          ]
-        },
         "sort": [
           1,
           "urn:cts:formulae:buenden.meyer-marthaler0029.lat001"
         ]
       },
       {
-        "_index": "buenden_v16",
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: „Per me si quis intraverit, salvabitur, ingredietur et egredietur“, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "lemmas": null,
+          "regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 31",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
+          "date_string": "801-803",
+          "comp_ort": " ",
+          "autocomplete": "Desiderantissimo patri Remedio episcopo Curiae civitatis humilis levita Alcvinus salutem. Memor dilectionis vestrae et foederatae olim amicitiae inter nos, has tuae reverentiae, optime frater, litterulas dirigere curavi ob recordationem prioris pacti, quod inter nos pepigimus; obsecrans per summi regna tonantis, uti nostri nominis iuxta vestrae promissionis veritatem in sacrosanctis orationibus memoriam habere digneris; etiam a servis dei intercessiones pro me fieri iubeatis, qui nunc in monasteriis per vestrae diocesis latitudinem. Nam ego, plurimis huius saeculi iaculis vulneratus, diem trepido animo expecto, quo duci ad iudicium vocer ignorans, quid habeam respondere iudici meo Iesu Christo, qui mihi tanta tribuit in hoc saeculo bona; et ego quasi his omnibus ingratus plurima feci, quae non debui. Tu vero, sanctissime pater, secundum caritatem, quam habes in membra Christi, et fidem probatam in salvatorem nostrum me assiduis orationibus adiuvare digneris, ut misericordem inveniam dominum deum meum. Te quoque ipsum iuxta sapientiam tibi a deo datam in omni bonitate praepara ad occursum illius, ut dignus habearis cum multiplici laboris tui fructu gaudens et gloriosus stare ante tribunal Christi, atque ex brevissimo huius vitae labore aeternam donante deo beatitudinem cum sanctis omnibus intrare merearis. Dominus Iesus, qui ait: „Per me si quis intraverit, salvabitur, ingredietur et egredietur“, custodiat introitum tuum et exitum tuum ex hoc nunc et usque in saeculum, sanctissime pater.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0803-12-31"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0803-12-31"
+          ],
+          "min_date": "0801",
+          "max_date": "0803-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0031.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: „Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum“. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: „Ecce sacerdos magnus, qui in diebus suis placuit deo?“; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: „Euge serve bone et fidelis, intra in gaudium domini dei tui“. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "lemmas": null,
+          "regest": "Alkuin dankt Bischof Remedius für seine Briefe und sein Gebet und ermahnt ihn.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 32",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0032.lat001",
+          "date_string": "801-804",
+          "comp_ort": " ",
+          "autocomplete": "Beatissimo patri Remedio episcopo humilis levita Alchvinus salutem. Acceptis amabiliter venerandae dilectionis vestrae litteris, quae me multo gaudio laetificaverunt, de prosperitate dignitatis vestrae seu de recordatione nominis nostri. Quia multum confido per dei gratiam de intercessionibus sanctitatis vestrae; et quanto me plus peccatorem agnosco, tanto magis me indigere sanctas orationes vestras novi. Non solum me aliquid venie mereri non dubito per vestrae caritatis continuas supplicationes, sed vosmetipsos magnam habere mercedem pro integritate sanctae fidei congratulor; nam et promissionem verissimam ipsius veritatis habemus, quae ait: „Ubi sunt duo vel tres congregati in nomine meo, ibi sum in medio eorum“. Congregatio nostra est in spiritu caritatis, non in corporis praesentia; et cui omnia praesto sunt, non latet eum caritatis nostrae puritas, sine qua nil placet deo, nec munus ad aram. Hanc ergo sequamur intimo cordis affectu, ut ad illum pervenire mereamur, qui est vera caritas, et indeficiens beatitudo, et beata aeternitas, ut labor non sit inanis, sed ad perfectae retributionis perveniat gloriam. Ad hanc vicissitudinem solicita litterarum tuarum dilectio meam segnitiem hortari nullatenus inmemor esto, quatenus ad illam beatissimam visionem domini nostri Iesu Christi pervenire mereamur, ubi est lumen aeternum et quies perpetuae pacis laetissima. Ad huius beatitudinis pacem omnes ad te venientes, vel etiam pertinentes exemplis optimae vitae trahere non desistas; nec admonitionibus dulcissimis corda arentia inrigare segnis esto, ut culmen nominate dignitatis in te sublimitatem meritorum habeat in conspectu dei. Sint verba tua sale sapientiae condita, ut te verissime dicatur: „Ecce sacerdos magnus, qui in diebus suis placuit deo?“; qui multiplicatis dominice pecunie talentis domini suo occurrere dignus habeatur, et audire vocem desiderabilem: „Euge serve bone et fidelis, intra in gaudium domini dei tui“. Properat enim dies ultimus, et tacito pede fessa senectus ingreditur cubile nostrum, stat ostium qui pulsat, si leto animo adventum ipsius suscipiamus. Dies sunt pauci laboris nostri, sed bene laborantem sequitur merces sine numero dierum, eius ordinatione, qui ordinat diem aeternum, secundum merita singulorum; in cuius domo mansiones multae sunt; sed hae omnes divitiis felicitatis et gloria beatitudinis sunt plenae, ubi sancti post huius vitae sudorem aeterna pace fruuntur, qui nostrum de supernis sedibus expectant agonem, desiderantes ex nobis augeri numerum suum, quo tu properans, beatissime pater, meque precibus tecum rapere secundum fidelissimas promissiones tuas satage, ut corona gloriae tuae mihi proficiat, Christo donante, in perpetuam miserationis dei salutem. Divina gratia te tuosque fideliter in ecclesia Christi servientes in omnibus proficere faciat, dilectissime et sanctissime pater.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Alkuin dankt Bischof Remedius für seine Briefe und sein Gebet und ermahnt ihn.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0801",
+              "lte": "0804-12-31"
+            }
+          ],
+          "all_dates": [
+            "0801",
+            "0804-12-31"
+          ],
+          "min_date": "0801",
+          "max_date": "0804-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0032.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
+          "lemmas": null,
+          "regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
+          "date_string": "ca. 791–806",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Secundum iudicium domni Remedi et Teudones iudices et Uigelii iudices et Aureliani scultaizi, venet Costancius et Maxemus et amallaverunt Edalecus et fratre seu Uigeliu de terre deveri et sic iudicaverunt iudices, que EdaIecus et UigeIius iurarent, debuerunt iurare et non iurarunt et postia apactuarunt parentes que de ipsu agru que illi quesirunt dederunt tercia porcione in pacalia. +Signum Teudones iudices testes. +Signum Uieli iudices testes. +Signum Aureliani scultaizi testes. +Signum AmaIones testes. +Signum Solvani testes. +Signum Immones testes. +Signum Costanti qui anc iudicatum fieri rogavit testes. Ego Prihectus presbiter de iusso Teudones iudices iudicatu scripsi et teste me suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0791",
+              "lte": "0806-12-31"
+            }
+          ],
+          "all_dates": [
+            "0791",
+            "0806-12-31"
+          ],
+          "min_date": "0791",
+          "max_date": "0806-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
+          "lemmas": null,
+          "regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 35",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
+          "date_string": "807 02 07",
+          "comp_ort": "Rankweil",
+          "autocomplete": "In dei nomine. Cum resederet Unfredus, vir inluster, Reciarum comis, in curte ad Campos in mallo publico ad universorum causas audiendas vel recta iudicia terminanda, ibique veniens homo aliquus nomine Hrothelmus proclamavit eo, quod in contradrictum suum mansum ei tollatum fuisset, quod ei advenit a parte uxoris sue, simul et Flavino, et propre sum fuisset et legibus suum esse deberet, quia iam de tradavio uxoris sue fuisset; idcirco suum esse deberet. Tunc praedictus comis, convocatis illa testimonia, qui de ipso pago erant, interrogavit eos per ipsam fide et sacramento, qua nostro domno data haberent, quicquid exinde scirent veritatem dicerent. At illi dixerunt: per ipsum sacramentum, quod domno nostro datu habemus, scimus, quia fuit homo quidam nomine Mado, qui ibi habuit suum solu propriu, cuius confiniu nos scimus, qui adiacet et confinat ad ipso manso, unde iste proclamat, in quo illi arboredus est, et de uno latus aqua cingit et inter eos terminu est in petris et in arbores; ipse est dominus; nam sicut illa edificia desursum coniungunt, istorum hominum proprium est et illorum legibus esse debet de parte avii illorum Quinti. Tunc praedictus comis iussit, ut ipsa testimonia supra irent et ipsos terminos ostenderent, quod dicebant; quod ita fecerunt et ipsos terminos firmaverunt, qui inter illa dua mansa cernebant. Sed et plurimi ibidem adfuerunt nobiles, quos ipse comes cum eis direxerat; quod et omnia pleni ter factum fuit. Ut autem haec finita sunt, interrogavit ipse comes illos scabinios, quid illi de hac causa iudicare voluissent. At ille dixerunt: Secundum istorum hominum testimonio et secundum vestra inquisitione iudicamus, ut sicut divisum et finitum est et terminis positis inter ipsos mansos, ut isti homines illorum proprium habeant absque ullius contradictione in perpetuum; et quod in dominico dictum et terminis divisum coram testibus fuit, receptum sit ad parte domni nostri. Propterea oportunum fuit Hrothelmo et Flavino cum heredibus eorum, ut exinde ab comite vel scabinis tale scriptum acciperent, qualiter in postmodum ipso manso absque ullius contrarietate omni tempore valeant possidere. Actum curte ad Campos, mallo publico, anno VII imperii Caroli augusti et XXXVIII regni eius in Francia et XXXIIII in Italia. Datum VII id. febr., sub Umfredo comite; feliciter amen. Haec nomina testium: Valeriano, Burgulfo, Ursone, Stefano, Maiorino, Valerio, Lioncio, Victore, Maurettone, Fonteiano, Florencio, Sipfone, Valenciano, Quintello, Stradario. Et haec nomina scabiniorum: Flavino, Orsicino, Odmaro, Alexandro, Eusebio, Maurencio qua etiam et aliis plurimis. Ego itaque Bauco rogitus scripsi et subscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
+          "orig_comp_ort": "Rankweil",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 807,
+              "month": 2,
+              "day": 7
+            }
+          ],
+          "all_dates": [
+            "0807-02-07"
+          ],
+          "min_date": "0807-02-07",
+          "max_date": "0807-02-07",
+          "days": [
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0035.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0046.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Audiat piissimi imperatoris clementia vocem proclamationis servi sui Victoris episcopi ... et cunctorum sacerdotum Curiensis pagelli. Qui magna constricti necessitate aliqua vestris clarissimis auribus nuntiare praesumimus. Distructa domus ac depraedata est sancta Curiensis ecclesia, et ab omnibus legibus sola sub sacro vestro regimine habetur aliena. Nullus quidem ibi est ut decet canonicus ordo. Distructa est paene omnis religionis antiqua institutio. Distructa sunt synodochia vel pauperum susceptiones. Extincta est elymosina praediscessorum regum, parentum scilicet vestrorum, vel vestra, seu et religiosorum hominum, qui sanctas ecclesias ex propriis facultatibus fundaverunt. Quae distructio vel preda post illam divisionem, quam bonae memoriae genitor vester inter episcopatum. et comitatum fieri praecepit, et nos longo tempore ab .ipso fuimus vestiti, subito a Roderico et suo pravo socio Herloino post acceptum comitatum facta est et adhuc ita permanet. Nulla ratio nostra ab eis fuit suscepta. Nullum scriptum nostrum saltim audire dignati sunt. Tulerunt, domine, omnes ecclesias in circuitu sedis nostrae, quae antiquitus semper ab episcopis fuerunt possesse, et in praedicta sede diebus singulis officia celebrabant. Nec etiam illud sacratissimum corpus beati Lucii confessoris nobis reliquerunt, qui ... ipsam civitatem de diabolico errore ad cultum veri die praedicando convertit. Tulerunt et reliquas ecclesias vel curtes, servos et ancillas, et omnia in quibus illorum animus delectabat. Animadvertat nunc sancta pietas vestra, qualiter se res haec habet. Ducente siquidem XXX et eo amplius ecclesiae sunt infra parrochia nostra, ex quibus non amplius quam sex baptisteria, et viginti quinque minores tituli ad episcopatum remanserunt, et ipse male depraedata. Sunt ibidem sanctorum corpora quinque, ex quibus nec unum quidem habemus, Monasteria similiter quinque, ex quibus duos tantum ad nutriendum habemus puellarum, et de hoc, quod nobis perparum remansit, potestatem pleniter non habemus. Qualiter vero nobis vel sacerdotibus nostris nunc vivendum sit ignoramus, quia in nullo ministerium nobis commissum secundum canonicam auctoritatem pleniter perficere possumus, et nisi miseratio vestra ad augmentum suae mercedis hoc aliter quam quod nunc est ordinare dignata fuerit, episcopatus ibidem ministerium peragi a quolibet difficile poterit. Ipse namque ecclesiasticae res, quae ad episcopatum legibus pertinent, et de quibus nos auctoritatem firmam habemus et nobis iniuste abstractae sunt, ab aliquibus iam per vestrum preceptum ad proprietatem tenentur, quod vobis omnino celatum credimus. Nos tamen hoc vobis celare ausi non sumus propter ministerium nobis iniunctum, et fidem quam erga vos deo nos adiuvante inlaesam in omnibus conservare cupimus. Nunc quidem, domine, ac si vestris omnes provoluti vestigiis iterum petimus, ut pro amore dei digneris eiusdem sanctae matris ecclesie, cuius te tutorem ac defensorem ubique scimus esse promptissimum, advocatus esse et iudex, qualiter temporibus vestris ad suam possit pervenire iustitiam, quia nullus est in terra illa, qui possit nobis prestare solatium nisi dei primitus et vestra nos defendat clementia. Haec vero, domine, quae in superioribus sunt adnotata, si adprobare vultis, utrum vera sint an non, mittite si placet deo primitus et animae vestrae, missum fidelem qui abiecto omni terreno timore et saecularium hominum amicitias studiose inquirat per obtimos viros terrae illius, quanta ac qualia ibidem latent mala. Cognoscetis tunc certe non aliter quam vera nos vobis denuntiasse. Inquirat etiam si iubet misericordia vestra ob amore dei genetricis Mariae predictus missus res ecclesiasticas ad iam dictum episcopatum pertinentes et ad vestras perducat aures. Vestra siquidem celsitudo atque misericordia de hoc- dispositura erit, prout optime novit. Illud nobis tunc sufficit quod vobis placet, in tantum, ut in tali non simus tribulatione vel periculo constituti. Et ut de hoc quod per largitatem vestram nobis conceditur habendum firmitatem vestram, ob vestrae mercedis augmentum habere mereamur, sicuti ceteri in regno vestro merentur habere ecclesiastici meique ordinis viri, et liceat nobis absque contentionibus pravis atque dissensionibus deo servire et pro vobis fideliter orare.",
+          "lemmas": null,
+          "regest": "Bischof Viktor III. von Chur richtet an Kaiser Ludwig den Frommen (in Frankfurt) eine neue Eingabe, beklagt darin den Verfall seiner Diözese durch die sofort nach der von Karl dem Großen durchgeführten Trennung von Grafschaft und Bistum Chur von Graf Roderich und seinen Genossen Herloin vorgenommenen Obergriffe und bittet um Schutz und Untersuchung der Fälle durch einen Missus",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 46",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0046.lat001",
+          "date_string": "823 06",
+          "comp_ort": " ",
+          "autocomplete": "Audiat piissimi imperatoris clementia vocem proclamationis servi sui Victoris episcopi ... et cunctorum sacerdotum Curiensis pagelli. Qui magna constricti necessitate aliqua vestris clarissimis auribus nuntiare praesumimus. Distructa domus ac depraedata est sancta Curiensis ecclesia, et ab omnibus legibus sola sub sacro vestro regimine habetur aliena. Nullus quidem ibi est ut decet canonicus ordo. Distructa est paene omnis religionis antiqua institutio. Distructa sunt synodochia vel pauperum susceptiones. Extincta est elymosina praediscessorum regum, parentum scilicet vestrorum, vel vestra, seu et religiosorum hominum, qui sanctas ecclesias ex propriis facultatibus fundaverunt. Quae distructio vel preda post illam divisionem, quam bonae memoriae genitor vester inter episcopatum. et comitatum fieri praecepit, et nos longo tempore ab .ipso fuimus vestiti, subito a Roderico et suo pravo socio Herloino post acceptum comitatum facta est et adhuc ita permanet. Nulla ratio nostra ab eis fuit suscepta. Nullum scriptum nostrum saltim audire dignati sunt. Tulerunt, domine, omnes ecclesias in circuitu sedis nostrae, quae antiquitus semper ab episcopis fuerunt possesse, et in praedicta sede diebus singulis officia celebrabant. Nec etiam illud sacratissimum corpus beati Lucii confessoris nobis reliquerunt, qui ... ipsam civitatem de diabolico errore ad cultum veri die praedicando convertit. Tulerunt et reliquas ecclesias vel curtes, servos et ancillas, et omnia in quibus illorum animus delectabat. Animadvertat nunc sancta pietas vestra, qualiter se res haec habet. Ducente siquidem XXX et eo amplius ecclesiae sunt infra parrochia nostra, ex quibus non amplius quam sex baptisteria, et viginti quinque minores tituli ad episcopatum remanserunt, et ipse male depraedata. Sunt ibidem sanctorum corpora quinque, ex quibus nec unum quidem habemus, Monasteria similiter quinque, ex quibus duos tantum ad nutriendum habemus puellarum, et de hoc, quod nobis perparum remansit, potestatem pleniter non habemus. Qualiter vero nobis vel sacerdotibus nostris nunc vivendum sit ignoramus, quia in nullo ministerium nobis commissum secundum canonicam auctoritatem pleniter perficere possumus, et nisi miseratio vestra ad augmentum suae mercedis hoc aliter quam quod nunc est ordinare dignata fuerit, episcopatus ibidem ministerium peragi a quolibet difficile poterit. Ipse namque ecclesiasticae res, quae ad episcopatum legibus pertinent, et de quibus nos auctoritatem firmam habemus et nobis iniuste abstractae sunt, ab aliquibus iam per vestrum preceptum ad proprietatem tenentur, quod vobis omnino celatum credimus. Nos tamen hoc vobis celare ausi non sumus propter ministerium nobis iniunctum, et fidem quam erga vos deo nos adiuvante inlaesam in omnibus conservare cupimus. Nunc quidem, domine, ac si vestris omnes provoluti vestigiis iterum petimus, ut pro amore dei digneris eiusdem sanctae matris ecclesie, cuius te tutorem ac defensorem ubique scimus esse promptissimum, advocatus esse et iudex, qualiter temporibus vestris ad suam possit pervenire iustitiam, quia nullus est in terra illa, qui possit nobis prestare solatium nisi dei primitus et vestra nos defendat clementia. Haec vero, domine, quae in superioribus sunt adnotata, si adprobare vultis, utrum vera sint an non, mittite si placet deo primitus et animae vestrae, missum fidelem qui abiecto omni terreno timore et saecularium hominum amicitias studiose inquirat per obtimos viros terrae illius, quanta ac qualia ibidem latent mala. Cognoscetis tunc certe non aliter quam vera nos vobis denuntiasse. Inquirat etiam si iubet misericordia vestra ob amore dei genetricis Mariae predictus missus res ecclesiasticas ad iam dictum episcopatum pertinentes et ad vestras perducat aures. Vestra siquidem celsitudo atque misericordia de hoc- dispositura erit, prout optime novit. Illud nobis tunc sufficit quod vobis placet, in tantum, ut in tali non simus tribulatione vel periculo constituti. Et ut de hoc quod per largitatem vestram nobis conceditur habendum firmitatem vestram, ob vestrae mercedis augmentum habere mereamur, sicuti ceteri in regno vestro merentur habere ecclesiastici meique ordinis viri, et liceat nobis absque contentionibus pravis atque dissensionibus deo servire et pro vobis fideliter orare.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Viktor III. von Chur richtet an Kaiser Ludwig den Frommen (in Frankfurt) eine neue Eingabe, beklagt darin den Verfall seiner Diözese durch die sofort nach der von Karl dem Großen durchgeführten Trennung von Grafschaft und Bistum Chur von Graf Roderich und seinen Genossen Herloin vorgenommenen Obergriffe und bittet um Schutz und Untersuchung der Fälle durch einen Missus",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 823,
+              "month": 6
+            }
+          ],
+          "all_dates": [
+            "0823-06"
+          ],
+          "min_date": "0823-06",
+          "max_date": "0823-06",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0046.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0047.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Victor humilis episcopus Curiensis, fidelis orator vester, offert vobis de praesenti anno missas speciales mille et psalmorum psalteria mille, petensque quasi vestris prostratus vestigiis, ut ob amorem omnipotentis dei vestraeque mercedis augmentum rememorare dignemini, quam sepius ad vestram clementiam proclamavimus nos indigni, sed et cuncti sacerdotes fideles oratores vestri nobiscum, eo quod iuste absque voluntate vel iussione bone memoriae genitoris vestri vel vestram et absque iudicio ullo, tantum per violentiam, sedis illa Curiensis esset distructa et ab hominibus pene legibus aliena. Vosque, piissime, haec audientes decrevistis missos vestros illo dirigere, qui hoc diligenter inquirerent et quod iniuste actum esset emendarent; sed nostris inpedientibus peccatis nec missus ad nos venit ullus nec emendatio nulla est facta. Latet vobis nescientibus ipsa malicia, sicut actenus fuit, nosque servuli vestri, licet cum magna tribulatione, expectantes sumus verissimam promissionem vestram atque consolationem, quando vobis divina pietas inspirare dignetur, ut hoc emendare dignemini, quia magna est exinde necessitas; et si factum fuerit, sanctissime imperator, ad magnum credimus vobis proficere mercedis augmentum.",
+          "lemmas": null,
+          "regest": "Bischof Viktor III. von Chur erinnert Kaiser Ludwig den Frommen durch eine (von Vikar Verendar nach Aachen überbrachte) Eingabe an die beschlossene, jedoch noch nicht durchgeführte Untersuchung seiner Klagen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 47",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0047.lat001",
+          "date_string": "ca. 823",
+          "comp_ort": " ",
+          "autocomplete": "Victor humilis episcopus Curiensis, fidelis orator vester, offert vobis de praesenti anno missas speciales mille et psalmorum psalteria mille, petensque quasi vestris prostratus vestigiis, ut ob amorem omnipotentis dei vestraeque mercedis augmentum rememorare dignemini, quam sepius ad vestram clementiam proclamavimus nos indigni, sed et cuncti sacerdotes fideles oratores vestri nobiscum, eo quod iuste absque voluntate vel iussione bone memoriae genitoris vestri vel vestram et absque iudicio ullo, tantum per violentiam, sedis illa Curiensis esset distructa et ab hominibus pene legibus aliena. Vosque, piissime, haec audientes decrevistis missos vestros illo dirigere, qui hoc diligenter inquirerent et quod iniuste actum esset emendarent; sed nostris inpedientibus peccatis nec missus ad nos venit ullus nec emendatio nulla est facta. Latet vobis nescientibus ipsa malicia, sicut actenus fuit, nosque servuli vestri, licet cum magna tribulatione, expectantes sumus verissimam promissionem vestram atque consolationem, quando vobis divina pietas inspirare dignetur, ut hoc emendare dignemini, quia magna est exinde necessitas; et si factum fuerit, sanctissime imperator, ad magnum credimus vobis proficere mercedis augmentum.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Viktor III. von Chur erinnert Kaiser Ludwig den Frommen durch eine (von Vikar Verendar nach Aachen überbrachte) Eingabe an die beschlossene, jedoch noch nicht durchgeführte Untersuchung seiner Klagen.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 823
+            }
+          ],
+          "all_dates": [
+            "0823"
+          ],
+          "min_date": "0823",
+          "max_date": "0823",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0047.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0049.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Ad clementiam vestram, piissime imperator, ego. inutilis Victor atque in episcoporum ordine ultimus, non levitate aliqua, sed potius constrictus necessitate, confugium feci petens, ut ob amorem omnipotentis dei coeptam de nobis peramplificare dignemini mercedem. Sepius, domne, clementiae vestrae pro. disstructione ecclesiae nobis vestra dominatione commisse aures inquietare praesumsimus, si rememorare dignamini, non pro. seculi inanem, adipiscendo. gloriam, sed pro. ministerio nobis iniuncto et fidem erga deum primitus et vos salvando nostram. Quanta, domine, et qualis et quo ingenio facta ibidem latet malicia et qualem post illam divisionem vel ordinationem bone memoriae genitoris vestri Karoli nos ipsi passi sumus et adhuc patimur per breves nostros clementiae vestrae multis iam vicibus innotuimus. Decrevit namque sacra sollicitudo vestra hoc diligenter inquirere et emendare, sed peccatis nostris inpedientibus nec missus non venit ullus nec emendatio nulla est facta, crevit pocius ipsa malicia quam cessavit. Ad ultimum vero. cum Hlotharius dilectus filius vester per fines illos transiret, omnium sacerdotum clericorum atque sanctimonialium turba ad eum cucurrit distructionern tocius sacri ordinis ei nuntiantes, ut ipse apud clementiam vestram intercessor existeret et cum ipso Franchonefurt ad vestigia vestra pervenimus, quatenus pietas vestra per fideles deo et vobis missos hoc emendaret, et liceret nobis ita vivere quemadmodum etiam nostri ordinis viri vivunt absque contentionibus pravis vel rixis. Decrevistis igitur missos illo. dirigere nominatim. Et tempus quando illic venirent vestra celsitudo ... it. Actenus nescimus, a quibus dilatata est vel protelata causa ipsa, ita ut nec missus veniret ullus nec iustitia pro tam longeva proclamatione fieret ullu his, piissime imperator, tot et tocies expectando maceratus angustiis ad magnam corpusculi mei debilitatem vel etiam ... onem perveni, timens ergo miser, ne hoc ipsud quod nobis de praeda illa remansit res vel familia amplius deperirent, petivi vicarium ad predictas res vel familia guber ...",
+          "lemmas": null,
+          "regest": "Bischof Viktor III. von Chur überreicht persönlich Kaiser Ludwig dem Frommen zu Corbeny eine Eingabe, worin er diesen an seine früheren Briefe und an die in Frankfurt beschlossene, jedoch noch nicht durchgeführte Untersuchung seiner Klagen erinnert.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 49",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0049.lat001",
+          "date_string": "824-827",
+          "comp_ort": " ",
+          "autocomplete": "Ad clementiam vestram, piissime imperator, ego. inutilis Victor atque in episcoporum ordine ultimus, non levitate aliqua, sed potius constrictus necessitate, confugium feci petens, ut ob amorem omnipotentis dei coeptam de nobis peramplificare dignemini mercedem. Sepius, domne, clementiae vestrae pro. disstructione ecclesiae nobis vestra dominatione commisse aures inquietare praesumsimus, si rememorare dignamini, non pro. seculi inanem, adipiscendo. gloriam, sed pro. ministerio nobis iniuncto et fidem erga deum primitus et vos salvando nostram. Quanta, domine, et qualis et quo ingenio facta ibidem latet malicia et qualem post illam divisionem vel ordinationem bone memoriae genitoris vestri Karoli nos ipsi passi sumus et adhuc patimur per breves nostros clementiae vestrae multis iam vicibus innotuimus. Decrevit namque sacra sollicitudo vestra hoc diligenter inquirere et emendare, sed peccatis nostris inpedientibus nec missus non venit ullus nec emendatio nulla est facta, crevit pocius ipsa malicia quam cessavit. Ad ultimum vero. cum Hlotharius dilectus filius vester per fines illos transiret, omnium sacerdotum clericorum atque sanctimonialium turba ad eum cucurrit distructionern tocius sacri ordinis ei nuntiantes, ut ipse apud clementiam vestram intercessor existeret et cum ipso Franchonefurt ad vestigia vestra pervenimus, quatenus pietas vestra per fideles deo et vobis missos hoc emendaret, et liceret nobis ita vivere quemadmodum etiam nostri ordinis viri vivunt absque contentionibus pravis vel rixis. Decrevistis igitur missos illo. dirigere nominatim. Et tempus quando illic venirent vestra celsitudo ... it. Actenus nescimus, a quibus dilatata est vel protelata causa ipsa, ita ut nec missus veniret ullus nec iustitia pro tam longeva proclamatione fieret ullu his, piissime imperator, tot et tocies expectando maceratus angustiis ad magnam corpusculi mei debilitatem vel etiam ... onem perveni, timens ergo miser, ne hoc ipsud quod nobis de praeda illa remansit res vel familia amplius deperirent, petivi vicarium ad predictas res vel familia guber ...",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Bischof Viktor III. von Chur überreicht persönlich Kaiser Ludwig dem Frommen zu Corbeny eine Eingabe, worin er diesen an seine früheren Briefe und an die in Frankfurt beschlossene, jedoch noch nicht durchgeführte Untersuchung seiner Klagen erinnert.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0824",
+              "lte": "0827-12-31"
+            }
+          ],
+          "all_dates": [
+            "0824",
+            "0827-12-31"
+          ],
+          "min_date": "0824",
+          "max_date": "0827-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0049.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Anno ab incarnatione dominica DCCC. regnante domno Carolo serenissimo cesare augusto facta est conventio et unanimitas precum huius scilicet sancti Galli et Augensis coenobii sub abbatibus, videlicet domno Werdone atque Waltone. Qui primitus cum fratribus ex utroque loco in hac communione consentientibus instituerunt, ut quandocumque frater aliquis obierit et loco vel senioribus ibidem commorantibus annuntiatum fuerit, eo die presbiteri tres missas et ceteri fratres pro eo psalterium ac celebrationem vigiliae decantent communisque oblatio ab omnibus fiat. Item in die septimo XXX psalmos, tricesimo autem presbyteri omnes pro eo unam missam et ceteri L psalmos impleant. Ceterum vigilias pro defunctis in capite singulorum mensium ex more iugiter celebremus, in quibus vigiliis omnium simul defunctorum fratrum, qui in nostro consortio coadunati sunt, commemoratio fiat eoque die commemoretur et nomen nuper defuncti fiatque oblatio omnium fratrum simul, tam pro illo quam et generaliter pro omnibus. Et post haec unusquisque presbiter cantet unam missam et ceteri fratres L psalmos. Preter haec quoque semel in anno sub die XVIII. kaI. decembris commemoratio omnium simul fiat pro annuali singulorum videlicet defunctorum memoria, ipsoque die presbyteri ternas missas et ceteri fratres psalterium decantent ac celebratio vigiliae communisque oblatio ab omnibus 15 fratribus fiat. Post huius denique orationis gratam communionem anno ab incarnatione dominica DCCCXLVI, regnante Hludowico gloriosissimo rege, sub Crimaldo abbate, facta est eadem conventio superiori capitulo prenotata inter istud coenobium et alia tria, unum sancti Columbani Bobii fluminis gloriosi nomen tenens, alterum Desertinense a vicinitate Alpium vocabulum trahens, tertium Schinense claro vocabulo lucens. Ita videlicet, ut nunc ac deinceps omni tempore series precum superius ex caritate vera compositarum ratum inter haec sanctissima loca teneat conexionem, sed neque finem habeat, nisi caritatem solam. Item novissimis temporibus eiusdem Grimaldi, hoc est anno dominice incarnationis circiter DCCCLXV., factus est idem consensus inter hoc et Campidonense monasterium Karomanno abbate ipsius et caeteris senioribus id ipsum impetrantibus.",
+          "lemmas": null,
+          "regest": "Die Klöster St. Gallen und Reichenau schließen im Jahre 800 eine Gebetsbrüderschaft, 846 werden Bobbio, Disentis und Schienen, 865 Kempten aufgenommen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 72",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
+          "date_string": "800, 846, 865",
+          "comp_ort": " ",
+          "autocomplete": "Anno ab incarnatione dominica DCCC. regnante domno Carolo serenissimo cesare augusto facta est conventio et unanimitas precum huius scilicet sancti Galli et Augensis coenobii sub abbatibus, videlicet domno Werdone atque Waltone. Qui primitus cum fratribus ex utroque loco in hac communione consentientibus instituerunt, ut quandocumque frater aliquis obierit et loco vel senioribus ibidem commorantibus annuntiatum fuerit, eo die presbiteri tres missas et ceteri fratres pro eo psalterium ac celebrationem vigiliae decantent communisque oblatio ab omnibus fiat. Item in die septimo XXX psalmos, tricesimo autem presbyteri omnes pro eo unam missam et ceteri L psalmos impleant. Ceterum vigilias pro defunctis in capite singulorum mensium ex more iugiter celebremus, in quibus vigiliis omnium simul defunctorum fratrum, qui in nostro consortio coadunati sunt, commemoratio fiat eoque die commemoretur et nomen nuper defuncti fiatque oblatio omnium fratrum simul, tam pro illo quam et generaliter pro omnibus. Et post haec unusquisque presbiter cantet unam missam et ceteri fratres L psalmos. Preter haec quoque semel in anno sub die XVIII. kaI. decembris commemoratio omnium simul fiat pro annuali singulorum videlicet defunctorum memoria, ipsoque die presbyteri ternas missas et ceteri fratres psalterium decantent ac celebratio vigiliae communisque oblatio ab omnibus 15 fratribus fiat. Post huius denique orationis gratam communionem anno ab incarnatione dominica DCCCXLVI, regnante Hludowico gloriosissimo rege, sub Crimaldo abbate, facta est eadem conventio superiori capitulo prenotata inter istud coenobium et alia tria, unum sancti Columbani Bobii fluminis gloriosi nomen tenens, alterum Desertinense a vicinitate Alpium vocabulum trahens, tertium Schinense claro vocabulo lucens. Ita videlicet, ut nunc ac deinceps omni tempore series precum superius ex caritate vera compositarum ratum inter haec sanctissima loca teneat conexionem, sed neque finem habeat, nisi caritatem solam. Item novissimis temporibus eiusdem Grimaldi, hoc est anno dominice incarnationis circiter DCCCLXV., factus est idem consensus inter hoc et Campidonense monasterium Karomanno abbate ipsius et caeteris senioribus id ipsum impetrantibus.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Die Klöster St. Gallen und Reichenau schließen im Jahre 800 eine Gebetsbrüderschaft, 846 werden Bobbio, Disentis und Schienen, 865 Kempten aufgenommen.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 800
+            },
+            {
+              "year": 846
+            },
+            {
+              "year": 865
+            }
+          ],
+          "all_dates": [
+            "0800",
+            "0846",
+            "0865"
+          ],
+          "min_date": "0800",
+          "max_date": "0865",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0072.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
+          "lemmas": null,
+          "regest": "Himiltrud überträgt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des Rückkaufes.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 82",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
+          "date_string": "890 05 20–890 11 25",
+          "comp_ort": "Rötis",
+          "autocomplete": "In Christi nomine. Ego Himilthrud cogitans incertitudinom presentis vitae cum manu advocati mei Heribaldi trado ad monasterium sancti Galli, cui nunc venerabilis abba Salomon preesse dinoscitur quicquid hodierna die visa sum habere in illis locis quae mihi vir meus Plasius in dotem dedit. Hoc est in Sulles et in Calcaires, in Plodanes et in Uenusta valle, in viis et inviis, in arvis, silvis, alpis, aquis, aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus vel quicquid dici aut nominari potest, omnia videlicet ex integro trado atque transfundo ad predictum monasterium, ea videlicet racione ut easdem res ad me recipiens censum unius denarii inde persolvam ad ecclesiam sancti Martini sitam in loco qui dicitur Rautines, et quando cum que redimere voluero cum XL. solidis in argento sive in cavallis, aut in armentis aut in pannis novis redimendi licentiam habeam ad predictam ecclesiam. Quod si ego non redimero tunc filius meus Richarius aut propinqui heredes Plasii viri mei easdem res cum supradicta peccunia, hoc est XL. solidis redimendi licentiam habeant. Si autem illi non redimerint tunc supra dictae res ex integro redeant ad supradictum monasterium. Actum in loco, qui dicitur Rautines. Presentibus istis quorum hic signacula continentur: Signum Himilthrudae et advocati eius Heribaldi, qui hanc traditionem patraverunt. Signum et aliorum testium: Signum Meroaldi. Signum Vuanzonis. Signum Pauli. Signum Aldulfi. Signum Lionciani. Signum Cimonis. Signum Antegani. Signum Johannis. Signum Vnnonis. Signum Martini. Signum Libvcii. Signum Frecco. Signum Quintelni. Signum Lucii. Signum Liuperti. Signum Iohannis. Ego itaque Engilbertus indignus monachus et subdiaconus in vice Vuiniberti praepositi scripsi et subscri( ST.) psi. Notavi diem mercurii. Annum III Arnulfi regis, sub Ruadolfo duce Retianorum.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Himiltrud überträgt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des Rückkaufes.",
+          "orig_comp_ort": "Rötis",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0890-05-20",
+              "lte": "0890-11-25"
+            }
+          ],
+          "all_dates": [
+            "0890-05-20",
+            "0890-11-25"
+          ],
+          "min_date": "0890-05-20",
+          "max_date": "0890-11-25",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0082.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
+          "lemmas": null,
+          "regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 86",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
+          "date_string": "904 06 14",
+          "comp_ort": "Ingelheim",
+          "autocomplete": "In nomine dei summi. Ego Rutpertus notum fieri cupio omnibus sanctae dei aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum Hattone venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius cenobii in quo sanctus Nazarius martir corpore quiescit, meis rebus contiguas causa compendii cum proprio meo, quod bonae memoriae Arnolfus imperator augustus michi in Retia Curiense cum suae auctoritatis precepto donavit, concambire. Quod et hoc modo feci, dedi namque quicquid prelibatus domnus imperator augustus in supradicto pago in loco Riammas dicto vel aliis quibuscumque locis in eiusdem pagi finibus constitutis michi donavit cum curtilibus, aedificiis, mancipiis, ecclesia baptismali, decimis omnibusque rebus illuc iuste pertinentibus, ad prenominatum monasterium in manum suprascripti abbatis suique advocati Burkardi videlicet comitis et in recompensationem eiusdem proprii accepi ab hisdem manibus, quicquid in locis Wilheim, Pissinga et Uosinga dictis ad ipsum monasterium hactenus pertinuit, iure perenni in proprium cum curtilibus, aedificiis, mancipiis et omnibus rebus ad eadem loca rite pertinentibus. Actum Inglinheim, coram Ludouuico rege et populi frequentia, testibus probatis: Adelbertus comes, Arnolfus comes, Cunradus comes, Erinfridus comes, Liutfridus comes et alii multi. Anno incarnationis dominicae DCCCC IIII, regni domni Ludouuici V, sub die XVIII kl. iulii. Ego Emustus cancellarius scripsi diemque et tempus designavi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
+          "orig_comp_ort": "Ingelheim",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 904,
+              "month": 6,
+              "day": 14
+            }
+          ],
+          "all_dates": [
+            "0904-06-14"
+          ],
+          "min_date": "0904-06-14",
+          "max_date": "0904-06-14",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
+        "_score": null,
+        "_source": {
+          "text": "In Christi et pro Christi nomine Salomon Constantiensis ecclesiae praesul idemque monasterii confessoris Christi Galli abba. Trado ad ipsum sancti dei altarium cum manu advocati mei Domnici Curiensis pro aeterna remuneratione regis ac pro animae meae parentumque meorum requie abbatiam Favariensem, quam mihi domnus rex Hludowicus suae praecepto auctoritatis, Burchardo earundem parcium duce consentiente et astipulante, in proprietatem habendi, commutandi seu cuilibet condonandi concessit, cum omnibus illo legaliter aspicientibus et sequestratione terminorum atque locorum eidem monasterio Favariensi adhaerentibus, omnia plane haec ex integro ad coenobium sancti Galli contrado, astante ac manus suae impositione sermonumque attestatione ipsam traditionem confirmante nepote meo Waldone necnon et eiusdem pueri advocato Erchangario comite, cui nimirum puero eundem prius locum profecturus in hostem, si de acie non remearem, contradidi. Igitur communi manu ac voluntate praescriptum Favariense monasterium sancto Gallo eiusque famulatoribus rata et stabili donatione contradimus, ut a sancti confessoris Christi officialibus memorata Favariensis ceIla procuretur, gubernetur ac perpetualiter cum divina propitiatione possideatur; sub ea dumtaxat pactione, ut dum ipse in saeculo vivam ipsum locum praedialiter optineam et curtern ipsam Pussanwanch causa pactionis diebus vitae meae possideam solidumque unum pro censu singulis inde annis in festivitate sancti Galli ipsius altario imponam. Et si praedictus Waldo filius sororis meae mihi superstes fuerit, praefatam abbati am eo modo in diebus tantum suis hereditetur, ut a monasterio sancti Galli curtem Pussanwanch cum legitimis eiusdem loci rebus et terminis accipiat diebusque vitae suae possideat atque censum ex hoc per singulos annos, VI videlicet denarios, persolvat in solemnitate domni Galli ad illius aram. Si vero eveniat episcopii illum dignitatem adipisci et in sacrum ordinem annuente domino consecrari, continuo supradictam cellam sancto Gallo eiusque servitorum ditioni ac potestati sine aliqua rerum aut Iocorum eorundem diminutione cedere permittat, praestitam vero a monachis curtem usque in vitae suae tempus possideat deinceps possessione ad priores redeunte. Verum si regia vel ulla saecularis potentia haec fortassis irrumpat, scilicet ut monasterium Favariense a coenobio sancti Galli subtrahatur, praedicta curtis monachorum dominio confestim restituatur, et si territorium Pussanwanch a monachis forte interdicatur aut denegetur, haereditario iure in abbatia Favariensi potiatur et utraque pars suo fungi permittatur. Rogo autem et obtestor per viventis dei ineffabile nomen et per tremendi iudicii diem, ut omnis, qui tunc eum velit habere placabilem eiusque sanctis se esse consortem, huius traditionis non impediat constitutionem et in sancti patris Galli conciliis unusquisque audiens se praebeat adiutorem. Sancita sunt haec et statuta in ipsa sancti Galli ecclesia praesente numerosa populi frequentia, ex quibus praecipuorum huic cartae indita sunt signacula. Signum episcopi Salomonis et advocati eius Domnici Curiensis. Signum Waldonis et advocati illius Erchangeri comitis, Signum Albrici decani et advocati illius Willeharii. Signa et aliorum astantium: + Thracholf episcopus, + Hiltine episcopus, + Uodalrich comes, + Chuonrat comes, PrethoIt comes. Huc comes. Adalbret comes. Ruadolf. Pirichtilo. Wito. Wolfram. Horscolf. Wito. Othere. Winidhere. AdaI. Haicho. Wolfpoto. Plidger. Waldram. Toto. Adalhart. Heile. Cozzolt. Cunzo. Adalbold. Erimbret. Anshelm. KeroIt. Werin. Kerhart. Cozpret. Pernhart. Pernolt. Ego Notker infans et sancti Galli famulus ad vicem Waltrammi bibliothecarii scripsi et subscripsi. Notavi diem V fer., V. kaI. ian., XIII annum Hludowici regis, comitem Adalbertum",
+          "lemmas": null,
+          "regest": "Salomon, Bischof von Konstanz und Abt von St. Gallen, überträgt die Abtei Pfäfers dem Kloster St. Gallen unter dem Vorbehalt lebenslänglicher Nutznießung der Abteien und des St. Galler Hofes Bussnang für sich und seinen Neffen Waldo.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 89",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
+          "date_string": "909 12 28",
+          "comp_ort": "St. Gallen",
+          "autocomplete": "In Christi et pro Christi nomine Salomon Constantiensis ecclesiae praesul idemque monasterii confessoris Christi Galli abba. Trado ad ipsum sancti dei altarium cum manu advocati mei Domnici Curiensis pro aeterna remuneratione regis ac pro animae meae parentumque meorum requie abbatiam Favariensem, quam mihi domnus rex Hludowicus suae praecepto auctoritatis, Burchardo earundem parcium duce consentiente et astipulante, in proprietatem habendi, commutandi seu cuilibet condonandi concessit, cum omnibus illo legaliter aspicientibus et sequestratione terminorum atque locorum eidem monasterio Favariensi adhaerentibus, omnia plane haec ex integro ad coenobium sancti Galli contrado, astante ac manus suae impositione sermonumque attestatione ipsam traditionem confirmante nepote meo Waldone necnon et eiusdem pueri advocato Erchangario comite, cui nimirum puero eundem prius locum profecturus in hostem, si de acie non remearem, contradidi. Igitur communi manu ac voluntate praescriptum Favariense monasterium sancto Gallo eiusque famulatoribus rata et stabili donatione contradimus, ut a sancti confessoris Christi officialibus memorata Favariensis ceIla procuretur, gubernetur ac perpetualiter cum divina propitiatione possideatur; sub ea dumtaxat pactione, ut dum ipse in saeculo vivam ipsum locum praedialiter optineam et curtern ipsam Pussanwanch causa pactionis diebus vitae meae possideam solidumque unum pro censu singulis inde annis in festivitate sancti Galli ipsius altario imponam. Et si praedictus Waldo filius sororis meae mihi superstes fuerit, praefatam abbati am eo modo in diebus tantum suis hereditetur, ut a monasterio sancti Galli curtem Pussanwanch cum legitimis eiusdem loci rebus et terminis accipiat diebusque vitae suae possideat atque censum ex hoc per singulos annos, VI videlicet denarios, persolvat in solemnitate domni Galli ad illius aram. Si vero eveniat episcopii illum dignitatem adipisci et in sacrum ordinem annuente domino consecrari, continuo supradictam cellam sancto Gallo eiusque servitorum ditioni ac potestati sine aliqua rerum aut Iocorum eorundem diminutione cedere permittat, praestitam vero a monachis curtem usque in vitae suae tempus possideat deinceps possessione ad priores redeunte. Verum si regia vel ulla saecularis potentia haec fortassis irrumpat, scilicet ut monasterium Favariense a coenobio sancti Galli subtrahatur, praedicta curtis monachorum dominio confestim restituatur, et si territorium Pussanwanch a monachis forte interdicatur aut denegetur, haereditario iure in abbatia Favariensi potiatur et utraque pars suo fungi permittatur. Rogo autem et obtestor per viventis dei ineffabile nomen et per tremendi iudicii diem, ut omnis, qui tunc eum velit habere placabilem eiusque sanctis se esse consortem, huius traditionis non impediat constitutionem et in sancti patris Galli conciliis unusquisque audiens se praebeat adiutorem. Sancita sunt haec et statuta in ipsa sancti Galli ecclesia praesente numerosa populi frequentia, ex quibus praecipuorum huic cartae indita sunt signacula. Signum episcopi Salomonis et advocati eius Domnici Curiensis. Signum Waldonis et advocati illius Erchangeri comitis, Signum Albrici decani et advocati illius Willeharii. Signa et aliorum astantium: + Thracholf episcopus, + Hiltine episcopus, + Uodalrich comes, + Chuonrat comes, PrethoIt comes. Huc comes. Adalbret comes. Ruadolf. Pirichtilo. Wito. Wolfram. Horscolf. Wito. Othere. Winidhere. AdaI. Haicho. Wolfpoto. Plidger. Waldram. Toto. Adalhart. Heile. Cozzolt. Cunzo. Adalbold. Erimbret. Anshelm. KeroIt. Werin. Kerhart. Cozpret. Pernhart. Pernolt. Ego Notker infans et sancti Galli famulus ad vicem Waltrammi bibliothecarii scripsi et subscripsi. Notavi diem V fer., V. kaI. ian., XIII annum Hludowici regis, comitem Adalbertum",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Salomon, Bischof von Konstanz und Abt von St. Gallen, überträgt die Abtei Pfäfers dem Kloster St. Gallen unter dem Vorbehalt lebenslänglicher Nutznießung der Abteien und des St. Galler Hofes Bussnang für sich und seinen Neffen Waldo.",
+          "orig_comp_ort": "St. Gallen",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 909,
+              "month": 12,
+              "day": 28
+            }
+          ],
+          "all_dates": [
+            "0909-12-28"
+          ],
+          "min_date": "0909-12-28",
+          "max_date": "0909-12-28",
+          "days": [
+            "Thursday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0089.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ Noticia de iudicado inter Vualdone episcopo et de monachis sancti Galli et advocato eorum. In Christi nomine. Regni primi regis Heinrici, residente duce Burchardo et Vvaldone Curiensis eclesie episcopo in Vinomna in mallo publico ad audiendas et discernendas causas, venit Cozaldus monachus et Albericus monachus et Richo monachus et cum aliis monachis per septem, cum avocato suo Domnico proclamans se de Vualdone episcopo et de abacia Fauariensi, quod iuste debuisset ad partem sancti Galli venire plus quam illi licui set habere. Econtra Vualdo episcopus astantibus monachis de Fauairis cum avocato suo Ursicino respondit: quod malo ordine queris, quia tu ipse Cozolt forcia fecisti cum avocato tuo Domnico avunculo meo Salamoni et mihi, quia ipse pactum habuit factum cum te et cum aliis monachis de sancto Gallo, ut ipsam apaciunculam predialiter diebus vite sue possideret et ego post discessum suum, et post meum discessum ad vestrum monasterium et paccionem feci cum vobis et cum aliis monachis, ut curtis Pussunvvang illi et mihi econtra donaretur; et si ille nec ego investitus fuisset, vos abuissetis vestram et nos nostram causam; fecit eciam pactum, ut si ego indignus episcopus venirem, ut post suum discessum, si paccia ista firma fuisset nec irrita, ad vostrum monasterium hec abaciuncula pertineret. Hec omnia tu irrumpisti, ita ut avunculo meo Salamone tu ipse, qui es decanus de monachis sancti Galli tradicionem per forciam fecisti Alamannis in incensum dando, ut omni anno duo libra exinde dediset ad partem sancti Galli et ad monachos, nostrum pactum non firmasti nec investisti; insuper et nostra tulisti per forcia. Et hoc scit omnis populus de Curuvuala. Et hec ipsa paccio et tua forcia venit ante regem Chunradum loco Honfridinga et iudicatum fuit ab omni populo, qui tunc aderant, te malo ordine iniustam tradicionem facere, et ob hanc causam dedit senior meus hoc preceptum de Fauarias, quod in manu teneo. Et perlecto precepto mandavit dux Burchardus, ut secundum legem Romana iudicarent, qui de hac causa facere debuissent. Iudicaverunt omnes Romani et Alamanni, si Cozoldus cum avocato suo, cum legitimis testibus de Curuvvala non potuisset episcopum et avocatum suum de hac re vincere, postea querelam nec racionem habere. Et tunc Cozoldus monachus et alii monachi cum avocato suo concredidit se, et si dux non precasset, dublam terram et simblem Domnicus avocatus wadasset. Iudices: Alexander, Starculfus, Ebroinus, Ercenbertus, Seianus, Costancius, Meroaldus, Vvancio, Vuito, item Meroaldus, Valerius, Orsicinus, Nuffus, Pasciuus, alius Nuffus, Balfridus, Scalco, Vigilius, Artimius, Regenzo, Pvuo, Valerius, Seianus, Ceizo, Victor, Aurames, Priectus, Otmarus, Domnicus, Victor, Peppo, Vuangairus, Jordannes, Vualderamnus, Taso, Libucio, item Victor, Vincencius, Jovvinianus, Libucio, Azzo, Orsacius, item alii iudices de Alamania: Kerat, Manogaldus, Sigibold, Ezzo, Pegere, Richolf, Vuito, Cozzelm, Vvicart, Kisilfritd, Ricer, Amalbret, Ricker, Berahker+, Renger, Ato, Ratker. Ego Vrsicinus presbyter rogitus hab Erchanberto cancellario scripsi et supscripsi. Notavi diem et annum. Die octava idus martii, anno incarnacionis domini nongentesimo XX, anno primo regis Heinrici. Iudicatum est eciam ab omnibus, ut si quis deinceps de hac re querelam aut mallacionem faceret, sciret se esse calumniatorem. Rec noticia publice scripta et coram omni populo lecta.",
+          "lemmas": null,
+          "regest": "Das öffentliche Gericht zu Rankweil weist die von den Mönchen des Klosters St. Gallen auf Herausgabe der Abtei Pfäfers gegen Bischof Waldo von Chur geführte Klage zurück.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 96",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
+          "date_string": "920 03 08",
+          "comp_ort": "Rankweil",
+          "autocomplete": "+ Noticia de iudicado inter Vualdone episcopo et de monachis sancti Galli et advocato eorum. In Christi nomine. Regni primi regis Heinrici, residente duce Burchardo et Vvaldone Curiensis eclesie episcopo in Vinomna in mallo publico ad audiendas et discernendas causas, venit Cozaldus monachus et Albericus monachus et Richo monachus et cum aliis monachis per septem, cum avocato suo Domnico proclamans se de Vualdone episcopo et de abacia Fauariensi, quod iuste debuisset ad partem sancti Galli venire plus quam illi licui set habere. Econtra Vualdo episcopus astantibus monachis de Fauairis cum avocato suo Ursicino respondit: quod malo ordine queris, quia tu ipse Cozolt forcia fecisti cum avocato tuo Domnico avunculo meo Salamoni et mihi, quia ipse pactum habuit factum cum te et cum aliis monachis de sancto Gallo, ut ipsam apaciunculam predialiter diebus vite sue possideret et ego post discessum suum, et post meum discessum ad vestrum monasterium et paccionem feci cum vobis et cum aliis monachis, ut curtis Pussunvvang illi et mihi econtra donaretur; et si ille nec ego investitus fuisset, vos abuissetis vestram et nos nostram causam; fecit eciam pactum, ut si ego indignus episcopus venirem, ut post suum discessum, si paccia ista firma fuisset nec irrita, ad vostrum monasterium hec abaciuncula pertineret. Hec omnia tu irrumpisti, ita ut avunculo meo Salamone tu ipse, qui es decanus de monachis sancti Galli tradicionem per forciam fecisti Alamannis in incensum dando, ut omni anno duo libra exinde dediset ad partem sancti Galli et ad monachos, nostrum pactum non firmasti nec investisti; insuper et nostra tulisti per forcia. Et hoc scit omnis populus de Curuvuala. Et hec ipsa paccio et tua forcia venit ante regem Chunradum loco Honfridinga et iudicatum fuit ab omni populo, qui tunc aderant, te malo ordine iniustam tradicionem facere, et ob hanc causam dedit senior meus hoc preceptum de Fauarias, quod in manu teneo. Et perlecto precepto mandavit dux Burchardus, ut secundum legem Romana iudicarent, qui de hac causa facere debuissent. Iudicaverunt omnes Romani et Alamanni, si Cozoldus cum avocato suo, cum legitimis testibus de Curuvvala non potuisset episcopum et avocatum suum de hac re vincere, postea querelam nec racionem habere. Et tunc Cozoldus monachus et alii monachi cum avocato suo concredidit se, et si dux non precasset, dublam terram et simblem Domnicus avocatus wadasset. Iudices: Alexander, Starculfus, Ebroinus, Ercenbertus, Seianus, Costancius, Meroaldus, Vvancio, Vuito, item Meroaldus, Valerius, Orsicinus, Nuffus, Pasciuus, alius Nuffus, Balfridus, Scalco, Vigilius, Artimius, Regenzo, Pvuo, Valerius, Seianus, Ceizo, Victor, Aurames, Priectus, Otmarus, Domnicus, Victor, Peppo, Vuangairus, Jordannes, Vualderamnus, Taso, Libucio, item Victor, Vincencius, Jovvinianus, Libucio, Azzo, Orsacius, item alii iudices de Alamania: Kerat, Manogaldus, Sigibold, Ezzo, Pegere, Richolf, Vuito, Cozzelm, Vvicart, Kisilfritd, Ricer, Amalbret, Ricker, Berahker+, Renger, Ato, Ratker. Ego Vrsicinus presbyter rogitus hab Erchanberto cancellario scripsi et supscripsi. Notavi diem et annum. Die octava idus martii, anno incarnacionis domini nongentesimo XX, anno primo regis Heinrici. Iudicatum est eciam ab omnibus, ut si quis deinceps de hac re querelam aut mallacionem faceret, sciret se esse calumniatorem. Rec noticia publice scripta et coram omni populo lecta.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Das öffentliche Gericht zu Rankweil weist die von den Mönchen des Klosters St. Gallen auf Herausgabe der Abtei Pfäfers gegen Bischof Waldo von Chur geführte Klage zurück.",
+          "orig_comp_ort": "Rankweil",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 920,
+              "month": 3,
+              "day": 8
+            }
+          ],
+          "all_dates": [
+            "0920-03-08"
+          ],
+          "min_date": "0920-03-08",
+          "max_date": "0920-03-08",
+          "days": [
+            "Wednesday",
+            "Lent"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0096.lat001"
+        ]
+      },
+      {
+        "_index": "buenden_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -527,11 +1440,6 @@
           "min_date": "0975-02",
           "max_date": "0975-02",
           "sort_prefix": 1
-        },
-        "highlight": {
-          "autocomplete_regest": [
-            "Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld."
-          ]
         },
         "sort": [
           1,

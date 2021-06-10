@@ -170,7 +170,7 @@ def r_advanced_search():
         if data_present != ['submit']:
             data = form.data
             data['q'] = data['q'].lower()
-            data['regest_q'] = data['regest_q'].lower()
+            data['regest_q'] = data['q'].lower()
             data['exclude_q'] = data['exclude_q'].lower()
             data['elex_q'] = data['elex_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'

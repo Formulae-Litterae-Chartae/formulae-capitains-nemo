@@ -1,5 +1,5 @@
 {
-  "took": 3,
+  "took": 2,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "elexicon_v1",
+        "_index": "elexicon_v2",
         "_type": "_doc",
         "_id": "urn:cts:formulae:elexicon.diaconus.deu001",
         "_score": null,
@@ -61,7 +61,7 @@
         ]
       },
       {
-        "_index": "elexicon_v1",
+        "_index": "elexicon_v2",
         "_type": "_doc",
         "_id": "urn:cts:formulae:elexicon.episcopus.deu001",
         "_score": null,
@@ -107,7 +107,7 @@
         ]
       },
       {
-        "_index": "elexicon_v1",
+        "_index": "elexicon_v2",
         "_type": "_doc",
         "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
         "_score": null,
@@ -153,7 +153,7 @@
         ]
       },
       {
-        "_index": "elexicon_v1",
+        "_index": "elexicon_v2",
         "_type": "_doc",
         "_id": "urn:cts:formulae:elexicon.vir_venerabilis.deu001",
         "_score": null,

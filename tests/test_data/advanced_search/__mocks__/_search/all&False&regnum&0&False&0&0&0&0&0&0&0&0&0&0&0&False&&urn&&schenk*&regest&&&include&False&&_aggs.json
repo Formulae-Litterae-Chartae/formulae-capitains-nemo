@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13793,
+      "doc_count": 13646,
       "forgeries": {
         "doc_count": 151
       },
@@ -44,7 +44,7 @@
             "doc_count": 174
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 147
+            "doc_count": 0
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 152
@@ -239,16 +239,16 @@
         ]
       },
       "no_date": {
-        "doc_count": 849
+        "doc_count": 702
       }
     },
     "forgeries": {
-      "doc_count": 2
+      "doc_count": 83
     },
     "corpus": {
       "buckets": {
         "<b>Angers</b>: Angers": {
-          "doc_count": 2
+          "doc_count": 4
         },
         "<b>Anjou</b>: Archives d’Anjou": {
           "doc_count": 0
@@ -257,13 +257,13 @@
           "doc_count": 0
         },
         "<b>Arnulfinger</b>: Arnulfinger": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "<b>Auvergne</b>: Auvergne": {
           "doc_count": 0
         },
         "<b>Catalunya</b>: Katalonien": {
-          "doc_count": 0
+          "doc_count": 9
         },
         "<b>Chartae Latinae</b>: Chartae Latinae X": {
           "doc_count": 0
@@ -272,7 +272,7 @@
           "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae XII": {
-          "doc_count": 1
+          "doc_count": 10
         },
         "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
           "doc_count": 0
@@ -281,79 +281,79 @@
           "doc_count": 0
         },
         "<b>Dijon</b>: Saint-Bénigne de Dijon": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "<b>E-Lexikon</b>": {
           "doc_count": 0
         },
         "<b>Echternach</b>: Echternach": {
-          "doc_count": 1
+          "doc_count": 118
         },
         "<b>Freising</b>: Freising": {
-          "doc_count": 9
+          "doc_count": 331
         },
         "<b>Fulda</b>: Fulda (Dronke)": {
           "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Stengel)": {
-          "doc_count": 1
+          "doc_count": 228
         },
         "<b>Gorze</b>: Gorze": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "<b>Graubünden</b>: Bünden": {
-          "doc_count": 1
+          "doc_count": 8
         },
         "<b>Hersfeld</b>: Hersfeld": {
-          "doc_count": 1
+          "doc_count": 39
         },
         "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "<b>Lorsch</b>: Lorsch": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "<b>Luzern</b>: Luzern": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "<b>Merowinger</b>: Merowinger": {
-          "doc_count": 2
+          "doc_count": 78
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 0
+          "doc_count": 123
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
-          "doc_count": 0
+          "doc_count": 10
         },
         "<b>Passau</b>: Passau": {
-          "doc_count": 0
+          "doc_count": 23
         },
         "<b>Redon</b>: Cartulaire de Redon": {
-          "doc_count": 0
+          "doc_count": 15
         },
         "<b>Regensburg</b>: Regensburg": {
-          "doc_count": 1
+          "doc_count": 46
         },
         "<b>Rheinland</b>: Mittelrheinisch": {
-          "doc_count": 0
+          "doc_count": 41
         },
         "<b>Rheinland</b>: Rheinisch": {
-          "doc_count": 0
+          "doc_count": 46
         },
         "<b>Rätien</b>: Rätien": {
-          "doc_count": 20
+          "doc_count": 51
         },
         "<b>Salzburg</b>: Salzburg": {
-          "doc_count": 0
-        },
-        "<b>Schäftlarn</b>: Schäftlarn": {
           "doc_count": 1
         },
+        "<b>Schäftlarn</b>: Schäftlarn": {
+          "doc_count": 9
+        },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 20
+          "doc_count": 208
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -365,22 +365,22 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Eudes": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier (TELMA)": {
-          "doc_count": 0
+          "doc_count": 5
         },
         "<b>Touraine</b>: Marmoutier - Dunois": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "<b>Touraine</b>: Marmoutier - Fougères": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "<b>Touraine</b>: Marmoutier - Manceau": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "<b>Touraine</b>: Marmoutier - Pour le perche": {
           "doc_count": 0
@@ -392,13 +392,13 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Vendômois": {
-          "doc_count": 0
+          "doc_count": 1
         },
         "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
-          "doc_count": 0
+          "doc_count": 2
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
-          "doc_count": 0
+          "doc_count": 3
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
@@ -410,13 +410,13 @@
           "doc_count": 0
         },
         "<b>Werden</b>: Werden": {
-          "doc_count": 0
+          "doc_count": 48
         },
         "<b>Wissembourg</b>: Weißenburg": {
-          "doc_count": 1
+          "doc_count": 205
         },
         "<b>Zürich</b>: Zürich": {
-          "doc_count": 0
+          "doc_count": 8
         }
       }
     },
@@ -428,7 +428,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 1
+          "doc_count": 3
         },
         {
           "key": "500-599",
@@ -436,7 +436,7 @@
           "from_as_string": "0500",
           "to": -43264540800000.0,
           "to_as_string": "0599",
-          "doc_count": 0
+          "doc_count": 11
         },
         {
           "key": "600-699",
@@ -444,7 +444,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 1
+          "doc_count": 66
         },
         {
           "key": "700-799",
@@ -452,7 +452,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 14
+          "doc_count": 762
         },
         {
           "key": "800-899",
@@ -460,7 +460,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 41
+          "doc_count": 643
         },
         {
           "key": "900-999",
@@ -468,18 +468,18 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 2
+          "doc_count": 112
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 0
+          "doc_count": 45
         }
       ]
     },
     "no_date": {
-      "doc_count": 2
+      "doc_count": 64
     }
   }
 }

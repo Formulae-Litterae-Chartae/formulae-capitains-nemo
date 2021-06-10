@@ -1,9 +1,9 @@
 {
-  "took": 15,
+  "took": 16,
   "timed_out": false,
   "_shards": {
-    "total": 57,
-    "successful": 57,
+    "total": 56,
+    "successful": 56,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v16",
+        "_index": "freising_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0018.lat001",
         "_score": null,
@@ -70,7 +70,7 @@
         ]
       },
       {
-        "_index": "freising_v16",
+        "_index": "freising_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0022.lat001",
         "_score": null,
@@ -127,10 +127,10 @@
           "min_date": "0764-07-10",
           "max_date": "0767-07-10",
           "days": [
+            "Tuesday",
             "Wednesday",
             "Friday",
-            "Thursday",
-            "Tuesday"
+            "Thursday"
           ],
           "sort_prefix": 1,
           "Invocatio": "In nomine domini nostri Jesu\n                            Christi",
@@ -161,7 +161,7 @@
         ]
       },
       {
-        "_index": "freising_v16",
+        "_index": "freising_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0093.lat001",
         "_score": null,
@@ -216,7 +216,7 @@
         ]
       },
       {
-        "_index": "freising_v16",
+        "_index": "freising_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1031.lat001",
         "_score": null,
@@ -273,7 +273,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
         "_score": null,
@@ -352,7 +352,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
         "_score": null,
@@ -432,7 +432,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
@@ -515,7 +515,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
         "_score": null,
@@ -594,7 +594,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
         "_score": null,
@@ -673,7 +673,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
@@ -1118,13 +1118,13 @@
           "min_date": "0766-07-25",
           "max_date": "0800-08-06",
           "days": [
-            "Friday",
-            "Sunday",
-            "Wednesday",
-            "Saturday",
-            "Monday",
             "Thursday",
-            "Tuesday"
+            "Wednesday",
+            "Friday",
+            "Saturday",
+            "Tuesday",
+            "Monday",
+            "Sunday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -1179,7 +1179,7 @@
         ]
       },
       {
-        "_index": "mondsee_v16",
+        "_index": "mondsee_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
         "_score": null,
@@ -1260,7 +1260,7 @@
         ]
       },
       {
-        "_index": "passau_v16",
+        "_index": "passau_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0029.lat001",
         "_score": null,
@@ -1337,7 +1337,7 @@
         ]
       },
       {
-        "_index": "regensburg_v16",
+        "_index": "regensburg_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0005.lat001",
         "_score": null,
@@ -1410,7 +1410,7 @@
         ]
       },
       {
-        "_index": "stgallen_v16",
+        "_index": "stgallen_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0027.lat001",
         "_score": null,
@@ -1441,8 +1441,8 @@
           "min_date": "0761-03-27",
           "max_date": "0761-03-27",
           "days": [
-            "Lent",
-            "Friday"
+            "Friday",
+            "Lent"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in Dei nomine Hwicramnus",
@@ -1487,7 +1487,7 @@
         ]
       },
       {
-        "_index": "stgallen_v16",
+        "_index": "stgallen_v17",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0074.lat001",
         "_score": null,

@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13793,
+      "doc_count": 13646,
       "forgeries": {
         "doc_count": 151
       },
@@ -44,7 +44,7 @@
             "doc_count": 174
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 147
+            "doc_count": 0
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 152
@@ -239,7 +239,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 849
+        "doc_count": 702
       }
     },
     "forgeries": {

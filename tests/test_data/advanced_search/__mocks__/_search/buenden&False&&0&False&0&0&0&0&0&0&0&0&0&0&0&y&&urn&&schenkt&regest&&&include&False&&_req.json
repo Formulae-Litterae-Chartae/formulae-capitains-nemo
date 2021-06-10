@@ -1,28 +1,7 @@
 {
   "query": {
     "bool": {
-      "must": [
-        {
-          "span_near": {
-            "clauses": [
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "regest": {
-                        "value": "schenkt",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              }
-            ],
-            "slop": "0",
-            "in_order": false
-          }
-        }
-      ]
+      "must": []
     }
   },
   "sort": [

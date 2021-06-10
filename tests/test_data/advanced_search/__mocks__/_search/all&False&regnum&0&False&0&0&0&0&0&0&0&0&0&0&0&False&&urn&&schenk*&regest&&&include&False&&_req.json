@@ -31,26 +31,26 @@
                   "slop": "0",
                   "in_order": false
                 }
-              }
-            ],
-            "minimum_should_match": 1
-          }
-        },
-        {
-          "span_near": {
-            "clauses": [
+              },
               {
-                "span_multi": {
-                  "match": {
-                    "wildcard": {
-                      "regest": "schenk*"
+                "span_near": {
+                  "clauses": [
+                    {
+                      "span_multi": {
+                        "match": {
+                          "wildcard": {
+                            "regest": "schenk*"
+                          }
+                        }
+                      }
                     }
-                  }
+                  ],
+                  "slop": "0",
+                  "in_order": false
                 }
               }
             ],
-            "slop": "0",
-            "in_order": false
+            "minimum_should_match": 1
           }
         }
       ]
