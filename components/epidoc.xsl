@@ -39,7 +39,7 @@
     </div>
   </xsl:template>
     
-    <xsl:template match="t:w">
+    <xsl:template match="t:w" name="addWords">
         <!-- I may need to add the ability to strip space from <p> tags if this produces too much space once we start exporting form CTE -->
         <!--<xsl:if test="not(preceding-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
@@ -491,7 +491,7 @@
     
     <xsl:template match="t:cell">
         <xsl:element name="td">
-            <xsl:value-of select="."/>
+            <xsl:call-template name="addWords"/>
         </xsl:element>
     </xsl:template>
     
