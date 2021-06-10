@@ -2016,6 +2016,13 @@ class TestES(Formulae_Testing):
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'regnum'),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'schenk*'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'schenk*'),
                                  ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
                  'test_no_corpus_given': OrderedDict([("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
@@ -3847,6 +3854,9 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         aggs = fake.load_aggs()
         ids = fake.load_ids()
+        for h in resp['hits']['hits']:
+            if 'regest' in h['highlight']:
+                del h['highlight']['regest']
         mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -3866,6 +3876,9 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         aggs = fake.load_aggs()
         ids = fake.load_ids()
+        for h in resp['hits']['hits']:
+            if 'regest' in h['highlight']:
+                del h['highlight']['regest']
         mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -4681,9 +4694,12 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         aggs = fake.load_aggs()
-        expected = ['schenkt dem kloster disentis auf ableben',
+        expected = ['schen volk den frieden zu wahren',
+                    'schenke und ermahnt ihn',
+                    'schenkt dem kloster disentis auf ableben',
                     'schenkt dem kloster disentis güter',
                     'schenkt der kirche st hilarius zu seinem',
+                    'schenkt die kirchen st carpophorus',
                     'schenkt seinem neffen priectus seinen',
                     'schenkt zu seinem und seiner eltern',
                     'schenkt zu seinem und seiner gattin',
@@ -4791,6 +4807,8 @@ class TestES(Formulae_Testing):
             expected = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_lemmas.pdf', mode='rb') as f:
             expected_lemmas = f.read()
+        with open('tests/test_data/advanced_search/downloaded_search_regest.pdf', mode='rb') as f:
+            expected_regest = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='rb') as f:
             expected_parts = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='rb') as f:
@@ -4815,6 +4833,22 @@ class TestES(Formulae_Testing):
                     f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_lemmas).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+
+            test_args = copy(self.TEST_ARGS['test_download_search_results_regest'])
+            fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+            resp = fake.load_response()
+            aggs = fake.load_aggs()
+            mock_search.side_effect = cycle([resp, aggs])
+            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['special_days'] = [test_args['special_days']]
+            c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=schenk*&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
+            r = c.get('/search/download/1')
+            if recreate:
+                with open('tests/test_data/advanced_search/downloaded_search_regest.pdf', mode='wb') as f:
+                    f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_regest).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+
             test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
             test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
@@ -4830,6 +4864,7 @@ class TestES(Formulae_Testing):
                     f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+
             test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
             test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')

@@ -22,18 +22,6 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "iohannes",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
                         "value": "zezia",
                         "fuzziness": "0"
                       }
@@ -46,7 +34,31 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "theodorigus",
+                        "value": "david",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "moses",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "marculfus",
                         "fuzziness": "0"
                       }
                     }
@@ -70,7 +82,43 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "paulus",
+                        "value": "theudorigus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "maria",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "noah",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "theodosius",
                         "fuzziness": "0"
                       }
                     }
@@ -106,31 +154,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "chlodoveus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "childebertus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "theodosius",
+                        "value": "jesus",
                         "fuzziness": "0"
                       }
                     }
@@ -154,91 +178,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "marculfus",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "maria",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "iosoe",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "david",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "abiron",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "abraham",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "noah",
-                        "fuzziness": "0"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "span_multi": {
-                  "match": {
-                    "fuzzy": {
-                      "lemmas": {
-                        "value": "martinus",
+                        "value": "paulus",
                         "fuzziness": "0"
                       }
                     }
@@ -262,7 +202,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "theudorigus",
+                        "value": "chlotharius",
                         "fuzziness": "0"
                       }
                     }
@@ -274,7 +214,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "dathan",
+                        "value": "chlodoveus",
                         "fuzziness": "0"
                       }
                     }
@@ -286,7 +226,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "jesus",
+                        "value": "theodorigus",
                         "fuzziness": "0"
                       }
                     }
@@ -310,7 +250,7 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "moses",
+                        "value": "abraham",
                         "fuzziness": "0"
                       }
                     }
@@ -322,7 +262,67 @@
                   "match": {
                     "fuzzy": {
                       "lemmas": {
-                        "value": "chlotharius",
+                        "value": "abiron",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "dathan",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "martinus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "childebertus",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "iohannes",
+                        "fuzziness": "0"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "span_multi": {
+                  "match": {
+                    "fuzzy": {
+                      "lemmas": {
+                        "value": "iosoe",
                         "fuzziness": "0"
                       }
                     }
