@@ -2710,7 +2710,7 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "diakon? m?rtyr*")])
+                                                ("exclude_q", "christi"), ("elex_q", "diakone m?rtyr*")])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
