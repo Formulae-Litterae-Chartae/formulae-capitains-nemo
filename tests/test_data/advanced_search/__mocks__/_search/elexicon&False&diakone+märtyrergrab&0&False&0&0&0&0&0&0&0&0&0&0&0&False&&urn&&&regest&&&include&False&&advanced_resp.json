@@ -1,0 +1,50 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "elexicon_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Martyrarius",
+          "urn": "urn:cts:formulae:elexicon.martyrarius.deu001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "elexicon",
+          "forgery": false,
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:elexicon.martyrarius.deu001"
+        ]
+      }
+    ]
+  }
+}

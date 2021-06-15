@@ -926,13 +926,13 @@ class TestIndividualRoutes(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest'),
                                  ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"),
-                                 ('regex_search', 'False'), ('exclude_q', ''), ('elex_q', '')])
+                                 ('regex_search', 'False'), ('exclude_q', ''), ('source', 'advanced')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
         for hit in resp['hits']['hits']:
-            hit['highlight']['text'][0] = PRE_TAGS + hit['highlight']['text'][0] + POST_TAGS
+            hit['highlight']['lemmas'][0] = PRE_TAGS + hit['highlight']['lemmas'][0] + POST_TAGS
         mock_search.side_effect = cycle([resp, aggs])
         mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
@@ -1003,7 +1003,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest'),
                                  ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"),
-                                 ('regex_search', 'False'), ('exclude_q', ''), ('elex_q', '')])
+                                 ('regex_search', 'False'), ('exclude_q', ''), ('source', 'advanced')])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         aggs = fake.load_aggs()
@@ -1777,302 +1777,302 @@ class TestES(Formulae_Testing):
                                                                   ("composition_place", ''), ('sort', 'urn'),
                                                                   ('special_days', ''), ("regest_q", ''),
                                                                   ("regest_field", "regest"), ("formulaic_parts", ""),
-                                                                  ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                  ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_same_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 10), ("year_end", 800), ("month_end", 10),
                                  ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_different_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 10), ("year_end", 801), ("month_end", 10),
                                  ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 810), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 800), ("month_end", 11),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 801), ("month_end", 11),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
                                  ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_normal_date_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_normal_date_only_year_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 800), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_date_plus_minus_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_exclusive_date_range_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 800), ("month_start", 12), ("day_start", 25), ("year_end", 820),
                                  ("month_end", 12), ("day_end", 25), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', "0"), ("month", 0), ("day", 0),
                                  ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
                                  ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_wildcard_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum+dom*'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'vir+venerabilis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_v_to_u_multiword': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'wolfhart+cvm'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_v_to_u_single_word': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'novalium'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_word_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettonis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum+domni'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'venerabili?'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_composition_place_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
                                  ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_suggest_composition_places': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
                                  ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"), ("lemma_search", "autocomplete"), ("q", 'scrips'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'sche'),
-                                 ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'schenkt'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'illam'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'tau'),
-                                 ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ('qSource', ''), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ('qSource', ''), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_save_requests': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
                                  ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', 'Easter'), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', 'Easter+Saturday'), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_download_search_results': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'regnum'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
-                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'schenk*'), ("fuzziness", "0"),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'schenk*'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_no_corpus_given': OrderedDict([("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
                                  ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
                                  ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
                                  ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
                                  ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'gero'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'facio+gero'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_proper_name_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", "personenname"), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", "personenname"), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnante+pettone'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscr*'), ("fuzziness", "AUTO"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"),
                                  ("q", 'signum+uuiliarentis+testes+signum+crespionis+testes'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
@@ -2080,7 +2080,7 @@ class TestES(Formulae_Testing):
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'tempore'),
@@ -2104,7 +2104,7 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                  ("formulaic_parts", "Stipulationsformel"),
-                                                                 ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                 ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'temp?re'),
@@ -2128,7 +2128,7 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                                ("formulaic_parts", "Stipulationsformel"),
-                                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'christ*+vener?bili'),
@@ -2152,7 +2152,7 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                                    ("formulaic_parts", "Narratio"),
-                                                                                   ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                                   ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("lemma_search", "False"),
                                                                 ("q", 'christi'),
@@ -2176,7 +2176,7 @@ class TestES(Formulae_Testing):
                                                                 ("regest_q", ''),
                                                                 ("regest_field", "regest"),
                                                                 ("formulaic_parts", "Poenformel%2BStipulationsformel"),
-                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2200,7 +2200,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                ("formulaic_parts", "Poenformel%2BStipulationsformel"),
-                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'in+loco+qui+nuncupatur'),
@@ -2224,7 +2224,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                 ("formulaic_parts", "Narratio"),
-                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'in+loco+qui+nuncupatur'),
@@ -2248,7 +2248,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                           ("formulaic_parts", ""),
-                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'a'),
@@ -2272,7 +2272,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                           ("formulaic_parts", ""),
-                                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'daumerii+a'),
@@ -2296,7 +2296,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
-                                                                           ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                           ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_forgery_exclude': OrderedDict([("corpus", "merowinger1"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2321,7 +2321,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", ""),
-                                                      ("forgeries", "exclude"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "exclude"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_forgery_only': OrderedDict([("corpus", "merowinger1"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2346,7 +2346,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", ""),
-                                                      ("forgeries", "only"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "only"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_proper_name_partial_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'habraam+usque'),
@@ -2371,7 +2371,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'regnum+domni'),
@@ -2396,7 +2396,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_word_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'regnum'),
@@ -2421,7 +2421,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_single_word_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'adam'),
@@ -2446,7 +2446,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'chlodoveo+chlothoario'),
@@ -2471,7 +2471,7 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ("elex_q", "")]),
+                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_regex_text': OrderedDict([("corpus", "all"),
                                                  ("lemma_search", "False"),
                                                  ("q", 'ru[ieu]gin[wuv]wm'),
@@ -2496,7 +2496,7 @@ class TestES(Formulae_Testing):
                                                  ("regest_field", "regest"),
                                                  ("formulaic_parts", ""),
                                                  ("proper_name", "personenname"),
-                                                 ("forgeries", "include"), ("regex_search", 'True'), ("exclude_q", ""), ("elex_q", "")]),
+                                                 ("forgeries", "include"), ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_regex_parts': OrderedDict([("corpus", "mondsee"),
                                                   ("lemma_search", "False"),
                                                   ("q", 'cwhr[ij]sjt[uvw]iu'),
@@ -2522,7 +2522,7 @@ class TestES(Formulae_Testing):
                                                   ("formulaic_parts", "Narratio"),
                                                   ("proper_name", "personenname"),
                                                   ("forgeries", "include"),
-                                                  ("regex_search", 'True'), ("exclude_q", ""), ("elex_q", "")]),
+                                                  ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
                                                                     ("lemma_search", "False"),
                                                                     ("q", 'dos'),
@@ -2548,7 +2548,7 @@ class TestES(Formulae_Testing):
                                                                     ("formulaic_parts", "Narratio"),
                                                                     ("proper_name", "personenname"),
                                                                     ("forgeries", "include"),
-                                                                    ("regex_search", 'True'), ("exclude_q", ""), ("elex_q", "")]),
+                                                                    ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_exclude_q': OrderedDict([("corpus", "all"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'regn?'),
@@ -2575,7 +2575,7 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "regni"), ("elex_q", "")]),
+                                                ("exclude_q", "regni"), ('source', 'advanced')]),
                  'test_exclude_q_parts': OrderedDict([("corpus", "all"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'christ?'),
@@ -2602,10 +2602,10 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "")]),
+                                                ("exclude_q", "christi"), ('source', 'advanced')]),
                  'test_elex_search': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
-                                                ("q", 'christ?'),
+                                                ("q", 'diakone'),
                                                 ("fuzziness", "0"),
                                                 ("in_order", "False"),
                                                 ("year", 0),
@@ -2625,14 +2625,14 @@ class TestES(Formulae_Testing):
                                                 ('special_days', ''),
                                                 ("regest_q", ''),
                                                 ("regest_field", "regest"),
-                                                ("formulaic_parts", "Narratio"),
+                                                ("formulaic_parts", ""),
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "diakone")]),
+                                                ("exclude_q", ""), ('source', 'advanced')]),
                  'test_elex_search_multi': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
-                                                ("q", 'christ?'),
+                                                ("q", 'diakone+märtyrergrab'),
                                                 ("fuzziness", "0"),
                                                 ("in_order", "False"),
                                                 ("year", 0),
@@ -2652,14 +2652,14 @@ class TestES(Formulae_Testing):
                                                 ('special_days', ''),
                                                 ("regest_q", ''),
                                                 ("regest_field", "regest"),
-                                                ("formulaic_parts", "Narratio"),
+                                                ("formulaic_parts", ""),
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "")]),
+                                                ("exclude_q", ""), ('source', 'advanced')]),
                  'test_elex_search_wildcard': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
-                                                ("q", 'christ?'),
+                                                ("q", 'm?rtyr*'),
                                                 ("fuzziness", "0"),
                                                 ("in_order", "False"),
                                                 ("year", 0),
@@ -2679,14 +2679,14 @@ class TestES(Formulae_Testing):
                                                 ('special_days', ''),
                                                 ("regest_q", ''),
                                                 ("regest_field", "regest"),
-                                                ("formulaic_parts", "Narratio"),
+                                                ("formulaic_parts", ""),
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "m?rtyr*")]),
+                                                ("exclude_q", ""), ('source', 'advanced')]),
                  'test_elex_search_multi_wildcard': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
-                                                ("q", 'christ?'),
+                                                ("q", 'diakon?+m?rtyr*'),
                                                 ("fuzziness", "0"),
                                                 ("in_order", "False"),
                                                 ("year", 0),
@@ -2706,11 +2706,95 @@ class TestES(Formulae_Testing):
                                                 ('special_days', ''),
                                                 ("regest_q", ''),
                                                 ("regest_field", "regest"),
-                                                ("formulaic_parts", "Narratio"),
+                                                ("formulaic_parts", ""),
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ("elex_q", "diakone m?rtyr*")])
+                                                ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_elex_search_simple': OrderedDict([("corpus", "elexicon"),
+                                                ("lemma_search", "False"),
+                                                ("q", 'diakone'),
+                                                ("fuzziness", "0"),
+                                                ("in_order", "False"),
+                                                ("year", 0),
+                                                ("slop", "0"),
+                                                ("month", 0),
+                                                ("day", 0),
+                                                ("year_start", 0),
+                                                ("month_start", 0),
+                                                ("day_start", 0),
+                                                ("year_end", 0),
+                                                ("month_end", 0),
+                                                ("day_end", 0),
+                                                ('date_plus_minus', 0),
+                                                ('exclusive_date_range', 'False'),
+                                                ("composition_place", ''),
+                                                ("sort", "urn"),
+                                                ('special_days', ''),
+                                                ("regest_q", ''),
+                                                ("regest_field", "regest"),
+                                                ("formulaic_parts", ""),
+                                                ("proper_name", ""),
+                                                ("forgeries", "include"),
+                                                ("regex_search", 'False'),
+                                                ("exclude_q", ""),
+                                                ("source", "simple")]),
+                 'test_elex_search_simple_wildcard': OrderedDict([("corpus", "elexicon"),
+                                                ("lemma_search", "False"),
+                                                ("q", 'm?rtyr*'),
+                                                ("fuzziness", "0"),
+                                                ("in_order", "False"),
+                                                ("year", 0),
+                                                ("slop", "0"),
+                                                ("month", 0),
+                                                ("day", 0),
+                                                ("year_start", 0),
+                                                ("month_start", 0),
+                                                ("day_start", 0),
+                                                ("year_end", 0),
+                                                ("month_end", 0),
+                                                ("day_end", 0),
+                                                ('date_plus_minus', 0),
+                                                ('exclusive_date_range', 'False'),
+                                                ("composition_place", ''),
+                                                ("sort", "urn"),
+                                                ('special_days', ''),
+                                                ("regest_q", ''),
+                                                ("regest_field", "regest"),
+                                                ("formulaic_parts", ""),
+                                                ("proper_name", ""),
+                                                ("forgeries", "include"),
+                                                ("regex_search", 'False'),
+                                                ("exclude_q", ""),
+                                                ("source", "simple")]),
+                 'test_simple_search_text_and_regest': OrderedDict([("corpus", "formulae+chartae"),
+                                                ("lemma_search", "False"),
+                                                ("q", 'pippin*+dux'),
+                                                ("fuzziness", "0"),
+                                                ("in_order", "False"),
+                                                ("year", 0),
+                                                ("slop", "0"),
+                                                ("month", 0),
+                                                ("day", 0),
+                                                ("year_start", 0),
+                                                ("month_start", 0),
+                                                ("day_start", 0),
+                                                ("year_end", 0),
+                                                ("month_end", 0),
+                                                ("day_end", 0),
+                                                ('date_plus_minus', 0),
+                                                ('exclusive_date_range', 'False'),
+                                                ("composition_place", ''),
+                                                ("sort", "urn"),
+                                                ('special_days', ''),
+                                                ("regest_q", 'pippin*+dux'),
+                                                ("regest_field", "regest"),
+                                                ("formulaic_parts", ""),
+                                                ("proper_name", ""),
+                                                ("forgeries", "include"),
+                                                ("regex_search", 'False'),
+                                                ("exclude_q", ""),
+                                                ("source", "simple")])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -4545,7 +4629,20 @@ class TestES(Formulae_Testing):
                                                 'slop': 4,
                                                 'in_order': False
                                                 }
-                                           }
+                                           },
+                                          {'bool':
+                                               {'must':
+                                                    [
+                                                        {'match':
+                                                             {'regest':
+                                                                  {'query': 'regnum',
+                                                                   'fuzziness': '0'
+                                                                   }
+                                                              }
+                                                         }
+                                                    ]
+                                               }
+                                          }
                                           ],
                                      'minimum_should_match': 1
                                      }
@@ -4598,6 +4695,22 @@ class TestES(Formulae_Testing):
                   }
              }
         ]
+        body['query']['bool']['must'][0]['bool']['should'][1] = {'bool': {'must': [
+            {'match':
+                 {'regest':
+                      {'query': 'regnum',
+                       'fuzziness': '0'
+                       }
+                  }
+             },
+            {'match':
+                 {'regest':
+                      {'query': 'domni',
+                       'fuzziness': '0'
+                       }
+                  }
+             }
+        ]}}
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         test_args['q'] = 're?num'
@@ -4610,6 +4723,13 @@ class TestES(Formulae_Testing):
                                                                                                     }
                                                                                                }
                                                                                           }]
+        body['query']['bool']['must'][0]['bool']['should'][1] = {'bool': {'must': [
+            {'wildcard':
+                 {'regest':
+                      {'value': 're?num'}
+                  }
+             }
+        ]}}
         advanced_query_index(**test_args)
         mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
         self.assertCountEqual({'index': ['formulae', 'chartae'], 'doc_type': "", 'body': body},
@@ -4694,12 +4814,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
         aggs = fake.load_aggs()
-        expected = ['schen volk den frieden zu wahren',
-                    'schenke und ermahnt ihn',
-                    'schenkt dem kloster disentis auf ableben',
+        expected = ['schenkt dem kloster disentis auf ableben',
                     'schenkt dem kloster disentis güter',
                     'schenkt der kirche st hilarius zu seinem',
-                    'schenkt die kirchen st carpophorus',
                     'schenkt seinem neffen priectus seinen',
                     'schenkt zu seinem und seiner eltern',
                     'schenkt zu seinem und seiner gattin',
@@ -4798,6 +4915,9 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
         aggs = fake.load_aggs()
+        for h in resp['hits']['hits']:
+            if 'regest' in h['highlight']:
+                del h['highlight']['regest']
         mock_search.side_effect = cycle([resp, aggs])
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
@@ -4814,11 +4934,11 @@ class TestES(Formulae_Testing):
         with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='rb') as f:
             expected_parts_no_q = f.read()
         with self.client as c:
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            # recreate = True
+            recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())
@@ -4826,7 +4946,7 @@ class TestES(Formulae_Testing):
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
             for hit in resp['hits']['hits']:
                 hit['highlight']['lemmas'] = hit['highlight'].pop('text')
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=schenk*&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&lemma_search=True')
+            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&lemma_search=True')
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_lemmas.pdf', mode='wb') as f:
@@ -4841,7 +4961,7 @@ class TestES(Formulae_Testing):
             mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=schenk*&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
+            c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_regest.pdf', mode='wb') as f:
@@ -4854,6 +4974,9 @@ class TestES(Formulae_Testing):
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
             aggs = fake.load_aggs()
+            for h in resp['hits']['hits']:
+                if 'regest' in h['highlight']:
+                    del h['highlight']['regest']
             mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
@@ -4870,6 +4993,9 @@ class TestES(Formulae_Testing):
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
             aggs = fake.load_aggs()
+            for h in resp['hits']['hits']:
+                if 'highlight' in h and 'regest' in h['highlight']:
+                    del h['highlight']['regest']
             mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
@@ -5118,10 +5244,12 @@ class TestES(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
+        ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search_multi(self, mock_search):
@@ -5130,10 +5258,13 @@ class TestES(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
+        ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search_wildcard(self, mock_search):
@@ -5142,10 +5273,13 @@ class TestES(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
+        ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search_multi_wildcard(self, mock_search):
@@ -5154,11 +5288,28 @@ class TestES(Formulae_Testing):
         body = fake.load_request()
         resp = fake.load_response()
         aggs = fake.load_aggs()
+        ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
+    @patch.object(Elasticsearch, "search")
+    def test_simple_search_text_and_regest(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = cycle([resp, aggs])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
 class TestErrors(Formulae_Testing):
     def test_404(self):
@@ -5200,7 +5351,7 @@ def rebuild_search_mock_files(url_base="http://127.0.0.1:5000"):
         url_ext = []
         for x, y in v.items():
             url_ext.append('{}={}'.format(x, y))
-        url = '{}/search/results?source=advanced&sort=urn&{}'.format(url_base, '&'.join(url_ext))
+        url = '{}/search/results?{}'.format(url_base, '&'.join(url_ext))
         r = requests.get(url)
         if r.status_code != 200:
             print(url + ' did not succeed. Status code: ' + str(r.status_code))

@@ -1,0 +1,485 @@
+{
+  "aggregations": {
+    "all_docs": {
+      "doc_count": 13646,
+      "forgeries": {
+        "doc_count": 151
+      },
+      "corpus": {
+        "buckets": {
+          "<b>Angers</b>: Angers": {
+            "doc_count": 62
+          },
+          "<b>Anjou</b>: Archives d’Anjou": {
+            "doc_count": 74
+          },
+          "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
+            "doc_count": 10
+          },
+          "<b>Arnulfinger</b>: Arnulfinger": {
+            "doc_count": 24
+          },
+          "<b>Auvergne</b>: Auvergne": {
+            "doc_count": 6
+          },
+          "<b>Catalunya</b>: Katalonien": {
+            "doc_count": 2247
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae X": {
+            "doc_count": 3
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XI": {
+            "doc_count": 1
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XII": {
+            "doc_count": 15
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+            "doc_count": 4
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae XLVII": {
+            "doc_count": 3
+          },
+          "<b>Dijon</b>: Saint-Bénigne de Dijon": {
+            "doc_count": 174
+          },
+          "<b>E-Lexikon</b>": {
+            "doc_count": 0
+          },
+          "<b>Echternach</b>: Echternach": {
+            "doc_count": 152
+          },
+          "<b>Freising</b>: Freising": {
+            "doc_count": 1383
+          },
+          "<b>Fulda</b>: Fulda (Dronke)": {
+            "doc_count": 8
+          },
+          "<b>Fulda</b>: Fulda (Stengel)": {
+            "doc_count": 563
+          },
+          "<b>Gorze</b>: Gorze": {
+            "doc_count": 121
+          },
+          "<b>Graubünden</b>: Bünden": {
+            "doc_count": 24
+          },
+          "<b>Hersfeld</b>: Hersfeld": {
+            "doc_count": 121
+          },
+          "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "<b>Lorsch</b>: Lorsch": {
+            "doc_count": 4130
+          },
+          "<b>Luzern</b>: Luzern": {
+            "doc_count": 6
+          },
+          "<b>Marculf</b>: Marculf": {
+            "doc_count": 95
+          },
+          "<b>Merowinger</b>: Merowinger": {
+            "doc_count": 196
+          },
+          "<b>Mondsee</b>: Mondsee": {
+            "doc_count": 137
+          },
+          "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
+            "doc_count": 259
+          },
+          "<b>Passau</b>: Passau": {
+            "doc_count": 102
+          },
+          "<b>Redon</b>: Cartulaire de Redon": {
+            "doc_count": 391
+          },
+          "<b>Regensburg</b>: Regensburg": {
+            "doc_count": 269
+          },
+          "<b>Rheinland</b>: Mittelrheinisch": {
+            "doc_count": 98
+          },
+          "<b>Rheinland</b>: Rheinisch": {
+            "doc_count": 78
+          },
+          "<b>Rätien</b>: Rätien": {
+            "doc_count": 60
+          },
+          "<b>Salzburg</b>: Salzburg": {
+            "doc_count": 229
+          },
+          "<b>Schäftlarn</b>: Schäftlarn": {
+            "doc_count": 37
+          },
+          "<b>St. Gallen</b>: St. Gallen": {
+            "doc_count": 779
+          },
+          "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
+            "doc_count": 1
+          },
+          "<b>Touraine</b>: Accord entre Bonneval et Marmoutier": {
+            "doc_count": 1
+          },
+          "<b>Touraine</b>: Cormery (TELMA)": {
+            "doc_count": 5
+          },
+          "<b>Touraine</b>: Eudes": {
+            "doc_count": 34
+          },
+          "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
+            "doc_count": 38
+          },
+          "<b>Touraine</b>: Marmoutier (TELMA)": {
+            "doc_count": 108
+          },
+          "<b>Touraine</b>: Marmoutier - Dunois": {
+            "doc_count": 281
+          },
+          "<b>Touraine</b>: Marmoutier - Fougères": {
+            "doc_count": 7
+          },
+          "<b>Touraine</b>: Marmoutier - Manceau": {
+            "doc_count": 189
+          },
+          "<b>Touraine</b>: Marmoutier - Pour le perche": {
+            "doc_count": 71
+          },
+          "<b>Touraine</b>: Marmoutier - Serfs": {
+            "doc_count": 187
+          },
+          "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
+            "doc_count": 6
+          },
+          "<b>Touraine</b>: Marmoutier - Vendômois": {
+            "doc_count": 163
+          },
+          "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
+            "doc_count": 50
+          },
+          "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+            "doc_count": 184
+          },
+          "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
+            "doc_count": 15
+          },
+          "<b>Touraine</b>: Un acte faux de Marmoutier": {
+            "doc_count": 1
+          },
+          "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
+            "doc_count": 1
+          },
+          "<b>Werden</b>: Werden": {
+            "doc_count": 66
+          },
+          "<b>Wissembourg</b>: Weißenburg": {
+            "doc_count": 276
+          },
+          "<b>Zürich</b>: Zürich": {
+            "doc_count": 53
+          }
+        }
+      },
+      "range": {
+        "buckets": [
+          {
+            "key": "<499",
+            "from": -62104060800000.0,
+            "from_as_string": "0002",
+            "to": -46420214400000.0,
+            "to_as_string": "0499",
+            "doc_count": 10
+          },
+          {
+            "key": "500-599",
+            "from": -46388678400000.0,
+            "from_as_string": "0500",
+            "to": -43264540800000.0,
+            "to_as_string": "0599",
+            "doc_count": 33
+          },
+          {
+            "key": "600-699",
+            "from": -43233004800000.0,
+            "from_as_string": "0600",
+            "to": -40108867200000.0,
+            "to_as_string": "0699",
+            "doc_count": 163
+          },
+          {
+            "key": "700-799",
+            "from": -40077331200000.0,
+            "from_as_string": "0700",
+            "to": -36953193600000.0,
+            "to_as_string": "0799",
+            "doc_count": 4429
+          },
+          {
+            "key": "800-899",
+            "from": -36921657600000.0,
+            "from_as_string": "0800",
+            "to": -33797433600000.0,
+            "to_as_string": "0899",
+            "doc_count": 3477
+          },
+          {
+            "key": "900-999",
+            "from": -33765897600000.0,
+            "from_as_string": "0900",
+            "to": -30641760000000.0,
+            "to_as_string": "0999",
+            "doc_count": 2996
+          },
+          {
+            "key": ">1000",
+            "from": -30610224000000.0,
+            "from_as_string": "1000",
+            "doc_count": 1702
+          }
+        ]
+      },
+      "no_date": {
+        "doc_count": 702
+      }
+    },
+    "forgeries": {
+      "doc_count": 0
+    },
+    "corpus": {
+      "buckets": {
+        "<b>Angers</b>: Angers": {
+          "doc_count": 0
+        },
+        "<b>Anjou</b>: Archives d’Anjou": {
+          "doc_count": 0
+        },
+        "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
+          "doc_count": 0
+        },
+        "<b>Arnulfinger</b>: Arnulfinger": {
+          "doc_count": 1
+        },
+        "<b>Auvergne</b>: Auvergne": {
+          "doc_count": 0
+        },
+        "<b>Catalunya</b>: Katalonien": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae X": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XI": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XII": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae XLVII": {
+          "doc_count": 0
+        },
+        "<b>Dijon</b>: Saint-Bénigne de Dijon": {
+          "doc_count": 0
+        },
+        "<b>E-Lexikon</b>": {
+          "doc_count": 0
+        },
+        "<b>Echternach</b>: Echternach": {
+          "doc_count": 1
+        },
+        "<b>Freising</b>: Freising": {
+          "doc_count": 0
+        },
+        "<b>Fulda</b>: Fulda (Dronke)": {
+          "doc_count": 0
+        },
+        "<b>Fulda</b>: Fulda (Stengel)": {
+          "doc_count": 0
+        },
+        "<b>Gorze</b>: Gorze": {
+          "doc_count": 0
+        },
+        "<b>Graubünden</b>: Bünden": {
+          "doc_count": 0
+        },
+        "<b>Hersfeld</b>: Hersfeld": {
+          "doc_count": 0
+        },
+        "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "<b>Lorsch</b>: Lorsch": {
+          "doc_count": 0
+        },
+        "<b>Luzern</b>: Luzern": {
+          "doc_count": 0
+        },
+        "<b>Marculf</b>: Marculf": {
+          "doc_count": 0
+        },
+        "<b>Merowinger</b>: Merowinger": {
+          "doc_count": 0
+        },
+        "<b>Mondsee</b>: Mondsee": {
+          "doc_count": 0
+        },
+        "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
+          "doc_count": 0
+        },
+        "<b>Passau</b>: Passau": {
+          "doc_count": 0
+        },
+        "<b>Redon</b>: Cartulaire de Redon": {
+          "doc_count": 0
+        },
+        "<b>Regensburg</b>: Regensburg": {
+          "doc_count": 0
+        },
+        "<b>Rheinland</b>: Mittelrheinisch": {
+          "doc_count": 0
+        },
+        "<b>Rheinland</b>: Rheinisch": {
+          "doc_count": 0
+        },
+        "<b>Rätien</b>: Rätien": {
+          "doc_count": 0
+        },
+        "<b>Salzburg</b>: Salzburg": {
+          "doc_count": 0
+        },
+        "<b>Schäftlarn</b>: Schäftlarn": {
+          "doc_count": 0
+        },
+        "<b>St. Gallen</b>: St. Gallen": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Accord entre Bonneval et Marmoutier": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Cormery (TELMA)": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Eudes": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier (TELMA)": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Dunois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Fougères": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Manceau": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Pour le perche": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Serfs": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Vendômois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Un acte faux de Marmoutier": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
+          "doc_count": 0
+        },
+        "<b>Werden</b>: Werden": {
+          "doc_count": 0
+        },
+        "<b>Wissembourg</b>: Weißenburg": {
+          "doc_count": 0
+        },
+        "<b>Zürich</b>: Zürich": {
+          "doc_count": 0
+        }
+      }
+    },
+    "range": {
+      "buckets": [
+        {
+          "key": "<499",
+          "from": -62104060800000.0,
+          "from_as_string": "0002",
+          "to": -46420214400000.0,
+          "to_as_string": "0499",
+          "doc_count": 0
+        },
+        {
+          "key": "500-599",
+          "from": -46388678400000.0,
+          "from_as_string": "0500",
+          "to": -43264540800000.0,
+          "to_as_string": "0599",
+          "doc_count": 0
+        },
+        {
+          "key": "600-699",
+          "from": -43233004800000.0,
+          "from_as_string": "0600",
+          "to": -40108867200000.0,
+          "to_as_string": "0699",
+          "doc_count": 0
+        },
+        {
+          "key": "700-799",
+          "from": -40077331200000.0,
+          "from_as_string": "0700",
+          "to": -36953193600000.0,
+          "to_as_string": "0799",
+          "doc_count": 2
+        },
+        {
+          "key": "800-899",
+          "from": -36921657600000.0,
+          "from_as_string": "0800",
+          "to": -33797433600000.0,
+          "to_as_string": "0899",
+          "doc_count": 0
+        },
+        {
+          "key": "900-999",
+          "from": -33765897600000.0,
+          "from_as_string": "0900",
+          "to": -30641760000000.0,
+          "to_as_string": "0999",
+          "doc_count": 0
+        },
+        {
+          "key": ">1000",
+          "from": -30610224000000.0,
+          "from_as_string": "1000",
+          "doc_count": 0
+        }
+      ]
+    },
+    "no_date": {
+      "doc_count": 0
+    }
+  }
+}

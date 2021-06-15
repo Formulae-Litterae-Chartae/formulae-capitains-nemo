@@ -404,6 +404,16 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page})
+    if q == '' and source == 'simple':
+        return [], 0, {}, []
+    if corpus is None or not any(corpus):
+        corpus = ['all']
+    if special_days is None:
+        special_days = []
+    if proper_name != '':
+        proper_name = proper_name.split('+')
+    else:
+        proper_name = []
 
     # Function to control the replacement of uu, vu, vv, uv, and w when in brackets
     def repl(m):
@@ -416,12 +426,12 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         second = 'w|uu|vu|uv|vv'
         third = '|[' + m.group(2) + m.group(3) + ']'
         return '(' + ''.join([first, second, third]) + ')'
-    if elex_q:
+    if 'elexicon' in corpus:
         corpus = ['elexicon']
         search_field = 'text'
         clauses = []
-        for term in elex_q.split():
-            if '*' in elex_q or '?' in elex_q:
+        for term in q.split():
+            if '*' in term or '?' in term:
                 clauses.append({'wildcard': {'text': {'value': term}}})
             else:
                 clauses.append({'match': {'text': {'query': term, 'fuzziness': fuzziness}}})
@@ -434,16 +444,6 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                   doc_type="",
                                                   body=body_template)
     else:
-        if q == '' and source == 'simple':
-            return [], 0, {}, []
-        if corpus is None or not any(corpus):
-            corpus = ['all']
-        if special_days is None:
-            special_days = []
-        if proper_name != '':
-            proper_name = proper_name.split('+')
-        else:
-            proper_name = []
         if formulaic_parts != '':
             search_field = formulaic_parts.split('+')
         elif lemma_search == 'True':
@@ -647,21 +647,27 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 bool_clauses = []
                 for clause in product(*clauses):
                     bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
-            if regest_q:
-                clauses = []
-                for term in regest_q.split():
+            if source == 'simple':
+                regest_clauses = []
+                for term in q.split():
                     if '*' in term or '?' in term:
-                        clauses.append({'span_multi': {'match': {'wildcard': {regest_field: term}}}})
+                        regest_clauses.append({'wildcard': {'regest': {'value': term}}})
                     else:
-                        clauses.append({'span_multi': {'match': {'fuzzy': {regest_field: {"value": term, "fuzziness": fuzz}}}}})
-                bool_clauses.append({'span_near':
-                                         {'clauses': [c for c in clauses],
-                                          'slop': slop,
-                                          'in_order': ordered_terms}})
+                        regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': fuzz}}})
+                bool_clauses.append({'bool': {'must': regest_clauses}})
             body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
         elif isinstance(search_field, list):
             bool_clauses = [{'exists': {'field': x}} for x in search_field]
             body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+
+        if regest_q and source != 'simple':
+            regest_clauses = []
+            for term in regest_q.split():
+                if '*' in term or '?' in term:
+                    regest_clauses.append({'wildcard': {regest_field: {'value': term}}})
+                else:
+                    regest_clauses.append({'match': {regest_field: {'query': term, 'fuzziness': fuzz}}})
+            body_template['query']['bool']['must'] += regest_clauses
 
         if year or month or day:
             date_template = {"bool": {"must": []}}
@@ -721,7 +727,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                 s_d_template['bool']['should'].append({'match': {'days': s_d}})
             body_template["query"]["bool"]["must"].append(s_d_template)
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    if elex_q:
+    if corpus == ['elexicon']:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],
@@ -800,14 +806,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&{regest_q}&" \
                    "{regest_field}&{charter_parts}&{proper_name}&" \
-                   "{forgeries}&{regex}&{exclude_q}&{elex_q}".format(
+                   "{forgeries}&{regex}&{exclude_q}&{source}".format(
             corpus='+'.join(corpus), field=lemma_search, q=q.replace(' ', '+'), fuzz=fuzziness, in_order=in_order,
             slop=slop, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
             m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
             sort=old_sort, spec_days='+'.join(special_days), regest_q=regest_q.replace(' ', '+'),
             regest_field=regest_field, charter_parts=formulaic_parts.replace(' ', '+'),
             proper_name='+'.join(proper_name), regex=regex_search, forgeries=forgeries, exclude_q=exclude_q,
-            elex_q=elex_q)
+            source=source)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

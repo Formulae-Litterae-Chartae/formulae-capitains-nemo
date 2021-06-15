@@ -1,0 +1,224 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+              {
+                "range": {
+                  "dating": {
+                    "gte": "0800-10-10",
+                    "lte": "0801-10-29"
+                  }
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
+                    "match": {
+                      "specific_date.year": "0001"
+                    }
+                  }
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 800,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 10,
+                              "lte": 10
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.day": {
+                              "gte": 10
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 800,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 11
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 801,
+                              "lte": 801
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "gte": 10,
+                              "lte": 10
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.day": {
+                              "lte": 29
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 801,
+                              "lte": 801
+                            }
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.month": {
+                              "lte": 9
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bool": {
+                  "must": [
+                    {
+                      "nested": {
+                        "path": "specific_date",
+                        "query": {
+                          "range": {
+                            "specific_date.year": {
+                              "gte": 801,
+                              "lte": 800
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
+  "from": 0,
+  "size": 10000,
+  "highlight": {
+    "fields": {
+      "text": {
+        "fragment_size": 1000
+      },
+      "regest": {
+        "fragment_size": 1000
+      }
+    },
+    "pre_tags": [
+      "</small><strong>"
+    ],
+    "post_tags": [
+      "</strong><small>"
+    ],
+    "encoder": "html"
+  }
+}
