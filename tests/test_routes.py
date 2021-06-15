@@ -5297,8 +5297,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_simple_search_text_and_regest(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_simple_search_text_and_regest(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -5306,7 +5306,7 @@ class TestES(Formulae_Testing):
         aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
