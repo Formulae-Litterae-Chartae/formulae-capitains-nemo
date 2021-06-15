@@ -5059,8 +5059,7 @@ class TestES(Formulae_Testing):
             resp = fake.load_response()
             aggs = fake.load_aggs()
             for h in resp['hits']['hits']:
-                if 'regest' in h['highlight']:
-                    del h['highlight']['regest']
+                h['highlight']['regest'] = ['Some <strong>regest</strong> text']
             mock_search.side_effect = cycle([resp, aggs])
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
