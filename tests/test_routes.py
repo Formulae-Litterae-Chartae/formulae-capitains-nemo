@@ -852,6 +852,17 @@ class TestIndividualRoutes(Formulae_Testing):
                                            source='simple', regest_field='regest', proper_name='', search_id="1234",
                                            forgeries='include', formulaic_parts="", regex_search='False',
                                            exclude_q='')
+            c.get('/search/simple?corpus=elexicon&q=Regnum&search_id=4321&simple_search_id=1234',
+                  follow_redirects=True)
+            mock_search.assert_called_with(corpus=['elexicon'], date_plus_minus=0, day=0, day_end=0,
+                                           day_start=0, lemma_search='False', fuzziness='0', slop='0', month=0, month_end=0,
+                                           month_start=0, page=1, per_page=10000, q='regnum',
+                                           in_order='False', year=0, year_end=0, year_start=0,
+                                           exclusive_date_range='False', composition_place='', sort="urn",
+                                           special_days=None, regest_q='', old_search=False,
+                                           source='simple', regest_field='regest', proper_name='', search_id="1234",
+                                           forgeries='include', formulaic_parts="", regex_search='False',
+                                           exclude_q='')
 
     @patch("formulae.nemo.lem_highlight_to_text")
     def test_search_result_highlighting(self, mock_highlight):
