@@ -4059,8 +4059,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_regest_and_word_advanced_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_regest_and_word_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -4068,7 +4068,7 @@ class TestES(Formulae_Testing):
         aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         actual, _, _, _ = advanced_query_index(**test_args)
         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
