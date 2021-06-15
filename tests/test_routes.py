@@ -710,7 +710,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=None, regest_q='', old_search=False, source='advanced',
                                            regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='', elex_q='',
+                                           forgeries='include', regex_search='False', exclude_q='',
                                            search_id="1234")
             self.assertEqual(self.get_context_variable('searched_lems'), [], 'When "q" is empty, there should be no searched lemmas.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
@@ -724,7 +724,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='', elex_q='',
+                                           forgeries='include', regex_search='False', exclude_q='',
                                            search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -737,7 +737,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='', elex_q='',
+                                           forgeries='include', regex_search='False', exclude_q='',
                                            search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -750,7 +750,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='', elex_q='',
+                                           forgeries='include', regex_search='False', exclude_q='',
                                            search_id="1234")
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -764,7 +764,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', proper_name='',
                                            search_id="1234", regex_search='False', exclude_q='',
-                                           forgeries='include', elex_q='',
+                                           forgeries='include',
                                            formulaic_parts="Poenformel+Stipulationsformel")
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
@@ -777,7 +777,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            exclusive_date_range='False', composition_place='', sort="urn",
                                            special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
                                            source='advanced', regest_field='regest', proper_name='', search_id="1234",
-                                           forgeries='include', regex_search='False', exclude_q='', elex_q='',
+                                           forgeries='include', regex_search='False', exclude_q='',
                                            formulaic_parts="Poenformel+Stipulationsformel")
             self.assertIn('search::search.html', [x[0].name for x in self.templates])
             # Check searched_lems return values
@@ -851,7 +851,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=None, regest_q='', old_search=False,
                                            source='simple', regest_field='regest', proper_name='', search_id="1234",
                                            forgeries='include', formulaic_parts="", regex_search='False',
-                                           exclude_q='', elex_q='')
+                                           exclude_q='')
 
     @patch("formulae.nemo.lem_highlight_to_text")
     def test_search_result_highlighting(self, mock_highlight):

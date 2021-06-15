@@ -52,6 +52,7 @@
                                                 for="{{ choice[1] }}">{{ choice[0]|safe }}</label></li>
                                     {% endfor %}
                                     </ul>
+                            <li><input id="elexiconSearchCorpus" name="corpus" type="checkbox" value="elexicon" onclick="uncheckAllCorpora()"> <label for="elexiconSearchCorpus">{{ _('Lexikon') }}</label></li>
                         </ul>
                     </ul>
                 </div>
@@ -160,15 +161,6 @@
                             {{ form.regest_q(class="form-control my-0", placeholder=form.regest_q.label.text, id="regest-word-search-box", list="regest-word-search-datalist", default=form.regest_q.label.text, autocomplete="off", **{'aria-labelledby': 'regestLabel'}) }}
                             <datalist id="regest-word-search-datalist">
                             </datalist>
-                        </div>
-                    </div>
-                    <div class="form-row mb-2">
-                        <div class="col text-center"><strong>{{ form.elex_q.label(for="elexButton", id="elexLabel") }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#elexSearchCollapse" type="button" aria-expanded="false" aria-controls="elexSearchCollapse"><span class="position-relative" id="elexSearchCollapse-tooltip" data-toggle="tooltip" data-container="#elexSearchCollapse-tooltip" title="{{ _('Eingabe für die E-Lexikonsuche zeigen') }}"><i class="fas fa-caret-down"></i></span></button> 
-                            <div class="collapse" id="elexSearchCollapse">
-                                {{ form.elex_q(class="form-control my-0", placeholder=form.elex_q.label.text, id="elex-word-search-box", list="elex-word-search-datalist", default=form.elex_q.label.text, autocomplete="off", **{'aria-labelledby': 'elexLabel'}) }}
-                                <datalist id="elex-word-search-datalist">
-                                </datalist>
-                            </div>
                         </div>
                     </div>
                     <div class="form-row mb-2">
