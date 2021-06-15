@@ -4938,7 +4938,7 @@ class TestES(Formulae_Testing):
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            recreate = True
+            # recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())
@@ -5297,7 +5297,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_simple_search_text_and_regest(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_simple_search_text_and_regest(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -5305,6 +5306,7 @@ class TestES(Formulae_Testing):
         aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = cycle([resp, aggs])
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = test_args['q'].replace('+', ' ')
         actual, _, _, _ = advanced_query_index(**test_args)
