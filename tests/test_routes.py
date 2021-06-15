@@ -4959,7 +4959,6 @@ class TestES(Formulae_Testing):
             resp = fake.load_response()
             aggs = fake.load_aggs()
             mock_search.side_effect = cycle([resp, aggs])
-            mock_vectors.side_effect = self.vector_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
