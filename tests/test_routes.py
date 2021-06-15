@@ -1892,6 +1892,27 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_regest_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tausch'),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'schenk*'),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", 'tau*'),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'vir+venerabilis'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -1976,7 +1997,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'sche'),
                                  ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
+                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -4024,6 +4045,50 @@ class TestES(Formulae_Testing):
                          "Multi-word proper name matching with text search should work.")
 
     @patch.object(Elasticsearch, "search")
+    def test_regest_advanced_search(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regest_advanced_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = cycle([resp, aggs])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_regest_and_word_advanced_search(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = cycle([resp, aggs])
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_advanced_search_with_wildcard(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regest_advanced_search_with_wildcard'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = cycle([resp, aggs])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
     def test_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_multiword_lemma_advanced_search'])
@@ -4837,7 +4902,26 @@ class TestES(Formulae_Testing):
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
         test_args['regest_q'] = 'tau?'
         results = suggest_word_search(**test_args)
-        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')    \
+
+    @patch.object(Elasticsearch, "search")
+    def test_regest_word_search_highlighting(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
+                    {'regest_sents': [Markup('Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der')]},
+                    {'regest_sents': [Markup('Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der')]},
+                    {'regest_sents': [Markup('Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche')]},
+                    {'regest_sents': [Markup('Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum')]},
+                    {'regest_sents': [Markup('Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen')]},
+                    {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
+        mock_search.side_effect = cycle([resp, aggs])
+        Search.HIGHLIGHT_CHARS_AFTER = 50
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
+        Search.HIGHLIGHT_CHARS_AFTER = 30
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_word_search_completion_no_qSource(self, mock_search):
@@ -5300,23 +5384,6 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_simple_search_text_and_regest(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    def test_regest_word_search_highlighting(self, mock_vectors, mock_search):
-        test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
