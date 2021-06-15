@@ -42,10 +42,11 @@ def validate_optional_number_range(minimum: int = -1, maximum: int = -1, message
 
 class SearchForm(FlaskForm):
     q = StringField(_l('Suche'), validators=[DataRequired()])
-    corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden'))],
+    corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden')),
+                                                         ('elexicon', _l('Lexikon'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
-                                     message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").'))]
+                                     message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden" oder "Lexikon").'))]
                                  )
     lemma_search = BooleanField(_l('Lemma'))
     simple_search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
@@ -70,7 +71,7 @@ class AdvancedSearchForm(SearchForm):
     regest_q = StringField(_l('Regestensuche'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln')),
-                                                         ('elexicon', _('Lexikon'))])
+                                                         ('elexicon', _l('Lexikon'))])
     year = StringField(_l('Jahr'), validators=[validate_optional_number_range(minimum=500, maximum=1000,
                                                                               message=_l('Die Jahreszahl muss zwischen 500 und 1000 liegen'))],
                        default="")

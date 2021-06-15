@@ -2,11 +2,14 @@
 <form id="simple-search-form" class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
     {{ g.search_form.simple_search_id }}
     <div class="form-row">
-        <div class="col-auto">{{ g.search_form.q.label(id="simple-search-label", for="simple-search-q") }}</div>
         <div class="col-auto ml-auto mb-0 mt-1">
             {% for corp in g.search_form.corpus %}
             <div class="form-check form-check-inline corpus-check">
-                {{corp(checked="")}} {{ corp.label(class="mb-0 align-top") }}
+                {% if 'elexicon' not in g.search_form.data.corpus %}
+                {% if not loop.last %}{{corp(checked="", class="simpleTextCorpus")}}{% else %}{{corp(class="simpleLexiconCorpus")}}{% endif %} {{ corp.label(class="mb-0 align-top") }}
+                {% else %}
+                {% if not loop.last %}{{corp(class="simpleTextCorpus")}}{% else %}{{corp(checked="", class="simpleLexiconCorpus")}}{% endif %} {{ corp.label(class="mb-0 align-top") }}
+                {% endif %}
             </div>
             {% endfor %}
         </div>

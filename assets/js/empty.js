@@ -553,4 +553,12 @@ $(document).ready(function () {
     $('#cancelSearchButton').click(function() {
         location.reload();
     })
+    
+    $('.simpleTextCorpus').click(function() {
+        $('.simpleLexiconCorpus').prop('checked', false);
+    })
+    
+    $('.simpleLexiconCorpus').click(function() {
+        $('.simpleTextCorpus').prop('checked', false);
+    })
 })

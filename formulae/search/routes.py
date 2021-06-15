@@ -49,7 +49,9 @@ def r_results():
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
-    if corpus in [['all'], ['formulae', 'chartae'], ['']]:
+    if 'elexicon' in corpus:
+        corps = ['elexicon']
+    elif corpus in [['all'], ['formulae', 'chartae'], ['']]:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     elif corpus == ['formulae']:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
