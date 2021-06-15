@@ -49,7 +49,9 @@ def r_results():
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
-    if corpus in [['all'], ['formulae', 'chartae'], ['']]:
+    if 'elexicon' in corpus:
+        corps = ['elexicon']
+    elif corpus in [['all'], ['formulae', 'chartae'], ['']]:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     elif corpus == ['formulae']:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
@@ -100,8 +102,7 @@ def r_results():
                        search_id=request.args.get('search_id', ''),
                        forgeries=request.args.get('forgeries', 'include'),
                        regex_search=request.args.get('regex_search', 'False') or 'False',
-                       exclude_q=request.args.get('exclude_q', ''),
-                       elex_q=request.args.get('elex_q', ''))
+                       exclude_q=request.args.get('exclude_q', ''))
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -172,7 +173,6 @@ def r_advanced_search():
             data['q'] = data['q'].lower()
             data['regest_q'] = data['regest_q'].lower()
             data['exclude_q'] = data['exclude_q'].lower()
-            data['elex_q'] = data['elex_q'].lower()
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
             lemma_search = data.pop('lemma_search')
