@@ -1976,7 +1976,7 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", 'sche'),
                                  ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
+                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
@@ -4519,12 +4519,12 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_simple_multi_corpus_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_simple_multi_corpus_search(self, mock_vectors, mock_search):
         test_args = OrderedDict([("corpus", ['formulae', 'chartae']), ("q", 'regnum'), ("lemma_search", "False"),
                                  ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn'),
                                  ('source', 'simple')])
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                     '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
                                                 'title': 'St. Gallen 259'},
@@ -4959,6 +4959,7 @@ class TestES(Formulae_Testing):
             resp = fake.load_response()
             aggs = fake.load_aggs()
             mock_search.side_effect = cycle([resp, aggs])
+            mock_vectors.side_effect = self.vector_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
@@ -5300,6 +5301,23 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_simple_search_text_and_regest(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = cycle([resp, aggs])
+        mock_vectors.side_effect = self.vector_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        actual, _, _, _ = advanced_query_index(**test_args)
+        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_regest_word_search_highlighting(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()

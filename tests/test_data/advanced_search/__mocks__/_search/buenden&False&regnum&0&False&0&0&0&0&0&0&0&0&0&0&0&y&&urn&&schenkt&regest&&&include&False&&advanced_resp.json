@@ -1,0 +1,268 @@
+{
+  "took": 5,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v17",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+        "_score": null,
+        "_source": {
+          "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
+          "date_string": "(769–800 [813]) 03 31",
+          "comp_ort": " ",
+          "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 769,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 770,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 771,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 772,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 773,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 774,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 775,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 776,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 777,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 778,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 779,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 780,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 781,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 782,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 783,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 784,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 785,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 786,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 787,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 788,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 789,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 790,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 791,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 792,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 793,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 794,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 795,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 796,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 797,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 798,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 799,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 800,
+              "month": 3,
+              "day": 31
+            },
+            {
+              "year": 813,
+              "month": 3,
+              "day": 31
+            }
+          ],
+          "all_dates": [
+            "0769-03-31",
+            "0770-03-31",
+            "0771-03-31",
+            "0772-03-31",
+            "0773-03-31",
+            "0774-03-31",
+            "0775-03-31",
+            "0776-03-31",
+            "0777-03-31",
+            "0778-03-31",
+            "0779-03-31",
+            "0780-03-31",
+            "0781-03-31",
+            "0782-03-31",
+            "0783-03-31",
+            "0784-03-31",
+            "0785-03-31",
+            "0786-03-31",
+            "0787-03-31",
+            "0788-03-31",
+            "0789-03-31",
+            "0790-03-31",
+            "0791-03-31",
+            "0792-03-31",
+            "0793-03-31",
+            "0794-03-31",
+            "0795-03-31",
+            "0796-03-31",
+            "0797-03-31",
+            "0798-03-31",
+            "0799-03-31",
+            "0800-03-31",
+            "0813-03-31"
+          ],
+          "min_date": "0769-03-31",
+          "max_date": "0813-03-31",
+          "days": [
+            "Thursday",
+            "Wednesday",
+            "Friday",
+            "Saturday",
+            "Lent",
+            "Tuesday",
+            "Monday",
+            "Easter",
+            "Sunday"
+          ],
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "regest": [
+            "Victorinus </small><strong>schenkt</strong><small> zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur."
+          ],
+          "text": [
+            "Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+        ]
+      }
+    ]
+  }
+}
