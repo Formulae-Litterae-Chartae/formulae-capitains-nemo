@@ -1,0 +1,39 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "autocomplete_regest": {
+              "query": "sche",
+              "fuzziness": "0"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
+  "from": 0,
+  "size": 10000,
+  "highlight": {
+    "fields": {
+      "text": {
+        "fragment_size": 1000
+      },
+      "autocomplete_regest": {
+        "fragment_size": 1000
+      }
+    },
+    "pre_tags": [
+      "</small><strong>"
+    ],
+    "post_tags": [
+      "</strong><small>"
+    ],
+    "encoder": "html"
+  }
+}
