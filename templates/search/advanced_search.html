@@ -172,6 +172,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row justify-content-center pt-2">{{ form.submit(size=32, class="btn btn-lg btn-secondary", downloadId=1|random_int(10000)|string) }}</div><br>
                     <div class="row justify-content-center pt-1"><a href="{{ url_for('search.r_advanced_search') }}"
                                                                     class="btn btn-sm btn-secondary"
                                                                     type="reset">{{ _(' Formular Zurücksetzen')
