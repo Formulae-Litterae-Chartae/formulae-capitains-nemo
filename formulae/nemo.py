@@ -9,7 +9,7 @@ from rdflib.namespace import DCTERMS, DC, Namespace
 from MyCapytain.common.constants import Mimetypes
 from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetadata, XmlCapitainsCollectionMetadata
 from MyCapytain.errors import UnknownCollection
-from formulae.search.forms import SearchForm
+from formulae.search.forms import SearchForm, AdvancedSearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
@@ -731,7 +731,10 @@ class NemoFormulae(Nemo):
         r = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
+        form = None
         if 'elexicon' in objectId:
+            form = AdvancedSearchForm()
+            form.corpus.choices = [('elexicon', _l('Lexikon'))]
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
             template = "main::salzburg_collection.html"
@@ -803,7 +806,8 @@ class NemoFormulae(Nemo):
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
-            }
+            },
+            "form": form
         }
         return return_value
 
