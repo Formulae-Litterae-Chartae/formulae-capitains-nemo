@@ -20,13 +20,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group mb-2 col-3">
-            <div class="text-center search-section-label mb-0"><strong><label for="word-search-box">{{ _('Im Lexikon suchen') }}</label></strong></div>
-            <div>
-                {{ form.q(class="form-control my-0", placeholder=form.q.label.text, id="word-search-box", list="word-search-datalist", default=form.q.label.text, autocomplete="off") }} {{ form.submit(size=32, class="btn btn-lg btn-secondary", downloadId=1|random_int(10000)|string) }}
-                <datalist id="word-search-datalist">
+        <div class="mb-2 col-3">
+            <label class="sr-only" for="elexicon-search-box">{{ _('Lexikon durchsuchen') }}</label>
+            <form class="form-inline">
+                <input class="form-control" type="text" placeholder="{{ _('Lexikon durchsuchen') }}" id="elexicon-search-box" list="elexicon-search-datalist" default="{{ _('Lexikon durchsuchen') }}" autocomplete="off"> <a id="elexSearchButton" type="submit" class="btn btn-primary disabled" role="button" href="{{ url_for('search.r_results', corpus='elexicon', source='simple') }}">{{ _('Suche Durchführen') }}</a>
+                <datalist id="elexicon-search-datalist">
                 </datalist>
-            </div>
+            </form>
         </div>
     </div>
     <h4>{{ _('Gehe zu Buchstabe:') }}</h4>

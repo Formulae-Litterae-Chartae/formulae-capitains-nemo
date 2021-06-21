@@ -216,7 +216,7 @@ function buildUrl(qSource) {
             params.lemma_search = 'False';
         }
     }
-    $('input.under-formulae').each(function(i, formula) {
+    $('input.under-formulelexicon-search-boxae').each(function(i, formula) {
         if (formula.checked) {
             corpus.push(formula.value);
         }
@@ -556,9 +556,29 @@ $(document).ready(function () {
     
     $('.simpleTextCorpus').click(function() {
         $('.simpleLexiconCorpus').prop('checked', false);
+        $('#simple-lemma-checkbox').prop('disabled', false);
     })
     
     $('.simpleLexiconCorpus').click(function() {
         $('.simpleTextCorpus').prop('checked', false);
+        $('#simple-lemma-checkbox').prop({'disabled': true, 'checked': false});
+    })
+    
+    if ($('#elexiconSimpleCheck').prop('checked')) {
+        $('#simple-lemma-checkbox').prop({'disabled': true, 'checked': false});
+    }
+    
+    $('#elexicon-search-box').keyup(function() {
+        if ($(this).val() == '') {
+            $('#elexSearchButton').addClass('disabled', true);
+        } else {
+            $('#elexSearchButton').removeClass('disabled', false);
+        }
+    })
+    
+    $('#elexSearchButton').click(function() {
+        var oldUrl = $( this ).attr("href");
+        qValue = $('#elexicon-search-box').val();
+        $( this ).attr("href", oldUrl + '&q=' + qValue.replace(' ', '+'));
     })
 })
