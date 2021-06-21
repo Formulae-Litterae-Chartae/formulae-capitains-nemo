@@ -152,7 +152,8 @@ function buildSimpleUrl(qSource) {
         corpus:'',
         lemma_search:'autocomplete',
     };
-    if (searchLemmas.checked) {
+    var simpleSearchLemmas = document.getElementById('simple-lemma-checkbox');
+    if (simpleSearchLemmas.checked) {
         params.lemma_search = 'autocomplete_lemmas';
     } else {
         params.lemma_search = 'autocomplete';
@@ -216,16 +217,20 @@ function buildUrl(qSource) {
             params.lemma_search = 'False';
         }
     }
-    $('input.under-formulae').each(function(i, formula) {
-        if (formula.checked) {
-            corpus.push(formula.value);
-        }
-    })
-    $('input.under-chartae').each(function(i, charter) {
-        if (charter.checked) {
-            corpus.push(charter.value);
-        }
-    })
+    if ($('#elexiconSearchCorpus').prop('checked')) {
+        corpus = ['elexicon'];
+    } else {
+        $('input.under-formulae').each(function(i, formula) {
+            if (formula.checked) {
+                corpus.push(formula.value);
+            }
+        })
+        $('input.under-chartae').each(function(i, charter) {
+            if (charter.checked) {
+                corpus.push(charter.value);
+            }
+        })
+    }
     $('input[name="special_days"]').each(function(i, day) {
         if (day.checked) {
             special_days.push(day.value);

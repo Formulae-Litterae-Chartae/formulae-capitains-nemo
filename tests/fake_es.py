@@ -48,7 +48,8 @@ class FakeElasticsearch(object):
                               'regest': ['regest text'],
                               'autocomplete_regest': ['autocomplete regest text']}
         for i, h in enumerate(resp['hits']['hits']):
-            if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']:
+            if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']\
+                    and 'elexicon' not in h['_id']:
                 resp['hits']['hits'][i]['_source']['text'] = 'some real text'
                 resp['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
                 resp['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'
