@@ -2001,6 +2001,13 @@ class TestES(Formulae_Testing):
                                  ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
                                  ('special_days', ''), ("regest_q", ''),
                                  ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                 'test_suggest_elexicon_word_search_completion': OrderedDict([("corpus", "elexicon"), ("lemma_search", "autocomplete"), ("q", 'abba'), ("fuzziness", "0"),
+                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
+                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
+                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
+                                 ('special_days', ''), ("regest_q", ''),
+                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
                  'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
                                  ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
@@ -4866,6 +4873,40 @@ class TestES(Formulae_Testing):
                     'scripsi et suscripsi',
                     'scripsi et teste me suscripsi',
                     'scripsi signum baselii et filii sui rofini']
+        mock_search.side_effect = cycle([resp, aggs])
+        test_args['qSource'] = 'text'
+        results = suggest_word_search(**test_args)
+        self.assertEqual(results, expected, 'The true results should match the expected results.')
+        # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
+        test_args['q'] = '*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
+        test_args['q'] = '?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
+        test_args['q'] = 'ill*'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
+        test_args['q'] = 'ill?'
+        results = suggest_word_search(**test_args)
+        self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+
+    @patch.object(Elasticsearch, "search")
+    def test_suggest_elexicon_word_search_completion(self, mock_search):
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        resp = fake.load_response()
+        aggs = fake.load_aggs()
+        expected = ['abba für vater mönch vermutlich bereits',
+                    'abbas abbatissa abt äbtissin aus dem',
+                    'abbas im ägyptischen mönchtum im 4',
+                    'abbas seit dem 5 jahrhundert im lateinischen',
+                    'abbas zurück wurde dessen stellvertreter',
+                    'abbates finden sich dabei nicht nur',
+                    'abbatiat die wahrnehmung des materiellen',
+                    'abbatiat oder bischofsamt in der folgezeit',
+                    'abbatiaten durch laien kleriker kanoniker',
+                    'abbatissa abt äbtissin aus dem aramäischen']
         mock_search.side_effect = cycle([resp, aggs])
         test_args['qSource'] = 'text'
         results = suggest_word_search(**test_args)

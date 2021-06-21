@@ -731,6 +731,7 @@ class NemoFormulae(Nemo):
         r = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
+        form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
@@ -803,7 +804,8 @@ class NemoFormulae(Nemo):
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
-            }
+            },
+            "form": form
         }
         return return_value
 

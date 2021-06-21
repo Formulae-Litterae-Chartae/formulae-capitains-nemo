@@ -429,12 +429,14 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
     if 'elexicon' in corpus:
         corpus = ['elexicon']
         search_field = 'text'
+        if 'autocomplete' in lemma_search:
+            search_field = 'autocomplete'
         clauses = []
         for term in q.split():
             if '*' in term or '?' in term:
-                clauses.append({'wildcard': {'text': {'value': term}}})
+                clauses.append({'wildcard': {search_field: {'value': term}}})
             else:
-                clauses.append({'match': {'text': {'query': term, 'fuzziness': fuzziness}}})
+                clauses.append({'match': {search_field: {'query': term, 'fuzziness': fuzziness}}})
         body_template['query']['bool']['must'] = clauses
         body_template['highlight'] = {'fields': {search_field: {}},
                                       'pre_tags': [PRE_TAGS],
