@@ -216,7 +216,7 @@ function buildUrl(qSource) {
             params.lemma_search = 'False';
         }
     }
-    $('input.under-formulelexicon-search-boxae').each(function(i, formula) {
+    $('input.under-formulae').each(function(i, formula) {
         if (formula.checked) {
             corpus.push(formula.value);
         }
