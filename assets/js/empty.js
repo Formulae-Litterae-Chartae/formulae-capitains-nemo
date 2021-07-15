@@ -588,7 +588,7 @@ $(document).ready(function () {
     })
     
     $('#elexicon-search-box').keydown(function(event){
-        if(event.which === 13){
+        if(event.which === 13 && $('#elexicon-search-box').val()){
             event.preventDefault();
             var oldUrl = $('#elexSearchButton').attr("href");
             qValue = $('#elexicon-search-box').val();
