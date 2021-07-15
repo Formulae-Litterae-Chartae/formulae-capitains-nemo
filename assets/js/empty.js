@@ -586,4 +586,13 @@ $(document).ready(function () {
         qValue = $('#elexicon-search-box').val();
         $( this ).attr("href", oldUrl + '&q=' + qValue.replace(' ', '+'));
     })
+    
+    $('#elexicon-search-box').keydown(function(event){
+        if(event.which === 13){
+            event.preventDefault();
+            var oldUrl = $('#elexSearchButton').attr("href");
+            qValue = $('#elexicon-search-box').val();
+            window.location.href = oldUrl + '&q=' + qValue.replace(' ', '+');
+        }
+    });
 })
