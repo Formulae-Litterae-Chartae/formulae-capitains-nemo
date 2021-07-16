@@ -153,6 +153,8 @@ $(document).ready(function () {
             }
         });
     });
+    
+    $('.part-menu-icon .dropleft').draggable();
 })
 
 var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
