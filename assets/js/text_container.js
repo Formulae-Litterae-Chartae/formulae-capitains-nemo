@@ -154,7 +154,9 @@ $(document).ready(function () {
         });
     });
     
-    $('.part-menu-icon .dropleft').draggable();
+    $('.part-menu-icon').draggable({
+        stack: '.part-menu-icon'
+    });
 })
 
 var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
