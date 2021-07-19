@@ -493,6 +493,9 @@
                                         <span id="part-menu-icon-{{ loop.index }}" data-toggle="tooltip" data-container="#part-menu-icon-{{ loop.index }}" title="{{ _('Urkundenteile zeigen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/show_part_icon.png')}}" alt="{{ _('Urkundenteile zeigen') }}"></span>
                                     </button>
                                     <div class="dropdown-menu part-menu-dropdown">
+                                        {% if loop.length > 1 %}
+                                        <h4 class="dropdown-header pt-0">{{ text.collections.parents[1]['short_title'] }} {{ text.collections.parents[0]['label'] }}</h4>
+                                        {% endif %}
                                         <span class="dropdown-item"><input class="show-all-parts" type="checkbox" value="All-Parts"> <label>{{ _('Alle zeigen') }}</label></span>
                                         <div class="dropdown-divider"></div>
                                         <!-- More spans should be added here as necessary by JS -->

@@ -673,7 +673,8 @@ class NemoFormulae(Nemo):
                 "type": str(member.type),
                 "size": member.size,
                 "subtype": member.subtype,
-                "ancestors": member.ancestors
+                "ancestors": member.ancestors,
+                "short_title": str(member.metadata.get_single(self.BIBO.AbbreviatedTitle))
             }
             for member in collection.ancestors.values()
             if member.get_label()
