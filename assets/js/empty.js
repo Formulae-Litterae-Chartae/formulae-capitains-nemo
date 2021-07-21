@@ -491,7 +491,7 @@ $(document).ready(function () {
 //         },
         "columnDefs": [
             {
-                "targets": [ 1 ],
+                "targets": [ "results-date-column" ],
                 "orderable": false
             }
         ]

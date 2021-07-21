@@ -139,12 +139,17 @@
     <table id="partsSearchResultTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Suchergebnisse') }}">
         <thead>
             <tr>
+                {% if request.args['corpus'] == 'elexicon' %}
                 <th id="results-text-column" scope="col">{{ _('Text') }}</th>
-                <th id="results-date-column" scope="col" align="justify"><div class="row" id="date-header-row"><div class="col-auto"><span>{{ _('Datierung') }}</span></div><div class="col-auto ml-auto"><span class="small-text align-text-top">(<a id="tpq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Post Quem sortieren') }}">TPQ</a> <span id="tpq-up-symbol">↑</span><span id="tpq-down-symbol">↓</span> | <a id="taq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Ante Quem sortieren') }}">TAQ</a> <span id="taq-up-symbol">↑</span><span id="taq-down-symbol">↓</span>)</span></div></div></th>
+                <th id="results-title-column" scope="col">{{ _('Artikel') }}</th>
+                {% else %}
+                <th id="results-text-column" scope="col">{{ _('Text') }}</th>
+                <th class="results-date-column" id="results-date-column" scope="col" align="justify"><div class="row" id="date-header-row"><div class="col-auto"><span>{{ _('Datierung') }}</span></div><div class="col-auto ml-auto"><span class="small-text align-text-top">(<a id="tpq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Post Quem sortieren') }}">TPQ</a> <span id="tpq-up-symbol">↑</span><span id="tpq-down-symbol">↓</span> | <a id="taq-sort" class="internal-link" href="#" title="{{ _('Nach Terminus Ante Quem sortieren') }}">TAQ</a> <span id="taq-up-symbol">↑</span><span id="taq-down-symbol">↓</span>)</span></div></div></th>
                 <th id="results-min-date-column" scope="col"></th>
                 <th id="results-max-date-column" scope="col"></th>
                 <th id="results-place-column" scope="col">{{ _('Ausstellungsort') }}</th>
                 <th id="results-title-column" scope="col">{{ _('Edition') }}</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -162,13 +167,15 @@
                     <p class="card-text m-0"><small>- {{ sent }}</small></p>
                     {% endfor %}
                 {% else %}
-                    <span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}"><small>{{ _('Text nicht verfügbar') }}</small></span>
+                    <span id="{{ loop.index }}-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}"><small>{{ _('Text kann nicht angezeigt werden') }}</small></span>
                 {% endif %}
                 </td>
+                {% if request.args['corpus'] != 'elexicon' %}
                 <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% endif %}</td>
                 <td data-order="{{  post['info']['min_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['max_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['comp_ort'] }}">{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
+                {% endif %}
             {% if current_user.project_team or post['id'] in open_texts %}
                 <td data-order="{{  loop.index }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
             {% else %}
