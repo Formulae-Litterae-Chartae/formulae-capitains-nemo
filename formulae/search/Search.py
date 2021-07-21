@@ -730,12 +730,17 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             body_template["query"]["bool"]["must"].append(s_d_template)
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if corpus == ['elexicon']:
+        def sort_lexicon(d):
+            title_words = set(re.sub(r'[{}]'.format(punctuation), ' ', d['info']['title'].lower()).split())
+            query_words = set(q.split())
+            return (query_words.isdisjoint(title_words), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],
                 'regest_sents': [],
                 'highlight': []}
                for hit in search['hits']['hits']]
+        ids = sorted(ids, key=sort_lexicon)
     elif q or proper_name:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
