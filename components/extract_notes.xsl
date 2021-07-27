@@ -126,16 +126,29 @@
         <xsl:param name="closeButton">
             <xsl:text>&lt;a role="button" href="#" class="close" aria-label="Close"&gt;☒&lt;/a&gt;</xsl:text>
         </xsl:param>
-        <xsl:element name="a">
-            <xsl:attribute name="data-content"><xsl:value-of select="$closeButton"/><xsl:value-of select="@n"/></xsl:attribute>
-            <xsl:attribute name="tabindex">0</xsl:attribute>
-            <xsl:attribute name="data-container">body</xsl:attribute>
-            <xsl:attribute name="data-toggle">bibl-popover</xsl:attribute>
-            <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
-            <xsl:attribute name="href">#</xsl:attribute>
-            <xsl:attribute name="class">internal-link</xsl:attribute>
-            <xsl:apply-templates/>
-        </xsl:element>
+        <xsl:choose>
+            <xsl:when test="contains(@n, 'werkstatt')">
+                <xsl:element name="a">
+                    <xsl:attribute name="href"><xsl:value-of select="@n"/></xsl:attribute>
+                    <xsl:attribute name="class">internal-link</xsl:attribute>
+                    <xsl:attribute name="tabindex">0</xsl:attribute>
+                    <xsl:attribute name="target">_blank</xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="a">
+                    <xsl:attribute name="data-content"><xsl:value-of select="$closeButton"/><xsl:value-of select="@n"/></xsl:attribute>
+                    <xsl:attribute name="tabindex">0</xsl:attribute>
+                    <xsl:attribute name="data-container">body</xsl:attribute>
+                    <xsl:attribute name="data-toggle">bibl-popover</xsl:attribute>
+                    <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+                    <xsl:attribute name="href">#</xsl:attribute>
+                    <xsl:attribute name="class">internal-link</xsl:attribute>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="@*|node()">
