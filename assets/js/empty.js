@@ -595,4 +595,11 @@ $(document).ready(function () {
             window.location.href = oldUrl + '&q=' + qValue.replace(' ', '+');
         }
     });
+    
+    $(window).scroll(function(){
+        var navbarHeight = $('#mainNavbar').height();
+        var letterPos = $('#elex-letters').offset();
+        var bodyHeight = $('body').height();
+        $('#elex-letters').css('top', Math.min(Math.max(bodyHeight + navbarHeight - letterPos.top, 0), navbarHeight + 20));
+    });
 })
