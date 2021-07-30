@@ -10,6 +10,17 @@ function checkSubCorpora(tag, category) {
     for(i = 0; i < l; i++) {
         subelements[i].checked = tag.checked;
     }
+    document.getElementById('elexiconSearchCorpus').checked = false;
+}
+
+function uncheckAllCorpora() {
+    var subelements = document.getElementsByClassName('under-all');
+    var l = subelements.length;
+    var i;
+    for(i = 0; i < l; i++) {
+        subelements[i].checked = false;
+    }
+    document.getElementById('all').checked = false;
 }
 
 

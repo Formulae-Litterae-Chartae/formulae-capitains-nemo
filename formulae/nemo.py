@@ -673,7 +673,8 @@ class NemoFormulae(Nemo):
                 "type": str(member.type),
                 "size": member.size,
                 "subtype": member.subtype,
-                "ancestors": member.ancestors
+                "ancestors": member.ancestors,
+                "short_title": str(member.metadata.get_single(self.BIBO.AbbreviatedTitle))
             }
             for member in collection.ancestors.values()
             if member.get_label()
@@ -731,6 +732,7 @@ class NemoFormulae(Nemo):
         r = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
+        form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
         elif 'salzburg' in objectId:
@@ -803,7 +805,8 @@ class NemoFormulae(Nemo):
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
-            }
+            },
+            "form": form
         }
         return return_value
 

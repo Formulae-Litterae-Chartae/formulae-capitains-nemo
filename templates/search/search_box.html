@@ -2,11 +2,14 @@
 <form id="simple-search-form" class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
     {{ g.search_form.simple_search_id }}
     <div class="form-row">
-        <div class="col-auto">{{ g.search_form.q.label(id="simple-search-label", for="simple-search-q") }}</div>
         <div class="col-auto ml-auto mb-0 mt-1">
             {% for corp in g.search_form.corpus %}
             <div class="form-check form-check-inline corpus-check">
-                {{corp(checked="")}} {{ corp.label(class="mb-0 align-top") }}
+                {% if 'elexicon' not in g.search_form.data.corpus %}
+                {% if not loop.last %}{{corp(checked="", class="simpleTextCorpus", id=g.search_form.corpus.choices[loop.index0][0] + 'SimpleCheck')}}{% else %}{{corp(class="simpleLexiconCorpus", id="elexiconSimpleCheck")}}{% endif %} {{ corp.label(class="mb-0 align-top") }}
+                {% else %}
+                {% if not loop.last %}{{corp(class="simpleTextCorpus", id=g.search_form.corpus.choices[loop.index0][0] + 'SimpleCheck')}}{% else %}{{corp(checked="", class="simpleLexiconCorpus", id="elexiconSimpleCheck")}}{% endif %} {{ corp.label(class="mb-0 align-top") }}
+                {% endif %}
             </div>
             {% endfor %}
         </div>
@@ -17,7 +20,7 @@
         </datalist>
     </div>
     <div class="form-row justify-content-between">
-        <span id="simple-lemma-tooltip" data-toggle="tooltip" data-container="#simple-lemma-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}" style="font-size: small;">{{ g.search_form.lemma_search() }} <span class="text-white p-0 align-top">{{ g.search_form.lemma_search.label(class="m-0") }}</span></span>
+        <span id="simple-lemma-tooltip" data-toggle="tooltip" data-container="#simple-lemma-tooltip" title="{{ _('Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich') }}" style="font-size: small;">{{ g.search_form.lemma_search(id="simple-lemma-checkbox") }} <span class="text-white p-0 align-top">{{ g.search_form.lemma_search.label(class="m-0") }}</span></span>
         <a id="advanced-search-link-tooltip" data-toggle="tooltip" data-container="#advanced-search-link-tooltip" class="nav-link text-white p-0 text-right relative-position" href="{{ url_for('search.r_advanced_search') }}" title="{{ _('Zur Seite der erweiterten Suche') }}">{{ _('Erweiterte Suche') }}</a>
     </div>
 </form>
