@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13646,
+      "doc_count": 13592,
       "forgeries": {
         "doc_count": 151
       },
@@ -77,7 +77,7 @@
             "doc_count": 6
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 95
+            "doc_count": 41
           },
           "<b>Merowinger</b>: Merowinger": {
             "doc_count": 196
@@ -220,7 +220,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3477
+            "doc_count": 3476
           },
           {
             "key": "900-999",
@@ -239,7 +239,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 702
+        "doc_count": 649
       }
     },
     "forgeries": {
@@ -460,7 +460,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 108
+          "doc_count": 107
         },
         {
           "key": "900-999",
@@ -479,7 +479,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 18
+      "doc_count": 19
     }
   }
 }

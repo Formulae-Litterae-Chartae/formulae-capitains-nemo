@@ -731,9 +731,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if corpus == ['elexicon']:
         def sort_lexicon(d):
-            title_words = set(re.sub(r'[{}]'.format(punctuation), ' ', d['info']['title'].lower()).split())
+            keywords = set(re.sub(r'[{}]'.format(punctuation), ' ',
+                                  ' '.join([d['info']['title'], d['info']['keywords']]).lower()).split())
             query_words = set(q.split())
-            return (query_words.isdisjoint(title_words), d['id'])
+            return (query_words.isdisjoint(keywords), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],

@@ -1,5 +1,5 @@
 {
-  "took": 8,
+  "took": 28,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": null,
           "regest": "Bischof Tello von Chur schenkt dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat/Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 17",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
           "date_string": "765 12 15",
           "comp_ort": "Chur",
@@ -61,7 +62,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -70,6 +71,7 @@
           "lemmas": null,
           "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
@@ -357,14 +359,14 @@
           "max_date": "0813-04-20",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Friday",
             "Monday",
+            "Wednesday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -379,7 +381,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -388,6 +390,7 @@
           "lemmas": null,
           "regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
           "date_string": "769–800 [814]",
           "comp_ort": " ",
@@ -428,7 +431,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -437,6 +440,7 @@
           "lemmas": null,
           "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
@@ -651,15 +655,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Thursday",
+            "Wednesday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -674,7 +678,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -683,6 +687,7 @@
           "lemmas": null,
           "regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
           "date_string": "768–800 [814]",
           "comp_ort": " ",
@@ -723,7 +728,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -732,6 +737,7 @@
           "lemmas": null,
           "regest": "Costancius und Maxemus vergleichen sich nach einem ergebnislosen Gerichtsurteil durch Vermittlung ihrer Verwandtschaft mit Edalecus und Vigelius über ein strittiges Grundstück.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
           "date_string": "ca. 791–806",
           "comp_ort": " ",
@@ -766,7 +772,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
         "_score": null,
@@ -775,6 +781,7 @@
           "lemmas": null,
           "regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 35",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
           "date_string": "807 02 07",
           "comp_ort": "Rankweil",
@@ -812,7 +819,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
         "_score": null,
@@ -821,6 +828,7 @@
           "lemmas": null,
           "regest": "Himiltrud überträgt dem Kloster St. Gallen das von ihrem Manne empfangene Heiratsgut unter Vorbehalt des Rückkaufes.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 82",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001",
           "date_string": "890 05 20–890 11 25",
           "comp_ort": "Rötis",
@@ -855,7 +863,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
         "_score": null,
@@ -864,6 +872,7 @@
           "lemmas": null,
           "regest": "Ruotpertus tauscht mit dem Kloster Lorsch seine ihm von Kaiser Arnulf geschenkten Güter zu Riom sowie die dortige Taufkirche mit Zehnt und Zubehör gegen Besitzungen zu Weilheim, Bissingen und. Jesingen.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 86",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001",
           "date_string": "904 06 14",
           "comp_ort": "Ingelheim",
@@ -901,7 +910,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
         "_score": null,
@@ -910,6 +919,7 @@
           "lemmas": null,
           "regest": "Salomon, Bischof von Konstanz und Abt von St. Gallen, überträgt die Abtei Pfäfers dem Kloster St. Gallen unter dem Vorbehalt lebenslänglicher Nutznießung der Abteien und des St. Galler Hofes Bussnang für sich und seinen Neffen Waldo.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 89",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
           "date_string": "909 12 28",
           "comp_ort": "St. Gallen",
@@ -947,7 +957,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
         "_score": null,
@@ -956,6 +966,7 @@
           "lemmas": null,
           "regest": "Das öffentliche Gericht zu Rankweil weist die von den Mönchen des Klosters St. Gallen auf Herausgabe der Abtei Pfäfers gegen Bischof Waldo von Chur geführte Klage zurück.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 96",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001",
           "date_string": "920 03 08",
           "comp_ort": "Rankweil",
@@ -978,8 +989,8 @@
           "min_date": "0920-03-08",
           "max_date": "0920-03-08",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -994,7 +1005,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
         "_score": null,
@@ -1003,6 +1014,7 @@
           "lemmas": null,
           "regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 140",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
           "date_string": "975 02",
           "comp_ort": "Maienfeld",

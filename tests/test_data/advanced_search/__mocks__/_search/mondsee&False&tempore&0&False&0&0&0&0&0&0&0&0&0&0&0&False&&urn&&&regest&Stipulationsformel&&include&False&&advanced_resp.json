@@ -1,5 +1,5 @@
 {
-  "took": 10,
+  "took": 14,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0002.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 2",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0002.lat001",
           "date_string": "813 02 12",
           "comp_ort": " ",
@@ -78,7 +79,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -87,6 +88,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 3",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0003.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -135,7 +137,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0007.lat001",
         "_score": null,
@@ -144,6 +146,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 7",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0007.lat001",
           "date_string": "799 04 11",
           "comp_ort": "Salzburg; Mondsee",
@@ -199,7 +202,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
         "_score": null,
@@ -208,6 +211,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 9",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0009.lat001",
           "date_string": "(789-800) 05 16",
           "comp_ort": "Mondsee",
@@ -296,13 +300,13 @@
           "min_date": "0789-05-16",
           "max_date": "0800-05-16",
           "days": [
-            "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Tuesday",
+            "Thursday",
+            "Friday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in dei nomine Alhart",
@@ -333,7 +337,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0011.lat001",
         "_score": null,
@@ -342,6 +346,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 11",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0011.lat001",
           "date_string": "803 03 18",
           "comp_ort": "Mondsee",
@@ -400,7 +405,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0014.lat001",
         "_score": null,
@@ -409,6 +414,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 14",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0014.lat001",
           "date_string": "805 01 20",
           "comp_ort": " ",
@@ -468,7 +474,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0021.lat001",
         "_score": null,
@@ -477,6 +483,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 21",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0021.lat001",
           "date_string": "803 11 18",
           "comp_ort": "Regensburg",
@@ -536,7 +543,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0024.lat001",
         "_score": null,
@@ -545,6 +552,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0024.lat001",
           "date_string": "829 03 16",
           "comp_ort": " ",
@@ -567,8 +575,8 @@
           "min_date": "0829-03-16",
           "max_date": "0829-03-16",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Arenga": "Nihil sibi quispiam cernitur minuendo, que sibi econtra recipit in augmentum",
@@ -599,7 +607,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0025.lat001",
         "_score": null,
@@ -608,6 +616,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 25",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0025.lat001",
           "date_string": "(748-784) 04",
           "comp_ort": "Mondsee",
@@ -658,7 +667,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0026.lat001",
         "_score": null,
@@ -667,6 +676,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 26",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0026.lat001",
           "date_string": "(Vor 748 07- Anfang 784)",
           "comp_ort": " ",
@@ -717,7 +727,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0028.lat001",
         "_score": null,
@@ -726,6 +736,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 28",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0028.lat001",
           "date_string": "815 05 21",
           "comp_ort": " ",
@@ -777,7 +788,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0029.lat001",
         "_score": null,
@@ -786,6 +797,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 29",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0029.lat001",
           "date_string": "767 06 09",
           "comp_ort": "Mondsee",
@@ -841,7 +853,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0030.lat001",
         "_score": null,
@@ -850,6 +862,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 30",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0030.lat001",
           "date_string": "808 03 28",
           "comp_ort": " ",
@@ -872,8 +885,8 @@
           "min_date": "0808-03-28",
           "max_date": "0808-03-28",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Mihhaelis archangeli in loco nuncupante Maninseo, ubi preest venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat me non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae meae remedium seu pro eterna retribucione",
@@ -906,7 +919,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0031.lat001",
         "_score": null,
@@ -915,6 +928,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 31",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0031.lat001",
           "date_string": "749 05 29",
           "comp_ort": "Mondsee",
@@ -970,7 +984,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0032.lat001",
         "_score": null,
@@ -979,6 +993,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 32",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0032.lat001",
           "date_string": "813 09 30",
           "comp_ort": "Neusling",
@@ -1032,7 +1047,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
         "_score": null,
@@ -1041,6 +1056,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0034.lat001",
           "date_string": "(748-829?) 05 07",
           "comp_ort": " ",
@@ -1550,12 +1566,12 @@
           "max_date": "0829-05-07",
           "days": [
             "Thursday",
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Tuesday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Arenga": "Vox evangelica tonet per orbem terrarum, qua dicitur: thesaurizate vobis thesauros in celo",
@@ -1588,7 +1604,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0044.lat001",
         "_score": null,
@@ -1597,6 +1613,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 44",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0044.lat001",
           "date_string": "783",
           "comp_ort": "Oberföhring",
@@ -1649,7 +1666,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0047.lat001",
         "_score": null,
@@ -1658,6 +1675,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 47",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0047.lat001",
           "date_string": "808 04 12",
           "comp_ort": " ",
@@ -1680,8 +1698,8 @@
           "min_date": "0808-04-12",
           "max_date": "0808-04-12",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in die nomine Cozpald",
@@ -1714,7 +1732,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -1723,6 +1741,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 48",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0048.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -1771,7 +1790,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -1780,6 +1799,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 54",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0054.lat001",
           "date_string": "(748-829?)",
           "comp_ort": " ",
@@ -1832,7 +1852,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0059.lat001",
         "_score": null,
@@ -1841,6 +1861,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 59",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0059.lat001",
           "date_string": "814 06 06",
           "comp_ort": " ",
@@ -1894,7 +1915,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0063.lat001",
         "_score": null,
@@ -1903,6 +1924,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 63",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0063.lat001",
           "date_string": "Anfang 784-788",
           "comp_ort": " ",
@@ -1953,7 +1975,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0068.lat001",
         "_score": null,
@@ -1962,6 +1984,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 68",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0068.lat001",
           "date_string": "822 03 19",
           "comp_ort": " ",
@@ -1984,8 +2007,8 @@
           "min_date": "0822-03-19",
           "max_date": "0822-03-19",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Arenga": "Latores legum sanxerunt, ut, qui de iure propria alicui aliquid tradere volverit, inconvulsum valeat permanere",
@@ -2018,7 +2041,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0069.lat001",
         "_score": null,
@@ -2027,6 +2050,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 69",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0069.lat001",
           "date_string": "792/793 07 06",
           "comp_ort": " ",
@@ -2093,7 +2117,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
@@ -2102,6 +2126,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 70",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0070.lat001",
           "date_string": "(Letztes Drittel 8 Jhd.? / nach 770?) 10 12",
           "comp_ort": " ",
@@ -2158,7 +2183,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0071.lat001",
         "_score": null,
@@ -2167,6 +2192,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 71",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0071.lat001",
           "date_string": "807 10 30",
           "comp_ort": " ",
@@ -2224,7 +2250,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0072.lat001",
         "_score": null,
@@ -2233,6 +2259,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 72",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0072.lat001",
           "date_string": "811 02 07",
           "comp_ort": " ",
@@ -2290,7 +2317,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0073.lat001",
         "_score": null,
@@ -2299,6 +2326,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 73",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0073.lat001",
           "date_string": "808 06 24",
           "comp_ort": " ",
@@ -2358,7 +2386,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0075.lat001",
         "_score": null,
@@ -2367,6 +2395,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 75",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0075.lat001",
           "date_string": "820 06 13",
           "comp_ort": "Purhchard",
@@ -2420,7 +2449,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0078.lat001",
         "_score": null,
@@ -2429,6 +2458,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 78",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0078.lat001",
           "date_string": "773 05 15",
           "comp_ort": " ",
@@ -2482,7 +2512,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0080.lat001",
         "_score": null,
@@ -2491,6 +2521,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 80.",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0080.lat001",
           "date_string": "Um 814 11 30? 814 11 30",
           "comp_ort": " ",
@@ -2554,7 +2585,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0088.lat001",
         "_score": null,
@@ -2563,6 +2594,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 88",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0088.lat001",
           "date_string": "809 06 28/29",
           "comp_ort": " ",
@@ -2620,7 +2652,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0091.lat001",
         "_score": null,
@@ -2629,6 +2661,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 91",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0091.lat001",
           "date_string": "807 11 12",
           "comp_ort": " ",
@@ -2686,7 +2719,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0092.lat001",
         "_score": null,
@@ -2695,6 +2728,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 92",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0092.lat001",
           "date_string": "809 06 28/29",
           "comp_ort": " ",
@@ -2751,7 +2785,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
@@ -2760,6 +2794,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 96",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0096.lat001",
           "date_string": "(Letztes Drittel 8 Jhd.?/783?/798) 07 25/08 06",
           "comp_ort": " ",
@@ -3196,13 +3231,13 @@
           "min_date": "0766-07-25",
           "max_date": "0800-08-06",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
+            "Thursday",
             "Saturday",
-            "Tuesday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -3239,7 +3274,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0098.lat001",
         "_score": null,
@@ -3248,6 +3283,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 98",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0098.lat001",
           "date_string": "809 04 04",
           "comp_ort": " ",
@@ -3270,8 +3306,8 @@
           "min_date": "0809-04-04",
           "max_date": "0809-04-04",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis archangeli in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae remedium seu pro eterna retribucione",
@@ -3308,7 +3344,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
         "_score": null,
@@ -3317,6 +3353,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 99",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0099.lat001",
           "date_string": "803 09 06",
           "comp_ort": "Mondsee",
@@ -3374,7 +3411,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0112.lat001",
         "_score": null,
@@ -3383,6 +3420,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 112",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0112.lat001",
           "date_string": "803 03 21",
           "comp_ort": "Mondsee",
@@ -3405,8 +3443,8 @@
           "min_date": "0803-03-21",
           "max_date": "0803-03-21",
           "days": [
-            "Tuesday",
-            "Lent"
+            "Lent",
+            "Tuesday"
           ],
           "sort_prefix": 1,
           "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hiltipaldus archiepiscopus et sacri palatii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae et pro filiis meis",
@@ -3441,7 +3479,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0114.lat001",
         "_score": null,
@@ -3450,6 +3488,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 114",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0114.lat001",
           "date_string": "749 06 10",
           "comp_ort": "Mondsee",
@@ -3505,7 +3544,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0121.lat001",
         "_score": null,
@@ -3514,6 +3553,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 121",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0121.lat001",
           "date_string": "820 10 06",
           "comp_ort": "Weihmörting",
@@ -3573,7 +3613,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0123.lat001",
         "_score": null,
@@ -3582,6 +3622,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 123",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0123.lat001",
           "date_string": "748 06 10",
           "comp_ort": "Altötting",
@@ -3637,7 +3678,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
@@ -3646,6 +3687,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 128",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0128.lat001",
           "date_string": "(Anfang 784- nach 799 04)",
           "comp_ort": "Buch/Wörth",
@@ -3694,7 +3736,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
         "_score": null,
@@ -3703,6 +3745,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 133",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0133.lat001",
           "date_string": "Ca. 803-816",
           "comp_ort": " ",
@@ -3753,7 +3796,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
@@ -3762,6 +3805,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 134",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0134.lat001",
           "date_string": "Anfang 748- vor 799 04 11",
           "comp_ort": "Langkampfen",
@@ -3816,7 +3860,7 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0135.lat001",
         "_score": null,
@@ -3825,6 +3869,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 135",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0135.lat001",
           "date_string": "804 01 20",
           "comp_ort": " ",

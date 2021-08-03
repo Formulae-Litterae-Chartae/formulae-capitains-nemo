@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 8,
   "timed_out": false,
   "_shards": {
     "total": 56,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": null,
           "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
@@ -311,14 +312,14 @@
           "max_date": "0813-04-20",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Friday",
             "Monday",
+            "Wednesday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -328,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -337,6 +338,7 @@
           "lemmas": null,
           "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
@@ -551,15 +553,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Thursday",
+            "Wednesday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -569,19 +571,20 @@
         ]
       },
       {
-        "_index": "freising_v17",
+        "_index": "freising_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
         "_source": {
-          "text": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi",
+          "text": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
           "lemmas": null,
           "regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 465",
+          "keywords": "",
           "urn": "urn:cts:formulae:freising.bitterauf0465.lat001",
           "date_string": "822 04 13",
           "comp_ort": "Freising",
-          "autocomplete": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi",
+          "autocomplete": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
           "orig_comp_ort": "(Freising)",
@@ -600,20 +603,10 @@
           "min_date": "0822-04-13",
           "max_date": "0822-04-13",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Publicatio": "Constat enim\n                            multis in episcopio sanctae Mariae conversantibus ... Nunc vero ammonente\n                            divina gratia in proximo paschalis die quod erat id. aprilis veniens ad\n                            virum venerabilem Hittonem episcopum ita ut iam diximus ante acta\n                            renovavit et interim adquisita omnia in omnibus legitime tradidit et\n                            quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit,\n                            domui sanctae Mariae in propriam hereditatem adunare et firma\n                            stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel\n                            incultis tam terra aravile quam etiam pratas silvasque bene aptas inter\n                            totum iurnales plus minus CCCC. Haec nomina mancipiorum",
-          "Publicatio-lems": null,
-          "Intitulatio": "Uuago\n                            capellanus",
-          "Intitulatio-lems": null,
-          "Stipulationsformel": " communi manu firmiter tradiderunt et cum veraces testibus\n                            confirmaverunt ",
-          "Stipulationsformel-lems": null,
-          "Corroboratio": "communi manu firmiter tradiderunt et cum veraces testibus\n                            confirmaverunt",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "anno gloriosi Hludiuuici imperatoris octavo indictione\n                            XIIII ... Ego indignus Tagaperhtus presbiter conscripsi iussione domni\n                            Hittonis episcopi",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -621,7 +614,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
@@ -630,6 +623,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 110",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
           "date_string": "912.12-01.10/12",
           "comp_ort": " ",
@@ -790,15 +784,15 @@
           "min_date": "0912-01-10",
           "max_date": "0912-12-12",
           "days": [
-            "Thursday",
-            "Wednesday",
-            "Friday",
-            "Saturday",
             "Lent",
-            "Tuesday",
+            "Friday",
+            "Thursday",
+            "Saturday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -808,7 +802,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
@@ -817,6 +811,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 193",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
           "date_string": "919.04.25 or 19",
           "comp_ort": " ",
@@ -845,10 +840,10 @@
           "min_date": "0919-04-19",
           "max_date": "0919-04-25",
           "days": [
-            "Sunday",
-            "Monday",
+            "Easter",
             "Lent",
-            "Easter"
+            "Monday",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -858,7 +853,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
@@ -867,6 +862,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 857",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
           "date_string": "960.04.22",
           "comp_ort": " ",
@@ -889,8 +885,8 @@
           "min_date": "0960-04-22",
           "max_date": "0960-04-22",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -900,7 +896,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
@@ -909,6 +905,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1131",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
           "date_string": "973.03.23",
           "comp_ort": " ",
@@ -931,8 +928,8 @@
           "min_date": "0973-03-23",
           "max_date": "0973-03-23",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -942,7 +939,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
@@ -951,6 +948,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1189",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
           "date_string": "975.04.04",
           "comp_ort": " ",
@@ -973,8 +971,8 @@
           "min_date": "0975-04-04",
           "max_date": "0975-04-04",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -984,7 +982,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
@@ -993,6 +991,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1340",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
           "date_string": "981.03.27",
           "comp_ort": " ",
@@ -1015,8 +1014,8 @@
           "min_date": "0981-03-27",
           "max_date": "0981-03-27",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1026,7 +1025,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
@@ -1035,6 +1034,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1488",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
           "date_string": "985.04.12",
           "comp_ort": " ",
@@ -1057,8 +1057,8 @@
           "min_date": "0985-04-12",
           "max_date": "0985-04-12",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1068,7 +1068,7 @@
         ]
       },
       {
-        "_index": "katalonien_v17",
+        "_index": "katalonien_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
         "_score": null,
@@ -1077,6 +1077,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Catalunya Carolingia (Ed. D’Abadal y Vinyals), Els Comtats D’Osona i Manresa, Nr. 1760",
+          "keywords": "",
           "urn": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
           "date_string": "997.03.28",
           "comp_ort": " ",
@@ -1099,8 +1100,8 @@
           "min_date": "0997-03-28",
           "max_date": "0997-03-28",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1110,7 +1111,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
         "_score": null,
@@ -1119,6 +1120,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 279 (Reg. 343)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
           "date_string": "766 – 768 04 19",
           "comp_ort": "Lorsch, loco publico",
@@ -1153,10 +1155,10 @@
           "min_date": "0766-04-19",
           "max_date": "0768-04-19",
           "days": [
-            "Sunday",
-            "Saturday",
             "Easter",
-            "Tuesday"
+            "Saturday",
+            "Tuesday",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1166,7 +1168,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
         "_score": null,
@@ -1175,6 +1177,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 410 (Reg. 3406)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
           "date_string": "Um 850 04 06",
           "comp_ort": " ",
@@ -1197,8 +1200,8 @@
           "min_date": "0850-04-06",
           "max_date": "0850-04-06",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1208,7 +1211,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
         "_score": null,
@@ -1217,6 +1220,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 511 (Reg. 3091)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
           "date_string": "815 04 01",
           "comp_ort": "Lorsch",
@@ -1239,8 +1243,8 @@
           "min_date": "0815-04-01",
           "max_date": "0815-04-01",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1250,7 +1254,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
         "_score": null,
@@ -1259,6 +1263,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 816 (Reg. 2778)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
           "date_string": "803 04 16",
           "comp_ort": " ",
@@ -1281,8 +1286,8 @@
           "min_date": "0803-04-16",
           "max_date": "0803-04-16",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1292,7 +1297,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
         "_score": null,
@@ -1301,6 +1306,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 875 (Reg. 1997)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
           "date_string": "788 03 30",
           "comp_ort": "Lorsch",
@@ -1323,8 +1329,8 @@
           "min_date": "0788-03-30",
           "max_date": "0788-03-30",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1334,7 +1340,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
         "_score": null,
@@ -1343,6 +1349,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 882 (Reg. 2305)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
           "date_string": "791 03 27",
           "comp_ort": "Lorsch",
@@ -1365,8 +1372,8 @@
           "min_date": "0791-03-27",
           "max_date": "0791-03-27",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -1376,7 +1383,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
         "_score": null,
@@ -1385,6 +1392,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1132 (Reg. 3420)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
           "date_string": "765-880 04 17",
           "comp_ort": " ",
@@ -2098,14 +2106,14 @@
           "max_date": "0880-04-17",
           "days": [
             "Thursday",
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Wednesday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2115,7 +2123,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
         "_score": null,
@@ -2124,6 +2132,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1133 (Reg. 3421)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
           "date_string": "765-880 04 18",
           "comp_ort": " ",
@@ -2837,14 +2846,14 @@
           "max_date": "0880-04-18",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Friday",
             "Monday",
+            "Wednesday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2854,7 +2863,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
         "_score": null,
@@ -2863,6 +2872,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1153 (Reg. 1513)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
           "date_string": "769-778 777? 04 22",
           "comp_ort": " ",
@@ -2939,14 +2949,14 @@
           "min_date": "0769-04-22",
           "max_date": "0778-04-22",
           "days": [
-            "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Tuesday",
+            "Thursday",
+            "Friday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -2956,7 +2966,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
         "_score": null,
@@ -2965,6 +2975,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1371 (Reg. 1504)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
           "date_string": "769-778 776? 04 18",
           "comp_ort": " ",
@@ -3042,14 +3053,14 @@
           "max_date": "0778-04-18",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
+            "Friday",
+            "Wednesday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -3059,7 +3070,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
         "_score": null,
@@ -3068,6 +3079,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1564 (Reg. 1822)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
           "date_string": "783 03 23",
           "comp_ort": " ",
@@ -3090,8 +3102,8 @@
           "min_date": "0783-03-23",
           "max_date": "0783-03-23",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -3101,7 +3113,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
         "_score": null,
@@ -3110,6 +3122,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1734 (Reg. 1823)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
           "date_string": "783 03 23",
           "comp_ort": " ",
@@ -3132,8 +3145,8 @@
           "min_date": "0783-03-23",
           "max_date": "0783-03-23",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -3143,7 +3156,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
         "_score": null,
@@ -3152,6 +3165,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1868 (Reg. 1878)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
           "date_string": "779-786 782? 04 23",
           "comp_ort": " ",
@@ -3216,13 +3230,13 @@
           "min_date": "0779-04-23",
           "max_date": "0786-04-23",
           "days": [
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Tuesday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -3232,7 +3246,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
         "_score": null,
@@ -3241,6 +3255,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Wingartheiba, Nr. 2819 (Reg. 3049)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
           "date_string": "805-813 04 13",
           "comp_ort": " ",
@@ -3312,14 +3327,14 @@
           "max_date": "0813-04-13",
           "days": [
             "Thursday",
-            "Wednesday",
             "Friday",
             "Saturday",
-            "Lent",
-            "Tuesday",
             "Monday",
+            "Wednesday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -3329,7 +3344,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
         "_score": null,
@@ -3338,6 +3353,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. III, Kopialbuch, II. Teil: Die übrigen fränkischen und die schwäbischen Gaue. Güterlisten. Späte Schenkungen und Zinslisten. Gesamtregister (Ed. Glöckner) Nr. Andere Schwäbische und Fränkische Gaue, Nr. 3583 (Reg. 2577)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
           "date_string": "797 04 23",
           "comp_ort": " ",
@@ -3360,8 +3376,8 @@
           "min_date": "0797-04-23",
           "max_date": "0797-04-23",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -3371,7 +3387,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
@@ -3380,6 +3396,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 38",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "date_string": "(630) 04 08 (Ostern)",
           "comp_ort": " ",
@@ -3402,8 +3419,8 @@
           "min_date": "0630-04-08",
           "max_date": "0630-04-08",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -3413,7 +3430,7 @@
         ]
       },
       {
-        "_index": "redon_v17",
+        "_index": "redon_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0040.lat001",
         "_score": null,
@@ -3422,6 +3439,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Cartulaire de l’Abbaye de Redon en Bretagne: [832–1124] (Ed. Courson) Nr. 40",
+          "keywords": "",
           "urn": "urn:cts:formulae:redon.courson0040.lat001",
           "date_string": "859–866 04 22",
           "comp_ort": " ",
@@ -3486,13 +3504,13 @@
           "min_date": "0859-04-22",
           "max_date": "0866-04-22",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Saturday",
-            "Tuesday",
+            "Thursday",
             "Monday",
+            "Tuesday",
+            "Sunday",
             "Easter",
-            "Sunday"
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -3502,7 +3520,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -3511,6 +3529,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 6",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
           "date_string": "(- 927 Ostern -)",
           "comp_ort": " ",
@@ -3533,18 +3552,10 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Intitulatio": "Gotabertus ... Ôdalbertus \n                  archiespiscopus \n                  uná \n                  cum \n                  advocato \n                  suo",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "quam \n                  ad \n                  Herioltingam \n                  visus \n                  est \n                  habere ... quod \n                  tunc \n                  in \n                  beneficium \n                  habuit \n                  in \n                  Bisontia \n                  loco \n                  Lêtto \n                  numcupato",
-          "Pertinenzformel-lems": null,
-          "Dispositio": "perpetualiter \n                  hanc \n                  consistendam ... tradidit",
-          "Dispositio-lems": null,
-          "Corroboratio": "Et \n                  isti \n                  sunt \n                  testes \n                  per \n                  aures \n                  attracti",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3552,7 +3563,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -3561,6 +3572,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 40",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
@@ -3583,20 +3595,10 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Publicatio": "Noverint omnes Christi fideles",
-          "Publicatio-lems": null,
-          "Intitulatio": "Ôdalbertus venerabilis archiepiscopus ... cum Gotesmanno presbitero suo",
-          "Intitulatio-lems": null,
-          "Dispositio": "peragere disposuit ... Tradidit namque ... et statim investituram dimisit ... perenniter in proprietatem possidendum et mancipium post obitum illius et filiae suae Agathae perpetualiter in proprietatem ibidem habendum ... tradidit",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "veluti ipse Gotesman in loco Perahah dicto antea in beneficium tenuit, et ista mancipia: Perhtgoz Deotolf Perhtvuih, ipsi et Agathae filiae eius",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Isti sunt testes per aures attracti",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3604,7 +3606,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -3613,6 +3615,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 45",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
@@ -3635,18 +3638,10 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Publicatio": "In istius enimvero cartulae agnitione omnes sanctae dei aecclesiae noverint cultores",
-          "Publicatio-lems": null,
-          "Dispositio": "quandam fecerat ... tradidit ... perenniter in proprietatem possidendum",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "suam proprietatem tradidit quam habuit ad Tuzsilingon et Merinunmos cum mancipiis XX caeterisque omnibus iuste ad haec pertinentia ... duo loca, Ehartinga dicta et Tuzsilinga, cum omnibus legitime ad haec accedentia",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Isti sunt testes exinde",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3654,7 +3649,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -3663,6 +3658,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 46",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
@@ -3685,18 +3681,10 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Publicatio": "Notum quoque sit omnibus aecclesiae dei fidelibus",
-          "Publicatio-lems": null,
-          "Dispositio": "quandam commutationem agere postulabant, at illae pro commissae sibi aecclesiae augmentatione et fidelium omnium suorum clericorum scilicet et laicorum consultus obauditione ita fore decrevit ... Tradidit itaque ... perenniter in proprietatem possidendum ... tradidit econtra",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "duo loca dicta Holzhusa et Eralastat beneficium Herikeri",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "et eisdem praenotatis testibus scriptis in cartula viduae Diotrici legaliter adfirmaverunt, quorum nomina sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3704,7 +3692,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -3713,6 +3701,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 47",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
           "date_string": "(927 Ostern)",
           "comp_ort": "Salzburg",
@@ -3735,22 +3724,10 @@
           "min_date": "0927-03-25",
           "max_date": "0927-03-25",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Publicatio": "Et est etiam omnibus christianitatis cultoribus agnoscendum",
-          "Publicatio-lems": null,
-          "Intitulatio": "Fridapold vassus Kerhohi",
-          "Intitulatio-lems": null,
-          "Eschatokoll": "eodem die eademque hora in commutandi causa",
-          "Eschatokoll-lems": null,
-          "Dispositio": "in commutandi ...  tradidit  ... tradidit ... sibi in proprietatem perenniter possidere",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "talem proprietatem, qualem ad Mosaheim et Gundperhtesdorf habuit, hobas II in Chimincgouue ... de domus dei territorio ad Herigozesdorf in comitatu Reginberti in Chimincgouue tradidit hobam unam",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Et testibus in prioribus duobus epistolis praescriptis firmaverunt legaliter, quorum nomina sunt",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3758,7 +3735,7 @@
         ]
       },
       {
-        "_index": "salzburg_v17",
+        "_index": "salzburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -3767,6 +3744,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 72",
+          "keywords": "",
           "urn": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
           "date_string": "(930 Ostern c.)",
           "comp_ort": " ",
@@ -3789,16 +3767,10 @@
           "min_date": "0930-04-18",
           "max_date": "0930-04-18",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Dispositio": "Tradidit igitur ... post obitum suum et uxoris suae ... perenniter in proprietatem",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "dimidietatem proprietatis suae, quam in loco Odratinga dicto habuit",
-          "Pertinenzformel-lems": null,
-          "Narratio": "pro remedio sui et antecessorum suorum",
-          "Narratio-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3806,7 +3778,7 @@
         ]
       },
       {
-        "_index": "stgallen_v17",
+        "_index": "stgallen_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
         "_score": null,
@@ -3815,6 +3787,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 440",
+          "keywords": "",
           "urn": "urn:cts:formulae:stgallen.wartmann0440.lat001",
           "date_string": "855 04 07",
           "comp_ort": "St. Gallen",
@@ -3837,18 +3810,10 @@
           "min_date": "0855-04-07",
           "max_date": "0855-04-07",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Intitulatio": "Christi disponente providentia Grimaldus abba coenobii sancti Galli ... nos una cum consensu fratrum nostrorum et advocati Emichonis",
-          "Intitulatio-lems": null,
-          "Dispositio": "Convenit nos una cum consensu fratrum nostrorum et advocati Emichonis ut in concaptione, quae sita est in marcho Wangon prope Argunam aquiloniorem in utraque parte aquae, Reodolti filio, id est Purchardo, et omni posteritati eius hobas III dari deberemus, quod ita et fecimus ... ea videlicet ratione, ut dominum non habeat nisi abbatem, qui praeest monasterio sancti Galli, et ad illos fratres annisque singulis censum inde persolvant, id est solidum unum in quocumque pretio potuerint. Et si iterum alibi dominum elegerint, tunc praefata res ad praefatum monasterium redeat perpetualiter possidenda",
-          "Dispositio-lems": null,
-          "Corroboratio": "Actum in ipso monasterio publice, praesentibus quorum hic signacula continentur",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "Ego itaque Otine rogatus scripsi et subscripsi ... die dominica, VII id. april ... regnante Hludwico rege nostro anno XII, sub Pabone comite",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,
@@ -3856,7 +3821,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v17",
+        "_index": "weissenburg_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
         "_score": null,
@@ -3865,6 +3830,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Traditiones Wizenburgenses (Ed. Glöckner) Nr. 266",
+          "keywords": "",
           "urn": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
           "date_string": "731 04 01",
           "comp_ort": "Weißenburg",
@@ -3887,8 +3853,8 @@
           "min_date": "0731-04-01",
           "max_date": "0731-04-01",
           "days": [
-            "Sunday",
-            "Easter"
+            "Easter",
+            "Sunday"
           ],
           "sort_prefix": 1
         },
@@ -3898,7 +3864,7 @@
         ]
       },
       {
-        "_index": "zuerich_v17",
+        "_index": "zuerich_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:zuerich.escher0113.lat001",
         "_score": null,
@@ -3907,6 +3873,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenbuch der Stadt und der Landschaft Zürich (Ed. Escher/Schweizer) Nr. 113",
+          "keywords": "",
           "urn": "urn:cts:formulae:zuerich.escher0113.lat001",
           "date_string": "870 03 05, 870 03 12, 870 03 19, 870 03 26",
           "comp_ort": "Insel Rheinau",
@@ -3947,27 +3914,11 @@
           "min_date": "0870-03-05",
           "max_date": "0870-03-26",
           "days": [
-            "Sunday",
+            "Easter",
             "Lent",
-            "Easter"
+            "Sunday"
           ],
-          "sort_prefix": 1,
-          "Invocatio": "In dei nomine",
-          "Invocatio-lems": null,
-          "Publicatio": "Notum sit omnibus presentibus et futuris, qualiter",
-          "Publicatio-lems": null,
-          "Intitulatio": "ego Amilger",
-          "Intitulatio-lems": null,
-          "Narratio": "pro remedio manimae meae",
-          "Narratio-lems": null,
-          "Dispositio": "do",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "predium, quale comparavi in villa Trullinchoven a duobus fratribus Tancherado et Othachero, in proprietatem",
-          "Pertinenzformel-lems": null,
-          "Corroboratio": "Actum in Renaugensi insula, coram frequentia populi et idoneis testibus",
-          "Corroboratio-lems": null,
-          "Eschatokoll": "mense Martio, die lune ... anno quo supra",
-          "Eschatokoll-lems": null
+          "sort_prefix": 1
         },
         "sort": [
           1,

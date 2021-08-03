@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 3,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0001.lat001",
           "date_string": "(777) 12 31",
           "comp_ort": "Altötting",
