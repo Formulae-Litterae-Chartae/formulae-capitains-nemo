@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 147,
+      "doc_count": 129,
       "forgeries": {
         "doc_count": 0
       },
@@ -44,7 +44,7 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 147
+            "doc_count": 129
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
@@ -239,7 +239,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 147
+        "doc_count": 129
       }
     },
     "forgeries": {
@@ -284,7 +284,7 @@
           "doc_count": 0
         },
         "<b>E-Lexikon</b>": {
-          "doc_count": 3
+          "doc_count": 2
         },
         "<b>Echternach</b>: Echternach": {
           "doc_count": 0
@@ -479,7 +479,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 3
+      "doc_count": 2
     }
   }
 }

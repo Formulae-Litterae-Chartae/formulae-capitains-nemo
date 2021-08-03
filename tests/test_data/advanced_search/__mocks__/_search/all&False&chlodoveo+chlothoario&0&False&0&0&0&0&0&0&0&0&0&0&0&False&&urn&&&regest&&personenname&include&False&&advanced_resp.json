@@ -1,5 +1,5 @@
 {
-  "took": 18,
+  "took": 23,
   "timed_out": false,
   "_shards": {
     "total": 56,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.computus.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers Weltzeitalter und computus",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.computus.lat001",
           "date_string": " ",
           "comp_ort": " ",

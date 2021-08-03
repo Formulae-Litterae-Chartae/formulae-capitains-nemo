@@ -1,5 +1,5 @@
 {
-  "took": 16,
+  "took": 12,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0001.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 1 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0001.lat001",
           "date_string": "[481-511 11 27]",
           "comp_ort": "Ferrieres",
@@ -227,12 +228,12 @@
           "max_date": "0511-11-27",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Tuesday",
+            "Friday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -242,7 +243,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0002.lat001",
         "_score": null,
@@ -251,6 +252,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 2 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0002.lat001",
           "date_string": "[481-511 11 27]",
           "comp_ort": " ",
@@ -454,12 +456,12 @@
           "max_date": "0511-11-27",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Tuesday",
+            "Friday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -469,7 +471,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
         "_score": null,
@@ -478,6 +480,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 3 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "date_string": "(498) 12 29",
           "comp_ort": "Reims",
@@ -507,7 +510,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0004.lat001",
         "_score": null,
@@ -516,6 +519,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 4 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0004.lat001",
           "date_string": "(508) 10",
           "comp_ort": "Paris",
@@ -545,7 +549,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0005.lat001",
         "_score": null,
@@ -554,6 +558,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 5 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0005.lat001",
           "date_string": "(508) 10",
           "comp_ort": "Paris",
@@ -583,7 +588,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0006.lat001",
         "_score": null,
@@ -592,6 +597,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 6 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0006.lat001",
           "date_string": "<524>",
           "comp_ort": "Orleans",
@@ -621,7 +627,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0007.lat001",
         "_score": null,
@@ -630,6 +636,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 7 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0007.lat001",
           "date_string": "(515) 01 20",
           "comp_ort": "Madoallo",
@@ -662,7 +669,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0008.lat001",
         "_score": null,
@@ -671,6 +678,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 8 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0008.lat001",
           "date_string": "(518) 06 08",
           "comp_ort": "Opatinaco",
@@ -703,7 +711,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0009.lat001",
         "_score": null,
@@ -712,6 +720,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 9 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0009.lat001",
           "date_string": "(523) 04 28",
           "comp_ort": "Compiegne",
@@ -744,7 +753,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0010.lat001",
         "_score": null,
@@ -753,6 +762,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 10 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0010.lat001",
           "date_string": "(526) 06 08",
           "comp_ort": "Opatinaco",
@@ -785,7 +795,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0011.lat001",
         "_score": null,
@@ -794,6 +804,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 11 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0011.lat001",
           "date_string": "(528) 01",
           "comp_ort": " ",
@@ -823,7 +834,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0012.lat001",
         "_score": null,
@@ -832,6 +843,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 12 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0012.lat001",
           "date_string": "<545>",
           "comp_ort": "Paris",
@@ -861,7 +873,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0013.lat001",
         "_score": null,
@@ -870,6 +882,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 13 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0013.lat001",
           "date_string": "(558) 12 06",
           "comp_ort": " ",
@@ -902,7 +915,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0014.lat001",
         "_score": null,
@@ -911,6 +924,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 14 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0014.lat001",
           "date_string": "[558 12 23-561 Ende]",
           "comp_ort": " ",
@@ -940,7 +954,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0015.lat001",
         "_score": null,
@@ -949,6 +963,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 15 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0015.lat001",
           "date_string": "<516> 02 22",
           "comp_ort": "Soissons",
@@ -971,8 +986,8 @@
           "min_date": "0516-02-22",
           "max_date": "0516-02-22",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -982,7 +997,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0016.lat001",
         "_score": null,
@@ -991,6 +1006,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 16 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0016.lat001",
           "date_string": "(523) 04 28",
           "comp_ort": "Compiegne",
@@ -1023,7 +1039,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0017.lat001",
         "_score": null,
@@ -1032,6 +1048,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 17 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0017.lat001",
           "date_string": "[561 12-592 03 28]",
           "comp_ort": " ",
@@ -1061,7 +1078,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0018.lat001",
         "_score": null,
@@ -1070,6 +1087,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 18 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0018.lat001",
           "date_string": "[561 12-592 03 28",
           "comp_ort": " ",
@@ -1099,7 +1117,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0019.lat001",
         "_score": null,
@@ -1108,6 +1126,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 19 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0019.lat001",
           "date_string": "(562) 04 15",
           "comp_ort": "Compiegne",
@@ -1140,7 +1159,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0020.lat001",
         "_score": null,
@@ -1149,6 +1168,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 20 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0020.lat001",
           "date_string": "[nach 567 11 17-584]",
           "comp_ort": " ",
@@ -1178,7 +1198,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0021.lat001",
         "_score": null,
@@ -1187,6 +1207,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 21 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0021.lat001",
           "date_string": "<606, 583, 576> 05 05",
           "comp_ort": "Roue",
@@ -1221,8 +1242,8 @@
           "min_date": "0576-05-05",
           "max_date": "0606-05-05",
           "days": [
-            "Wednesday",
             "Thursday",
+            "Wednesday",
             "Tuesday"
           ],
           "sort_prefix": 1
@@ -1233,7 +1254,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0023.lat001",
         "_score": null,
@@ -1242,6 +1263,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 23 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0023.lat001",
           "date_string": "[584 09 28-630 04 07]",
           "comp_ort": " ",
@@ -1271,7 +1293,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0024.lat001",
         "_score": null,
@@ -1280,6 +1302,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 24 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0024.lat001",
           "date_string": "<637> 01 08",
           "comp_ort": "Compiegne",
@@ -1312,7 +1335,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0026.lat001",
         "_score": null,
@@ -1321,6 +1344,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 26 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0026.lat001",
           "date_string": "(624) 07 29",
           "comp_ort": "Compiegne",
@@ -1353,7 +1377,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0027.lat001",
         "_score": null,
@@ -1362,6 +1386,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 27 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0027.lat001",
           "date_string": "(624) 07 30",
           "comp_ort": "Compiegne",
@@ -1394,7 +1419,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0029.lat001",
         "_score": null,
@@ -1403,6 +1428,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 29 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0029.lat001",
           "date_string": "(627) 05 26",
           "comp_ort": "Clichy",
@@ -1435,7 +1461,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0030.lat001",
         "_score": null,
@@ -1444,6 +1470,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 30 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0030.lat001",
           "date_string": "(628) 09 21",
           "comp_ort": "Mainz",
@@ -1476,7 +1503,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0031.lat001",
         "_score": null,
@@ -1485,6 +1512,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 31 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0031.lat001",
           "date_string": "(628) 10 01",
           "comp_ort": "Sorcy",
@@ -1517,7 +1545,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0033.lat001",
         "_score": null,
@@ -1526,6 +1554,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 33 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0033.lat001",
           "date_string": "[629-634]",
           "comp_ort": " ",
@@ -1555,7 +1584,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0034.lat001",
         "_score": null,
@@ -1564,6 +1593,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 34 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0034.lat001",
           "date_string": "[629 10 20-639 01 19]",
           "comp_ort": " ",
@@ -1593,7 +1623,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0035.lat001",
         "_score": null,
@@ -1602,6 +1632,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 35 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0035.lat001",
           "date_string": "[629 10 20-639 01 19]",
           "comp_ort": " ",
@@ -1631,7 +1662,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0036.lat001",
         "_score": null,
@@ -1640,6 +1671,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 36 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0036.lat001",
           "date_string": "[629 10 20-639 01 19]",
           "comp_ort": " ",
@@ -1669,7 +1701,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0039.lat001",
         "_score": null,
@@ -1678,6 +1710,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 39 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0039.lat001",
           "date_string": "(630) 10",
           "comp_ort": "Clichy",
@@ -1707,7 +1740,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0040.lat001",
         "_score": null,
@@ -1716,6 +1749,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 40 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0040.lat001",
           "date_string": "(632 01 20-633 02 28)",
           "comp_ort": " ",
@@ -1745,7 +1779,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0042.lat001",
         "_score": null,
@@ -1754,6 +1788,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 42 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0042.lat001",
           "date_string": "(632) 04 10",
           "comp_ort": "Paris",
@@ -1787,7 +1822,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0043.lat001",
         "_score": null,
@@ -1796,6 +1831,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 43 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0043.lat001",
           "date_string": "(632) 07 29",
           "comp_ort": "Paris",
@@ -1828,7 +1864,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0044.lat001",
         "_score": null,
@@ -1837,6 +1873,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 44 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0044.lat001",
           "date_string": "(633 01 20-634 02 28)",
           "comp_ort": "Clichy",
@@ -1866,7 +1903,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0045.lat001",
         "_score": null,
@@ -1875,6 +1912,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 45 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0045.lat001",
           "date_string": "(633) 05 01",
           "comp_ort": "Paris",
@@ -1907,7 +1945,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0046.lat001",
         "_score": null,
@@ -1916,6 +1954,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 46 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0046.lat001",
           "date_string": "[633-657 02 01]",
           "comp_ort": " ",
@@ -2083,12 +2122,12 @@
           "max_date": "0657-02-01",
           "days": [
             "Thursday",
-            "Wednesday",
-            "Friday",
             "Saturday",
-            "Tuesday",
+            "Friday",
             "Monday",
-            "Sunday"
+            "Tuesday",
+            "Sunday",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -2098,7 +2137,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0047.lat001",
         "_score": null,
@@ -2107,6 +2146,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 47 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0047.lat001",
           "date_string": "(634) 04 04",
           "comp_ort": "Mainz",
@@ -2129,8 +2169,8 @@
           "min_date": "0634-04-04",
           "max_date": "0634-04-04",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2140,7 +2180,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0048.lat001",
         "_score": null,
@@ -2149,6 +2189,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 48 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0048.lat001",
           "date_string": "(635) 04 10",
           "comp_ort": "Paris",
@@ -2181,7 +2222,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0049.lat001",
         "_score": null,
@@ -2190,6 +2231,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 49 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0049.lat001",
           "date_string": "(635) 10 01",
           "comp_ort": "Clichy",
@@ -2222,7 +2264,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
         "_score": null,
@@ -2231,6 +2273,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 50 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
           "date_string": "(636) 07 18",
           "comp_ort": "Clichy",
@@ -2263,7 +2306,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0051.lat001",
         "_score": null,
@@ -2272,6 +2315,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 51 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0051.lat001",
           "date_string": "(636) 07 18",
           "comp_ort": "Clichy",
@@ -2304,7 +2348,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0052.lat001",
         "_score": null,
@@ -2313,6 +2357,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 52 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0052.lat001",
           "date_string": "(636) 10",
           "comp_ort": "Clichy",
@@ -2342,7 +2387,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0053.lat001",
         "_score": null,
@@ -2351,6 +2396,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 53 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0053.lat001",
           "date_string": "636",
           "comp_ort": "Aachen",
@@ -2380,7 +2426,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0054.lat001",
         "_score": null,
@@ -2389,6 +2435,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 54 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0054.lat001",
           "date_string": "(637) 07 29",
           "comp_ort": "Compiegne",
@@ -2421,7 +2468,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0055.lat001",
         "_score": null,
@@ -2430,6 +2477,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 55 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0055.lat001",
           "date_string": "(637) 07 30",
           "comp_ort": "Compiegne",
@@ -2462,7 +2510,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0056.lat001",
         "_score": null,
@@ -2471,6 +2519,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 56 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0056.lat001",
           "date_string": "(637) 11 01",
           "comp_ort": " ",
@@ -2503,7 +2552,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0057.lat001",
         "_score": null,
@@ -2512,6 +2561,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 57 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0057.lat001",
           "date_string": "(637) 11 01",
           "comp_ort": "Clichy",
@@ -2544,7 +2594,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0058.lat001",
         "_score": null,
@@ -2553,6 +2603,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 58 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0058.lat001",
           "date_string": "(638) 09 15",
           "comp_ort": "Clichy",
@@ -2585,7 +2636,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0059.lat001",
         "_score": null,
@@ -2594,6 +2645,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 59 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0059.lat001",
           "date_string": "[639 vor 01 19]",
           "comp_ort": "St-Denis",
@@ -2623,7 +2675,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0060.lat001",
         "_score": null,
@@ -2632,6 +2684,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 60 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0060.lat001",
           "date_string": "<532>",
           "comp_ort": " ",
@@ -2661,7 +2714,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0061.lat001",
         "_score": null,
@@ -2670,6 +2723,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 61 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0061.lat001",
           "date_string": "<613> 04 16",
           "comp_ort": "Haslach",
@@ -2702,7 +2756,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0062.lat001",
         "_score": null,
@@ -2711,6 +2765,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 62 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0062.lat001",
           "date_string": "<640> 04 15",
           "comp_ort": "Cambrai",
@@ -2744,7 +2799,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0063.lat001",
         "_score": null,
@@ -2753,6 +2808,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 63 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0063.lat001",
           "date_string": "<640> 04 16",
           "comp_ort": "Cambrai",
@@ -2786,7 +2842,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0064.lat001",
         "_score": null,
@@ -2795,6 +2851,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 64 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0064.lat001",
           "date_string": "<645> 05 11",
           "comp_ort": "Weißenburg",
@@ -2827,7 +2884,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0065.lat001",
         "_score": null,
@@ -2836,6 +2893,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 65 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0065.lat001",
           "date_string": "<646> 08 26",
           "comp_ort": "Trier",
@@ -2868,7 +2926,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0066.lat001",
         "_score": null,
@@ -2877,6 +2935,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 66 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0066.lat001",
           "date_string": "<647> 09 01",
           "comp_ort": "Orleans",
@@ -2909,7 +2968,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0067.lat001",
         "_score": null,
@@ -2918,6 +2977,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 67 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0067.lat001",
           "date_string": "<652> 12 01",
           "comp_ort": "Epinay-sur-Seine",
@@ -2950,7 +3010,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0068.lat001",
         "_score": null,
@@ -2959,6 +3019,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 68 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0068.lat001",
           "date_string": "<655> 04 16",
           "comp_ort": "Klingenmünster",
@@ -2991,7 +3052,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
         "_score": null,
@@ -3000,6 +3061,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 69 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "date_string": "<662> 04 02",
           "comp_ort": "Isenburg",
@@ -3033,7 +3095,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0070.lat001",
         "_score": null,
@@ -3042,6 +3104,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 70 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0070.lat001",
           "date_string": "<706> 03 01",
           "comp_ort": "Mainz",
@@ -3064,8 +3127,8 @@
           "min_date": "0706-03-01",
           "max_date": "0706-03-01",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -3075,7 +3138,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0071.lat001",
         "_score": null,
@@ -3084,6 +3147,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 71 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0071.lat001",
           "date_string": "(639 01 20-640 01 19)",
           "comp_ort": " ",
@@ -3113,7 +3177,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0076.lat001",
         "_score": null,
@@ -3122,6 +3186,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 76 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0076.lat001",
           "date_string": "[639 01 20-657 10 11]",
           "comp_ort": " ",
@@ -3151,7 +3216,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0078.lat001",
         "_score": null,
@@ -3160,6 +3225,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 78 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0078.lat001",
           "date_string": "(641) 02 26",
           "comp_ort": "Montelauduno",
@@ -3182,8 +3248,8 @@
           "min_date": "0641-02-26",
           "max_date": "0641-02-26",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -3193,7 +3259,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0082.lat001",
         "_score": null,
@@ -3202,6 +3268,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 82 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0082.lat001",
           "date_string": "(645 10)",
           "comp_ort": "Clichy",
@@ -3231,7 +3298,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0083.lat001",
         "_score": null,
@@ -3240,6 +3307,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 83 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0083.lat001",
           "date_string": "[nach 646/47 01 17]",
           "comp_ort": " ",
@@ -3269,7 +3337,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0084.lat001",
         "_score": null,
@@ -3278,6 +3346,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 84 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0084.lat001",
           "date_string": "[647/48]",
           "comp_ort": " ",
@@ -3307,7 +3376,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0086.lat001",
         "_score": null,
@@ -3316,6 +3385,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 86 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0086.lat001",
           "date_string": "[657 10 12-661 12 23]",
           "comp_ort": " ",
@@ -3345,7 +3415,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0087.lat001",
         "_score": null,
@@ -3354,6 +3424,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 87 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0087.lat001",
           "date_string": "[657 10 12-673 03 11]",
           "comp_ort": " ",
@@ -3383,7 +3454,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0090.lat001",
         "_score": null,
@@ -3392,6 +3463,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 90 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0090.lat001",
           "date_string": "(658) 04 27",
           "comp_ort": "Ver-sur-Launette",
@@ -3424,7 +3496,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0091.lat001",
         "_score": null,
@@ -3433,6 +3505,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 91 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0091.lat001",
           "date_string": "658 08",
           "comp_ort": "Nimes",
@@ -3462,7 +3535,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0097.lat001",
         "_score": null,
@@ -3471,6 +3544,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 97 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0097.lat001",
           "date_string": "[662 10 18-675 09 11]",
           "comp_ort": " ",
@@ -3500,7 +3574,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0098.lat001",
         "_score": null,
@@ -3509,6 +3583,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 98 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0098.lat001",
           "date_string": "[662 10 18-670 09 06]",
           "comp_ort": " ",
@@ -3538,7 +3613,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0100.lat001",
         "_score": null,
@@ -3547,6 +3622,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 100 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0100.lat001",
           "date_string": "[662 10 18-675 09 11]",
           "comp_ort": " ",
@@ -3576,7 +3652,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0101.lat001",
         "_score": null,
@@ -3585,6 +3661,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 101 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0101.lat001",
           "date_string": "(663) 02 01",
           "comp_ort": "Crecy",
@@ -3617,7 +3694,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0102.lat001",
         "_score": null,
@@ -3626,6 +3703,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 102 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0102.lat001",
           "date_string": "(664) 08 01",
           "comp_ort": " ",
@@ -3658,7 +3736,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0103.lat001",
         "_score": null,
@@ -3667,6 +3745,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 103 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0103.lat001",
           "date_string": "(664/65) 10 24",
           "comp_ort": "Malay-le-Petit",
@@ -3695,8 +3774,8 @@
           "min_date": "0664-10-24",
           "max_date": "0665-10-24",
           "days": [
-            "Friday",
-            "Thursday"
+            "Thursday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -3706,7 +3785,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0104.lat001",
         "_score": null,
@@ -3715,6 +3794,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 104 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0104.lat001",
           "date_string": "(665) 07 04",
           "comp_ort": "Compiegne",
@@ -3747,7 +3827,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0105.lat001",
         "_score": null,
@@ -3756,6 +3836,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 105 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0105.lat001",
           "date_string": "(666 10 18-668 03 03)",
           "comp_ort": "Paris",
@@ -3785,7 +3866,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0106.lat001",
         "_score": null,
@@ -3794,6 +3875,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 106 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0106.lat001",
           "date_string": "(667) 08 18",
           "comp_ort": " ",
@@ -3826,7 +3908,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0109.lat001",
         "_score": null,
@@ -3835,6 +3917,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 109 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0109.lat001",
           "date_string": "(672) 07 29",
           "comp_ort": "Clichy",
@@ -3867,7 +3950,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0112.lat001",
         "_score": null,
@@ -3876,6 +3959,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 112 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0112.lat001",
           "date_string": "<640>",
           "comp_ort": " ",
@@ -3905,7 +3989,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0113.lat001",
         "_score": null,
@@ -3914,6 +3998,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 113 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0113.lat001",
           "date_string": "[675 09 12-691 12 12]",
           "comp_ort": " ",
@@ -3943,7 +4028,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0114.lat001",
         "_score": null,
@@ -3952,6 +4037,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 114 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0114.lat001",
           "date_string": "[675 09 12-691 12 12]",
           "comp_ort": " ",
@@ -3981,7 +4067,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0115.lat001",
         "_score": null,
@@ -3990,6 +4076,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 115 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0115.lat001",
           "date_string": "(675) 10 21",
           "comp_ort": "Arlauno palacio",
@@ -4022,7 +4109,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0116.lat001",
         "_score": null,
@@ -4031,6 +4118,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 116 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0116.lat001",
           "date_string": "(676) 06 11",
           "comp_ort": " ",
@@ -4063,7 +4151,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0117.lat001",
         "_score": null,
@@ -4072,6 +4160,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 117 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0117.lat001",
           "date_string": "[676 04 02-679 12 23]",
           "comp_ort": " ",
@@ -4101,7 +4190,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0119.lat001",
         "_score": null,
@@ -4110,6 +4199,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 119 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0119.lat001",
           "date_string": "(678) 03 05",
           "comp_ort": "Compiegne",
@@ -4143,7 +4233,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0120.lat001",
         "_score": null,
@@ -4152,6 +4242,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 120 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0120.lat001",
           "date_string": "(679) 09 04",
           "comp_ort": " ",
@@ -4184,7 +4275,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0125.lat001",
         "_score": null,
@@ -4193,6 +4284,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 125 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0125.lat001",
           "date_string": "[679 12 24-691 12 12]",
           "comp_ort": " ",
@@ -4222,7 +4314,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0127.lat001",
         "_score": null,
@@ -4231,6 +4323,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 127 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0127.lat001",
           "date_string": "(684) 10 23",
           "comp_ort": "Compiegne",
@@ -4263,7 +4356,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0129.lat001",
         "_score": null,
@@ -4272,6 +4365,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 129 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0129.lat001",
           "date_string": "(687) 03 27",
           "comp_ort": "Compiegne",
@@ -4294,8 +4388,8 @@
           "min_date": "0687-03-27",
           "max_date": "0687-03-27",
           "days": [
-            "Wednesday",
-            "Lent"
+            "Lent",
+            "Wednesday"
           ],
           "sort_prefix": 1
         },
@@ -4305,7 +4399,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0130.lat001",
         "_score": null,
@@ -4314,6 +4408,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 130 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0130.lat001",
           "date_string": "(689) 04 01",
           "comp_ort": "Crecy",
@@ -4347,7 +4442,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0132.lat001",
         "_score": null,
@@ -4356,6 +4451,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 132 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0132.lat001",
           "date_string": "<672> 02 09",
           "comp_ort": "Soissons",
@@ -4388,7 +4484,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0133.lat001",
         "_score": null,
@@ -4397,6 +4493,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 133 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0133.lat001",
           "date_string": "[691 09 13-694 12 12]",
           "comp_ort": " ",
@@ -4426,7 +4523,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0148.lat001",
         "_score": null,
@@ -4435,6 +4532,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 148 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0148.lat001",
           "date_string": "(696 09 14-697 12 12)",
           "comp_ort": " ",
@@ -4464,7 +4562,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0154.lat001",
         "_score": null,
@@ -4473,6 +4571,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 154 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0154.lat001",
           "date_string": "703/4 10 20",
           "comp_ort": " ",
@@ -4501,8 +4600,8 @@
           "min_date": "0703-10-20",
           "max_date": "0704-10-20",
           "days": [
-            "Monday",
-            "Saturday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -4512,7 +4611,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0161.lat001",
         "_score": null,
@@ -4521,6 +4620,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 161 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0161.lat001",
           "date_string": "[711 01 02-715 09 26]",
           "comp_ort": " ",
@@ -4550,7 +4650,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0162.lat001",
         "_score": null,
@@ -4559,6 +4659,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 162 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0162.lat001",
           "date_string": "(712) 08 01",
           "comp_ort": " ",
@@ -4591,7 +4692,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0165.lat001",
         "_score": null,
@@ -4600,6 +4701,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 165 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0165.lat001",
           "date_string": "<705> 11 05",
           "comp_ort": "Straßburg",
@@ -4632,7 +4734,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0172.lat001",
         "_score": null,
@@ -4641,6 +4743,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 172 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0172.lat001",
           "date_string": "(716) 05 01",
           "comp_ort": "Bibrax",
@@ -4673,7 +4776,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0174.lat001",
         "_score": null,
@@ -4682,6 +4785,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 174 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0174.lat001",
           "date_string": "(717) 04 24",
           "comp_ort": "Paris",
@@ -4714,7 +4818,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0177.lat001",
         "_score": null,
@@ -4723,6 +4827,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 177 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0177.lat001",
           "date_string": "[717 06 28-718 05 17]",
           "comp_ort": " ",
@@ -4752,7 +4857,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0180.lat001",
         "_score": null,
@@ -4761,6 +4866,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 180 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0180.lat001",
           "date_string": "(721) 11 10",
           "comp_ort": "Conflans",
@@ -4793,7 +4899,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0181.lat001",
         "_score": null,
@@ -4802,6 +4908,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 181 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0181.lat001",
           "date_string": "[721-737]",
           "comp_ort": " ",
@@ -4831,7 +4938,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0183.lat001",
         "_score": null,
@@ -4840,6 +4947,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 183 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0183.lat001",
           "date_string": "(722) 03 02",
           "comp_ort": "Paris",
@@ -4862,8 +4970,8 @@
           "min_date": "0722-03-02",
           "max_date": "0722-03-02",
           "days": [
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -4873,7 +4981,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0185.lat001",
         "_score": null,
@@ -4882,6 +4990,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 185 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0185.lat001",
           "date_string": "(723/24) 03 01",
           "comp_ort": "Valenciennes",
@@ -4911,8 +5020,8 @@
           "max_date": "0724-03-01",
           "days": [
             "Wednesday",
-            "Monday",
-            "Lent"
+            "Lent",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -4922,7 +5031,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0186.lat001",
         "_score": null,
@@ -4931,6 +5040,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 186 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0186.lat001",
           "date_string": "724 05 01",
           "comp_ort": "Metz",
@@ -4963,7 +5073,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0188.lat001",
         "_score": null,
@@ -4972,6 +5082,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 188 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0188.lat001",
           "date_string": "(727) 07 12",
           "comp_ort": "Gondreville",
@@ -5004,7 +5115,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0189.lat001",
         "_score": null,
@@ -5013,6 +5124,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 189 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0189.lat001",
           "date_string": "<720?>",
           "comp_ort": " ",
@@ -5042,7 +5154,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0191.lat001",
         "_score": null,
@@ -5051,6 +5163,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 191 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0191.lat001",
           "date_string": "(743) 04 23",
           "comp_ort": "Crecy",
@@ -5083,7 +5196,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0192.lat001",
         "_score": null,
@@ -5092,6 +5205,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 192 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0192.lat001",
           "date_string": "[743/747] 07 (?)",
           "comp_ort": " ",
@@ -5127,7 +5241,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0193.lat001",
         "_score": null,
@@ -5136,6 +5250,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 193 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0193.lat001",
           "date_string": "[743 02 16-751 10 22]",
           "comp_ort": " ",
@@ -5165,7 +5280,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0194.lat001",
         "_score": null,
@@ -5174,6 +5289,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 194 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0194.lat001",
           "date_string": "(744) 02 29",
           "comp_ort": "Compiegne",
@@ -5207,7 +5323,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0195.lat001",
         "_score": null,
@@ -5216,6 +5332,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 195 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0195.lat001",
           "date_string": "<754> 03 15",
           "comp_ort": "Quierzy",
@@ -5249,7 +5366,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v17",
+        "_index": "merowinger1_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0196.lat001",
         "_score": null,
@@ -5258,6 +5375,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 196 †",
+          "keywords": "",
           "urn": "urn:cts:formulae:merowinger1.koelzer0196.lat001",
           "date_string": "<761> 01 13",
           "comp_ort": "Soissons",
