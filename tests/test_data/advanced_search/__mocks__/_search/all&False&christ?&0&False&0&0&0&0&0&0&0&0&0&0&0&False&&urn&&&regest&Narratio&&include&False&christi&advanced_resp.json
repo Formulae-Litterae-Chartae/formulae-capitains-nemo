@@ -1,9 +1,9 @@
 {
-  "took": 18,
+  "took": 20,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,10 +15,13 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
         "_score": null,
+        "_ignored": [
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -77,7 +80,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
         "_score": null,
@@ -140,10 +143,15 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Pertinenzformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -206,10 +214,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
         "_score": null,
+        "_ignored": [
+          "Pertinenzformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -268,10 +280,13 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
         "_score": null,
+        "_ignored": [
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -330,10 +345,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -777,12 +796,12 @@
           "max_date": "0800-08-06",
           "days": [
             "Friday",
+            "Wednesday",
             "Thursday",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -819,10 +838,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",

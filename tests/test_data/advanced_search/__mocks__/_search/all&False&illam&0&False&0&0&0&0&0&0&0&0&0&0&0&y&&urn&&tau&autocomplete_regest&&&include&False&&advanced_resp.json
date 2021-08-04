@@ -1,9 +1,9 @@
 {
-  "took": 76,
+  "took": 44,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
         "_score": null,
@@ -65,7 +65,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
         "_score": null,
@@ -112,7 +112,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
         "_score": null,
@@ -159,7 +159,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
         "_score": null,
@@ -206,7 +206,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
         "_score": null,
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v24",
+        "_index": "hersfeld_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
         "_score": null,
@@ -303,7 +303,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
         "_score": null,
@@ -353,7 +353,7 @@
         ]
       },
       {
-        "_index": "regensburg_v24",
+        "_index": "regensburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
         "_score": null,
@@ -400,7 +400,7 @@
         ]
       },
       {
-        "_index": "regensburg_v24",
+        "_index": "regensburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
         "_score": null,
@@ -447,7 +447,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
         "_score": null,
@@ -497,7 +497,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
         "_score": null,
@@ -547,7 +547,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
         "_score": null,
@@ -597,7 +597,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
         "_score": null,
