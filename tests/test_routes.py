@@ -346,6 +346,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
+            self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
