@@ -153,6 +153,11 @@ $(document).ready(function () {
             }
         });
     });
+    
+    $('.part-menu-icon').draggable({
+        stack: '.part-menu-icon',
+        handle: '.part-menu-handle'
+    });
 })
 
 var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {

@@ -152,7 +152,8 @@ function buildSimpleUrl(qSource) {
         corpus:'',
         lemma_search:'autocomplete',
     };
-    if (searchLemmas.checked) {
+    var simpleSearchLemmas = document.getElementById('simple-lemma-checkbox');
+    if (simpleSearchLemmas.checked) {
         params.lemma_search = 'autocomplete_lemmas';
     } else {
         params.lemma_search = 'autocomplete';
@@ -216,16 +217,20 @@ function buildUrl(qSource) {
             params.lemma_search = 'False';
         }
     }
-    $('input.under-formulae').each(function(i, formula) {
-        if (formula.checked) {
-            corpus.push(formula.value);
-        }
-    })
-    $('input.under-chartae').each(function(i, charter) {
-        if (charter.checked) {
-            corpus.push(charter.value);
-        }
-    })
+    if ($('#elexiconSearchCorpus').prop('checked')) {
+        corpus = ['elexicon'];
+    } else {
+        $('input.under-formulae').each(function(i, formula) {
+            if (formula.checked) {
+                corpus.push(formula.value);
+            }
+        })
+        $('input.under-chartae').each(function(i, charter) {
+            if (charter.checked) {
+                corpus.push(charter.value);
+            }
+        })
+    }
     $('input[name="special_days"]').each(function(i, day) {
         if (day.checked) {
             special_days.push(day.value);
@@ -486,7 +491,7 @@ $(document).ready(function () {
 //         },
         "columnDefs": [
             {
-                "targets": [ 1 ],
+                "targets": [ "results-date-column" ],
                 "orderable": false
             }
         ]
@@ -553,4 +558,41 @@ $(document).ready(function () {
     $('#cancelSearchButton').click(function() {
         location.reload();
     })
+    
+    $('.simpleTextCorpus').click(function() {
+        $('.simpleLexiconCorpus').prop('checked', false);
+        $('#simple-lemma-checkbox').prop('disabled', false);
+    })
+    
+    $('.simpleLexiconCorpus').click(function() {
+        $('.simpleTextCorpus').prop('checked', false);
+        $('#simple-lemma-checkbox').prop({'disabled': true, 'checked': false});
+    })
+    
+    if ($('#elexiconSimpleCheck').prop('checked')) {
+        $('#simple-lemma-checkbox').prop({'disabled': true, 'checked': false});
+    }
+    
+    $('#elexicon-search-box').keyup(function() {
+        if ($(this).val() == '') {
+            $('#elexSearchButton').addClass('disabled', true);
+        } else {
+            $('#elexSearchButton').removeClass('disabled', false);
+        }
+    })
+    
+    $('#elexSearchButton').click(function() {
+        var oldUrl = $( this ).attr("href");
+        qValue = $('#elexicon-search-box').val();
+        $( this ).attr("href", oldUrl + '&q=' + qValue.replace(' ', '+'));
+    })
+    
+    $('#elexicon-search-box').keydown(function(event){
+        if(event.which === 13 && $('#elexicon-search-box').val()){
+            event.preventDefault();
+            var oldUrl = $('#elexSearchButton').attr("href");
+            qValue = $('#elexicon-search-box').val();
+            window.location.href = oldUrl + '&q=' + qValue.replace(' ', '+');
+        }
+    });
 })

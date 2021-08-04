@@ -49,7 +49,9 @@ def r_results():
     corpus = request.args.get('corpus', '').split('+')
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
-    if corpus in [['all'], ['formulae', 'chartae'], ['']]:
+    if 'elexicon' in corpus:
+        corps = ['elexicon']
+    elif corpus in [['all'], ['formulae', 'chartae'], ['']]:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     elif corpus == ['formulae']:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]
@@ -281,7 +283,6 @@ def download_search_results(download_id: str) -> Response:
                 ids.append({'id': hit['id'],
                             'info': hit['info'],
                             'sents': sents,
-                            'title': hit['info']['title'],
                             'regest_sents': regest_sents})
                 current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
             current_app.redis.setex(download_id, 60, '99%')
@@ -292,7 +293,7 @@ def download_search_results(download_id: str) -> Response:
             finally:
                 current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
-            r = {'title': d['title'], 'sents': [], 'regest_sents': []}
+            r = {'title': d['info']['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
                 r['sents'] = ['- {}'.format(re.sub(r'(?:</small>)?<strong>(.*?)</strong>(?:<small>)?', r'<b>\1</b>',
                                                    str(s)))

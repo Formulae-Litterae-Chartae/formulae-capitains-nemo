@@ -19,6 +19,16 @@
         <p class="mb-0">{{ _('Das e-Lexikon erläutert zentrale Begriffe aus Rechts-, Sozial- und Geistesgeschichte und macht ihre Bedeutungsentwicklung von der Spätantike bis zum Ende des frühen Mittelalters nachvollziehbar. Aufgenommen werden ausschließlich Begriffe, die in den im Langzeitvorhaben edierten Formeln verwendet werden.') }}</p>
         </div>
     </div>
+    <div class="row">
+        <div class="mb-2 col-3">
+            <label class="sr-only" for="elexicon-search-box">{{ _('Lexikon durchsuchen') }}</label>
+            <form class="form-inline">
+                <input class="form-control" type="text" placeholder="{{ _('Lexikon durchsuchen') }}" id="elexicon-search-box" list="elexicon-search-datalist" default="{{ _('Lexikon durchsuchen') }}" autocomplete="off"> <a id="elexSearchButton" type="submit" class="btn btn-primary disabled" role="button" href="{{ url_for('search.r_results', corpus='elexicon', source='simple') }}">{{ _('Suche Durchführen') }}</a>
+                <datalist id="elexicon-search-datalist">
+                </datalist>
+            </form>
+        </div>
+    </div>
     <h4>{{ _('Gehe zu Buchstabe:') }}</h4>
     <div class="row">
         <div class="col">
