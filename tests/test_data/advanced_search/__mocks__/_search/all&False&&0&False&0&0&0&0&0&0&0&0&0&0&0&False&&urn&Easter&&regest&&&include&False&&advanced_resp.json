@@ -1,9 +1,9 @@
 {
-  "took": 8,
+  "took": 9,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -311,14 +311,14 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -554,13 +554,13 @@
           "max_date": "0813-03-31",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -571,7 +571,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
         "_score": null,
@@ -614,7 +614,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
         "_score": null,
@@ -784,15 +784,15 @@
           "min_date": "0912-01-10",
           "max_date": "0912-12-12",
           "days": [
-            "Lent",
             "Friday",
-            "Thursday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
-            "Wednesday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -802,7 +802,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
         "_score": null,
@@ -840,10 +840,10 @@
           "min_date": "0919-04-19",
           "max_date": "0919-04-25",
           "days": [
-            "Easter",
             "Lent",
             "Monday",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -853,7 +853,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
         "_score": null,
@@ -896,7 +896,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
         "_score": null,
@@ -939,7 +939,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
         "_score": null,
@@ -982,7 +982,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
         "_score": null,
@@ -1025,7 +1025,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
         "_score": null,
@@ -1068,7 +1068,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
         "_score": null,
@@ -1111,7 +1111,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
         "_score": null,
@@ -1156,9 +1156,9 @@
           "max_date": "0768-04-19",
           "days": [
             "Easter",
-            "Saturday",
             "Tuesday",
-            "Sunday"
+            "Sunday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -1168,7 +1168,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
         "_score": null,
@@ -1211,7 +1211,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
         "_score": null,
@@ -1254,7 +1254,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
         "_score": null,
@@ -1297,7 +1297,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
         "_score": null,
@@ -1340,7 +1340,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
         "_score": null,
@@ -1383,7 +1383,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
         "_score": null,
@@ -2105,14 +2105,14 @@
           "min_date": "0765-04-17",
           "max_date": "0880-04-17",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
             "Wednesday",
-            "Monday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -2123,7 +2123,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
         "_score": null,
@@ -2845,14 +2845,14 @@
           "min_date": "0765-04-18",
           "max_date": "0880-04-18",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -2863,7 +2863,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
         "_score": null,
@@ -2949,14 +2949,14 @@
           "min_date": "0769-04-22",
           "max_date": "0778-04-22",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
-            "Wednesday"
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2966,7 +2966,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
         "_score": null,
@@ -3052,14 +3052,14 @@
           "min_date": "0769-04-18",
           "max_date": "0778-04-18",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -3070,7 +3070,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
         "_score": null,
@@ -3113,7 +3113,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
         "_score": null,
@@ -3156,7 +3156,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
         "_score": null,
@@ -3231,12 +3231,12 @@
           "max_date": "0786-04-23",
           "days": [
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
-            "Wednesday"
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -3246,7 +3246,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
         "_score": null,
@@ -3326,14 +3326,14 @@
           "min_date": "0805-04-13",
           "max_date": "0813-04-13",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -3344,7 +3344,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
         "_score": null,
@@ -3387,7 +3387,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v24",
+        "_index": "merowinger1_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
@@ -3430,7 +3430,7 @@
         ]
       },
       {
-        "_index": "redon_v24",
+        "_index": "redon_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0040.lat001",
         "_score": null,
@@ -3504,13 +3504,13 @@
           "min_date": "0859-04-22",
           "max_date": "0866-04-22",
           "days": [
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
-            "Wednesday"
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -3520,7 +3520,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
         "_score": null,
@@ -3563,7 +3563,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
         "_score": null,
@@ -3606,7 +3606,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
         "_score": null,
@@ -3649,7 +3649,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
         "_score": null,
@@ -3692,7 +3692,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
         "_score": null,
@@ -3735,7 +3735,7 @@
         ]
       },
       {
-        "_index": "salzburg_v24",
+        "_index": "salzburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
         "_score": null,
@@ -3778,7 +3778,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
         "_score": null,
@@ -3821,7 +3821,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
         "_score": null,
@@ -3864,7 +3864,7 @@
         ]
       },
       {
-        "_index": "zuerich_v24",
+        "_index": "zuerich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:zuerich.escher0113.lat001",
         "_score": null,
@@ -3914,9 +3914,9 @@
           "min_date": "0870-03-05",
           "max_date": "0870-03-26",
           "days": [
-            "Easter",
             "Lent",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },

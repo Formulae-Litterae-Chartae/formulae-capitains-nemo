@@ -1,0 +1,13 @@
+<?xml-model href="../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#" xmlns:cts="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:chartae_latinae_xi</identifier>
+   <dc:title xml:lang="deu">Chartae Latinae Antiquiores XI (Germany II), ed. von A. Bruckner (1979)</dc:title>
+   <dc:type>cts:textgroup</dc:type>
+   <dc:coverage>Chartae Latinae</dc:coverage>
+   <structured-metadata>
+      <bib:AbbreviatedTitle xml:lang="lat">Chartae Latinae XI</bib:AbbreviatedTitle>
+   </structured-metadata>
+   <members>
+      <collection path="./bruckner0507/__capitains__.xml" identifier="urn:cts:formulae:chartae_latinae_xi.bruckner0507"/>
+   </members>
+</collection>

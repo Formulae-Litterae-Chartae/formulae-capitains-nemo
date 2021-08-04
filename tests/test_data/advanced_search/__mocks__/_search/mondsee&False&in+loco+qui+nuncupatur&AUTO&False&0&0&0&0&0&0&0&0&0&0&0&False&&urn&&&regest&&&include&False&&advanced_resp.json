@@ -1,5 +1,5 @@
 {
-  "took": 6,
+  "took": 5,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,10 +15,16 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
         "_score": null,
+        "_ignored": [
+          "Eschatokoll.keyword",
+          "Poenformel.keyword",
+          "Pertinenzformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",

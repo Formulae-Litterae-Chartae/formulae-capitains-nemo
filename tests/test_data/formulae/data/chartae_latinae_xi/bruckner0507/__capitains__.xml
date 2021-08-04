@@ -1,0 +1,36 @@
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#" xmlns:cts="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:chartae_latinae_xi.bruckner0507</identifier>
+   <parent>urn:cts:formulae:chartae_latinae_xi</parent>
+   <dc:title xml:lang="deu">Nr. 507</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./chartae_latinae_xi.bruckner0507.lat001.xml">
+         <identifier>urn:cts:formulae:chartae_latinae_xi.bruckner0507.lat001</identifier>
+         <parent>urn:cts:formulae:chartae_latinae_xi.bruckner0507</parent>
+         <dc:title xml:lang="deu">Chartae Latinae Antiquiores XI (Germany II), Nr. 507</dc:title>
+         <dc:description xml:lang="deu">Ein Unbekannter übergibt sich als Knecht der Kirche des heiligen Petrus</dc:description>
+         <dc:language>lat</dc:language>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Alexander Mueller (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Nils Krüger (Studentische Hilfskraft, Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>http://d-nb.info/800295471</dc:source>
+         <structured-metadata>
+            <dct:abstract/>
+            <bib:editor>Albrecht Bruckner</bib:editor>
+            <dct:dateCopyrighted>1979</dct:dateCopyrighted>
+            <dct:created>2021</dct:created>
+            <dct:bibliographicCitation>Albrecht &lt;span class="surname"&gt;Bruckner&lt;/span&gt;, Chartae Latinae Antiquiores XI (Germany II), Dietikon-Zurich 1979, [URI: &lt;a target="_blank" href="http://d-nb.info/800295471"&gt;http://d-nb.info/800295471&lt;/a&gt;], S.60.</dct:bibliographicCitation>
+            <dct:temporal>Um 800</dct:temporal>
+            <dct:spatial/>
+            <dct:source>Karlsruhe, Badische Landesbibliothek Codex Aug. CCXXII, fol. 222&lt;span class="verso-recto"&gt;v&lt;/span&gt;</dct:source>
+         </structured-metadata>
+      </collection>
+   </members>
+</collection>

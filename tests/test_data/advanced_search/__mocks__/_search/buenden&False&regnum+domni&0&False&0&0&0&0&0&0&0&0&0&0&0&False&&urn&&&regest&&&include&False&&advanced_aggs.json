@@ -25,6 +25,9 @@
           "<b>Catalunya</b>: Katalonien": {
             "doc_count": 0
           },
+          "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
+            "doc_count": 0
+          },
           "<b>Chartae Latinae</b>: Chartae Latinae X": {
             "doc_count": 0
           },
@@ -263,6 +266,9 @@
           "doc_count": 0
         },
         "<b>Catalunya</b>: Katalonien": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
           "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae X": {

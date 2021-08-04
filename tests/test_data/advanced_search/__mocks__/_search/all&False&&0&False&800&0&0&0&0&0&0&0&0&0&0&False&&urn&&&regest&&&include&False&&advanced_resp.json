@@ -1,9 +1,9 @@
 {
-  "took": 33,
+  "took": 34,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -311,14 +311,14 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -329,7 +329,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
         "_score": null,
@@ -374,7 +374,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0026.lat001",
         "_score": null,
@@ -419,7 +419,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -644,13 +644,13 @@
           "max_date": "0813-03-31",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -661,7 +661,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
@@ -706,7 +706,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
         "_score": null,
@@ -751,7 +751,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001",
         "_score": null,
@@ -790,7 +790,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
         "_score": null,
@@ -835,7 +835,7 @@
         ]
       },
       {
-        "_index": "chartae_latinae_xi_v23",
+        "_index": "chartae_latinae_xi_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:chartae_latinae_xi.bruckner0507.lat001",
         "_score": null,
@@ -874,7 +874,7 @@
         ]
       },
       {
-        "_index": "chartae_latinae_xii_v23",
+        "_index": "chartae_latinae_xii_v24",
         "_type": "_doc",
         "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0542.lat001",
         "_score": null,
@@ -913,7 +913,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0130.lat001",
         "_score": null,
@@ -952,7 +952,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0132.lat001",
         "_score": null,
@@ -991,7 +991,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0133.lat001",
         "_score": null,
@@ -1030,7 +1030,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0134.lat001",
         "_score": null,
@@ -1069,7 +1069,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0135.lat001",
         "_score": null,
@@ -1108,7 +1108,7 @@
         ]
       },
       {
-        "_index": "echternach_v24",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0136.lat001",
         "_score": null,
@@ -1147,7 +1147,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0109.lat001",
         "_score": null,
@@ -1192,7 +1192,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0117.lat001",
         "_score": null,
@@ -1231,7 +1231,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0135.lat001",
         "_score": null,
@@ -1342,12 +1342,12 @@
           "max_date": "0803-07-20",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -1357,7 +1357,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0136.lat001",
         "_score": null,
@@ -1396,7 +1396,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0137.lat001",
         "_score": null,
@@ -1435,7 +1435,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0138.lat001",
         "_score": null,
@@ -1575,13 +1575,13 @@
           "min_date": "0790-07-14",
           "max_date": "0808-07-14",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -1591,7 +1591,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0145.lat001",
         "_score": null,
@@ -1630,7 +1630,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0146.lat001",
         "_score": null,
@@ -1669,7 +1669,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0147.lat001",
         "_score": null,
@@ -1708,7 +1708,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0148.lat001",
         "_score": null,
@@ -1747,7 +1747,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0149.lat001",
         "_score": null,
@@ -1786,7 +1786,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0150.lat001",
         "_score": null,
@@ -1825,7 +1825,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0157.lat001",
         "_score": null,
@@ -1905,12 +1905,12 @@
           "min_date": "0792-05-12",
           "max_date": "0800-05-12",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
             "Tuesday",
-            "Sunday"
+            "Thursday",
+            "Sunday",
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -1920,7 +1920,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0158.lat001",
         "_score": null,
@@ -2024,13 +2024,13 @@
           "min_date": "0792-06-12",
           "max_date": "0804-06-12",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2040,7 +2040,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0159.lat001",
         "_score": null,
@@ -2079,7 +2079,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0160.lat001",
         "_score": null,
@@ -2207,13 +2207,13 @@
           "min_date": "0792-08-01",
           "max_date": "0808-08-01",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2223,7 +2223,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0161.lat001",
         "_score": null,
@@ -2351,13 +2351,13 @@
           "min_date": "0792-08-01",
           "max_date": "0808-08-01",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2367,7 +2367,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0162.lat001",
         "_score": null,
@@ -2495,13 +2495,13 @@
           "min_date": "0792-08-01",
           "max_date": "0808-08-01",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -2511,7 +2511,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0163.lat001",
         "_score": null,
@@ -2550,7 +2550,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0164.lat001",
         "_score": null,
@@ -2589,7 +2589,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0166.lat001",
         "_score": null,
@@ -2628,7 +2628,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0167.lat001",
         "_score": null,
@@ -2667,7 +2667,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0168.lat001",
         "_score": null,
@@ -2706,7 +2706,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0169.lat001",
         "_score": null,
@@ -2745,7 +2745,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0173.lat001",
         "_score": null,
@@ -2784,7 +2784,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0174.lat001",
         "_score": null,
@@ -2823,7 +2823,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0178.lat001",
         "_score": null,
@@ -2873,11 +2873,11 @@
           "min_date": "0799-02-17",
           "max_date": "0802-02-17",
           "days": [
-            "Lent",
+            "Wednesday",
             "Thursday",
-            "Monday",
             "Sunday",
-            "Wednesday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2887,7 +2887,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0179.lat001",
         "_score": null,
@@ -2937,10 +2937,10 @@
           "min_date": "0799-11-26",
           "max_date": "0802-11-26",
           "days": [
-            "Thursday",
-            "Saturday",
+            "Friday",
             "Tuesday",
-            "Friday"
+            "Thursday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -2950,7 +2950,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0180.lat001",
         "_score": null,
@@ -3000,9 +3000,9 @@
           "min_date": "0799-06-23",
           "max_date": "0802-06-23",
           "days": [
-            "Thursday",
-            "Tuesday",
             "Wednesday",
+            "Tuesday",
+            "Thursday",
             "Sunday"
           ],
           "sort_prefix": 1
@@ -3013,7 +3013,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0181.lat001",
         "_score": null,
@@ -3050,7 +3050,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0234.lat001",
         "_score": null,
@@ -3089,7 +3089,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0289.lat001",
         "_score": null,
@@ -3135,7 +3135,7 @@
         ]
       },
       {
-        "_index": "freising_v24",
+        "_index": "freising_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:freising.bitterauf0592.lat001",
         "_score": null,
@@ -3767,13 +3767,13 @@
           "min_date": "0730-04-27",
           "max_date": "0830-04-27",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -3783,7 +3783,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0148.lat001",
         "_score": null,
@@ -3822,7 +3822,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0159.lat001",
         "_score": null,
@@ -3862,8 +3862,8 @@
           "min_date": "0780-01-01",
           "max_date": "0802-12-31",
           "days": [
-            "Saturday",
-            "Lent"
+            "Lent",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -3873,7 +3873,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0166.lat001",
         "_score": null,
@@ -3912,7 +3912,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0168.lat001",
         "_score": null,
@@ -3951,7 +3951,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0169.lat001",
         "_score": null,
@@ -3990,7 +3990,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0170.lat001",
         "_score": null,
@@ -4029,7 +4029,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0171.lat001",
         "_score": null,
@@ -4068,7 +4068,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0180.lat001",
         "_score": null,
@@ -4107,7 +4107,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0193.lat001",
         "_score": null,
@@ -4146,7 +4146,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0194.lat001",
         "_score": null,
@@ -4185,7 +4185,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0221.lat001",
         "_score": null,
@@ -4224,7 +4224,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0222.lat001",
         "_score": null,
@@ -4263,7 +4263,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0224.lat001",
         "_score": null,
@@ -4302,7 +4302,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0246.lat001",
         "_score": null,
@@ -4341,7 +4341,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0263.lat001",
         "_score": null,
@@ -4383,7 +4383,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0264.lat002",
         "_score": null,
@@ -4432,7 +4432,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0264.lat003",
         "_score": null,
@@ -4481,7 +4481,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0265.lat001",
         "_score": null,
@@ -4532,7 +4532,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0266.lat001",
         "_score": null,
@@ -4574,7 +4574,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0267.lat001",
         "_score": null,
@@ -4616,7 +4616,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0268.lat001",
         "_score": null,
@@ -4658,7 +4658,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0268.lat002",
         "_score": null,
@@ -4700,7 +4700,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0269.lat001",
         "_score": null,
@@ -4750,7 +4750,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0270.lat001",
         "_score": null,
@@ -4792,7 +4792,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0271.lat001",
         "_score": null,
@@ -4831,7 +4831,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0272.lat001",
         "_score": null,
@@ -4870,7 +4870,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0273.lat001",
         "_score": null,
@@ -4909,7 +4909,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0274.lat001",
         "_score": null,
@@ -4948,7 +4948,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0289.lat001",
         "_score": null,
@@ -4987,7 +4987,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0290.lat001",
         "_score": null,
@@ -5026,7 +5026,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0291.lat001",
         "_score": null,
@@ -5065,7 +5065,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0292.lat001",
         "_score": null,
@@ -5104,7 +5104,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0293.lat001",
         "_score": null,
@@ -5143,7 +5143,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0294.lat001",
         "_score": null,
@@ -5182,7 +5182,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0295.lat001",
         "_score": null,
@@ -5221,7 +5221,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0296.lat001",
         "_score": null,
@@ -5260,7 +5260,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0297.lat001",
         "_score": null,
@@ -5299,7 +5299,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0298.lat001",
         "_score": null,
@@ -5338,7 +5338,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0299.lat001",
         "_score": null,
@@ -5377,7 +5377,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0300.lat001",
         "_score": null,
@@ -5416,7 +5416,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0301.lat001",
         "_score": null,
@@ -5455,7 +5455,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0302.lat001",
         "_score": null,
@@ -5494,7 +5494,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0303.lat001",
         "_score": null,
@@ -5533,7 +5533,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0304.lat001",
         "_score": null,
@@ -5572,7 +5572,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0305.lat001",
         "_score": null,
@@ -5611,7 +5611,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0306.lat001",
         "_score": null,
@@ -5650,7 +5650,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0307.lat001",
         "_score": null,
@@ -5689,7 +5689,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0308.lat001",
         "_score": null,
@@ -5728,7 +5728,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0309.lat001",
         "_score": null,
@@ -5767,7 +5767,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0310.lat001",
         "_score": null,
@@ -5806,7 +5806,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0311.lat001",
         "_score": null,
@@ -5845,7 +5845,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0312.lat001",
         "_score": null,
@@ -5884,7 +5884,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0313.lat001",
         "_score": null,
@@ -5923,7 +5923,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0314.lat001",
         "_score": null,
@@ -5962,7 +5962,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0315.lat001",
         "_score": null,
@@ -6001,7 +6001,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0316.lat001",
         "_score": null,
@@ -6040,7 +6040,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0317.lat001",
         "_score": null,
@@ -6079,7 +6079,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0318.lat001",
         "_score": null,
@@ -6118,7 +6118,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0319.lat001",
         "_score": null,
@@ -6157,7 +6157,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0320.lat001",
         "_score": null,
@@ -6196,7 +6196,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0322.lat001",
         "_score": null,
@@ -6235,7 +6235,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0323.lat001",
         "_score": null,
@@ -6274,7 +6274,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0324.lat001",
         "_score": null,
@@ -6313,7 +6313,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0325.lat001",
         "_score": null,
@@ -6352,7 +6352,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0326.lat001",
         "_score": null,
@@ -6391,7 +6391,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0327.lat001",
         "_score": null,
@@ -6430,7 +6430,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0328.lat001",
         "_score": null,
@@ -6469,7 +6469,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0329.lat001",
         "_score": null,
@@ -6508,7 +6508,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0330.lat001",
         "_score": null,
@@ -6547,7 +6547,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0331.lat001",
         "_score": null,
@@ -6586,7 +6586,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0332.lat001",
         "_score": null,
@@ -6625,7 +6625,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0333.lat001",
         "_score": null,
@@ -6664,7 +6664,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0334.lat001",
         "_score": null,
@@ -6703,7 +6703,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0335.lat001",
         "_score": null,
@@ -6742,7 +6742,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0336.lat001",
         "_score": null,
@@ -6781,7 +6781,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0337.lat001",
         "_score": null,
@@ -6820,7 +6820,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0338.lat001",
         "_score": null,
@@ -6859,7 +6859,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0339.lat001",
         "_score": null,
@@ -6898,7 +6898,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0340.lat001",
         "_score": null,
@@ -6937,7 +6937,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0341.lat001",
         "_score": null,
@@ -6976,7 +6976,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0342.lat001",
         "_score": null,
@@ -7015,7 +7015,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0343.lat001",
         "_score": null,
@@ -7054,7 +7054,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0344.lat001",
         "_score": null,
@@ -7093,7 +7093,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0345.lat001",
         "_score": null,
@@ -7132,7 +7132,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0346.lat001",
         "_score": null,
@@ -7171,7 +7171,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0347.lat001",
         "_score": null,
@@ -7210,7 +7210,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0348.lat001",
         "_score": null,
@@ -7249,7 +7249,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0349.lat001",
         "_score": null,
@@ -7288,7 +7288,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0350.lat001",
         "_score": null,
@@ -7327,7 +7327,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0351.lat001",
         "_score": null,
@@ -7366,7 +7366,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0352.lat001",
         "_score": null,
@@ -7405,7 +7405,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0353.lat001",
         "_score": null,
@@ -7444,7 +7444,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0354.lat001",
         "_score": null,
@@ -7483,7 +7483,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0355.lat001",
         "_score": null,
@@ -7522,7 +7522,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0356.lat001",
         "_score": null,
@@ -7561,7 +7561,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0357.lat001",
         "_score": null,
@@ -7600,7 +7600,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0358.lat001",
         "_score": null,
@@ -7639,7 +7639,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0359.lat001",
         "_score": null,
@@ -7678,7 +7678,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0360.lat001",
         "_score": null,
@@ -7717,7 +7717,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0361.lat001",
         "_score": null,
@@ -7756,7 +7756,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0362.lat001",
         "_score": null,
@@ -7795,7 +7795,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0363.lat001",
         "_score": null,
@@ -7834,7 +7834,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0363.lat002",
         "_score": null,
@@ -7873,7 +7873,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0364.lat001",
         "_score": null,
@@ -7912,7 +7912,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0365.lat001",
         "_score": null,
@@ -7951,7 +7951,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0366.lat001",
         "_score": null,
@@ -7990,7 +7990,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0367.lat001",
         "_score": null,
@@ -8029,7 +8029,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0368.lat001",
         "_score": null,
@@ -8068,7 +8068,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0369.lat001",
         "_score": null,
@@ -8107,7 +8107,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0370.lat001",
         "_score": null,
@@ -8146,7 +8146,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0371.lat001",
         "_score": null,
@@ -8185,7 +8185,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0372.lat001",
         "_score": null,
@@ -8224,7 +8224,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0373.lat001",
         "_score": null,
@@ -8263,7 +8263,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0374.lat001",
         "_score": null,
@@ -8302,7 +8302,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0375.lat001",
         "_score": null,
@@ -8341,7 +8341,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0376.lat001",
         "_score": null,
@@ -8380,7 +8380,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0377.lat001",
         "_score": null,
@@ -8419,7 +8419,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0378.lat001",
         "_score": null,
@@ -8458,7 +8458,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0379.lat001",
         "_score": null,
@@ -8497,7 +8497,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0380.lat001",
         "_score": null,
@@ -8536,7 +8536,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0381.lat001",
         "_score": null,
@@ -8575,7 +8575,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0382.lat001",
         "_score": null,
@@ -8614,7 +8614,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0383.lat001",
         "_score": null,
@@ -8653,7 +8653,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0384.lat001",
         "_score": null,
@@ -8692,7 +8692,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0385.lat001",
         "_score": null,
@@ -8731,7 +8731,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0386.lat001",
         "_score": null,
@@ -8770,7 +8770,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0387.lat001",
         "_score": null,
@@ -8809,7 +8809,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0388.lat001",
         "_score": null,
@@ -8848,7 +8848,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0389.lat001",
         "_score": null,
@@ -8887,7 +8887,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0390.lat001",
         "_score": null,
@@ -8926,7 +8926,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0391.lat001",
         "_score": null,
@@ -8965,7 +8965,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0392.lat001",
         "_score": null,
@@ -9004,7 +9004,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0393.lat001",
         "_score": null,
@@ -9043,7 +9043,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0394.lat001",
         "_score": null,
@@ -9082,7 +9082,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0395.lat001",
         "_score": null,
@@ -9121,7 +9121,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0396.lat001",
         "_score": null,
@@ -9160,7 +9160,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0397.lat001",
         "_score": null,
@@ -9199,7 +9199,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0398.lat001",
         "_score": null,
@@ -9238,7 +9238,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0399.lat001",
         "_score": null,
@@ -9277,7 +9277,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0400.lat001",
         "_score": null,
@@ -9316,7 +9316,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0401.lat001",
         "_score": null,
@@ -9355,7 +9355,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0402.lat001",
         "_score": null,
@@ -9394,7 +9394,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0403.lat001",
         "_score": null,
@@ -9433,7 +9433,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0404.lat001",
         "_score": null,
@@ -9472,7 +9472,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0404.lat002",
         "_score": null,
@@ -9511,7 +9511,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0405.lat001",
         "_score": null,
@@ -9550,7 +9550,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0406.lat001",
         "_score": null,
@@ -9589,7 +9589,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0407.lat001",
         "_score": null,
@@ -9628,7 +9628,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0408.lat001",
         "_score": null,
@@ -9667,7 +9667,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0409.lat001",
         "_score": null,
@@ -9706,7 +9706,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0410.lat001",
         "_score": null,
@@ -9745,7 +9745,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0411.lat001",
         "_score": null,
@@ -9784,7 +9784,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0412.lat001",
         "_score": null,
@@ -9823,7 +9823,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0413.lat001",
         "_score": null,
@@ -9862,7 +9862,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0414.lat001",
         "_score": null,
@@ -9901,7 +9901,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0415.lat001",
         "_score": null,
@@ -9940,7 +9940,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0416.lat001",
         "_score": null,
@@ -9979,7 +9979,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0417.lat001",
         "_score": null,
@@ -10018,7 +10018,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0418.lat001",
         "_score": null,
@@ -10057,7 +10057,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0419.lat001",
         "_score": null,
@@ -10096,7 +10096,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0420.lat002",
         "_score": null,
@@ -10135,7 +10135,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0420.lat003",
         "_score": null,
@@ -10174,7 +10174,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0421.lat001",
         "_score": null,
@@ -10213,7 +10213,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0422.lat001",
         "_score": null,
@@ -10252,7 +10252,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0423.lat001",
         "_score": null,
@@ -10291,7 +10291,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0424.lat001",
         "_score": null,
@@ -10330,7 +10330,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0425.lat001",
         "_score": null,
@@ -10369,7 +10369,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0426.lat001",
         "_score": null,
@@ -10408,7 +10408,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0427.lat001",
         "_score": null,
@@ -10447,7 +10447,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0428.lat001",
         "_score": null,
@@ -10486,7 +10486,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0429.lat001",
         "_score": null,
@@ -10525,7 +10525,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0430.lat001",
         "_score": null,
@@ -10564,7 +10564,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0431.lat001",
         "_score": null,
@@ -10603,7 +10603,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0432.lat003",
         "_score": null,
@@ -10642,7 +10642,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0432.lat004",
         "_score": null,
@@ -10681,7 +10681,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0433.lat001",
         "_score": null,
@@ -10720,7 +10720,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0434.lat001",
         "_score": null,
@@ -10759,7 +10759,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0435.lat001",
         "_score": null,
@@ -10798,7 +10798,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0436.lat001",
         "_score": null,
@@ -10837,7 +10837,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0437.lat001",
         "_score": null,
@@ -10876,7 +10876,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0438.lat001",
         "_score": null,
@@ -10915,7 +10915,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0439.lat001",
         "_score": null,
@@ -10954,7 +10954,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0440.lat001",
         "_score": null,
@@ -10993,7 +10993,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0441.lat001",
         "_score": null,
@@ -11032,7 +11032,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0442.lat001",
         "_score": null,
@@ -11071,7 +11071,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0443.lat001",
         "_score": null,
@@ -11110,7 +11110,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0444.lat001",
         "_score": null,
@@ -11149,7 +11149,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0445.lat001",
         "_score": null,
@@ -11188,7 +11188,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0446.lat001",
         "_score": null,
@@ -11227,7 +11227,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0447.lat001",
         "_score": null,
@@ -11266,7 +11266,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0448.lat001",
         "_score": null,
@@ -11305,7 +11305,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0449.lat001",
         "_score": null,
@@ -11344,7 +11344,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0450.lat001",
         "_score": null,
@@ -11383,7 +11383,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0451.lat001",
         "_score": null,
@@ -11422,7 +11422,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0452.lat001",
         "_score": null,
@@ -11461,7 +11461,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0453.lat001",
         "_score": null,
@@ -11500,7 +11500,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0454.lat001",
         "_score": null,
@@ -11539,7 +11539,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0455.lat001",
         "_score": null,
@@ -11578,7 +11578,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0456.lat001",
         "_score": null,
@@ -11617,7 +11617,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0457.lat001",
         "_score": null,
@@ -11656,7 +11656,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0458.lat001",
         "_score": null,
@@ -11695,7 +11695,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0459.lat001",
         "_score": null,
@@ -11734,7 +11734,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0460.lat001",
         "_score": null,
@@ -11773,7 +11773,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0461.lat001",
         "_score": null,
@@ -11812,7 +11812,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0462.lat001",
         "_score": null,
@@ -11851,7 +11851,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0463.lat001",
         "_score": null,
@@ -11890,7 +11890,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0464.lat001",
         "_score": null,
@@ -11929,7 +11929,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0465.lat001",
         "_score": null,
@@ -11968,7 +11968,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0466.lat001",
         "_score": null,
@@ -12007,7 +12007,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0467.lat001",
         "_score": null,
@@ -12046,7 +12046,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0468.lat001",
         "_score": null,
@@ -12085,7 +12085,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0469.lat001",
         "_score": null,
@@ -12124,7 +12124,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0470.lat001",
         "_score": null,
@@ -12163,7 +12163,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0471.lat001",
         "_score": null,
@@ -12202,7 +12202,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0472.lat001",
         "_score": null,
@@ -12241,7 +12241,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0473.lat001",
         "_score": null,
@@ -12280,7 +12280,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0474.lat001",
         "_score": null,
@@ -12319,7 +12319,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0475.lat001",
         "_score": null,
@@ -12358,7 +12358,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0476.lat001",
         "_score": null,
@@ -12397,7 +12397,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0477.lat001",
         "_score": null,
@@ -12436,7 +12436,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0478.lat001",
         "_score": null,
@@ -12475,7 +12475,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0479.lat001",
         "_score": null,
@@ -12514,7 +12514,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0480.lat001",
         "_score": null,
@@ -12553,7 +12553,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0481.lat001",
         "_score": null,
@@ -12592,7 +12592,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0482.lat001",
         "_score": null,
@@ -12631,7 +12631,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0483.lat001",
         "_score": null,
@@ -12670,7 +12670,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0484.lat001",
         "_score": null,
@@ -12709,7 +12709,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0485.lat001",
         "_score": null,
@@ -12748,7 +12748,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0486.lat001",
         "_score": null,
@@ -12787,7 +12787,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0487.lat001",
         "_score": null,
@@ -12826,7 +12826,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0488.lat001",
         "_score": null,
@@ -12865,7 +12865,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0489.lat001",
         "_score": null,
@@ -12904,7 +12904,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0490.lat001",
         "_score": null,
@@ -12943,7 +12943,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0491.lat001",
         "_score": null,
@@ -12982,7 +12982,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0492.lat001",
         "_score": null,
@@ -13021,7 +13021,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0493.lat001",
         "_score": null,
@@ -13060,7 +13060,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0494.lat001",
         "_score": null,
@@ -13099,7 +13099,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0495.lat001",
         "_score": null,
@@ -13138,7 +13138,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0496.lat001",
         "_score": null,
@@ -13177,7 +13177,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0497.lat001",
         "_score": null,
@@ -13216,7 +13216,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0498.lat001",
         "_score": null,
@@ -13255,7 +13255,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0499.lat001",
         "_score": null,
@@ -13294,7 +13294,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0500.lat001",
         "_score": null,
@@ -13333,7 +13333,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0501.lat001",
         "_score": null,
@@ -13372,7 +13372,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0502.lat001",
         "_score": null,
@@ -13411,7 +13411,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0503.lat001",
         "_score": null,
@@ -13450,7 +13450,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0504.lat001",
         "_score": null,
@@ -13489,7 +13489,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0505.lat001",
         "_score": null,
@@ -13528,7 +13528,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0506.lat001",
         "_score": null,
@@ -13567,7 +13567,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0507.lat001",
         "_score": null,
@@ -13606,7 +13606,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0508.lat001",
         "_score": null,
@@ -13645,7 +13645,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0509.lat001",
         "_score": null,
@@ -13684,7 +13684,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0510.lat001",
         "_score": null,
@@ -13723,7 +13723,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0511.lat001",
         "_score": null,
@@ -13762,7 +13762,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0512.lat001",
         "_score": null,
@@ -13801,7 +13801,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0513.lat001",
         "_score": null,
@@ -13840,7 +13840,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0514.lat001",
         "_score": null,
@@ -13879,7 +13879,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0515.lat001",
         "_score": null,
@@ -13918,7 +13918,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0516.lat001",
         "_score": null,
@@ -13957,7 +13957,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0517.lat001",
         "_score": null,
@@ -13996,7 +13996,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0518.lat001",
         "_score": null,
@@ -14035,7 +14035,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0519.lat001",
         "_score": null,
@@ -14074,7 +14074,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0520.lat001",
         "_score": null,
@@ -14113,7 +14113,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0521.lat001",
         "_score": null,
@@ -14152,7 +14152,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0521.lat002",
         "_score": null,
@@ -14191,7 +14191,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0522.lat001",
         "_score": null,
@@ -14230,7 +14230,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0523.lat001",
         "_score": null,
@@ -14269,7 +14269,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0524.lat001",
         "_score": null,
@@ -14308,7 +14308,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0525.lat001",
         "_score": null,
@@ -14347,7 +14347,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0526.lat001",
         "_score": null,
@@ -14386,7 +14386,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0527.lat001",
         "_score": null,
@@ -14550,13 +14550,13 @@
           "min_date": "0780-02-07",
           "max_date": "0802-02-07",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
             "Wednesday",
-            "Monday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -14567,7 +14567,7 @@
         ]
       },
       {
-        "_index": "fulda_stengel_v24",
+        "_index": "fulda_stengel_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:fulda_stengel.stengel0528.lat001",
         "_score": null,
@@ -14606,7 +14606,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v24",
+        "_index": "hersfeld_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0022.lat001",
         "_score": null,
@@ -14645,7 +14645,7 @@
         ]
       },
       {
-        "_index": "hersfeld_v24",
+        "_index": "hersfeld_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:hersfeld.weirich0038.lat001",
         "_score": null,
@@ -14684,7 +14684,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0003.lat001",
         "_score": null,
@@ -14723,7 +14723,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0004.lat001",
         "_score": null,
@@ -14762,7 +14762,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0005.lat001",
         "_score": null,
@@ -14801,7 +14801,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0012.lat001",
         "_score": null,
@@ -14840,7 +14840,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0013.lat001",
         "_score": null,
@@ -14879,7 +14879,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0022.lat001",
         "_score": null,
@@ -14918,7 +14918,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0023.lat001",
         "_score": null,
@@ -14957,7 +14957,7 @@
         ]
       },
       {
-        "_index": "katalonien_v24",
+        "_index": "katalonien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:katalonien.vinyals_urgellesglésiamaria_0001.lat001",
         "_score": null,
@@ -14996,7 +14996,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0154.lat001",
         "_score": null,
@@ -15035,7 +15035,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0160.lat001",
         "_score": null,
@@ -15074,7 +15074,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0167.lat001",
         "_score": null,
@@ -15113,7 +15113,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0168.lat001",
         "_score": null,
@@ -15152,7 +15152,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0169.lat001",
         "_score": null,
@@ -15191,7 +15191,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0170.lat001",
         "_score": null,
@@ -15230,7 +15230,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0277.lat001",
         "_score": null,
@@ -15269,7 +15269,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0359.lat001",
         "_score": null,
@@ -15421,14 +15421,14 @@
           "min_date": "0784-03-15",
           "max_date": "0804-03-15",
           "days": [
-            "Lent",
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -15438,7 +15438,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0447.lat001",
         "_score": null,
@@ -15584,13 +15584,13 @@
           "min_date": "0785-01-25",
           "max_date": "0804-01-25",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -15600,7 +15600,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0467.lat001",
         "_score": null,
@@ -15642,7 +15642,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0478.lat001",
         "_score": null,
@@ -15681,7 +15681,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0527.lat001",
         "_score": null,
@@ -15833,13 +15833,13 @@
           "min_date": "0784-06-05",
           "max_date": "0804-06-05",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -15849,7 +15849,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0573.lat001",
         "_score": null,
@@ -16014,12 +16014,12 @@
           "max_date": "0804-08-27",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -16029,7 +16029,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0651.lat001",
         "_score": null,
@@ -16071,7 +16071,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0830.lat001",
         "_score": null,
@@ -16113,7 +16113,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0963.lat001",
         "_score": null,
@@ -16152,7 +16152,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0995.lat001",
         "_score": null,
@@ -16194,7 +16194,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1037.lat001",
         "_score": null,
@@ -16233,7 +16233,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1058.lat001",
         "_score": null,
@@ -16325,13 +16325,13 @@
           "min_date": "0793-10-15",
           "max_date": "0803-10-15",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -16341,7 +16341,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1186.lat001",
         "_score": null,
@@ -16383,7 +16383,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1209.lat001",
         "_score": null,
@@ -16536,12 +16536,12 @@
           "max_date": "0804-04-18",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -16552,7 +16552,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1218.lat001",
         "_score": null,
@@ -16591,7 +16591,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1224.lat001",
         "_score": null,
@@ -16630,7 +16630,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1225.lat001",
         "_score": null,
@@ -16669,7 +16669,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
         "_score": null,
@@ -17391,14 +17391,14 @@
           "min_date": "0765-04-17",
           "max_date": "0880-04-17",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
             "Wednesday",
-            "Monday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -17409,7 +17409,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
         "_score": null,
@@ -18131,14 +18131,14 @@
           "min_date": "0765-04-18",
           "max_date": "0880-04-18",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -18149,7 +18149,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1293.lat001",
         "_score": null,
@@ -18188,7 +18188,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1316.lat001",
         "_score": null,
@@ -18227,7 +18227,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1320.lat001",
         "_score": null,
@@ -18266,7 +18266,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1326.lat001",
         "_score": null,
@@ -18419,12 +18419,12 @@
           "max_date": "0804-09-26",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -18434,7 +18434,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1344.lat001",
         "_score": null,
@@ -18473,7 +18473,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1403.lat001",
         "_score": null,
@@ -18510,7 +18510,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1429.lat001",
         "_score": null,
@@ -18662,14 +18662,14 @@
           "min_date": "0784-03-15",
           "max_date": "0804-03-15",
           "days": [
-            "Lent",
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -18679,7 +18679,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1430.lat001",
         "_score": null,
@@ -18831,14 +18831,14 @@
           "min_date": "0784-03-15",
           "max_date": "0804-03-15",
           "days": [
-            "Lent",
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -18848,7 +18848,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1447.lat001",
         "_score": null,
@@ -19000,13 +19000,13 @@
           "min_date": "0784-06-12",
           "max_date": "0804-06-12",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -19016,7 +19016,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1468.lat001",
         "_score": null,
@@ -19053,7 +19053,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1509.lat001",
         "_score": null,
@@ -19092,7 +19092,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1542.lat001",
         "_score": null,
@@ -19131,7 +19131,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1547.lat001",
         "_score": null,
@@ -19168,7 +19168,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1597.lat001",
         "_score": null,
@@ -19207,7 +19207,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1624.lat001",
         "_score": null,
@@ -19246,7 +19246,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1639.lat001",
         "_score": null,
@@ -19398,14 +19398,14 @@
           "min_date": "0784-05-19",
           "max_date": "0804-05-19",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Pentecost",
-            "Wednesday"
+            "Saturday",
+            "Monday",
+            "Pentecost"
           ],
           "sort_prefix": 1
         },
@@ -19415,7 +19415,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1652.lat001",
         "_score": null,
@@ -19457,7 +19457,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1672.lat001",
         "_score": null,
@@ -19500,7 +19500,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1676.lat001",
         "_score": null,
@@ -19653,12 +19653,12 @@
           "max_date": "0804-06-06",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -19668,7 +19668,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1684.lat001",
         "_score": null,
@@ -19820,13 +19820,13 @@
           "min_date": "0784-06-12",
           "max_date": "0804-06-12",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -19836,7 +19836,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1692.lat001",
         "_score": null,
@@ -19971,12 +19971,12 @@
           "max_date": "0801-07-11",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -19986,7 +19986,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1708.lat001",
         "_score": null,
@@ -21812,13 +21812,13 @@
           "min_date": "0800-01-20",
           "max_date": "1099-01-20",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -21828,7 +21828,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1709.lat001",
         "_score": null,
@@ -22550,13 +22550,13 @@
           "min_date": "0765-11-20",
           "max_date": "0880-11-20",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -22566,7 +22566,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1711.lat001",
         "_score": null,
@@ -22605,7 +22605,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1724.lat001",
         "_score": null,
@@ -22751,13 +22751,13 @@
           "min_date": "0784-11-27",
           "max_date": "0803-11-27",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -22767,7 +22767,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1725.lat001",
         "_score": null,
@@ -22920,12 +22920,12 @@
           "max_date": "0804-03-05",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -22936,7 +22936,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1736.lat001",
         "_score": null,
@@ -23088,14 +23088,14 @@
           "min_date": "0784-06-03",
           "max_date": "0804-06-03",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Pentecost",
-            "Wednesday"
+            "Saturday",
+            "Monday",
+            "Pentecost"
           ],
           "sort_prefix": 1
         },
@@ -23105,7 +23105,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1756.lat001",
         "_score": null,
@@ -23144,7 +23144,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1784.lat001",
         "_score": null,
@@ -23296,13 +23296,13 @@
           "min_date": "0784-09-25",
           "max_date": "0804-09-25",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -23312,7 +23312,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1788.lat001",
         "_score": null,
@@ -23351,7 +23351,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1867.lat001",
         "_score": null,
@@ -23498,12 +23498,12 @@
           "max_date": "0803-11-05",
           "days": [
             "Friday",
-            "Saturday",
+            "Wednesday",
             "Thursday",
-            "Monday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -23513,7 +23513,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1880.lat001",
         "_score": null,
@@ -23552,7 +23552,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1897.lat001",
         "_score": null,
@@ -23705,12 +23705,12 @@
           "max_date": "0804-02-25",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
             "Wednesday",
-            "Monday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -23721,7 +23721,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1919.lat001",
         "_score": null,
@@ -23760,7 +23760,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1934.lat001",
         "_score": null,
@@ -23797,7 +23797,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1946.lat001",
         "_score": null,
@@ -23836,7 +23836,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2059.lat001",
         "_score": null,
@@ -23988,14 +23988,14 @@
           "min_date": "0784-05-18",
           "max_date": "0804-05-18",
           "days": [
-            "Thursday",
             "Friday",
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Sunday",
             "Saturday",
             "Monday",
-            "Tuesday",
-            "Sunday",
-            "Pentecost",
-            "Wednesday"
+            "Pentecost"
           ],
           "sort_prefix": 1
         },
@@ -24005,7 +24005,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2083.lat001",
         "_score": null,
@@ -24037,8 +24037,8 @@
           "min_date": "0800-04-16",
           "max_date": "0800-04-16",
           "days": [
-            "Thursday",
-            "Lent"
+            "Lent",
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -24048,7 +24048,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2092.lat001",
         "_score": null,
@@ -24090,7 +24090,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2122.lat001",
         "_score": null,
@@ -24242,13 +24242,13 @@
           "min_date": "0784-04-26",
           "max_date": "0804-04-26",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -24258,7 +24258,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2129.lat001",
         "_score": null,
@@ -24404,14 +24404,14 @@
           "min_date": "0785-02-08",
           "max_date": "0804-02-08",
           "days": [
-            "Lent",
-            "Thursday",
             "Friday",
+            "Wednesday",
+            "Tuesday",
+            "Thursday",
+            "Sunday",
             "Saturday",
             "Monday",
-            "Tuesday",
-            "Sunday",
-            "Wednesday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -24421,7 +24421,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2139.lat001",
         "_score": null,
@@ -24573,13 +24573,13 @@
           "min_date": "0784-06-24",
           "max_date": "0804-06-24",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -24589,7 +24589,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2171.lat001",
         "_score": null,
@@ -24631,7 +24631,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2175.lat001",
         "_score": null,
@@ -24670,7 +24670,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2331.lat001",
         "_score": null,
@@ -24709,7 +24709,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2383.lat001",
         "_score": null,
@@ -24748,7 +24748,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2435.lat001",
         "_score": null,
@@ -24787,7 +24787,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2468.lat001",
         "_score": null,
@@ -24829,7 +24829,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2506.lat001",
         "_score": null,
@@ -24871,7 +24871,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2509.lat001",
         "_score": null,
@@ -24910,7 +24910,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2580.lat001",
         "_score": null,
@@ -24949,7 +24949,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2582.lat001",
         "_score": null,
@@ -24988,7 +24988,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2664.lat001",
         "_score": null,
@@ -25027,7 +25027,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2687.lat001",
         "_score": null,
@@ -25066,7 +25066,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2689.lat001",
         "_score": null,
@@ -25105,7 +25105,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2698.lat001",
         "_score": null,
@@ -25147,7 +25147,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2707.lat001",
         "_score": null,
@@ -25186,7 +25186,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2856.lat001",
         "_score": null,
@@ -25228,7 +25228,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2867.lat001",
         "_score": null,
@@ -25270,7 +25270,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner2963.lat001",
         "_score": null,
@@ -25312,7 +25312,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3103.lat001",
         "_score": null,
@@ -25354,7 +25354,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3108.lat001",
         "_score": null,
@@ -25396,7 +25396,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3234.lat001",
         "_score": null,
@@ -25438,7 +25438,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3438.lat001",
         "_score": null,
@@ -25477,7 +25477,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3442.lat001",
         "_score": null,
@@ -25519,7 +25519,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3477.lat001",
         "_score": null,
@@ -25561,7 +25561,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3518.lat001",
         "_score": null,
@@ -25603,7 +25603,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3555.lat001",
         "_score": null,
@@ -25645,7 +25645,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3591.lat001",
         "_score": null,
@@ -25687,7 +25687,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3607.lat001",
         "_score": null,
@@ -25729,7 +25729,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3615.lat001",
         "_score": null,
@@ -25771,7 +25771,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3726.lat001",
         "_score": null,
@@ -25857,12 +25857,12 @@
           "min_date": "0795-04-02",
           "max_date": "0804-04-02",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -25873,7 +25873,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3774.lat001",
         "_score": null,
@@ -25915,7 +25915,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner3794.lat001",
         "_score": null,
@@ -25957,7 +25957,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4087.lat001",
         "_score": null,
@@ -25999,7 +25999,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4375.lat001",
         "_score": null,
@@ -26031,8 +26031,8 @@
           "min_date": "0800-04-15",
           "max_date": "0800-04-15",
           "days": [
-            "Lent",
-            "Wednesday"
+            "Wednesday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -26042,7 +26042,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4377.lat001",
         "_score": null,
@@ -26084,7 +26084,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4437.lat001",
         "_score": null,
@@ -26123,7 +26123,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4449.lat001",
         "_score": null,
@@ -26165,7 +26165,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner4462.lat001",
         "_score": null,
@@ -26204,7 +26204,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0001.lat001",
         "_score": null,
@@ -26243,7 +26243,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0002.lat001",
         "_score": null,
@@ -26282,7 +26282,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0003.lat001",
         "_score": null,
@@ -26321,7 +26321,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0004.lat001",
         "_score": null,
@@ -26360,7 +26360,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0005.lat001",
         "_score": null,
@@ -26399,7 +26399,7 @@
         ]
       },
       {
-        "_index": "luzern_v24",
+        "_index": "luzern_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:luzern.schiess0006.lat001",
         "_score": null,
@@ -26438,7 +26438,7 @@
         ]
       },
       {
-        "_index": "merowinger1_v24",
+        "_index": "merowinger1_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:merowinger1.koelzer0083.lat001",
         "_score": null,
@@ -26477,7 +26477,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v24",
+        "_index": "mittelrheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0013.lat001",
         "_score": null,
@@ -26516,7 +26516,7 @@
         ]
       },
       {
-        "_index": "mittelrheinisch_v24",
+        "_index": "mittelrheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mittelrheinisch.beyer0014.lat001",
         "_score": null,
@@ -26555,7 +26555,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
         "_score": null,
@@ -26608,7 +26608,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
         "_score": null,
@@ -26706,13 +26706,13 @@
           "min_date": "0789-05-16",
           "max_date": "0800-05-16",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Intitulatio": "Ego in dei nomine Alhart",
@@ -26738,7 +26738,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0012.lat001",
         "_score": null,
@@ -26789,10 +26789,13 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0018.lat001",
         "_score": null,
+        "_ignored": [
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -26995,13 +26998,13 @@
           "min_date": "0787-01-27",
           "max_date": "0816-01-27",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "Sacrosanctae aeclaesiae sancti Mihhaelis in loco, qui vocatur Maninseo",
@@ -27023,10 +27026,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -27541,13 +27548,13 @@
           "min_date": "0748-05-07",
           "max_date": "0829-05-07",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Arenga": "Vox evangelica tonet per orbem terrarum, qua dicitur: thesaurizate vobis thesauros in celo",
@@ -27575,10 +27582,13 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0036.lat001",
         "_score": null,
+        "_ignored": [
+          "Dispositio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -27622,7 +27632,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0041.lat001",
         "_score": null,
@@ -27671,7 +27681,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0043.lat001",
         "_score": null,
@@ -27722,7 +27732,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0046.lat001",
         "_score": null,
@@ -27769,7 +27779,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
         "_score": null,
@@ -27822,7 +27832,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
         "_score": null,
@@ -27877,7 +27887,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
         "_score": null,
@@ -27934,7 +27944,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0058.lat001",
         "_score": null,
@@ -27977,7 +27987,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0065.lat001",
         "_score": null,
@@ -28183,13 +28193,13 @@
           "min_date": "0787-03-29",
           "max_date": "0816-03-29",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1,
@@ -28214,10 +28224,15 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Pertinenzformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -28275,7 +28290,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0081.lat001",
         "_score": null,
@@ -28328,7 +28343,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0083.lat001",
         "_score": null,
@@ -28379,7 +28394,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0084.lat001",
         "_score": null,
@@ -28428,10 +28443,13 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
         "_score": null,
+        "_ignored": [
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -28479,7 +28497,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0094.lat001",
         "_score": null,
@@ -28530,10 +28548,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -28977,12 +28999,12 @@
           "max_date": "0800-08-06",
           "days": [
             "Friday",
+            "Wednesday",
             "Thursday",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -29014,10 +29036,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0097.lat001",
         "_score": null,
+        "_ignored": [
+          "Pertinenzformel.keyword",
+          "Dispositio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -29221,12 +29247,12 @@
           "max_date": "0816-07-25",
           "days": [
             "Friday",
-            "Saturday",
+            "Wednesday",
             "Thursday",
-            "Monday",
             "Tuesday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine patris et filii et spiritus sancti",
@@ -29250,10 +29276,14 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -29309,7 +29339,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0119.lat001",
         "_score": null,
@@ -29515,13 +29545,13 @@
           "min_date": "0787-09-30",
           "max_date": "0816-09-30",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine domini",
@@ -29547,7 +29577,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0124.lat001",
         "_score": null,
@@ -29753,13 +29783,13 @@
           "min_date": "0787-11-29",
           "max_date": "0816-11-29",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1,
           "Invocatio-oder-Inscriptio": "In nomine patris et filii et spiritus sancti",
@@ -29787,7 +29817,7 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0127.lat001",
         "_score": null,
@@ -29836,10 +29866,17 @@
         ]
       },
       {
-        "_index": "mondsee_v24",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Arenga.keyword",
+          "Pertinenzformel.keyword",
+          "Dispositio.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
@@ -29889,7 +29926,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0001.lat001",
         "_score": null,
@@ -29928,7 +29965,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0021.lat001",
         "_score": null,
@@ -29967,7 +30004,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0022.lat001",
         "_score": null,
@@ -30006,7 +30043,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0023.lat001",
         "_score": null,
@@ -30045,7 +30082,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0024.lat001",
         "_score": null,
@@ -30084,7 +30121,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0025.lat001",
         "_score": null,
@@ -30123,7 +30160,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0026.lat001",
         "_score": null,
@@ -30162,7 +30199,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0027.lat001",
         "_score": null,
@@ -30201,7 +30238,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0028.lat001",
         "_score": null,
@@ -30261,7 +30298,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0035.lat001",
         "_score": null,
@@ -30300,7 +30337,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0036.lat001",
         "_score": null,
@@ -30339,7 +30376,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0037.lat001",
         "_score": null,
@@ -30378,7 +30415,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0038.lat001",
         "_score": null,
@@ -30417,7 +30454,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0039.lat001",
         "_score": null,
@@ -30456,7 +30493,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0040.lat001",
         "_score": null,
@@ -30495,7 +30532,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0042.lat001",
         "_score": null,
@@ -30534,7 +30571,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0043.lat001",
         "_score": null,
@@ -30573,7 +30610,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0045.lat001",
         "_score": null,
@@ -30612,7 +30649,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0047.lat001",
         "_score": null,
@@ -30651,7 +30688,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0048.lat001",
         "_score": null,
@@ -30690,7 +30727,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0049.lat001",
         "_score": null,
@@ -30727,7 +30764,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0050.lat001",
         "_score": null,
@@ -30784,10 +30821,10 @@
           "max_date": "0804-02-27",
           "days": [
             "Thursday",
-            "Saturday",
-            "Monday",
             "Tuesday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -30798,7 +30835,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0051.lat001",
         "_score": null,
@@ -30837,7 +30874,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0052.lat001",
         "_score": null,
@@ -30876,7 +30913,7 @@
         ]
       },
       {
-        "_index": "passau_v24",
+        "_index": "passau_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:passau.heuwieser0053.lat001",
         "_score": null,
@@ -30915,7 +30952,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -30960,7 +30997,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0004.lat001",
         "_score": null,
@@ -31005,7 +31042,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0005.lat001",
         "_score": null,
@@ -31050,7 +31087,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -31095,7 +31132,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0007.lat001",
         "_score": null,
@@ -31140,7 +31177,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0008.lat001",
         "_score": null,
@@ -31185,7 +31222,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0009.lat001",
         "_score": null,
@@ -31224,7 +31261,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0010.lat001",
         "_score": null,
@@ -31273,7 +31310,7 @@
         ]
       },
       {
-        "_index": "redon_v24",
+        "_index": "redon_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0091.lat001",
         "_score": null,
@@ -33705,13 +33742,13 @@
           "min_date": "0600-02-14",
           "max_date": "1000-02-14",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -33722,7 +33759,7 @@
         ]
       },
       {
-        "_index": "redon_v24",
+        "_index": "redon_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0097.lat001",
         "_score": null,
@@ -34348,13 +34385,13 @@
           "min_date": "0800-02-09",
           "max_date": "0899-02-09",
           "days": [
-            "Thursday",
             "Friday",
-            "Saturday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -34365,7 +34402,7 @@
         ]
       },
       {
-        "_index": "redon_v24",
+        "_index": "redon_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0166.lat001",
         "_score": null,
@@ -34404,7 +34441,7 @@
         ]
       },
       {
-        "_index": "redon_v24",
+        "_index": "redon_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:redon.courson0298.lat001",
         "_score": null,
@@ -36837,12 +36874,12 @@
           "max_date": "1000-07-17",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -36852,7 +36889,7 @@
         ]
       },
       {
-        "_index": "regensburg_v24",
+        "_index": "regensburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0009.lat001",
         "_score": null,
@@ -36891,7 +36928,7 @@
         ]
       },
       {
-        "_index": "regensburg_v24",
+        "_index": "regensburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:regensburg.wiedemann0037.lat001",
         "_score": null,
@@ -36930,7 +36967,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v24",
+        "_index": "rheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0052.lat001",
         "_score": null,
@@ -36969,7 +37006,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v24",
+        "_index": "rheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0215.lat001",
         "_score": null,
@@ -37008,7 +37045,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v24",
+        "_index": "rheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0311.lat001",
         "_score": null,
@@ -37047,7 +37084,7 @@
         ]
       },
       {
-        "_index": "rheinisch_v24",
+        "_index": "rheinisch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:rheinisch.wisplinghoff0312.lat001",
         "_score": null,
@@ -37086,7 +37123,7 @@
         ]
       },
       {
-        "_index": "saint_bénigne_v15",
+        "_index": "saint_bénigne_v16",
         "_type": "_doc",
         "_id": "urn:cts:formulae:saint_bénigne.maurice0009.lat001",
         "_score": null,
@@ -37125,7 +37162,7 @@
         ]
       },
       {
-        "_index": "saint_bénigne_v15",
+        "_index": "saint_bénigne_v16",
         "_type": "_doc",
         "_id": "urn:cts:formulae:saint_bénigne.maurice0022.lat001",
         "_score": null,
@@ -37164,7 +37201,7 @@
         ]
       },
       {
-        "_index": "saint_bénigne_v15",
+        "_index": "saint_bénigne_v16",
         "_type": "_doc",
         "_id": "urn:cts:formulae:saint_bénigne.maurice0026.lat001",
         "_score": null,
@@ -37203,7 +37240,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0007.lat001",
         "_score": null,
@@ -37242,7 +37279,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0008.lat001",
         "_score": null,
@@ -37281,7 +37318,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0009.lat001",
         "_score": null,
@@ -37320,7 +37357,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
         "_score": null,
@@ -37412,13 +37449,13 @@
           "min_date": "0790-10-09",
           "max_date": "0800-10-09",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -37428,7 +37465,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
         "_score": null,
@@ -37520,13 +37557,13 @@
           "min_date": "0790-10-09",
           "max_date": "0800-10-09",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -37536,7 +37573,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
         "_score": null,
@@ -37628,13 +37665,13 @@
           "min_date": "0790-10-09",
           "max_date": "0800-10-09",
           "days": [
-            "Saturday",
-            "Thursday",
             "Friday",
-            "Monday",
+            "Wednesday",
             "Tuesday",
+            "Thursday",
             "Sunday",
-            "Wednesday"
+            "Saturday",
+            "Monday"
           ],
           "sort_prefix": 1
         },
@@ -37644,7 +37681,7 @@
         ]
       },
       {
-        "_index": "schaeftlarn_v24",
+        "_index": "schaeftlarn_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:schaeftlarn.weissthanner0013.lat001",
         "_score": null,
@@ -37683,7 +37720,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0160.lat001",
         "_score": null,
@@ -37725,7 +37762,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0161.lat001",
         "_score": null,
@@ -37767,7 +37804,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0162.lat001",
         "_score": null,
@@ -37804,7 +37841,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0030.lat001",
         "_score": null,
@@ -37846,7 +37883,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0032.lat001",
         "_score": null,
@@ -37885,7 +37922,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0033.lat001",
         "_score": null,
@@ -37924,7 +37961,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0048.lat001",
         "_score": null,
@@ -37963,7 +38000,7 @@
         ]
       },
       {
-        "_index": "weissenburg_v24",
+        "_index": "weissenburg_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:weissenburg.gloeckner0196a.lat001",
         "_score": null,
@@ -38002,7 +38039,7 @@
         ]
       },
       {
-        "_index": "werden_v24",
+        "_index": "werden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:werden.block0018.lat001",
         "_score": null,
@@ -38044,7 +38081,7 @@
         ]
       },
       {
-        "_index": "werden_v24",
+        "_index": "werden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:werden.block0019.lat001",
         "_score": null,
@@ -38086,7 +38123,7 @@
         ]
       },
       {
-        "_index": "werden_v24",
+        "_index": "werden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:werden.block0020.lat001",
         "_score": null,
@@ -38128,7 +38165,7 @@
         ]
       },
       {
-        "_index": "werden_v24",
+        "_index": "werden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:werden.block0021.lat001",
         "_score": null,

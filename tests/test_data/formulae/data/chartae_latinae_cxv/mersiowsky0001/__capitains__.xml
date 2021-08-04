@@ -1,0 +1,35 @@
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns="http://purl.org/capitains/ns/1.0#" xmlns:cts="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001</identifier>
+   <parent>urn:cts:formulae:chartae_latinae_cxv</parent>
+   <dc:title xml:lang="deu">Nr. 1</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection readable="true" path="./chartae_latinae_cxv.mersiowsky0001.lat001.xml">
+         <identifier>urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001</identifier>
+         <parent>urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001</parent>
+         <dc:title xml:lang="deu">Chartae Latinae Antiquiores CXV (Germany IV), 1</dc:title>
+         <dc:description xml:lang="deu">Erkanfrida übergab vor einer Gerichtsversammlung am Ort Steinsel dem Grafen Adalhard und fünf weiteren Genannten ihre Erbgüter im Trierer comitatus im Bidgau am Ort Pfeffingen und im comitatus Ardennen am Ort Wampach und an einem dritten Ort genannt Mersch am Fluß Alzette, den Herrenhof mit allem zu ihm gehörenden Fiskalgut, den ihr verstorbener Mann ihr als Dotalgut gegeben hatte, ausgenommen die Kirche St. Michael mit allem, was dazu gehört, die sie St. Maximin geschenkt hatte. Sie ließ darüber ein Testament schreiben und ordnete gemäß der Verfügung ihres Gatten an, dass dessen nächsten Verwandten, die sechs Söhne seiner Schwester Irminburg, Sohn und Tochter seiner Schwester Rimigart mit Namen Reginbold und Thiodrat und der Sohn seiner Schwester Thetbirg, die villa Mersch erwerben könnten, wenn sie bis zum 40. Tag nach Erkanfridas Tod 100 Pfund in Gold und Silber aufbrächten und nach einem im Einzelnen genau festgelegten Schlüssel an zwanzig namentlich aufgeführte Klöster in genau festgelegter Höhe zum Gedächtnis an Erkanfrida, ihre Eltern und ihren Gatten Nithad verteilten. Die neun Neffen und Nichten sollten Mersch, das ihnen auf keinen Fall vor der Zahlung des Preises übertragen werden durfte, zu gleichen Teilen unter sich aufteilen. Andernfalls sollten die Treuhänder die genannten Güter als elemosina Erkanfridas und Nithards an die Orte der Heiligen verteilen. Sie nahm die Kirche St. Michael als Gabe an die Kirche an St. Maximin von dieser Regelung aus, weil sie diese nach ihrem Tod zum Gedächtnis ihres Gatten und ihrer selbst für St. Maximin bestimmt hat. Für ihre Besitzungen in Pfeffingen bestimmte sie, dass wenn Bernardus daraus 30 Pfund bezahlt, diese Summe nach ihrem Tod an Prüm für einen Anniversartag gegeben werde. Sollte er den Preis nicht zahlen, sollten die Güter zu ihrem Gedächtnis an Prüm geschenkt werden. Den Besitz in Wampach bestimmte ihr Gatte den Kindern des Bernhard, ausgenommen die Kirche und die Güter, die Burgiridus ihrem Gatten im Ort Skizzana gab. Diese Kirche und diese Güter befahl er an Prüm zu geben.</dc:description>
+         <dc:language>lat</dc:language>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Alexander Mueller (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Nils Krüger</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Morgane Pica (Praktikantin, Ecole nationale des Chartes, Paris, Frankreich)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>http://d-nb.info/1187672181</dc:source>
+         <structured-metadata>
+            <dct:abstract/>
+            <bib:editor>Mark Mersiowsky</bib:editor>
+            <dct:dateCopyrighted>2019</dct:dateCopyrighted>
+            <dct:created>2021</dct:created>
+            <dct:bibliographicCitation>Mark &lt;span class="surname"&gt;Mersiowsky&lt;/span&gt;, Chartae Latinae Antiquiores CXV (Germany IV), Dietikon-Zurich 2019, [URI: &lt;a target="_blank" href="http://d-nb.info/1187672181"&gt;http://d-nb.info/1187672181&lt;/a&gt;], S.18-20.</dct:bibliographicCitation>
+            <dct:temporal>0853</dct:temporal>
+            <dct:spatial/>
+         <dct:source>BERLIN, STAATSBIBLIOTHEK ZU BERLIN, Preussischer Kulturbesitz, HandschriftenabteilungMs. lat. fol. 729</dct:source></structured-metadata>
+      </collection>
+   </members>
+</collection>

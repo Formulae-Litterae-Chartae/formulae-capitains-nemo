@@ -1,0 +1,96 @@
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="deu">
+      <fileDesc>
+         <titleStmt>
+            <title>Chartae Latinae Antiquiores XI (Germany II) (Ed. Bruckner) Nr. 507</title>
+         </titleStmt>
+         <editionStmt>
+            <edition>Chartae Latinae Antiquiores XI (Germany II) (Ed. Bruckner)</edition>
+            <respStmt>
+               <resp>Projektleiter</resp>
+               <resp xml:lang="eng">Principal investigator</resp>
+               <persName>Prof. Dr. Philippe Depreux (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Korrektur</resp>
+               <resp xml:lang="eng">Proofreading</resp>
+               <persName>Alexander Mueller (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Dokument- und Urkundenbearbeitung</resp>
+               <resp xml:lang="eng">Initial charter processing</resp>
+               <persName>Nils Krüger (Studentische Hilfskraft, Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Hauptentwickler</resp>
+               <resp xml:lang="eng">Lead developer</resp>
+               <persName>Dr. Matthew Munson (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Umwandlung in XML/TEI</resp>
+               <resp xml:lang="eng">Conversion into XML</resp>
+               <persName xml:lang="mul">Morgane Pica (Praktikantin, Ecole nationale des Chartes,
+                  Paris, Frankreich)</persName>
+            </respStmt>
+         </editionStmt>
+         <publicationStmt>
+            <publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</publisher>
+            <pubPlace>Hamburg</pubPlace>
+            <date when="2021"/>
+            <availability>
+               <licence corresp="urn:cts:formulae:chartae_latinae_xi.bruckner0507.lat001" target="https://creativecommons.org/licenses/by/4.0/">Distributed under a Creative
+                  Commons Attribution 4.0 International License.</licence>
+               <licence corresp="#chartae_latinae_xi.bruckner0507/front">All Rights
+                  Reserved.</licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <biblStruct>
+               <monogr>
+                  <idno type="URI">http://d-nb.info/800295471</idno>
+                  <idno type="ISBN">978-3-85951-131-6</idno>
+                  <title>Chartae Latinae Antiquiores XI (Germany II)</title>
+                  <editor>Albrecht Bruckner</editor>
+                  <imprint>
+                     <pubPlace>Dietikon-Zurich</pubPlace>
+                     <date when="1979" n="originalAusgabe">1979</date>
+                     <biblScope unit="pp">60</biblScope>
+                  </imprint>
+               </monogr>
+               <series>
+                  <biblScope unit="volume">Pt. 11., Germany 2, Berlin (West), Bundesrepublik
+                     Deutschland u. Dt. Demokrat. Republik</biblScope>
+               </series>
+            </biblStruct>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Bei dieser Datei handelt es sich um eine OCR-bearbeitete Transkription von Chartae
+            Latinae antiquiores Teil: Pt. 11., Germany: 2, Berlin (West), Bundesrepublik Deutschland
+            u. Dt. Demokrat. Republik, welches 1979 von Albrecht Bruckner herausgegeben worden ist.
+            Die OCR-Texte wurden korrigiert und in gemäß TEI-P5-Vorgaben in einzelne
+            XML-TEI-Dateien, umgewandelt. Auf dieser Grundlage und unter Einhaltung der
+            CapiTainS-Vorgaben wurde die Formulae-Litterae-Chartae-Projektdatenbank erstellt.</p>
+         <refsDecl n="CTS">
+            <cRefPattern matchPattern="(.+)" n="charta" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])"/>
+         </refsDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text type="charta" xml:id="chartae_latinae_xi.bruckner0507">
+      <front xml:lang="deu">
+         <div type="section" subtype="regest">
+            <p xml:space="preserve"></p>
+         </div>
+         <dateline>Um 800<date/> <date notBefore="0790-01-01" notAfter="0810-12-31"/>
+         </dateline>
+      </front>
+      <body>
+         <div type="edition" xml:lang="lat" n="urn:cts:formulae:chartae_latinae_xi.bruckner0507.lat001">
+            <div type="textpart" subtype="charta" n="1">
+               <p xml:space="preserve"><w>Some</w> <w>text</w>.</p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

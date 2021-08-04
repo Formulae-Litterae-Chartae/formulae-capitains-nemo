@@ -34,6 +34,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Chartae Latinae</b>: Chartae Latinae XII': {'match': {'collection': 'chartae_latinae_xii'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVI': {'match': {'collection': 'chartae_latinae_xlvi'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVII': {'match': {'collection': 'chartae_latinae_xlvii'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae CXV': {'match': {'collection': 'chartae_latinae_cxv'}},
                                       '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'saint_bénigne'}},
                                       '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
                                       '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},

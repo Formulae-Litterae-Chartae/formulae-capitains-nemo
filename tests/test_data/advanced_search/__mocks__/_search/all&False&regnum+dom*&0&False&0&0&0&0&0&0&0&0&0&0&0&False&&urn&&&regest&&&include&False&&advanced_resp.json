@@ -1,9 +1,9 @@
 {
-  "took": 125,
+  "took": 138,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v24",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -47,7 +47,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v24",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -79,7 +79,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -375,14 +375,14 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Saturday",
             "Friday",
-            "Monday",
             "Wednesday",
+            "Thursday",
             "Tuesday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -398,7 +398,7 @@
         ]
       },
       {
-        "_index": "buenden_v24",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -623,13 +623,13 @@
           "max_date": "0813-03-31",
           "days": [
             "Friday",
-            "Saturday",
-            "Thursday",
             "Wednesday",
-            "Monday",
             "Tuesday",
+            "Thursday",
             "Sunday",
+            "Saturday",
             "Easter",
+            "Monday",
             "Lent"
           ],
           "sort_prefix": 1
@@ -645,7 +645,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -692,7 +692,7 @@
         ]
       },
       {
-        "_index": "lorsch_v24",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -739,7 +739,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -789,7 +789,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -839,7 +839,7 @@
         ]
       },
       {
-        "_index": "raetien_v24",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -877,8 +877,8 @@
           "min_date": "0858-02-12",
           "max_date": "0865-02-12",
           "days": [
-            "Saturday",
-            "Monday"
+            "Monday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
@@ -893,7 +893,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -940,7 +940,7 @@
         ]
       },
       {
-        "_index": "stgallen_v24",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -978,8 +978,8 @@
           "min_date": "0858-02-12",
           "max_date": "0865-02-12",
           "days": [
-            "Saturday",
-            "Monday"
+            "Monday",
+            "Saturday"
           ],
           "sort_prefix": 1
         },
