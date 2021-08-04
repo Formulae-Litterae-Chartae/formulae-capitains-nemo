@@ -410,7 +410,8 @@ class NemoFormulae(Nemo):
                                                                                     'urn:cts:formulae:katalonien',
                                                                                     'urn:cts:formulae:marmoutier_manceau',
                                                                                     'urn:cts:formulae:marmoutier_vendomois_appendix',
-                                                                                    'urn:cts:formulae:marmoutier_dunois']}
+                                                                                    'urn:cts:formulae:marmoutier_dunois']
+                     and 'urn:cts:formulae:' in m['id']}
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()],
                                     key=self.sort_katalonien)
@@ -428,7 +429,7 @@ class NemoFormulae(Nemo):
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
         for c in all_texts.keys():
-            parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values()]
+            parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values() if 'urn:cts:formulae:' in p.id]
             if set(self.OPEN_COLLECTIONS).intersection(parents + [c]):
                 open_texts += [x[1][0] for x in all_texts[c]]
             if set(self.HALF_OPEN_COLLECTIONS).intersection(parents + [c]):
