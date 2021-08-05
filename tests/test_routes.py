@@ -367,6 +367,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Navigating to the results page with no search args should redirect the user to the index
             c.get('/search/results', follow_redirects=True)
             self.assertIn('main::index.html', [x[0].name for x in self.templates])
+            c.get('/search/results?corpus=elexicon&source=simple', follow_redirects=True)
+            self.assertIn('search::search.html', [x[0].name for x in self.templates])
+            self.assertEqual(len(self.get_context_variable('posts')), 0,
+                             "Navigating to the results page from a simple search without q should return 0 results")
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             r = c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
