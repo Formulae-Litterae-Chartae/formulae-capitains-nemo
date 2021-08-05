@@ -1,9 +1,9 @@
 {
-  "took": 13,
+  "took": 20,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "arnulfinger_v17",
+        "_index": "arnulfinger_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Die Urkunden der Arnulfinger (Ed. Heidrich) Nr. 6",
+          "keywords": "",
           "urn": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "date_string": "714 03 02",
           "comp_ort": "Villa Bakel",
@@ -65,7 +66,7 @@
         ]
       },
       {
-        "_index": "echternach_v17",
+        "_index": "echternach_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:echternach.wampach0024.lat001",
         "_score": null,
@@ -74,6 +75,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:echternach.wampach0024.lat001",
           "date_string": "[714] 03 02",
           "comp_ort": "Bakel",

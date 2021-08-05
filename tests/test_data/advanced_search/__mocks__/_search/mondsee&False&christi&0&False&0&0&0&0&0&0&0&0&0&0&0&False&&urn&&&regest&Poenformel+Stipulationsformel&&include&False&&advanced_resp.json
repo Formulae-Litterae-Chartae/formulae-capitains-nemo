@@ -15,15 +15,23 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Arenga.keyword",
+          "Pertinenzformel.keyword",
+          "Dispositio.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 128",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0128.lat001",
           "date_string": "(Anfang 784- nach 799 04)",
           "comp_ort": "Buch/Wörth",
@@ -75,15 +83,23 @@
         ]
       },
       {
-        "_index": "mondsee_v17",
+        "_index": "mondsee_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
         "_score": null,
+        "_ignored": [
+          "Poenformel.keyword",
+          "Arenga.keyword",
+          "Pertinenzformel.keyword",
+          "Dispositio.keyword",
+          "Narratio.keyword"
+        ],
         "_source": {
           "text": "some real text",
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 134",
+          "keywords": "",
           "urn": "urn:cts:formulae:mondsee.rath0134.lat001",
           "date_string": "Anfang 748- vor 799 04 11",
           "comp_ort": "Langkampfen",

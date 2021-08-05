@@ -20,6 +20,7 @@ PyJWT>=2.1.0
 python-slugify>=1.2.1
 python-dotenv>=0.17.1
 rdflib<6.0.0
-reportlab>=3.5.67
-SQLAlchemy>=1.4.15
 redis>=3.5.3
+reportlab>=3.5.67
+roman>=3.3
+SQLAlchemy>=1.4.15

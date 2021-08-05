@@ -28,6 +28,7 @@ from copy import copy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
+import roman
 
 
 class NemoFormulae(Nemo):
@@ -409,7 +410,8 @@ class NemoFormulae(Nemo):
                                                                                     'urn:cts:formulae:katalonien',
                                                                                     'urn:cts:formulae:marmoutier_manceau',
                                                                                     'urn:cts:formulae:marmoutier_vendomois_appendix',
-                                                                                    'urn:cts:formulae:marmoutier_dunois']}
+                                                                                    'urn:cts:formulae:marmoutier_dunois']
+                     and 'urn:cts:formulae:' in m['id']}
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()],
                                     key=self.sort_katalonien)
@@ -427,7 +429,7 @@ class NemoFormulae(Nemo):
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
         for c in all_texts.keys():
-            parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values()]
+            parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values() if 'urn:cts:formulae:' in p.id]
             if set(self.OPEN_COLLECTIONS).intersection(parents + [c]):
                 open_texts += [x[1][0] for x in all_texts[c]]
             if set(self.HALF_OPEN_COLLECTIONS).intersection(parents + [c]):
@@ -719,6 +721,10 @@ class NemoFormulae(Nemo):
         for m in data['collections']['members']:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
         data['template'] = "main::sub_collections.html"
+        if 'chartae_latinae' in objectId:
+            data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: roman.fromRoman(str(self.resolver.getMetadata(x['id']).metadata.get_single(self.BIBO.AbbreviatedTitle)).split()[-1]))
+        else:
+            data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: x['label'])
         return data
 
     def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:

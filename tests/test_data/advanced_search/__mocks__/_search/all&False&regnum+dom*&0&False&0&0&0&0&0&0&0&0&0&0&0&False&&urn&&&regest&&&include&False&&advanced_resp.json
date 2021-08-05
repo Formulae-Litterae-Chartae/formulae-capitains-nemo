@@ -1,9 +1,9 @@
 {
-  "took": 17,
+  "took": 138,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -46,7 +47,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -55,6 +56,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -77,7 +79,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -86,6 +88,7 @@
           "lemmas": null,
           "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
@@ -372,15 +375,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
-            "Saturday",
-            "Lent",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
-            "Monday",
+            "Sunday",
+            "Saturday",
             "Easter",
-            "Sunday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -395,7 +398,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -404,6 +407,7 @@
           "lemmas": null,
           "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
@@ -618,15 +622,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
-            "Saturday",
-            "Lent",
+            "Wednesday",
             "Tuesday",
-            "Monday",
+            "Thursday",
+            "Sunday",
+            "Saturday",
             "Easter",
-            "Sunday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -641,7 +645,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
         "_score": null,
@@ -650,6 +654,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 966 (Reg. 1045)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
           "date_string": "774 06 29",
           "comp_ort": "Lorsch",
@@ -687,7 +692,7 @@
         ]
       },
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
         "_score": null,
@@ -696,6 +701,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 967 (Reg. 926)",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
           "date_string": "773 07 07",
           "comp_ort": "Lorsch",
@@ -733,7 +739,7 @@
         ]
       },
       {
-        "_index": "raetien_v17",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
         "_score": null,
@@ -742,6 +748,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 3",
+          "keywords": "",
           "urn": "urn:cts:formulae:raetien.erhart0003.lat001",
           "date_string": "768–800 [814]",
           "comp_ort": " ",
@@ -782,7 +789,7 @@
         ]
       },
       {
-        "_index": "raetien_v17",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
         "_score": null,
@@ -791,6 +798,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 6",
+          "keywords": "",
           "urn": "urn:cts:formulae:raetien.erhart0006.lat001",
           "date_string": "768–800 [814]",
           "comp_ort": " ",
@@ -831,7 +839,7 @@
         ]
       },
       {
-        "_index": "raetien_v17",
+        "_index": "raetien_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
         "_score": null,
@@ -840,6 +848,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenlandschaft Rätien (Ed. Erhart/Kleindinst) Nr. 44",
+          "keywords": "",
           "urn": "urn:cts:formulae:raetien.erhart0044.lat001",
           "date_string": "858/865 02 12",
           "comp_ort": "Grabs",
@@ -884,7 +893,7 @@
         ]
       },
       {
-        "_index": "stgallen_v17",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
         "_score": null,
@@ -893,6 +902,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 26",
+          "keywords": "",
           "urn": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "date_string": "762 08 20",
           "comp_ort": " ",
@@ -917,25 +927,7 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1,
-          "Invocatio": " In Christi nomine  ... In Christi nomine",
-          "Invocatio-lems": null,
-          "Intitulatio": " Ego Aimo quondam conmanens in pago Almania  ... Ego Aimo quondam conmanens in pago Almania",
-          "Intitulatio-lems": null,
-          "Narratio": " cogitans Dei intuitum vel divinam retributionem, ut de peccatis meis merear veniam promereri  ... cogitans Dei intuitum vel divinam retributionem, ut de peccatis meis merear veniam promereri",
-          "Narratio-lems": null,
-          "Dispositio": "dono a die presente donatumque in perpetuum esse volo ... perpetualiter ad possetendum, ut quiquid exinte facere voluerent, liberam in omnibus habeant potestatem faciendi  ... ut quiquid exinte facere voluerent, liberam in omnibus habeant potestatem faciendi",
-          "Dispositio-lems": null,
-          "Pertinenzformel": "hoc est in pago Turgauia loca noncopantes, quod nominatur Ailaghoga tam terris, mansis, domibus, edificiis, accolabus, mancipiis, peculiis, prediis, campis, pratis, pascuis, silvis, aquis aquarumve decursibus, adpendiciis vel iacentiis, mobilibus et inmovilibus, quicquid dici aut nominare potest, totum et integrum",
-          "Pertinenzformel-lems": null,
-          "Poenformel": " Siquis vero, quod fieri non credo, si ego ipse aut aliquis de heredibus meis aut ulla opposita persona, que contra hanc donationem, quam ego pro salute anime meae bona voluntate fieri rogavi, venire aut eam infrangere voluerit, inprimis si se ementare noluerit, iram Dei omnium sanctorum incurrat et penas inferni experire pertimiscat et ab omni eclesia excommunes abpareat  ... Siquis vero, quod fieri non credo, si ego ipse aut aliquis de heredibus meis aut ulla opposita persona, que contra hanc donationem, quam ego pro salute anime meae bona voluntate fieri rogavi, venire aut eam infrangere voluerit, inprimis si se ementare noluerit, iram Dei omnium sanctorum incurrat et penas inferni experire pertimiscat et ab omni eclesia excommunes abpareat ...  et insuper sociante fisco auri liberas quinque, argenti pondo dece coactus exsolvat et quod repetit nihil valeat vinticare et haec donatio a me facta omni tempore firma permaneat stipulatione subnixa  ... et insuper sociante fisco auri liberas quinque, argenti pondo dece coactus exsolvat",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "et quod repetit nihil valeat vinticare ... et haec donatio a me facta omni tempore firma permaneat stipulatione subnixa",
-          "Stipulationsformel-lems": null,
-          "Eschatokoll": " Actum in ipso monastirio sancti Gallones sub die quod fecet menses acustus dies XX  ... sub die quod fecet menses acustus dies XX ...  anno nono regnum domni nostri Pippini regis  ... anno nono regnum domni nostri Pippini regis ...  Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi  ... Ego Ilteri presbiter rogitus ab Aimoni scripsi et subscripsi",
-          "Eschatokoll-lems": null,
-          "Corroboratio": "Actum in ipso monastirio sancti Gallones",
-          "Corroboratio-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [
@@ -948,7 +940,7 @@
         ]
       },
       {
-        "_index": "stgallen_v17",
+        "_index": "stgallen_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
         "_score": null,
@@ -957,6 +949,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 458",
+          "keywords": "",
           "urn": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "date_string": "858 (865) 02 12",
           "comp_ort": "Grabs",
@@ -988,21 +981,7 @@
             "Monday",
             "Saturday"
           ],
-          "sort_prefix": 1,
-          "Invocatio": "In Christi nomine",
-          "Invocatio-lems": null,
-          "Eschatokoll": "Anno XXV pos regnum domni nostri Lodoici regis in Bavaria ... scripsi ego Cianus rogitus a Basilium, qui a vice fratres sui Petronos vel de suos infantes Valeriu et Silvanane cartam ad manu suscepit ad scribendum, ipsos presente mihique dictante et manus suas proprias subter firmantes ... Facta carta in villa Quaravedes, die quod est pridi kal. febr. Notavimus die et regnum superscripsi ... † Ego Cianus scripsi",
-          "Eschatokoll-lems": null,
-          "Dispositio": "Constat eum vendere et vendiderunt sup legitimum iure strumentorum ... vendo ... Et ipsum cortinum tradimus sine quarta et censo perpetualiter in proprietatem ad possidendum et ap omne omine defendendum",
-          "Dispositio-lems": null,
-          "Intitulatio": "ego Petrus",
-          "Intitulatio-lems": null,
-          "Pertinenzformel": "cortinum, que mihi advenit in fundo Quaravedes, que ocupatur iuso a vicum. Confinit in Auderamni et de alia parte in Baseli terra ex anno et de pomifera tercia parte ... Precium in contra ipsu cortinum seliquae XX, quod precium venditores ap emtore coram testibus de presente acciperunt",
-          "Pertinenzformel-lems": null,
-          "Poenformel": "Et si quis contra hanc cartam recausare voluerit ... solvat dubblas res, que in carta continet et iudici puvlico aurum liberam I",
-          "Poenformel-lems": null,
-          "Stipulationsformel": "et strumentus firmus permaneat Aquiliani Arglia lege supnixsa",
-          "Stipulationsformel-lems": null
+          "sort_prefix": 1
         },
         "highlight": {
           "text": [

@@ -1,21 +1,21 @@
 {
-  "took": 63,
+  "took": 88,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
   "hits": {
     "total": {
-      "value": 197,
+      "value": 192,
       "relation": "eq"
     },
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.computus.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers Weltzeitalter und computus",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.computus.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -46,7 +47,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
@@ -55,6 +56,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -77,7 +79,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form023.lat001",
         "_score": null,
@@ -86,6 +88,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers 23",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.form023.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -108,7 +111,7 @@
         ]
       },
       {
-        "_index": "andecavensis_v17",
+        "_index": "andecavensis_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
@@ -117,6 +120,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Angers 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:andecavensis.form034.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -139,7 +143,7 @@
         ]
       },
       {
-        "_index": "marculf_v17",
+        "_index": "marculf_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form000.lat001",
         "_score": null,
@@ -148,6 +152,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marculf Prolog",
+          "keywords": "",
           "urn": "urn:cts:formulae:marculf.form000.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -170,7 +175,7 @@
         ]
       },
       {
-        "_index": "marculf_v17",
+        "_index": "marculf_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marculf.form038.lat001",
         "_score": null,
@@ -179,6 +184,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marculf I,38",
+          "keywords": "",
           "urn": "urn:cts:formulae:marculf.form038.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -201,162 +207,7 @@
         ]
       },
       {
-        "_index": "marculf_v17",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:marculf.form2_001.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,1",
-          "urn": "urn:cts:formulae:marculf.form2_001.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "marculf",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_001.lat001"
-        ]
-      },
-      {
-        "_index": "marculf_v17",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:marculf.form2_003.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,3",
-          "urn": "urn:cts:formulae:marculf.form2_003.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "marculf",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_003.lat001"
-        ]
-      },
-      {
-        "_index": "marculf_v17",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:marculf.form2_006.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,6",
-          "urn": "urn:cts:formulae:marculf.form2_006.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "marculf",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_006.lat001"
-        ]
-      },
-      {
-        "_index": "marculf_v17",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:marculf.form2_017.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,17",
-          "urn": "urn:cts:formulae:marculf.form2_017.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "marculf",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_017.lat001"
-        ]
-      },
-      {
-        "_index": "marculf_v17",
-        "_type": "_doc",
-        "_id": "urn:cts:formulae:marculf.form2_049.lat001",
-        "_score": null,
-        "_source": {
-          "text": "some real text",
-          "lemmas": "lemma text",
-          "regest": "regest text",
-          "title": "Marculf II,49",
-          "urn": "urn:cts:formulae:marculf.form2_049.lat001",
-          "date_string": " ",
-          "comp_ort": " ",
-          "autocomplete": "autocomplete text",
-          "autocomplete_lemmas": "autocomplete lemma text",
-          "autocomplete_regest": "autocomplete regest text",
-          "orig_comp_ort": " ",
-          "collection": "marculf",
-          "forgery": false,
-          "sort_prefix": 0
-        },
-        "highlight": {
-          "lemmas": [
-            "lemma text"
-          ]
-        },
-        "sort": [
-          0,
-          "urn:cts:formulae:marculf.form2_049.lat001"
-        ]
-      },
-      {
-        "_index": "auvergne_v7",
+        "_index": "auvergne_v11",
         "_type": "_doc",
         "_id": "urn:cts:formulae:auvergne.form001.lat001",
         "_score": null,
@@ -387,7 +238,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
         "_score": null,
@@ -396,6 +247,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
           "date_string": "985 08 01-985 08 20",
           "comp_ort": " ",
@@ -430,7 +282,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001app.lat001",
         "_score": null,
@@ -439,6 +291,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0001app.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -473,7 +326,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
         "_score": null,
@@ -482,6 +335,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 2",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -516,7 +370,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002app.lat001",
         "_score": null,
@@ -525,6 +379,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 2",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0002app.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -559,7 +414,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0003.lat001",
         "_score": null,
@@ -568,6 +423,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 3",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0003.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -602,7 +458,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0003app.lat001",
         "_score": null,
@@ -611,6 +467,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 3",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0003app.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -645,7 +502,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0004.lat001",
         "_score": null,
@@ -654,6 +511,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 4",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0004.lat001",
           "date_string": "1032-1061",
           "comp_ort": " ",
@@ -688,7 +546,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0004app.lat001",
         "_score": null,
@@ -697,6 +555,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 4",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0004app.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -731,7 +590,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0005.lat001",
         "_score": null,
@@ -740,6 +599,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 5",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0005.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -774,7 +634,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0005app.lat001",
         "_score": null,
@@ -783,6 +643,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 5",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0005app.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -817,7 +678,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0006.lat001",
         "_score": null,
@@ -826,6 +687,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 6",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0006.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -860,7 +722,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0006app.lat001",
         "_score": null,
@@ -869,6 +731,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 6",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0006app.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -903,7 +766,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0007.lat001",
         "_score": null,
@@ -912,6 +775,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 7",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0007.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -946,7 +810,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001",
         "_score": null,
@@ -955,6 +819,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 7",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001",
           "date_string": "Circa 1040",
           "comp_ort": " ",
@@ -989,7 +854,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0008.lat001",
         "_score": null,
@@ -998,6 +863,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 8",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0008.lat001",
           "date_string": "1061-1081",
           "comp_ort": " ",
@@ -1032,7 +898,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0008app.lat001",
         "_score": null,
@@ -1041,6 +907,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 8",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0008app.lat001",
           "date_string": "1040-1041",
           "comp_ort": " ",
@@ -1075,7 +942,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0009.lat001",
         "_score": null,
@@ -1084,6 +951,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 9",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0009.lat001",
           "date_string": "1032-1060",
           "comp_ort": " ",
@@ -1118,7 +986,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001",
         "_score": null,
@@ -1127,6 +995,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 9",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001",
           "date_string": "1040-1075",
           "comp_ort": " ",
@@ -1161,7 +1030,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001",
         "_score": null,
@@ -1170,6 +1039,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 10",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001",
           "date_string": "1007-1010",
           "comp_ort": " ",
@@ -1204,7 +1074,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0010app.lat001",
         "_score": null,
@@ -1213,6 +1083,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 10",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0010app.lat001",
           "date_string": "1040-1080",
           "comp_ort": " ",
@@ -1247,7 +1118,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011.lat001",
         "_score": null,
@@ -1256,6 +1127,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 11",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0011.lat001",
           "date_string": "1053-1088",
           "comp_ort": " ",
@@ -1290,7 +1162,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
         "_score": null,
@@ -1299,6 +1171,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 11",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
           "date_string": "1046-1048",
           "comp_ort": " ",
@@ -1333,7 +1206,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0012.lat001",
         "_score": null,
@@ -1342,6 +1215,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 12",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0012.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -1376,7 +1250,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0012app.lat001",
         "_score": null,
@@ -1385,6 +1259,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 12",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0012app.lat001",
           "date_string": "1050-1060",
           "comp_ort": " ",
@@ -1419,7 +1294,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001",
         "_score": null,
@@ -1428,6 +1303,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 13",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001",
           "date_string": "1007, 1008, 1009",
           "comp_ort": " ",
@@ -1462,7 +1338,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
         "_score": null,
@@ -1471,6 +1347,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 13",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
           "date_string": "1050-1064",
           "comp_ort": " ",
@@ -1505,7 +1382,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0014.lat001",
         "_score": null,
@@ -1514,6 +1391,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 14",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0014.lat001",
           "date_string": "1032-1060",
           "comp_ort": " ",
@@ -1548,7 +1426,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0014app.lat001",
         "_score": null,
@@ -1557,6 +1435,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 14",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0014app.lat001",
           "date_string": "1050-1060",
           "comp_ort": " ",
@@ -1591,7 +1470,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
         "_score": null,
@@ -1600,6 +1479,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 15",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
           "date_string": "1032-1052",
           "comp_ort": " ",
@@ -1634,7 +1514,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015app.lat001",
         "_score": null,
@@ -1643,6 +1523,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 15",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0015app.lat001",
           "date_string": "1050-1084",
           "comp_ort": " ",
@@ -1677,7 +1558,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0016.lat001",
         "_score": null,
@@ -1686,6 +1567,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 16",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0016.lat001",
           "date_string": "1061",
           "comp_ort": " ",
@@ -1720,7 +1602,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0016app.lat001",
         "_score": null,
@@ -1729,6 +1611,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 16",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0016app.lat001",
           "date_string": "1050-1070",
           "comp_ort": " ",
@@ -1763,7 +1646,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017.lat001",
         "_score": null,
@@ -1772,6 +1655,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 17",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0017.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -1806,7 +1690,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
         "_score": null,
@@ -1815,6 +1699,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 17",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
           "date_string": "1056",
           "comp_ort": " ",
@@ -1849,7 +1734,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018.lat001",
         "_score": null,
@@ -1858,6 +1743,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 18",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0018.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -1892,7 +1778,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
         "_score": null,
@@ -1901,6 +1787,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 18",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
           "date_string": "Circa 1060",
           "comp_ort": " ",
@@ -1935,7 +1822,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0019.lat001",
         "_score": null,
@@ -1944,6 +1831,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 19",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0019.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -1978,7 +1866,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0019app.lat001",
         "_score": null,
@@ -1987,6 +1875,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 19",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0019app.lat001",
           "date_string": "1061",
           "comp_ort": " ",
@@ -2021,7 +1910,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0020.lat001",
         "_score": null,
@@ -2030,6 +1919,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 20",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0020.lat001",
           "date_string": "1061",
           "comp_ort": " ",
@@ -2064,7 +1954,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0020app.lat001",
         "_score": null,
@@ -2073,6 +1963,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 20",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0020app.lat001",
           "date_string": "Circa 1063",
           "comp_ort": " ",
@@ -2107,7 +1998,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
         "_score": null,
@@ -2116,6 +2007,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 21",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2150,7 +2042,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021app.lat001",
         "_score": null,
@@ -2159,6 +2051,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 21",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0021app.lat001",
           "date_string": "1064",
           "comp_ort": " ",
@@ -2193,7 +2086,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0022.lat001",
         "_score": null,
@@ -2202,6 +2095,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 22",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0022.lat001",
           "date_string": "1062",
           "comp_ort": " ",
@@ -2236,7 +2130,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0022app.lat001",
         "_score": null,
@@ -2245,6 +2139,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 22",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0022app.lat001",
           "date_string": "1064",
           "comp_ort": " ",
@@ -2279,7 +2174,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0023.lat001",
         "_score": null,
@@ -2288,6 +2183,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 23",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0023.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2322,7 +2218,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0023app.lat001",
         "_score": null,
@@ -2331,6 +2227,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 23",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0023app.lat001",
           "date_string": "1064",
           "comp_ort": " ",
@@ -2365,7 +2262,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
         "_score": null,
@@ -2374,6 +2271,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2408,7 +2306,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024app.lat001",
         "_score": null,
@@ -2417,6 +2315,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0024app.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -2451,7 +2350,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0025.lat001",
         "_score": null,
@@ -2460,6 +2359,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 25",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0025.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2494,7 +2394,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0025app.lat001",
         "_score": null,
@@ -2503,6 +2403,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 25",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0025app.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -2537,7 +2438,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0026.lat001",
         "_score": null,
@@ -2546,6 +2447,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 26",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0026.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2580,7 +2482,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0026app.lat001",
         "_score": null,
@@ -2589,6 +2491,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 26",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0026app.lat001",
           "date_string": "1066",
           "comp_ort": " ",
@@ -2623,7 +2526,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
         "_score": null,
@@ -2632,6 +2535,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2666,7 +2570,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027app.lat001",
         "_score": null,
@@ -2675,6 +2579,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0027app.lat001",
           "date_string": "1067 06",
           "comp_ort": " ",
@@ -2709,7 +2614,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0028.lat001",
         "_score": null,
@@ -2718,6 +2623,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 28",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0028.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2752,7 +2658,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001",
         "_score": null,
@@ -2761,6 +2667,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 28",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001",
           "date_string": "1069 02",
           "comp_ort": " ",
@@ -2795,7 +2702,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
         "_score": null,
@@ -2804,6 +2711,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 29",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2838,7 +2746,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029app.lat001",
         "_score": null,
@@ -2847,6 +2755,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 29",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0029app.lat001",
           "date_string": "1070",
           "comp_ort": " ",
@@ -2881,7 +2790,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0030.lat001",
         "_score": null,
@@ -2890,6 +2799,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 30",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0030.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -2924,7 +2834,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0030app.lat001",
         "_score": null,
@@ -2933,6 +2843,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 30",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0030app.lat001",
           "date_string": "Circa 1071",
           "comp_ort": " ",
@@ -2967,7 +2878,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0031.lat001",
         "_score": null,
@@ -2976,6 +2887,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 31",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0031.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3010,7 +2922,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0031app.lat001",
         "_score": null,
@@ -3019,6 +2931,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 31",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0031app.lat001",
           "date_string": "1077",
           "comp_ort": " ",
@@ -3053,7 +2966,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0032.lat001",
         "_score": null,
@@ -3062,6 +2975,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 32",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0032.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3096,7 +3010,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0032app.lat001",
         "_score": null,
@@ -3105,6 +3019,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 32",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0032app.lat001",
           "date_string": "1080-1097",
           "comp_ort": " ",
@@ -3139,7 +3054,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0033.lat001",
         "_score": null,
@@ -3148,6 +3063,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 33",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0033.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3182,7 +3098,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0033app.lat001",
         "_score": null,
@@ -3191,6 +3107,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 33",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0033app.lat001",
           "date_string": "1080-1111",
           "comp_ort": " ",
@@ -3225,7 +3142,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0034.lat001",
         "_score": null,
@@ -3234,6 +3151,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0034.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3268,7 +3186,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0034app.lat001",
         "_score": null,
@@ -3277,6 +3195,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 34",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0034app.lat001",
           "date_string": "1084-1100",
           "comp_ort": " ",
@@ -3311,7 +3230,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0035.lat001",
         "_score": null,
@@ -3320,6 +3239,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 35",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0035.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3354,7 +3274,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0035app.lat001",
         "_score": null,
@@ -3363,6 +3283,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 35",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0035app.lat001",
           "date_string": "1084-1100",
           "comp_ort": " ",
@@ -3397,7 +3318,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0036.lat001",
         "_score": null,
@@ -3406,6 +3327,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 36",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0036.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3440,7 +3362,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0036app.lat001",
         "_score": null,
@@ -3449,6 +3371,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 36",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0036app.lat001",
           "date_string": "1087 06 06",
           "comp_ort": " ",
@@ -3483,7 +3406,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0037.lat001",
         "_score": null,
@@ -3492,6 +3415,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 37",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0037.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3526,7 +3450,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001",
         "_score": null,
@@ -3535,6 +3459,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 37",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001",
           "date_string": "1087 11 07",
           "comp_ort": " ",
@@ -3569,7 +3494,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0038.lat001",
         "_score": null,
@@ -3578,6 +3503,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 38",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0038.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3612,7 +3538,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0038app.lat001",
         "_score": null,
@@ -3621,6 +3547,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 38",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0038app.lat001",
           "date_string": "Circa 1089",
           "comp_ort": " ",
@@ -3655,7 +3582,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0039.lat001",
         "_score": null,
@@ -3664,6 +3591,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 39",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0039.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3698,7 +3626,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0039app.lat001",
         "_score": null,
@@ -3707,6 +3635,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 39",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0039app.lat001",
           "date_string": "1092",
           "comp_ort": " ",
@@ -3741,7 +3670,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0040.lat001",
         "_score": null,
@@ -3750,6 +3679,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 40",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0040.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3784,7 +3714,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0040app.lat001",
         "_score": null,
@@ -3793,6 +3723,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 40",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0040app.lat001",
           "date_string": "1095",
           "comp_ort": " ",
@@ -3827,7 +3758,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
         "_score": null,
@@ -3836,6 +3767,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 41",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -3870,7 +3802,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041app.lat001",
         "_score": null,
@@ -3879,6 +3811,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 41",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0041app.lat001",
           "date_string": "1095",
           "comp_ort": " ",
@@ -3913,7 +3846,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0042.lat001",
         "_score": null,
@@ -3922,6 +3855,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 42",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0042.lat001",
           "date_string": "1062",
           "comp_ort": " ",
@@ -3956,7 +3890,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0042app.lat001",
         "_score": null,
@@ -3965,6 +3899,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 42",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0042app.lat001",
           "date_string": "1097",
           "comp_ort": " ",
@@ -3999,7 +3934,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0043.lat001",
         "_score": null,
@@ -4008,6 +3943,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 43",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0043.lat001",
           "date_string": "1053-1064",
           "comp_ort": " ",
@@ -4042,7 +3978,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0043app.lat001",
         "_score": null,
@@ -4051,6 +3987,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 43",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0043app.lat001",
           "date_string": "1099",
           "comp_ort": " ",
@@ -4085,7 +4022,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
         "_score": null,
@@ -4094,6 +4031,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 44",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
           "date_string": "1023-1052",
           "comp_ort": " ",
@@ -4128,7 +4066,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044app.lat001",
         "_score": null,
@@ -4137,6 +4075,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 44",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0044app.lat001",
           "date_string": "1102",
           "comp_ort": " ",
@@ -4171,7 +4110,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
         "_score": null,
@@ -4180,6 +4119,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 45",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -4214,7 +4154,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045app.lat001",
         "_score": null,
@@ -4223,6 +4163,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 45",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0045app.lat001",
           "date_string": "1104-1124",
           "comp_ort": " ",
@@ -4257,7 +4198,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
         "_score": null,
@@ -4266,6 +4207,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 46",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -4300,7 +4242,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046app.lat001",
         "_score": null,
@@ -4309,6 +4251,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 46",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0046app.lat001",
           "date_string": "1104-1124",
           "comp_ort": " ",
@@ -4343,7 +4286,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0047.lat001",
         "_score": null,
@@ -4352,6 +4295,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 47",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0047.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -4386,7 +4330,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001",
         "_score": null,
@@ -4395,6 +4339,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 47",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001",
           "date_string": "1104-1124",
           "comp_ort": " ",
@@ -4429,7 +4374,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0048.lat001",
         "_score": null,
@@ -4438,6 +4383,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 48",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0048.lat001",
           "date_string": "1032-1061",
           "comp_ort": " ",
@@ -4472,7 +4418,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001",
         "_score": null,
@@ -4481,6 +4427,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 48",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001",
           "date_string": "1107",
           "comp_ort": " ",
@@ -4515,7 +4462,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0049.lat001",
         "_score": null,
@@ -4524,6 +4471,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 49",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0049.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -4558,7 +4506,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001",
         "_score": null,
@@ -4567,6 +4515,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 49",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001",
           "date_string": "1108-1125",
           "comp_ort": " ",
@@ -4601,7 +4550,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
         "_score": null,
@@ -4610,6 +4559,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 50",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
           "date_string": "1029, 1030, 1031",
           "comp_ort": " ",
@@ -4644,7 +4594,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050app.lat001",
         "_score": null,
@@ -4653,6 +4603,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 50",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0050app.lat001",
           "date_string": "1113",
           "comp_ort": " ",
@@ -4687,7 +4638,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0051.lat001",
         "_score": null,
@@ -4696,6 +4647,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 51",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0051.lat001",
           "date_string": "1046-1064",
           "comp_ort": " ",
@@ -4730,7 +4682,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0051app.lat001",
         "_score": null,
@@ -4739,6 +4691,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 51",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0051app.lat001",
           "date_string": "1113-1114",
           "comp_ort": " ",
@@ -4773,7 +4726,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
         "_score": null,
@@ -4782,6 +4735,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 52",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
           "date_string": "1022, 1023, 1024",
           "comp_ort": " ",
@@ -4816,7 +4770,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052app.lat001",
         "_score": null,
@@ -4825,6 +4779,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 52",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0052app.lat001",
           "date_string": "1125",
           "comp_ort": " ",
@@ -4859,7 +4814,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001",
         "_score": null,
@@ -4868,6 +4823,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 53",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -4902,7 +4858,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001",
         "_score": null,
@@ -4911,6 +4867,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 53",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001",
           "date_string": "1136",
           "comp_ort": " ",
@@ -4945,7 +4902,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0054.lat001",
         "_score": null,
@@ -4954,6 +4911,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 54",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0054.lat001",
           "date_string": "980-1032",
           "comp_ort": " ",
@@ -4988,7 +4946,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0054app.lat001",
         "_score": null,
@@ -4997,6 +4955,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 54",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0054app.lat001",
           "date_string": "1142",
           "comp_ort": " ",
@@ -5031,7 +4990,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055.lat001",
         "_score": null,
@@ -5040,6 +4999,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 55",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0055.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5074,7 +5034,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
         "_score": null,
@@ -5083,6 +5043,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 55",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
           "date_string": "1163",
           "comp_ort": " ",
@@ -5117,7 +5078,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
         "_score": null,
@@ -5126,6 +5087,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 56",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
           "date_string": "1015-1032",
           "comp_ort": " ",
@@ -5160,7 +5122,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056app.lat001",
         "_score": null,
@@ -5169,6 +5131,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 56",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0056app.lat001",
           "date_string": "1178-1199",
           "comp_ort": " ",
@@ -5203,7 +5166,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0057.lat001",
         "_score": null,
@@ -5212,6 +5175,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 57",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0057.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5246,7 +5210,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0057app.lat001",
         "_score": null,
@@ -5255,6 +5219,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 57",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0057app.lat001",
           "date_string": "1184",
           "comp_ort": " ",
@@ -5289,7 +5254,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0058.lat001",
         "_score": null,
@@ -5298,6 +5263,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 58",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0058.lat001",
           "date_string": "1000-1100",
           "comp_ort": " ",
@@ -5332,7 +5298,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0058app.lat001",
         "_score": null,
@@ -5341,6 +5307,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 58",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0058app.lat001",
           "date_string": "1186",
           "comp_ort": " ",
@@ -5375,7 +5342,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001",
         "_score": null,
@@ -5384,6 +5351,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 59",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001",
           "date_string": "980-1032",
           "comp_ort": " ",
@@ -5418,7 +5386,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001",
         "_score": null,
@@ -5427,6 +5395,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 59",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001",
           "date_string": "1195",
           "comp_ort": " ",
@@ -5461,7 +5430,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0060.lat001",
         "_score": null,
@@ -5470,6 +5439,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 60",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0060.lat001",
           "date_string": "1000-1100",
           "comp_ort": " ",
@@ -5504,7 +5474,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0060app.lat001",
         "_score": null,
@@ -5513,6 +5483,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 60",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0060app.lat001",
           "date_string": "1199",
           "comp_ort": " ",
@@ -5547,7 +5518,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0061.lat001",
         "_score": null,
@@ -5556,6 +5527,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 61",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0061.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -5590,7 +5562,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0062.lat001",
         "_score": null,
@@ -5599,6 +5571,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 62",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0062.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5633,7 +5606,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001",
         "_score": null,
@@ -5642,6 +5615,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 63",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001",
           "date_string": "1007-1010",
           "comp_ort": " ",
@@ -5676,7 +5650,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0064.lat001",
         "_score": null,
@@ -5685,6 +5659,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 64",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0064.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5719,7 +5694,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
         "_score": null,
@@ -5728,6 +5703,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 65",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
           "date_string": "1032-1100",
           "comp_ort": " ",
@@ -5762,7 +5738,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0066.lat001",
         "_score": null,
@@ -5771,6 +5747,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 66",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0066.lat001",
           "date_string": "1062",
           "comp_ort": " ",
@@ -5805,7 +5782,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0067.lat001",
         "_score": null,
@@ -5814,6 +5791,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 67",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0067.lat001",
           "date_string": "1062",
           "comp_ort": " ",
@@ -5848,7 +5826,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0068.lat001",
         "_score": null,
@@ -5857,6 +5835,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 68",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0068.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5891,7 +5870,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0069.lat001",
         "_score": null,
@@ -5900,6 +5879,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 69",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0069.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -5934,7 +5914,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0070.lat001",
         "_score": null,
@@ -5943,6 +5923,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 70",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0070.lat001",
           "date_string": "1032-1100",
           "comp_ort": " ",
@@ -5977,7 +5958,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001",
         "_score": null,
@@ -5986,6 +5967,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 71",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001",
           "date_string": "1048-1062",
           "comp_ort": " ",
@@ -6020,7 +6002,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0072.lat001",
         "_score": null,
@@ -6029,6 +6011,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 72",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0072.lat001",
           "date_string": "990-1000",
           "comp_ort": " ",
@@ -6051,7 +6034,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0073.lat001",
         "_score": null,
@@ -6060,6 +6043,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 73",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0073.lat001",
           "date_string": "958-987",
           "comp_ort": " ",
@@ -6094,7 +6078,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0074.lat001",
         "_score": null,
@@ -6103,6 +6087,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 74",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0074.lat001",
           "date_string": "1032-1100",
           "comp_ort": " ",
@@ -6137,7 +6122,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0075.lat001",
         "_score": null,
@@ -6146,6 +6131,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 75",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0075.lat001",
           "date_string": "1053-1068",
           "comp_ort": " ",
@@ -6180,7 +6166,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0076.lat001",
         "_score": null,
@@ -6189,6 +6175,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 76",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0076.lat001",
           "date_string": "1069 01 22",
           "comp_ort": " ",
@@ -6223,7 +6210,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0077.lat001",
         "_score": null,
@@ -6232,6 +6219,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 77",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0077.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6266,7 +6254,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
         "_score": null,
@@ -6275,6 +6263,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 78",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6309,7 +6298,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0079.lat001",
         "_score": null,
@@ -6318,6 +6307,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 79",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0079.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6352,7 +6342,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0080.lat001",
         "_score": null,
@@ -6361,6 +6351,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 80",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0080.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6395,7 +6386,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0081.lat001",
         "_score": null,
@@ -6404,6 +6395,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 81",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0081.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6438,7 +6430,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0082.lat001",
         "_score": null,
@@ -6447,6 +6439,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 82",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0082.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6481,7 +6474,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0085.lat001",
         "_score": null,
@@ -6490,6 +6483,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 85",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0085.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6524,7 +6518,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0086.lat001",
         "_score": null,
@@ -6533,6 +6527,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 86",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0086.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6567,7 +6562,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0087.lat001",
         "_score": null,
@@ -6576,6 +6571,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 87",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0087.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6610,7 +6606,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0088.lat001",
         "_score": null,
@@ -6619,6 +6615,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 88",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0088.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6653,7 +6650,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001",
         "_score": null,
@@ -6662,6 +6659,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 89",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001",
           "date_string": "1010-1060",
           "comp_ort": " ",
@@ -6696,7 +6694,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0090.lat001",
         "_score": null,
@@ -6705,6 +6703,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 90",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0090.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6739,7 +6738,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0091.lat001",
         "_score": null,
@@ -6748,6 +6747,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 91",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0091.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6782,7 +6782,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
         "_score": null,
@@ -6791,6 +6791,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 92",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6825,7 +6826,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0093.lat001",
         "_score": null,
@@ -6834,6 +6835,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 93",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0093.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6868,7 +6870,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
         "_score": null,
@@ -6877,6 +6879,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 94",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6911,7 +6914,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0095.lat001",
         "_score": null,
@@ -6920,6 +6923,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 95",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0095.lat001",
           "date_string": "980-1010",
           "comp_ort": " ",
@@ -6954,7 +6958,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
         "_score": null,
@@ -6963,6 +6967,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 96",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -6997,7 +7002,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0097.lat001",
         "_score": null,
@@ -7006,6 +7011,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 97",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0097.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -7040,7 +7046,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0098.lat001",
         "_score": null,
@@ -7049,6 +7055,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 98",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0098.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -7083,7 +7090,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0099.lat001",
         "_score": null,
@@ -7092,6 +7099,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 99",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0099.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -7126,7 +7134,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0100.lat001",
         "_score": null,
@@ -7135,6 +7143,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 100",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0100.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -7157,7 +7166,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0101.lat001",
         "_score": null,
@@ -7166,6 +7175,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 101",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0101.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -7200,7 +7210,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0102.lat001",
         "_score": null,
@@ -7209,6 +7219,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 102",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0102.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -7243,7 +7254,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0103.lat001",
         "_score": null,
@@ -7252,6 +7263,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 103",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0103.lat001",
           "date_string": "1063",
           "comp_ort": " ",
@@ -7286,7 +7298,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0104.lat001",
         "_score": null,
@@ -7295,6 +7307,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 104",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0104.lat001",
           "date_string": "1063",
           "comp_ort": " ",
@@ -7329,7 +7342,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0105.lat001",
         "_score": null,
@@ -7338,6 +7351,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 105",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0105.lat001",
           "date_string": "1062",
           "comp_ort": " ",
@@ -7372,7 +7386,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0106.lat001",
         "_score": null,
@@ -7381,6 +7395,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 106",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0106.lat001",
           "date_string": "1064-1084",
           "comp_ort": " ",
@@ -7415,7 +7430,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0107.lat001",
         "_score": null,
@@ -7424,6 +7439,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 107",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0107.lat001",
           "date_string": "1032-1064",
           "comp_ort": " ",
@@ -7458,7 +7474,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0108.lat001",
         "_score": null,
@@ -7467,6 +7483,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 108",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0108.lat001",
           "date_string": "1032-1084",
           "comp_ort": " ",
@@ -7501,7 +7518,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0109.lat001",
         "_score": null,
@@ -7510,6 +7527,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 109",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0109.lat001",
           "date_string": "1023-1064",
           "comp_ort": " ",
@@ -7544,7 +7562,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0110.lat001",
         "_score": null,
@@ -7553,6 +7571,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 110",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0110.lat001",
           "date_string": "1065",
           "comp_ort": " ",
@@ -7587,7 +7606,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0111.lat001",
         "_score": null,
@@ -7596,6 +7615,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 111",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0111.lat001",
           "date_string": "1064",
           "comp_ort": " ",
@@ -7630,7 +7650,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0112.lat001",
         "_score": null,
@@ -7639,6 +7659,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 112",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0112.lat001",
           "date_string": "1061-1084",
           "comp_ort": " ",
@@ -7673,7 +7694,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0113.lat001",
         "_score": null,
@@ -7682,6 +7703,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 113",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0113.lat001",
           "date_string": "1092",
           "comp_ort": " ",
@@ -7716,7 +7738,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0114.lat001",
         "_score": null,
@@ -7725,6 +7747,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 114",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0114.lat001",
           "date_string": "1091 08 15",
           "comp_ort": " ",
@@ -7759,7 +7782,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0115.lat001",
         "_score": null,
@@ -7768,6 +7791,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 115",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0115.lat001",
           "date_string": "1096 07 12",
           "comp_ort": " ",
@@ -7802,7 +7826,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0116.lat001",
         "_score": null,
@@ -7811,6 +7835,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 116",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0116.lat001",
           "date_string": "1061-1100",
           "comp_ort": " ",
@@ -7845,7 +7870,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0117.lat001",
         "_score": null,
@@ -7854,6 +7879,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 117",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0117.lat001",
           "date_string": "1088",
           "comp_ort": " ",
@@ -7888,7 +7914,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0118.lat001",
         "_score": null,
@@ -7897,6 +7923,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 118",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0118.lat001",
           "date_string": "Circa 1096",
           "comp_ort": " ",
@@ -7931,7 +7958,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0119.lat001",
         "_score": null,
@@ -7940,6 +7967,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 119",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0119.lat001",
           "date_string": "1084-1100",
           "comp_ort": " ",
@@ -7974,7 +8002,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0120.lat001",
         "_score": null,
@@ -7983,6 +8011,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 120",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0120.lat001",
           "date_string": "1084-1100",
           "comp_ort": " ",
@@ -8017,7 +8046,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0121.lat001",
         "_score": null,
@@ -8026,6 +8055,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 121",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0121.lat001",
           "date_string": "1081-1096",
           "comp_ort": " ",
@@ -8060,7 +8090,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0122.lat001",
         "_score": null,
@@ -8069,6 +8099,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 122",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0122.lat001",
           "date_string": "980-1032",
           "comp_ort": " ",
@@ -8103,7 +8134,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0123.lat001",
         "_score": null,
@@ -8112,6 +8143,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 123",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0123.lat001",
           "date_string": "1093",
           "comp_ort": " ",
@@ -8146,7 +8178,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0124.lat001",
         "_score": null,
@@ -8155,6 +8187,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 124",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0124.lat001",
           "date_string": "1081-1096",
           "comp_ort": " ",
@@ -8189,7 +8222,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0125.lat001",
         "_score": null,
@@ -8198,6 +8231,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 125",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0125.lat001",
           "date_string": "1081",
           "comp_ort": " ",
@@ -8232,7 +8266,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0126.lat001",
         "_score": null,
@@ -8241,6 +8275,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 126",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0126.lat001",
           "date_string": "1081-1096",
           "comp_ort": " ",
@@ -8275,7 +8310,7 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v17",
+        "_index": "marmoutier_serfs_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001",
         "_score": null,
@@ -8284,6 +8319,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 127",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001",
           "date_string": "1097 01 03",
           "comp_ort": " ",

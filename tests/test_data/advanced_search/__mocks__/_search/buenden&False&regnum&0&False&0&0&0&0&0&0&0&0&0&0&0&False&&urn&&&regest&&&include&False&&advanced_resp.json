@@ -1,5 +1,5 @@
 {
-  "took": 2,
+  "took": 4,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": null,
           "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "date_string": "(769–813 [813]) 04 20",
           "comp_ort": " ",
@@ -310,15 +311,15 @@
           "min_date": "0769-04-20",
           "max_date": "0813-04-20",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
-            "Saturday",
-            "Lent",
+            "Wednesday",
+            "Thursday",
             "Tuesday",
-            "Monday",
+            "Sunday",
+            "Saturday",
             "Easter",
-            "Sunday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -333,7 +334,7 @@
         ]
       },
       {
-        "_index": "buenden_v17",
+        "_index": "buenden_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
         "_score": null,
@@ -342,6 +343,7 @@
           "lemmas": null,
           "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
           "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
+          "keywords": "",
           "urn": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "date_string": "(769–800 [813]) 03 31",
           "comp_ort": " ",
@@ -556,15 +558,15 @@
           "min_date": "0769-03-31",
           "max_date": "0813-03-31",
           "days": [
-            "Thursday",
-            "Wednesday",
             "Friday",
-            "Saturday",
-            "Lent",
+            "Wednesday",
             "Tuesday",
-            "Monday",
+            "Thursday",
+            "Sunday",
+            "Saturday",
             "Easter",
-            "Sunday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },

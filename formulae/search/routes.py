@@ -12,6 +12,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from datetime import date
 from math import floor
 from json import load
+import roman
 
 
 CORP_MAP = {y['match']['collection']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -142,6 +143,13 @@ def r_results():
 
 @bp.route("/advanced_search", methods=["GET"])
 def r_advanced_search():
+    def sort_collections(t):
+        sort_key = t[0]
+        if ": Chartae Latinae" in t[0]:
+            key_parts = sort_key.split()
+            key_parts[-1] = '{:04}'.format(roman.fromRoman(key_parts[-1]))
+            sort_key = ' '.join(key_parts)
+        return sort_key
     form = AdvancedSearchForm()
     colls = g.sub_colls
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
@@ -154,6 +162,7 @@ def r_advanced_search():
                     coll_cats[k].append(('<b>' + x['coverage'] + '</b>: ' + x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
                 else:
                     coll_cats[k].append((x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
+            coll_cats[k] = sorted(coll_cats[k], key=sort_collections)
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
                       'search_id', 'simple_search_id', 'regex_search')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]

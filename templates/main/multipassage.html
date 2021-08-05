@@ -345,6 +345,7 @@
                             </div>
                         </div>
                     {% endif %}
+                    {% if current_user.project_team %}
                     <div class="col col-auto part-menu-icon">
                         <div class="dropleft">
                             <button class="dropdown-toggle part-menu-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -361,6 +362,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                     {% if loop.length > 1 %}
                     <div class="col col-auto maximize-window-icon">
                         <a href="#" class="maximize-column-link" id="maximize-link-{{ loop.index }}" data-toggle="tooltip" data-container="#maximize-link-{{ loop.index }}" title="{{ _('Maximieren') }}"><img src="{{url_for('InstanceNemo.static', filename='images/maximize_window.png')}}" alt="{{ _('Maximieren') }}"></a>
@@ -491,6 +493,7 @@
                                     </div>
                                 </div>
                             {% endif %}
+                            {% if current_user.project_team %}
                             <div class="col col-auto part-menu-icon">
                                 <div class="dropleft">
                                     <button class="dropdown-toggle part-menu-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -507,6 +510,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}
                             {% if objects|length > 1 %}
                             <div class="col col-auto close-window-icon">
                                 <a class="remove-column-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=all_texts|remove_from_list(text.objectId)|join_list_values('+'), subreferences=all_reffs|remove_from_list(text.subreference)|join_list_values('+')) }}" id="remove-column-{{ loop.index }}" data-toggle="tooltip" data-container="#remove-column-{{ loop.index }}" title="{{ _('Spalte ausblenden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Spalte ausblenden') }}"></a>
