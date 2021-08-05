@@ -1101,4 +1101,7 @@ p.short-regest {
 
 #elex-letters {
     background: #F3F3F3;
+    position: sticky;
+    top: 100px;
+    z-index: 900;
 }
