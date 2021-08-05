@@ -405,7 +405,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page})
-    if q == '' and source == 'simple':
+    if not q and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
         corpus = ['all']
