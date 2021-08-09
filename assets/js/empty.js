@@ -596,10 +596,46 @@ $(document).ready(function () {
         }
     });
     
-    $(window).scroll(function(){
+    $('.bibl-letter,.elex-letter').click(function() {
+        var t = $(this).attr('href');
         var navbarHeight = $('#mainNavbar').height();
-        var letterPos = $('#elex-letters').offset();
+        var letterPos = $('#elex-letters').height();
+        var targetOffset = letterPos + 25;
+        if ( t.includes('-A') || t.includes('-nr') ) {
+            targetOffset += navbarHeight;
+        }
+        $('html, body').animate({
+            scrollTop: $(t).offset().top - targetOffset
+        }, 500, function() {
+            $(t).addClass('flash-grey')
+            setTimeout(function() {
+                $(t).removeClass('flash-grey');
+            }, 4000);
+        });
+    })
+    
+    $('.corpus-nrs').click(function() {
+        var t = $(this).attr('href');
+        var navbarHeight = $('#mainNavbar').height();
         var bodyHeight = $('body').height();
-        $('#elex-letters').css('top', Math.min(Math.max(bodyHeight + navbarHeight - letterPos.top, 0), navbarHeight + 20));
-    });
+        if ( $(t).offset().top > bodyHeight ) {
+            $('html, body').animate( {
+                scrollTop: $(t).offset().top - 25 
+            }, 500, function() {
+                $(t).addClass('flash-grey')
+                setTimeout(function() {
+                    $(t).removeClass('flash-grey');
+                }, 2000);
+            });
+        } else {
+            $('html, body').animate( {
+                scrollTop: $(t).offset().top - navbarHeight - 25
+            }, 500, function() {
+                $(t).addClass('flash-grey')
+                setTimeout(function() {
+                    $(t).removeClass('flash-grey');
+                }, 2000);
+            });
+        }
+    })
 })
