@@ -613,4 +613,29 @@ $(document).ready(function () {
             }, 4000);
         });
     })
+    
+    $('.corpus-nrs').click(function() {
+        var t = $(this).attr('href');
+        var navbarHeight = $('#mainNavbar').height();
+        var bodyHeight = $('body').height();
+        if ( $(t).offset().top > bodyHeight ) {
+            $('html, body').animate( {
+                scrollTop: $(t).offset().top - 25 
+            }, 500, function() {
+                $(t).addClass('flash-grey')
+                setTimeout(function() {
+                    $(t).removeClass('flash-grey');
+                }, 2000);
+            });
+        } else {
+            $('html, body').animate( {
+                scrollTop: $(t).offset().top - navbarHeight - 25
+            }, 500, function() {
+                $(t).addClass('flash-grey')
+                setTimeout(function() {
+                    $(t).removeClass('flash-grey');
+                }, 2000);
+            });
+        }
+    })
 })
