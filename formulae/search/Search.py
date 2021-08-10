@@ -734,8 +734,10 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         def sort_lexicon(d):
             keywords = set(re.sub(r'[{}]'.format(punctuation), ' ',
                                   ' '.join([d['info']['title'], d['info']['keywords']]).lower()).split())
-            query_words = set(q.split())
-            return (query_words.isdisjoint(keywords), d['id'])
+            found_words = set()
+            for key_sent in d['sents']:
+                found_words.update(re.findall(r'(?<=<strong>)\w+(?=</strong>)', key_sent))
+            return (found_words.isdisjoint(keywords), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],
