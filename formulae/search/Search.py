@@ -736,7 +736,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                   ' '.join([d['info']['title'], d['info']['keywords']]).lower()).split())
             found_words = set()
             for key_sent in d['sents']:
-                found_words.update(re.findall(r'(?<=<strong>)\w+(?=</strong>)', key_sent))
+                found_words.update([x.lower() for x in re.findall(r'(?<=<strong>)\w+(?=</strong>)', key_sent)])
             return (found_words.isdisjoint(keywords), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
