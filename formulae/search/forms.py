@@ -61,14 +61,16 @@ class SearchForm(FlaskForm):
 
 class AdvancedSearchForm(SearchForm):
     q = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
-    lemma_search = BooleanField(_l('Lemma'))
-    regex_search = BooleanField(_l('Regulärer Ausdruck'))
+    regex_search = BooleanField(_l('RegEx'))
     fuzziness = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
     slop = IntegerField(_l("Suchradius"), default=0)
-    in_order = BooleanField(_l('Wortreihenfolge beachten?'))
-    regest_q = StringField(_l('Regestensuche'))
+    in_order = BooleanField(_l('Wortreihenfolge?'))
+    search_field = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
+                                                        ("lemmas", _('Lemmata')),
+                                                        ("regest", _('Regest'))],
+                               default='text')
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln')),
                                                          ('elexicon', _l('Lexikon'))])
@@ -134,6 +136,8 @@ class AdvancedSearchForm(SearchForm):
                                     ("exclude", _l('ohne Fälschungen')),
                                     ('only', _l('nur Fälschungen'))],
                            default="include")
-    exclude_q = StringField(_l('Ausschlusskriterium'))
+    bool_operator = SelectField(_("Boolesche Operator"),
+                                choices=[('must', _('UND')), ('should', _('ODER')), ('must_not', 'NICHT')],
+                                default='must')
     search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
     submit = SubmitField(_l('Suche Durchführen'), id="advancedSearchSubmit")

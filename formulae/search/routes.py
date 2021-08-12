@@ -104,6 +104,27 @@ def r_results():
                        forgeries=request.args.get('forgeries', 'include'),
                        regex_search=request.args.get('regex_search', 'False') or 'False',
                        exclude_q=request.args.get('exclude_q', ''))
+    if 'search_field' not in search_args:
+        search_args['search_field'] = 'text'
+    lemma_search = search_args.pop('lemma_search')
+    if lemma_search in ['y', 'True', True]:
+        search_args['search_field'] = 'lemmas'
+    if 'regest_q' in search_args:
+        search_args['q'] = search_args['regest_q'].lower()
+        search_args['search_field'] = 'regest'
+    elif 'exclude_q' in search_args:
+        search_args['q_2'] = search_args['exclude_q'].lower()
+        search_args['search_field_2'] = search_args['search_field']
+        search_args['bool_operator'] = 'must_not'
+    query_keys = [x for x in search_args.keys() if x.startswith('q_')]
+    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness"]
+    query_dict = dict()
+    for k in query_keys:
+        k_num = k.split('_')[-1]
+        query_val_dict = {'q': search_args[k]}
+        for v in query_val_keys:
+            query_val_dict[v] = search_args.get(v + '_' + k_num, '')
+        query_dict[k] = query_val_dict
     posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
     search_args = {k: v for k, v in search_args.items() if v}
     search_args.pop('page', None)
@@ -163,7 +184,7 @@ def r_advanced_search():
                 else:
                     coll_cats[k].append((x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
             coll_cats[k] = sorted(coll_cats[k], key=sort_collections)
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'lemma_search', 'slop', 'in_order', 'date_plus_minus',
+    ignored_fields = ('exclusive_date_range', 'fuzziness', 'search_field', 'slop', 'in_order', 'date_plus_minus',
                       'search_id', 'simple_search_id', 'regex_search')
     data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
     if 'forgeries' in data_present and form.data['forgeries'] in ['include', 'exclude']:
@@ -179,16 +200,23 @@ def r_advanced_search():
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
             data = form.data
-            data['q'] = data['q'].lower()
-            data['regest_q'] = data['regest_q'].lower()
-            data['exclude_q'] = data['exclude_q'].lower()
+            if 'q' in data:
+                data['q_1'] = data.pop('q', '').lower()
+            if 'search_field' not in data:
+                data['search_field'] = 'text'
+            lemma_search = data.pop('lemma_search')
+            if lemma_search in ['y', 'True', True]:
+                data['search_field'] = 'lemmas'
+            if 'regest_q' in data:
+                data['q_1'] = data['regest_q'].lower()
+                data['search_field'] = 'regest'
+            elif 'exclude_q' in data:
+                data['q_2'] = data['exclude_q'].lower()
+                data['search_field_2'] = data['search_field']
+                data['bool_operator'] = 'must_not'
             data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
             data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
-            lemma_search = data.pop('lemma_search')
             regex_search = data.pop('regex_search')
-            data['lemma_search'] = 'False'
-            if lemma_search in ['y', 'True', True]:
-                data['lemma_search'] = 'True'
             data['regex_search'] = 'False'
             if regex_search in ['y', 'True', True]:
                 data['regex_search'] = 'True'

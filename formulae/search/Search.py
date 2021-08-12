@@ -380,23 +380,39 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     return ids, all_highlighted_terms
 
 
-def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str = '', page: int = 1, per_page: int = 10000,
-                         fuzziness: str = '0', year: int = 0, month: int = 0, day: int = 0, year_start: int = 0,
-                         month_start: int = 0, day_start: int = 0, year_end: int = 0, month_end: int = 0, day_end: int = 0,
-                         date_plus_minus: int = 0, exclusive_date_range: str = "False", slop: int = 4, in_order: str = 'False',
-                         composition_place: str = '', sort: str = 'urn', special_days: list = None, regest_q: str = '',
-                         regest_field: str = 'regest', old_search: bool = False, source: str = 'advanced',
-                         formulaic_parts: str = '', proper_name: str = '', search_id: str = '',
-                         forgeries: str = 'include', regex_search: str = 'False', exclude_q: str = '', elex_q: str = '',
+def advanced_query_index(corpus: list = None,
+                         query_dict: dict = None,
+                         page: int = 1,
+                         per_page: int = 10000,
+                         year: int = 0,
+                         month: int = 0,
+                         day: int = 0,
+                         year_start: int = 0,
+                         month_start: int = 0,
+                         day_start: int = 0,
+                         year_end: int = 0,
+                         month_end: int = 0,
+                         day_end: int = 0,
+                         date_plus_minus: int = 0,
+                         exclusive_date_range: str = "False",
+                         composition_place: str = '',
+                         sort: str = 'urn',
+                         special_days: list = None,
+                         old_search: bool = False,
+                         source: str = 'advanced',
+                         search_id: str = '',
+                         forgeries: str = 'include',
+                         bool_operator: str = 'must',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
                                             List[Dict[str, Union[str, List[str]]]]]:
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
+    if not current_app.elasticsearch:
+        return [], 0, {}, []
     prev_search = None
     compare_term = ''
     compare_field = ''
-    search_field = 'text'
     if search_id:
         search_id = 'search_progress_' + search_id
     old_sort = sort
@@ -405,7 +421,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
                           'size': per_page})
-    if not q and source == 'simple':
+    if not 'q_1' not in query_dict and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
         corpus = ['all']
@@ -415,6 +431,7 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         proper_name = proper_name.split('+')
     else:
         proper_name = []
+    search_highlight = set()
 
     # Function to control the replacement of uu, vu, vv, uv, and w when in brackets
     def repl(m):
@@ -429,17 +446,19 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         return '(' + ''.join([first, second, third]) + ')'
     if 'elexicon' in corpus:
         corpus = ['elexicon']
-        search_field = 'text'
-        if 'autocomplete' in lemma_search:
-            search_field = 'autocomplete'
+        #if 'autocomplete' in lemma_search:
+        #    search_field = 'autocomplete'
         clauses = []
-        for term in q.split():
-            if '*' in term or '?' in term:
-                clauses.append({'wildcard': {search_field: {'value': term}}})
-            else:
-                clauses.append({'match': {search_field: {'query': term, 'fuzziness': fuzziness}}})
+        for query_key, query_vals in query_dict.items():
+            query_clauses = []
+            for term in query_vals['q'].split():
+                if '*' in term or '?' in term:
+                    query_clauses.append({'wildcard': {'text': {'value': term}}})
+                else:
+                    query_clauses.append({'match': {'text': {'query': term, 'fuzziness': query_vals['fuzziness']}}})
+            clauses.append({'bool': {bool_operator: query_clauses}})
         body_template['query']['bool']['must'] = clauses
-        body_template['highlight'] = {'fields': {search_field: {}},
+        body_template['highlight'] = {'fields': {'text': {}},
                                       'pre_tags': [PRE_TAGS],
                                       'post_tags': [POST_TAGS],
                                       'encoder': 'html'}
@@ -447,230 +466,211 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                                                   doc_type="",
                                                   body=body_template)
     else:
-        if formulaic_parts != '':
-            search_field = formulaic_parts.split('+')
-        elif lemma_search == 'True':
-            search_field = 'lemmas'
-        elif 'autocomplete' in lemma_search:
-            search_field = lemma_search
+        for query_key, query_vals in query_dict.items():
+            if query_vals['formulaic_parts'] != '':
+                query_vals['formulaic_parts'] = query_vals['formulaic_parts'].split('+')
+            #elif 'autocomplete' in lemma_search:
+            #    search_field = lemma_search
 
-        if isinstance(search_field, list):
-            search_highlight = {x: {"fragment_size": 1000} for x in search_field}
-        else:
-            search_highlight = {search_field: {"fragment_size": 1000}}
-        search_highlight.update({regest_field: {"fragment_size": 1000}})
-        body_template['highlight'] = {'fields': search_highlight,
-                                      'pre_tags': [PRE_TAGS],
-                                      'post_tags': [POST_TAGS],
-                                      'encoder': 'html'
-                                      }
-        if not current_app.elasticsearch:
-            return [], 0, {}, []
-        ordered_terms = True
-        if in_order == 'False':
-            ordered_terms = False
-        if search_field == 'lemmas':
-            fuzz = '0'
-            if '*' in q or '?' in q and regex_search == 'False':
-                flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
-                return [], 0, {}, []
-        else:
-            fuzz = fuzziness
-        if composition_place:
-            body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
-        if forgeries == 'exclude':
-            body_template['query']['bool']['must'].append({'term': {'forgery': False}})
-        elif forgeries == 'only':
-            body_template['query']['bool']['must'].append({'term': {'forgery': True}})
-        if proper_name and q == '':
-            search_field = 'lemmas'
-            body_template['highlight']['fields'].update({'lemmas': {'fragment_size': 1000}})
-            clauses = list()
-            for term in proper_name:
-                sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
-                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                    sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
-                clauses += sub_clauses
-            body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
-        if q:
-            if proper_name:
-                compare_term = proper_name
-                compare_field = 'lemmas'
-            if isinstance(search_field, list):
-                bool_clauses = []
-                for s_field in search_field:
-                    clauses = []
-                    for term in q.split():
-                        if regex_search == 'True':
-                            # Replace these characters if they are within brackets
-                            temp_term = re.sub(r'[ij](?=[^\[]*\])',
-                                               r'ij',
-                                               re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
-                                                      r'uv',
-                                                      re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
-                                                             repl,
-                                                             term)))
-                            # And then to replace the characters if they are not in brackets
-                            u_term = re.sub(r'[ij](?![^[]*])',
-                                            '[ij]',
-                                            re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
-                                                   r'[uv]',
-                                                   re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
-                                                          '(w|uu|vu|uv|vv)',
-                                                          temp_term)))
-                        else:
-                            u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                        exclude_ending = ''
-                        if exclude_q:
-                            exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
-                        if u_term + exclude_ending != term:
-                            if regex_search == 'True':
-                                clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term + exclude_ending,
-                                                                                               'flags': 'ALL',
-                                                                                               'case_insensitive': True}}}}}])
-                            elif '*' in term or '?' in term:
-                                clauses.append([{'span_multi': {'match': {'regexp': {s_field: {
-                                    'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
-                                    'flags': 'ALL',
-                                    'case_insensitive': True}}}}}])
-                            else:
-                                words = [u_term]
-                                sub_clauses = {'span_or': {'clauses': []}}
-                                if fuzz == 'AUTO':
-                                    if len(term) < 3:
-                                        term_fuzz = 0
-                                    elif len(term) < 6:
-                                        term_fuzz = 1
-                                    else:
-                                        term_fuzz = 2
-                                else:
-                                    term_fuzz = int(fuzz)
-                                if term_fuzz != 0:
-                                    suggest_body = {'suggest':
-                                                        {'fuzzy_suggest':
-                                                             {'text': term,
-                                                              'term':
-                                                                  {'field': s_field,
-                                                                   'suggest_mode': 'always',
-                                                                   'max_edits': term_fuzz,
-                                                                   'min_word_length': 3,
-                                                                   'max_term_freq': 20000}}}}
-                                    suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
-                                    if 'suggest' in suggests:
-                                        for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                            words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
-                                for w in words:
-                                    sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w + exclude_ending,
-                                                                                                                            'flags': 'ALL',
-                                                                                                                            'case_insensitive': True}}}}})
-                                clauses.append([sub_clauses])
-                        else:
-                            if regex_search == 'True':
-                                clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term, 'flags': 'ALL', 'case_insensitive': True}}}}}])
-                            elif '*' in term or '?' in term:
-                                clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
-                            else:
-                                clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
-                    for clause in product(*clauses):
-                        bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
+            if isinstance(query_vals['formulaic_parts'], list):
+                search_highlight.update(query_vals['formulaic_parts'])
+                query_vals['search_field'] = 'text'
             else:
-                clauses = []
-                for term in q.split():
-                    u_term = term
-                    if search_field not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
-                        if regex_search == 'True':
-                            # Replace these characters if they are within brackets
-                            temp_term = re.sub(r'[ij](?=[^\[]*\])',
-                                               r'ij',
-                                               re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
-                                                      r'uv',
-                                                      re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
-                                                             repl,
-                                                             term)))
-                            # And then to replace the characters if they are not in brackets
-                            u_term = re.sub(r'[ij](?![^[]*])',
-                                            '[ij]',
-                                            re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
-                                                   r'[uv]',
-                                                   re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
-                                                          '(w|uu|vu|uv|vv)',
-                                                          temp_term)))
-                        else:
-                            u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                    exclude_ending = ''
-                    if exclude_q:
-                        exclude_ending = '&~({})'.format(exclude_q.replace('*', '.+').replace('?', '.'))
-                    if regex_search == 'True':
-                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: {'value': u_term + exclude_ending,
-                                                                                            'flags': 'ALL',
-                                                                                            'case_insensitive': True}}}}}])
-                    elif '*' in term or '?' in term:
-                        clauses.append([{'span_multi': {'match': {'regexp': {search_field: {'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
-                                                                                            'flags': 'ALL',
-                                                                                            'case_insensitive': True}}}}}])
-                    else:
-                        if search_field == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
-                            sub_clauses = [{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}]
-                            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
-                                sub_clauses.append({'span_multi': {'match': {'fuzzy': {search_field: {"value": other_lem, "fuzziness": fuzz}}}}})
-                            clauses.append(sub_clauses)
-                        else:
-                            if u_term + exclude_ending != term:
-                                words = [u_term]
-                                sub_clauses = {'span_or': {'clauses': []}}
-                                if fuzz == 'AUTO':
-                                    if len(term) < 3:
-                                        term_fuzz = 0
-                                    elif len(term) < 6:
-                                        term_fuzz = 1
-                                    else:
-                                        term_fuzz = 2
-                                else:
-                                    term_fuzz = int(fuzz)
-                                if term_fuzz != 0:
-                                    suggest_body = {'suggest':
-                                                        {'fuzzy_suggest':
-                                                             {'text': term,
-                                                              'term':
-                                                                  {'field': search_field,
-                                                                   'suggest_mode': 'always',
-                                                                   'max_edits': term_fuzz,
-                                                                   'min_word_length': 3,
-                                                                   'max_term_freq': 20000}}}}
-                                    suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
-                                    if 'suggest' in suggests:
-                                        for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                                            words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
-                                for w in words:
-                                    sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {search_field: {
-                                        'value': w + exclude_ending, 'flags': 'ALL', 'case_insensitive': True}}}}})
-                                clauses.append([sub_clauses])
+                search_highlight.add(query_vals['search_field'])
+            ordered_terms = True
+            if query_vals['in_order'] == 'False':
+                ordered_terms = False
+            if query_vals['search_field'] == 'lemmas':
+                fuzz = '0'
+                if '*' in query_vals['q'] or '?' in query_vals['q'] and query_vals['regex_search'] == 'False':
+                    flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
+                    return [], 0, {}, []
+            else:
+                fuzz = query_vals['fuzziness']
+            if composition_place:
+                body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
+            if forgeries == 'exclude':
+                body_template['query']['bool']['must'].append({'term': {'forgery': False}})
+            elif forgeries == 'only':
+                body_template['query']['bool']['must'].append({'term': {'forgery': True}})
+            if query_vals['proper_name'] != '':
+                query_vals['proper_name'] = query_vals['proper_name'].split('+')
+            else:
+                query_vals['proper_name'] = []
+            if query_vals['proper_name'] and query_vals['q'] == '':
+                query_vals['search_field'] = 'lemmas'
+                body_template['highlight']['fields'].update({'lemmas': {'fragment_size': 1000}})
+                clauses = list()
+                for term in query_vals['proper_name']:
+                    sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
+                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                        sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
+                    clauses += sub_clauses
+                body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
+            elif query_vals['q']:
+                #if query_vals['proper_name']:
+                #    compare_term = proper_name
+                #    compare_field = 'lemmas'
+                if query_vals['formulaic_parts']:
+                    bool_clauses = []
+                    for s_field in query_vals['formulaic_parts']:
+                        clauses = []
+                        for term in query_vals['q'].split():
+                            if query_vals['regex_search'] == 'True':
+                                # Replace these characters if they are within brackets
+                                temp_term = re.sub(r'[ij](?=[^\[]*\])',
+                                                   r'ij',
+                                                   re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
+                                                          r'uv',
+                                                          re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
+                                                                 repl,
+                                                                 term)))
+                                # And then to replace the characters if they are not in brackets
+                                u_term = re.sub(r'[ij](?![^[]*])',
+                                                '[ij]',
+                                                re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
+                                                       r'[uv]',
+                                                       re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
+                                                              '(w|uu|vu|uv|vv)',
+                                                              temp_term)))
                             else:
-                                clauses.append([{'span_multi': {'match': {'fuzzy': {search_field: {"value": term, "fuzziness": fuzz}}}}}])
-                bool_clauses = []
-                for clause in product(*clauses):
-                    bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': slop, 'in_order': ordered_terms}})
-            if source == 'simple':
-                regest_clauses = []
-                for term in q.split():
-                    if '*' in term or '?' in term:
-                        regest_clauses.append({'wildcard': {'regest': {'value': term}}})
-                    else:
-                        regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': fuzz}}})
-                bool_clauses.append({'bool': {'must': regest_clauses}})
-            body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
-        elif isinstance(search_field, list):
-            bool_clauses = [{'exists': {'field': x}} for x in search_field]
-            body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
-
-        if regest_q and source != 'simple':
-            regest_clauses = []
-            for term in regest_q.split():
-                if '*' in term or '?' in term:
-                    regest_clauses.append({'wildcard': {regest_field: {'value': term}}})
+                                u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                            if u_term != term:
+                                if query_vals['regex_search'] == 'True':
+                                    clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term,
+                                                                                                   'flags': 'ALL',
+                                                                                                   'case_insensitive': True}}}}}])
+                                elif '*' in term or '?' in term:
+                                    clauses.append([{'span_multi': {'match': {'regexp': {s_field: {
+                                        'value': u_term.replace('*', '.+').replace('?', '.'),
+                                        'flags': 'ALL',
+                                        'case_insensitive': True}}}}}])
+                                else:
+                                    words = [u_term]
+                                    sub_clauses = {'span_or': {'clauses': []}}
+                                    if fuzz == 'AUTO':
+                                        if len(term) < 3:
+                                            term_fuzz = 0
+                                        elif len(term) < 6:
+                                            term_fuzz = 1
+                                        else:
+                                            term_fuzz = 2
+                                    else:
+                                        term_fuzz = int(fuzz)
+                                    if term_fuzz != 0:
+                                        suggest_body = {'suggest':
+                                                            {'fuzzy_suggest':
+                                                                 {'text': term,
+                                                                  'term':
+                                                                      {'field': s_field,
+                                                                       'suggest_mode': 'always',
+                                                                       'max_edits': term_fuzz,
+                                                                       'min_word_length': 3,
+                                                                       'max_term_freq': 20000}}}}
+                                        suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                        if 'suggest' in suggests:
+                                            for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                                words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
+                                    for w in words:
+                                        sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w,
+                                                                                                                                'flags': 'ALL',
+                                                                                                                                'case_insensitive': True}}}}})
+                                    clauses.append([sub_clauses])
+                            else:
+                                if query_vals['regex_search'] == 'True':
+                                    clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term, 'flags': 'ALL', 'case_insensitive': True}}}}}])
+                                elif '*' in term or '?' in term:
+                                    clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
+                                else:
+                                    clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": fuzz}}}}}])
+                        for clause in product(*clauses):
+                            bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': query_vals['slop'], 'in_order': ordered_terms}})
                 else:
-                    regest_clauses.append({'match': {regest_field: {'query': term, 'fuzziness': fuzz}}})
-            body_template['query']['bool']['must'] += regest_clauses
+                    clauses = []
+                    for term in query_vals['q'].split():
+                        u_term = term
+                        if query_vals['search_field'] not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
+                            if query_vals['regex_search'] == 'True':
+                                # Replace these characters if they are within brackets
+                                temp_term = re.sub(r'[ij](?=[^\[]*\])',
+                                                   r'ij',
+                                                   re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
+                                                          r'uv',
+                                                          re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
+                                                                 repl,
+                                                                 term)))
+                                # And then to replace the characters if they are not in brackets
+                                u_term = re.sub(r'[ij](?![^[]*])',
+                                                '[ij]',
+                                                re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
+                                                       r'[uv]',
+                                                       re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
+                                                              '(w|uu|vu|uv|vv)',
+                                                              temp_term)))
+                            else:
+                                u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                        if query_vals['regex_search'] == 'True':
+                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term,
+                                                                                                'flags': 'ALL',
+                                                                                                'case_insensitive': True}}}}}])
+                        elif '*' in term or '?' in term:
+                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term.replace('*', '.+').replace('?', '.'),
+                                                                                                'flags': 'ALL',
+                                                                                                'case_insensitive': True}}}}}])
+                        else:
+                            if query_vals['search_field'] == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                                sub_clauses = [{'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": term, "fuzziness": fuzz}}}}}]
+                                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                                    sub_clauses.append({'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": other_lem, "fuzziness": fuzz}}}}})
+                                clauses.append(sub_clauses)
+                            else:
+                                if u_term != term:
+                                    words = [u_term]
+                                    sub_clauses = {'span_or': {'clauses': []}}
+                                    if fuzz == 'AUTO':
+                                        if len(term) < 3:
+                                            term_fuzz = 0
+                                        elif len(term) < 6:
+                                            term_fuzz = 1
+                                        else:
+                                            term_fuzz = 2
+                                    else:
+                                        term_fuzz = int(fuzz)
+                                    if term_fuzz != 0:
+                                        suggest_body = {'suggest':
+                                                            {'fuzzy_suggest':
+                                                                 {'text': term,
+                                                                  'term':
+                                                                      {'field': query_vals['search_field'],
+                                                                       'suggest_mode': 'always',
+                                                                       'max_edits': term_fuzz,
+                                                                       'min_word_length': 3,
+                                                                       'max_term_freq': 20000}}}}
+                                        suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                        if 'suggest' in suggests:
+                                            for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
+                                                words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
+                                    for w in words:
+                                        sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {query_vals['search_field']: {
+                                            'value': w, 'flags': 'ALL', 'case_insensitive': True}}}}})
+                                    clauses.append([sub_clauses])
+                                else:
+                                    clauses.append([{'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": term, "fuzziness": fuzz}}}}}])
+                    bool_clauses = []
+                    for clause in product(*clauses):
+                        bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': query_vals['slop'], 'in_order': ordered_terms}})
+                if source == 'simple':
+                    regest_clauses = []
+                    for term in query_vals['q'].split():
+                        if '*' in term or '?' in term:
+                            regest_clauses.append({'wildcard': {'regest': {'value': term}}})
+                        else:
+                            regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': fuzz}}})
+                    bool_clauses.append({'bool': {'must': regest_clauses}})
+                body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+            elif query_vals['formulaic_parts']:
+                bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts']]
+                body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
         if year or month or day:
             date_template = {"bool": {"must": []}}
@@ -729,6 +729,11 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             for s_d in special_days:
                 s_d_template['bool']['should'].append({'match': {'days': s_d}})
             body_template["query"]["bool"]["must"].append(s_d_template)
+        body_template['highlight'] = {'fields': {x: {'fragment_size': 1000} for x in search_highlight},
+                                          'pre_tags': [PRE_TAGS],
+                                          'post_tags': [POST_TAGS],
+                                          'encoder': 'html'
+                                          }
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if corpus == ['elexicon']:
         def sort_lexicon(d):
@@ -740,14 +745,17 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
             return (found_words.isdisjoint(keywords), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
-                'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],
+                'sents': [Markup(x) for x in hit['highlight']['text']] if 'highlight' in hit and 'text' in hit['highlight'] else [],
                 'regest_sents': [],
                 'highlight': []}
                for hit in search['hits']['hits']]
         ids = sorted(ids, key=sort_lexicon)
-    elif q or proper_name:
+    else:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
+        # Weeding out how each hit is hightlighted needs to be done by the lem_highlight_to_text function
+        # Essentially it will need to cycle through the key, value pairs in every hit and
+        # implement the process below depending on what the key is
         if search_field in ('lemmas', 'text') and search['hits']['total']['value'] > 0:
             ids, g.highlighted_terms = lem_highlight_to_text(search=search,
                                                            q=q,
@@ -784,28 +792,28 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
                         if 'highlight' in hit and regest_field in hit['highlight'] else [],
                         'highlight': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else []}
                        for hit in search['hits']['hits']]
-    elif regest_q:
-        ids = [{'id': hit['_id'],
-                'info': hit['_source'],
-                'sents': [],
-                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                if 'highlight' in hit and regest_field in hit['highlight'] else [],
-                'highlight': []}
-               for hit in search['hits']['hits']]
-    elif isinstance(search_field, list):
-        ids = []
-        for hit in search['hits']['hits']:
-            sents = []
-            for s_field in search_field:
-                if s_field in hit['_source']:
-                    sent = '<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]
-                    sents.append(Markup(sent))
-            ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': [], 'highlight': sents})
-    else:
-        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': [], 'highlight': []}
-               for hit in search['hits']['hits']]
-    if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-        prev_search = ids
+        elif regest_q:
+            ids = [{'id': hit['_id'],
+                    'info': hit['_source'],
+                    'sents': [],
+                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                    if 'highlight' in hit and regest_field in hit['highlight'] else [],
+                    'highlight': []}
+                   for hit in search['hits']['hits']]
+        elif isinstance(search_field, list):
+            ids = []
+            for hit in search['hits']['hits']:
+                sents = []
+                for s_field in search_field:
+                    if s_field in hit['_source']:
+                        sent = '<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]
+                        sents.append(Markup(sent))
+                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': [], 'highlight': sents})
+        else:
+            ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': [], 'highlight': []}
+                   for hit in search['hits']['hits']]
+        if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
+            prev_search = ids
     agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
     aggregations = current_app.elasticsearch.search(index=corpus,
                                                     doc_type="",
