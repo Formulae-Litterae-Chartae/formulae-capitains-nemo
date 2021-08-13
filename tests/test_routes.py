@@ -346,6 +346,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
+            self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -434,6 +436,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
+            c.get('/collections/chartae_latinae', follow_redirects=True)
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
+            self.assertEqual([x['id'] for x in self.get_context_variable('collections')['members']],
+                             ['urn:cts:formulae:chartae_latinae_xi', 'urn:cts:formulae:chartae_latinae_cxv'])
             c.get('/collections/other_collection', follow_redirects=True)
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
@@ -510,6 +516,9 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/texts/urn:cts:formulae:marculf.form000.lat001+urn:cts:formulae:p3.105va106rb.lat001/passage/all+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertIn('Marculf Prolog', r.get_data(as_text=True))
+            c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            self.assertNotIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             # make sure hasVersion metadata is correctly interpreted
             r = c.get('/texts/urn:cts:formulae:fulda_dronke.dronke0004a.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -575,6 +584,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/advanced_search', follow_redirects=True)
             d = self.get_context_variable('composition_places')
             self.assertEqual(d[1], 'Aachen', 'The correct places should be sent to the advanced search pages.')
+            self.assertEqual([('<b>Chartae Latinae</b>: Chartae Latinae XI', 'chartae_latinae_xi', False),
+                              ('<b>Chartae Latinae</b>: Chartae Latinae CXV', 'chartae_latinae_cxv', False)],
+                             self.get_context_variable('categories')['chartae_latinae'])
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -2942,6 +2954,7 @@ class TestES(Formulae_Testing):
                               'Chartae Latinae XI': {'match': {'collection': 'chartae_latinae_xi'}},
                               'Chartae Latinae XII': {'match': {'collection': 'chartae_latinae_xii'}},
                               'Chartae Latinae XLVI': {'match': {'collection': 'chartae_latinae_xlvi'}},
+                              'Chartae Latinae CXV': {'match': {'collection': 'chartae_latinae_cxv'}},
                               'Echternach': {'match': {'collection': 'echternach'}},
                               'Eudes': {'match': {'collection': 'eudes'}},
                               'Freising': {'match': {'collection': 'freising'}},
@@ -3019,6 +3032,9 @@ class TestES(Formulae_Testing):
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
             "doc_count": 4
+          },
+          "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
+            "doc_count": 41
           },
           "<b>Dijon</b>: Saint-Bénigne de Dijon": {
             "doc_count": 0

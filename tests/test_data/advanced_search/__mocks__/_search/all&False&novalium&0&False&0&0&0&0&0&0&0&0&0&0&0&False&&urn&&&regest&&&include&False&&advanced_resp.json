@@ -1,9 +1,9 @@
 {
-  "took": 16,
+  "took": 78,
   "timed_out": false,
   "_shards": {
-    "total": 56,
-    "successful": 56,
+    "total": 57,
+    "successful": 57,
     "skipped": 0,
     "failed": 0
   },
@@ -15,7 +15,7 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "lorsch_v17",
+        "_index": "lorsch_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
         "_score": null,
@@ -24,6 +24,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Codex Laureshamensis Teil: Bd. 1, Einleitung, Regesten, Chronik (Ed. Glöckner) Nr. 164",
+          "keywords": "",
           "urn": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
           "date_string": "1179 04 07",
           "comp_ort": " ",
@@ -58,7 +59,7 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v17",
+        "_index": "marmoutier_dunois_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
         "_score": null,
@@ -67,6 +68,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 215",
+          "keywords": "",
           "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
           "date_string": "Um 1208",
           "comp_ort": " ",
@@ -101,7 +103,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
         "_score": null,
@@ -110,6 +112,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 118",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
           "date_string": "1162 11 16",
           "comp_ort": "Tours",
@@ -144,7 +147,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
         "_score": null,
@@ -153,6 +156,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 131",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
           "date_string": "1164 09 15",
           "comp_ort": "Sens",
@@ -187,7 +191,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
         "_score": null,
@@ -196,6 +200,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 133",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
           "date_string": "1164 09 25 – 1165 03 24",
           "comp_ort": "Sens",
@@ -230,7 +235,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
         "_score": null,
@@ -239,6 +244,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 168",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
           "date_string": "1179 04 06",
           "comp_ort": "Lateran",
@@ -273,7 +279,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
         "_score": null,
@@ -282,6 +288,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 175",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
           "date_string": "1181 01 19",
           "comp_ort": "Tusculanum",
@@ -316,7 +323,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
         "_score": null,
@@ -325,6 +332,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 181",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
           "date_string": "1182Vor 09 06",
           "comp_ort": "Velletri",
@@ -359,7 +367,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
         "_score": null,
@@ -368,6 +376,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 197",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
           "date_string": "1184 08 25",
           "comp_ort": "Verona",
@@ -402,7 +411,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
         "_score": null,
@@ -411,6 +420,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 198",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
           "date_string": "1184 08 29",
           "comp_ort": "Verona",
@@ -445,7 +455,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
         "_score": null,
@@ -454,6 +464,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 216",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
           "date_string": "1185 07 01",
           "comp_ort": "Verona",
@@ -488,7 +499,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
         "_score": null,
@@ -497,6 +508,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 233",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
           "date_string": "1188 11 10",
           "comp_ort": "Lateran",
@@ -531,7 +543,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
         "_score": null,
@@ -540,6 +552,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 236",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
           "date_string": "1189 04 20",
           "comp_ort": "Lateran",
@@ -574,7 +587,7 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v17",
+        "_index": "papsturkunden_frankreich_v25",
         "_type": "_doc",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
         "_score": null,
@@ -583,6 +596,7 @@
           "lemmas": null,
           "regest": "regest text",
           "title": "Papsturkunden in Frankreich. Band 5: Touraine, Anjou, Maine und Bretagne. (Ed. Ramackers) Nr. 246",
+          "keywords": "",
           "urn": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
           "date_string": "1196 04 14 – 1197 04 13",
           "comp_ort": " ",

@@ -34,6 +34,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Chartae Latinae</b>: Chartae Latinae XII': {'match': {'collection': 'chartae_latinae_xii'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVI': {'match': {'collection': 'chartae_latinae_xlvi'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVII': {'match': {'collection': 'chartae_latinae_xlvii'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae CXV': {'match': {'collection': 'chartae_latinae_cxv'}},
                                       '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'saint_bénigne'}},
                                       '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
                                       '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},
@@ -731,9 +732,12 @@ def advanced_query_index(corpus: list = None, lemma_search: str = None, q: str =
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
     if corpus == ['elexicon']:
         def sort_lexicon(d):
-            title_words = set(re.sub(r'[{}]'.format(punctuation), ' ', d['info']['title'].lower()).split())
-            query_words = set(q.split())
-            return (query_words.isdisjoint(title_words), d['id'])
+            keywords = set(re.sub(r'[{}]'.format(punctuation), ' ',
+                                  ' '.join([d['info']['title'], d['info']['keywords']]).lower()).split())
+            found_words = set()
+            for key_sent in d['sents']:
+                found_words.update([x.lower() for x in re.findall(r'(?<=<strong>)\w+(?=</strong>)', key_sent)])
+            return (found_words.isdisjoint(keywords), d['id'])
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
                 'sents': [Markup(x) for x in hit['highlight'][search_field]] if 'highlight' in hit and search_field in hit['highlight'] else [],

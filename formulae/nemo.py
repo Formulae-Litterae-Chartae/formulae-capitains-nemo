@@ -28,6 +28,7 @@ from copy import copy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
+import roman
 
 
 class NemoFormulae(Nemo):
@@ -720,6 +721,10 @@ class NemoFormulae(Nemo):
         for m in data['collections']['members']:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
         data['template'] = "main::sub_collections.html"
+        if 'chartae_latinae' in objectId:
+            data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: roman.fromRoman(str(self.resolver.getMetadata(x['id']).metadata.get_single(self.BIBO.AbbreviatedTitle)).split()[-1]))
+        else:
+            data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: x['label'])
         return data
 
     def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:

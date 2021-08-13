@@ -771,6 +771,11 @@ p.flash-grey {
     animation-duration: 4s;
 }
 
+li.flash-grey {
+    animation-name: text-focus;
+    animation-duration: 2s;
+}
+
 .paragraph-link {
     font-size: 50%;
     top: -.5em;
@@ -1097,4 +1102,11 @@ a.btn-primary,li.page-item.active .page-link {
 
 p.short-regest {
     font-size: larger;
+}
+
+#elex-letters {
+    background: #F3F3F3;
+    position: sticky;
+    top: 100px;
+    z-index: 900;
 }

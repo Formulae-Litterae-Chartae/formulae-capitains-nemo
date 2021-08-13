@@ -13,8 +13,10 @@
         <h1>
             {% if 'formulae_collection' in collections.current.id %}
             {{ _('Formeln') }}
-            {% else %}
+            {% elif 'other_collection' in collections.current.id %}
             {{ _('Urkunden + Briefe') }}
+            {% else %}
+            {{ collections.current.label }}
             {% endif %}
         </h1>
     </header>
@@ -38,7 +40,7 @@
             {% endif %}
         {% endfor %}
     {% elif collections.parents|length > 0 and collections.parents[0]['id'] == 'display_collection' %}
-        {% for coll in collections.members|sort(attribute="label") %}
+        {% for coll in collections.members %}
             <li class="list-group-item py-0">
                 <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}">
                     <h5 class="my-2"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"

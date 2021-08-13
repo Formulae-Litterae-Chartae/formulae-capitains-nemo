@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 147,
+      "doc_count": 129,
       "forgeries": {
         "doc_count": 0
       },
@@ -25,6 +25,9 @@
           "<b>Catalunya</b>: Katalonien": {
             "doc_count": 0
           },
+          "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
+            "doc_count": 0
+          },
           "<b>Chartae Latinae</b>: Chartae Latinae X": {
             "doc_count": 0
           },
@@ -44,7 +47,7 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 147
+            "doc_count": 129
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
@@ -239,7 +242,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 147
+        "doc_count": 129
       }
     },
     "forgeries": {
@@ -263,6 +266,9 @@
           "doc_count": 0
         },
         "<b>Catalunya</b>: Katalonien": {
+          "doc_count": 0
+        },
+        "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
           "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae X": {
