@@ -187,6 +187,7 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
     :param regest_field:
     :return:
     """
+    # Experimental highlighter does not work with span queries so it is out of the question.
     if download_id:
         current_app.redis.set(download_id, '20%')
     ids = []
@@ -420,7 +421,11 @@ def advanced_query_index(corpus: list = None,
     if old_search is False:
         session.pop('previous_search', None)
     body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
-                          'size': per_page})
+                          'size': per_page, 'highlight': {'number_of_fragments': 0,
+                                                          'fields': {'text': {}},
+                                                          'pre_tags': [PRE_TAGS],
+                                                          'post_tags': [POST_TAGS],
+                                                          'encoder': 'html'}})
     if not 'q_1' not in query_dict and source == 'simple':
         return [], 0, {}, []
     if corpus is None or not any(corpus):
@@ -458,10 +463,7 @@ def advanced_query_index(corpus: list = None,
                     query_clauses.append({'match': {'text': {'query': term, 'fuzziness': query_vals['fuzziness']}}})
             clauses.append({'bool': {bool_operator: query_clauses}})
         body_template['query']['bool']['must'] = clauses
-        body_template['highlight'] = {'fields': {'text': {}},
-                                      'pre_tags': [PRE_TAGS],
-                                      'post_tags': [POST_TAGS],
-                                      'encoder': 'html'}
+
         search = current_app.elasticsearch.search(index=corpus,
                                                   doc_type="",
                                                   body=body_template)
@@ -499,7 +501,7 @@ def advanced_query_index(corpus: list = None,
                 query_vals['proper_name'] = []
             if query_vals['proper_name'] and query_vals['q'] == '':
                 query_vals['search_field'] = 'lemmas'
-                body_template['highlight']['fields'].update({'lemmas': {'fragment_size': 1000}})
+                body_template['highlight']['fields'].update({'lemmas': {}})
                 clauses = list()
                 for term in query_vals['proper_name']:
                     sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
@@ -753,9 +755,11 @@ def advanced_query_index(corpus: list = None,
     else:
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
-        # Weeding out how each hit is hightlighted needs to be done by the lem_highlight_to_text function
+        # Weeding out how each hit is highlighted needs to be done by the lem_highlight_to_text function
         # Essentially it will need to cycle through the key, value pairs in every hit and
         # implement the process below depending on what the key is
+        # Change the highlight parameters for each field to include number_of_fragments: 0. That will return the whole field
+        # Then lem_highlight_to_text will just need to find the position of the highlighted terms and then transfer if need be
         if search_field in ('lemmas', 'text') and search['hits']['total']['value'] > 0:
             ids, g.highlighted_terms = lem_highlight_to_text(search=search,
                                                            q=q,
