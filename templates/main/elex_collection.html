@@ -33,7 +33,7 @@
     <div class="row" id="elex-letters">
         <div class="col">
             {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-            <a type="button" class="elex-letter btn px-1 mx-0 {% if letter not in collections.readable %}btn-outline-secondary disabled{% else %}btn-outline-primary{% endif %}" href="#L-{{letter}}" >{{letter}}</a>
+            <a type="button" class="elex-letter btn btn-sm px-1 mx-0 {% if letter not in collections.readable %}btn-outline-secondary disabled{% else %}btn-outline-primary{% endif %}" href="#L-{{letter}}" >{{letter}}</a>
             {% endfor %}
         </div>
     </div>
