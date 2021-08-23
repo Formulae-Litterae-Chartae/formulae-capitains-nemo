@@ -9,6 +9,7 @@ from itertools import product
 from jellyfish import levenshtein_distance
 from math import floor
 from random import randint
+from forms import FORM_PARTS
 
 
 PRE_TAGS = "</small><strong>"
@@ -174,10 +175,7 @@ def highlight_segment(orig_str: str) -> str:
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, regest_field: str,
-                          search_field: Union[str, list], highlight_field: str, fuzz: str,
-                          download_id: str = '', compare_term: list = None,
-                          compare_field: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+def lem_highlight_to_text(search: dict, download_id: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -202,180 +200,82 @@ def lem_highlight_to_text(search: dict, q: str, ordered_terms: bool, slop: int, 
         hit_highlight_positions = list()
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-        text = hit['_source'][highlight_field]
+        show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+        text = hit['_source']['text']
         sentences = []
         sentence_spans = []
-        if search_field in hit['highlight']:
-            vectors = corp_vectors[hit['_id']]['term_vectors']
-            if compare_field and compare_field not in vectors:
-                continue
-            highlight_offsets = {x: dict() for x in (highlight_field, search_field, compare_field) if x}
-            if search_field in [highlight_field, compare_field]:
+        other_sentences = []
+        part_sentences = []
+        regest_sents = []
+        vectors = corp_vectors[hit['_id']]['term_vectors']
+        for search_field in hit['highlight']:
+            highlight_offsets = {search_field: {}}
+            highlight_offsets.update({'text': {}})
+            # this works for text, lemmas and elexicon
+            # I need to add stuff to handle regest and the formulaic parts
+            if search_field in ('text', 'lemmas'):
                 for k, v in vectors[search_field]['terms'].items():
                     highlight_offsets[search_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-            if search_field != highlight_field:
-                for k, v in vectors[highlight_field]['terms'].items():
-                    highlight_offsets[highlight_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-            if compare_field and compare_field not in [highlight_field, search_field]:
-                for k, v in vectors[compare_field]['terms'].items():
-                    highlight_offsets[compare_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-            highlighted_words = set(q.split())
-            for highlight in hit['highlight'][search_field]:
-                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
-                    highlighted_words.add(m.group(1).lower())
-            all_highlighted_terms.update(highlighted_words)
-            if ' ' in q:
-                q_words = q.split()
-                positions = {k: [] for k in q_words}
-                for token in q_words:
-                    terms = {token}
-                    u_term = token
-                    if search_field != 'lemmas':
-                        u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', token)))
-                    if u_term == token:
-                        if re.search(r'[?*]', token):
-                            terms = set()
-                            new_token = token.replace('?', '\\w').replace('*', '\\w*')
-                            for term in highlighted_words:
-                                if re.fullmatch(r'{}'.format(new_token), term):
-                                    terms.add(term)
-                        elif fuzz != '0':
-                            terms = set()
-                            if fuzz == 'AUTO':
-                                fuzz = min(len(token) // 3, 2)
-                            else:
-                                fuzz = int(fuzz)
-                            for term in highlighted_words:
-                                if levenshtein_distance(term, token) <= fuzz:
-                                    terms.add(term)
+                if search_field == 'lemmas':
+                    for k, v in vectors['text']['terms'].items():
+                        highlight_offsets['text'].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+                h_l_indices = sorted([(i, re.sub(r'.*>(\w+)<.*', r'\1', x)) for i, x in enumerate(hit['highlight'][search_field][0].split()) if '<strong>' in x])
+                word_ranges = [range(max(0, h_l_indices[0][0] - 10), min(h_l_indices[0][0] + 11, len(highlight_offsets['text'])))]
+                highlight_tags = [PRE_TAGS, POST_TAGS]
+                for i, w in h_l_indices:
+                    if highlight_offsets[search_field][i][-1] == w.lower():
+                        highlight_tags = ['', '']
+                    if i in word_ranges[-1]:
+                        word_ranges[-1] = range(word_ranges[-1].start, min(i + 11, len(highlight_offsets['text'])))
                     else:
-                        new_token = u_term.replace('?', '.').replace('*', '.+')
-                        for term in highlighted_words:
-                            if re.fullmatch(r'{}'.format(new_token), term):
-                                terms.add(term)
-                        if not re.search(r'[?*]', token) and fuzz != 0:
-                            fuzz_terms = set()
-                            if fuzz == 'AUTO':
-                                fuzz = min(len(token) // 3, 2)
-                            else:
-                                fuzz = int(fuzz)
-                            for term, t in product(highlighted_words, terms):
-                                if levenshtein_distance(term, t) <= fuzz:
-                                    fuzz_terms.add(term)
-                            terms.update(fuzz_terms)
-                    for w in terms:
-                        if search_field == 'lemmas':
-                            if w in vectors['lemmas']['terms']:
-                                positions[token] += [i['position'] for i in vectors['lemmas']['terms'][w]['tokens']]
-                            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                                if other_lem in vectors['lemmas']['terms']:
-                                    positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
-                            positions[token] = sorted(positions[w])
-                        else:
-                            if w in vectors[search_field]['terms']:
-                                positions[token] += [i['position'] for i in vectors[search_field]['terms'][w]['tokens']]
-                search_range_start = int(slop) + len(q_words)
-                search_range_end = int(slop) + len(q_words) + 1
-                if ordered_terms:
-                    search_range_start = -1
-                for pos in positions[q_words[0]]:
-                    index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
-                    used_q_words = {q_words[0]}
-                    span = {pos}
-                    for w in q_words[1:]:
-                        for next_pos in positions[w]:
-                            if next_pos in index_range and next_pos not in span:
-                                span.add(next_pos)
-                                used_q_words.add(w)
-                                break
-                    compare_true = True
-                    if compare_term:
-                        compare_true = False
-                        for position in span:
-                            if highlight_offsets[compare_field][position][-1] in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
-                                compare_true = True
-                                break
-                    if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
-                        ordered_span = sorted(span)
-                        if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(slop):
-                            hit_highlight_positions.append(ordered_span)
-                            start_offsets = [highlight_offsets[highlight_field][x][0] for x in ordered_span]
-                            end_offsets = [highlight_offsets[highlight_field][x][1] - 1 for x in ordered_span]
-                            start_index = highlight_offsets[highlight_field][max(0, ordered_span[0] - 10)][0]
-                            end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, ordered_span[-1] + 10)][1] + 1
-                            sentence = ''
-                            for i, x in enumerate(text[start_index:end_index]):
-                                if i + start_index in start_offsets and i + start_index in end_offsets:
-                                    sentence += PRE_TAGS + x + POST_TAGS
-                                elif i + start_index in start_offsets:
-                                    sentence += PRE_TAGS + x
-                                elif i + start_index in end_offsets:
-                                    sentence += x + POST_TAGS
-                                else:
-                                    sentence += x
-                            marked_sent = Markup(sentence)
-                            if marked_sent not in sentences:
-                                sentences.append(marked_sent)
-                                sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                            min(len(highlight_offsets[highlight_field]), ordered_span[-1] + 11)))
-            else:
-                terms = highlighted_words
-                positions = set()
-                for w in terms:
-                    if search_field == 'lemmas':
-                        if w in vectors['lemmas']['terms']:
-                            positions.update([i['position'] for i in vectors['lemmas']['terms'][w]['tokens']])
-                        for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
-                            if other_lem in vectors['lemmas']['terms']:
-                                positions.update([i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']])
-                    else:
-                        if w in vectors[search_field]['terms']:
-                            positions.update([i['position'] for i in vectors[search_field]['terms'][w]['tokens']])
-                hit_highlight_positions = sorted(positions)
-                for pos in hit_highlight_positions:
-                    if compare_term and highlight_offsets[compare_field][pos][-1] not in compare_term + [x for y in compare_term for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
-                        continue
-                    start_offset = highlight_offsets[highlight_field][pos][0]
-                    end_offset = highlight_offsets[highlight_field][pos][1] - 1
-                    start_index = highlight_offsets[highlight_field][max(0, pos - 10)][0]
-                    end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, pos + 10)][1] + 1
+                        word_ranges.append(range(max(0, i - 10), min(i + 11, len(highlight_offsets['text']))))
+                start_offsets = [highlight_offsets['text'][x[0]][0] for x in h_l_indices]
+                end_offsets = [highlight_offsets['text'][x[0]][1] - 1 for x in h_l_indices]
+                for r in word_ranges:
+                    start_index = highlight_offsets['text'][r.start][0]
+                    end_index = highlight_offsets['text'][r.stop - 1][1] + 1
                     sentence = ''
                     for i, x in enumerate(text[start_index:end_index]):
-                        if i + start_index == start_offset and i + start_index == end_offset:
-                            sentence += PRE_TAGS + x + POST_TAGS
-                        elif i + start_index == start_offset:
-                            sentence += PRE_TAGS + x
-                        elif i + start_index == end_offset:
-                            sentence += x + POST_TAGS
+                        if i + start_index in start_offsets and i + start_index in end_offsets:
+                            sentence += highlight_tags[0] + x + highlight_tags[1]
+                        elif i + start_index in start_offsets:
+                            sentence += highlight_tags[0] + x
+                        elif i + start_index in end_offsets:
+                            sentence += x + highlight_tags[1]
                         else:
                             sentence += x
                     sentences.append(Markup(sentence))
-                    sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets[highlight_field]), pos + 11)))
-            if download_id and list_index % 500 == 0:
-                current_app.redis.set(download_id, str(50 + floor((list_index / len(search['hits']['hits'])) * 50)) + '%')
-        regest_sents = []
-        show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
-        if 'highlight' in hit and regest_field in hit['highlight']:
-            if show_regest is False:
-                regest_sents = [_('Regest nicht zugänglich.')]
+                    sentence_spans.append(r)
+            elif search_field in FORM_PARTS.keys():
+                part_sentences += [Markup('<strong>' + search_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][search_field]]
+            elif 'regest' in search_field:
+                if show_regest is False:
+                    regest_sents = [_('Regest nicht zugänglich.')]
+                else:
+                    regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]]
             else:
-                regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
+                other_sentences += [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]]
+
+        if download_id and list_index % 500 == 0:
+            current_app.redis.set(download_id, str(50 + floor((list_index / len(search['hits']['hits'])) * 50)) + '%')
         ordered_sentences = list()
         ordered_sentence_spans = list()
         for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
             ordered_sentences.append(x)
             ordered_sentence_spans.append(y)
+        ordered_sentences += other_sentences
+        ordered_sentences += [x for x in sorted(part_sentences)]
         if ordered_sentences or regest_sents:
             if current_app.config['nemo_app'].check_project_team() is False and not open_text:
                 ordered_sentences = [_('Text nicht zugänglich.')]
                 ordered_sentence_spans = [range(0, 1)]
-            ids.append({'id': hit['_id'],
-                        'info': hit['_source'],
-                        'sents': ordered_sentences,
-                        'sentence_spans': ordered_sentence_spans,
-                        'title': hit['_source']['title'],
-                        'regest_sents': regest_sents,
-                        'highlight': ordered_sentences})
+        ids.append({'id': hit['_id'],
+                    'info': hit['_source'],
+                    'sents': ordered_sentences,
+                    'sentence_spans': ordered_sentence_spans,
+                    'title': hit['_source']['title'],
+                    'regest_sents': regest_sents,
+                    'highlight': ordered_sentences})
     if download_id:
         current_app.redis.setex(download_id, 60, '100%')
     return ids, all_highlighted_terms
@@ -432,10 +332,6 @@ def advanced_query_index(corpus: list = None,
         corpus = ['all']
     if special_days is None:
         special_days = []
-    if proper_name != '':
-        proper_name = proper_name.split('+')
-    else:
-        proper_name = []
     search_highlight = set()
 
     # Function to control the replacement of uu, vu, vv, uv, and w when in brackets
@@ -510,9 +406,6 @@ def advanced_query_index(corpus: list = None,
                     clauses += sub_clauses
                 body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
             elif query_vals['q']:
-                #if query_vals['proper_name']:
-                #    compare_term = proper_name
-                #    compare_field = 'lemmas'
                 if query_vals['formulaic_parts']:
                     bool_clauses = []
                     for s_field in query_vals['formulaic_parts']:
@@ -760,83 +653,24 @@ def advanced_query_index(corpus: list = None,
         # implement the process below depending on what the key is
         # Change the highlight parameters for each field to include number_of_fragments: 0. That will return the whole field
         # Then lem_highlight_to_text will just need to find the position of the highlighted terms and then transfer if need be
-        if search_field in ('lemmas', 'text') and search['hits']['total']['value'] > 0:
-            ids, g.highlighted_terms = lem_highlight_to_text(search=search,
-                                                           q=q,
-                                                           ordered_terms=ordered_terms,
-                                                           slop=slop,
-                                                           regest_field=regest_field,
-                                                           search_field=search_field,
-                                                           highlight_field='text',
-                                                           fuzz=fuzz,
-                                                           download_id=search_id,
-                                                           compare_term=compare_term,
-                                                           compare_field=compare_field)
-        else:
-            if isinstance(search_field, list):
-                ids = []
-                for hit in search['hits']['hits']:
-                    highlight_sents = []
-                    full_highlight = []
-                    for s_field in search_field:
-                        if 'highlight' in hit and s_field in hit['highlight']:
-                            highlight_sents += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
-                            full_highlight += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + x) for x in hit['highlight'][s_field]]
-                    ids.append({'id': hit['_id'],
-                                'info': hit['_source'],
-                                'sents': highlight_sents,
-                                'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                                if 'highlight' in hit and regest_field in hit['highlight'] else [],
-                                'highlight': full_highlight})
-            else:
-                ids = [{'id': hit['_id'],
-                        'info': hit['_source'],
-                        'sents': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else [],
-                        'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                        if 'highlight' in hit and regest_field in hit['highlight'] else [],
-                        'highlight': [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]] if 'highlight' in hit else []}
-                       for hit in search['hits']['hits']]
-        elif regest_q:
-            ids = [{'id': hit['_id'],
-                    'info': hit['_source'],
-                    'sents': [],
-                    'regest_sents': [Markup(highlight_segment(x)) for x in hit['highlight'][regest_field]]
-                    if 'highlight' in hit and regest_field in hit['highlight'] else [],
-                    'highlight': []}
-                   for hit in search['hits']['hits']]
-        elif isinstance(search_field, list):
-            ids = []
-            for hit in search['hits']['hits']:
-                sents = []
-                for s_field in search_field:
-                    if s_field in hit['_source']:
-                        sent = '<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]
-                        sents.append(Markup(sent))
-                ids.append({'id': hit['_id'], 'info': hit['_source'], 'sents': sents, 'regest_sents': [], 'highlight': sents})
-        else:
-            ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': [], 'highlight': []}
-                   for hit in search['hits']['hits']]
-        if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-            prev_search = ids
+        ids, g.highlighted_terms = lem_highlight_to_text(search=search, download_id=search_id)
+    #if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
+    #    prev_search = ids
     agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
     aggregations = current_app.elasticsearch.search(index=corpus,
                                                     doc_type="",
                                                     body=agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
-        req_name = "{corpus}&{field}&{q}&{fuzz}&{in_order}&{y}&{slop}&" \
+        q = '&'.join(['{}&{}'.format(k, '&'.join(v)) for k, v in query_dict.items()])
+        req_name = "{corpus}&{q}&{y}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
-                   "{sort}&{spec_days}&{regest_q}&" \
-                   "{regest_field}&{charter_parts}&{proper_name}&" \
-                   "{forgeries}&{regex}&{exclude_q}&{source}".format(
-            corpus='+'.join(corpus), field=lemma_search, q=q.replace(' ', '+'), fuzz=fuzziness, in_order=in_order,
-            slop=slop, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
+                   "{sort}&{spec_days}&" \
+                   "{forgeries}&{source}".format(
+            corpus='+'.join(corpus), q=q, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
             m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
-            sort=old_sort, spec_days='+'.join(special_days), regest_q=regest_q.replace(' ', '+'),
-            regest_field=regest_field, charter_parts=formulaic_parts.replace(' ', '+'),
-            proper_name='+'.join(proper_name), regex=regex_search, forgeries=forgeries, exclude_q=exclude_q,
-            source=source)
+            sort=old_sort, spec_days='+'.join(special_days), forgeries=forgeries, source=source)
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(body_template)
         # Remove the textual parts from the results

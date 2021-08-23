@@ -18,6 +18,56 @@ import roman
 CORP_MAP = {y['match']['collection']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
 
 
+def build_search_args(search_args: dict) -> dict:
+    """
+    Transfer request args to an appropriately keyed and valued dictionary
+    :param search_args: the raw args from request.args
+    :return: the converted args that can be sent to search.Search
+    """
+    if 'bool_operator' not in search_args:
+        search_args['bool_operator'] = 'must'
+    if 'q' in search_args:
+        search_args['q_1'] = search_args.pop('q', '').lower()
+    if 'search_field' in search_args:
+        search_args['search_field_1'] = search_args.pop('search_field', 'text')
+    lemma_search = search_args.pop('lemma_search')
+    if lemma_search in ['y', 'True', True]:
+        search_args['search_field_1'] = 'lemmas'
+    if 'regest_q' in search_args:
+        search_args['q_2'] = search_args['regest_q'].lower()
+        search_args['search_field_2'] = 'regest'
+    elif 'exclude_q' in search_args:
+        search_args['q_3'] = search_args['exclude_q'].lower()
+        search_args['search_field_3'] = search_args['search_field']
+        search_args['bool_operator'] = 'must_not'
+    search_args['corpus'] = '+'.join(search_args.pop("corpus")) or 'all'
+    if 'formulaic_parts' in search_args:
+        search_args['formulaic_parts_1'] = '+'.join(search_args.pop('formulaic_parts')) or ''
+    if 'regex_search' in search_args:
+        regex_search = search_args.pop('regex_search')
+        search_args['regex_search_1'] = 'False'
+        if regex_search in ['y', 'True', True]:
+            search_args['regex_search_1'] = 'True'
+    if 'proper_name' in search_args:
+        search_args['proper_name_1'] = '+'.join(search_args.pop('proper_name')) or ''
+    if 'search_field' not in search_args:
+        search_args['search_field'] = 'text'
+    lemma_search = search_args.pop('lemma_search')
+    if lemma_search in ['y', 'True', True]:
+        search_args['search_field'] = 'lemmas'
+    if 'regest_q' in search_args:
+        search_args['q'] = search_args['regest_q'].lower()
+        search_args['search_field'] = 'regest'
+    elif 'exclude_q' in search_args:
+        search_args['q_2'] = search_args['exclude_q'].lower()
+        search_args['search_field_2'] = search_args['search_field']
+        search_args['bool_operator'] = 'must_not'
+    if isinstance(search_args['corpus'], list):
+        search_args['corpus'] = '+'.join(search_args.pop("corpus")) or 'all'
+    if isinstance(search_args['special_days'], list):
+        search_args['special_days'] = '+'.join(search_args.pop('special_days')) or ''
+    return search_args
+
 @bp.route("/simple", methods=["GET"])
 def r_simple_search() -> redirect:
     if not g.search_form.validate():
@@ -27,13 +77,14 @@ def r_simple_search() -> redirect:
             elif k == 'q':
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
         return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
-    data = g.search_form.data
-    data['q'] = data['q'].lower()
+    data = {x: y for x, y in g.search_form.data.items()}
+    data['q_1'] = data.pop('q', '').lower()
     lemma_search = data.pop('lemma_search')
     data['lemma_search'] = 'False'
     data['search_id'] = data.pop('simple_search_id')
+    data['search_field_1'] = data.pop('search_field', 'text')
     if lemma_search in ['y', 'True', True]:
-        data['lemma_search'] = 'True'
+        data['search_field_1'] = 'lemmas'
     corpus = '+'.join(data.pop("corpus"))
     return redirect(url_for('.r_results', source='simple', corpus=corpus, sort="urn", **data))
 
@@ -72,52 +123,9 @@ def r_results():
     old_search = False
     if request.args.get('old_search', None) == 'True':
         old_search = True
-    search_args = dict(per_page=posts_per_page,
-                       lemma_search=request.args.get('lemma_search', 'False') or 'False',
-                       q=request.args.get('q'),
-                       fuzziness=request.args.get("fuzziness", "0"),
-                       page=page,
-                       in_order=request.args.get('in_order', 'False'),
-                       slop=request.args.get('slop', '0'),
-                       regest_q=request.args.get('regest_q', ''),
-                       year=request.args.get('year', 0, type=int),
-                       month=request.args.get('month', 0, type=int),
-                       day=request.args.get('day', 0, type=int),
-                       year_start=request.args.get('year_start', 0, type=int),
-                       month_start=request.args.get('month_start', 0, type=int),
-                       day_start=request.args.get('day_start', 0, type=int),
-                       year_end=request.args.get('year_end', 0, type=int),
-                       month_end=request.args.get('month_end', 0, type=int),
-                       day_end=request.args.get('day_end', 0, type=int),
-                       date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                       corpus=corpus or ['all'],
-                       exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                       composition_place=request.args.get('composition_place', ''),
-                       sort=request.args.get('sort', 'urn'),
-                       special_days=special_days,
-                       old_search=old_search,
-                       source=request.args.get('source', 'advanced'),
-                       regest_field=request.args.get('regest_field', 'regest'),
-                       formulaic_parts=request.args.get('formulaic_parts', ''),
-                       proper_name=request.args.get('proper_name', ''),
-                       search_id=request.args.get('search_id', ''),
-                       forgeries=request.args.get('forgeries', 'include'),
-                       regex_search=request.args.get('regex_search', 'False') or 'False',
-                       exclude_q=request.args.get('exclude_q', ''))
-    if 'search_field' not in search_args:
-        search_args['search_field'] = 'text'
-    lemma_search = search_args.pop('lemma_search')
-    if lemma_search in ['y', 'True', True]:
-        search_args['search_field'] = 'lemmas'
-    if 'regest_q' in search_args:
-        search_args['q'] = search_args['regest_q'].lower()
-        search_args['search_field'] = 'regest'
-    elif 'exclude_q' in search_args:
-        search_args['q_2'] = search_args['exclude_q'].lower()
-        search_args['search_field_2'] = search_args['search_field']
-        search_args['bool_operator'] = 'must_not'
+    search_args = build_search_args({x: y for x, y in request.args.items()})
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness"]
+    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness", "search_field"]
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
@@ -125,39 +133,62 @@ def r_results():
         for v in query_val_keys:
             query_val_dict[v] = search_args.get(v + '_' + k_num, '')
         query_dict[k] = query_val_dict
-    posts, total, aggs, g.previous_search = advanced_query_index(**search_args)
-    search_args = {k: v for k, v in search_args.items() if v}
-    search_args.pop('page', None)
-    search_args['corpus'] = '+'.join(corpus)
+    final_search_args = dict(per_page=posts_per_page,
+                             page=page,
+                             year=int(search_args.get('year', 0)),
+                             month=int(search_args.get('month', 0)),
+                             day=int(search_args.get('day', 0)),
+                             year_start=int(search_args.get('year_start', 0)),
+                             month_start=int(search_args.get('month_start', 0)),
+                             day_start=int(search_args.get('day_start', 0)),
+                             year_end=int(search_args.get('year_end', 0)),
+                             month_end=int(search_args.get('month_end', 0)),
+                             day_end=int(search_args.get('day_end', 0)),
+                             date_plus_minus=int(search_args.get("date_plus_minus", 0)),
+                             corpus=corpus or ['all'],
+                             exclusive_date_range=search_args.get('exclusive_date_range', "False"),
+                             composition_place=search_args.get('composition_place', ''),
+                             sort=search_args.get('sort', 'urn'),
+                             special_days=special_days,
+                             old_search=old_search,
+                             source=search_args.get('source', 'advanced'),
+                             search_id=search_args.get('search_id', ''),
+                             forgeries=search_args.get('forgeries', 'include'),
+                             query_dict=query_dict
+                             )
+    posts, total, aggs, g.previous_search = advanced_query_index(**final_search_args)
+    old_search_args = {k: v for k, v in final_search_args.items() if v}
+    old_search_args.pop('page', None)
+    old_search_args['corpus'] = '+'.join(corpus)
     if 'special_days' in search_args:
-        search_args['special_days'] = '+'.join(special_days)
-    search_args.pop('old_search', None)
+        old_search_args['special_days'] = '+'.join(special_days)
+    old_search_args.pop('old_search', None)
     if old_search is False:
-        g.previous_search_args = search_args
+        g.previous_search_args = old_search_args
         g.previous_aggregations = aggs
         g.previous_search_args['corpus'] = '+'.join(corps)
     inf_to_lemmas = []
-    if search_args['lemma_search'] != 'True':
-        search_terms = search_args.get('q', '').split()
-        for token in search_terms:
-            terms = {token}
-            if re.search(r'[?*]', token):
-                terms = set()
-                new_token = token.replace('?', '\\w').replace('*', '\\w*')
-                for term in getattr(g, 'highlighted_words', session.get('highlighted_words', [])):
-                    if re.fullmatch(r'{}'.format(new_token), term):
-                        terms.add(term)
-            lem_possibilites = set()
-            for inflected in terms:
-                try:
-                    lem_possibilites.update(current_app.config['nemo_app'].inflected_to_lemma_mapping[inflected])
-                except KeyError:
-                    continue
-            inf_to_lemmas.append(lem_possibilites)
-        if not all(inf_to_lemmas):
-            inf_to_lemmas = []
-    return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts,
-                                                 current_page=page, search_string=g.search_form.q.data.lower(),
+    for k, v in sorted(final_search_args['query_dict']):
+        if v['search_field'] != 'lemmas':
+            search_terms = v.get('q', '').split()
+            for token in search_terms:
+                terms = {token}
+                if re.search(r'[?*]', token):
+                    terms = set()
+                    new_token = token.replace('?', '\\w').replace('*', '\\w*')
+                    for term in getattr(g, 'highlighted_words', session.get('highlighted_words', [])):
+                        if re.fullmatch(r'{}'.format(new_token), term):
+                            terms.add(term)
+                lem_possibilites = set()
+                for inflected in terms:
+                    try:
+                        lem_possibilites.update(current_app.config['nemo_app'].inflected_to_lemma_mapping[inflected])
+                    except KeyError:
+                        continue
+                inf_to_lemmas.append(lem_possibilites)
+    if not all(inf_to_lemmas):
+        inf_to_lemmas = []
+    return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts, current_page=page,
                                                  url=dict(), open_texts=g.open_texts, total_results=total, aggs=aggs,
                                                  searched_lems=inf_to_lemmas)
 
@@ -185,10 +216,7 @@ def r_advanced_search():
                     coll_cats[k].append((x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
             coll_cats[k] = sorted(coll_cats[k], key=sort_collections)
     ignored_fields = ('exclusive_date_range', 'fuzziness', 'search_field', 'slop', 'in_order', 'date_plus_minus',
-                      'search_id', 'simple_search_id', 'regex_search')
-    data_present = [x for x in form.data if form.data[x] and form.data[x] != 'none' and x not in ignored_fields]
-    if 'forgeries' in data_present and form.data['forgeries'] in ['include', 'exclude']:
-        data_present.remove('forgeries')
+                      'search_id', 'simple_search_id', 'regex_search', 'bool_operator')
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
@@ -197,31 +225,13 @@ def r_advanced_search():
         form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
     if form.proper_name.data and len(form.proper_name.data) == 1:
         form.proper_name.data = form.proper_name.data[0].split(' ')
+    form_data = {x: y for x, y in form.data.items()}
+    data_present = [x for x in form_data if form_data[x] and form_data[x] != 'none' and x not in ignored_fields]
+    if 'forgeries' in data_present and form_data['forgeries'] in ['include', 'exclude']:
+        data_present.remove('forgeries')
     if form.validate() and data_present and 'submit' in data_present:
         if data_present != ['submit']:
-            data = form.data
-            if 'q' in data:
-                data['q_1'] = data.pop('q', '').lower()
-            if 'search_field' not in data:
-                data['search_field'] = 'text'
-            lemma_search = data.pop('lemma_search')
-            if lemma_search in ['y', 'True', True]:
-                data['search_field'] = 'lemmas'
-            if 'regest_q' in data:
-                data['q_1'] = data['regest_q'].lower()
-                data['search_field'] = 'regest'
-            elif 'exclude_q' in data:
-                data['q_2'] = data['exclude_q'].lower()
-                data['search_field_2'] = data['search_field']
-                data['bool_operator'] = 'must_not'
-            data['corpus'] = '+'.join(data.pop("corpus")) or 'all'
-            data['formulaic_parts'] = '+'.join(data.pop('formulaic_parts')) or ''
-            regex_search = data.pop('regex_search')
-            data['regex_search'] = 'False'
-            if regex_search in ['y', 'True', True]:
-                data['regex_search'] = 'True'
-            data['special_days'] = '+'.join(data.pop('special_days')) or ''
-            data['proper_name'] = '+'.join(data.pop('proper_name')) or ''
+            data = build_search_args(form_data)
             return redirect(url_for('.r_results', source="advanced", sort='urn', **data))
         flash(_('Bitte geben Sie Daten in mindestens einem Feld ein.'))
     for k, m in form.errors.items():
@@ -239,6 +249,7 @@ def r_search_docs():
 @bp.route("/suggest/<word>", methods=["GET"])
 def word_search_suggester(word: str):
     qSource = request.args.get('qSource', 'text')
+    # This needs to be brought into line with the new args for search.Search
     words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
                                 lemma_search=request.args.get('lemma_search', 'autocomplete'),
                                 fuzziness=request.args.get("fuzziness", "0"),
