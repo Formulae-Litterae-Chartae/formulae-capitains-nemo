@@ -76,6 +76,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Touraine</b>: Marmoutier - Vendômois': {'match': {'collection': 'marmoutier_vendomois'}},
                                       '<b>Touraine</b>: Marmoutier - Vendômois, Appendix': {'match': {'collection': 'marmoutier_vendomois_appendix'}},
                                       '<b>Touraine</b>: Marmoutier (TELMA)': {'match': {'collection': 'telma_marmoutier'}},
+                                      '<b>Touraine</b>: Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_denis'}},
                                       '<b>Touraine</b>: Saint-Martin de Tours (TELMA)': {'match': {'collection': 'telma_martin_tours'}},
                                       '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'marmoutier_laurain'}},
                                       '<b>Touraine</b>: Une nouvelle charte de Théotolon': {'match': {'collection': 'tours_gasnault'}},
