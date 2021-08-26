@@ -176,6 +176,8 @@ function buildSimpleUrl(qSource) {
 }
 
 function buildUrl(qSource) {
+//     I should be able to do $('form').serialize() here to get all of the form data. That should simplify this significantly. See https://api.jquery.com/serialize/
+//     qSource should be the text field that is being filled out. Otherwise, everything should hopefully work just as it does with a normal search.
     var corpus = [];
     var special_days = [];
     var params = {

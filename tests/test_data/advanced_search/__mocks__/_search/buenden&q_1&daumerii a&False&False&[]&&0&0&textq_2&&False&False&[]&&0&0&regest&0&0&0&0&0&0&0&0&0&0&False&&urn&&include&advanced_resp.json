@@ -1,0 +1,69 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 1,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+        "_score": null,
+        "_source": {
+          "text": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
+          "lemmas": null,
+          "regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 28",
+          "keywords": "",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
+          "date_string": "768–800 [814]",
+          "comp_ort": " ",
+          "autocomplete": "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii a iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0768",
+              "lte": "0800-12-31"
+            }
+          ],
+          "specific_date": [
+            {
+              "year": 814
+            }
+          ],
+          "all_dates": [
+            "0768",
+            "0800-12-31",
+            "0814"
+          ],
+          "min_date": "0768",
+          "max_date": "0814",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "+ In Christi nomine. Do ego Daumerius ad aecclesiam sancti Elarii pratum in Tesquene honus II, quod mihi advenit ex conpactione da Foscione pro remedium animae meae et nominis mei recitatione, confinat da una parte Uigilii, da alia in Uictoriani coloni, da supra in Massanesco. Signum </small><strong>Daumerii</strong><small> </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit. Signum Urseceni nepotis Daumerii testes. Signum Agarici iudices testes. Signum Uigelii de vico Tremune testes. Signum Gisonis testes. Signum Prestancii testes. Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi scripsi et suscripsi."
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
+        ]
+      }
+    ]
+  }
+}

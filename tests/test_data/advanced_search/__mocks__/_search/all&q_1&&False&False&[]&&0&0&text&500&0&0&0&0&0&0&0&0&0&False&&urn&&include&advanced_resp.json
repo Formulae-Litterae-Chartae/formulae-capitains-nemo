@@ -1,0 +1,816 @@
+{
+  "took": 141,
+  "timed_out": false,
+  "_shards": {
+    "total": 56,
+    "successful": 56,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 11,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "buenden_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
+          "lemmas": null,
+          "regest": "Eine Bestallungsformel für den Dukat beider Rätien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem römischen Volk den Frieden zu wahren.",
+          "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 3",
+          "keywords": "",
+          "urn": "urn:cts:formulae:buenden.meyer-marthaler0003.lat001",
+          "date_string": "Vor 507",
+          "comp_ort": " ",
+          "autocomplete": "Formula ducatus Raetiarum. Quamvis spectabilitatis honor unus esse videatur nec in his aliquid aIiud nisi tempus soleat anteferri, tamen rerum qualitate perpensa multum his creditum videtur quibus confinales populi deputantur, quia non est tale pacatis regionibus ius dicere, quale suspectis gentibus assidere, ubi non tantum vitia quantum bella suspecta sunt nec solum vox praeconis insonat, sed tubarum crepitus frequenter insultat. Raetiae namque munimina sunt Italiae et claustra provinciae: quae non immerito sic appellate esse iudicamus, quando contra feras et agrestissimas gentes velut quaedam plagarum obstacula disponuntur. Ibi enim impetus gentilis excipitur et transmissis iaculis sauciatur furibunda praesumptio, sic gentilis impetus vestra venatio est et ludo geritis quod vos assidue feliciter egisse sentitis. Ideoque validum te ingenio ac viribus audientes per illam indictionem ducatum tibi cedimus Raetiarum, ut milites et in pace regas et cum eis fines nostros sollemni alacritate circum eas, quia non parvam rem tibi respicis fuisse commissam, quando tranquillitas regni nostri tua creditur sollicitudine custodiri. Ita tamen, ut milites tibi commissi vivant cum provincialibus iure civili nec insolescat animus, qui se sentit armatum, quia clipeus ille exercitus nostri quietem debet praestare Romanis, quos ideo constat appositos, ut intus vita felicior secura libertate carpatur. Quapropter responde nostro iudicio, fide nobis et industria placiturus, ut nec gentiles sine discussione suscipias nec nostros ad gentes sub incuriositate transmittas; ad necessitatem siquidem rarius venitur armorum, ubi suscepta surreptio custodiri posse sentitur. Privilegia vero dignitatis tuae nostris tibi iussionibus vindicabis.",
+          "autocomplete_lemmas": null,
+          "autocomplete_regest": "Eine Bestallungsformel für den Dukat beider Rätien bezeichnet diese als die Festen Italiens und mahnt den neueingesetzten Dux, die Barbaren abzufangen und dem römischen Volk den Frieden zu wahren.",
+          "orig_comp_ort": " ",
+          "collection": "buenden",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0400",
+              "lte": "0507-12-31"
+            }
+          ],
+          "all_dates": [
+            "0400",
+            "0507-12-31"
+          ],
+          "min_date": "0400",
+          "max_date": "0507-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:buenden.meyer-marthaler0003.lat001"
+        ]
+      },
+      {
+        "_index": "echternach_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:echternach.wampach0022.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Geschichte der Grundherrschaft Echternach im Frühmittelalter (Ed. Wampach) Nr. 22",
+          "keywords": "",
+          "urn": "urn:cts:formulae:echternach.wampach0022.lat001",
+          "date_string": "[vor 714?]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "echternach",
+          "forgery": false,
+          "dating": [
+            {
+              "lte": "0714-12-31"
+            }
+          ],
+          "all_dates": [
+            "0714-12-31"
+          ],
+          "min_date": "0714-12-31",
+          "max_date": "0714-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:echternach.wampach0022.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner0277.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 177",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner0277.lat001",
+          "date_string": "Vor 800?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0500-01-01",
+              "lte": "0800-01-01"
+            }
+          ],
+          "all_dates": [
+            "0500-01-01",
+            "0800-01-01"
+          ],
+          "min_date": "0500-01-01",
+          "max_date": "0800-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner0277.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1403.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1295 (Reg. 3398)",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1403.lat001",
+          "date_string": "Vor 811?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "lte": "0811-01-01"
+            }
+          ],
+          "all_dates": [
+            "0811-01-01"
+          ],
+          "min_date": "0811-01-01",
+          "max_date": "0811-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1403.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1468.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1347 (Reg. 2903)",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1468.lat001",
+          "date_string": "Bis 800",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "lte": "0800-01-01"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0800-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1468.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1547.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1427 (Reg. 2900)",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1547.lat001",
+          "date_string": "Vor 800?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "lte": "0800-01-01"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0800-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1547.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner1934.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 1815 (Reg. 2901)",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner1934.lat001",
+          "date_string": "Vor 800",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "lte": "0800-01-01"
+            }
+          ],
+          "all_dates": [
+            "0800-01-01"
+          ],
+          "min_date": "0800-01-01",
+          "max_date": "0800-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner1934.lat001"
+        ]
+      },
+      {
+        "_index": "lorsch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:lorsch.gloeckner4437.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Codex Laureshamensis, Bd. II, Kopialbuch, I. Teil: Oberrhein-, Lobden-, Worms-, Nahe- und Speiergau. (Ed. Glöckner) Nr. 3784 (Reg. 2899)",
+          "keywords": "",
+          "urn": "urn:cts:formulae:lorsch.gloeckner4437.lat001",
+          "date_string": "Vor 800?",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "lorsch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0500-01-01",
+              "lte": "0800-01-01"
+            }
+          ],
+          "all_dates": [
+            "0500-01-01",
+            "0800-01-01"
+          ],
+          "min_date": "0500-01-01",
+          "max_date": "0800-01-01",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:lorsch.gloeckner4437.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger1_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 1 †",
+          "keywords": "",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0001.lat001",
+          "date_string": "[481-511 11 27]",
+          "comp_ort": "Ferrieres",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Ferrieres",
+          "collection": "merowinger1",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 481,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 482,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 483,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 484,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 485,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 486,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 487,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 488,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 489,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 490,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 491,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 492,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 493,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 494,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 495,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 496,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 497,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 498,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 499,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 500,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 501,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 502,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 503,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 504,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 505,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 506,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 507,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 508,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 509,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 510,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 511,
+              "month": 11,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0481-11-27",
+            "0482-11-27",
+            "0483-11-27",
+            "0484-11-27",
+            "0485-11-27",
+            "0486-11-27",
+            "0487-11-27",
+            "0488-11-27",
+            "0489-11-27",
+            "0490-11-27",
+            "0491-11-27",
+            "0492-11-27",
+            "0493-11-27",
+            "0494-11-27",
+            "0495-11-27",
+            "0496-11-27",
+            "0497-11-27",
+            "0498-11-27",
+            "0499-11-27",
+            "0500-11-27",
+            "0501-11-27",
+            "0502-11-27",
+            "0503-11-27",
+            "0504-11-27",
+            "0505-11-27",
+            "0506-11-27",
+            "0507-11-27",
+            "0508-11-27",
+            "0509-11-27",
+            "0510-11-27",
+            "0511-11-27"
+          ],
+          "min_date": "0481-11-27",
+          "max_date": "0511-11-27",
+          "days": [
+            "Sunday",
+            "Wednesday",
+            "Thursday",
+            "Tuesday",
+            "Friday",
+            "Saturday",
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:merowinger1.koelzer0001.lat001"
+        ]
+      },
+      {
+        "_index": "merowinger1_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:merowinger1.koelzer0002.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 2 †",
+          "keywords": "",
+          "urn": "urn:cts:formulae:merowinger1.koelzer0002.lat001",
+          "date_string": "[481-511 11 27]",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "merowinger1",
+          "forgery": true,
+          "specific_date": [
+            {
+              "year": 481,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 482,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 483,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 484,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 485,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 486,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 487,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 488,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 489,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 490,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 491,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 492,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 493,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 494,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 495,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 496,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 497,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 498,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 499,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 500,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 501,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 502,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 503,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 504,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 505,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 506,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 507,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 508,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 509,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 510,
+              "month": 11,
+              "day": 27
+            },
+            {
+              "year": 511,
+              "month": 11,
+              "day": 27
+            }
+          ],
+          "all_dates": [
+            "0481-11-27",
+            "0482-11-27",
+            "0483-11-27",
+            "0484-11-27",
+            "0485-11-27",
+            "0486-11-27",
+            "0487-11-27",
+            "0488-11-27",
+            "0489-11-27",
+            "0490-11-27",
+            "0491-11-27",
+            "0492-11-27",
+            "0493-11-27",
+            "0494-11-27",
+            "0495-11-27",
+            "0496-11-27",
+            "0497-11-27",
+            "0498-11-27",
+            "0499-11-27",
+            "0500-11-27",
+            "0501-11-27",
+            "0502-11-27",
+            "0503-11-27",
+            "0504-11-27",
+            "0505-11-27",
+            "0506-11-27",
+            "0507-11-27",
+            "0508-11-27",
+            "0509-11-27",
+            "0510-11-27",
+            "0511-11-27"
+          ],
+          "min_date": "0481-11-27",
+          "max_date": "0511-11-27",
+          "days": [
+            "Sunday",
+            "Wednesday",
+            "Thursday",
+            "Tuesday",
+            "Friday",
+            "Saturday",
+            "Monday"
+          ],
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:merowinger1.koelzer0002.lat001"
+        ]
+      },
+      {
+        "_index": "mittelrheinisch_v2",
+        "_type": "_doc",
+        "_id": "urn:cts:formulae:mittelrheinisch.beyer0014.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Urkundenbuch zur Geschichte der mittelrheinischen Territorien (Ed. Beyer) Nr. 14",
+          "keywords": "",
+          "urn": "urn:cts:formulae:mittelrheinisch.beyer0014.lat001",
+          "date_string": "462–804",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "mittelrheinisch",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "0462-01-01",
+              "lte": "0804-12-31"
+            }
+          ],
+          "all_dates": [
+            "0462-01-01",
+            "0804-12-31"
+          ],
+          "min_date": "0462-01-01",
+          "max_date": "0804-12-31",
+          "sort_prefix": 1
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:mittelrheinisch.beyer0014.lat001"
+        ]
+      }
+    ]
+  }
+}

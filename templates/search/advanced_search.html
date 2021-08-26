@@ -50,13 +50,6 @@
                         </ul>
                         <li><input id="elexiconSearchCorpus" name="corpus" type="checkbox" value="elexicon" onclick="uncheckAllCorpora()"> <label for="elexiconSearchCorpus">{{ _('Lexikon') }}</label></li>
                     </ul>
-                    <div class="form-row">
-                        <div class="col">
-                            {{ form.q(class="form-control my-0", placeholder=form.q.label.text, id="word-search-box", list="word-search-datalist", default=form.q.label.text, autocomplete="off") }}
-                            <datalist id="word-search-datalist">
-                            </datalist>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-xl-2 col-4">
                     <div class="text-center search-section-label"><strong><label for="word-search-box">{{ _('Wortsuche') }}</label></strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}" aria-label="{{ _('Hilfe für Wortsuche') }}"><i class="fas fa-question-circle"></i></button></div>

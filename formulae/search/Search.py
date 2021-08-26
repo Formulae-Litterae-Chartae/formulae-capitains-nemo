@@ -9,7 +9,7 @@ from itertools import product
 from jellyfish import levenshtein_distance
 from math import floor
 from random import randint
-from forms import FORM_PARTS
+from formulae.search.forms import FORM_PARTS
 
 
 PRE_TAGS = "</small><strong>"
@@ -121,37 +121,14 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """
     results = set()
     kwargs['fragment_size'] = 1000
-    field_mapping = {'autocomplete': 'text', 'autocomplete_lemmas': 'lemmas'}
-    if kwargs['qSource'] == 'text':
-        highlight_field = field_mapping[kwargs.get('lemma_search', 'autocomplete')]
-        term = kwargs.get('q', '')
-        if '*' in term or '?' in term:
-            return None
-        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
-    elif kwargs['qSource'] == 'regest':
-        highlight_field = 'regest'
-        term = kwargs.get('regest_q', '')
-        if '*' in term or '?' in term:
-            return None
-        posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
-    else:
-        return None
+    posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
+    highlight_field = kwargs['query_dict'][kwargs['qSource']]['search_field']
+    s = kwargs['query_dict'][kwargs['qSource']]['q']
+    regex_search_string = PRE_TAGS + '.{,' + str(len(PRE_TAGS + POST_TAGS) * len(re.findall(r'\w+', s)) + 40) + '}(?=\s|$)'
     for post in posts:
-        r = re.sub(r'[{}]'.format(punctuation), '', post['info'][highlight_field]).lower()
-        ind = 0
-        sep = ''
-        while term in r[ind:]:
-            if ind > 0:
-                sep = ' '
-            i = r.find(sep + term, ind)
-            if i == -1:
-                ind = i
-                continue
-            end_index = min(r.find(' ', i + len(term) + 30), len(r))
-            if end_index == -1:
-                end_index = len(r)
-            results.add(r[i:end_index].strip())
-            ind = i + len(sep + term)
+        sents = post['highlight'][highlight_field]
+        for sent in sents:
+            results.update([re.sub(r'{}|{}'.format(PRE_TAGS, POST_TAGS), '', x) for x in re.findall(r'{}'.format(regex_search_string), sent)])
     return sorted(results, key=str.lower)[:10]
 
 
@@ -175,7 +152,10 @@ def highlight_segment(orig_str: str) -> str:
     return orig_str[init_index:end_index]
 
 
-def lem_highlight_to_text(search: dict, download_id: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
+def lem_highlight_to_text(search: dict,
+                          compare_term: list = None,
+                          compare_field: str = '',
+                          download_id: str = '') -> Tuple[List[Dict[str, Union[str, list]]], Set[str]]:
     """ Transfer ElasticSearch highlighting from segments in the lemma field to segments in the text field
 
     :param search:
@@ -197,7 +177,6 @@ def lem_highlight_to_text(search: dict, download_id: str = '') -> Tuple[List[Dic
     if download_id:
         current_app.redis.set(download_id, '50%')
     for list_index, hit in enumerate(search['hits']['hits']):
-        hit_highlight_positions = list()
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
@@ -211,19 +190,20 @@ def lem_highlight_to_text(search: dict, download_id: str = '') -> Tuple[List[Dic
         for search_field in hit['highlight']:
             highlight_offsets = {search_field: {}}
             highlight_offsets.update({'text': {}})
-            # this works for text, lemmas and elexicon
-            # I need to add stuff to handle regest and the formulaic parts
             if search_field in ('text', 'lemmas'):
+                search_field_words = re.findall(r'[\w</>·]+', hit['highlight'][search_field][0])
                 for k, v in vectors[search_field]['terms'].items():
                     highlight_offsets[search_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
                 if search_field == 'lemmas':
                     for k, v in vectors['text']['terms'].items():
                         highlight_offsets['text'].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-                h_l_indices = sorted([(i, re.sub(r'.*>(\w+)<.*', r'\1', x)) for i, x in enumerate(hit['highlight'][search_field][0].split()) if '<strong>' in x])
+                h_l_indices = sorted([(i, re.sub(r'.*>(\w+)<.*', r'\1', x)) for i, x in enumerate(search_field_words) if '<strong>' in x])
                 word_ranges = [range(max(0, h_l_indices[0][0] - 10), min(h_l_indices[0][0] + 11, len(highlight_offsets['text'])))]
-                highlight_tags = [PRE_TAGS, POST_TAGS]
                 for i, w in h_l_indices:
-                    if highlight_offsets[search_field][i][-1] == w.lower():
+                    highlight_tags = [PRE_TAGS, POST_TAGS]
+                    if highlight_offsets[search_field][i][-1] != w.lower():
+                        print(hit['_id'], hit['highlight'])
+                        print(i, highlight_offsets[search_field][i][-1])
                         highlight_tags = ['', '']
                     if i in word_ranges[-1]:
                         word_ranges[-1] = range(word_ranges[-1].start, min(i + 11, len(highlight_offsets['text'])))
@@ -304,6 +284,7 @@ def advanced_query_index(corpus: list = None,
                          search_id: str = '',
                          forgeries: str = 'include',
                          bool_operator: str = 'must',
+                         qSource: str = '',
                          **kwargs) -> Tuple[List[Dict[str, Union[str, list, dict]]],
                                             int,
                                             dict,
@@ -320,14 +301,15 @@ def advanced_query_index(corpus: list = None,
     sort = build_sort_list(sort)
     if old_search is False:
         session.pop('previous_search', None)
-    body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
-                          'size': per_page, 'highlight': {'number_of_fragments': 0,
-                                                          'fields': {'text': {}},
-                                                          'pre_tags': [PRE_TAGS],
-                                                          'post_tags': [POST_TAGS],
-                                                          'encoder': 'html'}})
-    if not 'q_1' not in query_dict and source == 'simple':
+    base_body_template = dict({"query": {"bool": {"must": []}}, "sort": sort, 'from': (page - 1) * per_page,
+                               'size': per_page, 'highlight': {'number_of_fragments': 0,
+                                                               'fields': {'text': {}},
+                                                               'pre_tags': [PRE_TAGS],
+                                                               'post_tags': [POST_TAGS],
+                                                               'encoder': 'html'}})
+    if 'q_1' not in query_dict and source == 'simple':
         return [], 0, {}, []
+    print(query_dict)
     if corpus is None or not any(corpus):
         corpus = ['all']
     if special_days is None:
@@ -346,29 +328,35 @@ def advanced_query_index(corpus: list = None,
         third = '|[' + m.group(2) + m.group(3) + ']'
         return '(' + ''.join([first, second, third]) + ')'
     if 'elexicon' in corpus:
+        elex_search = {k: v for k, v in base_body_template.items()}
+        elex_search['highlight'] = {'fragment_size': 0,
+                                      'fields': {'text': {}},
+                                      'pre_tags': [PRE_TAGS],
+                                      'post_tags': [POST_TAGS],
+                                      'encoder': 'html'}
         corpus = ['elexicon']
-        #if 'autocomplete' in lemma_search:
-        #    search_field = 'autocomplete'
         clauses = []
         for query_key, query_vals in query_dict.items():
             query_clauses = []
             for term in query_vals['q'].split():
                 if '*' in term or '?' in term:
-                    query_clauses.append({'wildcard': {'text': {'value': term}}})
+                    query_clauses.append({'wildcard': {query_vals['search_field']: {'value': term}}})
                 else:
-                    query_clauses.append({'match': {'text': {'query': term, 'fuzziness': query_vals['fuzziness']}}})
+                    query_clauses.append({'match': {query_vals['search_field']: {'query': term, 'fuzziness': query_vals['fuzziness']}}})
             clauses.append({'bool': {bool_operator: query_clauses}})
-        body_template['query']['bool']['must'] = clauses
+        elex_search['query']['bool']['must'] = clauses
 
         search = current_app.elasticsearch.search(index=corpus,
                                                   doc_type="",
-                                                  body=body_template)
+                                                  body=elex_search)
     else:
+        # I may need to run each query separately and then bring the results together so that I can do things like
+        # proper name searches.
+        all_results = list()
         for query_key, query_vals in query_dict.items():
+            search_part_template = {k: v for k, v in base_body_template.items()}
             if query_vals['formulaic_parts'] != '':
                 query_vals['formulaic_parts'] = query_vals['formulaic_parts'].split('+')
-            #elif 'autocomplete' in lemma_search:
-            #    search_field = lemma_search
 
             if isinstance(query_vals['formulaic_parts'], list):
                 search_highlight.update(query_vals['formulaic_parts'])
@@ -379,33 +367,36 @@ def advanced_query_index(corpus: list = None,
             if query_vals['in_order'] == 'False':
                 ordered_terms = False
             if query_vals['search_field'] == 'lemmas':
-                fuzz = '0'
+                fuzz = 0
                 if '*' in query_vals['q'] or '?' in query_vals['q'] and query_vals['regex_search'] == 'False':
                     flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
                     return [], 0, {}, []
             else:
                 fuzz = query_vals['fuzziness']
             if composition_place:
-                body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
+                search_part_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
             if forgeries == 'exclude':
-                body_template['query']['bool']['must'].append({'term': {'forgery': False}})
+                search_part_template['query']['bool']['must'].append({'term': {'forgery': False}})
             elif forgeries == 'only':
-                body_template['query']['bool']['must'].append({'term': {'forgery': True}})
+                search_part_template['query']['bool']['must'].append({'term': {'forgery': True}})
             if query_vals['proper_name'] != '':
                 query_vals['proper_name'] = query_vals['proper_name'].split('+')
             else:
                 query_vals['proper_name'] = []
             if query_vals['proper_name'] and query_vals['q'] == '':
                 query_vals['search_field'] = 'lemmas'
-                body_template['highlight']['fields'].update({'lemmas': {}})
+                search_part_template['highlight']['fields'].update({'lemmas': {}})
                 clauses = list()
                 for term in query_vals['proper_name']:
                     sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": fuzz}}}}}]
                     for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
                         sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": fuzz}}}}})
                     clauses += sub_clauses
-                body_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
+                search_part_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
             elif query_vals['q']:
+                if query_vals['proper_name']:
+                    query_vals['compare_term'] = query_vals['proper_name']
+                    query_vals['compare_field'] = 'lemmas'
                 if query_vals['formulaic_parts']:
                     bool_clauses = []
                     for s_field in query_vals['formulaic_parts']:
@@ -484,7 +475,7 @@ def advanced_query_index(corpus: list = None,
                     clauses = []
                     for term in query_vals['q'].split():
                         u_term = term
-                        if query_vals['search_field'] not in ['lemmas', 'autocomplete', 'autocomplete_lemmas']:
+                        if query_vals['search_field'] not in ['lemmas', 'autocomplete', 'autocomplete_lemmas', 'autocomplete_regest']:
                             if query_vals['regex_search'] == 'True':
                                 # Replace these characters if they are within brackets
                                 temp_term = re.sub(r'[ij](?=[^\[]*\])',
@@ -530,7 +521,7 @@ def advanced_query_index(corpus: list = None,
                                         else:
                                             term_fuzz = 2
                                     else:
-                                        term_fuzz = int(fuzz)
+                                        term_fuzz = int(fuzz) if fuzz else 0
                                     if term_fuzz != 0:
                                         suggest_body = {'suggest':
                                                             {'fuzzy_suggest':
@@ -562,10 +553,11 @@ def advanced_query_index(corpus: list = None,
                         else:
                             regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': fuzz}}})
                     bool_clauses.append({'bool': {'must': regest_clauses}})
-                body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+                search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
             elif query_vals['formulaic_parts']:
                 bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts']]
-                body_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+                search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+            search_part = current_app.elasticsearch.search(index=corpus, doc_type="", body=search_part_template)
 
         if year or month or day:
             date_template = {"bool": {"must": []}}
@@ -624,13 +616,16 @@ def advanced_query_index(corpus: list = None,
             for s_d in special_days:
                 s_d_template['bool']['should'].append({'match': {'days': s_d}})
             body_template["query"]["bool"]["must"].append(s_d_template)
-        body_template['highlight'] = {'fields': {x: {'fragment_size': 1000} for x in search_highlight},
-                                          'pre_tags': [PRE_TAGS],
-                                          'post_tags': [POST_TAGS],
-                                          'encoder': 'html'
-                                          }
+        body_template['highlight']['fields'].update({x: {} for x in search_highlight})
         search = current_app.elasticsearch.search(index=corpus, doc_type="", body=body_template)
-    if corpus == ['elexicon']:
+    if qSource:
+        ids = [{'id': hit['_id'],
+                'info': hit['_source'],
+                'sents': [],
+                'regest_sents': [],
+                'highlight': hit['highlight']}
+               for hit in search['hits']['hits']]
+    elif corpus == ['elexicon']:
         def sort_lexicon(d):
             keywords = set(re.sub(r'[{}]'.format(punctuation), ' ',
                                   ' '.join([d['info']['title'], d['info']['keywords']]).lower()).split())
@@ -645,7 +640,7 @@ def advanced_query_index(corpus: list = None,
                 'highlight': []}
                for hit in search['hits']['hits']]
         ids = sorted(ids, key=sort_lexicon)
-    else:
+    elif any([v['q'] for v in query_dict.values()]):
         # The following lines transfer "highlighting" to the text field so that the user sees the text instead of
         # a series of lemmata.
         # Weeding out how each hit is highlighted needs to be done by the lem_highlight_to_text function
@@ -653,15 +648,27 @@ def advanced_query_index(corpus: list = None,
         # implement the process below depending on what the key is
         # Change the highlight parameters for each field to include number_of_fragments: 0. That will return the whole field
         # Then lem_highlight_to_text will just need to find the position of the highlighted terms and then transfer if need be
-        ids, g.highlighted_terms = lem_highlight_to_text(search=search, download_id=search_id)
-    #if search_field not in ['autocomplete_lemmas', 'autocomplete'] and old_search is False:
-    #    prev_search = ids
-    agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
-    aggregations = current_app.elasticsearch.search(index=corpus,
-                                                    doc_type="",
-                                                    body=agg_search_body)['aggregations']
+        ids, g.highlighted_terms = lem_highlight_to_text(search=search,
+                                                         download_id=search_id,
+                                                         compare_term=compare_term,
+                                                         compare_field=compare_field)
+    else:
+        ids = [{'id': hit['_id'], 'info': hit['_source'], 'sents': [], 'regest_sents': [], 'highlight': []}
+               for hit in search['hits']['hits']]
+    aggregations = {}
+    if not qSource:
+        if old_search is False:
+            prev_search = ids
+        agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
+        aggregations = current_app.elasticsearch.search(index=corpus,
+                                                        doc_type="",
+                                                        body=agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
         q = '&'.join(['{}&{}'.format(k, '&'.join(v)) for k, v in query_dict.items()])
+        q = ''
+        for k, v in query_dict.items():
+            d_vals = '&'.join([str(x) for x in v.values()])
+            q += k + '&' + d_vals
         req_name = "{corpus}&{q}&{y}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \

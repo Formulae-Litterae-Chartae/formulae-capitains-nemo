@@ -30,7 +30,7 @@ def build_search_args(search_args: dict) -> dict:
         search_args['q_1'] = search_args.pop('q', '').lower()
     if 'search_field' in search_args:
         search_args['search_field_1'] = search_args.pop('search_field', 'text')
-    lemma_search = search_args.pop('lemma_search')
+    lemma_search = search_args.pop('lemma_search', '')
     if lemma_search in ['y', 'True', True]:
         search_args['search_field_1'] = 'lemmas'
     if 'regest_q' in search_args:
@@ -40,7 +40,6 @@ def build_search_args(search_args: dict) -> dict:
         search_args['q_3'] = search_args['exclude_q'].lower()
         search_args['search_field_3'] = search_args['search_field']
         search_args['bool_operator'] = 'must_not'
-    search_args['corpus'] = '+'.join(search_args.pop("corpus")) or 'all'
     if 'formulaic_parts' in search_args:
         search_args['formulaic_parts_1'] = '+'.join(search_args.pop('formulaic_parts')) or ''
     if 'regex_search' in search_args:
@@ -48,23 +47,11 @@ def build_search_args(search_args: dict) -> dict:
         search_args['regex_search_1'] = 'False'
         if regex_search in ['y', 'True', True]:
             search_args['regex_search_1'] = 'True'
-    if 'proper_name' in search_args:
+    if isinstance(search_args.get('proper_name', ''), list):
         search_args['proper_name_1'] = '+'.join(search_args.pop('proper_name')) or ''
-    if 'search_field' not in search_args:
-        search_args['search_field'] = 'text'
-    lemma_search = search_args.pop('lemma_search')
-    if lemma_search in ['y', 'True', True]:
-        search_args['search_field'] = 'lemmas'
-    if 'regest_q' in search_args:
-        search_args['q'] = search_args['regest_q'].lower()
-        search_args['search_field'] = 'regest'
-    elif 'exclude_q' in search_args:
-        search_args['q_2'] = search_args['exclude_q'].lower()
-        search_args['search_field_2'] = search_args['search_field']
-        search_args['bool_operator'] = 'must_not'
     if isinstance(search_args['corpus'], list):
         search_args['corpus'] = '+'.join(search_args.pop("corpus")) or 'all'
-    if isinstance(search_args['special_days'], list):
+    if isinstance(search_args.get('special_days', ''), list):
         search_args['special_days'] = '+'.join(search_args.pop('special_days')) or ''
     return search_args
 
@@ -125,26 +112,32 @@ def r_results():
         old_search = True
     search_args = build_search_args({x: y for x, y in request.args.items()})
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness", "search_field"]
+    query_val_keys = [("in_order", False),
+                      ("regex_search", False),
+                      ("proper_name", ''),
+                      ("formulaic_parts", ''),
+                      ("slop", 0),
+                      ("fuzziness", 0),
+                      ("search_field", 'text')]
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
         query_val_dict = {'q': search_args[k]}
-        for v in query_val_keys:
-            query_val_dict[v] = search_args.get(v + '_' + k_num, '')
+        for v, val_default in query_val_keys:
+            query_val_dict[v] = search_args.get(v + '_' + k_num) if search_args.get(v + '_' + k_num) else val_default
         query_dict[k] = query_val_dict
     final_search_args = dict(per_page=posts_per_page,
                              page=page,
-                             year=int(search_args.get('year', 0)),
-                             month=int(search_args.get('month', 0)),
-                             day=int(search_args.get('day', 0)),
-                             year_start=int(search_args.get('year_start', 0)),
-                             month_start=int(search_args.get('month_start', 0)),
-                             day_start=int(search_args.get('day_start', 0)),
-                             year_end=int(search_args.get('year_end', 0)),
-                             month_end=int(search_args.get('month_end', 0)),
-                             day_end=int(search_args.get('day_end', 0)),
-                             date_plus_minus=int(search_args.get("date_plus_minus", 0)),
+                             year=int(search_args.get('year')) if search_args.get('year') else 0,
+                             month=int(search_args.get('month')) if search_args.get('month') else 0,
+                             day=int(search_args.get('day')) if search_args.get('day') else 0,
+                             year_start=int(search_args.get('year_start')) if search_args.get('year_start') else 0,
+                             month_start=int(search_args.get('month_start', 0)) if search_args.get('month_start') else 0,
+                             day_start=int(search_args.get('day_start')) if search_args.get('day_start') else 0,
+                             year_end=int(search_args.get('year_end')) if search_args.get('year_end') else 0,
+                             month_end=int(search_args.get('month_end')) if search_args.get('month_end') else 0,
+                             day_end=int(search_args.get('day_end')) if search_args.get('day_end') else 0,
+                             date_plus_minus=int(search_args.get("date_plus_minus")) if search_args.get('date_plus_minus') else 0,
                              corpus=corpus or ['all'],
                              exclusive_date_range=search_args.get('exclusive_date_range', "False"),
                              composition_place=search_args.get('composition_place', ''),
@@ -168,7 +161,7 @@ def r_results():
         g.previous_aggregations = aggs
         g.previous_search_args['corpus'] = '+'.join(corps)
     inf_to_lemmas = []
-    for k, v in sorted(final_search_args['query_dict']):
+    for k, v in sorted(final_search_args['query_dict'].items()):
         if v['search_field'] != 'lemmas':
             search_terms = v.get('q', '').split()
             for token in search_terms:
@@ -246,32 +239,26 @@ def r_search_docs():
     return current_app.config['nemo_app'].render(template="search::documentation.html", url=dict())
 
 
-@bp.route("/suggest/<word>", methods=["GET"])
-def word_search_suggester(word: str):
-    qSource = request.args.get('qSource', 'text')
+@bp.route("/suggest/<qSource>", methods=["GET"])
+def word_search_suggester(qSource: str):
     # This needs to be brought into line with the new args for search.Search
-    words = suggest_word_search(q=word.lower() if qSource == 'text' else request.args.get('q', '').lower(),
-                                lemma_search=request.args.get('lemma_search', 'autocomplete'),
-                                fuzziness=request.args.get("fuzziness", "0"),
-                                in_order=request.args.get('in_order', 'False'),
-                                slop=request.args.get('slop', '0'),
-                                year=request.args.get('year', 0, type=int),
-                                month=request.args.get('month', 0, type=int),
-                                day=request.args.get('day', 0, type=int),
-                                year_start=request.args.get('year_start', 0, type=int),
-                                month_start=request.args.get('month_start', 0, type=int),
-                                day_start=request.args.get('day_start', 0, type=int),
-                                year_end=request.args.get('year_end', 0, type=int),
-                                month_end=request.args.get('month_end', 0, type=int),
-                                day_end=request.args.get('day_end', 0, type=int),
-                                date_plus_minus=request.args.get("date_plus_minus", 0, type=int),
-                                corpus=request.args.get('corpus', '').split() or ['all'],
-                                exclusive_date_range=request.args.get('exclusive_date_range', "False"),
-                                composition_place=request.args.get('composition_place', ''),
-                                special_days=request.args.get('special_days', '').split(),
-                                regest_q=word.lower() if qSource == 'regest' else request.args.get('regest_q', '').lower(),
-                                regest_field=request.args.get('regest_field', 'regest'),
-                                qSource=request.args.get('qSource', 'text'))
+    search_args = build_search_args({x: y for x, y in request.args.items()})
+    search_args['qSource'] = qSource
+    query_keys = [x for x in search_args.keys() if x.startswith('q_')]
+    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness", "search_field"]
+    query_dict = dict()
+    for k in query_keys:
+        k_num = k.split('_')[-1]
+        query_val_dict = {'q': search_args.pop(k, '')}
+        for v in query_val_keys:
+            query_val_dict[v] = search_args.pop(v + '_' + k_num, '')
+        query_dict[k] = query_val_dict
+    if query_dict[qSource]['search_field'] == 'text':
+        query_dict[qSource]['search_field'] = 'autocomplete'
+    else:
+        query_dict[qSource]['search_field'] = 'autocomplete_' + query_dict[qSource]['search_field']
+    search_args['query_dict'] = query_dict
+    words = suggest_word_search(**search_args)
     return dumps(words)
 
 

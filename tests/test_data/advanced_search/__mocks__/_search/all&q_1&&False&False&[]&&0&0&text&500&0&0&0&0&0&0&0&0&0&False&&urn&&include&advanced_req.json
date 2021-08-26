@@ -1,0 +1,65 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "dating": "0500"
+                }
+              },
+              {
+                "nested": {
+                  "path": "specific_date",
+                  "query": {
+                    "bool": {
+                      "should": [
+                        {
+                          "bool": {
+                            "must": [
+                              {
+                                "match": {
+                                  "specific_date.year": 500
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "match": {
+                            "specific_date.year": "0001"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sort": [
+    "sort_prefix",
+    "urn"
+  ],
+  "from": 0,
+  "size": 10000,
+  "highlight": {
+    "number_of_fragments": 0,
+    "fields": {
+      "text": {}
+    },
+    "pre_tags": [
+      "</small><strong>"
+    ],
+    "post_tags": [
+      "</strong><small>"
+    ],
+    "encoder": "html"
+  }
+}
