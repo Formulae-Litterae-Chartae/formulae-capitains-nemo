@@ -24,35 +24,42 @@ def build_search_args(search_args: dict) -> dict:
     :param search_args: the raw args from request.args
     :return: the converted args that can be sent to search.Search
     """
+    if 'corpus' not in search_args:
+        search_args['corpus'] = 'all'
     if 'bool_operator' not in search_args:
         search_args['bool_operator'] = 'must'
     if 'q' in search_args:
-        search_args['q_1'] = search_args.pop('q', '').lower()
-    if 'search_field' in search_args:
-        search_args['search_field_1'] = search_args.pop('search_field', 'text')
-    lemma_search = search_args.pop('lemma_search', '')
+        search_args['q_1'] = search_args.get('q', '').lower()
+    search_args['search_field_1'] = search_args.get('search_field', 'text')
+    lemma_search = search_args.get('lemma_search', '')
     if lemma_search in ['y', 'True', True]:
         search_args['search_field_1'] = 'lemmas'
-    if 'regest_q' in search_args:
+    if search_args.get('regest_q', ''):
         search_args['q_2'] = search_args['regest_q'].lower()
         search_args['search_field_2'] = 'regest'
-    elif 'exclude_q' in search_args:
+    if search_args.get('exclude_q', ''):
         search_args['q_3'] = search_args['exclude_q'].lower()
-        search_args['search_field_3'] = search_args['search_field']
+        search_args['search_field_3'] = search_args['search_field_1']
         search_args['bool_operator'] = 'must_not'
     if 'formulaic_parts' in search_args:
-        search_args['formulaic_parts_1'] = '+'.join(search_args.pop('formulaic_parts')) or ''
+        if isinstance(search_args['formulaic_parts'], list):
+            search_args['formulaic_parts_1'] = '+'.join(search_args.get('formulaic_parts')) or ''
+        else:
+            search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
     if 'regex_search' in search_args:
-        regex_search = search_args.pop('regex_search')
+        regex_search = search_args.get('regex_search')
         search_args['regex_search_1'] = 'False'
         if regex_search in ['y', 'True', True]:
             search_args['regex_search_1'] = 'True'
-    if isinstance(search_args.get('proper_name', ''), list):
-        search_args['proper_name_1'] = '+'.join(search_args.pop('proper_name')) or ''
+    if 'proper_name' in search_args:
+        if isinstance(search_args['proper_name'], list):
+            search_args['proper_name_1'] = '+'.join(search_args.get('proper_name')) or ''
+        else:
+            search_args['proper_name_1'] = search_args.get('proper_name', '')
     if isinstance(search_args['corpus'], list):
-        search_args['corpus'] = '+'.join(search_args.pop("corpus")) or 'all'
+        search_args['corpus'] = '+'.join(search_args.get("corpus")) or 'all'
     if isinstance(search_args.get('special_days', ''), list):
-        search_args['special_days'] = '+'.join(search_args.pop('special_days')) or ''
+        search_args['special_days'] = '+'.join(search_args.get('special_days')) or ''
     return search_args
 
 @bp.route("/simple", methods=["GET"])
@@ -138,7 +145,7 @@ def r_results():
                              month_end=int(search_args.get('month_end')) if search_args.get('month_end') else 0,
                              day_end=int(search_args.get('day_end')) if search_args.get('day_end') else 0,
                              date_plus_minus=int(search_args.get("date_plus_minus")) if search_args.get('date_plus_minus') else 0,
-                             corpus=corpus or ['all'],
+                             corpus=search_args['corpus'],
                              exclusive_date_range=search_args.get('exclusive_date_range', "False"),
                              composition_place=search_args.get('composition_place', ''),
                              sort=search_args.get('sort', 'urn'),
@@ -147,8 +154,10 @@ def r_results():
                              source=search_args.get('source', 'advanced'),
                              search_id=search_args.get('search_id', ''),
                              forgeries=search_args.get('forgeries', 'include'),
-                             query_dict=query_dict
+                             query_dict=query_dict,
+                             bool_operator=search_args.get('bool_operator', 'must')
                              )
+    print(final_search_args)
     posts, total, aggs, g.previous_search = advanced_query_index(**final_search_args)
     old_search_args = {k: v for k, v in final_search_args.items() if v}
     old_search_args.pop('page', None)

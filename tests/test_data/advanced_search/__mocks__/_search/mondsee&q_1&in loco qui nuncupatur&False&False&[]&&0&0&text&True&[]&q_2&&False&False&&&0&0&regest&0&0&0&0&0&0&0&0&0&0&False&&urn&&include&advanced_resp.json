@@ -1,0 +1,86 @@
+[
+  {
+    "took": 2,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "mondsee_v2",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0001.lat001",
+            "date_string": "(777) 12 31",
+            "comp_ort": "Altötting",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Altötting",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 777,
+                "month": 12,
+                "day": 31
+              }
+            ],
+            "all_dates": [
+              "0777-12-31"
+            ],
+            "min_date": "0777-12-31",
+            "max_date": "0777-12-31",
+            "days": [
+              "Wednesday"
+            ],
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In Christi nomine",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Eschatokoll": "Regnante domno Thessilone duce ... Ego Atto ac si indignus abba vocatus hanc cartam donationis scripsi et ipse sum testis ... Ista confirmatio fuit facta ad Ostarmuntingon et tunc erat Thessilo XXX annorum, et iterum ad Otingon confirmavit in natale sancti Siluestri papae",
+            "Eschatokoll-lems": null,
+            "Intitulatio": "ego Machelm vir clarissimus",
+            "Intitulatio-lems": null,
+            "Narratio": "cogitavi pro intuitu timoris dei vel divinam retributionem, ut in futuro seculo peccatorum meorum veniam merear consequi ... ad aecclesiam sancti Michahelis, quae sita est in loco, qui nuncupatur Maninseo ... pro remedium et perennem salutem Otilonis et Thessilonis et nostram mercedem",
+            "Narratio-lems": null,
+            "Dispositio": "dono atque transfundo ... donamus",
+            "Dispositio-lems": null,
+            "Pertinenzformel": "[in] villa mea Munolfinga medietatem ... mansos XIII cum mancipiis, cum agris, cum pratis, cum domibus, cum omnibus, quae ad ipsis pertinere videntur, et casa mea cum curta mea, excepto alias casas, quae ante posui ad alium locum dare, terra, prata, silva, pascua, vias, aquas, quae ad ipsam curtem pertinere videntur, omnia mediaetate",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "quae mihi concessit Thessilo dux",
+            "Provenienz-lems": null,
+            "Poenformel": "Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat",
+            "Poenformel-lems": null,
+            "Corroboratio": "Et haec sunt testes",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "text": [
+              "text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0001.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]
