@@ -1179,6 +1179,8 @@ class NemoFormulae(Nemo):
         view = 1
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
+        if len(subrefers) != len(ids):
+            abort(404)
         for i, id in enumerate(ids):
             v = False
             if id in self.dead_urls:
