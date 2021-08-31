@@ -343,6 +343,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('text-section no-copy', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            response = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1', follow_redirects=True)
+            self.assertEqual(response.status_code, 404, 'If too many or too few subreferences are passed, a 404 is raised.')
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
