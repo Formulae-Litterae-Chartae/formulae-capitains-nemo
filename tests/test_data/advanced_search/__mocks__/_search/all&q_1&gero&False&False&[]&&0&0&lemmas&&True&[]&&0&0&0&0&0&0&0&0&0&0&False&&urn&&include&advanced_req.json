@@ -34,7 +34,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "gerereve",
+                                "value": "gesta",
                                 "fuzziness": 0
                               }
                             }
@@ -94,7 +94,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "gesta",
+                                "value": "gerereve",
                                 "fuzziness": 0
                               }
                             }

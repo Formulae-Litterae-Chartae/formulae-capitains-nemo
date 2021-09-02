@@ -913,7 +913,8 @@ def advanced_query_index(corpus: list = None,
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&" \
                    "{forgeries}&{source}".format(
-            corpus='+'.join(corpus), q=q, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
+            corpus='+'.join(corpus) if isinstance(corpus, list) else corpus,
+            q=q, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
             m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
             sort=old_sort, spec_days='+'.join(special_days), forgeries=forgeries, source=source)
         fake = FakeElasticsearch(req_name, "advanced_search")

@@ -77,8 +77,8 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "Stipulationsformel": {},
-        "Poenformel": {}
+        "Poenformel": {},
+        "Stipulationsformel": {}
       },
       "pre_tags": [
         "</small><strong>"
