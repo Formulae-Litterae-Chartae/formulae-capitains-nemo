@@ -1,0 +1,1621 @@
+[
+  {
+    "took": 17,
+    "timed_out": false,
+    "_shards": {
+      "total": 57,
+      "successful": 57,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 41,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
+          "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form001.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
+          "_id": "urn:cts:formulae:andecavensis.form034.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 34",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form034.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form034.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
+          "_id": "urn:cts:formulae:andecavensis.form047.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 47",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form047.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form047.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II Capitula",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.2_capitula.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.2_capitula.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form000.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf Prolog",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form000.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form000.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form002.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,2",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form002.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form002.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form005.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,5",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form005.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form005.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form019.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,19",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form019.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form019.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form030.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,30",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form030.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form030.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_001.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_007.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,7",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_007.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_007.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_014.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,14",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_014.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_014.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_015.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,15",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_015.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_015.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_017.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_017.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_017.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_038.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,38",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_038.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_038.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v5",
+          "_type": "marculf",
+          "_id": "urn:cts:formulae:marculf.form2_044.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,44",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_044.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_044.lat001"
+          ]
+        },
+        {
+          "_index": "auvergne_v1",
+          "_type": "auvergne",
+          "_id": "urn:cts:formulae:auvergne.form002.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Auvergne 2",
+            "keywords": "",
+            "urn": "urn:cts:formulae:auvergne.form002.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "auvergne",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:auvergne.form002.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
+            "date_string": "985 08 01-985 08 20",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0985-08-01",
+                "lte": "0985-08-20"
+              }
+            ],
+            "all_dates": [
+              "0985-08-01",
+              "0985-08-20"
+            ],
+            "min_date": "0985-08-01",
+            "max_date": "0985-08-20",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 7",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001",
+            "date_string": "Circa 1040",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1030-01-01",
+                "lte": "1050-12-31"
+              }
+            ],
+            "all_dates": [
+              "1030-01-01",
+              "1050-12-31"
+            ],
+            "min_date": "1030-01-01",
+            "max_date": "1050-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 9",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001",
+            "date_string": "1040-1075",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1040-01-01",
+                "lte": "1075-12-31"
+              }
+            ],
+            "all_dates": [
+              "1040-01-01",
+              "1075-12-31"
+            ],
+            "min_date": "1040-01-01",
+            "max_date": "1075-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 10",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001",
+            "date_string": "1007-1010",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1007-01-01",
+                "lte": "1010-12-31"
+              }
+            ],
+            "all_dates": [
+              "1007-01-01",
+              "1010-12-31"
+            ],
+            "min_date": "1007-01-01",
+            "max_date": "1010-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 13",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001",
+            "date_string": "1007, 1008, 1009",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1007-01-01",
+                "lte": "1009-12-31"
+              }
+            ],
+            "all_dates": [
+              "1007-01-01",
+              "1009-12-31"
+            ],
+            "min_date": "1007-01-01",
+            "max_date": "1009-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 15",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
+            "date_string": "1032-1052",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1032-01-01",
+                "lte": "1052-12-31"
+              }
+            ],
+            "all_dates": [
+              "1032-01-01",
+              "1052-12-31"
+            ],
+            "min_date": "1032-01-01",
+            "max_date": "1052-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 18",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
+            "date_string": "Circa 1060",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1040-01-01",
+                "lte": "1060-12-31"
+              }
+            ],
+            "all_dates": [
+              "1040-01-01",
+              "1060-12-31"
+            ],
+            "min_date": "1040-01-01",
+            "max_date": "1060-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 21",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
+            "date_string": "1032-1064",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1032-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1032-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1032-01-01",
+            "max_date": "1064-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 28",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001",
+            "date_string": "1069 02",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1069-02-01",
+                "lte": "1069-02-28"
+              }
+            ],
+            "all_dates": [
+              "1069-02-01",
+              "1069-02-28"
+            ],
+            "min_date": "1069-02-01",
+            "max_date": "1069-02-28",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 37",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001",
+            "date_string": "1087 11 07",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1087,
+                "month": 11,
+                "day": 7
+              }
+            ],
+            "all_dates": [
+              "1087-11-07"
+            ],
+            "min_date": "1087-11-07",
+            "max_date": "1087-11-07",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 44",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
+            "date_string": "1023-1052",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1023-01-01",
+                "lte": "1052-12-31"
+              }
+            ],
+            "all_dates": [
+              "1023-01-01",
+              "1052-12-31"
+            ],
+            "min_date": "1023-01-01",
+            "max_date": "1052-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 47",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001",
+            "date_string": "1104-1124",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1104-01-01",
+                "lte": "1124-12-31"
+              }
+            ],
+            "all_dates": [
+              "1104-01-01",
+              "1124-12-31"
+            ],
+            "min_date": "1104-01-01",
+            "max_date": "1124-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 48",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001",
+            "date_string": "1107",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1107-01-01",
+                "lte": "1107-12-31"
+              }
+            ],
+            "all_dates": [
+              "1107-01-01",
+              "1107-12-31"
+            ],
+            "min_date": "1107-01-01",
+            "max_date": "1107-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 50",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
+            "date_string": "1029, 1030, 1031",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1029-01-01",
+                "lte": "1031-12-31"
+              }
+            ],
+            "all_dates": [
+              "1029-01-01",
+              "1031-12-31"
+            ],
+            "min_date": "1029-01-01",
+            "max_date": "1031-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 52",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
+            "date_string": "1022, 1023, 1024",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1022-01-01",
+                "lte": "1024-12-31"
+              }
+            ],
+            "all_dates": [
+              "1022-01-01",
+              "1024-12-31"
+            ],
+            "min_date": "1022-01-01",
+            "max_date": "1024-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 53",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001",
+            "date_string": "1032-1064",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1032-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1032-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1032-01-01",
+            "max_date": "1064-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 53",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001",
+            "date_string": "1136",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1136-01-01",
+                "lte": "1136-12-31"
+              }
+            ],
+            "all_dates": [
+              "1136-01-01",
+              "1136-12-31"
+            ],
+            "min_date": "1136-01-01",
+            "max_date": "1136-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 55",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
+            "date_string": "1163",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1163-01-01",
+                "lte": "1163-12-31"
+              }
+            ],
+            "all_dates": [
+              "1163-01-01",
+              "1163-12-31"
+            ],
+            "min_date": "1163-01-01",
+            "max_date": "1163-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 59",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001",
+            "date_string": "980-1032",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0980-01-01",
+                "lte": "1032-12-31"
+              }
+            ],
+            "all_dates": [
+              "0980-01-01",
+              "1032-12-31"
+            ],
+            "min_date": "0980-01-01",
+            "max_date": "1032-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 59",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001",
+            "date_string": "1195",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1195-01-01",
+                "lte": "1195-12-31"
+              }
+            ],
+            "all_dates": [
+              "1195-01-01",
+              "1195-12-31"
+            ],
+            "min_date": "1195-01-01",
+            "max_date": "1195-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 63",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001",
+            "date_string": "1007-1010",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1007-01-01",
+                "lte": "1010-12-31"
+              }
+            ],
+            "all_dates": [
+              "1007-01-01",
+              "1010-12-31"
+            ],
+            "min_date": "1007-01-01",
+            "max_date": "1010-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 65",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
+            "date_string": "1032-1100",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1032-01-01",
+                "lte": "1100-12-31"
+              }
+            ],
+            "all_dates": [
+              "1032-01-01",
+              "1100-12-31"
+            ],
+            "min_date": "1032-01-01",
+            "max_date": "1100-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 89",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001",
+            "date_string": "1010-1060",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1010-01-01",
+                "lte": "1060-12-31"
+              }
+            ],
+            "all_dates": [
+              "1010-01-01",
+              "1060-12-31"
+            ],
+            "min_date": "1010-01-01",
+            "max_date": "1060-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v2",
+          "_type": "marmoutier_serfs",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 127",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001",
+            "date_string": "1097 01 03",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1097,
+                "month": 1,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "1097-01-03"
+            ],
+            "min_date": "1097-01-03",
+            "max_date": "1097-01-03",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_lemmas": [
+              "autocomplete lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

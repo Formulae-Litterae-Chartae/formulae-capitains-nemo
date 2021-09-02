@@ -114,7 +114,7 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
             previous = word;
             var requestUrl;
             if (qSource == "simple") {
-                requestUrl = subdomain + '/search/suggest/' + word + buildSimpleUrl("text");
+                requestUrl = subdomain + '/search/suggest/q_1?' + buildSimpleUrl("text");
             } else {
                 requestUrl = subdomain + '/search/suggest/' + word + buildUrl(qSource);
             }
@@ -147,37 +147,49 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
 
 // build the tail end of the url to submit via AJAX
 function buildSimpleUrl(qSource) {
+    console.log($("#simple-search-form").serialize());
+    var brandNewUrl = "";
     var corpus = [];
-    var params = {
-        corpus:'',
-        lemma_search:'autocomplete',
-    };
-    var simpleSearchLemmas = document.getElementById('simple-lemma-checkbox');
-    if (simpleSearchLemmas.checked) {
-        params.lemma_search = 'autocomplete_lemmas';
-    } else {
-        params.lemma_search = 'autocomplete';
-    }
-    $('input[name="corpus"]').each( function(i, subCorp) {
-        if (subCorp.checked) {
-            corpus.push(subCorp.value);
+    var fields = $("#simple-search-form").serializeArray();
+    jQuery.each( fields, function(i, field) {
+        if (field.name == 'corpus') {
+            corpus.push(field.value);
+        } else {
+            brandNewUrl += field.name + '=' + field.value + '&';
         }
     });
-    params.corpus = corpus.join('+');
-    // Build the URL extension
-    var brandNewUrl = "?";
-    for (f in params) {
-        if (f != 'extra_field' && f != 'extra_q') {
-            brandNewUrl += f + '=' + params[f] + '&';
-        }
-    }
-    brandNewUrl += 'qSource=' + qSource;
+    brandNewUrl += 'corpus=' + corpus.join('+');
+//     var params = {
+//         corpus:'',
+//         lemma_search:'autocomplete',
+//     };
+//     var simpleSearchLemmas = document.getElementById('simple-lemma-checkbox');
+//     if (simpleSearchLemmas.checked) {
+//         params.lemma_search = 'autocomplete_lemmas';
+//     } else {
+//         params.lemma_search = 'autocomplete';
+//     }
+//     $('input[name="corpus"]').each( function(i, subCorp) {
+//         if (subCorp.checked) {
+//             corpus.push(subCorp.value);
+//         }
+//     });
+//     params.corpus = corpus.join('+');
+//     // Build the URL extension
+//     var brandNewUrl = "?";
+//     for (f in params) {
+//         if (f != 'extra_field' && f != 'extra_q') {
+//             brandNewUrl += f + '=' + params[f] + '&';
+//         }
+//     }
+//     brandNewUrl += 'qSource=' + qSource;
     return brandNewUrl;
 }
 
 function buildUrl(qSource) {
 //     I should be able to do $('form').serialize() here to get all of the form data. That should simplify this significantly. See https://api.jquery.com/serialize/
 //     qSource should be the text field that is being filled out. Otherwise, everything should hopefully work just as it does with a normal search.
+    console.log($("#advanced-form").serialize())
     var corpus = [];
     var special_days = [];
     var params = {

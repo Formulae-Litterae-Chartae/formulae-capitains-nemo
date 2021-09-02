@@ -75,7 +75,8 @@ def r_simple_search() -> redirect:
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
         return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
     data = {x: y for x, y in g.search_form.data.items()}
-    data['q_1'] = data.pop('q', '').lower()
+    if 'q' in data:
+        data['q_1'] = data.pop('q', '').lower()
     lemma_search = data.pop('lemma_search')
     data['search_id'] = data.pop('simple_search_id')
     data['search_field_1'] = data.pop('search_field', 'text')
@@ -254,13 +255,20 @@ def word_search_suggester(qSource: str):
     search_args = build_search_args({x: y for x, y in request.args.items()})
     search_args['qSource'] = qSource
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = ["in_order", "regex_search", "proper_name", "formulaic_parts", "slop", "fuzziness", "search_field"]
+    query_val_keys = [("in_order", False),
+                      ("regex_search", False),
+                      ("proper_name", ''),
+                      ("formulaic_parts", ''),
+                      ("slop", 0),
+                      ("fuzziness", 0),
+                      ("search_field", 'text'),
+                      ("exclude_q", '')]
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
         query_val_dict = {'q': search_args.pop(k, '')}
-        for v in query_val_keys:
-            query_val_dict[v] = search_args.pop(v + '_' + k_num, '')
+        for v, val_default in query_val_keys:
+            query_val_dict[v] = search_args.pop(v + '_' + k_num, val_default)
         query_dict[k] = query_val_dict
     if query_dict[qSource]['search_field'] == 'text':
         query_dict[qSource]['search_field'] = 'autocomplete'

@@ -1,0 +1,77 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_or": {
+                          "clauses": [
+                            {
+                              "span_multi": {
+                                "match": {
+                                  "regexp": {
+                                    "text": {
+                                      "value": "scr[ij]ps[ij]",
+                                      "flags": "ALL",
+                                      "case_insensitive": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "slop": 0,
+                    "in_order": true
+                  }
+                },
+                {
+                  "bool": {
+                    "must": [
+                      {
+                        "match": {
+                          "regest": {
+                            "query": "scripsi",
+                            "fuzziness": 0
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]

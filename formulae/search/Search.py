@@ -122,6 +122,7 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     """
     results = set()
     kwargs['fragment_size'] = 1000
+    kwargs['corpus'] = kwargs['corpus'].split(' ')
     posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     highlight_field = kwargs['query_dict'][kwargs['qSource']]['search_field']
     s = kwargs['query_dict'][kwargs['qSource']]['q']
@@ -854,7 +855,14 @@ def advanced_query_index(corpus: list = None,
                         args_plus_results[0][1]['hits']['hits'] = pruned_hits
                         args_plus_results = [args_plus_results[0]]
                     # If bool_operator is should, all results from all searches should be used
-            search = [x[1] for x in args_plus_results]
+            for q_v, q_r in args_plus_results:
+                first = []
+                second = []
+                if 'autocomplete' in q_v['search_field']:
+                    first.append(q_r)
+                else:
+                    second.append(q_r)
+                search = first + second
         else:
             searched_templates.append(base_body_template)
             search = [current_app.elasticsearch.search(index=corpus, doc_type="", body=base_body_template)]
@@ -864,7 +872,7 @@ def advanced_query_index(corpus: list = None,
                 'sents': [],
                 'regest_sents': [],
                 'highlight': hit['highlight']}
-               for hit in search['hits']['hits']]
+               for hit in search[0]['hits']['hits']]
     elif corpus == ['elexicon']:
         def sort_lexicon(d):
             keywords = set(re.sub(r'[{}]'.format(punctuation), ' ',

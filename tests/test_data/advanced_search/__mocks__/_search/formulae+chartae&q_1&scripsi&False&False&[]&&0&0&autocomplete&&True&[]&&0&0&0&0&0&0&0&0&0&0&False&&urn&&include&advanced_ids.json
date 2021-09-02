@@ -1,0 +1,3002 @@
+[
+  {
+    "id": "urn:cts:formulae:marculf.form000.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0011a.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_xii.bruckner0530.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_xii.bruckner0535.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_xlvii.dorandi1463.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:eudes.lex0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0075.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0117.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0121.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0125.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0127.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0143.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0147.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0151.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0154.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0155.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0164.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0165.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0176.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0177.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0184.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0192.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0193.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0198.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0199.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0200.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0202.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0203.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0204.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0211.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0217.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0218.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0220.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0224.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0226.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0238.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0248.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0250.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0252.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0253.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0254.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0256.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0258.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0259.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0260.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0269.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0270.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0272.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0273.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0275.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0276.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0277.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0278.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0280.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0281.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0282.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0285.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0287.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0294.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0296.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0297.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0300.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0301.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0302.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0303.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0304.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0309.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0311.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0312.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0313.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0314.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0316.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0317.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0318.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0319.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0323.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0324.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0325.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0326.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0335.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0339.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0341.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0342.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0343.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0344.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0345.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0346.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0347.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0348.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0349.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0350.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0351.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0352.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0353.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0356.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0358.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0359.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0360.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0367.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0379.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0380.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0383.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0384.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0385.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0390.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0395.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0397.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0399.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0400.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0404.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0409.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0411.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0413.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0416.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0418.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0420.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0422.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0423.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0427.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0430.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0431.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0436.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0437.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0438.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0447.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0448.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0449.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0450.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0462.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0464.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0464.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0466.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0467.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0468.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0469.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0470.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0472.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0476.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0477.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0479.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0485.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0486.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0487.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0488.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0489.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0490.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0491.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0493.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0494.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0495.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0499.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0509.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0517.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0523.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0529.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0540.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0541.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0542.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0543.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0544.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0545.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0546.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0550.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0551.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0552.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0556.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0557.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0572.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0582.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0583.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0589.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0636.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0670.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0671.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0674.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0684.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0686.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0689.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0701.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0704.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0958.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1141.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_dronke.dronke0064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_dronke.dronke0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0043.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0043.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0053.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0059.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0063.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0066.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0072.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0081.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0088.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0154.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0157.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0160.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0161.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0162.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0175.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0177.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0179.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0183.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0187.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0187.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0189.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0191.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0192.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0195.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0197.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0200.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0201.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0202.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0203.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0204.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0207.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0208.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0209.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0212.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0213.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0215.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0216.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0217.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0231.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0235.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0240.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0241.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0242.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0243.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0245.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0248.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0248.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0249.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0250.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0253.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0254.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0256.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0257.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0258.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0260.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0263.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0264.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0268.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0270.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0275.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0278.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0279.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0281.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0284.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0285.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0053.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0057.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0063.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0066.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0073.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0075.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0078.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0093.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0095.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0102.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0107.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0114.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0119.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:gorze.dherbomez0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0056.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_banyolesmonestiresteve_0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdegironabesalempriesiperalada_0388.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0051.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0052.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0053.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0056.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0057.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0059.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0063.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0066.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0068.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0072.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0073.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0075.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0078.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0081.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0088.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0092.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0093.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0095.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0098.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0101.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0102.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0107.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0111.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0114.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0119.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0122.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0123.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0125.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0127.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0137.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0139.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0141.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0147.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0154.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0155.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0157.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0160.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0161.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0165.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0170.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0174.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0175.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0177.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0180.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0181.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0189.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0190.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0193.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0195.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0197.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0198.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0199.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0201.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0202.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0204.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0205.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0206.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0210.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0212.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0213.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0214.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0215.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0217.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0218.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0220.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0221.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0224.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0226.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0231.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0232.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0233.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0240.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0241.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0244.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0245.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0247.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0248.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0249.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0250.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0251.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0252.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0253.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0254.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0256.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0257.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0258.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0259.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0260.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0261.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0262.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0263.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0264.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0265.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0268.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0269.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0271.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0272.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0273.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0274.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0276.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0277.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0281.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0282.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0284.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0287.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0289.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0290.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0291.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0292.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0294.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0296.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0297.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0298.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0299.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0301.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0302.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0303.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0305.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0308.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0309.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0310.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0311.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0312.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0313.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0314.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0315.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0316.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0318.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0321.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0322.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0060.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0072.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0073.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0078.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0088.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0092.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0093.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0094.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0095.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0098.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0101.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0102.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0117.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0119.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0137.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0139.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0143.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0144.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0147.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0151.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0154.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0155.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0157.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0159.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0161.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0162.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0164.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0176.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0177.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0178.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0179.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0180.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0183.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0189.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0190.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0191.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0195.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0210.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0211.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0212.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0213.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0214.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0215.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0222.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0224.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0233.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0235.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0237.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0238.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0239.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0240.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0241.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0242.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0243.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0249.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0251.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0252.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0253.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0254.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0257.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0260.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0261.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0262.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0263.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0265.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0268.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0269.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0272.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0273.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0274.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0275.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0277.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0278.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0280.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0282.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0285.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0288.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0289.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0295.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0297.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0298.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0306.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0307.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0308.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0311.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0312.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0313.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0314.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0315.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0316.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0317.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0319.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0320.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0321.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0323.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0331.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0332.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0333.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0334.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0337.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0338.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0342.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0344.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0346.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0347.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0349.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0351.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0353.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0354.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0356.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0358.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0359.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0360.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0361.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0362.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0363.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0364.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0365.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0366.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0367.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0371.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0373.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0374.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0378.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0379.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0380.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0381.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0382.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0383.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0387.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0390.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0391.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0392.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0394.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0396.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0399.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0400.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0401.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0402.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0403.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0407.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0408.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0410.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0413.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0415.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0417.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0418.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0422.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0423.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0427.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0428.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0429.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0435.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0436.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0437.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0438.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0439.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0441.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0442.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0443.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0444.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0445.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0451.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0452.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0453.lat001"
+  }
+]
