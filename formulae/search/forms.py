@@ -41,7 +41,7 @@ def validate_optional_number_range(minimum: int = -1, maximum: int = -1, message
 
 
 class SearchForm(FlaskForm):
-    q = StringField(_l('Suche'), validators=[DataRequired()])
+    q_1 = StringField(_l('Suche'), validators=[DataRequired()])
     corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden')),
                                                          ('elexicon', _l('Lexikon'))],
                                  option_widget=CheckboxInput(),
@@ -60,17 +60,24 @@ class SearchForm(FlaskForm):
 
 
 class AdvancedSearchForm(SearchForm):
-    q = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
-    regex_search = BooleanField(_l('RegEx'))
-    fuzziness = SelectField(_l("Unschärfegrad"),
+    q_1 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    regex_search_1 = BooleanField(_l('RegEx'))
+    fuzziness_1 = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
                             default="0")
-    slop = IntegerField(_l("Suchradius"), default=0)
-    in_order = BooleanField(_l('Wortreihenfolge?'))
-    search_field = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
+    slop_1 = IntegerField(_l("Suchradius"), default=0)
+    in_order_1 = BooleanField(_l('Wortreihenfolge?'))
+    search_field_1 = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
                                                         ("lemmas", _('Lemmata')),
                                                         ("regest", _('Regest'))],
                                default='text')
+
+    formulaic_parts_1 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
+                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    proper_name_1 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
+                                                                       ('ortsname', _l('Ortsname'))])
+
+    exclude_q_1 = StringField(_l('Ausschlusskriterium'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln')),
                                                          ('elexicon', _l('Lexikon'))])
@@ -126,10 +133,6 @@ class AdvancedSearchForm(SearchForm):
                                                                                     ('Thursday', _l('Do')),
                                                                                     ('Friday', _l('Fr')),
                                                                                     ('Saturday', _l('Sa'))])
-    formulaic_parts = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
-                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
-    proper_name = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
-                                                                       ('ortsname', _l('Ortsname'))])
     forgeries = RadioField(_l("Fälschungen"),
                            choices=[("", ""),
                                     ("include", _l('alle Dokumente')),

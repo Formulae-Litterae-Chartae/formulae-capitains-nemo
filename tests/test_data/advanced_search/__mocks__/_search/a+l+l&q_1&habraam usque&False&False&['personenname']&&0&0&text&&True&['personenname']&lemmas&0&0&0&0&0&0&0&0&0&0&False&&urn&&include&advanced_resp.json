@@ -1,0 +1,53 @@
+[
+  {
+    "took": 10,
+    "timed_out": false,
+    "_shards": {
+      "total": 57,
+      "successful": 57,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.computus.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers Weltzeitalter und computus",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.computus.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "text": [
+              "text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.computus.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

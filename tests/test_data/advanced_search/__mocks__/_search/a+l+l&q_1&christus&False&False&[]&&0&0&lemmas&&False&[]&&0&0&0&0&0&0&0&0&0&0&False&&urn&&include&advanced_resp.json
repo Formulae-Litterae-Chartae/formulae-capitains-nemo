@@ -1,0 +1,1277 @@
+[
+  {
+    "took": 26,
+    "timed_out": false,
+    "_shards": {
+      "total": 57,
+      "successful": 57,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 37,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.computus.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers Weltzeitalter und computus",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.computus.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.computus.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.form000.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 0",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form000.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form000.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.form007.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 7",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form007.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form007.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.form023.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 23",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form023.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form023.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.form027.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 27",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form027.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form027.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:andecavensis.form049.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 49",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form049.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form049.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form001.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form002.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,2",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form002.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form002.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form005.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,5",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form005.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form005.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form006.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,6",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form006.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form006.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form010.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,10",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form010.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form010.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form016.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,16",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form016.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form016.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form026.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,26",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form026.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form026.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form035.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,35",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form035.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form035.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_001.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_003.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_004.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,4",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_004.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_004.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_005.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,5",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_005.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_005.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_006.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,6",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_006.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_006.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_017.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_017.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_017.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_039.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,39",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_039.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_039.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_040.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,40",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_040.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_040.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_042.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,42",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_042.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_042.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_043.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,43",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_043.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_043.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_044.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,44",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_044.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_044.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_046.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,46",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_046.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_046.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_047.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,47",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_047.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_047.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_048.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,48",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_048.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_048.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_050.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,50",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_050.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_050.lat001"
+          ]
+        },
+        {
+          "_index": "auvergne_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:auvergne.form003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Auvergne 3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:auvergne.form003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "auvergne",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:auvergne.form003.lat001"
+          ]
+        },
+        {
+          "_index": "auvergne_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:auvergne.form004.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Auvergne 4",
+            "keywords": "",
+            "urn": "urn:cts:formulae:auvergne.form004.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "auvergne",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:auvergne.form004.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
+            "date_string": "985 08 01-985 08 20",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0985-08-01",
+                "lte": "0985-08-20"
+              }
+            ],
+            "all_dates": [
+              "0985-08-01",
+              "0985-08-20"
+            ],
+            "min_date": "0985-08-01",
+            "max_date": "0985-08-20",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 21",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
+            "date_string": "1032-1064",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1032-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1032-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1032-01-01",
+            "max_date": "1064-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 49",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001",
+            "date_string": "1108-1125",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1108-01-01",
+                "lte": "1125-12-31"
+              }
+            ],
+            "all_dates": [
+              "1108-01-01",
+              "1125-12-31"
+            ],
+            "min_date": "1108-01-01",
+            "max_date": "1125-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 50",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
+            "date_string": "1029, 1030, 1031",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1029-01-01",
+                "lte": "1031-12-31"
+              }
+            ],
+            "all_dates": [
+              "1029-01-01",
+              "1031-12-31"
+            ],
+            "min_date": "1029-01-01",
+            "max_date": "1031-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 52",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
+            "date_string": "1022, 1023, 1024",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1022-01-01",
+                "lte": "1024-12-31"
+              }
+            ],
+            "all_dates": [
+              "1022-01-01",
+              "1024-12-31"
+            ],
+            "min_date": "1022-01-01",
+            "max_date": "1024-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Nr. 71",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001",
+            "date_string": "1048-1062",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1048-01-01",
+                "lte": "1062-12-31"
+              }
+            ],
+            "all_dates": [
+              "1048-01-01",
+              "1062-12-31"
+            ],
+            "min_date": "1048-01-01",
+            "max_date": "1062-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

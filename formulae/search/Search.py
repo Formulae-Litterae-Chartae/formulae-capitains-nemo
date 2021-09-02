@@ -166,6 +166,8 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
     :return:
     """
     # Experimental highlighter does not work with span queries so it is out of the question.
+    if len(result_ids) == 0:
+        return [], set()
     if download_id:
         current_app.redis.set(download_id, '20%')
     ids = []
@@ -638,6 +640,8 @@ def advanced_query_index(corpus: list = None,
                 query_vals['proper_name'] = []
             if query_vals['proper_name'] and query_vals['q'] == '':
                 query_vals['search_field'] = 'lemmas'
+                query_vals['compare_term'] = []
+                query_vals['compare_field'] = ''
                 search_part_template['highlight']['fields'].update({'lemmas': {}})
                 clauses = list()
                 for term in query_vals['proper_name']:
@@ -676,14 +680,17 @@ def advanced_query_index(corpus: list = None,
                                                               temp_term)))
                             else:
                                 u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                            if u_term != term:
+                            exclude_ending = ''
+                            if query_vals['exclude_q']:
+                                exclude_ending = '&~({})'.format(query_vals['exclude_q'].replace('*', '.+').replace('?', '.'))
+                            if u_term + exclude_ending != term:
                                 if query_vals['regex_search'] == 'True':
-                                    clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term,
+                                    clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term + exclude_ending,
                                                                                                    'flags': 'ALL',
                                                                                                    'case_insensitive': True}}}}}])
                                 elif '*' in term or '?' in term:
                                     clauses.append([{'span_multi': {'match': {'regexp': {s_field: {
-                                        'value': u_term.replace('*', '.+').replace('?', '.'),
+                                        'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
                                         'flags': 'ALL',
                                         'case_insensitive': True}}}}}])
                                 else:
@@ -713,7 +720,7 @@ def advanced_query_index(corpus: list = None,
                                             for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                                 words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                                     for w in words:
-                                        sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w,
+                                        sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w + exclude_ending,
                                                                                                                                 'flags': 'ALL',
                                                                                                                                 'case_insensitive': True}}}}})
                                     clauses.append([sub_clauses])
@@ -750,12 +757,15 @@ def advanced_query_index(corpus: list = None,
                                                               temp_term)))
                             else:
                                 u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
+                        exclude_ending = ''
+                        if query_vals['exclude_q']:
+                            exclude_ending = '&~({})'.format(query_vals['exclude_q'].replace('*', '.+').replace('?', '.'))
                         if query_vals['regex_search'] == 'True':
-                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term,
+                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term + exclude_ending,
                                                                                                 'flags': 'ALL',
                                                                                                 'case_insensitive': True}}}}}])
                         elif '*' in term or '?' in term:
-                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term.replace('*', '.+').replace('?', '.'),
+                            clauses.append([{'span_multi': {'match': {'regexp': {query_vals['search_field']: {'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
                                                                                                 'flags': 'ALL',
                                                                                                 'case_insensitive': True}}}}}])
                         else:
@@ -765,7 +775,7 @@ def advanced_query_index(corpus: list = None,
                                     sub_clauses.append({'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": other_lem, "fuzziness": query_vals['fuzziness']}}}}})
                                 clauses.append(sub_clauses)
                             else:
-                                if u_term != term:
+                                if u_term + exclude_ending != term:
                                     words = [u_term]
                                     sub_clauses = {'span_or': {'clauses': []}}
                                     if query_vals['fuzziness'] == 'AUTO':
@@ -793,7 +803,7 @@ def advanced_query_index(corpus: list = None,
                                                 words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
                                     for w in words:
                                         sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {query_vals['search_field']: {
-                                            'value': w, 'flags': 'ALL', 'case_insensitive': True}}}}})
+                                            'value': w + exclude_ending, 'flags': 'ALL', 'case_insensitive': True}}}}})
                                     clauses.append([sub_clauses])
                                 else:
                                     clauses.append([{'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": term, "fuzziness": query_vals['fuzziness']}}}}}])
@@ -810,7 +820,9 @@ def advanced_query_index(corpus: list = None,
                     bool_clauses.append({'bool': {'must': regest_clauses}})
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
             elif query_vals['formulaic_parts']:
-                bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts']]
+                bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts'].split('+')]
+                for form_part in query_vals['formulaic_parts'].split('+'):
+                    search_part_template['highlight']['fields'][form_part]['no_match_size'] = 1000
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
             searched_templates.append(search_part_template)
@@ -836,10 +848,12 @@ def advanced_query_index(corpus: list = None,
                         for single_results in combined_results[1:]:
                             shared_ids = shared_ids.difference(single_results)
                         pruned_hits = list()
-                        for h in r[1]['hits']['hits']:
+                        for h in args_plus_results[0][1]['hits']['hits']:
                             if (h['_id'], h['_index']) in shared_ids:
                                 pruned_hits.append(h)
-                        args_plus_results[i][1]['hits']['hits'] = pruned_hits
+                        args_plus_results[0][1]['hits']['hits'] = pruned_hits
+                        args_plus_results = [args_plus_results[0]]
+                    # If bool_operator is should, all results from all searches should be used
             search = [x[1] for x in args_plus_results]
         else:
             searched_templates.append(base_body_template)

@@ -1,0 +1,75 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "range": {
+                    "dating": {
+                      "gte": "0800-10",
+                      "lte": "0800-11"
+                    }
+                  }
+                },
+                {
+                  "bool": {
+                    "must": [
+                      {
+                        "nested": {
+                          "path": "specific_date",
+                          "query": {
+                            "range": {
+                              "specific_date.year": {
+                                "gte": 800,
+                                "lte": 800
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        "nested": {
+                          "path": "specific_date",
+                          "query": {
+                            "range": {
+                              "specific_date.month": {
+                                "gte": 10,
+                                "lte": 11
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]

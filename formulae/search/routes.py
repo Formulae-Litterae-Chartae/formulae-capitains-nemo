@@ -30,7 +30,8 @@ def build_search_args(search_args: dict) -> dict:
         search_args['bool_operator'] = 'must'
     if 'q' in search_args:
         search_args['q_1'] = search_args.get('q', '').lower()
-    search_args['search_field_1'] = search_args.get('search_field', 'text')
+    if 'search_field' in search_args:
+        search_args['search_field_1'] = search_args.get('search_field', 'text')
     lemma_search = search_args.get('lemma_search', '')
     if lemma_search in ['y', 'True', True]:
         search_args['search_field_1'] = 'lemmas'
@@ -38,14 +39,14 @@ def build_search_args(search_args: dict) -> dict:
         search_args['q_2'] = search_args['regest_q'].lower()
         search_args['search_field_2'] = 'regest'
     if search_args.get('exclude_q', ''):
-        search_args['q_3'] = search_args['exclude_q'].lower()
-        search_args['search_field_3'] = search_args['search_field_1']
-        search_args['bool_operator'] = 'must_not'
+        search_args['exclude_q_1'] = search_args['exclude_q'].lower()
+
+    for arg, value in search_args.items():
+        if ('formulaic_parts' in arg or 'proper_name' in arg) and value:
+            if isinstance(value, list):
+                search_args[arg] = '+'.join(value)
     if 'formulaic_parts' in search_args:
-        if isinstance(search_args['formulaic_parts'], list):
-            search_args['formulaic_parts_1'] = '+'.join(search_args.get('formulaic_parts')) or ''
-        else:
-            search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
+        search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
     if 'regex_search' in search_args:
         regex_search = search_args.get('regex_search')
         search_args['regex_search_1'] = 'False'
@@ -74,7 +75,6 @@ def r_simple_search() -> redirect:
     data = {x: y for x, y in g.search_form.data.items()}
     data['q_1'] = data.pop('q', '').lower()
     lemma_search = data.pop('lemma_search')
-    data['lemma_search'] = 'False'
     data['search_id'] = data.pop('simple_search_id')
     data['search_field_1'] = data.pop('search_field', 'text')
     if lemma_search in ['y', 'True', True]:
@@ -96,6 +96,7 @@ def r_results():
     if len(corpus) == 1:
         corpus = corpus[0].split(' ')
     if 'elexicon' in corpus:
+        corpus = ['elexicon']
         corps = ['elexicon']
     elif corpus in [['all'], ['formulae', 'chartae'], ['']]:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
@@ -125,7 +126,8 @@ def r_results():
                       ("formulaic_parts", ''),
                       ("slop", 0),
                       ("fuzziness", 0),
-                      ("search_field", 'text')]
+                      ("search_field", 'text'),
+                      ("exclude_q", '')]
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
@@ -145,7 +147,7 @@ def r_results():
                              month_end=int(search_args.get('month_end')) if search_args.get('month_end') else 0,
                              day_end=int(search_args.get('day_end')) if search_args.get('day_end') else 0,
                              date_plus_minus=int(search_args.get("date_plus_minus")) if search_args.get('date_plus_minus') else 0,
-                             corpus=search_args['corpus'],
+                             corpus=corpus,
                              exclusive_date_range=search_args.get('exclusive_date_range', "False"),
                              composition_place=search_args.get('composition_place', ''),
                              sort=search_args.get('sort', 'urn'),
@@ -223,10 +225,6 @@ def r_advanced_search():
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
         form.special_days.data = form.special_days.data[0].split(' ')
-    if form.formulaic_parts.data and len(form.formulaic_parts.data) == 1:
-        form.formulaic_parts.data = form.formulaic_parts.data[0].split(' ')
-    if form.proper_name.data and len(form.proper_name.data) == 1:
-        form.proper_name.data = form.proper_name.data[0].split(' ')
     form_data = {x: y for x, y in form.data.items()}
     data_present = [x for x in form_data if form_data[x] and form_data[x] != 'none' and x not in ignored_fields]
     if 'forgeries' in data_present and form_data['forgeries'] in ['include', 'exclude']:

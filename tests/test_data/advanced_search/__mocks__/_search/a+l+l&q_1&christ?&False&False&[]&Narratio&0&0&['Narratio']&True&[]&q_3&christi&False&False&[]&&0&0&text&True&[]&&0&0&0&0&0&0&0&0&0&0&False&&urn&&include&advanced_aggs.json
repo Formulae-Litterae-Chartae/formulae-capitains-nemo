@@ -299,7 +299,7 @@
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
-          "doc_count": 14
+          "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Dronke)": {
           "doc_count": 0
@@ -332,19 +332,19 @@
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 8
+          "doc_count": 1
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
         },
         "<b>Passau</b>: Passau": {
-          "doc_count": 6
+          "doc_count": 0
         },
         "<b>Redon</b>: Cartulaire de Redon": {
           "doc_count": 0
         },
         "<b>Regensburg</b>: Regensburg": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "<b>Rheinland</b>: Mittelrheinisch": {
           "doc_count": 0
@@ -362,7 +362,7 @@
           "doc_count": 0
         },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 14
+          "doc_count": 1
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 23
+          "doc_count": 1
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 15
+          "doc_count": 1
         },
         {
           "key": "900-999",
@@ -480,7 +480,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 6
+          "doc_count": 0
         },
         {
           "key": ">1000",

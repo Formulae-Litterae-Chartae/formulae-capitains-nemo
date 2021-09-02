@@ -1,0 +1,82 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "exists": {
+                    "field": "I"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "n"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "v"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "o"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "c"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "a"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "t"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "i"
+                  }
+                },
+                {
+                  "exists": {
+                    "field": "o"
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "Invocatio": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]
