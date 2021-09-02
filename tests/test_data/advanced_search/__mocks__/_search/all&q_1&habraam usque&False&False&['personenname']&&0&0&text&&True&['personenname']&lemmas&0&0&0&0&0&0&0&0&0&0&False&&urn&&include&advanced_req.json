@@ -15,7 +15,7 @@
                             "fuzzy": {
                               "text": {
                                 "value": "habraam",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }

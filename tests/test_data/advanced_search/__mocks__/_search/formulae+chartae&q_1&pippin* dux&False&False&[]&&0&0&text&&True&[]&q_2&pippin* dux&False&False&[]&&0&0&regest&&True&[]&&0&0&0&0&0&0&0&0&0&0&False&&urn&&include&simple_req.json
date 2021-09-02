@@ -60,7 +60,7 @@
                         "match": {
                           "regest": {
                             "query": "dux",
-                            "fuzziness": 0
+                            "fuzziness": "0"
                           }
                         }
                       }
@@ -224,7 +224,7 @@
                         "match": {
                           "regest": {
                             "query": "dux",
-                            "fuzziness": 0
+                            "fuzziness": "0"
                           }
                         }
                       }

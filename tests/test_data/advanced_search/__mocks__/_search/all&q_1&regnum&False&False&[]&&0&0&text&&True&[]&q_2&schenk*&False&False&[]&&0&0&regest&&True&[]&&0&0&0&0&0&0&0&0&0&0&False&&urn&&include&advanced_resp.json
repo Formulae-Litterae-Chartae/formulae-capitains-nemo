@@ -1,6 +1,6 @@
 [
   {
-    "took": 19,
+    "took": 36,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -48,40 +48,8 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
-          "_id": "urn:cts:formulae:andecavensis.form034.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Angers 34",
-            "keywords": "",
-            "urn": "urn:cts:formulae:andecavensis.form034.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "andecavensis",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:andecavensis.form034.lat001"
-          ]
-        },
-        {
-          "_index": "buenden_v3",
-          "_type": "_doc",
+          "_index": "buenden_v5",
+          "_type": "buenden",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -304,15 +272,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Easter",
-              "Thursday",
               "Lent",
-              "Tuesday",
-              "Monday",
-              "Friday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Friday",
+              "Monday",
+              "Sunday",
+              "Easter",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -327,8 +295,8 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v3",
-          "_type": "_doc",
+          "_index": "chartae_latinae_xii_v1",
+          "_type": "chartae_latinae_xii",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
           "_source": {
@@ -371,8 +339,8 @@
           ]
         },
         {
-          "_index": "echternach_v3",
-          "_type": "_doc",
+          "_index": "echternach_v5",
+          "_type": "echternach",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
           "_source": {
@@ -415,8 +383,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
@@ -469,14 +437,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword",
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus Et haec testes per aures signati Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone",
             "lemmas": null,
@@ -531,15 +495,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Arenga.keyword",
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat Actum est hoc sub die consule VIII. id. aug anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo Haec sunt testes per aures tracti Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem",
             "lemmas": null,
@@ -597,8 +556,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
@@ -650,8 +609,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
@@ -708,8 +667,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
@@ -770,8 +729,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
@@ -825,8 +784,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
@@ -884,8 +843,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
@@ -943,8 +902,8 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v3",
-          "_type": "_doc",
+          "_index": "fulda_stengel_v5",
+          "_type": "fulda_stengel",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
           "_source": {
@@ -987,8 +946,8 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
-          "_type": "_doc",
+          "_index": "hersfeld_v5",
+          "_type": "hersfeld",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
           "_source": {
@@ -1034,8 +993,8 @@
           ]
         },
         {
-          "_index": "merowinger1_v3",
-          "_type": "_doc",
+          "_index": "merowinger1_v5",
+          "_type": "merowinger1",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -1078,8 +1037,8 @@
           ]
         },
         {
-          "_index": "merowinger1_v3",
-          "_type": "_doc",
+          "_index": "merowinger1_v5",
+          "_type": "merowinger1",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
           "_source": {
@@ -1126,8 +1085,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -1173,8 +1132,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -1223,8 +1182,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -1273,8 +1232,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
           "_source": {
@@ -1320,8 +1279,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
           "_source": {
@@ -1368,8 +1327,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
           "_source": {
@@ -1422,8 +1381,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
           "_source": {
@@ -1469,8 +1428,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
           "_source": {
@@ -1516,8 +1475,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
           "_source": {
@@ -1563,8 +1522,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
           "_source": {
@@ -1619,11 +1578,11 @@
             "min_date": "0817-10-13",
             "max_date": "0821-10-13",
             "days": [
-              "Thursday",
-              "Tuesday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Sunday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -1638,8 +1597,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
           "_source": {
@@ -1682,8 +1641,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
           "_source": {
@@ -1729,8 +1688,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
           "_source": {
@@ -1773,8 +1732,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
           "_source": {
@@ -1821,8 +1780,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
           "_source": {
@@ -1869,8 +1828,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
           "_source": {
@@ -1916,8 +1875,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
           "_source": {
@@ -1963,8 +1922,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
           "_source": {
@@ -2017,8 +1976,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
           "_source": {
@@ -2064,8 +2023,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
           "_source": {
@@ -2111,8 +2070,8 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
-          "_type": "_doc",
+          "_index": "regensburg_v5",
+          "_type": "regensburg",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
           "_source": {
@@ -2153,8 +2112,8 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v3",
-          "_type": "_doc",
+          "_index": "schaeftlarn_v5",
+          "_type": "schaeftlarn",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
           "_source": {
@@ -2211,14 +2170,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2280,16 +2235,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Eschatokoll.keyword",
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2351,13 +2300,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2417,8 +2363,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
           "_source": {
@@ -2482,8 +2428,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
           "_source": {
@@ -2545,8 +2491,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
           "_source": {
@@ -2611,8 +2557,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
           "_source": {
@@ -2674,8 +2620,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
           "_source": {
@@ -2741,8 +2687,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
           "_source": {
@@ -2802,13 +2748,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
-          "_ignored": [
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2870,8 +2813,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
           "_source": {
@@ -2931,8 +2874,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
           "_source": {
@@ -2998,8 +2941,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
           "_source": {
@@ -3060,8 +3003,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
           "_source": {
@@ -3120,8 +3063,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
           "_source": {
@@ -3184,8 +3127,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
           "_source": {
@@ -3245,8 +3188,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
           "_source": {
@@ -3308,15 +3251,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword",
-            "Corroboratio.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -3380,14 +3318,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -3454,8 +3388,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
           "_source": {
@@ -3501,8 +3435,8 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
-          "_type": "_doc",
+          "_index": "weissenburg_v5",
+          "_type": "weissenburg",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
           "_source": {
@@ -3551,7 +3485,7 @@
     }
   },
   {
-    "took": 20,
+    "took": 25,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -3561,14 +3495,14 @@
     },
     "hits": {
       "total": {
-        "value": 61,
+        "value": 60,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -3602,43 +3536,8 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
-          "_id": "urn:cts:formulae:andecavensis.form034.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Angers 34",
-            "keywords": "",
-            "urn": "urn:cts:formulae:andecavensis.form034.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "andecavensis",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "regest": [
-              "regest text"
-            ],
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:andecavensis.form034.lat001"
-          ]
-        },
-        {
-          "_index": "buenden_v3",
-          "_type": "_doc",
+          "_index": "buenden_v5",
+          "_type": "buenden",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -3861,15 +3760,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Easter",
-              "Thursday",
               "Lent",
-              "Tuesday",
-              "Monday",
-              "Friday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Friday",
+              "Monday",
+              "Sunday",
+              "Easter",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3887,8 +3786,8 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v3",
-          "_type": "_doc",
+          "_index": "chartae_latinae_xii_v1",
+          "_type": "chartae_latinae_xii",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
           "_source": {
@@ -3934,8 +3833,8 @@
           ]
         },
         {
-          "_index": "echternach_v3",
-          "_type": "_doc",
+          "_index": "echternach_v5",
+          "_type": "echternach",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
           "_source": {
@@ -3981,8 +3880,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
@@ -4038,14 +3937,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword",
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus Et haec testes per aures signati Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone",
             "lemmas": null,
@@ -4103,15 +3998,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Arenga.keyword",
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat Actum est hoc sub die consule VIII. id. aug anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo Haec sunt testes per aures tracti Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem",
             "lemmas": null,
@@ -4172,8 +4062,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
@@ -4228,8 +4118,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
@@ -4289,8 +4179,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
@@ -4354,8 +4244,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
@@ -4412,8 +4302,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
@@ -4474,8 +4364,8 @@
           ]
         },
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
@@ -4536,8 +4426,8 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v3",
-          "_type": "_doc",
+          "_index": "fulda_stengel_v5",
+          "_type": "fulda_stengel",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
           "_source": {
@@ -4583,8 +4473,8 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
-          "_type": "_doc",
+          "_index": "hersfeld_v5",
+          "_type": "hersfeld",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
           "_source": {
@@ -4633,8 +4523,8 @@
           ]
         },
         {
-          "_index": "merowinger1_v3",
-          "_type": "_doc",
+          "_index": "merowinger1_v5",
+          "_type": "merowinger1",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -4680,8 +4570,8 @@
           ]
         },
         {
-          "_index": "merowinger1_v3",
-          "_type": "_doc",
+          "_index": "merowinger1_v5",
+          "_type": "merowinger1",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
           "_source": {
@@ -4731,8 +4621,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -4781,8 +4671,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -4834,8 +4724,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -4887,8 +4777,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
           "_source": {
@@ -4937,8 +4827,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
           "_source": {
@@ -4988,8 +4878,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
           "_source": {
@@ -5045,8 +4935,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
           "_source": {
@@ -5095,8 +4985,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
           "_source": {
@@ -5145,8 +5035,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
           "_source": {
@@ -5195,8 +5085,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
           "_source": {
@@ -5251,11 +5141,11 @@
             "min_date": "0817-10-13",
             "max_date": "0821-10-13",
             "days": [
-              "Thursday",
-              "Tuesday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Sunday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -5273,8 +5163,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
           "_source": {
@@ -5320,8 +5210,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
           "_source": {
@@ -5370,8 +5260,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
           "_source": {
@@ -5417,8 +5307,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
           "_source": {
@@ -5468,8 +5358,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
           "_source": {
@@ -5519,8 +5409,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
           "_source": {
@@ -5569,8 +5459,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
           "_source": {
@@ -5619,8 +5509,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
           "_source": {
@@ -5676,8 +5566,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
           "_source": {
@@ -5726,8 +5616,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
           "_source": {
@@ -5776,8 +5666,8 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
-          "_type": "_doc",
+          "_index": "regensburg_v5",
+          "_type": "regensburg",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
           "_source": {
@@ -5821,8 +5711,8 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v3",
-          "_type": "_doc",
+          "_index": "schaeftlarn_v5",
+          "_type": "schaeftlarn",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
           "_source": {
@@ -5882,14 +5772,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -5954,16 +5840,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Eschatokoll.keyword",
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -6028,13 +5908,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -6097,8 +5974,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
           "_source": {
@@ -6165,8 +6042,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
           "_source": {
@@ -6231,8 +6108,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
           "_source": {
@@ -6300,8 +6177,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
           "_source": {
@@ -6366,8 +6243,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
           "_source": {
@@ -6436,8 +6313,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
           "_source": {
@@ -6500,13 +6377,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
-          "_ignored": [
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -6571,8 +6445,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
           "_source": {
@@ -6635,8 +6509,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
           "_source": {
@@ -6705,8 +6579,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
           "_source": {
@@ -6770,8 +6644,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
           "_source": {
@@ -6833,8 +6707,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
           "_source": {
@@ -6900,8 +6774,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
           "_source": {
@@ -6964,8 +6838,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
           "_source": {
@@ -7030,15 +6904,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword",
-            "Corroboratio.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -7105,14 +6974,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -7182,8 +7047,8 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
           "_source": {
@@ -7232,8 +7097,8 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
-          "_type": "_doc",
+          "_index": "weissenburg_v5",
+          "_type": "weissenburg",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
           "_source": {

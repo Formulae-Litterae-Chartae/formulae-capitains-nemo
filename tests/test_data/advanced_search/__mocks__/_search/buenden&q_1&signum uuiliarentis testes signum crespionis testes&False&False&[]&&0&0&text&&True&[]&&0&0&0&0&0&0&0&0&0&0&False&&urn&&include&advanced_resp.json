@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v3",
-          "_type": "_doc",
+          "_index": "buenden_v5",
+          "_type": "buenden",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -312,15 +312,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
-              "Easter",
-              "Thursday",
               "Lent",
-              "Tuesday",
-              "Monday",
-              "Friday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Friday",
+              "Monday",
+              "Sunday",
+              "Easter",
+              "Thursday"
             ],
             "sort_prefix": 1
           },

@@ -34,7 +34,7 @@
                             "fuzzy": {
                               "text": {
                                 "value": "et",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }

@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "elexicon_v3",
-          "_type": "_doc",
+          "_index": "elexicon_v1",
+          "_type": "elexicon",
           "_id": "urn:cts:formulae:elexicon.abbas.deu001",
           "_score": null,
           "_source": {
@@ -48,8 +48,8 @@
           ]
         },
         {
-          "_index": "elexicon_v3",
-          "_type": "_doc",
+          "_index": "elexicon_v1",
+          "_type": "elexicon",
           "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
           "_score": null,
           "_source": {

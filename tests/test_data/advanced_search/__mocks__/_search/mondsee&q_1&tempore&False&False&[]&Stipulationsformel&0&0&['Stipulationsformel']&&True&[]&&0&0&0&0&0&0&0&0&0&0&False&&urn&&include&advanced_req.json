@@ -15,7 +15,7 @@
                             "fuzzy": {
                               "Stipulationsformel": {
                                 "value": "tempore",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }

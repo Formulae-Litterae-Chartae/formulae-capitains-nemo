@@ -1,6 +1,6 @@
 [
   {
-    "took": 13,
+    "took": 28,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
-          "_type": "_doc",
+          "_index": "freising_v5",
+          "_type": "freising",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,
           "_source": {

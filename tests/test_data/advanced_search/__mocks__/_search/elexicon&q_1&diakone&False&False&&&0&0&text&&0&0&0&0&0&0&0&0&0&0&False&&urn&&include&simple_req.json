@@ -10,7 +10,7 @@
                   "match": {
                     "text": {
                       "query": "diakone",
-                      "fuzziness": 0
+                      "fuzziness": "0"
                     }
                   }
                 }

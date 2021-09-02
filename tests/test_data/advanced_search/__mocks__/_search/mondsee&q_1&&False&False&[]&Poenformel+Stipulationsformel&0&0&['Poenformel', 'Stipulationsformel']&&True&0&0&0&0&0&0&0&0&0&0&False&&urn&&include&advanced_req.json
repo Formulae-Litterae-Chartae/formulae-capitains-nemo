@@ -8,147 +8,12 @@
               "should": [
                 {
                   "exists": {
-                    "field": "P"
+                    "field": "Poenformel"
                   }
                 },
                 {
                   "exists": {
-                    "field": "o"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "e"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "n"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "f"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "o"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "r"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "m"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "e"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "l"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "+"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "S"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "t"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "i"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "p"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "u"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "l"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "a"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "t"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "i"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "o"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "n"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "s"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "f"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "o"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "r"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "m"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "e"
-                  }
-                },
-                {
-                  "exists": {
-                    "field": "l"
+                    "field": "Stipulationsformel"
                   }
                 }
               ],
@@ -168,8 +33,12 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "Poenformel": {},
-        "Stipulationsformel": {}
+        "Stipulationsformel": {
+          "no_match_size": 1000
+        },
+        "Poenformel": {
+          "no_match_size": 1000
+        }
       },
       "pre_tags": [
         "</small><strong>"

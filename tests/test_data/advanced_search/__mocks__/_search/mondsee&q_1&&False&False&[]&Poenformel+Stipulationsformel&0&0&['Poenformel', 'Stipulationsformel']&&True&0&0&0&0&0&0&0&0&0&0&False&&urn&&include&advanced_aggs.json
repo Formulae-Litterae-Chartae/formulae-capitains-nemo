@@ -332,7 +332,7 @@
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 0
+          "doc_count": 77
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 0
+          "doc_count": 36
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 0
+          "doc_count": 40
         },
         {
           "key": "900-999",

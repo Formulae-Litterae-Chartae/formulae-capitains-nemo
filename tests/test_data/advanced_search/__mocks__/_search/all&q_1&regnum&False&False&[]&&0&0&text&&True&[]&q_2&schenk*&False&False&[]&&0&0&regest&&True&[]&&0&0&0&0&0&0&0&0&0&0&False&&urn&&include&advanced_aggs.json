@@ -254,7 +254,7 @@
     "corpus": {
       "buckets": {
         "<b>Angers</b>: Angers": {
-          "doc_count": 2
+          "doc_count": 1
         },
         "<b>Anjou</b>: Archives d’Anjou": {
           "doc_count": 0
@@ -491,7 +491,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 2
+      "doc_count": 1
     }
   }
 }

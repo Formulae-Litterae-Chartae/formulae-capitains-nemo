@@ -1,6 +1,6 @@
 [
   {
-    "took": 12,
+    "took": 24,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v3",
-          "_type": "_doc",
+          "_index": "arnulfinger_v5",
+          "_type": "arnulfinger",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
           "_source": {
@@ -67,7 +67,7 @@
     }
   },
   {
-    "took": 19,
+    "took": 37,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -83,8 +83,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v3",
-          "_type": "_doc",
+          "_index": "arnulfinger_v5",
+          "_type": "arnulfinger",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
           "_source": {

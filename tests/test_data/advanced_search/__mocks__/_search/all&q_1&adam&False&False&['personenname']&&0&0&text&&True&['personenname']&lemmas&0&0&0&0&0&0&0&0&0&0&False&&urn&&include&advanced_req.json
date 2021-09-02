@@ -15,7 +15,7 @@
                             "fuzzy": {
                               "text": {
                                 "value": "adam",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }

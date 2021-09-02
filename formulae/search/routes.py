@@ -32,6 +32,8 @@ def build_search_args(search_args: dict) -> dict:
         search_args['q_1'] = search_args.get('q', '').lower()
     if 'search_field' in search_args:
         search_args['search_field_1'] = search_args.get('search_field', 'text')
+    if 'fuzziness' in search_args:
+        search_args['fuzziness_1'] = search_args.get('fuzziness', '')
     lemma_search = search_args.get('lemma_search', '')
     if lemma_search in ['y', 'True', True]:
         search_args['search_field_1'] = 'lemmas'

@@ -53,7 +53,7 @@
                             "fuzzy": {
                               "text": {
                                 "value": "testes",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }
@@ -103,7 +103,7 @@
                             "fuzzy": {
                               "text": {
                                 "value": "testes",
-                                "fuzziness": 0
+                                "fuzziness": "0"
                               }
                             }
                           }

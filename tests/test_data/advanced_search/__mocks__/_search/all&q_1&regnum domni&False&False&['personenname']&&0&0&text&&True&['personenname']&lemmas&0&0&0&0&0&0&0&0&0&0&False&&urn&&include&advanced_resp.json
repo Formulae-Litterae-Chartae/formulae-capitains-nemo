@@ -1,6 +1,6 @@
 [
   {
-    "took": 11,
+    "took": 18,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -48,8 +48,8 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form034.lat001",
           "_score": null,
           "_source": {
@@ -80,8 +80,8 @@
           ]
         },
         {
-          "_index": "buenden_v3",
-          "_type": "_doc",
+          "_index": "buenden_v5",
+          "_type": "buenden",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -376,15 +376,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
-              "Easter",
-              "Thursday",
               "Lent",
-              "Tuesday",
-              "Monday",
-              "Friday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Friday",
+              "Monday",
+              "Sunday",
+              "Easter",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -399,8 +399,8 @@
           ]
         },
         {
-          "_index": "buenden_v3",
-          "_type": "_doc",
+          "_index": "buenden_v5",
+          "_type": "buenden",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -623,15 +623,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Easter",
-              "Thursday",
               "Lent",
-              "Tuesday",
-              "Monday",
-              "Friday",
-              "Sunday",
               "Wednesday",
-              "Saturday"
+              "Tuesday",
+              "Saturday",
+              "Friday",
+              "Monday",
+              "Sunday",
+              "Easter",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -646,8 +646,8 @@
           ]
         },
         {
-          "_index": "lorsch_v3",
-          "_type": "_doc",
+          "_index": "lorsch_v5",
+          "_type": "lorsch",
           "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
           "_score": null,
           "_source": {
@@ -693,8 +693,8 @@
           ]
         },
         {
-          "_index": "lorsch_v3",
-          "_type": "_doc",
+          "_index": "lorsch_v5",
+          "_type": "lorsch",
           "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
           "_score": null,
           "_source": {
@@ -740,8 +740,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -790,8 +790,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -840,8 +840,8 @@
           ]
         },
         {
-          "_index": "raetien_v3",
-          "_type": "_doc",
+          "_index": "raetien_v5",
+          "_type": "raetien",
           "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
           "_score": null,
           "_source": {
@@ -878,8 +878,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -894,16 +894,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword",
-            "Eschatokoll.keyword",
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -965,14 +959,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
-          "_type": "_doc",
+          "_index": "stgallen_v5",
+          "_type": "stgallen",
           "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "_score": null,
-          "_ignored": [
-            "Eschatokoll.keyword",
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1007,8 +997,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1,
             "Invocatio": "In Christi nomine",

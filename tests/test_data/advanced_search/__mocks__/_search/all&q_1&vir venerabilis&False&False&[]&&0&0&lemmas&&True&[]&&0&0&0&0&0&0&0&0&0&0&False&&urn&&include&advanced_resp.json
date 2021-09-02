@@ -1,6 +1,6 @@
 [
   {
-    "took": 3,
+    "took": 4,
     "timed_out": false,
     "_shards": {
       "total": 57,
@@ -16,8 +16,8 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -48,8 +48,8 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
-          "_type": "_doc",
+          "_index": "andecavensis_v5",
+          "_type": "andecavensis",
           "_id": "urn:cts:formulae:andecavensis.form010.lat001",
           "_score": null,
           "_source": {
